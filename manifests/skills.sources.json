@@ -55,10 +55,29 @@
       "vendor": true,
       "include": [
         {
-          "path": "skills/convex",
-          "name": "convex",
-          "installName": "get-convex-convex",
-          "rename": "source-prefix"
+          "path": "skills/convex-quickstart",
+          "name": "convex-quickstart",
+          "installName": "convex-quickstart"
+        },
+        {
+          "path": "skills/convex-setup-auth",
+          "name": "convex-setup-auth",
+          "installName": "convex-setup-auth"
+        },
+        {
+          "path": "skills/convex-create-component",
+          "name": "convex-create-component",
+          "installName": "convex-create-component"
+        },
+        {
+          "path": "skills/convex-migration-helper",
+          "name": "convex-migration-helper",
+          "installName": "convex-migration-helper"
+        },
+        {
+          "path": "skills/convex-performance-audit",
+          "name": "convex-performance-audit",
+          "installName": "convex-performance-audit"
         }
       ]
     },
