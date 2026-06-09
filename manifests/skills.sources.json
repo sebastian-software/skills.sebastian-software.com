@@ -23,6 +23,12 @@
       "repo": "https://github.com/sebastian-software/effective-linkedin-posts",
       "ref": "main",
       "path": "."
+    },
+    {
+      "id": "effective-print-design",
+      "repo": "https://github.com/sebastian-software/effective-print-design",
+      "ref": "main",
+      "path": "."
     }
   ],
   "external": []

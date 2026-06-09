@@ -8,16 +8,16 @@ Link to font files using `@font-face`, specifying weight and style for each file
 
 ```css
 @font-face {
-  font-family: "MyFont";
-  src: url("myfont-regular.woff2") format("woff2");
+  font-family: 'MyFont';
+  src: url('myfont-regular.woff2') format('woff2');
   font-weight: 400;
   font-style: normal;
   font-display: fallback;
 }
 
 @font-face {
-  font-family: "MyFont";
-  src: url("myfont-bold.woff2") format("woff2");
+  font-family: 'MyFont';
+  src: url('myfont-bold.woff2') format('woff2');
   font-weight: 700;
   font-style: normal;
   font-display: fallback;
@@ -41,13 +41,13 @@ When a web font hasn't loaded yet, browsers face a dilemma:
 
 Add `font-display` to each `@font-face` rule:
 
-| Value      | Behaviour                                                | Best For                               |
-| ---------- | -------------------------------------------------------- | -------------------------------------- |
-| `auto`     | Browser decides (usually FOIT)                           | Avoid using                            |
-| `block`    | FOIT — invisible text until font loads                   | Icon fonts only                        |
-| `swap`     | FOUT — immediate fallback, swap when ready               | Small amounts of text (brand headings) |
-| `fallback` | Brief FOIT (~100ms), then FOUT, but gives up if too slow | **Body text (recommended default)**    |
-| `optional` | Uses font only if already cached, never blocks           | Low-priority fonts on slow connections |
+| Value | Behaviour | Best For |
+|-------|-----------|----------|
+| `auto` | Browser decides (usually FOIT) | Avoid using |
+| `block` | FOIT — invisible text until font loads | Icon fonts only |
+| `swap` | FOUT — immediate fallback, swap when ready | Small amounts of text (brand headings) |
+| `fallback` | Brief FOIT (~100ms), then FOUT, but gives up if too slow | **Body text (recommended default)** |
+| `optional` | Uses font only if already cached, never blocks | Low-priority fonts on slow connections |
 
 **Use `fallback` for most fonts.** It shows content quickly while giving the font a chance to load. If the font takes too long, the fallback persists for the rest of the page visit (avoiding late, disorienting reflows).
 
@@ -56,17 +56,11 @@ Add `font-display` to each `@font-face` rule:
 Tell the browser to start downloading a font immediately, before CSS is parsed:
 
 ```html
-<link
-  rel="preload"
-  href="/fonts/myfont-regular.woff2"
-  as="font"
-  type="font/woff2"
-  crossorigin
-/>
+<link rel="preload" href="/fonts/myfont-regular.woff2"
+      as="font" type="font/woff2" crossorigin>
 ```
 
 **Rules:**
-
 - Only preload **one** font — the most important one (usually body text regular)
 - Preloading delays initial page render, so don't overdo it
 - Bold and italic will be synthesised temporarily and swapped when their files load
@@ -77,7 +71,6 @@ Tell the browser to start downloading a font immediately, before CSS is parsed:
 With a FOUT strategy, users see the fallback font first. Choose fallbacks that closely match your web font:
 
 **Matching priorities (in order):**
-
 1. **Similar x-height** — ensures text appears the same size
 2. **Similar horizontal metrics** — minimises reflow when fonts swap
 3. **Similar style** — match the general feel (humanist, geometric, etc.)
@@ -99,7 +92,7 @@ Order by best match. Include fonts from Windows (Calibri, Segoe UI), macOS/iOS (
 ```css
 body {
   font-family: "MyWebFont", "Arial", sans-serif;
-  font-size-adjust: 0.52; /* x-height ratio of MyWebFont */
+  font-size-adjust: 0.52;  /* x-height ratio of MyWebFont */
 }
 ```
 
@@ -118,15 +111,15 @@ Remove glyphs you don't need (unused languages, ornamental alternates):
 ```css
 /* Load Latin subset only when Latin characters are on the page */
 @font-face {
-  font-family: "MyFont";
-  src: url("myfont-latin.woff2") format("woff2");
+  font-family: 'MyFont';
+  src: url('myfont-latin.woff2') format('woff2');
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+2000-206F;
 }
 
 /* Load extended Latin on demand */
 @font-face {
-  font-family: "MyFont";
-  src: url("myfont-latin-ext.woff2") format("woff2");
+  font-family: 'MyFont';
+  src: url('myfont-latin-ext.woff2') format('woff2');
   unicode-range: U+0100-024F, U+0259, U+1E00-1EFF;
 }
 ```
@@ -143,31 +136,25 @@ A single variable font file can replace multiple static font files by defining v
 
 ```css
 @font-face {
-  font-family: "MyVariable";
-  src: url("myvariable.woff2") format("woff2");
-  font-weight: 100 900; /* Range of supported weights */
+  font-family: 'MyVariable';
+  src: url('myvariable.woff2') format('woff2');
+  font-weight: 100 900;  /* Range of supported weights */
 }
 
 /* Use any weight value, not just multiples of 100 */
-h1 {
-  font-weight: 650;
-}
-h2 {
-  font-weight: 550;
-}
-body {
-  font-weight: 380;
-}
+h1 { font-weight: 650; }
+h2 { font-weight: 550; }
+body { font-weight: 380; }
 ```
 
 ### Standard Axes
 
-| Axis         | Tag    | CSS Property                |
-| ------------ | ------ | --------------------------- |
-| Weight       | `wght` | `font-weight: 100-900`      |
-| Width        | `wdth` | `font-stretch: 50%-200%`    |
-| Italic       | `ital` | `font-style: italic`        |
-| Slant        | `slnt` | `font-style: oblique Xdeg`  |
+| Axis | Tag | CSS Property |
+|------|-----|-------------|
+| Weight | `wght` | `font-weight: 100-900` |
+| Width | `wdth` | `font-stretch: 50%-200%` |
+| Italic | `ital` | `font-style: italic` |
+| Slant | `slnt` | `font-style: oblique Xdeg` |
 | Optical size | `opsz` | `font-optical-sizing: auto` |
 
 ### Custom Axes
@@ -176,15 +163,11 @@ Type designers can define custom axes (x-height, contrast, serif shape, etc.) ac
 
 ```css
 h2 {
-  font-variation-settings:
-    "wdth" 600,
-    "wght" 200,
-    "opsz" 48;
+  font-variation-settings: "wdth" 600, "wght" 200, "opsz" 48;
 }
 ```
 
 **Benefits of variable fonts:**
-
 - One file replaces many — significant bandwidth savings
 - Access to precise intermediate weights (not just 100, 200, ... 900)
 - Responsive typography — smoothly adjust weight/width based on viewport
@@ -196,9 +179,7 @@ For fine-grained control beyond `font-display`, use the Font Loading API or Font
 
 ```css
 /* Default: fallback font */
-body {
-  font-family: "Calibri", "Roboto", sans-serif;
-}
+body { font-family: "Calibri", "Roboto", sans-serif; }
 
 /* When fonts are loaded, JavaScript adds this class */
 .wf-active body {
@@ -207,7 +188,6 @@ body {
 ```
 
 **Benefits:**
-
 - Enables matching fallback font sizes to reduce reflow
 - Can use session storage to skip FOUT on subsequent page loads
 - Gives precise control over the timing of font swaps
@@ -217,8 +197,8 @@ body {
 After fonts load on the first page view, set a flag in session storage. On subsequent pages, apply the web font class immediately — the font will be in the browser cache:
 
 ```js
-if (sessionStorage.getItem("fontsLoaded")) {
-  document.documentElement.classList.add("wf-active");
+if (sessionStorage.getItem('fontsLoaded')) {
+  document.documentElement.classList.add('wf-active');
 }
 ```
 

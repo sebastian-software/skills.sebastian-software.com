@@ -7,14 +7,12 @@ Overarching UI design principles that form the foundation of all guidelines.
 Base design decisions on risk - the risk that someone could have difficulty using an interface.
 
 **Common usability risks:**
-
 - Thin, light grey text - some may find it difficult to read
 - Icons without labels - some might not understand what icons mean (especially those with cognitive/vision impairments)
 - Coloured headings - could be mistaken for links
 - Navigation with only arrows/dots (e.g. carousels) - use descriptive labels instead that tell users what content awaits them
 
 **Guidelines:**
-
 - Consider people with poor eyesight, low computer literacy, reduced dexterity and cognitive ability
 - Meet WCAG 2.1 level AA requirements as minimum
 - Keep an eye out for potential usability risks
@@ -34,7 +32,6 @@ Every element must have a purpose that improves usability.
 Interaction cost = sum of physical and mental effort required to achieve a task.
 
 **Actions that add to interaction cost:**
-
 - Looking, scrolling, searching, reading
 - Clicking, waiting, typing
 - Thinking, remembering
@@ -42,18 +39,15 @@ Interaction cost = sum of physical and mental effort required to achieve a task.
 ### How to Minimise Interaction Cost
 
 **1. Keep related actions close (Fitts's Law)**
-
 - The closer and larger a target, the faster it is to click
 - Keep actions close to the element they relate to
 - Ensure sufficient target area: minimum 48pt x 48pt
 
 **2. Reduce distractions**
-
 - Avoid animated banners, pop-ups, unnecessary visuals
 - Remove attention-grabbing elements that pull focus from tasks
 
 **3. Minimise choice (Hick's Law)**
-
 - Time to make a decision increases with number and complexity of choices
 - Reduce choices to speed up decisions
 - Highlight recommended or popular items
@@ -63,7 +57,6 @@ Interaction cost = sum of physical and mental effort required to achieve a task.
 Cognitive load = amount of brain power required to use an interface.
 
 **Quick ways to reduce cognitive load:**
-
 - Remove unnecessary styles, information, and decisions
 - Break up information into smaller groups
 - Use conventional design patterns (Jakob's Law)
@@ -77,7 +70,6 @@ A system of predefined options and guidelines for efficient design decisions.
 ### 1. Set Predefined Style Options
 
 **Colour Options (Colour Palette):**
-
 ```
 Brand       - Interactive elements (buttons, links)
 Text strong - Headings, primary text
@@ -95,13 +87,11 @@ Background  - White or near-white
 **Shadow Options:** See [03-colour.md](03-colour.md) for the two shadow levels (Raised, Overlay).
 
 **Border Radius Options:**
-
 - Small: 8pt
 - Medium: 16pt
 - Large: 32pt
 
 **Icon Options:**
-
 - Use SVG icons exclusively — never emoji, bitmap icons, or icon fonts
 - Pick one icon set and use it consistently (e.g. Lucide, Heroicons, Phosphor)
 - Default size: `1.5rem` (24px) for UI icons, `1rem` (16px) for inline icons
@@ -111,38 +101,23 @@ Background  - White or near-white
 ```html
 <!-- Decorative icon (label provides meaning) -->
 <button>
-  <svg
-    aria-hidden="true"
-    width="24"
-    height="24"
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    stroke-width="2"
-  >
-    <path d="..." />
+  <svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24"
+       fill="none" stroke="currentColor" stroke-width="2">
+    <path d="..."/>
   </svg>
   Save post
 </button>
 
 <!-- Standalone icon (icon IS the label) -->
 <button aria-label="Close dialog">
-  <svg
-    aria-hidden="true"
-    width="24"
-    height="24"
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    stroke-width="2"
-  >
-    <path d="..." />
+  <svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24"
+       fill="none" stroke="currentColor" stroke-width="2">
+    <path d="..."/>
   </svg>
 </button>
 ```
 
 **Icon accessibility rules:**
-
 - Icons next to text: add `aria-hidden="true"` to the SVG (the text is the label)
 - Icon-only buttons: add `aria-label` to the button (not to the SVG)
 - Never use icons without a visible text label unless space is extremely limited — always prefer icon + text over icon alone
@@ -171,13 +146,11 @@ Background  - White or near-white
 Design interfaces that can be used by everyone, regardless of disability.
 
 **Consider:**
-
 - Blindness, low vision, colour blindness
 - Motor impairment
 - Mental disabilities
 
 **Key principles:**
-
 - Provide comparable experience for all
 - Meet WCAG 2.1 level AA as minimum
 - Include people with disabilities in usability testing
@@ -208,7 +181,6 @@ Use meaningful HTML elements instead of generic `<div>` everywhere:
 ```
 
 **Why it matters:**
-
 - Screen readers use semantic elements to navigate (jump to `<nav>`, skip to `<main>`)
 - Improves SEO and machine readability
 - Makes code self-documenting
@@ -221,7 +193,7 @@ The `<search>` element (Baseline 2023) wraps any search or filtering interface �
 <search>
   <form action="/search">
     <label for="q">Search</label>
-    <input id="q" type="search" name="q" />
+    <input id="q" type="search" name="q">
     <button type="submit">Search</button>
   </form>
 </search>
@@ -261,7 +233,6 @@ The `tabindex="-1"` on the target element ensures browsers move focus there when
 ```
 
 **Guidelines:**
-
 - Make the skip link the first focusable element on the page
 - Hide it visually but keep it accessible (no `display: none`)
 - Reveal it on focus so sighted keyboard users can see it
@@ -270,13 +241,11 @@ The `tabindex="-1"` on the target element ensures browsers move focus there when
 ### Assistive Technology
 
 **Screen Readers:**
-
 - Software that describes interface using speech or braille
 - Users use keyboard to step through elements
 - Mobile users swipe or drag finger across screen
 
 **Screen Magnifiers:**
-
 - Enlarges part of interface for people with low vision
 - Users have limited view - can only see small part at a time
 - Important: Keep this in mind when designing
@@ -293,23 +262,16 @@ Setting `user-scalable=no` or `maximum-scale=1` on the viewport meta tag prevent
 
 ```html
 <!-- Never do this -->
-<meta
-  name="viewport"
-  content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
-/>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
 <!-- Correct -->
-<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
 ```
 
 **If zoom is disabled to prevent double-tap-to-zoom delay on mobile:** Use `touch-action: manipulation` on interactive elements instead. This disables double-tap zoom on those elements while keeping pinch-to-zoom available everywhere:
 
 ```css
-button,
-a,
-input,
-select,
-textarea {
+button, a, input, select, textarea {
   touch-action: manipulation;
 }
 ```
@@ -319,7 +281,6 @@ textarea {
 Affordance is an object's ability to convey its function through its appearance. A raised button suggests pressing; a handle suggests pulling; text that flows off the edge suggests scrolling.
 
 **In digital design:**
-
 - Buttons should look tappable (depth, fill colour, hover states)
 - Scrollable areas should show partial content at the edges to hint at more
 - Draggable items should have grab handles or visual weight
@@ -336,7 +297,6 @@ Stick with conventional design patterns that people are already familiar with.
 - Example: Accordion components for expandable content
 
 **Play it safe:**
-
 - Use conventional form field styles
 - Save time on usability testing
 - Focus creativity on unique selling points
@@ -346,13 +306,11 @@ Stick with conventional design patterns that people are already familiar with.
 Roughly 80% of effects come from 20% of causes.
 
 **In product design:**
-
 - ~80% of users use 20% of features
 - ~80% of complaints come from 20% of issues
 - ~80% of attention is spent on 20% of a page
 
 **Application:**
-
 - Prioritise the small number of things with largest impact
 - Optimise for tasks most people will be doing
 - Don't over-invest in edge cases
@@ -362,7 +320,6 @@ Roughly 80% of effects come from 20% of causes.
 Every minute spent costs money.
 
 **Ways to improve efficiency:**
-
 - Use existing design systems, templates, icon sets
 - Outsource time-intensive tasks
 - Stick with familiar UI patterns
@@ -375,18 +332,15 @@ Every minute spent costs money.
 Similar elements look and work in a similar way.
 
 ### Within Your Product
-
 - Create design system with guidelines for components, templates, visual styles, language
 - Predictable functionality improves usability and reduces errors
 
 ### With Other Products
-
 - Maintain consistency with well-established products
 - Follow platform guidelines (iOS, Android) unless they test poorly
 - Follow well-established, accessible UI patterns
 
 **Conventional patterns:**
-
 - Text links are underlined
 - Checkboxes are small squares with tick icon
 - Input fields are rectangles with label on top
@@ -397,16 +351,16 @@ Interactive elements must change appearance when interacted with.
 
 **8 Interaction States Checklist:**
 
-| State            | When                        | Design Treatment            |
-| ---------------- | --------------------------- | --------------------------- |
-| **Default**      | At rest                     | Base styling                |
-| **Hover**        | Pointer over (not touch)    | Subtle lift, colour shift   |
-| **Focus**        | Keyboard/programmatic focus | Visible focus ring          |
-| **Active/Press** | Being clicked/tapped        | Pressed in, darker          |
-| **Disabled**     | Not interactive             | Reduced opacity, no pointer |
-| **Loading**      | Processing                  | Spinner, skeleton           |
-| **Error**        | Invalid state               | Red border, icon, message   |
-| **Success**      | Completed                   | Green check, confirmation   |
+| State | When | Design Treatment |
+|-------|------|------------------|
+| **Default** | At rest | Base styling |
+| **Hover** | Pointer over (not touch) | Subtle lift, colour shift |
+| **Focus** | Keyboard/programmatic focus | Visible focus ring |
+| **Active/Press** | Being clicked/tapped | Pressed in, darker |
+| **Disabled** | Not interactive | Reduced opacity, no pointer |
+| **Loading** | Processing | Spinner, skeleton |
+| **Error** | Invalid state | Red border, icon, message |
+| **Success** | Completed | Green check, confirmation |
 
 **Common miss:** Designing hover without focus. Keyboard users never see hover states - they need visible focus indicators.
 
@@ -425,7 +379,6 @@ Never remove focus indicators without replacement - it's an accessibility violat
 Browsers that support `:focus-visible` automatically suppress focus rings on mouse/touch clicks. No need for a separate `:focus { outline: none }` rule.
 
 **Focus ring requirements:**
-
 - High contrast (3:1 minimum against adjacent colours)
 - 2-3px thick
 - Offset from element (not inside it)
@@ -436,7 +389,6 @@ Browsers that support `:focus-visible` automatically suppress focus rings on mou
 Composite widgets — tab bars, toolbars, menu bars, listboxes, tree views — should act as a single Tab stop. Users press Tab to reach the widget, then use arrow keys to move between items within it. This is the roving tabindex pattern defined in the WAI-ARIA Authoring Practices Guide (APG).
 
 **The pattern:**
-
 1. The focused item gets `tabindex="0"`, all other items get `tabindex="-1"`
 2. Arrow keys move focus and update `tabindex` values
 3. Tab moves focus out of the widget entirely
@@ -450,14 +402,13 @@ Composite widgets — tab bars, toolbars, menu bars, listboxes, tree views — s
 ```
 
 ```javascript
-tablist.addEventListener("keydown", (e) => {
+tablist.addEventListener('keydown', (e) => {
   const tabs = [...tablist.querySelectorAll('[role="tab"]')];
   const current = tabs.indexOf(document.activeElement);
   let next;
 
-  if (e.key === "ArrowRight") next = (current + 1) % tabs.length;
-  else if (e.key === "ArrowLeft")
-    next = (current - 1 + tabs.length) % tabs.length;
+  if (e.key === 'ArrowRight') next = (current + 1) % tabs.length;
+  else if (e.key === 'ArrowLeft') next = (current - 1 + tabs.length) % tabs.length;
   else return;
 
   tabs[current].tabIndex = -1;
@@ -467,13 +418,11 @@ tablist.addEventListener("keydown", (e) => {
 ```
 
 **When to use roving tabindex:**
-
 - Tab bars, toolbars, menu bars (horizontal: Left/Right arrows)
 - Listboxes, tree views (vertical: Up/Down arrows)
 - Grids and data tables (all four arrow keys)
 
 **When NOT needed:**
-
 - A simple list of links or buttons — each is an independent Tab stop
 - Form fields in sequence — standard Tab order is correct
 
@@ -487,18 +436,17 @@ Animation adds context that static interfaces can't provide. It offloads spatial
 
 Use these categories to identify and communicate the purpose of an animation:
 
-| Pattern           | Purpose                                                  | Example                              |
-| ----------------- | -------------------------------------------------------- | ------------------------------------ |
-| **Transition**    | Move users between places/tasks in the information space | Page-to-page slide, tab switching    |
-| **Supplement**    | Bring info on/off page without changing location or task | Tooltip appearing, dropdown opening  |
-| **Feedback**      | Connect user action to interface reaction                | Button press ripple, form validation |
-| **Demonstration** | Show how something works instead of telling              | Onboarding walkthrough, feature tour |
-| **Decoration**    | Purely aesthetic, no new information                     | Background particle effects          |
+| Pattern | Purpose | Example |
+|---------|---------|---------|
+| **Transition** | Move users between places/tasks in the information space | Page-to-page slide, tab switching |
+| **Supplement** | Bring info on/off page without changing location or task | Tooltip appearing, dropdown opening |
+| **Feedback** | Connect user action to interface reaction | Button press ripple, form validation |
+| **Demonstration** | Show how something works instead of telling | Onboarding walkthrough, feature tour |
+| **Decoration** | Purely aesthetic, no new information | Background particle effects |
 
 **Prioritisation:** Transitions and feedback provide the most cognitive benefit. Decorations provide the least and risk annoying users. When resources are limited, prioritise animations that answer "What just happened?" for the user.
 
 **Questions to justify an animation:**
-
 - Does it show the user where information came from or went to?
 - Does it indicate progress?
 - Does it move the user through an information space?
@@ -509,7 +457,6 @@ Use these categories to identify and communicate the purpose of an animation:
 The eye is most sensitive to colour and detail at the centre (foveal region). Peripheral vision is blurry but highly sensitive to motion.
 
 **Practical implications:**
-
 - **Centre of vision:** Colour fades and small movements are sufficient to draw attention
 - **Peripheral vision:** Use motion to attract attention — colour changes alone may go unnoticed
 - Two independently moving objects on opposite sides of the screen cannot both be tracked
@@ -519,12 +466,12 @@ The eye is most sensitive to colour and detail at the centre (foveal region). Pe
 
 Easing describes the rate of change over time. Different easings suit different situations:
 
-| Easing                      | CSS           | Best For                                                                     |
-| --------------------------- | ------------- | ---------------------------------------------------------------------------- |
-| **Ease-out** (deceleration) | `ease-out`    | User-initiated actions (clicks, taps). Feels snappy and responsive           |
-| **Ease-in** (acceleration)  | `ease-in`     | System-initiated animations (alerts, pop-ups). Starts slowly, less startling |
-| **Ease-in-out**             | `ease-in-out` | Moving elements toward each other                                            |
-| **Linear**                  | `linear`      | Fades and colour changes only. Motion with linear easing looks mechanical    |
+| Easing | CSS | Best For |
+|--------|-----|----------|
+| **Ease-out** (deceleration) | `ease-out` | User-initiated actions (clicks, taps). Feels snappy and responsive |
+| **Ease-in** (acceleration) | `ease-in` | System-initiated animations (alerts, pop-ups). Starts slowly, less startling |
+| **Ease-in-out** | `ease-in-out` | Moving elements toward each other |
+| **Linear** | `linear` | Fades and colour changes only. Motion with linear easing looks mechanical |
 
 For unique brand feel, use custom `cubic-bezier()` curves. Keep a chart of your project's easings to maintain consistency.
 
@@ -542,7 +489,6 @@ Deliberate: 700ms  — Large movements across screen, demonstrations
 These values follow a Fibonacci-like relationship (100 + 300 = 400, 300 + 400 = 700) creating natural harmony.
 
 **Guidelines:**
-
 - Colour/opacity changes under the cursor feel slow above 100ms
 - Moving elements across the page needs 300ms+ to track
 - Centre-of-vision animations need shorter durations (70-200ms)
@@ -561,110 +507,24 @@ Spring-based motion feels more natural than cubic-bezier because it models physi
 :root {
   /* Critically damped spring — natural deceleration, no overshoot */
   --ease-spring: linear(
-    0,
-    0.009,
-    0.035,
-    0.078,
-    0.136,
-    0.206,
-    0.286,
-    0.373,
-    0.464,
-    0.557,
-    0.65,
-    0.738,
-    0.819,
-    0.891,
-    0.951,
-    0.998,
-    1.029,
-    1.047,
-    1.051,
-    1.044,
-    1.029,
-    1.01,
-    0.99,
-    0.974,
-    0.965,
-    0.961,
-    0.963,
-    0.969,
-    0.978,
-    0.988,
-    0.997,
-    1.003,
-    1.005,
-    1.003,
-    1
+    0, 0.009, 0.035, 0.078, 0.136, 0.206, 0.286, 0.373,
+    0.464, 0.557, 0.65, 0.738, 0.819, 0.891, 0.951,
+    0.998, 1.029, 1.047, 1.051, 1.044, 1.029, 1.01,
+    0.99, 0.974, 0.965, 0.961, 0.963, 0.969, 0.978,
+    0.988, 0.997, 1.003, 1.005, 1.003, 1
   );
 
   /* Gentle bounce — for playful/confirming interactions */
   --ease-spring-bouncy: linear(
-    0,
-    0.004,
-    0.016,
-    0.035,
-    0.063,
-    0.098,
-    0.141,
-    0.191,
-    0.25,
-    0.316,
-    0.391,
-    0.474,
-    0.566,
-    0.666,
-    0.775,
-    0.893,
-    1.02,
-    1.086,
-    1.125,
-    1.139,
-    1.131,
-    1.106,
-    1.067,
-    1.019,
-    0.968,
-    0.921,
-    0.882,
-    0.855,
-    0.843,
-    0.849,
-    0.871,
-    0.905,
-    0.946,
-    0.989,
-    1.027,
-    1.054,
-    1.067,
-    1.063,
-    1.044,
-    1.015,
-    0.983,
-    0.956,
-    0.94,
-    0.939,
-    0.953,
-    0.977,
-    1.005,
-    1.026,
-    1.035,
-    1.029,
-    1.012,
-    0.993,
-    0.98,
-    0.977,
-    0.984,
-    0.997,
-    1.009,
-    1.014,
-    1.009,
-    0.999,
-    0.992,
-    0.99,
-    0.994,
-    1.001,
-    1
+    0, 0.004, 0.016, 0.035, 0.063, 0.098, 0.141, 0.191,
+    0.25, 0.316, 0.391, 0.474, 0.566, 0.666, 0.775,
+    0.893, 1.02, 1.086, 1.125, 1.139, 1.131, 1.106,
+    1.067, 1.019, 0.968, 0.921, 0.882, 0.855, 0.843,
+    0.849, 0.871, 0.905, 0.946, 0.989, 1.027, 1.054,
+    1.067, 1.063, 1.044, 1.015, 0.983, 0.956, 0.94,
+    0.939, 0.953, 0.977, 1.005, 1.026, 1.035, 1.029,
+    1.012, 0.993, 0.98, 0.977, 0.984, 0.997, 1.009,
+    1.014, 1.009, 0.999, 0.992, 0.99, 0.994, 1.001, 1
   );
 }
 ```
@@ -672,11 +532,9 @@ Spring-based motion feels more natural than cubic-bezier because it models physi
 Generate these values from spring parameters using tools like [linear-easing-generator](https://linear-easing-generator.netlify.app/).
 
 **When CSS springs are enough:**
-
 - Hover effects, button presses, entry/exit transitions, layout shifts
 
 **When a JS animation library is needed (Framer Motion, React Spring, Motion One):**
-
 - Gesture-driven animation (drag, swipe, pinch) — the animation must respond to ongoing input
 - Interruptible animations — a new trigger mid-animation must redirect smoothly, not restart
 - Complex orchestrated sequences with stagger, layout animations, or shared element transitions
@@ -724,7 +582,9 @@ The one exception to "only animate transform and opacity": `grid-template-rows` 
 
 ```html
 <div class="collapsible">
-  <div class="collapsible__inner">Content that collapses smoothly</div>
+  <div class="collapsible__inner">
+    Content that collapses smoothly
+  </div>
 </div>
 ```
 
@@ -751,11 +611,11 @@ When something animates onto the screen, it must also animate as it leaves. Aler
 
 **Exit animations should be faster than entrances.** Users have already processed the element — the exit just needs to confirm it's gone. Use 75-85% of the entrance duration for the exit:
 
-|                | Entrance                          | Exit                       |
-| -------------- | --------------------------------- | -------------------------- |
-| **Duration**   | 300ms                             | 225-250ms                  |
-| **Easing**     | `ease-out` (decelerate in)        | `ease-in` (accelerate out) |
-| **Perception** | "Here I am" — arrives confidently | "Done" — leaves quickly    |
+| | Entrance | Exit |
+|---|---|---|
+| **Duration** | 300ms | 225-250ms |
+| **Easing** | `ease-out` (decelerate in) | `ease-in` (accelerate out) |
+| **Perception** | "Here I am" — arrives confidently | "Done" — leaves quickly |
 
 The asymmetry is subtle but noticeable. Symmetric enter/exit feels sluggish because the exit draws too much attention to something the user already dismissed.
 
@@ -767,9 +627,7 @@ The asymmetry is subtle but noticeable. Symmetric enter/exit feels sluggish beca
 dialog[open] {
   opacity: 1;
   transform: translateY(0);
-  transition:
-    opacity 300ms ease-out,
-    transform 300ms ease-out;
+  transition: opacity 300ms ease-out, transform 300ms ease-out;
 
   @starting-style {
     opacity: 0;
@@ -782,14 +640,10 @@ This is particularly useful for elements that toggle visibility: dialogs, popove
 
 ```css
 .tooltip {
-  transition:
-    opacity 200ms ease-out,
-    display 200ms allow-discrete;
+  transition: opacity 200ms ease-out, display 200ms allow-discrete;
   opacity: 1;
 
-  @starting-style {
-    opacity: 0;
-  }
+  @starting-style { opacity: 0; }
 }
 .tooltip[hidden] {
   opacity: 0;
@@ -813,20 +667,17 @@ The Popover API (Baseline 2025) provides native behaviour for floating UI elemen
 ```
 
 **What the browser handles automatically:**
-
 - Renders in the **top layer** (no z-index wars)
 - **Dismisses on outside click** or Escape key
 - **Manages focus** — moves focus to the popover, returns it on close
 - Prevents background scrolling
 
 **When to use popover:**
-
 - Dropdown menus and action menus
 - Non-modal information panels
 - Notification toasts (combine with `popover="manual"` for persistent display)
 
 **When to use `<dialog>` instead:**
-
 - Modal dialogs that require user action before continuing
 - Confirmation prompts, form overlays
 
@@ -846,19 +697,16 @@ The `inert` attribute (Baseline 2023) makes an element and all its descendants n
 ```
 
 **When `inert` is set:**
-
 - Click/tap events are ignored
 - The element is removed from the tab order
 - Screen readers skip the entire subtree
 - `find-in-page` does not match text inside `inert` content
 
 **You do NOT need `inert` when using:**
-
 - `<dialog>.showModal()` — the browser automatically makes everything outside the dialog inert
 - Popover API — the browser manages focus and dismissal
 
 **Use `inert` when:**
-
 - Building a custom drawer/sidebar that overlays the page
 - Implementing a step-by-step wizard where only the current step should be interactive
 - Creating a custom modal without `<dialog>` (though `<dialog>` is preferred)
@@ -891,9 +739,7 @@ Vestibular disorders affect ~35% of adults over 40. Seizure-triggering animation
 ```css
 /* Safety net: disable all motion by default */
 @media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
+  *, *::before, *::after {
     animation: none;
     transition: none;
   }
@@ -945,14 +791,10 @@ Give matching elements the same `view-transition-name` on both pages (or both st
 
 ```css
 /* List page */
-.product-thumbnail {
-  view-transition-name: product-image;
-}
+.product-thumbnail { view-transition-name: product-image; }
 
 /* Detail page */
-.product-hero {
-  view-transition-name: product-image;
-}
+.product-hero { view-transition-name: product-image; }
 ```
 
 Each name must be unique across all rendered elements at the same time. Use `view-transition-name: match-element` (Baseline 2025) for lists where items reorder but don't change identity. Use `view-transition-class` to apply shared animation styles to groups of named elements.
@@ -974,12 +816,12 @@ Use `:active-view-transition-type()` for directional animations (forward vs back
 
 #### When to Use View Transitions vs @starting-style
 
-|              | View Transitions                                   | `@starting-style`                            |
-| ------------ | -------------------------------------------------- | -------------------------------------------- |
-| **Purpose**  | Animate between two complete UI states             | Animate an element's first appearance        |
-| **Scope**    | Full page or named elements                        | Individual elements                          |
-| **Trigger**  | `startViewTransition()` or navigation              | Element insertion, `display: none` → visible |
-| **Best for** | Page transitions, list reordering, shared elements | Dialogs, popovers, tooltips, toasts          |
+| | View Transitions | `@starting-style` |
+|---|---|---|
+| **Purpose** | Animate between two complete UI states | Animate an element's first appearance |
+| **Scope** | Full page or named elements | Individual elements |
+| **Trigger** | `startViewTransition()` or navigation | Element insertion, `display: none` → visible |
+| **Best for** | Page transitions, list reordering, shared elements | Dialogs, popovers, tooltips, toasts |
 
 #### Performance and Accessibility
 

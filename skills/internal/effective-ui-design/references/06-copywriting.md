@@ -9,7 +9,6 @@ Every word should earn its place.
 **Key principle:** More words ≠ more effective communication (people often won't read large chunks).
 
 **Guidelines:**
-
 - Say more with fewer words
 - If a word can be removed without losing information, remove it
 - Avoid unneeded words: "actually", "basically", "really", "truthfully", "quite"
@@ -19,7 +18,6 @@ Every word should earn its place.
 - Keep sentences under 20 words
 
 **Example:**
-
 ```
 Before: "Would you like to save the article? Don't worry, you'll still
         be able to publish it at a later date. You can always find
@@ -31,15 +29,12 @@ After:  "Save article? Save the article to your library to publish later"
 ## Use Sentence Case
 
 **Sentence case:** Only first word and proper nouns capitalised.
-
 - "This is sentence case"
 
 **Title case:** All words capitalised except minor words.
-
 - "This Is Title Case"
 
 **Why sentence case:**
-
 - Super simple
 - Easy to read
 - Grammatically correct
@@ -52,7 +47,6 @@ After:  "Save article? Save the article to your library to publish later"
 Many people have trouble reading; some have mental disabilities.
 
 **Guidelines:**
-
 - Imagine conversation with 6th grade student unfamiliar with topic
 - Avoid jargon (specialised/technical language)
 - Avoid slang (informal language between social groups)
@@ -60,7 +54,6 @@ Many people have trouble reading; some have mental disabilities.
 - Use shortened words: who's, they're, you're
 
 **Example:**
-
 ```
 Before: "Custom domains are the bee's knees for brands. Look slick and
         help your customers locate you online by executing a custom domain"
@@ -74,12 +67,10 @@ After:  "Strengthen your brand with a custom domain. Look professional and
 Put important information at the START of text.
 
 **Why:**
-
 - People scan left to right, down the page
 - Key info at front = faster value extraction
 
 **Examples:**
-
 ```
 Not front-loaded:
 - Subscribe to my newsletter to learn UI design
@@ -97,13 +88,11 @@ Front-loaded:
 Writing structure: most important information first, then supporting info, then background details.
 
 **Benefits:**
-
 - Gets to point quickly
 - People who skim first sentence still get main point
 - Additional info available for those who need it
 
 **Application:**
-
 - Heading: most important info (complete task without reading more)
 - Below heading: supporting info
 - Separate screen/section: smaller background details
@@ -114,18 +103,15 @@ Writing structure: most important information first, then supporting info, then 
 **Acronym:** Initial letters (COB = close of business)
 
 **Problems:**
-
 - Makes people think = increased cognitive load
 - Can cause confusion
 
 **Guidelines:**
-
 - Limit use to improve readability
 - If you must use, explain initially
 - Better: write out fully
 
 **Example:**
-
 ```
 Confusing: "Apt. no."
 Clear: "Apartment number"
@@ -134,19 +120,16 @@ Clear: "Apartment number"
 ## Limit the Use of UPPERCASE
 
 **Problems:**
-
 - LOUD AND DIFFICULT TO READ
 - When reading, you look at word shape
 - Uppercase = same rectangular shape for all words
 - Forces reading letter by letter
 
 **Exception:** Short labels to differentiate from other text
-
 - Use: bold weight, small size, increased letter spacing
 - Makes less loud, more legible
 
 **Example:**
-
 ```
 Category label: "FASHION" (14px, bold, 2px letter spacing)
 vs
@@ -156,7 +139,6 @@ Heading: "Get the look" (18px, regular, 0px letter spacing)
 ## Break Up Content Using Descriptive Headings and Bullets
 
 **Guidelines:**
-
 - Break large info into smaller pieces
 - Highlight key info with descriptive headings
 - Allows quick scanning
@@ -165,12 +147,10 @@ Heading: "Get the look" (18px, regular, 0px letter spacing)
 ### Make Headings Descriptive
 
 **Why:**
-
 - Many scan and don't read supporting text
 - Screen readers list all headings - must make sense out of context
 
 **Example:**
-
 ```
 Vague:       "Location"
 Descriptive: "Beautiful waterfront location"
@@ -184,14 +164,12 @@ Descriptive: "Fast check-in experience"
 **Problem:** "My email address" refers to interface's email, not user's.
 
 **Guidelines:**
-
 - Using "your" is clearer but usually unnecessary
 - Keep simple - avoid both "my" and "your"
 - Be concise
 - Be consistent throughout interface
 
 **Example:**
-
 ```
 Confusing: "My email"
 Clearer: "Your email"
@@ -221,7 +199,6 @@ Use same word consistently for same element.
 **Inconsistent vocabulary = confusion**
 
 **Common inconsistencies:**
-
 - Publish / post
 - Sign up / register
 - Log in / sign in
@@ -236,19 +213,16 @@ Use same word consistently for same element.
 Use numerals, not spelled-out words.
 
 **Advantages:**
-
 - Easier to scan (different shape from letters)
 - Quicker to read and understand
 - People expect numerical format for figures
 - More concise
 
 **Formatting:**
-
 - Use commas: 1,000 not 1000
 - Large numbers: 1 billion not 1,000,000,000
 
 **Example:**
-
 ```
 Before: "Subscribe to join eight hundred and ninety nine designers"
 After:  "Subscribe to join 899 designers"
@@ -257,7 +231,6 @@ After:  "Subscribe to join 899 designers"
 ## Avoid Full Stops if Possible
 
 **Guidelines:**
-
 - Most UI text should be short enough not to need punctuation
 - Don't add full stops unless text forms full sentence with commas
 - If multiple similar elements, use full stops consistently across them
@@ -266,7 +239,6 @@ After:  "Subscribe to join 899 designers"
 ## Ensure Text Length is Similar Across Similar Interface Elements
 
 **When multiple text blocks aligned in row:**
-
 - Try to make them same length
 - More alignment = more organised, simpler look
 - Faster and easier to understand
@@ -274,18 +246,15 @@ After:  "Subscribe to join 899 designers"
 ## Ensure Text Links Describe Their Destination
 
 **Problems with generic text ("learn more", "read more", "click here"):**
-
 - Harder to scan (forced to read surrounding text)
 - Screen readers list all links - generic names don't make sense out of context
 - Multiple "learn more" links could seem like same destination
 
 **Solutions:**
-
 - Use descriptive link text: "Explore templates", "Email marketing features"
 - Or turn heading into link
 
 **Never use "click here":**
-
 - Inaccessible and difficult to scan
 - Unnecessary to tell people how to use link
 - "Click" inaccurate for mobile/keyboard/voice users
@@ -293,13 +262,11 @@ After:  "Subscribe to join 899 designers"
 ## Write Clear Error Messages
 
 **Error messages should:**
-
 - Let people know problem occurred
 - Explain why it happened
 - Provide solution to fix and move forward
 
 **Tips:**
-
 - Never blame user
 - Be positive and helpful
 - Be concise - avoid "please", "sorry", "oops"
@@ -308,7 +275,6 @@ After:  "Subscribe to join 899 designers"
 - Make headings and buttons descriptive
 
 **Example:**
-
 ```
 Bad:  "Oops, something went wrong! Your payment wasn't successful
       as an error occurred" [Ok]
@@ -323,11 +289,11 @@ An empty container with no content is never neutral — users cannot tell whethe
 
 ### Three Types of Empty State
 
-| Type             | Trigger                          | Tone                                                                |
-| ---------------- | -------------------------------- | ------------------------------------------------------------------- |
-| **First-use**    | User has not yet created content | Encouraging — explain what belongs here and how to start            |
-| **User-cleared** | All items completed or removed   | Celebratory — confirm the accomplishment ("All caught up!")         |
-| **No results**   | Search or filter returns nothing | Helpful — suggest corrections ("Check spelling" or "Clear filters") |
+| Type | Trigger | Tone |
+|------|---------|------|
+| **First-use** | User has not yet created content | Encouraging — explain what belongs here and how to start |
+| **User-cleared** | All items completed or removed | Celebratory — confirm the accomplishment ("All caught up!") |
+| **No results** | Search or filter returns nothing | Helpful — suggest corrections ("Check spelling" or "Clear filters") |
 
 ### Content Anatomy
 
@@ -337,7 +303,6 @@ An empty container with no content is never neutral — users cannot tell whethe
 4. **Illustration or icon** (optional) — reinforces the message. Use `alt=""` on decorative illustrations.
 
 **Guidelines:**
-
 - First-use empty states are one of the most effective onboarding mechanisms — they teach in context, at the moment of need, without modal tours or coach marks
 - Match the message to the specific scenario — never use a generic "Nothing here" across all empty states
 - Keep it short: one headline, one supporting line, one action at most

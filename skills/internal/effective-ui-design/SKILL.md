@@ -14,42 +14,38 @@ Enforces professional UI design guidelines for accessible, well-structured inter
 
 ## Quick Reference
 
-| Topic            | Reference File                                                     |
-| ---------------- | ------------------------------------------------------------------ |
-| Fundamentals     | [references/01-fundamentals.md](references/01-fundamentals.md)     |
-| Less is More     | [references/02-less-is-more.md](references/02-less-is-more.md)     |
-| Colour           | [references/03-colour.md](references/03-colour.md)                 |
+| Topic | Reference File |
+|-------|---------------|
+| Fundamentals | [references/01-fundamentals.md](references/01-fundamentals.md) |
+| Less is More | [references/02-less-is-more.md](references/02-less-is-more.md) |
+| Colour | [references/03-colour.md](references/03-colour.md) |
 | Layout & Spacing | [references/04-layout-spacing.md](references/04-layout-spacing.md) |
-| Typography       | [references/05-typography.md](references/05-typography.md)         |
-| Web Fonts        | [references/05b-webfonts.md](references/05b-webfonts.md)           |
-| Copywriting      | [references/06-copywriting.md](references/06-copywriting.md)       |
-| Buttons          | [references/07-buttons.md](references/07-buttons.md)               |
-| Forms            | [references/08-forms.md](references/08-forms.md)                   |
-| SEO for Frontend | [references/09-seo.md](references/09-seo.md)                       |
+| Typography | [references/05-typography.md](references/05-typography.md) |
+| Web Fonts | [references/05b-webfonts.md](references/05b-webfonts.md) |
+| Copywriting | [references/06-copywriting.md](references/06-copywriting.md) |
+| Buttons | [references/07-buttons.md](references/07-buttons.md) |
+| Forms | [references/08-forms.md](references/08-forms.md) |
+| SEO for Frontend | [references/09-seo.md](references/09-seo.md) |
 
 ## Core Principles (ALWAYS Apply)
 
 ### 1. Minimise Usability Risks
-
 - Meet WCAG 2.1 level AA accessibility requirements
 - Consider users with poor eyesight, low computer literacy, reduced dexterity
 - Avoid thin/light grey text, icons without labels, colored headings that look like links
 
 ### 2. Have a Logical Reason for Every Design Detail
-
 - Every element must have a purpose that improves usability
 - Design using objective logic, not subjective opinion
 - Be able to articulate the rationale behind each decision
 
 ### 3. Minimise Interaction Cost
-
 - Keep related actions close (Fitts's Law)
 - Reduce distractions
 - Minimise choices (Hick's Law)
 - Use minimum 48pt × 48pt target areas
 
 ### 4. Minimise Cognitive Load
-
 - Remove unnecessary styles/information
 - Break information into smaller groups
 - Use familiar design patterns (Jakob's Law)
@@ -57,7 +53,6 @@ Enforces professional UI design guidelines for accessible, well-structured inter
 - Create clear visual hierarchy
 
 ### 5. Create a Design System
-
 - Define predefined colour palette
 - Set typography scale
 - Use 8pt spacing increments: 8pt, 16pt, 24pt, 32pt, 48pt, 80pt
@@ -66,7 +61,6 @@ Enforces professional UI design guidelines for accessible, well-structured inter
 ## Critical Rules (NEVER Violate)
 
 ### Colour
-
 - Text contrast: minimum 4.5:1 ratio (small text ≤18px)
 - Large text/UI elements: minimum 3:1 ratio
 - Never rely on colour alone to convey meaning
@@ -76,7 +70,6 @@ Enforces professional UI design guidelines for accessible, well-structured inter
 - Use `light-dark()` for theme switching without media query duplication
 
 ### Typography
-
 - Use single sans-serif typeface for most interfaces
 - UI text (labels, buttons, nav): 14px base
 - Body text: 16px base, scale to 18-20px for long-form reading via `clamp()`
@@ -86,7 +79,6 @@ Enforces professional UI design guidelines for accessible, well-structured inter
 - Limit font weights: typically 2, max 3 (e.g. Regular 400, Medium 500, Bold 700)
 
 ### Layout
-
 - Space elements based on relationship (closer = more related)
 - Use 12-column grid for main layout
 - Align elements to create neat edges
@@ -98,14 +90,12 @@ Enforces professional UI design guidelines for accessible, well-structured inter
 - Use `env(safe-area-inset-*)` with `viewport-fit=cover` for fixed/sticky elements on notched devices
 
 ### Icons
-
 - Use SVG icons exclusively — never emoji or icon fonts
 - One icon set, used consistently (e.g. Lucide, Heroicons, Phosphor)
 - Use `currentColor` to inherit text colour; match stroke width to font weight
 - Always pair icons with visible text labels; icon-only buttons need `aria-label`
 
 ### Buttons
-
 - Define 3 button weights: Primary, Secondary, Tertiary
 - Use single primary button per screen
 - Left-align buttons (most important first)
@@ -114,17 +104,15 @@ Enforces professional UI design guidelines for accessible, well-structured inter
 - Avoid disabled buttons - validate on submit instead
 
 ### Forms
-
 - Single column layout
 - Stack labels above inputs
-- Mark both required (\*) and optional fields
+- Mark both required (*) and optional fields
 - Match field width to expected input
 - Use conventional form field styles
 - Display hints above fields (not below)
 - Use `:user-valid`/`:user-invalid` for validation that respects interaction timing
 
 ### SEO
-
 - Unique `<title>` per page (50-60 chars, primary keyword near the beginning)
 - Unique `<meta name="description">` per page (150-160 chars)
 - Self-referencing `<link rel="canonical">` on every page
@@ -135,7 +123,6 @@ Enforces professional UI design guidelines for accessible, well-structured inter
 - Meet Core Web Vitals: LCP < 2.5s, INP < 200ms, CLS < 0.1
 
 ### Favicons
-
 - Five icons: `favicon.ico` (32×32), `icon.svg` (with dark mode), `apple-touch-icon.png` (180×180), `icon-192.png`, `icon-512.png`
 - SVG favicons support `@media (prefers-color-scheme: dark)` for automatic dark mode
 - For PWAs: add `manifest.webmanifest` with `icon-192.png`, `icon-mask.png` (512×512, maskable), and `icon-512.png`

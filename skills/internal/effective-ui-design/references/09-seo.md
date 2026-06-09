@@ -17,7 +17,6 @@ The most important on-page SEO element. It appears in search results, browser ta
 ```
 
 **Guidelines:**
-
 - Unique per page — never duplicate titles across pages
 - 50-60 characters (longer titles get truncated in search results)
 - Place the primary keyword near the beginning
@@ -29,14 +28,10 @@ The most important on-page SEO element. It appears in search results, browser ta
 Not a ranking factor, but directly affects click-through rate from search results.
 
 ```html
-<meta
-  name="description"
-  content="Learn how to optimise your frontend code for search engines. Practical guidelines on meta tags, structured data, and Core Web Vitals."
-/>
+<meta name="description" content="Learn how to optimise your frontend code for search engines. Practical guidelines on meta tags, structured data, and Core Web Vitals.">
 ```
 
 **Guidelines:**
-
 - Unique per page — duplicates signal low-quality content to crawlers
 - 150-160 characters (Google truncates beyond this)
 - Include the primary keyword naturally (Google bolds matching terms)
@@ -48,11 +43,10 @@ Not a ranking factor, but directly affects click-through rate from search result
 Tells search engines which URL is the "official" version when content is accessible at multiple URLs.
 
 ```html
-<link rel="canonical" href="https://example.com/page" />
+<link rel="canonical" href="https://example.com/page">
 ```
 
 **When to use:**
-
 - Pages accessible with and without trailing slash (`/page` vs `/page/`)
 - HTTP and HTTPS versions of the same page
 - Pages with query parameters (`?sort=date`, `?ref=twitter`)
@@ -62,16 +56,16 @@ Tells search engines which URL is the "official" version when content is accessi
 ### Language and Localisation
 
 ```html
-<html lang="de"></html>
+<html lang="de">
 ```
 
 - Always set the `lang` attribute on `<html>` — it helps search engines serve the right language version and improves screen reader pronunciation
 - For multilingual sites, use `hreflang` to link alternate language versions:
 
 ```html
-<link rel="alternate" hreflang="en" href="https://example.com/en/page" />
-<link rel="alternate" hreflang="de" href="https://example.com/de/page" />
-<link rel="alternate" hreflang="x-default" href="https://example.com/en/page" />
+<link rel="alternate" hreflang="en" href="https://example.com/en/page">
+<link rel="alternate" hreflang="de" href="https://example.com/de/page">
+<link rel="alternate" hreflang="x-default" href="https://example.com/en/page">
 ```
 
 `x-default` specifies the fallback for users whose language is not covered.
@@ -82,26 +76,26 @@ Modern browsers need far fewer favicon files than older guides suggest. Instead 
 
 ### The Five Icons
 
-| File                   | Size     | Purpose                              |
-| ---------------------- | -------- | ------------------------------------ |
-| `favicon.ico`          | 32×32    | Fallback for older browsers          |
-| `icon.svg`             | scalable | Modern browsers — supports dark mode |
-| `apple-touch-icon.png` | 180×180  | iOS home screen bookmark             |
-| `icon-192.png`         | 192×192  | PWA install icon                     |
-| `icon-512.png`         | 512×512  | PWA splash screen                    |
+| File | Size | Purpose |
+|------|------|---------|
+| `favicon.ico` | 32×32 | Fallback for older browsers |
+| `icon.svg` | scalable | Modern browsers — supports dark mode |
+| `apple-touch-icon.png` | 180×180 | iOS home screen bookmark |
+| `icon-192.png` | 192×192 | PWA install icon |
+| `icon-512.png` | 512×512 | PWA splash screen |
 
 ### HTML Markup
 
 ```html
-<link rel="icon" href="/favicon.ico" sizes="32x32" />
-<link rel="icon" href="/icon.svg" type="image/svg+xml" />
-<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+<link rel="icon" href="/favicon.ico" sizes="32x32">
+<link rel="icon" href="/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
 ```
 
 For Progressive Web Apps, also add a manifest link:
 
 ```html
-<link rel="manifest" href="/manifest.webmanifest" />
+<link rel="manifest" href="/manifest.webmanifest">
 ```
 
 ### SVG Favicon with Dark Mode
@@ -121,7 +115,6 @@ SVG favicons can adapt to the user's colour scheme using an embedded media query
 ```
 
 **Browser notes:**
-
 - Safari does not render SVG favicons — it falls back to `.ico`
 - Chrome requires a tab reload to reflect colour scheme changes
 - Firefox handles dark mode switching correctly without reload
@@ -136,12 +129,7 @@ Use `.webmanifest` as the file extension. The manifest includes three icons: a 1
 {
   "icons": [
     { "src": "/icon-192.png", "type": "image/png", "sizes": "192x192" },
-    {
-      "src": "/icon-mask.png",
-      "type": "image/png",
-      "sizes": "512x512",
-      "purpose": "maskable"
-    },
+    { "src": "/icon-mask.png", "type": "image/png", "sizes": "512x512", "purpose": "maskable" },
     { "src": "/icon-512.png", "type": "image/png", "sizes": "512x512" }
   ]
 }
@@ -177,29 +165,22 @@ Source: [How to Favicon in 2024: Six files that fit most needs](https://evilmart
 When a URL is shared on social media, the platform scrapes Open Graph tags to build the preview card. Without them, platforms guess — and guess poorly.
 
 ```html
-<meta property="og:title" content="SEO for Frontend Developers" />
-<meta
-  property="og:description"
-  content="Practical guidelines on meta tags, structured data, and Core Web Vitals."
-/>
-<meta
-  property="og:image"
-  content="https://example.com/images/seo-guide-og.jpg"
-/>
-<meta property="og:url" content="https://example.com/seo-guide" />
-<meta property="og:type" content="article" />
-<meta property="og:locale" content="en_GB" />
+<meta property="og:title" content="SEO for Frontend Developers">
+<meta property="og:description" content="Practical guidelines on meta tags, structured data, and Core Web Vitals.">
+<meta property="og:image" content="https://example.com/images/seo-guide-og.jpg">
+<meta property="og:url" content="https://example.com/seo-guide">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_GB">
 ```
 
 **Guidelines:**
-
 - `og:image` — minimum 1200 x 630px, 1.91:1 ratio (works on all platforms)
 - `og:title` — can differ from `<title>` (no brand suffix needed, more casual tone)
 - `og:description` — can differ from `<meta name="description">` (optimise for social context)
 - Twitter/X uses Open Graph as fallback, but for large image cards add:
 
 ```html
-<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:card" content="summary_large_image">
 ```
 
 **Test before shipping:** Use the sharing debuggers from Facebook, LinkedIn, and Twitter/X to verify how preview cards render. Cached previews can persist for days.
@@ -213,7 +194,6 @@ Search engines use HTML structure to understand content hierarchy and relevance.
 The `<h1>` signals the primary topic of the page to search engines.
 
 **Guidelines:**
-
 - Exactly one `<h1>` per page containing the primary keyword
 - It should match (or closely reflect) the `<title>` tag content
 - Place it early in the `<main>` content area
@@ -223,11 +203,11 @@ The `<h1>` signals the primary topic of the page to search engines.
 
 ```html
 <h1>Page topic</h1>
-<h2>Major section</h2>
-<h3>Subsection</h3>
-<h3>Subsection</h3>
-<h2>Major section</h2>
-<h3>Subsection</h3>
+  <h2>Major section</h2>
+    <h3>Subsection</h3>
+    <h3>Subsection</h3>
+  <h2>Major section</h2>
+    <h3>Subsection</h3>
 ```
 
 - Never skip heading levels (e.g. `<h1>` directly to `<h3>`)
@@ -238,14 +218,14 @@ The `<h1>` signals the primary topic of the page to search engines.
 
 Use the correct semantic elements for page regions. This is already covered in [01-fundamentals.md](01-fundamentals.md) — the SEO benefit is that search engines can identify and weight content by its structural role.
 
-| Element                 | SEO Role                                                                       |
-| ----------------------- | ------------------------------------------------------------------------------ |
-| `<main>`                | Identifies the primary content (most weight for ranking)                       |
-| `<nav>`                 | Identifies navigation — crawlers follow nav links to discover site structure   |
-| `<article>`             | Marks self-contained content — helps search engines identify standalone pieces |
-| `<aside>`               | Signals secondary content — typically de-weighted for primary topic relevance  |
-| `<header>` / `<footer>` | Structural markers — help crawlers distinguish chrome from content             |
-| `<search>`              | Identifies search functionality — improves site understanding                  |
+| Element | SEO Role |
+|---------|----------|
+| `<main>` | Identifies the primary content (most weight for ranking) |
+| `<nav>` | Identifies navigation — crawlers follow nav links to discover site structure |
+| `<article>` | Marks self-contained content — helps search engines identify standalone pieces |
+| `<aside>` | Signals secondary content — typically de-weighted for primary topic relevance |
+| `<header>` / `<footer>` | Structural markers — help crawlers distinguish chrome from content |
+| `<search>` | Identifies search functionality — improves site understanding |
 
 ### Breadcrumb Navigation
 
@@ -266,7 +246,7 @@ Pair with structured data (see below) to display breadcrumbs directly in search 
 
 ## Structured Data (JSON-LD)
 
-Structured data helps search engines understand _what_ content is, not just _what it says_. It enables rich results — star ratings, FAQ accordions, breadcrumb paths, product prices in search results.
+Structured data helps search engines understand *what* content is, not just *what it says*. It enables rich results — star ratings, FAQ accordions, breadcrumb paths, product prices in search results.
 
 ### Implementation
 
@@ -274,61 +254,50 @@ Use JSON-LD (JavaScript Object Notation for Linked Data) embedded in a `<script>
 
 ```html
 <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Article",
-    "headline": "SEO for Frontend Developers",
-    "author": {
-      "@type": "Person",
-      "name": "Jane Smith"
-    },
-    "datePublished": "2026-01-15",
-    "dateModified": "2026-02-01",
-    "image": "https://example.com/images/seo-guide.jpg"
-  }
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "SEO for Frontend Developers",
+  "author": {
+    "@type": "Person",
+    "name": "Jane Smith"
+  },
+  "datePublished": "2026-01-15",
+  "dateModified": "2026-02-01",
+  "image": "https://example.com/images/seo-guide.jpg"
+}
 </script>
 ```
 
 ### Common Schema Types for UI Projects
 
-| Schema Type      | Use Case                  | Rich Result                      |
-| ---------------- | ------------------------- | -------------------------------- |
-| `Article`        | Blog posts, news articles | Headline, image, date in results |
-| `Product`        | Product pages             | Price, availability, ratings     |
-| `BreadcrumbList` | Breadcrumb navigation     | Breadcrumb trail in results      |
-| `FAQPage`        | FAQ sections              | Expandable Q&A in results        |
-| `Organization`   | Company info              | Knowledge panel, logo            |
-| `WebSite`        | Homepage                  | Sitelinks search box             |
-| `HowTo`          | Step-by-step guides       | Step-by-step rich result         |
+| Schema Type | Use Case | Rich Result |
+|-------------|----------|-------------|
+| `Article` | Blog posts, news articles | Headline, image, date in results |
+| `Product` | Product pages | Price, availability, ratings |
+| `BreadcrumbList` | Breadcrumb navigation | Breadcrumb trail in results |
+| `FAQPage` | FAQ sections | Expandable Q&A in results |
+| `Organization` | Company info | Knowledge panel, logo |
+| `WebSite` | Homepage | Sitelinks search box |
+| `HowTo` | Step-by-step guides | Step-by-step rich result |
 
 ### BreadcrumbList Example
 
 ```html
 <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    "itemListElement": [
-      {
-        "@type": "ListItem",
-        "position": 1,
-        "name": "Home",
-        "item": "https://example.com/"
-      },
-      {
-        "@type": "ListItem",
-        "position": 2,
-        "name": "Products",
-        "item": "https://example.com/products"
-      },
-      { "@type": "ListItem", "position": 3, "name": "Running shoes" }
-    ]
-  }
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://example.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Products", "item": "https://example.com/products" },
+    { "@type": "ListItem", "position": 3, "name": "Running shoes" }
+  ]
+}
 </script>
 ```
 
 **Guidelines:**
-
 - Place JSON-LD in the `<head>` or at the end of `<body>` — both work
 - Only mark up content that is visible on the page — hidden structured data violates Google's guidelines
 - Validate with Google's Rich Results Test before deploying
@@ -358,23 +327,16 @@ Alt text serves accessibility first, SEO second. Write for users, not for crawle
 
 ```html
 <!-- Good: descriptive and natural -->
-<img
-  src="team-meeting.webp"
-  alt="Five team members reviewing design mockups at a whiteboard"
-/>
+<img src="team-meeting.webp" alt="Five team members reviewing design mockups at a whiteboard">
 
 <!-- Bad: keyword stuffing -->
-<img
-  src="team-meeting.webp"
-  alt="team meeting design agency best design agency meeting office"
-/>
+<img src="team-meeting.webp" alt="team meeting design agency best design agency meeting office">
 
 <!-- Bad: redundant -->
-<img src="team-meeting.webp" alt="image of a team meeting" />
+<img src="team-meeting.webp" alt="image of a team meeting">
 ```
 
 **Guidelines:**
-
 - Describe what the image shows, not what you want to rank for
 - Include keywords only where they naturally fit the description
 - Keep alt text under 125 characters (screen readers may truncate)
@@ -398,7 +360,7 @@ Image optimisation directly affects Core Web Vitals (LCP in particular).
   width="1200"
   height="630"
   fetchpriority="high"
-/>
+>
 ```
 
 ## Core Web Vitals
@@ -412,7 +374,6 @@ Measures how quickly the main content becomes visible.
 **What counts as LCP:** The largest image, video, or text block in the viewport at load time — typically the hero image or main heading.
 
 **Frontend actions:**
-
 - Preload the LCP image: `<link rel="preload" as="image" href="hero.webp">`
 - Use `fetchpriority="high"` on the LCP element
 - Avoid lazy-loading the LCP image
@@ -425,7 +386,6 @@ Measures how quickly the main content becomes visible.
 Measures responsiveness — how quickly the page reacts to user input.
 
 **Frontend actions:**
-
 - Keep event handlers fast — avoid synchronous layout calculations in click/input handlers
 - Break long tasks (> 50ms) with `requestAnimationFrame` or `scheduler.yield()`
 - Provide immediate visual feedback on interaction (see the 8 interaction states in [01-fundamentals.md](01-fundamentals.md))
@@ -437,7 +397,6 @@ Measures responsiveness — how quickly the page reacts to user input.
 Measures visual stability — how much content moves unexpectedly during loading.
 
 **Frontend actions:**
-
 - Set explicit `width` and `height` on all images and videos
 - Use `aspect-ratio` in CSS for responsive media containers
 - Reserve space for ads, embeds, and dynamically injected content
@@ -469,7 +428,6 @@ The clickable text of a link tells search engines what the target page is about.
 ```
 
 **Guidelines:**
-
 - Use descriptive anchor text that reflects the target page's content
 - Vary anchor text naturally — identical anchor text across many links looks manipulative
 - Avoid generic phrases: "click here", "read more", "learn more"
@@ -486,7 +444,6 @@ The clickable text of a link tells search engines what the target page is about.
 Clean URLs help both users and search engines understand page content before visiting.
 
 **Guidelines:**
-
 - Use lowercase, hyphen-separated words: `/products/running-shoes`
 - Keep URLs short and descriptive — remove filler words ("a", "the", "and")
 - Include relevant keywords naturally
@@ -512,17 +469,16 @@ Control how search engines index individual pages.
 
 ```html
 <!-- Default (can be omitted): index this page and follow its links -->
-<meta name="robots" content="index, follow" />
+<meta name="robots" content="index, follow">
 
 <!-- Don't index this page but follow its links -->
-<meta name="robots" content="noindex, follow" />
+<meta name="robots" content="noindex, follow">
 
 <!-- Don't follow links on this page -->
-<meta name="robots" content="index, nofollow" />
+<meta name="robots" content="index, nofollow">
 ```
 
 **When to use `noindex`:**
-
 - Thank-you pages after form submission
 - Internal search results pages
 - Paginated archive pages (page 2, 3, ...) — debatable, but common
@@ -545,15 +501,15 @@ Control how search engines index individual pages.
 
 Many performance optimisations are covered across other chapters. This is a cross-reference of the SEO-relevant techniques and where to find them.
 
-| Technique                                    | SEO Impact                    | Reference                                    |
-| -------------------------------------------- | ----------------------------- | -------------------------------------------- |
-| Font preloading and `font-display`           | Reduces LCP and CLS           | [05b-webfonts.md](05b-webfonts.md)           |
-| `font-size-adjust` for fallback fonts        | Reduces CLS during font swap  | [05-typography.md](05-typography.md)         |
-| Responsive images with `srcset`              | Reduces LCP on mobile         | [04-layout-spacing.md](04-layout-spacing.md) |
-| `aspect-ratio` on media                      | Prevents CLS                  | [04-layout-spacing.md](04-layout-spacing.md) |
-| `loading="lazy"` for off-screen images       | Reduces initial page weight   | [04-layout-spacing.md](04-layout-spacing.md) |
-| CSS-only animations (`transform`, `opacity`) | Improves INP                  | [01-fundamentals.md](01-fundamentals.md)     |
-| Reduced motion preferences                   | Accessibility and performance | [01-fundamentals.md](01-fundamentals.md)     |
+| Technique | SEO Impact | Reference |
+|-----------|-----------|-----------|
+| Font preloading and `font-display` | Reduces LCP and CLS | [05b-webfonts.md](05b-webfonts.md) |
+| `font-size-adjust` for fallback fonts | Reduces CLS during font swap | [05-typography.md](05-typography.md) |
+| Responsive images with `srcset` | Reduces LCP on mobile | [04-layout-spacing.md](04-layout-spacing.md) |
+| `aspect-ratio` on media | Prevents CLS | [04-layout-spacing.md](04-layout-spacing.md) |
+| `loading="lazy"` for off-screen images | Reduces initial page weight | [04-layout-spacing.md](04-layout-spacing.md) |
+| CSS-only animations (`transform`, `opacity`) | Improves INP | [01-fundamentals.md](01-fundamentals.md) |
+| Reduced motion preferences | Accessibility and performance | [01-fundamentals.md](01-fundamentals.md) |
 
 ## Chapter Summary
 

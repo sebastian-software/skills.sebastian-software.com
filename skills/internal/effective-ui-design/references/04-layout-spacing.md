@@ -9,7 +9,6 @@ Breaking up information into smaller groups helps structure and organise an inte
 ### 4 Grouping Methods
 
 **1. Place related elements in the same container**
-
 - Strongest visual cue for grouping
 - Create containers using borders, shadows, background colours
 - Use for main structure (headers, sidebars, content areas)
@@ -17,26 +16,22 @@ Breaking up information into smaller groups helps structure and organise an inte
 - Avoid containers for EVERY group - causes clutter
 
 **2. Space related elements close together (Proximity)**
-
 - Related elements closer together
 - Unrelated elements further apart
 - Can help declutter vs containers
 
 **3. Make related elements look similar (Similarity)**
-
 - Similar visual characteristics: size, shape, colour
 - Highlight certain elements by making them slightly different
 - If elements look similar, they should FUNCTION similarly
 - Don't make non-interactive elements look like buttons
 
 **4. Align related elements in a continuous line (Continuity)**
-
 - Eyes naturally follow elements aligned in lines
 - Lists group related elements
 - Disrupt continuity to indicate end of group or highlight element
 
 ### Combining Methods
-
 Use multiple methods together for clearer groupings. If elements are grouped multiple ways, you can often remove containers to simplify.
 
 ### Don't Default to Cards
@@ -44,13 +39,11 @@ Use multiple methods together for clearer groupings. If elements are grouped mul
 Cards group heterogeneous content (image + text + action) into a self-contained, browsable unit. They are not a general-purpose container.
 
 **Use cards when:**
-
 - Displaying browsable collections of mixed content (product listings, article teasers)
 - Each item is an entry point to a detail view
 - Items contain varied content types that need visual containment
 
 **Don't use cards when:**
-
 - A simple list would work — homogeneous text items are faster to scan in a plain list
 - Wrapping a single content section — use a heading and whitespace instead
 - Grouping form fields — use `<fieldset>` and spacing, not a card container
@@ -61,12 +54,12 @@ Cards group heterogeneous content (image + text + action) into a self-contained,
 
 **Alternatives to card containers** (from least to most visual weight):
 
-| Separation method                          | Visual weight |
-| ------------------------------------------ | ------------- |
-| Spacing (whitespace between groups)        | Lightest      |
-| Background colour (subtle fill difference) | Light         |
-| Box shadow (depth cue)                     | Medium        |
-| Border / card container                    | Heaviest      |
+| Separation method | Visual weight |
+|-------------------|---------------|
+| Spacing (whitespace between groups) | Lightest |
+| Background colour (subtle fill difference) | Light |
+| Box shadow (depth cue) | Medium |
+| Border / card container | Heaviest |
 
 Before adding a card border, ask: does this container help the user understand the grouping, or is it just visual noise?
 
@@ -105,14 +98,12 @@ Present information in order of importance.
 Quick test: Squint at your design (or blur/step back).
 
 **Should be able to:**
-
 - Tell what most important elements are
 - Recognise what interface is for
 
 ## Use Depth to Create Visual Hierarchy
 
 **Elevation:**
-
 - Higher elevation = closer, more prominent
 - Lower elevation = further away, less prominent
 - Elevate important elements higher
@@ -123,7 +114,6 @@ Quick test: Squint at your design (or blur/step back).
 Interfaces = rectangles within rectangles.
 
 **Each rectangle has:**
-
 - **Margin** - space between box and neighbouring boxes
 - **Border** - stroke around edge
 - **Padding** - space between border and contents
@@ -133,7 +123,6 @@ Interfaces = rectangles within rectangles.
 ## Design @1x Using Points
 
 **Points vs Pixels:**
-
 - @1x: 1pt = 1px
 - @2x: 1pt = 4px (2x2)
 - @3x: 1pt = 9px (3x3)
@@ -143,7 +132,6 @@ Always work in points (@1x).
 ## Create a Set of Predefined Spacing Options
 
 **8pt Grid (T-shirt sizes):**
-
 ```
 XS:  8pt   - Closely related elements
 S:   16pt  - Related elements
@@ -154,13 +142,11 @@ XXL: 80pt  - Page section padding
 ```
 
 **Why 8pt?**
-
 - Many screen sizes divisible by 8
 - More flexibility than 10pt
 - For detailed interfaces, use 4pt increments
 
 **Benefits:**
-
 - Simplified designs (less variation)
 - Improved consistency
 - Design faster (fewer options)
@@ -170,22 +156,18 @@ XXL: 80pt  - Page section padding
 **Key principle:** More closely related = closer together
 
 ### Application Method
-
 1. Break interface into rectangles within rectangles
 2. Start with XS (8pt) for innermost rectangles
 3. Gradually increase spacing moving outwards
 
 **Example spacing progression:**
-
 - XS (8pt): Card text (closely related)
 - M (24pt): Card padding, section content
 - L (32pt): Between navigation links, between cards (grid gutters)
 - XXL (80pt): Page section vertical padding
 
 ### Create Spacing Rules
-
 Example rules for consistency:
-
 - M (24pt) internal padding for components
 - L (32pt) gaps between columns
 - XXL (80pt) vertical padding for sections
@@ -195,7 +177,6 @@ Example rules for consistency:
 White space = empty space between/around elements (can be any colour/pattern).
 
 **Benefits:**
-
 - Easier to see groupings and hierarchy
 - Easier to understand information
 - Looks simpler, cleaner, more sophisticated
@@ -207,13 +188,11 @@ White space = empty space between/around elements (can be any colour/pattern).
 ## Align the Main Layout to a 12 Column Grid
 
 **Components:**
-
 - **Columns (12)** - vertical columns for aligning main elements
 - **Gutters** - empty spaces between columns (separate/align content)
 - **Margins** - empty space on left/right edges
 
 ### Columns
-
 - Align main containers to one or more columns
 - Smaller elements inside don't need to align to grid
 - Generally flexible width (percentages)
@@ -222,14 +201,12 @@ White space = empty space between/around elements (can be any colour/pattern).
 **Example:** 3 cards spanning 4 columns each on desktop, stack on 4 columns on mobile.
 
 ### Gutters
-
 - Remain empty
 - Narrower than columns
 - Fixed width, wider on larger screens
 - Example: L (32pt) on desktop, S (16pt) on mobile
 
 ### Margins
-
 - Prevent content hitting edges
 - Fixed or flexible width
 - Wider on larger screens
@@ -240,12 +217,10 @@ White space = empty space between/around elements (can be any colour/pattern).
 ## Align Text to Improve Readability
 
 **Left-aligned text is easiest to read:**
-
 - Consistent left edge = anchor for eyes
 - Maintain straight left edge with other elements (icons)
 
 ### Align Horizontal Text to Baseline
-
 - Baseline = invisible line text sits on
 - Different sized text in same line: align to baseline (not vertical centre)
 - Creates easier reading, neater design
@@ -255,7 +230,6 @@ White space = empty space between/around elements (can be any colour/pattern).
 Fewer alignments = simpler, neater.
 
 **Issues with multiple alignments:**
-
 - Eyes work harder moving around
 - Looks messy
 - Increases cognitive load
@@ -267,7 +241,6 @@ Fewer alignments = simpler, neater.
 **Fitts's Law:** Closer and larger target = faster to select.
 
 **Application:**
-
 - Keep actions close to related elements
 - Ensure sufficient target area (48pt x 48pt minimum)
 - Move close buttons to start position (near menu icon)
@@ -279,7 +252,6 @@ Fewer alignments = simpler, neater.
 Don't just design for short text and small numbers.
 
 **Guidelines:**
-
 - Accommodate long data and edge cases
 - Avoid hiding essential overflowing data
 - Keep components flexible for content reflow
@@ -288,12 +260,10 @@ Don't just design for short text and small numbers.
 **Account for translations:** Text can grow significantly in other languages. German and Portuguese translations can increase text length by up to 75% compared to English. Always test layouts with longer strings.
 
 **Quick text boundary tests:**
-
 - **Max height:** Use "Åy" - combines the tallest ascender (Å) and deepest descender (y) of most Latin typefaces
 - **Max width:** Fill with "WWW..." - W is the widest character in most fonts; if it fits, any other text will too
 
 **If hiding is necessary:**
-
 - Don't hide essential information
 - Consider cropping in middle (not end) to help differentiate items
 
@@ -302,7 +272,6 @@ Don't just design for short text and small numbers.
 Divide photo into 3x3 grid = 4 focal points at intersections.
 
 **Application:**
-
 - Align key elements to grid
 - Place main subject on focal point
 - Don't centre subjects - creates rigid, still appearance
@@ -310,7 +279,6 @@ Divide photo into 3x3 grid = 4 focal points at intersections.
 - Align horizon with horizontal grid
 
 **Especially effective for:**
-
 - Action shots (increases sense of motion)
 - Landscapes (align horizon to grid)
 
@@ -334,7 +302,7 @@ When an element with rounded corners contains another element with rounded corne
 ```css
 /* outer radius = inner radius + gap between them */
 .card {
-  border-radius: 16px; /* 8px + 8px padding */
+  border-radius: 16px;  /* 8px + 8px padding */
   padding: 8px;
 }
 .card-inner {
@@ -363,7 +331,6 @@ block-size: 50vh;
 ```
 
 **Mapping (for horizontal-tb, ltr):**
-
 - `margin-left` → `margin-inline-start`
 - `margin-right` → `margin-inline-end`
 - `margin-top` → `margin-block-start`
@@ -379,9 +346,7 @@ block-size: 50vh;
 Makes calculating box dimensions predictable - padding and border are included in the element's total size.
 
 ```css
-*,
-*::before,
-*::after {
+*, *::before, *::after {
   box-sizing: border-box;
 }
 ```
@@ -390,13 +355,11 @@ Without this, a `300px` wide element with `20px` padding becomes `340px`. With `
 
 ## Use Contextual Spacing (The Stack Pattern)
 
-Margin is a property of the _relationship_ between two elements, not of an element itself. Style the context, not the individual element.
+Margin is a property of the *relationship* between two elements, not of an element itself. Style the context, not the individual element.
 
 ```css
 /* Don't: margin on individual elements */
-p {
-  margin-bottom: 1.5rem;
-} /* Creates orphan margin on last element */
+p { margin-bottom: 1.5rem; }  /* Creates orphan margin on last element */
 
 /* Do: margin between adjacent siblings via parent */
 .stack > * + * {
@@ -407,25 +370,19 @@ p {
 The `* + *` selector (the "owl") only applies margin where an element is preceded by a sibling - no orphan margins.
 
 **Nested stacks for varied spacing:**
-
 ```css
-.stack-lg > * + * {
-  margin-block-start: 3rem;
-}
-.stack-sm > * + * {
-  margin-block-start: 0.5rem;
-}
+.stack-lg > * + * { margin-block-start: 3rem; }
+.stack-sm > * + * { margin-block-start: 0.5rem; }
 ```
 
 **Split a stack** to push elements apart (e.g. card footer to bottom):
-
 ```css
 .stack {
   display: flex;
   flex-direction: column;
 }
 .stack > :nth-child(2) {
-  margin-block-end: auto; /* Pushes everything after this to the bottom */
+  margin-block-end: auto;  /* Pushes everything after this to the bottom */
 }
 ```
 
@@ -459,15 +416,7 @@ Cap line length globally using an exception-based approach:
 * {
   max-inline-size: 60ch;
 }
-html,
-body,
-div,
-header,
-nav,
-main,
-footer,
-section,
-aside {
+html, body, div, header, nav, main, footer, section, aside {
   max-inline-size: none;
 }
 ```
@@ -476,12 +425,10 @@ Container elements are excepted; text-bearing elements automatically get reasona
 
 ## Prefer Intrinsic Responsiveness Over Breakpoints
 
-Layouts that respond to their own content are more robust than layouts controlled by viewport breakpoints. Use CSS that _suggests_ rather than _dictates_ layout.
+Layouts that respond to their own content are more robust than layouts controlled by viewport breakpoints. Use CSS that *suggests* rather than *dictates* layout.
 
 ### The Sidebar Pattern
-
 A sidebar that automatically stacks when space is tight:
-
 ```css
 .with-sidebar {
   display: flex;
@@ -489,20 +436,18 @@ A sidebar that automatically stacks when space is tight:
   gap: var(--s1);
 }
 .with-sidebar > :first-child {
-  flex-basis: 15rem; /* sidebar width */
+  flex-basis: 15rem;     /* sidebar width */
   flex-grow: 1;
 }
 .with-sidebar > :last-child {
   flex-basis: 0;
-  flex-grow: 999; /* takes remaining space */
-  min-inline-size: 50%; /* forces wrap when too narrow */
+  flex-grow: 999;        /* takes remaining space */
+  min-inline-size: 50%;  /* forces wrap when too narrow */
 }
 ```
 
 ### The Switcher Pattern
-
 Switches between horizontal and vertical layout based on available space:
-
 ```css
 .switcher {
   display: flex;
@@ -517,9 +462,7 @@ Switches between horizontal and vertical layout based on available space:
 ```
 
 ### The Cluster Pattern
-
 Wrapping horizontal groups (tags, buttons, navigation):
-
 ```css
 .cluster {
   display: flex;
@@ -530,9 +473,7 @@ Wrapping horizontal groups (tags, buttons, navigation):
 ```
 
 ### The Center Pattern
-
 Horizontally centered content with a max-width for readability:
-
 ```css
 .center {
   box-sizing: content-box;
@@ -543,9 +484,7 @@ Horizontally centered content with a max-width for readability:
 ```
 
 ### The Cover Pattern
-
 A vertically centered element within a minimum height container (hero sections):
-
 ```css
 .cover {
   display: flex;
@@ -553,18 +492,12 @@ A vertically centered element within a minimum height container (hero sections):
   min-block-size: 100vh;
   padding: var(--s1);
 }
-.cover > * {
-  margin-block: var(--s1);
-}
-.cover > .centered {
-  margin-block: auto;
-} /* Vertically centers this child */
+.cover > * { margin-block: var(--s1); }
+.cover > .centered { margin-block: auto; }  /* Vertically centers this child */
 ```
 
 ### The Grid Pattern
-
 Auto-filling grid that adapts column count to available space:
-
 ```css
 .grid {
   display: grid;
@@ -572,13 +505,10 @@ Auto-filling grid that adapts column count to available space:
   gap: var(--s1);
 }
 ```
-
 The `min(250px, 100%)` prevents overflow on narrow screens.
 
 ### The Frame Pattern
-
 Crop any content to an aspect ratio:
-
 ```css
 .frame {
   aspect-ratio: 16 / 9;
@@ -601,14 +531,8 @@ Images are often the heaviest assets on a page. Use modern HTML attributes to se
 When an image loads, the browser doesn't know its dimensions until the file arrives — causing content below to jump. Reserve space upfront:
 
 ```html
-<img
-  src="hero.webp"
-  alt="..."
-  width="1200"
-  height="675"
-  loading="lazy"
-  decoding="async"
-/>
+<img src="hero.webp" alt="..." width="1200" height="675"
+     loading="lazy" decoding="async">
 ```
 
 The `width` and `height` attributes let modern browsers calculate the aspect ratio before loading. For CSS-controlled sizing, use `aspect-ratio` explicitly:
@@ -628,17 +552,15 @@ Don't send a 2400px image to a 375px phone. Use `srcset` and `sizes` to let the 
 ```html
 <img
   src="photo-800.webp"
-  srcset="
-    photo-400.webp   400w,
-    photo-800.webp   800w,
-    photo-1200.webp 1200w,
-    photo-1600.webp 1600w
-  "
+  srcset="photo-400.webp 400w,
+          photo-800.webp 800w,
+          photo-1200.webp 1200w,
+          photo-1600.webp 1600w"
   sizes="(min-width: 960px) 50vw, 100vw"
   alt="Descriptive alt text"
   loading="lazy"
   decoding="async"
-/>
+>
 ```
 
 - `srcset` lists available files with their pixel widths (`w` descriptor)
@@ -651,14 +573,10 @@ When you need different crops or aspect ratios at different breakpoints (not jus
 
 ```html
 <picture>
-  <source
-    media="(min-width: 960px)"
-    srcset="hero-wide.webp"
-    type="image/webp"
-  />
-  <source media="(min-width: 960px)" srcset="hero-wide.jpg" />
-  <source srcset="hero-square.webp" type="image/webp" />
-  <img src="hero-square.jpg" alt="..." loading="lazy" decoding="async" />
+  <source media="(min-width: 960px)" srcset="hero-wide.webp" type="image/webp">
+  <source media="(min-width: 960px)" srcset="hero-wide.jpg">
+  <source srcset="hero-square.webp" type="image/webp">
+  <img src="hero-square.jpg" alt="..." loading="lazy" decoding="async">
 </picture>
 ```
 
@@ -675,12 +593,10 @@ Use `<picture>` with `type` to serve modern formats with fallbacks. For most pro
 Add `loading="lazy"` to images below the fold. The browser defers loading until the image approaches the viewport.
 
 **Do NOT lazy-load:**
-
 - Hero images and above-the-fold content (these should load immediately)
 - Images critical to Largest Contentful Paint (LCP)
 
 **Do lazy-load:**
-
 - Gallery images, card thumbnails, anything below the fold
 - `decoding="async"` can be added to all images — it prevents the image decode from blocking the main thread
 
@@ -690,18 +606,18 @@ Every `<img>` must have an `alt` attribute. The text should describe the content
 
 ```html
 <!-- Decorative: empty alt (screen readers skip it) -->
-<img src="divider.svg" alt="" />
+<img src="divider.svg" alt="">
 
 <!-- Informative: describe the content -->
-<img src="chart.png" alt="Sales revenue increased 40% from Q1 to Q3 2024" />
+<img src="chart.png" alt="Sales revenue increased 40% from Q1 to Q3 2024">
 
 <!-- Functional: describe the action -->
-<a href="/home"><img src="logo.svg" alt="Acme Corp home page" /></a>
+<a href="/home"><img src="logo.svg" alt="Acme Corp home page"></a>
 ```
 
 ## Use Container Queries for Component-Level Responsiveness
 
-Media queries respond to the _viewport_. Container queries (Baseline 2023) respond to the _parent container's_ size — making components truly self-contained and reusable.
+Media queries respond to the *viewport*. Container queries (Baseline 2023) respond to the *parent container's* size — making components truly self-contained and reusable.
 
 ```css
 /* 1. Declare a containment context */
@@ -723,7 +639,6 @@ Media queries respond to the _viewport_. Container queries (Baseline 2023) respo
 ```
 
 **When to use container queries vs media queries:**
-
 - **Container queries** — component layout decisions (card layout, sidebar widget, embedded component). The component adapts to whatever space it's given, regardless of viewport size
 - **Media queries** — page-level layout decisions (number of columns, navigation style, overall page structure)
 
@@ -732,14 +647,10 @@ Media queries respond to the _viewport_. Container queries (Baseline 2023) respo
 Container queries support all the same syntax as media queries (`min-width`, `max-width`, ranges) and can be named for clarity:
 
 ```css
-.sidebar {
-  container: sidebar / inline-size;
-}
+.sidebar { container: sidebar / inline-size; }
 
 @container sidebar (min-width: 300px) {
-  .widget {
-    /* wider layout */
-  }
+  .widget { /* wider layout */ }
 }
 ```
 
@@ -760,15 +671,14 @@ Subgrid (Baseline 2023) lets child elements participate in their parent's grid t
 /* Each card inherits the parent's row tracks */
 .card {
   display: grid;
-  grid-row: span 3; /* card spans 3 implicit row tracks */
-  grid-template-rows: subgrid; /* inherit parent's row sizing */
+  grid-row: span 3;                  /* card spans 3 implicit row tracks */
+  grid-template-rows: subgrid;       /* inherit parent's row sizing */
 }
 ```
 
 Now all cards' titles, bodies, and footers align horizontally across the row — even when content lengths differ. No fixed heights, no JavaScript measurement.
 
 **Use subgrid when:**
-
 - Cards or list items need their internal elements to align across a row
 - Form labels and inputs need to align across a grid
 - Any nested content needs to participate in the parent's track sizing
@@ -777,12 +687,12 @@ Now all cards' titles, bodies, and footers align horizontally across the row —
 
 Screen size does not reveal input method. A 13-inch Surface has a touchscreen; a 10-inch iPad can have a keyboard and trackpad. Use `pointer` and `hover` media queries (Baseline 2018) to adapt interaction patterns to the actual input device.
 
-| Query             | Matches                    | Typical Devices         |
-| ----------------- | -------------------------- | ----------------------- |
-| `pointer: fine`   | Accurate primary pointer   | Mouse, trackpad, stylus |
-| `pointer: coarse` | Imprecise primary pointer  | Finger on touchscreen   |
-| `hover: hover`    | Primary input can hover    | Mouse, trackpad         |
-| `hover: none`     | Primary input cannot hover | Touchscreen             |
+| Query | Matches | Typical Devices |
+|-------|---------|-----------------|
+| `pointer: fine` | Accurate primary pointer | Mouse, trackpad, stylus |
+| `pointer: coarse` | Imprecise primary pointer | Finger on touchscreen |
+| `hover: hover` | Primary input can hover | Mouse, trackpad |
+| `hover: none` | Primary input cannot hover | Touchscreen |
 
 ### Gate Hover Effects Behind Capability
 
@@ -805,9 +715,7 @@ Every `:hover` interaction must have a `:focus` or `:focus-within` equivalent. K
 
 ```css
 /* Reveal supplementary info on hover OR focus */
-.card .extra-info {
-  visibility: hidden;
-}
+.card .extra-info { visibility: hidden; }
 
 @media (hover: hover) and (pointer: fine) {
   .card:is(:hover, :focus-within) .extra-info {
@@ -817,20 +725,17 @@ Every `:hover` interaction must have a `:focus` or `:focus-within` equivalent. K
 
 /* On touch devices, show the info by default */
 @media (hover: none) {
-  .card .extra-info {
-    visibility: visible;
-  }
+  .card .extra-info { visibility: visible; }
 }
 ```
 
 ### Enlarge Touch Targets for Coarse Pointers
 
-Design touch-friendly as the default. Only _enlarge_ for `pointer: coarse` — never shrink for `pointer: fine`. Fitts's Law applies regardless of input device.
+Design touch-friendly as the default. Only *enlarge* for `pointer: coarse` — never shrink for `pointer: fine`. Fitts's Law applies regardless of input device.
 
 ```css
 @media (pointer: coarse) {
-  button,
-  a {
+  button, a {
     min-height: 48px;
   }
 
@@ -856,7 +761,6 @@ The primary `pointer`/`hover` queries test only the primary input device. The `a
 ```
 
 **Caveats:** These queries are hints, not guarantees. The W3C spec intentionally leaves "primary pointer" determination to the browser. Known inconsistencies:
-
 - iOS Safari always reports `pointer: coarse`, even with an external mouse or trackpad connected
 - Some Android devices report `pointer: fine` due to virtual mouse drivers
 - Convertible laptops may switch primary pointer when a keyboard is detached or attached
@@ -872,10 +776,7 @@ Modern devices have hardware features that obscure screen edges — notches, Dyn
 By default, the browser insets the viewport to avoid obstructions, and all `env()` values are `0px`. To take control yourself, opt in with `viewport-fit=cover`:
 
 ```html
-<meta
-  name="viewport"
-  content="width=device-width, initial-scale=1, viewport-fit=cover"
-/>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 ```
 
 This lets backgrounds and decorative content bleed to the screen edge while you position interactive content within the safe area using CSS.
@@ -905,8 +806,8 @@ Bottom-fixed elements are the most common safe area issue — the home indicator
   left: 0;
   right: 0;
   padding: 0.75rem max(0.5rem, env(safe-area-inset-right))
-    calc(0.75rem + env(safe-area-inset-bottom, 0px))
-    max(0.5rem, env(safe-area-inset-left));
+           calc(0.75rem + env(safe-area-inset-bottom, 0px))
+           max(0.5rem, env(safe-area-inset-left));
 }
 ```
 
@@ -919,8 +820,9 @@ Bottom-fixed elements are the most common safe area issue — the home indicator
   left: 0;
   right: 0;
   padding: calc(0.75rem + env(safe-area-inset-top, 0px))
-    max(1rem, env(safe-area-inset-right)) 0.75rem
-    max(1rem, env(safe-area-inset-left));
+           max(1rem, env(safe-area-inset-right))
+           0.75rem
+           max(1rem, env(safe-area-inset-left));
 }
 ```
 
@@ -937,7 +839,6 @@ Bottom-fixed elements are the most common safe area issue — the home indicator
 Avoid `px` for font sizes - it overrides the user's browser font size preference.
 
 **When to use which unit:**
-
 - **rem** - Block-level sizing (font-size, margin, padding). Relative to root font size. Use for headings: `font-size: 2.5rem`
 - **em** - Inline/contextual sizing. Scales with parent. Use for icon sizing: `width: 0.75em; height: 0.75em`
 - **ch** - Line length (measure). `max-inline-size: 65ch`
@@ -946,15 +847,11 @@ Avoid `px` for font sizes - it overrides the user's browser font size preference
 - **px** - Only for borders, shadows, and fine details that shouldn't scale
 
 **Scale the entire interface proportionally:**
-
 ```css
 @media (min-width: 960px) {
-  :root {
-    font-size: 125%;
-  }
+  :root { font-size: 125%; }
 }
 ```
-
 All `rem`-based values scale automatically.
 
 ## Chapter Summary

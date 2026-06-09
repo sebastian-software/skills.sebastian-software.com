@@ -23,19 +23,19 @@ git clone https://github.com/sebastian-software/effective-linkedin-posts.git ~/.
 
 ## Categories
 
-| Category                       | Ideas |
-| ------------------------------ | ----: |
-| Engagement & Interaction       |    43 |
-| Professional Development       |    42 |
-| Industry Insights              |    39 |
-| Company & Project Updates      |    33 |
-| Personal Stories & Reflections |    32 |
-| Educational Content            |    27 |
-| Networking & Community         |    22 |
-| Tools & Resources              |    20 |
-| Recognition & Appreciation     |    17 |
-| Job & Career Opportunities     |    13 |
-| Lifestyle                      |    12 |
+| Category | Ideas |
+|---|--:|
+| Engagement & Interaction | 43 |
+| Professional Development | 42 |
+| Industry Insights | 39 |
+| Company & Project Updates | 33 |
+| Personal Stories & Reflections | 32 |
+| Educational Content | 27 |
+| Networking & Community | 22 |
+| Tools & Resources | 20 |
+| Recognition & Appreciation | 17 |
+| Job & Career Opportunities | 13 |
+| Lifestyle | 12 |
 
 ## Usage
 
