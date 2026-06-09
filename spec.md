@@ -1,120 +1,174 @@
-# Arbeitsauftrag: Gemeinsame Verwaltung von Agent Skills
+# Skill Sync Monorepo Specification
 
-## Ziel
+## Purpose
 
-Es soll ein zentraler, reproduzierbarer Workflow entstehen, um Agent Skills zwischen mehreren Rechnern und Kollegen synchron zu halten.
+This repository will become the canonical source for Sebastian Software agent
+skills. It must keep skills reproducible across machines and team members while
+still making skill updates easy to review.
 
-Dabei sollen zwei Arten von Skills unterstützt werden:
+The implementation must use the existing TypeScript-oriented stack. Core
+automation must be written in TypeScript and executed through `tsx` during
+development. Do not implement the workflow as shell scripts.
 
-1. **Eigene Team-Skills**, die intern entwickelt und gepflegt werden.
-2. **Externe Skills**, die von anderen veröffentlicht wurden und z. B. über Git oder `skills-cli` installierbar sind.
+The first implementation phase is a pnpm monorepo with a publishable
+`skill-sync` CLI package.
 
-Die Lösung soll verhindern, dass einzelne Entwickler unterschiedliche Skill-Versionen nutzen. Externe Skills sollen nicht ungeprüft aktualisiert werden, sondern wie Dependencies behandelt werden: versioniert, reviewbar und nachvollziehbar.
+## Goals
 
-## Grundsatzentscheidung
+- Keep local Codex and Agents skill installations in sync with this repository.
+- Treat internal Sebastian Software skills as first-party source after import.
+- Treat external skills like dependencies: explicitly sourced, locked,
+  reviewable, and reproducible.
+- Preserve unmanaged local skills by default.
+- Provide a DX-oriented CLI and documentation so developers can install,
+  validate, update, and review skills without knowing the repo internals.
+- Prepare the `skill-sync` CLI for npm publication.
 
-Die Skills werden über ein zentrales Git-Repository verwaltet.
+## Non-Goals
 
-Dieses Repository ist die verbindliche Quelle für alle freigegebenen Skills. Lokale Installationen werden daraus generiert oder per Symlink angebunden.
+- No automatic archiving of old GitHub repositories in the default workflow.
+- No direct production updates from external skill sources on developer
+  machines.
+- No shell-script implementation for install, sync, import, validation, or
+  update behavior.
+- No destructive exact mirroring of local skill folders by default.
 
-Externe Skills werden nicht direkt auf den Entwicklerrechnern produktiv aktualisiert, sondern zunächst in das zentrale Repository übernommen. Änderungen an externen Skills laufen über Pull Requests und können dadurch geprüft werden.
-
-## Vorgeschlagene Repository-Struktur
+## Repository Layout
 
 ```txt
-agent-skills/
+sebastian-software-skills/
   README.md
+  spec.md
+  package.json
+  pnpm-workspace.yaml
+  tsconfig.json
+  tsconfig.root.json
+  eslint.config.ts
+  oxlint.config.ts
+
+  packages/
+    skill-sync/
+      package.json
+      tsdown.config.ts
+      src/
+        cli.ts
+        index.ts
+      test/
 
   skills/
-    own/
-      react-architecture-review/
+    internal/
+      effective-ui-design/
         SKILL.md
         references/
-        scripts/
-
-      i18n-lingui-review/
-        SKILL.md
-        references/
-        scripts/
 
     vendor/
-      openai-spreadsheets/
+      example-external-skill/
         SKILL.md
+        SOURCE.md
         references/
-        scripts/
-        SOURCE.md
-
-      community-skill-x/
-        SKILL.md
-        SOURCE.md
 
   manifests/
     skills.sources.json
     skills.lock.json
 
-  scripts/
-    install.sh
-    update-vendor.sh
-    validate-skills.sh
+  docs/
+    authoring-skills.md
+    reviewing-external-skills.md
+    sync-workflow.md
+    publishing-skill-sync.md
+
+  dist/
+    skills/
 ```
 
-## Bedeutung der Verzeichnisse
+### `packages/skill-sync`
 
-### `skills/own`
+Publishable TypeScript CLI and library package.
 
-Hier liegen alle intern gepflegten Skills.
+Package defaults:
 
-Diese Skills werden direkt im Repository bearbeitet. Änderungen erfolgen über normale Pull Requests.
+- Package name: `skill-sync`.
+- Runtime module format: ESM.
+- Node engine: `>=24`.
+- Build tool: `tsdown`.
+- Dev execution: `tsx`.
+- CLI binary: `skill-sync`.
+- Test runner: Vitest.
 
-Beispiele:
+Registry status as of June 9, 2026:
 
-* Architektur-Review für React-Projekte
-* i18n-/Lingui-Migration
-* Sanity-Image-Pipeline
-* Projekt-Setup-Review
-* Codebase-Audit
+- `npm whoami` succeeds as `swernerx`.
+- `npm view skill-sync` returns 404, so the unscoped package name appears
+  available.
+
+### `skills/internal`
+
+First-party skills maintained in this repository.
+
+Internal skills may originate from existing Sebastian Software skill
+repositories. After import, this repository becomes the source of truth and
+future changes happen here through normal pull requests.
+
+Initial internal import candidates:
+
+- `sebastian-software/forschungszulage-skill`
+- `sebastian-software/effective-ui-design-skill`
+- `sebastian-software/effective-german-typography-skill`
+- `sebastian-software/effective-linkedin-posts`
+
+Old internal skill repositories may be archived only after:
+
+1. the skill was imported,
+2. the generated skill output was validated,
+3. the first `skill-sync` release is available,
+4. consumers were migrated, and
+5. the archive action was manually reviewed.
+
+Archiving is not part of the default `skill-sync` command set.
 
 ### `skills/vendor`
 
-Hier liegen geprüfte externe Skills.
+Approved snapshots of external skills.
 
-Diese Skills stammen aus öffentlichen Repositories oder anderen Quellen, werden aber bewusst in dieses Repository übernommen. Dadurch kann das Team exakt nachvollziehen, welche Version genutzt wird.
+External skills are not considered first-party source. They remain dependency
+style inputs that are reviewed, locked, and updated intentionally. A vendor
+snapshot is allowed when the team wants the external content committed for
+reviewability or local patching.
 
-Jeder externe Skill erhält zusätzlich eine `SOURCE.md`.
+Every vendored external skill must include `SOURCE.md` with:
 
-Beispiel:
-
-```md
-# Source
-
-Original source: https://github.com/example/agent-skills
-Imported at: 2026-06-09
-Imported ref: abc123
-Reviewed by: Sebastian Werner
-Local modifications: no
-License: MIT
-```
+- original source URL,
+- source type,
+- imported ref,
+- resolved commit or version,
+- import date,
+- license,
+- reviewer,
+- local modification status.
 
 ### `manifests/skills.sources.json`
 
-Diese Datei beschreibt, welche externen Skills grundsätzlich beobachtet oder importiert werden sollen.
+Declarative source list for internal imports and external dependencies.
 
-Beispiel:
+The file should distinguish internal and external sources explicitly:
 
 ```json
 {
-  "vendor": [
+  "internal": [
     {
-      "id": "openai-skills",
-      "repo": "https://github.com/openai/skills",
+      "id": "effective-ui-design",
+      "repo": "https://github.com/sebastian-software/effective-ui-design-skill",
       "ref": "main",
-      "include": ["spreadsheets", "pdfs", "docs"]
-    },
+      "path": "."
+    }
+  ],
+  "external": [
     {
-      "id": "community-skill-x",
-      "repo": "https://github.com/example/community-skills",
+      "id": "openai-spreadsheets",
+      "type": "git",
+      "repo": "https://github.com/example/agent-skills",
       "ref": "v1.2.0",
-      "include": ["skill-x"]
+      "include": ["spreadsheets"]
     }
   ]
 }
@@ -122,253 +176,289 @@ Beispiel:
 
 ### `manifests/skills.lock.json`
 
-Diese Datei hält fest, welche konkrete Version eines externen Skills aktuell im Team verwendet wird.
+Resolved source state used for reproducible imports and updates.
 
-Beispiel:
+The lockfile must record at least:
+
+- source id,
+- source kind (`internal` or `external`),
+- source URL,
+- requested ref,
+- resolved commit or version,
+- included skill ids,
+- content integrity hash,
+- imported or updated timestamp,
+- tool version that wrote the entry.
+
+## CLI Requirements
+
+The CLI must be implemented in TypeScript. Commands should be available through
+the published `skill-sync` binary and through workspace scripts during
+development.
+
+### `skill-sync validate`
+
+Validate repository state.
+
+Checks:
+
+- manifest schema is valid,
+- lockfile schema is valid,
+- every skill has a `SKILL.md`,
+- `SKILL.md` frontmatter contains at least `name` and `description`,
+- skill names are unique after flattening,
+- referenced files and directories exist,
+- paths do not escape the repository root,
+- vendor skills include `SOURCE.md`,
+- generated dist output is consistent when requested.
+
+### `skill-sync build`
+
+Generate a flat installable skill tree under `dist/skills`.
+
+The output must flatten `skills/internal/*` and approved `skills/vendor/*` into a
+single skill directory namespace because local agent runtimes commonly expect a
+flat skill folder.
+
+The command must fail on duplicate skill names.
+
+### `skill-sync sync`
+
+Install managed skills into local agent targets.
+
+Required options:
+
+- `--target codex|agents|all`
+- `--target-dir <path>` for test and custom installs
+- `--dry-run`
+- `--verbose`
+
+Default target paths:
+
+- Codex: `~/.codex/skills`
+- Agents: `~/.agents/skills`
+
+Default behavior is managed-only:
+
+- Build or read `dist/skills`.
+- Copy managed skills into the selected target folders.
+- Write `.skill-sync.json` into each managed skill directory.
+- Update or remove only directories that contain a valid `.skill-sync.json`
+  marker owned by this repo.
+- Preserve unmanaged local skill directories.
+
+The marker must include at least:
+
+- source repo path or package identity,
+- skill id,
+- lockfile digest,
+- installed timestamp,
+- installed by `skill-sync`.
+
+### `skill-sync import-internal`
+
+Import configured Sebastian Software skill repositories into `skills/internal`.
+
+Behavior:
+
+- Read `manifests/skills.sources.json`.
+- Resolve configured refs.
+- Clone or fetch into a temporary directory.
+- Copy the configured skill root into `skills/internal/<id>`.
+- Preserve `SKILL.md`, `references/`, `scripts/`, `assets/`, examples, and
+  license files when present.
+- Update `manifests/skills.lock.json`.
+- Leave the resulting repository diff reviewable.
+
+Internal import does not archive source repositories.
+
+### `skill-sync update-external`
+
+Resolve external source refs and update lock metadata.
+
+Behavior:
+
+- Read external entries from `manifests/skills.sources.json`.
+- Resolve the configured ref to an immutable commit or version.
+- Update `manifests/skills.lock.json`.
+- If the external source is configured for vendoring, copy the selected skill
+  snapshot into `skills/vendor/<id>` and update `SOURCE.md`.
+- Leave all changes visible in Git for review.
+
+### `skill-sync doctor`
+
+Report local environment and repository health.
+
+The command should check:
+
+- Node version,
+- pnpm availability,
+- git availability,
+- npm authentication state,
+- default Codex and Agents target paths,
+- whether targets contain managed skills,
+- whether manifests and lockfile parse successfully.
+
+## Build And Workspace Scripts
+
+The root workspace should expose developer-friendly scripts:
 
 ```json
 {
-  "openai-skills": {
-    "commit": "abc123",
-    "updatedAt": "2026-06-09",
-    "included": ["spreadsheets", "pdfs", "docs"]
-  },
-  "community-skill-x": {
-    "commit": "def456",
-    "updatedAt": "2026-06-09",
-    "included": ["skill-x"]
+  "scripts": {
+    "build": "pnpm -r build",
+    "test": "pnpm -r test",
+    "typecheck": "pnpm -r typecheck",
+    "lint": "pnpm lint:oxlint && pnpm lint:eslint",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "skill-sync": "tsx packages/skill-sync/src/cli.ts",
+    "agent:check": "pnpm lint && pnpm format:check && pnpm typecheck && pnpm build && pnpm test && pnpm skill-sync validate"
   }
 }
 ```
 
-## Installation auf Entwicklerrechnern
+`packages/skill-sync` should use `tsdown` for builds:
 
-Die lokale Installation soll über ein Script erfolgen.
-
-Beispiel:
-
-```bash
-./scripts/install.sh
+```json
+{
+  "scripts": {
+    "build": "tsdown",
+    "dev": "tsx src/cli.ts",
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit"
+  }
+}
 ```
 
-Das Script soll:
+## Documentation Requirements
 
-1. den lokalen Agent-Skill-Ordner vorbereiten,
-2. die freigegebenen Skills aus `skills/own` und `skills/vendor` verfügbar machen,
-3. optional Symlinks setzen,
-4. bestehende Installationen kontrolliert ersetzen oder aktualisieren.
+Documentation must be written for developer experience, not only as reference
+material.
 
-Beispiel für eine einfache Symlink-Variante:
+### `README.md`
+
+Include:
+
+- what this repository is,
+- quickstart,
+- how to install skills locally,
+- how to validate changes,
+- how to add or update a skill,
+- how internal and external skills differ.
+
+Required quickstart:
 
 ```bash
-#!/usr/bin/env bash
-set -euo pipefail
-
-REPO_DIR="$(cd "$(dirname "$0")/.." && pwd)"
-TARGET_DIR="$HOME/.agents/skills"
-
-mkdir -p "$HOME/.agents"
-
-rm -rf "$TARGET_DIR"
-ln -s "$REPO_DIR/skills" "$TARGET_DIR"
-
-echo "Agent Skills installed from: $REPO_DIR/skills"
+pnpm install
+pnpm build
+pnpm skill-sync validate
+pnpm skill-sync sync --target all
 ```
 
-Hinweis: Falls die Zielumgebung keine verschachtelte Struktur wie `skills/own/...` und `skills/vendor/...` unterstützt, soll das Script stattdessen einen flachen `dist/skills`-Ordner generieren.
+### `docs/authoring-skills.md`
 
-## Generierter Installationsordner
+Explain:
 
-Optional kann ein `dist/`-Ordner erzeugt werden:
+- required skill structure,
+- `SKILL.md` frontmatter expectations,
+- naming rules,
+- when to use `references/`, `scripts/`, `assets/`, and examples,
+- how to keep skills small enough for progressive disclosure.
+
+### `docs/sync-workflow.md`
+
+Explain:
+
+- day-to-day developer sync,
+- managed-only behavior,
+- target path overrides,
+- dry-run usage,
+- CI usage.
+
+### `docs/reviewing-external-skills.md`
+
+Include review checklist:
+
+1. source trust,
+2. license compatibility,
+3. risky or overriding instructions,
+4. executable scripts,
+5. network access,
+6. secret or environment variable access,
+7. local filesystem access,
+8. relevance to Sebastian Software workflows.
+
+### `docs/publishing-skill-sync.md`
+
+Document first-publish workflow:
+
+```bash
+pnpm build
+pnpm pack
+pnpm publish --dry-run
+pnpm publish --tag alpha
+```
+
+The real publish must be a reviewed action. The first version should be an
+alpha release, for example `0.0.0-alpha.0`.
+
+## Testing Requirements
+
+Use Vitest for unit and integration tests.
+
+Required unit coverage:
+
+- source manifest parsing,
+- lockfile parsing and writing,
+- path normalization,
+- duplicate skill detection,
+- marker-file ownership checks,
+- target selection logic,
+- `SKILL.md` frontmatter validation.
+
+Required integration coverage:
+
+- `skill-sync build` creates a flat `dist/skills` tree,
+- duplicate internal/vendor names fail the build,
+- managed sync installs into a temporary target directory,
+- managed sync preserves unmanaged local skills,
+- managed sync updates managed skills,
+- Codex and Agents target selection resolves correctly,
+- internal import creates reviewable files and lock entries,
+- external update writes deterministic lock metadata.
+
+Required package checks:
+
+- built package exposes the `skill-sync` binary,
+- `pnpm pack` includes only intended files,
+- `pnpm publish --dry-run` succeeds before a real publish.
+
+## Acceptance Criteria
+
+The implementation is complete when:
+
+- `spec.md` has been replaced by this English implementation spec.
+- The repo is converted to a pnpm monorepo.
+- `packages/skill-sync` exists and can be built with `tsdown`.
+- `skill-sync validate`, `build`, `sync`, `import-internal`,
+  `update-external`, and `doctor` are implemented.
+- Initial internal skill sources are represented in `skills.sources.json`.
+- Internal skills can be imported into `skills/internal`.
+- Local sync works for both `~/.codex/skills` and `~/.agents/skills`.
+- Unmanaged local skills are preserved by default.
+- DX documentation exists for authoring, syncing, reviewing, and publishing.
+- Tests and package dry-run checks pass.
+
+## First Commit Scope
+
+The first commit must modify only `spec.md`.
+
+Commit message:
 
 ```txt
-agent-skills/
-  dist/
-    skills/
-      react-architecture-review/
-      i18n-lingui-review/
-      openai-spreadsheets/
-      community-skill-x/
+docs: replace skill sync implementation spec
 ```
 
-In diesem Fall installiert `install.sh` nicht direkt `skills/`, sondern `dist/skills`.
-
-Das ist robuster, wenn Quellstruktur und Zielstruktur unterschiedlich sein sollen.
-
-## Aktualisierung externer Skills
-
-Externe Skills sollen über ein dediziertes Script aktualisiert werden.
-
-Beispiel:
-
-```bash
-./scripts/update-vendor.sh
-```
-
-Das Script soll:
-
-1. `manifests/skills.sources.json` lesen,
-2. externe Repositories temporär klonen oder per `skills-cli` aktualisieren,
-3. die gewünschten Skills nach `skills/vendor` kopieren,
-4. `SOURCE.md` aktualisieren,
-5. `manifests/skills.lock.json` aktualisieren,
-6. Änderungen im Git-Diff sichtbar machen.
-
-Der Update-Prozess endet bewusst nicht mit automatischer Veröffentlichung. Stattdessen wird ein Pull Request erstellt.
-
-Beispiel-Workflow:
-
-```bash
-./scripts/update-vendor.sh
-
-git diff
-
-git checkout -b update-vendor-skills-2026-06-09
-git add .
-git commit -m "Update vendor skills"
-git push
-```
-
-Danach erfolgt ein Review.
-
-## Review-Regeln für externe Skills
-
-Vor der Übernahme oder Aktualisierung eines externen Skills sollen folgende Punkte geprüft werden:
-
-1. Ist die Quelle vertrauenswürdig?
-2. Ist die Lizenz kompatibel?
-3. Enthält der Skill unerwünschte oder riskante Instruktionen?
-4. Enthält der Skill Skripte oder ausführbaren Code?
-5. Greift der Skill auf sensible Dateien, Umgebungsvariablen oder externe Dienste zu?
-6. Überschreibt der Skill Verhalten, das für unsere Projekte problematisch wäre?
-7. Ist der Skill für unsere konkrete Nutzung wirklich relevant?
-
-Externe Skills werden erst nach Review in `skills/vendor` übernommen.
-
-## Umgang mit Submodules
-
-Git Submodules werden nicht als Standard verwendet.
-
-Submodules können eingesetzt werden, wenn ein externes Skill-Repository exakt referenziert werden soll und keine lokalen Änderungen geplant sind.
-
-Für den normalen Team-Workflow wird jedoch ein vendorter Stand bevorzugt, weil dieser einfacher zu klonen, zu reviewen und zu installieren ist.
-
-Empfohlene Regel:
-
-* **Submodule** nur für große, stabile externe Skill-Sammlungen.
-* **Vendoring** für einzelne oder angepasste Skills.
-* **Manifest + Lockfile** für nachvollziehbare Updates.
-
-## Validierung
-
-Es soll ein einfaches Validierungsscript geben:
-
-```bash
-./scripts/validate-skills.sh
-```
-
-Dieses Script soll prüfen:
-
-1. Jeder Skill enthält eine `SKILL.md`.
-2. Jede `SKILL.md` enthält mindestens `name` und `description`.
-3. Skill-Namen sind eindeutig.
-4. Externe Skills enthalten eine `SOURCE.md`.
-5. Es gibt keine doppelten Zielnamen im generierten Installationsordner.
-6. Optional: bekannte riskante Pattern werden markiert.
-
-Beispiele für zu prüfende riskante Pattern:
-
-```txt
-rm -rf
-curl ... | sh
-eval
-printenv
-cat ~/.ssh
-cat ~/.env
-```
-
-Die Prüfung muss nicht perfekt sein. Sie soll vor allem grobe Fehler und offensichtliche Risiken sichtbar machen.
-
-## Vorgeschlagener Entwickler-Workflow
-
-### Erstinstallation
-
-```bash
-git clone git@github.com:company/agent-skills.git ~/dev/agent-skills
-cd ~/dev/agent-skills
-./scripts/install.sh
-```
-
-### Skills aktualisieren
-
-```bash
-cd ~/dev/agent-skills
-git pull
-./scripts/install.sh
-```
-
-### Eigenen Skill hinzufügen
-
-```bash
-mkdir -p skills/own/my-new-skill
-touch skills/own/my-new-skill/SKILL.md
-```
-
-Danach:
-
-```bash
-./scripts/validate-skills.sh
-git checkout -b add-my-new-skill
-git add .
-git commit -m "Add my new skill"
-git push
-```
-
-### Externen Skill aktualisieren
-
-```bash
-./scripts/update-vendor.sh
-./scripts/validate-skills.sh
-git diff
-```
-
-Danach Pull Request erstellen.
-
-## Akzeptanzkriterien
-
-Die Umsetzung gilt als abgeschlossen, wenn:
-
-1. Ein zentrales `agent-skills` Repository existiert.
-2. Eigene Skills unter `skills/own` abgelegt werden können.
-3. Externe Skills unter `skills/vendor` abgelegt werden können.
-4. Jeder externe Skill eine `SOURCE.md` enthält.
-5. Ein `install.sh` die Skills lokal verfügbar macht.
-6. Ein `update-vendor.sh` externe Skills kontrolliert aktualisieren kann.
-7. Ein `validate-skills.sh` die wichtigsten Strukturregeln prüft.
-8. Ein `skills.lock.json` die aktuell verwendeten externen Skill-Versionen dokumentiert.
-9. Der Workflow in der `README.md` beschrieben ist.
-10. Änderungen an Skills über Pull Requests reviewbar sind.
-
-## Nicht-Ziele
-
-Folgende Punkte sind zunächst ausdrücklich nicht Teil der Umsetzung:
-
-1. Automatische Live-Aktualisierung auf Entwicklerrechnern.
-2. Ungeprüfte Installation externer Skills.
-3. Vollständiger Package-Manager für Skills.
-4. Komplexe Rechteverwaltung pro Skill.
-5. Automatische Veröffentlichung in ChatGPT Workspaces.
-6. Vollständige Security-Analyse externer Skripte.
-
-## Ergebnis
-
-Am Ende gibt es einen einfachen, robusten und teamfähigen Workflow:
-
-* Git ist die zentrale Quelle.
-* Eigene Skills werden direkt gepflegt.
-* Externe Skills werden kontrolliert übernommen.
-* Versionen sind nachvollziehbar.
-* Updates sind reviewbar.
-* Entwickler installieren oder aktualisieren Skills mit einem einfachen Script.
-
-Damit bleibt die Nutzung von Agent Skills flexibel, aber trotzdem reproduzierbar und sicher genug für den professionellen Team-Einsatz.
+No package scaffolding, implementation files, documentation files, manifests, or
+imported skills belong in the first commit.
