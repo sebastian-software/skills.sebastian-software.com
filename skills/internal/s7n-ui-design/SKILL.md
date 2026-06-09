@@ -105,6 +105,12 @@ Enforces professional UI design guidelines for accessible, well-structured inter
 - Minimum size: 48pt × 48pt
 - Avoid disabled buttons - validate on submit instead
 
+### Interaction States
+- Every interactive component needs Default, Hover, Focus, Active, Disabled, Loading, Error, and Success states
+- Hover never substitutes for Focus; keyboard users need a visible `:focus-visible` state
+- Loading, Error, and Success states must preserve the component's size and mental model
+- Disabled states need an explanation or an alternate path whenever the user can reasonably expect the action to be available
+
 ### Forms
 - Single column layout
 - Stack labels above inputs
@@ -154,28 +160,34 @@ Before finalizing any UI design:
    - [ ] Related elements are grouped
    - [ ] Consistent spacing applied
 
-3. **Typography**
+3. **Interaction States**
+   - [ ] Default, hover, focus, active, disabled, loading, error, and success states exist for every interactive component
+   - [ ] Focus is visible without relying on hover
+   - [ ] Loading/error/success feedback appears where the user acted
+   - [ ] State changes do not resize controls or shift neighbouring layout
+
+4. **Typography**
    - [ ] 1-2 typefaces (+ optional display/heading typeface)
    - [ ] UI text 14px+, body text 16px+ (18-20px for long-form reading)
    - [ ] Line height 1.5+ for body text
    - [ ] Left-aligned text
    - [ ] 40-80 characters per line
 
-4. **Copywriting**
+5. **Copywriting**
    - [ ] Concise text (no unnecessary words)
    - [ ] Sentence case used
    - [ ] Plain language (no jargon)
    - [ ] Front-loaded important info
    - [ ] Descriptive button text
 
-5. **Forms**
+6. **Forms**
    - [ ] Single column layout
    - [ ] Labels above inputs
    - [ ] Required/optional fields marked
    - [ ] Field widths match expected input
    - [ ] High contrast borders (3:1+)
 
-6. **SEO**
+7. **SEO**
    - [ ] Unique `<title>` with primary keyword (50-60 chars)
    - [ ] Unique `<meta name="description">` (150-160 chars)
    - [ ] Self-referencing canonical tag

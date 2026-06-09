@@ -365,6 +365,10 @@ Similar elements look and work in a similar way.
 
 Interactive elements must change appearance when interacted with.
 
+An interactive component is not complete until all relevant states are designed
+and implemented. State completeness matters most for shared components because
+every missing state repeats across the product.
+
 **8 Interaction States Checklist:**
 
 | State | When | Design Treatment |
@@ -374,7 +378,7 @@ Interactive elements must change appearance when interacted with.
 | **Focus** | Keyboard/programmatic focus | Visible focus ring |
 | **Active/Press** | Being clicked/tapped | Pressed in, darker |
 | **Disabled** | Not interactive | Reduced opacity, no pointer |
-| **Loading** | Processing | Spinner, skeleton |
+| **Loading** | Processing | Busy indicator, status text |
 | **Error** | Invalid state | Red border, icon, message |
 | **Success** | Completed | Green check, confirmation |
 
