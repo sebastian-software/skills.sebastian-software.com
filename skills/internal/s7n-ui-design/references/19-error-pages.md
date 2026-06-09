@@ -279,7 +279,7 @@ Error pages are visited by all users, including those using assistive technologi
 
 - Write error descriptions in plain language — avoid jargon and technical codes
 - Do not rely solely on colour or icons to communicate the error state
-- Ensure sufficient colour contrast (minimum 4.5:1 for body text, 3:1 for large text per WCAG 2.1 AA)
+- Ensure sufficient colour contrast (minimum 4.5:1 for body text, 3:1 for large text per WCAG 2.2 AA)
 - Provide text alternatives for any illustrative images or icons
 
 ### Functional Navigation

@@ -19,17 +19,19 @@ question when the information cannot be inferred.
 3. **Primary action:** What is the one action or understanding the design must
    make easiest?
 4. **Register:** Is this product, brand, or content-heavy UI?
-5. **Brand point of view:** For brand surfaces, what should make this feel
+5. **Product domain:** For product surfaces, what domain concepts, data shapes,
+   workflows, and user vocabulary should make this feel specific?
+6. **Brand point of view:** For brand surfaces, what should make this feel
    specific rather than like the category default?
-6. **Content:** What data, text, media, or controls must appear? What are
+7. **Content:** What data, text, media, or controls must appear? What are
    realistic minimum, typical, and maximum cases?
-7. **States:** What must happen for default, empty, loading, error, success, and
+8. **States:** What must happen for default, empty, loading, error, success, and
    permission-limited states?
-8. **Constraints:** Which design system, components, framework, performance,
+9. **Constraints:** Which design system, components, framework, performance,
    accessibility, i18n, or browser constraints already exist?
-9. **Context:** Which devices, inputs, orientation, connection, and physical
+10. **Context:** Which devices, inputs, orientation, connection, and physical
    usage conditions matter?
-10. **Anti-goals:** What would be a wrong direction for this audience or product?
+11. **Anti-goals:** What would be a wrong direction for this audience or product?
 
 ## Decide Before Styling
 
@@ -47,6 +49,26 @@ Before choosing colours, spacing, shadows, or typography, decide:
 These decisions make the visual layer follow from the job. Do not start with
 card grids, hero templates, gradients, or animation before the surface has a
 clear job.
+
+## Product Domain Specificity
+
+For dashboards, admin panels, tools, and data interfaces, specificity comes from
+the product's world, not from adding decoration. Before choosing layout or
+tokens, name:
+
+- Domain concepts: the objects, verbs, roles, and constraints users already
+  think in.
+- Data shapes: whether users compare rows, monitor exceptions, inspect
+  timelines, approve batches, configure settings, or debug incidents.
+- Signature opportunity: one visual, structural, or interaction decision that
+  could only belong to this product.
+- Obvious defaults to avoid: sidebar plus generic cards, icon-number-label
+  metrics, charts without decisions, status colours without workflow meaning.
+
+The signature does not need to be loud. It might be a domain-specific queue, a
+timeline shaped around the real process, a comparison surface tuned to the data,
+or token names that reflect actual product semantics. If the product name were
+removed, the main structure should still hint at what the tool is for.
 
 ## Brand Point of View
 
@@ -129,6 +151,26 @@ Use when complexity is the main risk.
 - Combine related controls and reveal secondary options only when needed.
 - Preserve capability; remove presentation and decision noise.
 
+### Minimalist
+
+Use when the surface should feel editorial, utilitarian, calm, or premium
+through restraint. This is a context lens, not the default for all products.
+
+- Let typography, measure, alignment, whitespace, and content structure carry
+  most of the hierarchy.
+- Use a narrow palette and scarce accents; colour should identify action,
+  state, or brand voice, not decorate every section.
+- Prefer flat surfaces, fine dividers, and subtle elevation over heavy shadows,
+  glass effects, and gradient spectacle.
+- Keep component shapes crisp and modest. Avoid turning every badge, card, or
+  button into a pill unless the existing system already uses that language.
+- Use realistic content and concrete labels. Minimalism collapses when copy is
+  vague.
+
+Do not apply this lens to dense operational tools that need stronger scanning
+affordances, brand pages that need a bolder point of view, or consumer products
+where warmth, illustration, or expressiveness is part of the value.
+
 ## Generic UI Failure Modes
 
 Check these before choosing a visual direction. They are not timeless taste
@@ -160,6 +202,8 @@ Good specificity can come from:
 - A product flow that exposes exactly the right next action and hides the rest.
 - A comparison surface tuned to the real data users scan.
 - An empty state that teaches the actual component in context.
+- Navigation and data presentation that reflect the product's mental model, not
+  generic application scaffolding.
 - A brand surface anchored by real product, place, person, object, or outcome
   evidence.
 - A typographic, colour, spacing, or imagery decision that follows the brand
@@ -208,6 +252,7 @@ Use this structure:
 - Primary user and context: [who, where, frequency, state of mind]
 - Primary action: [the one thing the design must make easiest]
 - Brand point of view: [audience, voice, category reflex to avoid, memorable signal; omit when not relevant]
+- Product signature: [domain concepts, data shape, default pattern to avoid; omit when not relevant]
 - Layout strategy: [topology, hierarchy, density, major regions]
 - Interaction model: [form submit, inline edit, route, popover, modal, etc.]
 - Required states: [default, empty, loading, error, success, permissions]

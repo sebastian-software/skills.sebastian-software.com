@@ -80,7 +80,7 @@ The skill loads focused reference files covering the decisions you'd otherwise m
 |-------|----------------|
 | [Fundamentals](references/01-fundamentals.md) | Interaction cost, cognitive load, affordance, animation, reduced motion, semantic HTML |
 | [Less is more](references/02-less-is-more.md) | Progressive disclosure, mobile-first, when to remove rather than add |
-| [Colour](references/03-colour.md) | OKLCH palettes, contrast ratios (WCAG 2.1 AA), dark mode, `light-dark()`, relative color syntax |
+| [Colour](references/03-colour.md) | OKLCH palettes, contrast ratios (WCAG 2.2 AA), dark mode, `light-dark()`, relative color syntax |
 | [Layout & spacing](references/04-layout-spacing.md) | 8pt grid, container queries, subgrid, responsive images, safe areas, intrinsic layouts |
 | [Typography](references/05-typography.md) | Type scale, fluid sizing with `clamp()`, OpenType features, vertical rhythm |
 | [Web fonts](references/05b-webfonts.md) | `font-display`, preloading, variable fonts, fallback matching |

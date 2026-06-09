@@ -1,7 +1,7 @@
 ---
 name: s7n-ui-design
 description: |
-  Professional UI design guidelines for accessible, well-structured interfaces. Use when: writing CSS, HTML, or frontend component code; designing websites, apps, dashboards, or any web interface; reviewing or improving existing UI designs; making decisions about colour, typography, layout, spacing, buttons, or forms; ensuring WCAG 2.1 AA accessibility; creating design systems or component libraries. Covers OKLCH colour palettes, spacing systems, fluid typography with clamp(), container queries, subgrid, form validation patterns, button hierarchy, dark mode, reduced motion, SEO meta tags, and Core Web Vitals.
+  Professional UI design guidelines for accessible, well-structured interfaces. Use when: writing CSS, HTML, or frontend component code; designing websites, apps, dashboards, or any web interface; reviewing or improving existing UI designs; making decisions about colour, typography, layout, spacing, buttons, or forms; ensuring WCAG 2.2 AA accessibility; creating design systems or component libraries. Covers OKLCH colour palettes, spacing systems, fluid typography with clamp(), container queries, subgrid, form validation patterns, button hierarchy, dark mode, reduced motion, SEO meta tags, and Core Web Vitals.
 license: MIT
 metadata:
   author: sebastian-software
@@ -33,7 +33,7 @@ Enforces professional UI design guidelines for accessible, well-structured inter
 ## Core Principles (ALWAYS Apply)
 
 ### 1. Minimise Usability Risks
-- Meet WCAG 2.1 level AA accessibility requirements
+- Meet WCAG 2.2 level AA accessibility requirements
 - Consider users with poor eyesight, low computer literacy, reduced dexterity
 - Avoid thin/light grey text, icons without labels, colored headings that look like links
 
@@ -167,6 +167,9 @@ Before finalizing any UI design:
    - [ ] Skip link present as first focusable element
    - [ ] Viewport meta tag does not disable zoom (`user-scalable=no` / `maximum-scale=1`)
    - [ ] Composite widgets (tabs, toolbars, menus) use single Tab stop with arrow-key navigation
+   - [ ] Focused elements are not hidden by sticky headers, drawers, or overlays
+   - [ ] Drag interactions have visible single-pointer alternatives
+   - [ ] Async validation, save, and toast updates are announced with `aria-live` when needed
 
 2. **Visual Hierarchy**
    - [ ] Clear order of importance
@@ -201,6 +204,8 @@ Before finalizing any UI design:
    - [ ] Required/optional fields marked
    - [ ] Field widths match expected input
    - [ ] High contrast borders (3:1+)
+   - [ ] Inputs use meaningful `name`, `autocomplete`, `type`, and `inputmode`
+   - [ ] Paste is never blocked for codes, passwords, or payment fields
 
 7. **SEO**
    - [ ] Unique `<title>` with primary keyword (50-60 chars)

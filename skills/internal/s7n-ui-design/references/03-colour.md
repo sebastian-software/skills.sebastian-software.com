@@ -6,7 +6,7 @@ Learn how to use colour sparingly and purposefully to add meaning to an interfac
 
 Contrast = difference in perceived brightness between two colours (ratio 1:1 to 21:1).
 
-### WCAG 2.1 Level AA Requirements
+### WCAG 2.2 Level AA Requirements
 
 **3:1 Minimum - Large text and UI elements:**
 - Text above 18px bold OR above 24px regular
