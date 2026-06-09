@@ -26,6 +26,8 @@ move through the task without noticing unnecessary design decisions.
   `clamp()` display sizing for marketing or content-led surfaces.
 - Use motion only to explain state change, feedback, progress, or spatial
   continuity.
+- Keep product motion short, usually 150-250ms, and avoid page-load choreography
+  on task surfaces.
 
 **Common product failures:**
 

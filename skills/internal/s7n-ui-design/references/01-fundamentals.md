@@ -466,6 +466,23 @@ Use these categories to identify and communicate the purpose of an animation:
 
 **Prioritisation:** Transitions and feedback provide the most cognitive benefit. Decorations provide the least and risk annoying users. When resources are limited, prioritise animations that answer "What just happened?" for the user.
 
+### Product Motion Discipline
+
+In product UI, motion serves the task. Use it for:
+
+- State change: a panel opens, a row moves, a filter applies.
+- Feedback: a button acknowledges press, validation appears, a save completes.
+- Progress: a background operation is running or finishing.
+- Spatial continuity: users understand where an object went.
+
+Keep product transitions short, usually 150-250ms. Avoid orchestrated page-load
+sequences, decorative loops, bounce, elastic easing, and motion that delays
+work. The interface should feel responsive, not performed.
+
+Brand and campaign surfaces can use more expressive motion when motion carries
+the story. Product surfaces need restraint because users repeat the same actions
+many times.
+
 **Questions to justify an animation:**
 - Does it show the user where information came from or went to?
 - Does it indicate progress?

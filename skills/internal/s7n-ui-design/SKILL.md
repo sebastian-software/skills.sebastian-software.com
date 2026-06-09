@@ -91,6 +91,12 @@ Enforces professional UI design guidelines for accessible, well-structured inter
 - Gate hover effects behind `@media (hover: hover) and (pointer: fine)` — never hide content behind hover
 - Use `env(safe-area-inset-*)` with `viewport-fit=cover` for fixed/sticky elements on notched devices
 
+### Motion
+- In product UI, use motion only for state change, feedback, progress, or spatial continuity
+- Keep product transitions short (usually 150-250ms) and do not make users wait for choreography
+- Avoid page-load sequences, decorative loops, bounce, elastic easing, and layout-property animation in task surfaces
+- Always respect `prefers-reduced-motion`
+
 ### Icons
 - Use SVG icons exclusively — never emoji or icon fonts
 - One icon set, used consistently (e.g. Lucide, Heroicons, Phosphor)
