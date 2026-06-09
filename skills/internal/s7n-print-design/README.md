@@ -1,4 +1,4 @@
-# Effective Print Design
+# S7N Print Design
 
 Print CSS that doesn't look like print CSS.
 
@@ -20,16 +20,11 @@ Gives Claude deep knowledge of print typography, paged media, and web-to-print p
 
 ## Install
 
-Via [skill.sh](https://skill.sh):
+This skill is maintained in the Sebastian Software skills monorepo and installs
+as `s7n-print-design`.
 
 ```bash
-npx skill.sh install sebastian-software/effective-print-design
-```
-
-Or directly via Claude Code:
-
-```bash
-claude skill add effective-print-design
+pnpm skill-sync sync --target all
 ```
 
 Activates automatically when you mention `@media print`, `@page`, print stylesheets, or ask for a document that needs to look good on paper.

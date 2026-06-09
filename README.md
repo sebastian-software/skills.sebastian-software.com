@@ -27,11 +27,22 @@ build` to generate the flat `dist/skills` tree, and `pnpm skill-sync sync
 
 ## Skill Sources
 
+- Internal Sebastian Software skills use the `s7n-*` install-name prefix. `s7n`
+  is the compact repository namespace for Sebastian Software skills, following
+  the same abbreviation pattern as names like `i18n`.
 - Internal Sebastian Software skill repositories are configured in
   `manifests/skills.sources.json` and imported into `skills/internal`.
 - External skill sources are configured separately and locked in
   `manifests/skills.lock.json`.
 - Vendored external snapshots live in `skills/vendor` only after review.
+
+Current internal skills:
+
+- `s7n-forschungszulage`
+- `s7n-german-typography`
+- `s7n-linkedin-posts`
+- `s7n-print-design`
+- `s7n-ui-design`
 
 See `docs/authoring-skills.md`, `docs/sync-workflow.md`,
 `docs/reviewing-external-skills.md`, and `docs/publishing-skill-sync.md` for the

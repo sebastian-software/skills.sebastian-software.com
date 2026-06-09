@@ -57,7 +57,7 @@ sebastian-software-skills/
 
   skills/
     internal/
-      effective-ui-design/
+      s7n-ui-design/
         SKILL.md
         references/
 
@@ -104,6 +104,10 @@ Registry status as of June 9, 2026:
 ### `skills/internal`
 
 First-party skills maintained in this repository.
+
+Internal skill install names should use the `s7n-*` prefix. `s7n` is the compact
+Sebastian Software namespace and keeps first-party skills distinct from generic
+or external skills after installation.
 
 Internal skills may originate from existing Sebastian Software skill
 repositories. After import, this repository becomes the source of truth and
@@ -156,7 +160,7 @@ The file should distinguish internal and external sources explicitly:
 {
   "internal": [
     {
-      "id": "effective-ui-design",
+      "id": "s7n-ui-design",
       "repo": "https://github.com/sebastian-software/effective-ui-design-skill",
       "ref": "main",
       "path": "."

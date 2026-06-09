@@ -1,5 +1,5 @@
 ---
-name: forschungszulage
+name: s7n-forschungszulage
 description: "Experten-Skill fuer die deutsche Forschungszulage (FZulG). Fuehrt Antragsteller Schritt fuer Schritt durch den gesamten Prozess: BSFZ-Bescheinigung beantragen, Projektbeschreibungen formulieren, Antraege auf Plausibilitaet pruefen, haeufige Fehler vermeiden und die Erfolgsquote maximieren. Nutze diesen Skill immer wenn der User nach Forschungszulage, FZulG, BSFZ, steuerlicher Forschungsfoerderung, FuE-Foerderung, Forschungsfoerderung Deutschland, oder steuerlicher F&E-Zulage fragt - auch wenn er nur einzelne Aspekte wie Projektbeschreibung, Bemessungsgrundlage, Auftragsforschung oder FuE-Kriterien erwaehnt."
 ---
 

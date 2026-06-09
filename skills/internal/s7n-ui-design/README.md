@@ -1,4 +1,4 @@
-# Effective UI Design
+# S7N UI Design
 
 You've seen it happen: your AI agent generates a form with thin gray text, buttons that all look the same, and spacing that feels random. You fix it, move on, and next time it happens again.
 
@@ -64,14 +64,11 @@ This isn't a component library or a CSS framework. It doesn't pick your aestheti
 
 ## Install
 
-```bash
-npx skills add sebastian-software/effective-ui-design-skill
-```
-
-Or manually via git:
+This skill is maintained in the Sebastian Software skills monorepo and installs
+as `s7n-ui-design`.
 
 ```bash
-git clone https://github.com/sebastian-software/effective-ui-design-skill.git ~/.claude/skills/effective-ui-design
+pnpm skill-sync sync --target all
 ```
 
 The skill activates automatically whenever the agent works on frontend tasks. Nothing to configure.

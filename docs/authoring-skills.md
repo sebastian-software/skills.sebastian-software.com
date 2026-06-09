@@ -23,7 +23,7 @@ Every skill must start with YAML frontmatter containing at least:
 
 ```yaml
 ---
-name: effective-ui-design
+name: s7n-ui-design
 description: Use when designing or reviewing frontend interfaces.
 ---
 ```
@@ -48,6 +48,10 @@ into references so the agent can load only what the current task needs.
 Internal skills live under `skills/internal`. They are first-party Sebastian
 Software source after import. Update them through pull requests in this
 repository.
+
+Use the `s7n-*` prefix for every internal install name. `s7n` is the compact
+Sebastian Software namespace; it keeps bundled first-party skills distinct from
+external or generic skills once installed into shared agent skill directories.
 
 ## Vendor Skills
 

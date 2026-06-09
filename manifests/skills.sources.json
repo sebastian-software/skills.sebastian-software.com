@@ -1,31 +1,31 @@
 {
   "internal": [
     {
-      "id": "forschungszulage",
+      "id": "s7n-forschungszulage",
       "repo": "https://github.com/sebastian-software/forschungszulage-skill",
       "ref": "main",
       "path": "."
     },
     {
-      "id": "effective-ui-design",
+      "id": "s7n-ui-design",
       "repo": "https://github.com/sebastian-software/effective-ui-design-skill",
       "ref": "main",
       "path": "."
     },
     {
-      "id": "effective-german-typography",
+      "id": "s7n-german-typography",
       "repo": "https://github.com/sebastian-software/effective-german-typography-skill",
       "ref": "main",
       "path": "."
     },
     {
-      "id": "effective-linkedin-posts",
+      "id": "s7n-linkedin-posts",
       "repo": "https://github.com/sebastian-software/effective-linkedin-posts",
       "ref": "main",
       "path": "."
     },
     {
-      "id": "effective-print-design",
+      "id": "s7n-print-design",
       "repo": "https://github.com/sebastian-software/effective-print-design",
       "ref": "main",
       "path": "."

@@ -1,17 +1,14 @@
-# Effective LinkedIn Posts Skill
+# S7N LinkedIn Posts Skill
 
 A [Claude Code](https://claude.com/claude-code) skill that helps you create engaging LinkedIn content. It includes a database of 300 proven content ideas across 11 categories, along with writing principles, format guidelines, and engagement strategies.
 
 ## Installation
 
-```bash
-npx skills add sebastian-software/effective-linkedin-posts
-```
-
-Or install manually:
+This skill is maintained in the Sebastian Software skills monorepo and installs
+as `s7n-linkedin-posts`.
 
 ```bash
-git clone https://github.com/sebastian-software/effective-linkedin-posts.git ~/.claude/skills/effective-linkedin-posts
+pnpm skill-sync sync --target all
 ```
 
 ## What It Does

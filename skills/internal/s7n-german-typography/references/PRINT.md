@@ -1,6 +1,6 @@
 # Print Typography for German Text
 
-German-specific print rules. For general print CSS, see the `effective-print-design` skill.
+German-specific print rules. For general print CSS, see the `s7n-print-design` skill.
 
 ## German Hyphenation Rules
 

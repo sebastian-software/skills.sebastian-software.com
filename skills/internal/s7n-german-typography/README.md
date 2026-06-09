@@ -1,4 +1,4 @@
-# Effective German Typography Skill
+# S7N German Typography Skill
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
@@ -28,19 +28,11 @@ This skill teaches Claude the complete German typography ruleset:
 
 ## Installation
 
-### Using the Skills CLI
+This skill is maintained in the Sebastian Software skills monorepo and installs
+as `s7n-german-typography`.
 
 ```bash
-npx skills add sebastian-software/effective-german-typography-skill
-```
-
-### Manual Installation
-
-Clone or download this repository to your skills directory:
-
-```bash
-cd ~/<your skills folder>
-git clone https://github.com/sebastian-software/effective-german-typography-skill.git
+pnpm skill-sync sync --target all
 ```
 
 ## Usage
@@ -59,7 +51,10 @@ The skill activates automatically when you:
 
 ## Related Skills
 
-For print/PDF output, combine with [effective-print-design](https://github.com/sebastian-software/effective-print-design) which provides CSS print stylesheets, page layout, and typography for paged media. German-specific print rules (hyphenation, DIN 5008 margins) are included in this skill's [references/PRINT.md](references/PRINT.md).
+For print/PDF output, combine with `s7n-print-design`, which provides CSS print
+stylesheets, page layout, and typography for paged media. German-specific print
+rules (hyphenation, DIN 5008 margins) are included in this skill's
+[references/PRINT.md](references/PRINT.md).
 
 ## Scope
 
