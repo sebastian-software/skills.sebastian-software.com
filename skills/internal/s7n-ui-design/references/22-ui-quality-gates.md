@@ -46,6 +46,29 @@ Do not use this pass to change the design register, invent a new visual
 direction, or add decoration. If the pass reveals that the direction itself is
 wrong, return to the Design Readiness Check and revise the brief.
 
+## Performance Design Check
+
+Performance is part of the user experience. Do not optimise random details, but
+do make performance-sensitive design choices explicit before shipping.
+
+Check:
+
+- The LCP element is known, not lazy-loaded, and has appropriate priority.
+- Images are sized for their display context and have width/height or
+  `aspect-ratio` to prevent layout shift.
+- Heavy visual effects are bounded to small areas and do not animate layout
+  properties.
+- Long lists, large tables, feeds, and search results have a pagination,
+  virtualisation, or progressive loading strategy.
+- Non-critical media, scripts, and visual flourishes are lazy-loaded or omitted
+  when they do not serve the primary action.
+- Font choices do not require unnecessary weights, families, or blocking loads.
+- The interface remains usable on slower mobile devices and weaker connections.
+
+If performance risk is visible in the design itself, fix the design decision.
+If performance risk depends on implementation details, measure before and after
+the change.
+
 ## Visual Verification
 
 Inspect the rendered UI before calling it complete. Source review alone misses

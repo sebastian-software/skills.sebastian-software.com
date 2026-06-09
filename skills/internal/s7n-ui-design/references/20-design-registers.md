@@ -2,7 +2,7 @@
 
 Choose the design register before making visual decisions. A register is the
 interface's job: whether design serves a task, carries a brand impression, or
-supports long-form comprehension. The same color, typography, motion, and
+supports long-form comprehension. The same colour, typography, motion, and
 layout choices can be excellent in one register and wrong in another.
 
 ## Product Register
@@ -17,7 +17,7 @@ move through the task without noticing unnecessary design decisions.
 
 - Use one well-tuned sans-serif family unless the product already has a
   different system.
-- Use a restrained color system: neutral surfaces, semantic states, and one
+- Use a restrained colour system: neutral surfaces, semantic states, and one
   accent for primary actions, current selection, focus, and status.
 - Prefer density when users compare, scan, or repeat actions often.
 - Keep component vocabulary consistent across screens: same button shapes, same
@@ -28,6 +28,9 @@ move through the task without noticing unnecessary design decisions.
   continuity.
 - Keep product motion short, usually 150-250ms, and avoid page-load choreography
   on task surfaces.
+- Place delight at specific earned moments: completion, first success, helpful
+  recovery, or a meaningful milestone. The rest of the product should stay
+  reliable and quiet.
 
 **Common product failures:**
 
@@ -48,7 +51,7 @@ position, audience, and atmosphere, not simply look polished.
 
 **Default choices:**
 
-- Pick a color strategy deliberately: restrained, committed, full palette, or
+- Pick a colour strategy deliberately: restrained, committed, full palette, or
   drenched.
 - Let typography carry voice when the brand needs it. A single family is fine
   when chosen deliberately; a second family is useful only when it creates real
@@ -58,6 +61,8 @@ position, audience, and atmosphere, not simply look polished.
 - Let sections vary in rhythm and composition when the narrative earns it.
 - Use motion as art direction when it strengthens the story and still respects
   reduced motion.
+- Let delight carry brand voice through copy, imagery, transitions, discovery,
+  and details when those choices serve the story.
 
 **Common brand failures:**
 
@@ -80,7 +85,7 @@ and technical reference material.
 - Prioritise measure, hierarchy, rhythm, and scannability over visual novelty.
 - Use generous line height and paragraph spacing for prose.
 - Keep navigation, table of contents, anchors, and search predictable.
-- Use color sparingly for links, status, callouts, and code emphasis.
+- Use colour sparingly for links, status, callouts, and code emphasis.
 - Prefer real examples, diagrams, tables, and code blocks over decorative
   imagery.
 

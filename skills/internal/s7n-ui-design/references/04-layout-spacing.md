@@ -386,6 +386,38 @@ The `* + *` selector (the "owl") only applies margin where an element is precede
 }
 ```
 
+## Layout Rhythm and Density
+
+Layout problems are usually structure problems, not decoration problems. Before
+changing colour, shadows, or typography, check whether spacing, grouping,
+density, and hierarchy already make the surface understandable.
+
+Use the squint test: when details blur, the primary element, secondary element,
+and major groups should still be obvious.
+
+### Rhythm
+
+- Tight spacing belongs inside related groups.
+- Generous spacing belongs between distinct groups or sections.
+- Equal spacing everywhere creates monotony and weak hierarchy.
+- Brand surfaces can vary rhythm more strongly when the story earns it.
+- Product surfaces should keep rhythm predictable because repetition is part of
+  usability.
+
+### Density
+
+- Dense layouts fit comparison, scanning, repeated action, and data-heavy work.
+- Airy layouts fit brand storytelling, onboarding, and focused reading.
+- Sparse is not automatically premium; cramped is not automatically efficient.
+- Choose density from the user's task, not from taste.
+
+### Structure Before Containers
+
+Before adding a card, border, or shadow, ask whether proximity, alignment,
+background tint, heading, divider, or spacing can express the relationship with
+less visual weight. Cards are useful for distinct, actionable objects; they are
+not a universal grouping mechanism.
+
 ## Implement a CSS Modular Scale with Custom Properties
 
 **Modular scale vs 8pt grid:** The 8pt spacing scale (XS–XXL) is the primary system for component and layout spacing. The modular scale is an alternative for typography-driven layouts where all spacing derives from the type scale ratio. Pick one per project — don't mix both or spacing decisions become ambiguous.

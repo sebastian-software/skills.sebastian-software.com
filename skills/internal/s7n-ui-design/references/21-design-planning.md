@@ -25,7 +25,9 @@ question when the information cannot be inferred.
    permission-limited states?
 7. **Constraints:** Which design system, components, framework, performance,
    accessibility, i18n, or browser constraints already exist?
-8. **Anti-goals:** What would be a wrong direction for this audience or product?
+8. **Context:** Which devices, inputs, orientation, connection, and physical
+   usage conditions matter?
+9. **Anti-goals:** What would be a wrong direction for this audience or product?
 
 ## Decide Before Styling
 
@@ -43,6 +45,36 @@ Before choosing colours, spacing, shadows, or typography, decide:
 These decisions make the visual layer follow from the job. Do not start with
 card grids, hero templates, gradients, or animation before the surface has a
 clear job.
+
+## Context Adaptation
+
+Adaptation is not scaling. A design that moves from desktop to mobile, product
+to print, app shell to email, or pointer to touch may need a different structure
+while preserving the same information architecture.
+
+Decide the target context before implementation:
+
+- **Device and viewport:** phone, tablet, laptop, wide desktop, TV, print, email.
+- **Input:** touch, mouse, keyboard, stylus, voice, mixed input.
+- **Use case:** quick glance, repeated task, focused reading, data comparison,
+  presentation, offline use.
+- **Connection and device power:** fast desktop, low-end mobile, slow network,
+  offline-capable.
+- **Platform expectations:** bottom navigation, side panels, sheets, menus,
+  keyboard shortcuts, print headers, email-safe layouts.
+
+Rules:
+
+- Do not hide core functionality on smaller screens; change the interaction
+  model so it still works.
+- Use content-driven breakpoints: resize until the content breaks, then add a
+  breakpoint.
+- Use container queries for reusable components and media queries for page-level
+  layout decisions.
+- Detect input capability with `pointer` and `hover` queries. Screen size alone
+  does not tell you whether hover, touch, or keyboard is available.
+- Preserve the same conceptual model across contexts. A mobile version can
+  reveal less at once, but it should not become a different product.
 
 ## Adjustment Lenses
 
@@ -97,6 +129,28 @@ was chosen by category reflex instead of product intent.
 If a failure mode appears, do not "polish" around it. Change the brief decision:
 register, hierarchy, media strategy, density, or interaction model.
 
+## Earned Delight
+
+Plan delight only where the moment earns it. Delight should make the right
+design more memorable, not compensate for a weak flow.
+
+Good moments:
+
+- First successful action.
+- Completion of meaningful work.
+- Helpful recovery after an error.
+- Empty states that invite a useful first step.
+- Brand moments where the surface is meant to be remembered.
+
+Rules:
+
+- Never delay core functionality for delight.
+- Match the emotional context. Do not make high-stakes errors playful.
+- Keep product delight specific and brief; repeated task UI should remain quiet.
+- Avoid generic joke copy and novelty loading messages. The detail should be
+  specific to what the product actually does.
+- Respect reduced motion and performance budgets.
+
 ## Compact Design Brief
 
 For ambiguous or net-new UI, write a compact brief before implementation. Keep
@@ -115,6 +169,7 @@ Use this structure:
 - Interaction model: [form submit, inline edit, route, popover, modal, etc.]
 - Required states: [default, empty, loading, error, success, permissions]
 - Content and media: [real data, copy, images, diagrams, examples]
+- Context adaptation: [devices, inputs, orientation, connection, platform expectations]
 - Constraints: [design system, framework, accessibility, i18n, performance]
 - Anti-goals: [wrong directions to avoid]
 ```
