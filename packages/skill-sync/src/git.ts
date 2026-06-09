@@ -5,14 +5,9 @@ import path from "node:path";
 import { run } from "./exec.js";
 import { SkillSyncError } from "./errors.js";
 
-export async function resolveGitRef(
-  repo: string,
-  ref: string
-): Promise<string> {
+export async function resolveGitRef(repo: string, ref: string): Promise<string> {
   const direct = await run("git", ["ls-remote", repo, ref]);
-  const directLine = direct.stdout
-    .split("\n")
-    .find((line) => line.trim() !== "");
+  const directLine = direct.stdout.split("\n").find((line) => line.trim() !== "");
 
   if (directLine !== undefined) {
     const [commit] = directLine.split(/\s+/);
@@ -35,7 +30,7 @@ export async function resolveGitRef(
 
 export async function cloneGitRef(
   repo: string,
-  ref: string
+  ref: string,
 ): Promise<{ dir: string; resolvedRef: string; cleanup: () => Promise<void> }> {
   const dir = await fs.mkdtemp(path.join(tmpdir(), "skill-sync-"));
   await run("git", ["clone", "--quiet", repo, dir]);
@@ -48,6 +43,6 @@ export async function cloneGitRef(
     resolvedRef,
     async cleanup() {
       await fs.rm(dir, { recursive: true, force: true });
-    }
+    },
   };
 }

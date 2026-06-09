@@ -5,15 +5,11 @@ export {
   importInternalCommand,
   syncCommand,
   updateExternalCommand,
-  validateCommand
+  validateCommand,
 } from "./commands.js";
 export { SkillSyncError } from "./errors.js";
 export { buildDist, discoverSkills } from "./skills.js";
-export {
-  readLockfile,
-  readSourcesManifest,
-  writeLockfile
-} from "./manifests.js";
+export { readLockfile, readSourcesManifest, writeLockfile } from "./manifests.js";
 export { getRepoPaths, resolveTargetDirs } from "./paths.js";
 export type {
   ExternalSource,
@@ -22,5 +18,5 @@ export type {
   SkillDefinition,
   SkillsLock,
   SourcesManifest,
-  TargetName
+  TargetName,
 } from "./types.js";

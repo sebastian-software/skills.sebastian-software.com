@@ -16,10 +16,7 @@ export async function readJson<T>(filePath: string): Promise<T> {
   return JSON.parse(text) as T;
 }
 
-export async function writeJson(
-  filePath: string,
-  value: unknown
-): Promise<void> {
+export async function writeJson(filePath: string, value: unknown): Promise<void> {
   await fs.mkdir(path.dirname(filePath), { recursive: true });
   await fs.writeFile(filePath, `${JSON.stringify(value, null, 2)}\n`);
 }
@@ -32,7 +29,7 @@ export async function emptyDir(dir: string): Promise<void> {
 export async function copyDir(
   source: string,
   destination: string,
-  options: { exclude?: (relativePath: string) => boolean } = {}
+  options: { exclude?: (relativePath: string) => boolean } = {},
 ): Promise<void> {
   await fs.mkdir(destination, { recursive: true });
   const entries = await fs.readdir(source, { withFileTypes: true });
@@ -76,8 +73,8 @@ export async function hashDirectory(dir: string): Promise<string> {
   const hash = createHash("sha256");
 
   async function visit(current: string): Promise<void> {
-    const entries = (await fs.readdir(current, { withFileTypes: true })).sort(
-      (a, b) => a.name.localeCompare(b.name)
+    const entries = (await fs.readdir(current, { withFileTypes: true })).sort((a, b) =>
+      a.name.localeCompare(b.name),
     );
 
     for (const entry of entries) {

@@ -8,9 +8,7 @@ function cleanScalar(value: string): string {
   return value.trim().replace(/^['"]/, "").replace(/['"]$/, "");
 }
 
-export async function parseSkillFrontmatter(
-  skillRoot: string
-): Promise<SkillFrontmatter> {
+export async function parseSkillFrontmatter(skillRoot: string): Promise<SkillFrontmatter> {
   const skillFile = path.join(skillRoot, "SKILL.md");
   const text = await fs.readFile(skillFile, "utf8");
 
@@ -47,14 +45,12 @@ export async function parseSkillFrontmatter(
   }
 
   if (metadata.description === undefined || metadata.description === "") {
-    throw new SkillSyncError(
-      `${skillFile} is missing frontmatter field: description`
-    );
+    throw new SkillSyncError(`${skillFile} is missing frontmatter field: description`);
   }
 
   return {
     name: metadata.name,
     description: metadata.description,
-    metadata
+    metadata,
   };
 }

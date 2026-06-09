@@ -5,9 +5,9 @@ export default defineConfig({
   dts: true,
   entry: {
     cli: "src/cli.ts",
-    index: "src/index.ts"
+    index: "src/index.ts",
   },
   format: "esm",
   platform: "node",
-  target: "node24"
+  target: "node24",
 });

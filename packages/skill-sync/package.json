@@ -2,6 +2,23 @@
   "name": "skill-sync",
   "version": "0.0.0-alpha.0",
   "description": "Synchronize shared agent skills for Codex and Agents",
+  "keywords": [
+    "agents",
+    "cli",
+    "codex",
+    "skills",
+    "sync",
+    "typescript"
+  ],
+  "license": "MIT",
+  "author": "Sebastian Software",
+  "bin": {
+    "skill-sync": "./dist/cli.mjs"
+  },
+  "files": [
+    "dist",
+    "README.md"
+  ],
   "type": "module",
   "main": "./dist/index.mjs",
   "types": "./dist/index.d.mts",
@@ -11,31 +28,14 @@
       "import": "./dist/index.mjs"
     }
   },
-  "bin": {
-    "skill-sync": "./dist/cli.mjs"
+  "publishConfig": {
+    "access": "public"
   },
-  "files": [
-    "dist",
-    "README.md"
-  ],
   "scripts": {
     "build": "tsdown",
     "dev": "tsx src/cli.ts",
     "test": "vitest run",
     "typecheck": "tsc --noEmit"
-  },
-  "keywords": [
-    "agents",
-    "codex",
-    "skills",
-    "sync",
-    "cli",
-    "typescript"
-  ],
-  "author": "Sebastian Software",
-  "license": "MIT",
-  "engines": {
-    "node": ">=24.0.0"
   },
   "dependencies": {
     "commander": "^15.0.0",
@@ -48,7 +48,7 @@
     "typescript": "^6.0.3",
     "vitest": "^4.1.7"
   },
-  "publishConfig": {
-    "access": "public"
+  "engines": {
+    "node": ">=24.0.0"
   }
 }

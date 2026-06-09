@@ -2,14 +2,7 @@ import { promises as fs } from "node:fs";
 import path from "node:path";
 
 import { buildDist, distDigest } from "./skills.js";
-import {
-  copyDir,
-  emptyDir,
-  listChildDirs,
-  pathExists,
-  readJson,
-  writeJson
-} from "./fs.js";
+import { copyDir, emptyDir, listChildDirs, pathExists, readJson, writeJson } from "./fs.js";
 import { resolveTargetDirs } from "./paths.js";
 import type { RepoPaths, TargetName } from "./types.js";
 
@@ -35,17 +28,23 @@ async function readMarker(skillDir: string): Promise<ManagedMarker | null> {
   }
 
   try {
-    const marker = await readJson<ManagedMarker>(markerPath);
-    return marker.installedBy === "skill-sync" ? marker : null;
+    const marker = await readJson<unknown>(markerPath);
+    if (
+      typeof marker !== "object" ||
+      marker === null ||
+      !("installedBy" in marker) ||
+      marker.installedBy !== "skill-sync"
+    ) {
+      return null;
+    }
+
+    return marker as ManagedMarker;
   } catch {
     return null;
   }
 }
 
-export async function syncSkills(
-  paths: RepoPaths,
-  options: SyncOptions
-): Promise<string[]> {
+export async function syncSkills(paths: RepoPaths, options: SyncOptions): Promise<string[]> {
   const messages: string[] = [];
   const skills = await buildDist(paths);
   const digest = await distDigest(paths);
@@ -91,7 +90,7 @@ export async function syncSkills(
         source: paths.repoRoot,
         skillId: skill.installName,
         lockfileDigest: digest,
-        installedAt: new Date().toISOString()
+        installedAt: new Date().toISOString(),
       } satisfies ManagedMarker);
     }
   }

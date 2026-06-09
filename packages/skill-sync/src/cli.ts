@@ -8,7 +8,7 @@ import {
   importInternalCommand,
   syncCommand,
   updateExternalCommand,
-  validateCommand
+  validateCommand,
 } from "./index.js";
 import { SkillSyncError } from "./errors.js";
 import type { TargetName } from "./types.js";
@@ -32,9 +32,7 @@ async function runCli(action: () => Promise<void>): Promise<void> {
     await action();
   } catch (error) {
     const message =
-      error instanceof SkillSyncError || error instanceof Error
-        ? error.message
-        : String(error);
+      error instanceof SkillSyncError || error instanceof Error ? error.message : String(error);
     console.error(pc.red(message));
     process.exitCode = 1;
   }
@@ -70,7 +68,7 @@ program
         console.warn(pc.yellow(warning));
       }
       console.log(pc.green("Skill repository is valid."));
-    })
+    }),
   );
 
 program
@@ -80,7 +78,7 @@ program
     runCli(async () => {
       const skills = await buildCommand();
       printList("Built skills", skills);
-    })
+    }),
   );
 
 program
@@ -91,18 +89,13 @@ program
   .option("--dry-run", "show changes without writing")
   .option("--verbose", "print every sync operation")
   .action(
-    (options: {
-      target: TargetName;
-      targetDir?: string;
-      dryRun?: boolean;
-      verbose?: boolean;
-    }) =>
+    (options: { target: TargetName; targetDir?: string; dryRun?: boolean; verbose?: boolean }) =>
       runCli(async () => {
         const messages = await syncCommand(options);
         for (const message of messages) {
           console.log(message);
         }
-      })
+      }),
   );
 
 program
@@ -112,7 +105,7 @@ program
     runCli(async () => {
       const imported = await importInternalCommand();
       printList("Imported internal skills", imported);
-    })
+    }),
   );
 
 program
@@ -122,7 +115,7 @@ program
     runCli(async () => {
       const updated = await updateExternalCommand();
       printList("Updated external skills", updated);
-    })
+    }),
   );
 
 program
@@ -134,7 +127,7 @@ program
       for (const line of lines) {
         console.log(line);
       }
-    })
+    }),
   );
 
 await program.parseAsync();

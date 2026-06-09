@@ -8,16 +8,14 @@ import { SkillSyncError } from "./errors.js";
 export function findRepoRoot(start = process.cwd()): string {
   let current = path.resolve(start);
 
-  while (true) {
+  for (;;) {
     if (existsSync(path.join(current, "manifests", "skills.sources.json"))) {
       return current;
     }
 
     const parent = path.dirname(current);
     if (parent === current) {
-      throw new SkillSyncError(
-        `Could not find repository root from ${path.resolve(start)}`
-      );
+      throw new SkillSyncError(`Could not find repository root from ${path.resolve(start)}`);
     }
 
     current = parent;
@@ -28,16 +26,12 @@ export function getRepoPaths(repoRoot = findRepoRoot()): RepoPaths {
   return {
     repoRoot,
     manifestsDir: path.join(repoRoot, "manifests"),
-    sourcesManifestPath: path.join(
-      repoRoot,
-      "manifests",
-      "skills.sources.json"
-    ),
+    sourcesManifestPath: path.join(repoRoot, "manifests", "skills.sources.json"),
     lockfilePath: path.join(repoRoot, "manifests", "skills.lock.json"),
     skillsDir: path.join(repoRoot, "skills"),
     internalSkillsDir: path.join(repoRoot, "skills", "internal"),
     vendorSkillsDir: path.join(repoRoot, "skills", "vendor"),
-    distSkillsDir: path.join(repoRoot, "dist", "skills")
+    distSkillsDir: path.join(repoRoot, "dist", "skills"),
   };
 }
 
@@ -52,14 +46,14 @@ export function defaultTargetDir(target: Exclude<TargetName, "all">): string {
 
 export function resolveTargetDirs(
   target: TargetName,
-  customTargetDir?: string
+  customTargetDir?: string,
 ): Array<{ name: Exclude<TargetName, "all">; dir: string }> {
   if (customTargetDir !== undefined) {
     const resolved = path.resolve(customTargetDir);
     if (target === "all") {
       return [
         { name: "codex", dir: path.join(resolved, "codex") },
-        { name: "agents", dir: path.join(resolved, "agents") }
+        { name: "agents", dir: path.join(resolved, "agents") },
       ];
     }
 
@@ -69,7 +63,7 @@ export function resolveTargetDirs(
   if (target === "all") {
     return [
       { name: "codex", dir: defaultTargetDir("codex") },
-      { name: "agents", dir: defaultTargetDir("agents") }
+      { name: "agents", dir: defaultTargetDir("agents") },
     ];
   }
 

@@ -310,8 +310,8 @@ The root workspace should expose developer-friendly scripts:
     "test": "pnpm -r test",
     "typecheck": "pnpm -r typecheck",
     "lint": "pnpm lint:oxlint && pnpm lint:eslint",
-    "format": "prettier --write .",
-    "format:check": "prettier --check .",
+    "format": "oxfmt --ignore-path .oxfmtignore --write .",
+    "format:check": "oxfmt --ignore-path .oxfmtignore --check .",
     "skill-sync": "tsx packages/skill-sync/src/cli.ts",
     "agent:check": "pnpm lint && pnpm format:check && pnpm typecheck && pnpm build && pnpm test && pnpm skill-sync validate"
   }

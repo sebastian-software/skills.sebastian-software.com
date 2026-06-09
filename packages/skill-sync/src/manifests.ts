@@ -6,7 +6,7 @@ import type {
   LockEntry,
   RepoPaths,
   SkillsLock,
-  SourcesManifest
+  SourcesManifest,
 } from "./types.js";
 import { readJson, writeJson } from "./fs.js";
 import { SkillSyncError } from "./errors.js";
@@ -15,11 +15,7 @@ function isRecord(value: unknown): value is Record<string, unknown> {
   return typeof value === "object" && value !== null && !Array.isArray(value);
 }
 
-function readString(
-  value: Record<string, unknown>,
-  key: string,
-  context: string
-): string {
+function readString(value: Record<string, unknown>, key: string, context: string): string {
   const field = value[key];
   if (typeof field !== "string" || field.trim() === "") {
     throw new SkillSyncError(`${context}.${key} must be a non-empty string`);
@@ -30,7 +26,7 @@ function readString(
 function readOptionalString(
   value: Record<string, unknown>,
   key: string,
-  context: string
+  context: string,
 ): string | undefined {
   const field = value[key];
   if (field === undefined) {
@@ -45,7 +41,7 @@ function readOptionalString(
 function readOptionalStringArray(
   value: Record<string, unknown>,
   key: string,
-  context: string
+  context: string,
 ): string[] | undefined {
   const field = value[key];
   if (field === undefined) {
@@ -76,7 +72,7 @@ function parseInternalSource(value: unknown, index: number): InternalSource {
     id: readString(value, "id", context),
     repo: readString(value, "repo", context),
     ref: readString(value, "ref", context),
-    path: readOptionalString(value, "path", context) ?? "."
+    path: readOptionalString(value, "path", context) ?? ".",
   };
 }
 
@@ -102,7 +98,7 @@ function parseExternalSource(value: unknown, index: number): ExternalSource {
     repo: readString(value, "repo", context),
     ref: readString(value, "ref", context),
     path: readOptionalString(value, "path", context) ?? ".",
-    vendor: vendor === true
+    vendor: vendor === true,
   };
 
   const include = readOptionalStringArray(value, "include", context);
@@ -123,9 +119,7 @@ function parseExternalSource(value: unknown, index: number): ExternalSource {
   return source;
 }
 
-export async function readSourcesManifest(
-  paths: RepoPaths
-): Promise<SourcesManifest> {
+export async function readSourcesManifest(paths: RepoPaths): Promise<SourcesManifest> {
   const raw = await readJson<unknown>(paths.sourcesManifestPath);
   if (!isRecord(raw)) {
     throw new SkillSyncError("skills.sources.json must be an object");
@@ -142,7 +136,7 @@ export async function readSourcesManifest(
 
   return {
     internal: internal.map(parseInternalSource),
-    external: external.map(parseExternalSource)
+    external: external.map(parseExternalSource),
   };
 }
 
@@ -165,9 +159,7 @@ function parseLockEntry(value: unknown, index: number): LockEntry {
   const included: string[] = [];
   for (const item of rawIncluded) {
     if (typeof item !== "string") {
-      throw new SkillSyncError(
-        `${context}.included must be an array of strings`
-      );
+      throw new SkillSyncError(`${context}.included must be an array of strings`);
     }
     included.push(item);
   }
@@ -181,7 +173,7 @@ function parseLockEntry(value: unknown, index: number): LockEntry {
     included,
     integrity: readString(value, "integrity", context),
     updatedAt: readString(value, "updatedAt", context),
-    toolVersion: readString(value, "toolVersion", context)
+    toolVersion: readString(value, "toolVersion", context),
   };
 }
 
@@ -195,9 +187,7 @@ export async function readLockfile(paths: RepoPaths): Promise<SkillsLock> {
     throw new SkillSyncError("skills.lock.json.version must be 1");
   }
   if (raw.generatedBy !== "skill-sync") {
-    throw new SkillSyncError(
-      'skills.lock.json.generatedBy must be "skill-sync"'
-    );
+    throw new SkillSyncError('skills.lock.json.generatedBy must be "skill-sync"');
   }
   if (!Array.isArray(raw.sources)) {
     throw new SkillSyncError("skills.lock.json.sources must be an array");
@@ -206,14 +196,11 @@ export async function readLockfile(paths: RepoPaths): Promise<SkillsLock> {
   return {
     version: 1,
     generatedBy: "skill-sync",
-    sources: raw.sources.map(parseLockEntry)
+    sources: raw.sources.map(parseLockEntry),
   };
 }
 
-export async function writeLockfile(
-  paths: RepoPaths,
-  lockfile: SkillsLock
-): Promise<void> {
+export async function writeLockfile(paths: RepoPaths, lockfile: SkillsLock): Promise<void> {
   await writeJson(paths.lockfilePath, sortLockfile(lockfile));
 }
 
@@ -221,26 +208,19 @@ export function sortLockfile(lockfile: SkillsLock): SkillsLock {
   return {
     ...lockfile,
     sources: [...lockfile.sources].sort((a, b) =>
-      `${a.kind}:${a.id}`.localeCompare(`${b.kind}:${b.id}`)
-    )
+      `${a.kind}:${a.id}`.localeCompare(`${b.kind}:${b.id}`),
+    ),
   };
 }
 
-export function upsertLockEntry(
-  lockfile: SkillsLock,
-  entry: LockEntry
-): SkillsLock {
+export function upsertLockEntry(lockfile: SkillsLock, entry: LockEntry): SkillsLock {
   const sources = lockfile.sources.filter(
-    (source) => !(source.id === entry.id && source.kind === entry.kind)
+    (source) => !(source.id === entry.id && source.kind === entry.kind),
   );
   sources.push(entry);
   return sortLockfile({ ...lockfile, sources });
 }
 
-export function sourceDestination(
-  baseDir: string,
-  id: string,
-  sourcePath = "."
-): string {
+export function sourceDestination(baseDir: string, id: string, sourcePath = "."): string {
   return path.normalize(path.join(baseDir, id, sourcePath));
 }

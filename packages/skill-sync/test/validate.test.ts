@@ -8,10 +8,7 @@ import { createRepoRoot, writeSkill } from "./helpers.js";
 describe("validateCommand", () => {
   it("validates a repository with one internal skill", async () => {
     const repoRoot = await createRepoRoot();
-    await writeSkill(
-      path.join(repoRoot, "skills", "internal", "alpha"),
-      "alpha"
-    );
+    await writeSkill(path.join(repoRoot, "skills", "internal", "alpha"), "alpha");
 
     const result = await validateCommand(repoRoot);
 
@@ -22,10 +19,7 @@ describe("validateCommand", () => {
     const repoRoot = await createRepoRoot();
     await writeSkill(path.join(repoRoot, "skills", "internal", "one"), "same");
     await writeSkill(path.join(repoRoot, "skills", "vendor", "two"), "same");
-    await fs.writeFile(
-      path.join(repoRoot, "skills", "vendor", "two", "SOURCE.md"),
-      "# Source\n"
-    );
+    await fs.writeFile(path.join(repoRoot, "skills", "vendor", "two", "SOURCE.md"), "# Source\n");
 
     const result = await validateCommand(repoRoot);
 
@@ -35,16 +29,13 @@ describe("validateCommand", () => {
 
   it("builds a flat dist skills tree", async () => {
     const repoRoot = await createRepoRoot();
-    await writeSkill(
-      path.join(repoRoot, "skills", "internal", "alpha"),
-      "alpha"
-    );
+    await writeSkill(path.join(repoRoot, "skills", "internal", "alpha"), "alpha");
 
     const built = await buildCommand(repoRoot);
 
     expect(built).toEqual(["alpha"]);
     await expect(
-      fs.stat(path.join(repoRoot, "dist", "skills", "alpha", "SKILL.md"))
+      fs.stat(path.join(repoRoot, "dist", "skills", "alpha", "SKILL.md")),
     ).resolves.toBeDefined();
   });
 });

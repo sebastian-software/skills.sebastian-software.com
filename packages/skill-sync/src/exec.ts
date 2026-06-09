@@ -6,15 +6,15 @@ const execFileAsync = promisify(execFile);
 export async function run(
   command: string,
   args: string[],
-  options: { cwd?: string } = {}
+  options: { cwd?: string } = {},
 ): Promise<{ stdout: string; stderr: string }> {
   const result = await execFileAsync(command, args, {
     cwd: options.cwd,
-    maxBuffer: 1024 * 1024 * 32
+    maxBuffer: 1024 * 1024 * 32,
   });
 
   return {
     stdout: result.stdout,
-    stderr: result.stderr
+    stderr: result.stderr,
   };
 }

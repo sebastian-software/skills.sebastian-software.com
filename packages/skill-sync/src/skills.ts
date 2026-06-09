@@ -2,20 +2,11 @@ import { promises as fs } from "node:fs";
 import path from "node:path";
 
 import { parseSkillFrontmatter } from "./frontmatter.js";
-import {
-  copyDir,
-  emptyDir,
-  hashDirectory,
-  listChildDirs,
-  pathExists
-} from "./fs.js";
+import { copyDir, emptyDir, hashDirectory, listChildDirs, pathExists } from "./fs.js";
 import type { RepoPaths, SkillDefinition, SourceKind } from "./types.js";
 import { SkillSyncError } from "./errors.js";
 
-async function discoverSkillDir(
-  root: string,
-  kind: SourceKind
-): Promise<SkillDefinition | null> {
+async function discoverSkillDir(root: string, kind: SourceKind): Promise<SkillDefinition | null> {
   const skillFile = path.join(root, "SKILL.md");
   if (!(await pathExists(skillFile))) {
     return null;
@@ -27,13 +18,11 @@ async function discoverSkillDir(
     installName: frontmatter.name,
     kind,
     root,
-    frontmatter
+    frontmatter,
   };
 }
 
-export async function discoverSkills(
-  paths: RepoPaths
-): Promise<SkillDefinition[]> {
+export async function discoverSkills(paths: RepoPaths): Promise<SkillDefinition[]> {
   const internalDirs = await listChildDirs(paths.internalSkillsDir);
   const vendorDirs = await listChildDirs(paths.vendorSkillsDir);
   const skills: SkillDefinition[] = [];
@@ -64,7 +53,7 @@ export function assertUniqueInstallNames(skills: SkillDefinition[]): void {
     const previous = seen.get(skill.installName);
     if (previous !== undefined) {
       throw new SkillSyncError(
-        `Duplicate skill name "${skill.installName}" in ${previous} and ${skill.root}`
+        `Duplicate skill name "${skill.installName}" in ${previous} and ${skill.root}`,
       );
     }
     seen.set(skill.installName, skill.root);
@@ -77,15 +66,11 @@ export async function buildDist(paths: RepoPaths): Promise<SkillDefinition[]> {
   await emptyDir(paths.distSkillsDir);
 
   for (const skill of skills) {
-    await copyDir(
-      skill.root,
-      path.join(paths.distSkillsDir, skill.installName),
-      {
-        exclude(relativePath) {
-          return relativePath === ".gitkeep";
-        }
-      }
-    );
+    await copyDir(skill.root, path.join(paths.distSkillsDir, skill.installName), {
+      exclude(relativePath) {
+        return relativePath === ".gitkeep";
+      },
+    });
   }
 
   return skills;
@@ -108,9 +93,7 @@ export async function ensureVendorSourceFiles(paths: RepoPaths): Promise<void> {
   }
 }
 
-export async function referencedPathsExist(
-  skill: SkillDefinition
-): Promise<void> {
+export async function referencedPathsExist(skill: SkillDefinition): Promise<void> {
   for (const dirname of ["references", "scripts", "assets", "examples"]) {
     const fullPath = path.join(skill.root, dirname);
     if (await pathExists(fullPath)) {

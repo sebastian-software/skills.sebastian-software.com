@@ -6,18 +6,13 @@ import { SkillSyncError } from "./errors.js";
 import { copyDir, emptyDir, hashDirectory, pathExists } from "./fs.js";
 import { parseSkillFrontmatter } from "./frontmatter.js";
 import { cloneGitRef, resolveGitRef } from "./git.js";
-import {
-  readLockfile,
-  readSourcesManifest,
-  upsertLockEntry,
-  writeLockfile
-} from "./manifests.js";
+import { readLockfile, readSourcesManifest, upsertLockEntry, writeLockfile } from "./manifests.js";
 import { getRepoPaths } from "./paths.js";
 import {
   buildDist,
   discoverSkills,
   ensureVendorSourceFiles,
-  referencedPathsExist
+  referencedPathsExist,
 } from "./skills.js";
 import { syncSkills, type SyncOptions } from "./sync.js";
 import type {
@@ -26,7 +21,7 @@ import type {
   InternalSource,
   LockEntry,
   RepoPaths,
-  SkillsLock
+  SkillsLock,
 } from "./types.js";
 
 const TOOL_VERSION = "0.0.0-alpha.0";
@@ -39,15 +34,13 @@ function failure(error: unknown): CommandResult {
   return {
     ok: false,
     errors: [error instanceof Error ? error.message : String(error)],
-    warnings: []
+    warnings: [],
   };
 }
 
 function sourcePathIsSafe(sourcePath: string): boolean {
   return (
-    sourcePath !== "" &&
-    !path.isAbsolute(sourcePath) &&
-    !sourcePath.split(/[\\/]/).includes("..")
+    sourcePath !== "" && !path.isAbsolute(sourcePath) && !sourcePath.split(/[\\/]/).includes("..")
   );
 }
 
@@ -59,15 +52,13 @@ function validateSourcePaths(sources: {
     const sourcePath = source.path ?? ".";
     if (!sourcePathIsSafe(sourcePath)) {
       throw new SkillSyncError(
-        `${source.id}.path must be relative and stay inside the source repo`
+        `${source.id}.path must be relative and stay inside the source repo`,
       );
     }
   }
 }
 
-export async function validateCommand(
-  repoRoot?: string
-): Promise<CommandResult> {
+export async function validateCommand(repoRoot?: string): Promise<CommandResult> {
   try {
     const paths = getRepoPaths(repoRoot);
     const sources = await readSourcesManifest(paths);
@@ -81,7 +72,7 @@ export async function validateCommand(
       const previous = seen.get(skill.installName);
       if (previous !== undefined) {
         throw new SkillSyncError(
-          `Duplicate skill name "${skill.installName}" in ${previous} and ${skill.root}`
+          `Duplicate skill name "${skill.installName}" in ${previous} and ${skill.root}`,
         );
       }
       seen.set(skill.installName, skill.root);
@@ -100,9 +91,7 @@ export async function buildCommand(repoRoot?: string): Promise<string[]> {
   return skills.map((skill) => skill.installName);
 }
 
-export async function syncCommand(
-  options: SyncOptions & { repoRoot?: string }
-): Promise<string[]> {
+export async function syncCommand(options: SyncOptions & { repoRoot?: string }): Promise<string[]> {
   const paths = getRepoPaths(options.repoRoot);
   return syncSkills(paths, options);
 }
@@ -112,7 +101,7 @@ function lockEntryForImport(
   kind: "internal" | "external",
   resolvedRef: string,
   included: string[],
-  integrity: string
+  integrity: string,
 ): LockEntry {
   return {
     id: source.id,
@@ -123,14 +112,11 @@ function lockEntryForImport(
     included,
     integrity,
     updatedAt: new Date().toISOString(),
-    toolVersion: TOOL_VERSION
+    toolVersion: TOOL_VERSION,
   };
 }
 
-async function copySkillSource(
-  sourceRoot: string,
-  destination: string
-): Promise<string[]> {
+async function copySkillSource(sourceRoot: string, destination: string): Promise<string[]> {
   await fs.rm(destination, { recursive: true, force: true });
   await copyDir(sourceRoot, destination);
 
@@ -145,7 +131,7 @@ async function copySkillSource(
 async function importInternalSource(
   paths: RepoPaths,
   lockfile: SkillsLock,
-  source: InternalSource
+  source: InternalSource,
 ): Promise<SkillsLock> {
   const checkout = await cloneGitRef(source.repo, source.ref);
   try {
@@ -155,22 +141,14 @@ async function importInternalSource(
     const integrity = await hashDirectory(destination);
     return upsertLockEntry(
       lockfile,
-      lockEntryForImport(
-        source,
-        "internal",
-        checkout.resolvedRef,
-        included,
-        integrity
-      )
+      lockEntryForImport(source, "internal", checkout.resolvedRef, included, integrity),
     );
   } finally {
     await checkout.cleanup();
   }
 }
 
-export async function importInternalCommand(
-  repoRoot?: string
-): Promise<string[]> {
+export async function importInternalCommand(repoRoot?: string): Promise<string[]> {
   const paths = getRepoPaths(repoRoot);
   const sources = await readSourcesManifest(paths);
   let lockfile = await readLockfile(paths);
@@ -205,15 +183,12 @@ async function vendorExternalSource(
   paths: RepoPaths,
   source: ExternalSource,
   checkoutDir: string,
-  resolvedRef: string
+  resolvedRef: string,
 ): Promise<{ included: string[]; integrity: string }> {
   const sourceRoot = path.join(checkoutDir, source.path ?? ".");
   const destination = path.join(paths.vendorSkillsDir, source.id);
   const included = await copySkillSource(sourceRoot, destination);
-  await fs.writeFile(
-    path.join(destination, "SOURCE.md"),
-    sourceMarkdown(source, resolvedRef)
-  );
+  await fs.writeFile(path.join(destination, "SOURCE.md"), sourceMarkdown(source, resolvedRef));
   const integrity = await hashDirectory(destination);
   return { included, integrity };
 }
@@ -221,7 +196,7 @@ async function vendorExternalSource(
 async function updateExternalSource(
   paths: RepoPaths,
   lockfile: SkillsLock,
-  source: ExternalSource
+  source: ExternalSource,
 ): Promise<SkillsLock> {
   if (source.vendor === true) {
     const checkout = await cloneGitRef(source.repo, source.ref);
@@ -230,17 +205,11 @@ async function updateExternalSource(
         paths,
         source,
         checkout.dir,
-        checkout.resolvedRef
+        checkout.resolvedRef,
       );
       return upsertLockEntry(
         lockfile,
-        lockEntryForImport(
-          source,
-          "external",
-          checkout.resolvedRef,
-          included,
-          integrity
-        )
+        lockEntryForImport(source, "external", checkout.resolvedRef, included, integrity),
       );
     } finally {
       await checkout.cleanup();
@@ -250,19 +219,11 @@ async function updateExternalSource(
   const resolvedRef = await resolveGitRef(source.repo, source.ref);
   return upsertLockEntry(
     lockfile,
-    lockEntryForImport(
-      source,
-      "external",
-      resolvedRef,
-      source.include ?? [],
-      `git-${resolvedRef}`
-    )
+    lockEntryForImport(source, "external", resolvedRef, source.include ?? [], `git-${resolvedRef}`),
   );
 }
 
-export async function updateExternalCommand(
-  repoRoot?: string
-): Promise<string[]> {
+export async function updateExternalCommand(repoRoot?: string): Promise<string[]> {
   const paths = getRepoPaths(repoRoot);
   const sources = await readSourcesManifest(paths);
   let lockfile = await readLockfile(paths);
@@ -293,12 +254,8 @@ export async function doctorCommand(repoRoot?: string): Promise<string[]> {
   const lines: string[] = [];
   lines.push(`${pc.bold("Repository")}: ${paths.repoRoot}`);
   lines.push(`${pc.bold("Node")}: ${process.version}`);
-  lines.push(
-    `${pc.bold("pnpm")}: ${(await commandAvailable("pnpm")) ? "ok" : "missing"}`
-  );
-  lines.push(
-    `${pc.bold("git")}: ${(await commandAvailable("git")) ? "ok" : "missing"}`
-  );
+  lines.push(`${pc.bold("pnpm")}: ${(await commandAvailable("pnpm")) ? "ok" : "missing"}`);
+  lines.push(`${pc.bold("git")}: ${(await commandAvailable("git")) ? "ok" : "missing"}`);
 
   try {
     const { run } = await import("./exec.js");

@@ -1,3 +1,3 @@
 export default {
-  ignorePatterns: ["**/dist/**", "coverage/**", "node_modules/**"]
+  ignorePatterns: ["**/dist/**", "coverage/**", "node_modules/**"],
 };
