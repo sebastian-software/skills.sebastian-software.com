@@ -82,6 +82,34 @@ Present information in order of importance.
 - Higher contrast = more prominent
 - Make headings darker than body text
 
+## Choose a Colour Strategy
+
+Choose the colour strategy before choosing individual colours. The strategy should
+follow the design register and the surface's job.
+
+| Strategy | Use when | Guidance |
+|----------|----------|----------|
+| **Restrained** | Product UI, admin tools, settings, dense data, documentation | Neutral surfaces, semantic states, one accent for primary action/current selection/focus |
+| **Committed** | Brand pages, onboarding moments, launch surfaces, memorable product moments | One dominant brand colour can carry a substantial part of the surface |
+| **Full palette** | Campaigns, data visualisation, category-rich product areas | Use 3-4 named roles deliberately; never let colours become arbitrary decoration |
+| **Drenched** | Single-purpose brand heroes, campaigns, immersive launches | The surface is the colour; typography, contrast, and imagery must still remain legible |
+
+Product surfaces default to **Restrained** unless a specific moment earns more
+colour. Brand surfaces should not default to timid restraint when the page's job
+is to create memory and distinction.
+
+### Theme Context
+
+Do not choose light or dark mode by habit. Decide from context:
+
+- Who is using this?
+- In what physical environment?
+- For how long?
+- With what level of focus, stress, or ambient light?
+
+If the context does not clearly justify a dark or light default, preserve the
+project's existing theme conventions.
+
 ## Use Black and White for Timeless Aesthetic
 
 Benefits:

@@ -71,7 +71,7 @@ A system of predefined options and guidelines for efficient design decisions.
 
 Before adding or changing UI, inspect the project for existing decisions:
 
-- Design tokens: color, typography, spacing, radius, elevation, motion
+- Design tokens: colour, typography, spacing, radius, elevation, motion
 - Shared components: buttons, inputs, dialogs, navigation, tables, empty states
 - CSS architecture: cascade layers, utility conventions, component boundaries
 - Interaction patterns: inline edit vs modal, explicit save vs autosave, toast vs
@@ -144,6 +144,25 @@ Background  - White or near-white
 - Combine small components to create larger ones
 - Arrange components in specific layouts for reusable page templates
 - Create a component library / UI kit
+
+### Extract Patterns Deliberately
+
+Extract a pattern when it appears three or more times with the same intent, or
+when a shared token/component would prevent immediate drift.
+
+Good extraction candidates:
+
+- Repeated component structures: cards, rows, toolbars, empty states, form
+  groups.
+- Repeated semantic values: colour roles, spacing, elevation, radius, type styles,
+  motion timing.
+- Repeated interaction patterns: inline edit, confirmation/undo, filter bars,
+  status messages.
+
+Do not extract one-off UI just because it looks similar. Two elements that look
+alike but serve different mental models may need separate implementations. Keep
+the component API as specific as the product concept allows; components that are
+too generic become hard to use correctly.
 
 ### 3. Define Usage Guidelines
 
@@ -761,9 +780,13 @@ Style inert regions to reinforce their inactive state:
 
 When loading content dynamically, ensure users never see empty/unloaded pages:
 
-1. Start in a **loading state** (skeleton screens, shimmer placeholders)
-2. **Transition** loaded content in smoothly
-3. Never show the unloaded state — build with an "always be loading" mentality
+1. Start in a real component loading state or local status region.
+2. Preserve stable component boundaries so loading feedback does not shift the
+   page.
+3. Transition loaded content in smoothly when the transition clarifies what
+   changed.
+4. Never show an unexplained blank area. If content is unavailable, say what is
+   loading or what action can recover.
 
 ### Signal Oncoming Animations
 

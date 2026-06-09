@@ -29,7 +29,7 @@ question when the information cannot be inferred.
 
 ## Decide Before Styling
 
-Before choosing colors, spacing, shadows, or typography, decide:
+Before choosing colours, spacing, shadows, or typography, decide:
 
 - The information hierarchy.
 - The layout topology: single column, split pane, table, master-detail,
@@ -43,6 +43,59 @@ Before choosing colors, spacing, shadows, or typography, decide:
 These decisions make the visual layer follow from the job. Do not start with
 card grids, hero templates, gradients, or animation before the surface has a
 clear job.
+
+## Adjustment Lenses
+
+Use these lenses before implementation when the brief exposes a directional
+risk. They are not separate workflows. Pick the lens that prevents the wrong
+first draft.
+
+### Bolder
+
+Use when a brand or launch surface needs a clearer point of view.
+
+- Increase contrast in hierarchy, not random decoration.
+- Commit to one stronger composition, colour strategy, image choice, or
+  typographic voice.
+- Make one thing unmistakably dominant instead of making every section louder.
+
+### Quieter
+
+Use when the surface is too loud for repeated use or high-stakes work.
+
+- Reduce decorative colour, motion, shadows, and competing accents.
+- Let product structure, labels, and states carry confidence.
+- Keep primary actions clear while making inactive states calmer.
+
+### Distill
+
+Use when complexity is the main risk.
+
+- Remove repeated explanations, duplicate actions, ornamental containers, and
+  choices that do not affect the user's next step.
+- Combine related controls and reveal secondary options only when needed.
+- Preserve capability; remove presentation and decision noise.
+
+## Generic UI Failure Modes
+
+Check these before choosing a visual direction. They are not timeless taste
+laws; they are current generated-UI failure modes that often indicate the design
+was chosen by category reflex instead of product intent.
+
+- Generic hero plus metrics row plus identical card grid.
+- Decorative gradient text, glass panels, or soft shadows with no information
+  role.
+- Over-rounded cards, nested cards, or every section framed as a card.
+- Tiny labels or numbered markers repeated as section scaffolding.
+- Warm neutral backgrounds or dark dashboards chosen by category default rather
+  than context.
+- Placeholder imagery where the subject requires real product, place, person,
+  object, or state evidence.
+- Dense product surfaces decorated like brand pages.
+- Brand surfaces made invisible by excessive product restraint.
+
+If a failure mode appears, do not "polish" around it. Change the brief decision:
+register, hierarchy, media strategy, density, or interaction model.
 
 ## Compact Design Brief
 

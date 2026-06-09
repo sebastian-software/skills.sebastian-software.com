@@ -332,6 +332,24 @@ than explanatory copy.
 - Keep empty-state CTAs scoped to the component. Do not send users into a broad
   setup flow when one direct action can populate the view.
 
+## Copy Clarity Rubric
+
+Use this rubric before finalizing labels, errors, empty states, and onboarding
+copy.
+
+| Check | Good copy does this |
+|-------|---------------------|
+| Names the object | Uses the product's existing noun consistently |
+| Names the action | Button and menu labels say what will happen |
+| Removes filler | No restated headings, vague intros, or decorative phrases |
+| Explains recovery | Errors say what went wrong and what to do next |
+| Fits the component | Text length works in the actual button, field, card, toast, or dialog |
+| Works out of context | Links and actions make sense when read alone |
+
+If the copy fails a check, rewrite the copy before styling around it. Weak copy
+often creates layout problems because the UI has to compensate for unclear
+meaning.
+
 ## Chapter Summary
 
 1. Be concise - avoid unneeded words, use short words, keep sentences under 20 words

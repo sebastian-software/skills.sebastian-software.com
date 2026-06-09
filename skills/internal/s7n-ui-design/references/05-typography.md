@@ -14,6 +14,30 @@ Learn a system of logical guidelines to make text beautiful and easy to read.
 
 **Monospaced** - Every character takes same horizontal space. Good for code and numbers (easier to compare).
 
+## Decide Typography Roles First
+
+Do not choose fonts by mood alone. Decide the text roles before selecting or
+changing type.
+
+| Role | Needs |
+|------|-------|
+| Functional UI | Legible at small sizes, sturdy weights, clear forms, predictable metrics |
+| Body prose | Comfortable measure, line height, paragraph rhythm, strong fallback behaviour |
+| Display text | Distinct voice, large-size quality, controlled line breaks |
+| Data and code | Tabular numbers or monospaced alignment where comparison matters |
+
+Product UI often works best with one well-tuned sans-serif family and a tight
+scale. Brand surfaces may need a stronger display voice. Content-heavy surfaces
+need reading rhythm more than personality.
+
+Before implementation, decide:
+
+- Which roles exist on this surface.
+- Whether one family can serve all roles.
+- Which scale ratio fits the register.
+- Which weights are genuinely distinct.
+- How fallback fonts, long text, and localisation affect layout.
+
 ## Use a Single Sans Serif Typeface
 
 Safest for most interface designs.
