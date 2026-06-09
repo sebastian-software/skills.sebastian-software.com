@@ -33,6 +33,36 @@
   ],
   "external": [
     {
+      "id": "antfu-skills",
+      "type": "git",
+      "repo": "https://github.com/antfu/skills.git",
+      "ref": "main",
+      "vendor": true,
+      "include": [
+        {
+          "path": "skills/vitest",
+          "name": "vitest",
+          "installName": "antfu-vitest",
+          "rename": "source-prefix"
+        }
+      ]
+    },
+    {
+      "id": "get-convex-agent-skills",
+      "type": "git",
+      "repo": "https://github.com/get-convex/agent-skills.git",
+      "ref": "main",
+      "vendor": true,
+      "include": [
+        {
+          "path": "skills/convex",
+          "name": "convex",
+          "installName": "get-convex-convex",
+          "rename": "source-prefix"
+        }
+      ]
+    },
+    {
       "id": "marketingskills",
       "type": "git",
       "repo": "https://github.com/coreyhaines31/marketingskills.git",

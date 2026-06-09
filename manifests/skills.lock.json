@@ -3,6 +3,28 @@
   "generatedBy": "skill-sync",
   "sources": [
     {
+      "id": "antfu-skills",
+      "kind": "external",
+      "sourceUrl": "https://github.com/antfu/skills.git",
+      "requestedRef": "main",
+      "resolvedRef": "50deaeb269d80d92db7a2c5a677290309ae307fc",
+      "included": ["antfu-vitest"],
+      "integrity": "sha256-d66e5d1ac2313f480b58adfdde631c2435ba1f39b75dd25c144c36a085a2abb0",
+      "updatedAt": "2026-06-09T21:55:16.422Z",
+      "toolVersion": "0.0.0-alpha.0"
+    },
+    {
+      "id": "get-convex-agent-skills",
+      "kind": "external",
+      "sourceUrl": "https://github.com/get-convex/agent-skills.git",
+      "requestedRef": "main",
+      "resolvedRef": "7a6fcc6882f344577a34365fdadbd0f8f8c467d7",
+      "included": ["get-convex-convex"],
+      "integrity": "sha256-0999ad061306321e583502c0683662e785c600ddd41a82fb318fb08d228d196c",
+      "updatedAt": "2026-06-09T21:55:17.345Z",
+      "toolVersion": "0.0.0-alpha.0"
+    },
+    {
       "id": "marketingskills",
       "kind": "external",
       "sourceUrl": "https://github.com/coreyhaines31/marketingskills.git",
