@@ -1,6 +1,9 @@
 # Loading States
 
-Learn how to communicate system status during wait times with appropriate feedback patterns, skeleton screens, and accessible loading indicators.
+Communicate system status during wait times without pretending to know a layout
+that has not loaded yet. Prefer real component states, honest empty/loading
+regions, and accessible progress indicators over skeleton screens that imitate
+the final UI poorly.
 
 ## Response Time Thresholds
 
@@ -10,166 +13,66 @@ Three response time limits govern which feedback pattern to use (Jakob Nielsen, 
 |-----------|----------------|-------------------|
 | **< 100ms** | Instantaneous, direct manipulation | None - display result immediately |
 | **100ms - 1s** | Noticeable delay, thought flow unbroken | Subtle indicator (cursor change, button state) |
-| **1s - 10s** | Conscious waiting, attention held | Skeleton screen or spinner with status text |
+| **1s - 10s** | Conscious waiting, attention held | Real component loading state or local status indicator |
 | **> 10s** | Attention lost, user may leave | Determinate progress bar with cancel option |
 
 **Guidelines:**
 - Provide visual feedback the moment a user initiates an action (button state change, page transition)
 - Showing a loader for waits under 1 second harms perceived performance - delay the indicator by 300ms
-- For 2-10 second waits, combine a busy cursor with inconspicuous progress updates
+- For 2-10 second waits, combine a scoped busy state with inconspicuous progress updates
 - For waits over 10 seconds, show estimated completion time and a clear way to cancel
 
-## Skeleton Screens
+## Real Component Loading States
 
-Skeleton screens display wireframe-like placeholders that preview the final page layout during loading. They reduce perceived wait time by turning passive waiting (staring at a spinner) into active waiting (processing the emerging layout).
+Do not build a fake version of the future UI. Skeletons often become a second,
+inaccurate implementation of the component: wrong row counts, wrong line
+lengths, wrong image ratios, wrong density, wrong responsive behavior. Users
+learn a layout that changes under them seconds later.
 
-### Three Types of Skeleton Screen
+Prefer one of these patterns:
 
-**1. Static content skeleton (recommended)**
-- Grey boxes and lines that mimic the structure of the final content
-- Shapes match the dimensions and positions of real headings, text blocks, and images
+1. **Existing component with pending content:** Render the real component
+   shell, labels, controls, and stable layout. Mark the region as busy and show
+   a small status indicator where content is unavailable.
+2. **Empty-state-shaped loading:** If the component's meaningful state is "no
+   content yet", use the real empty-state layout with copy like "Loading
+   projects..." and a local indicator.
+3. **Neutral loading region:** If the component cannot be rendered yet, show a
+   compact status block that does not imply rows, cards, charts, or copy that
+   may not exist.
+4. **Determinate progress:** For uploads, exports, imports, generation, or
+   multi-step work, show measurable progress and cancellation when possible.
 
-**2. Animated skeleton (shimmer)**
-- Adds a sweeping gradient animation across the placeholder shapes
-- Creates a sense of progress and activity
-- Can be distracting or trigger accessibility issues for some users
-
-**3. Frame-only skeleton (avoid)**
-- Shows only header, footer, and background - no content wireframe
-- Users assume the page is broken if they wait too long on a mostly blank screen
-
-### When to Use Skeleton Screens
-
-**Use when:**
-- Full-page loads take 1-10 seconds
-- Loading content-heavy pages (feeds, dashboards, article lists)
-- The layout structure is predictable before data arrives
-
-**Avoid when:**
-- Page loads in under 1 second (unnecessary, adds visual noise)
-- Loading exceeds 10 seconds (use a determinate progress bar instead)
-- The layout depends entirely on the data (unknown structure)
-- Loading a single small component (use an inline spinner instead)
-
-### Layout Matching
-
-The skeleton must accurately represent the final layout to set correct expectations:
+### Real Component Example
 
 ```html
-<article class="card" aria-busy="true">
-  <div class="card__skeleton" aria-hidden="true">
-    <div class="skeleton-image"></div>
-    <div class="skeleton-heading"></div>
-    <div class="skeleton-line"></div>
-    <div class="skeleton-line skeleton-line--short"></div>
+<section aria-busy="true" aria-live="polite" class="project-list">
+  <header class="project-list__header">
+    <h2>Projects</h2>
+    <button type="button">Create project</button>
+  </header>
+
+  <div class="project-list__status" role="status">
+    <svg aria-hidden="true" class="spinner" viewBox="0 0 24 24">...</svg>
+    <span>Loading projects...</span>
   </div>
-  <span class="visually-hidden">Loading article</span>
-</article>
+</section>
 ```
 
-```css
-.skeleton-image {
-  width: 100%;
-  aspect-ratio: 16 / 9;
-  background: oklch(92% 0.005 0);
-  border-radius: 8px;
-}
+This preserves the real component boundary and action area without guessing how
+many projects, rows, avatars, or metadata fields will arrive.
 
-.skeleton-heading {
-  width: 70%;
-  height: 24px;
-  margin-block-start: 16px;
-  background: oklch(92% 0.005 0);
-  border-radius: 4px;
-}
+### When a Skeleton Is Acceptable
 
-.skeleton-line {
-  width: 100%;
-  height: 14px;
-  margin-block-start: 8px;
-  background: oklch(92% 0.005 0);
-  border-radius: 4px;
-}
+Use a skeleton only when all of these are true:
 
-.skeleton-line--short {
-  width: 40%;
-}
-```
+- The final structure is deterministic before data arrives.
+- The skeleton is generated from the same component primitives as the real UI.
+- The dimensions, responsive behavior, and density match the real component.
+- The skeleton is static by default and respects reduced motion when animated.
 
-### Cross-Fade Transition
-
-Fade from skeleton to real content rather than swapping instantly:
-
-```css
-.card__skeleton {
-  transition: opacity 200ms ease-out;
-}
-
-.card[aria-busy="false"] .card__skeleton {
-  opacity: 0;
-  pointer-events: none;
-}
-```
-
-## Shimmer Animation (CSS)
-
-The shimmer effect animates a gradient layer across skeleton shapes to signal activity. Use OKLCH colours for consistency with the project palette:
-
-```css
-.skeleton-shimmer {
-  background:
-    linear-gradient(
-      90deg,
-      oklch(92% 0.005 0) 0%,
-      oklch(96% 0.003 0) 40%,
-      oklch(92% 0.005 0) 80%
-    );
-  background-size: 200% 100%;
-  animation: shimmer 1.5s ease-in-out infinite;
-}
-
-@keyframes shimmer {
-  0% { background-position: 200% 0; }
-  100% { background-position: -200% 0; }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .skeleton-shimmer {
-    animation: none;
-  }
-}
-```
-
-### Using `:empty` for Automatic Skeleton Display
-
-The `:empty` pseudo-class shows the skeleton only when a container has no content, removing it automatically when data arrives:
-
-```css
-.card:empty {
-  background:
-    linear-gradient(
-      90deg,
-      oklch(92% 0.005 0) 0%,
-      oklch(96% 0.003 0) 40%,
-      oklch(92% 0.005 0) 80%
-    );
-  background-size: 200% 100%;
-  animation: shimmer 1.5s ease-in-out infinite;
-  min-height: 200px;
-  border-radius: 8px;
-}
-```
-
-### `content-visibility` for Off-Screen Performance
-
-Skip rendering skeleton animations that are not visible in the viewport:
-
-```css
-.card {
-  content-visibility: auto;
-  contain-intrinsic-size: auto 300px;
-}
-```
+If any of these are false, use a real component loading state or neutral status
+indicator instead.
 
 ## Spinners and Progress Indicators
 
@@ -195,7 +98,7 @@ Use for waits over 10 seconds or when processing measurable units:
 ### Placement Guidelines
 
 - Place the indicator where the user is already looking
-- Full-page loads: skeleton screen over the content area
+- Full-page loads: stable page shell plus a local status region in the content area
 - Button actions: spinner inside the button (see Button Loading States)
 - List/feed: spinner at the bottom of existing content
 - Modal actions: spinner within the modal
@@ -328,18 +231,18 @@ Set `aria-busy="true"` on a container while its content is being updated. This t
 
 ```html
 <section aria-busy="true" aria-live="polite">
-  <!-- Skeleton or loading indicator -->
+  <!-- Real component loading state or local status indicator -->
 </section>
 ```
 
 When loading completes:
-1. Replace skeleton content with real content
+1. Replace unavailable content with real content
 2. Set `aria-busy="false"`
 3. The `aria-live="polite"` region will then announce the update
 
 **Caveats:**
 - Support for `aria-busy` varies across browser/screen reader combinations
-- Pair `aria-busy` with `aria-hidden="true"` on the skeleton shapes themselves so screen readers skip the placeholder content
+- Pair `aria-busy` with a visible or visually hidden status message
 - Include a visually hidden "Loading" text that screen readers can announce
 
 ### Visually Hidden Loading Text
@@ -357,7 +260,6 @@ When loading completes:
 
 ```html
 <div aria-busy="true">
-  <div class="skeleton" aria-hidden="true"><!-- shapes --></div>
   <span class="visually-hidden">Loading content</span>
 </div>
 ```
@@ -377,24 +279,17 @@ Use `aria-live="polite"` for loading completion announcements. Use `aria-live="a
 - Announce the start of loading: "Loading articles"
 - Announce completion: "5 articles loaded"
 - Announce errors: "Failed to load articles. Try again."
-- Do not announce every skeleton shape or animation frame
-
-### Contrast for Skeleton Shapes
-
-Skeleton placeholder shapes must meet WCAG 1.4.11 non-text contrast requirements:
-- Minimum 3:1 contrast ratio against the page background
-- `oklch(92% 0.005 0)` on `oklch(100% 0 0)` provides approximately 1.2:1 - below WCAG requirements
-- If skeletons serve as meaningful indicators of content position, use a darker fill: `oklch(82% 0.01 0)` provides approximately 2:1
-- Skeleton screens that are purely decorative (an animated shimmer on a neutral background) may claim an exemption, but err on the side of sufficient contrast
+- Do not announce decorative loading graphics or animation frames
 
 ### Reduced Motion
 
-Always respect `prefers-reduced-motion`. Disable shimmer animations but keep static skeleton shapes visible:
+Always respect `prefers-reduced-motion`. Slow or disable spinner animation when
+the motion itself is not essential:
 
 ```css
 @media (prefers-reduced-motion: reduce) {
-  .skeleton-shimmer {
-    animation: none;
+  .spinner {
+    animation-duration: 1.5s;
   }
 }
 ```
@@ -418,7 +313,7 @@ Perceived performance is how fast the interface feels, regardless of actual load
 Load and display content in stages, most important first:
 
 1. Render the page shell (navigation, layout structure) immediately
-2. Show skeleton placeholders for content areas
+2. Render real component boundaries and local status regions for unavailable content
 3. Load primary content (headings, first paragraph, hero image)
 4. Load secondary content (comments, recommendations, sidebar)
 
@@ -465,18 +360,18 @@ This reserves space in the layout before the image arrives, preventing Cumulativ
 |----------|-----------|---------|-----|
 | Button form submit | 0.3-2s | Button spinner + label change | User already looking at button |
 | Like/toggle action | < 2s | Optimistic UI | High success rate, instant feel |
-| Full page load | 1-10s | Skeleton screen | Previews layout, reduces perceived wait |
+| Full page load | 1-10s | Stable shell + local status region | Honest feedback without fake layout |
 | Single component load | 1-5s | Inline spinner with text | Localised feedback |
 | File upload | 5-60s | Determinate progress bar | User needs progress and cancel option |
 | Background save | < 2s | No indicator (or subtle) | Don't interrupt workflow |
-| Search results | 1-3s | Skeleton of result list | Known layout, turns waiting into scanning |
+| Search results | 1-3s | Existing results stay visible, status near filters | Avoids blanking the page during refetch |
 | Infinite scroll | 0.5-3s | Spinner at list bottom | Contextual, non-blocking |
 | Data export | 10s+ | Progress bar + cancel | Long process needs completion estimate |
 
 ## Common Loading State Mistakes
 
 ### Mistake 1: Layout shift when loading state appears or disappears
-- Skeleton dimensions do not match real content dimensions
+- Loading indicator insertion pushes surrounding elements
 - Spinner insertion pushes surrounding elements
 - Fix: Reserve exact space with `aspect-ratio`, fixed heights, and `min-height`
 
@@ -496,17 +391,17 @@ This reserves space in the layout before the image arrives, preventing Cumulativ
 - Silently swallowing server errors after showing optimistic success
 - Fix: Always store previous state and revert on failure with a clear error message
 
-### Mistake 6: Skeleton that does not match the loaded layout
+### Mistake 6: Fake skeleton that does not match the loaded layout
 - Users build incorrect mental models from misleading placeholders
-- Fix: Skeleton shapes must mirror the position, size, and count of real content elements
+- Fix: Prefer a real component loading state or neutral status block; use skeletons only when generated from the same primitives as the final component
 
-### Mistake 7: Animated skeleton with no reduced motion support
+### Mistake 7: Animated loading effect with no reduced motion support
 - Can trigger vestibular disorders in users with motion sensitivity
-- Fix: Wrap all shimmer animations in `@media (prefers-reduced-motion: no-preference)`
+- Fix: Wrap non-essential loading animation in `@media (prefers-reduced-motion: no-preference)` or slow it down under `reduce`
 
-### Mistake 8: Using a frame-only skeleton
+### Mistake 8: Blank content area with only global chrome visible
 - Header and footer with empty content area looks broken, not loading
-- Fix: Always include content-area placeholders that hint at the incoming layout
+- Fix: Put status feedback in the content area that is actually waiting
 
 ### Mistake 9: No screen reader announcements
 - Sighted users see the spinner, but screen reader users get no feedback
@@ -518,14 +413,14 @@ This reserves space in the layout before the image arrives, preventing Cumulativ
 
 ## Chapter Summary
 
-1. Use response time thresholds to pick the right feedback pattern: no indicator under 100ms, subtle change up to 1s, skeleton or spinner for 1-10s, progress bar over 10s
-2. Skeleton screens must mirror the final layout structure - never use frame-only skeletons that show only header and footer
+1. Use response time thresholds to pick the right feedback pattern: no indicator under 100ms, subtle change up to 1s, real component loading state or local status for 1-10s, progress bar over 10s
+2. Avoid fake skeleton UIs by default; use real component states, empty-state-shaped loading, or neutral status blocks
 3. Delay showing spinners by 300ms to avoid flashing indicators on fast responses
 4. Button loading states belong on the button itself: inline spinner, label change ("Saving..."), `aria-busy="true"`, and `aria-disabled="true"` to prevent double submission
 5. Use optimistic UI for simple, high-success-rate actions (likes, toggles) - always store previous state and roll back on failure
 6. Announce loading to screen readers with `aria-busy`, `aria-live="polite"`, and visually hidden status text - announce both start and completion
-7. Shimmer animations use a moving linear gradient in OKLCH colours and must respect `prefers-reduced-motion`
-8. Prevent layout shift with `aspect-ratio` on images and embeds, and ensure skeleton dimensions match real content
+7. Respect `prefers-reduced-motion` for spinners, progress indicators, and any optional loading animation
+8. Prevent layout shift with `aspect-ratio` on images and embeds, and ensure loading indicators do not resize their containers
 9. Optimise LCP by never lazy-loading the largest content element and setting `fetchpriority="high"`
 10. Use determinate progress bars for waits over 10 seconds - start slow, accelerate toward completion, and always provide a cancel option
 11. Scope loading indicators to the specific region being updated - never block the entire page when only one section is loading
