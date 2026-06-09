@@ -26,6 +26,7 @@ Enforces professional UI design guidelines for accessible, well-structured inter
 | Buttons | [references/07-buttons.md](references/07-buttons.md) |
 | Forms | [references/08-forms.md](references/08-forms.md) |
 | SEO for Frontend | [references/09-seo.md](references/09-seo.md) |
+| Design Registers | [references/20-design-registers.md](references/20-design-registers.md) |
 
 ## Core Principles (ALWAYS Apply)
 
@@ -189,14 +190,15 @@ Before finalizing any UI design:
 
 When creating UI code:
 
-1. Read the relevant reference files for detailed guidelines
-2. Apply ALL rules without exception
-3. Verify against the checklist above
-4. Use the predefined spacing scale (8pt increments)
-5. Use the colour palette structure from [references/03-colour.md](references/03-colour.md)
-6. Use the Popover API for tooltips, dropdowns, and menus (no JS library needed)
-7. Use `@starting-style` for CSS-only entry animations on dialogs and popovers
-8. Use the View Transition API for page transitions and shared element animations; always respect `prefers-reduced-motion`
+1. Choose the design register first: product, brand, or content-heavy surface
+2. Read the relevant reference files for detailed guidelines
+3. Apply ALL rules without exception
+4. Verify against the checklist above
+5. Use the predefined spacing scale (8pt increments)
+6. Use the colour palette structure from [references/03-colour.md](references/03-colour.md)
+7. Use the Popover API for tooltips, dropdowns, and menus (no JS library needed)
+8. Use `@starting-style` for CSS-only entry animations on dialogs and popovers
+9. Use the View Transition API for page transitions and shared element animations; always respect `prefers-reduced-motion`
 
 ## Colour Palette Template (OKLCH)
 
