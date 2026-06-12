@@ -19,4 +19,12 @@ Visual tests are only useful when the rendering environment is controlled enough
 - Target: `frontend-testing/visual`
 - URL recheck: 2026-06-13, HTTP 200, redirects to https://www.lost-pixel.com/blog/playwright-visual-regression-testing
 - Guidance: Use as Playwright visual-regression workflow example with vendor-bias caveat; prefer official Playwright and Vitest docs for exact APIs.
+### Visual Regression Testing | Vitest
+
+- Things ID(s): `Cgj2eRVB6hSkje2Gai1Rrw`
+- Source: <https://main.vitest.dev/guide/browser/visual-regression-testing.html>
+- Decision: `primary`
+- Target: `frontend-testing/visual`
+- URL recheck: 2026-06-13, HTTP 200
+- Guidance: Use official Vitest Browser Mode visual-regression guidance for screenshot stability, masking, thresholds, and animation control.
 
