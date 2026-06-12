@@ -101,3 +101,12 @@ Use this reference for source-backed design-system decisions that cut across col
 - URL recheck: 2026-06-13, HTTP 200
 - Guidance: Secondary for design-system: practical light-dark()/color-scheme theming article and examples, but the web.dev light-dark source should be the primary rule source; use this as implementation inspiration and caveat material.
 
+### CSS Clipping Effekte
+
+- Things ID(s): `JQWagG2ZKMtMfbmrkCdqCc`
+- Source: <https://css-tricks.com/clipping-clipping-and-more-clipping/>
+- Decision: `secondary`
+- Target: `design-system`
+- URL recheck: 2026-06-13, HTTP 200
+- Guidance: Secondary for design-system with visual-effects cross-reference: useful clipping/clip-path effect source, but older and mainly decorative; concrete rules should come from current clip-path/masking docs or newer shape sources.
+
