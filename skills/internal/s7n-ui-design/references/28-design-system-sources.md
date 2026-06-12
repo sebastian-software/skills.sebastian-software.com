@@ -221,4 +221,12 @@ Use this reference for source-backed design-system decisions that cut across col
 - Target: `design-system`
 - URL recheck: 2026-06-13, HTTP 200, redirects to https://varun.ca/icon-component/
 - Guidance: Use SVG sprite/component workflow source as icon delivery context with current tooling caveats.
+### What the heck is an SVG sprite sheet?
+
+- Things ID(s): `2kzXeJ9mQBRqL9sSWaBADy`
+- Source: <https://piccalil.li/links/what-the-heck-is-an-svg-sprite-sheet/?ref=main-rss-feed>
+- Decision: `secondary`
+- Target: `design-system`
+- URL recheck: 2026-06-13, HTTP 200
+- Guidance: Use SVG sprite sheet source for icon-system delivery tradeoffs and currentColor styling caveats.
 
