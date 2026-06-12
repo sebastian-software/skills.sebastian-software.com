@@ -110,3 +110,12 @@ Use this reference for source-backed design-system decisions that cut across col
 - URL recheck: 2026-06-13, HTTP 200
 - Guidance: Secondary for design-system with visual-effects cross-reference: useful clipping/clip-path effect source, but older and mainly decorative; concrete rules should come from current clip-path/masking docs or newer shape sources.
 
+### CSS color-mix()
+
+- Things ID(s): `YMLiyWPuLrdMmQFUPSFZuF`
+- Source: <https://developer.chrome.com/blog/whats-new-css-ui-2023/#color-mix>
+- Decision: `secondary`
+- Target: `design-system`
+- URL recheck: 2026-06-13, HTTP 200
+- Guidance: Secondary for design-system with baseline cross-reference: official 2023 CSS UI roundup section for color-mix() awareness, but use focused color-mix/relative-color sources for concrete token and fallback rules.
+
