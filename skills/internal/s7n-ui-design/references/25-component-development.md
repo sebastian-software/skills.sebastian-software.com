@@ -84,3 +84,12 @@ Build components as durable interface primitives: semantic DOM first, clear stat
 - URL recheck: 2026-06-13, HTTP 200
 - Guidance: Primary for component-development with css-layout-responsive/i18n cross-references: treeview indentation is component layout logic; reserve affordance/toggle space, calculate nesting per item, support LTR/RTL, and prefer robust CSS variables/math over fragile parent-child selector chains.
 
+### How I build a button component
+
+- Things ID(s): `9xPV5LuXs2FaoCAzNAKvsd`
+- Source: <https://piccalil.li/blog/how-i-build-a-button-component/?ref=main-rss-feed>
+- Decision: `primary`
+- Target: `component-development`
+- URL recheck: 2026-06-13, HTTP 200
+- Guidance: Primary for component-development: framework-agnostic button component craft, preserve native <button> semantics, type/state/disabled/focus handling, inline-flex/icon gap/padding/border/radius structure, explicit hover/contrast colors, custom properties as configurable CSS API, and controlled variant complexity; cross-reference design-system, html-accessibility, and forms-ux.
+
