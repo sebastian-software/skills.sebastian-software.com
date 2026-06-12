@@ -227,4 +227,12 @@ Build components as durable interface primitives: semantic DOM first, clear stat
 - Target: `component-development`
 - URL recheck: 2026-06-13, HTTP 200
 - Guidance: Secondary for component-development with build-tooling cross-reference: useful historical/practical SSR caveat source for Web Components in Next or similar frameworks, but framework behavior and web component SSR options have shifted enough that rules need current sources before codification.
+### https://css-tricks.com/supercharging-built-in-elements-with-web-comp
+
+- Things ID(s): `ASZDqLLAuYWZp37uS9tEnY`
+- Source: <https://css-tricks.com/supercharging-built-in-elements-with-web-components-is-easier-than-you-think/>
+- Decision: `secondary`
+- Target: `component-development`
+- URL recheck: 2026-06-13, HTTP 200
+- Guidance: Use built-in-elements-with-web-components source for progressive enhancement and platform component caveats.
 
