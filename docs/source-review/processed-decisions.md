@@ -22,3 +22,12 @@ This file records processed Things source decisions that do not belong directly 
 - URL recheck: 2026-06-13, HTTP 200, redirects to https://code.claude.com/docs?ref=labnotes.org
 - Guidance: Secondary for agent-knowledge-workflows: official Claude Code overview is useful background for agentic coding workflow comparison and tool-specific caveats, but it is not design-system material and should not directly shape UI/frontend skills.
 
+### Databases For Front-End Developers: The Rise Of Serverless Databases
+
+- Things ID(s): `WJZHvbNT4mrzUtGYpQi7op`
+- Source: <https://www.smashingmagazine.com/2022/08/databases-frontend-developers-rise-serverless-databases/?ck_subscriber_id=1697729046>
+- Decision: `ignored`
+- Target: `data-architecture`
+- URL recheck: 2026-06-13, HTTP 200
+- Guidance: Ignored after second-pass: older serverless database primer, not relevant enough for current skill structure and no clear reusable rule/reference target.
+
