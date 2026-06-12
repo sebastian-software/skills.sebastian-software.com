@@ -34,4 +34,12 @@ Use framework features deliberately. Rendering mode, routing, data fetching, CSS
 - Target: `framework`
 - URL recheck: 2026-06-13, HTTP 200
 - Guidance: Use as dynamic component/CSS architecture source, with framework and browser-support caveats.
+### How Next.js breaks React Fundamentals (Examples) | Ondrej Velisek
+
+- Things ID(s): `AFU1R3G9xzTNbnepRCd6Y3`
+- Source: <https://ondrejvelisek.github.io/how-nextjs-breaks-react-fundamentals/?ck_subscriber_id=1866528194&utm_source=convertkit&utm_medium=email&utm_campaign=%E2%9A%9B%EF%B8%8F%20This%20Week%20In%20React%20#178:%20Remix%20and%20Vite,%20Type-safe%20Children,%20Astro%20DB,%20React%20Compiler,%20Firebolt,%20Vitest,%20Composition,%20Remix%20Nitro,%20RSC%20in%20React%20Native,%20TenTap,%20Expo%20Atlas,%20TypeScript,%20Elysia...%20-%2013399704>
+- Decision: `secondary`
+- Target: `react-architecture`
+- URL recheck: 2026-06-13, HTTP 200
+- Guidance: Retarget to React architecture: use as framework-boundary caveat source for Next.js vs React fundamentals.
 
