@@ -30,3 +30,12 @@ Use semantic HTML, native behavior, visible focus, keyboard access, and assistiv
 - URL recheck: 2026-06-13, HTTP 200
 - Guidance: Use as broader semantic state/parent-context pattern source, not only a11y: parent styling from child/content/focus/error/state conditions; a11y is one use case.
 
+### A Complete Guide To Live Validation UX - Smashing Magazine
+
+- Things ID(s): `WV1CJTgNqUcfKj5TqVkNY`
+- Source: <https://www.smashingmagazine.com/2022/09/inline-validation-web-forms-ux/>
+- Decision: `primary`
+- Target: `core-html-a11y`
+- URL recheck: 2026-06-13, HTTP 200
+- Guidance: Primary for forms and accessibility: live/inline validation timing, copy-paste tolerance, late validation, recovery paths, and avoiding premature error states.
+
