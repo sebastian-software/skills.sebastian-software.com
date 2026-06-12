@@ -64,4 +64,12 @@ Use this reference for source-backed typography decisions: readable measure, wra
 - Target: `typography`
 - URL recheck: 2026-06-13, HTTP 200
 - Guidance: Secondary for typography with responsive-design cross-reference: durable fluid typography reasoning and viewport-unit caveats, but 2016 implementation details should be superseded by modern clamp(), container units, zoom/accessibility, and current browser-support sources.
+### Homepage: CSS Font-Size-Adjust für Gleichmachung Größeneindruck unte
+
+- Things ID(s): `NizE9fkVjBwjeGJDD2Bs2c`
+- Source: <https://www.sitepoint.com/improve-web-typography-css-font-size-adjust/>
+- Decision: `secondary`
+- Target: `typography`
+- URL recheck: 2026-06-13, HTTP 403
+- Guidance: Retarget to typography: font-size-adjust supports consistent perceived type sizing across fallback/webfont changes.
 
