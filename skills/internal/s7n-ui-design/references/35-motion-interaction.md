@@ -91,4 +91,12 @@ Use motion to explain state change, spatial continuity, feedback, and progress. 
 - Target: `motion-interaction`
 - URL recheck: 2026-06-13, HTTP 200
 - Guidance: Use View Transitions implementation article as practical companion to official docs.
+### Transitioning to Auto Height
+
+- Things ID(s): `HvePeTUvd6w78TCaLYxu5R`
+- Source: <https://css-tricks.com/transitioning-to-auto-height/>
+- Decision: `secondary`
+- Target: `motion-interaction`
+- URL recheck: 2026-06-13, HTTP 200
+- Guidance: Use auto-height transition source for entry/size animation caveats and support checks.
 
