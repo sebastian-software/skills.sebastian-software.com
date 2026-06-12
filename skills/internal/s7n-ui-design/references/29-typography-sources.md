@@ -20,3 +20,12 @@ Use this reference for source-backed typography decisions: readable measure, wra
 - URL recheck: 2026-06-13, HTTP 200
 - Guidance: Primary for typography with component-development/editorial cross-references: text-wrap: balance can improve headlines, card titles, tooltips, modal titles, and FAQs, but should be limited to short text, understood not to change element width, and checked for whitespace/performance limits.
 
+### Adactio: Journal-Hanging punctuation in CSS
+
+- Things ID(s): `3e6uHvLLCNNKDfCz5D2fAT`
+- Source: <https://adactio.com/journal/21027?utm_source=CSS-Weekly&utm_medium=newsletter&utm_campaign=issue-584-april-12-2024>
+- Decision: `secondary`
+- Target: `typography`
+- URL recheck: 2026-06-13, HTTP 200
+- Guidance: Secondary for typography: narrow but useful CSS hanging-punctuation note for editorial polish and punctuation alignment; pair with broader typography rules and current support checks before codifying defaults.
+
