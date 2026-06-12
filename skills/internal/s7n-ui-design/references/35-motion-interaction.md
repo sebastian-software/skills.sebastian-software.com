@@ -19,4 +19,12 @@ Use motion to explain state change, spatial continuity, feedback, and progress. 
 - Target: `motion-interaction`
 - URL recheck: 2026-06-13, HTTP 200
 - Guidance: Primary for motion-interaction with ux-patterns cross-reference: official View Transition API overview for same-document SPA transitions via document.startViewTransition() and cross-document MPA transitions via @view-transition navigation:auto; use for spatial continuity in navigation, filtering/reordering, list-to-detail, and persistent UI, while enforcing prefers-reduced-motion, performance, focus/scroll context, and semantic navigation checks.
+### Color Shifting in CSS • Josh W. Comeau
+
+- Things ID(s): `NwAFPEuYCCySvUqkKHLUQ7`
+- Source: <https://www.joshwcomeau.com/animation/color-shifting/>
+- Decision: `secondary`
+- Target: `motion-interaction`
+- URL recheck: 2026-06-13, HTTP 200
+- Guidance: Use color-shifting animation as a motion/effects example; require reduced-motion and readability checks.
 
