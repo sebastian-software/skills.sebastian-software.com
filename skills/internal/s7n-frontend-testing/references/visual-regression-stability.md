@@ -11,4 +11,12 @@ Visual tests are only useful when the rendering environment is controlled enough
 - Review baseline updates as product/design decisions, not as automatic test maintenance.
 
 ## Source-Backed Guidance
+### Complete guide on Playwright visual regression testing - Lost Pixel
+
+- Things ID(s): `QZDSrCD9CX66F1v6wu5wxm`
+- Source: <https://lost-pixel.com/blog/post/playwright-visual-regression-testing>
+- Decision: `secondary`
+- Target: `frontend-testing/visual`
+- URL recheck: 2026-06-13, HTTP 200, redirects to https://www.lost-pixel.com/blog/playwright-visual-regression-testing
+- Guidance: Use as Playwright visual-regression workflow example with vendor-bias caveat; prefer official Playwright and Vitest docs for exact APIs.
 
