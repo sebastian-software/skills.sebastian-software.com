@@ -20,3 +20,12 @@ Use current browser-support evidence before turning modern web-platform features
 - URL recheck: 2026-06-13, HTTP 200
 - Guidance: Secondary for baseline/design-system practice: practitioner default snippets around logical properties, reduced-motion guarded View Transitions, custom properties, OKLCH, focus-visible, text-wrap, hanging punctuation, low-specificity :where(), cascade layers, and line-height units; useful as habit/radar source, not a normative rule source.
 
+### The Coyier CSS starter - Piccalilli
+
+- Things ID(s): `7ajo7EGH54gSpHF6dSemLW`
+- Source: <https://piccalil.li/links/the-coyier-css-starter/?utm_source=the-index&utm_medium=newsletter>
+- Decision: `secondary`
+- Target: `baseline`
+- URL recheck: 2026-06-13, HTTP 200
+- Guidance: Secondary for baseline/design-system practice: useful commentary on global CSS starters/resets, cascade layers, fluid root type, text wrapping, form/table defaults, motion preference guards, and team-specific foot-guns; not a normative starter to copy verbatim.
+
