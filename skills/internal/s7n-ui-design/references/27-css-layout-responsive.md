@@ -202,3 +202,12 @@ Use CSS layout algorithms deliberately. Grid, Flexbox, Subgrid, container querie
 - URL recheck: 2026-06-13, HTTP 200
 - Guidance: Secondary for css-layout-responsive with design-system/motion-interaction cross-references: clever sticky-header text-obscuring/layering trick and scroll-driven-animation note, but it depends on specific hero/header design constraints and should remain an example/caveat, not a baseline pattern.
 
+### Subgrid
+
+- Things ID(s): `ECUyfiaFbse2Wa8JtX6ZgK`
+- Source: <https://piccalil.li/blog/a-handy-use-of-subgrid-to-enhance-a-simple-layout/?ref=main-rss-feed>
+- Decision: `secondary`
+- Target: `css-layout-responsive`
+- URL recheck: 2026-06-13, HTTP 200
+- Guidance: Secondary for css-layout-responsive: concise practical subgrid example for aligning headings/summaries across responsive cards and understanding gap inheritance; useful companion to broader subgrid primary sources.
+
