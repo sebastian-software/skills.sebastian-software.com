@@ -201,3 +201,12 @@ Build components as durable interface primitives: semantic DOM first, clear stat
 - URL recheck: 2026-06-13, HTTP 200
 - Guidance: Secondary for component-development: useful progressive-enhancement pattern using details/summary, name, CSS Grid, Subgrid, and ::details-content for tab-like content organization without JS; keep as caveat/alternative because this is native disclosure behavior, not automatically a full ARIA tabs pattern with expected roles and keyboard interaction; cross-reference css-layout-responsive and html-accessibility.
 
+### Solved by CSS: Donuts Scopes
+
+- Things ID(s): `XMJfCxTrF3tjRU6wiLTNb9`
+- Source: <https://css-tricks.com/solved-by-css-donuts-scopes/>
+- Decision: `secondary`
+- Target: `component-development`
+- URL recheck: 2026-06-13, HTTP 200
+- Guidance: Secondary for component-development with design-system/baseline cross-references: useful @scope/donut-scope explainer for limiting parent component styles before nested content boundaries, but keep as support/context source and pair with current @scope docs before codifying rules.
+
