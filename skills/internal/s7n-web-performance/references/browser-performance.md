@@ -31,3 +31,12 @@ Use measured browser behavior to guide performance changes. Prioritize fixes tha
 - URL recheck: 2026-06-13, HTTP 200
 - Guidance: Primary for network-performance with responsive-design cross-reference: broad official image course covering key performance issues, raster vs SVG, GIF/PNG/JPEG/WebP/AVIF, responsive images, srcset/sizes, picture/art direction, compression and encoding automation, CMS/framework integration, and image CDNs; use as umbrella reference for image delivery and responsive media rules.
 
+### Optimizing The Image Element LCP - Smashing Magazine
+
+- Things ID(s): `FaoTKJcTt6HmVMi7k1UqQy`
+- Source: <https://www.smashingmagazine.com/2023/01/optimizing-image-element-lcp/>
+- Decision: `primary`
+- Target: `network-performance`
+- URL recheck: 2026-06-13, HTTP 200
+- Guidance: Primary for network-performance with responsive-design and component-development cross-references: optimize LCP images through correct img/srcset/sizes, rendered size and DPR-aware variants, avoid lazy-loading LCP images, keep LCP image discoverable in initial HTML, use fetchpriority=high intentionally, understand preload scanner behavior, and avoid blind preload overuse.
+
