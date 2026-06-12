@@ -59,4 +59,12 @@ Use motion to explain state change, spatial continuity, feedback, and progress. 
 - Target: `motion-interaction`
 - URL recheck: 2026-06-13, HTTP 200
 - Guidance: Use GSAP-to-native scroll animation migration as implementation example, not as blanket replacement rule.
+### Scroll animations with CSS
+
+- Things ID(s): `8V4jYWhNUxGdgiTCsWQC46`
+- Source: <https://webkit.org/blog/17101/a-guide-to-scroll-driven-animations-with-just-css/>
+- Decision: `secondary`
+- Target: `motion-interaction`
+- URL recheck: 2026-06-13, HTTP 200
+- Guidance: Use CSS scroll animation source as support/context for native scroll-driven motion.
 
