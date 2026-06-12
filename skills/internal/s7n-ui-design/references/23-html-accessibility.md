@@ -49,3 +49,12 @@ Use semantic HTML, native behavior, visible focus, keyboard access, and assistiv
 - Duplicate handling: canonical entry for 2 Things items.
 - Guidance: Primary for framework-agnostic component-development know-how: custom/native control anatomy, semantic input preservation, focus/state styling, configurable component CSS; not React-specific and not only a11y.
 
+### Adactio: Journal-Three attributes for better web forms
+
+- Things ID(s): `Qbn2aNkkGwuJsrin323izj`
+- Source: <https://adactio.com/journal/19842?utm_source=newsletter&utm_medium=email&utm_campaign=wdrl-309>
+- Decision: `primary`
+- Target: `core-html-a11y`
+- URL recheck: 2026-06-13, HTTP 200
+- Guidance: Primary for forms UX and HTML input rules: correct input type, inputmode, enterkeyhint, autocomplete/name hints, browser cooperation, mobile keyboard UX, and progressive enhancement.
+
