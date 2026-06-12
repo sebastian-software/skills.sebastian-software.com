@@ -54,4 +54,12 @@ This file records processed Things source decisions that do not belong directly 
 - Target: `processed-decision`
 - URL recheck: 2026-06-13, HTTP 200, redirects to https://developers.openai.com/api/docs/guides/prompt-guidance
 - Guidance: Deferred for OpenAI-specific prompting docs; do not fold into UI design-system references.
+### https://developers.openai.com/codex/app-server
+
+- Things ID(s): `9aJpJAKmPr21rxGQxKvmBx`
+- Source: <https://developers.openai.com/codex/app-server>
+- Decision: `ignored`
+- Target: `processed-decision`
+- URL recheck: 2026-06-13, HTTP 200
+- Guidance: Deferred for OpenAI/Codex app-server docs; not design-system source material.
 
