@@ -99,4 +99,12 @@ Use motion to explain state change, spatial continuity, feedback, and progress. 
 - Target: `motion-interaction`
 - URL recheck: 2026-06-13, HTTP 200
 - Guidance: Use auto-height transition source for entry/size animation caveats and support checks.
+### Unleash the Power of Scroll-Driven Animations
+
+- Things ID(s): `LRZPLysX3xsSyj4wmfm8Bu`
+- Source: <https://css-tricks.com/unleash-the-power-of-scroll-driven-animations/>
+- Decision: `secondary`
+- Target: `motion-interaction`
+- URL recheck: 2026-06-13, HTTP 200
+- Guidance: Use as scroll-driven animation companion source; prefer official docs for API details.
 
