@@ -30,3 +30,12 @@ Design responsive behavior from content, container, input mode, device constrain
 - URL recheck: 2026-06-13, HTTP 200, redirects to https://baymard.com/blog/responsive-upscaling
 - Guidance: Primary for responsive-design with UX patterns cross-reference: responsive work should include large screens, not only mobile; adapt the same important content into better large-screen packaging, avoid adding low-value content just because space exists, and balance larger imagery, columns, sticky controls, and overview.
 
+### Neue Variante Touch Erkennung
+
+- Things ID(s): `17HCnUvGaMKyxXZVkzLKWY`
+- Source: <https://css-tricks.com/touch-devices-not-judged-size/?utm_source=mobilewebweekly&utm_medium=email>
+- Decision: `primary`
+- Target: `responsive-design`
+- URL recheck: 2026-06-13, HTTP 200
+- Guidance: Primary for responsive-design plus component-development: do not infer touch/hover/input precision from viewport size; use pointer, hover, any-pointer, and any-hover to adapt hit areas, visible controls, hover-dependent UI, and card/menu/form component behavior; account for hybrid devices and multiple input mechanisms; cross-reference ux-patterns and html-accessibility.
+
