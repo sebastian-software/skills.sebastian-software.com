@@ -35,4 +35,12 @@ Use Playwright-style E2E tests for high-value integrated user paths. Keep tests 
 - Target: `frontend-testing/playwright`
 - URL recheck: 2026-06-13, HTTP 200
 - Guidance: Use Playwright codegen as a draft workflow; review generated locators, assertions, waits, and scope before committing tests.
+### Experimental: components | Playwright
+
+- Things ID(s): `3mPdXbVm2UMorhjirRL7XR`
+- Source: <https://playwright.dev/docs/test-components>
+- Decision: `secondary`
+- Target: `frontend-testing`
+- URL recheck: 2026-06-13, HTTP 200
+- Guidance: Use Playwright component testing as experimental/current-version caveat source.
 
