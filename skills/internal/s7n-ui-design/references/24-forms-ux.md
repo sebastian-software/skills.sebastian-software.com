@@ -39,3 +39,12 @@ Design forms around user recovery: clear labels, browser-supported input attribu
 - URL recheck: 2026-06-13, HTTP 200, redirects to https://baymard.com/blog/slider-interfaces
 - Guidance: Primary for forms-ux: sliders are false simplicity unless implemented carefully; use only for exploratory range/filter interaction, account for non-linear value distributions, make dual handles visually unambiguous, define safe click behavior, always provide text input fallbacks for precise values and degraded motor control, and keep live updates low-latency; cross-reference component-development, ux-patterns, and network-performance.
 
+### What’s New With Forms in 2022?
+
+- Things ID(s): `JJZHKZrJk5i4FzRFbfk4HQ`
+- Source: <https://css-tricks.com/whats-new-with-forms-in-2022/>
+- Decision: `secondary`
+- Target: `forms-ux`
+- URL recheck: 2026-06-13, HTTP 200
+- Guidance: Secondary for forms-ux with component-development, html-accessibility, and baseline cross-references: useful 2022 forms API radar covering requestSubmit() vs submit(), SubmitEvent.submitter, formdata event, showPicker(), and inert; use to preserve native validation/submission flows and form semantics, but pair individual API rules with current MDN/Baseline docs.
+
