@@ -38,3 +38,12 @@ Use current browser-support evidence before turning modern web-platform features
 - URL recheck: 2026-06-13, HTTP 200
 - Guidance: Secondary for baseline/design-system practice: duplicate/tracking variant of the Coyier CSS starter commentary; decide together with 7ajo7EGH54gSpHF6dSemLW.
 
+### What's new in web | Blog | web.dev
+
+- Things ID(s): `Jzu6xaaoRM45KJAzgnJzgx`
+- Source: <https://web.dev/blog/whats-new-in-web-io2025?hl=en>
+- Decision: `secondary`
+- Target: `baseline`
+- URL recheck: 2026-06-13, HTTP 200
+- Guidance: Secondary for baseline: official web.dev platform-radar source for Baseline, Web Platform Dashboard, support-policy tooling through Browserslist/ESLint/Stylelint/IDE integrations, and prioritization of newly available APIs such as Anchor Positioning, View Transitions, details enhancements, hidden=until-found, @scope, scrollend, and Core Web Vitals APIs; use as support-policy/radar source, not as detailed pattern guidance.
+
