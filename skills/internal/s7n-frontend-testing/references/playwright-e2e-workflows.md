@@ -27,4 +27,12 @@ Use Playwright-style E2E tests for high-value integrated user paths. Keep tests 
 - Target: `frontend-testing/playwright`
 - URL recheck: 2026-06-13, HTTP 200
 - Guidance: Use Playwright network routing and mocking to make tests deterministic; account for service-worker caveats.
+### Test generator | Playwright
+
+- Things ID(s): `X22tAQxZX3Mja2UJ4Wrm4Y`
+- Source: <https://playwright.dev/docs/codegen>
+- Decision: `primary`
+- Target: `frontend-testing/playwright`
+- URL recheck: 2026-06-13, HTTP 200
+- Guidance: Use Playwright codegen as a draft workflow; review generated locators, assertions, waits, and scope before committing tests.
 
