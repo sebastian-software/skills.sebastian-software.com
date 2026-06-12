@@ -44,4 +44,12 @@ Choose interaction patterns from the user's task, navigation model, content volu
 - Target: `ux-patterns`
 - URL recheck: 2026-06-13, HTTP 200
 - Guidance: Use elastic overflow scrolling source as interaction/platform behavior context.
+### From Good To Great In Dashboard Design: Research, Decluttering And D
+
+- Things ID(s): `CcEQuH2bNwhNm49BLayPRz`
+- Source: <https://www.smashingmagazine.com/2021/11/dashboard-design-research-decluttering-data-viz/>
+- Decision: `primary`
+- Target: `ux-patterns`
+- URL recheck: 2026-06-13, HTTP 200
+- Guidance: Use dashboard design source for product UI density, decluttering, research, and data-viz tradeoffs.
 
