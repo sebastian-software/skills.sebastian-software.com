@@ -72,4 +72,12 @@ Use this reference for source-backed typography decisions: readable measure, wra
 - Target: `typography`
 - URL recheck: 2026-06-13, HTTP 403
 - Guidance: Retarget to typography: font-size-adjust supports consistent perceived type sizing across fallback/webfont changes.
+### Two CSS Properties for Trimming Text Box Whitespace
+
+- Things ID(s): `27oUgqy5BVRRqi8eQNVXS7`, `68BarThK7k4XBNGkPcUoQA`
+- Source: <https://css-tricks.com/two-css-properties-for-trimming-text-box-whitespace/>
+- Decision: `primary`
+- Target: `typography`
+- URL recheck: 2026-06-13, HTTP 200
+- Guidance: Use text-box trimming source for type alignment and box metrics when support is acceptable.
 
