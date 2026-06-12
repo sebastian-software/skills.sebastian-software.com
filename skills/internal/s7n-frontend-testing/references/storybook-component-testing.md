@@ -50,4 +50,12 @@ Use stories as reusable UI state fixtures. Prefer one state source that supports
 - Target: `frontend-testing`
 - URL recheck: 2026-06-13, HTTP 200
 - Guidance: Use I18n with Storybook as primary source for localized UI state coverage.
+### Improved type safety in Storybook 7
+
+- Things ID(s): `QZ1jUa3ZkDh6gzxqSWMFvM`
+- Source: <https://storybook.js.org/blog/improved-type-safety-in-storybook-7/>
+- Decision: `secondary`
+- Target: `frontend-testing`
+- URL recheck: 2026-06-13, HTTP 200
+- Guidance: Use Storybook type-safety source for story typing and component fixture quality.
 
