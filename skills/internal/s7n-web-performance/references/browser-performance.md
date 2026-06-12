@@ -58,3 +58,12 @@ Use measured browser behavior to guide performance changes. Prioritize fixes tha
 - URL recheck: 2026-06-13, HTTP 200
 - Guidance: Retarget from core HTML/A11y to network performance / UX. Use as one historical pattern in an image placeholder/perceived-speed catalog: blur-up, base64/LQIP, special encodings, calmer loading, and visually faster pages; not primary alone.
 
+### Gute Ideen für statisches Layout
+
+- Things ID(s): `KEuj9jCREMgQEfD2pYJ4rS`
+- Source: <https://www.smashingmagazine.com/2016/08/ways-to-reduce-content-shifting-on-page-load/>
+- Decision: `secondary`
+- Target: `network-performance`
+- URL recheck: 2026-06-13, HTTP 200
+- Guidance: Secondary for network-performance with css-layout-responsive cross-reference: durable layout-stability problem framing for media, widgets, fonts, and late layout CSS, but concrete rules should be paired with current CLS/Core Web Vitals and modern browser guidance.
+
