@@ -57,3 +57,12 @@ Build components as durable interface primitives: semantic DOM first, clear stat
 - URL recheck: 2026-06-13, HTTP 200
 - Guidance: Primary as technical companion to the Smashing accordion pattern source: use native <details name> for exclusive accordion behavior when only one panel should be open, prefer browser semantics over custom state logic, note browser-support/polyfill considerations, and keep the UX caveat that exclusive accordions can hurt comparison/scanning.
 
+### Focus Trap
+
+- Things ID(s): `X9zy2neGFJotVMNt1neCNi`
+- Source: <https://css-tricks.com/there-is-no-need-to-trap-focus-on-a-dialog-element/>
+- Decision: `primary`
+- Target: `component-development`
+- URL recheck: 2026-06-13, HTTP 200
+- Guidance: Primary for component-development: prefer native <dialog> with showModal() where appropriate, understand built-in inertness/focus behavior, avoid reflexive custom JS focus traps, but still specify/test initial focus, focus return, close/Escape behavior, background content not receiving page focus, iframe/browser edge cases, and the caveat that this does not mean focus management is optional.
+
