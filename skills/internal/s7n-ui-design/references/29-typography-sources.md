@@ -104,4 +104,12 @@ Use this reference for source-backed typography decisions: readable measure, wra
 - Target: `typography`
 - URL recheck: 2026-06-13, HTTP 200
 - Guidance: Use modern fluid typography with CSS clamp as primary source for responsive type ranges and accessibility caveats.
+### Use `rem` For Global Sizing; Use `em` For Local Sizing | CSS-Tricks
+
+- Things ID(s): `Q9PFZMTQ6MqBEBrrDDeZgC`
+- Source: <https://css-tricks.com/rem-global-em-local/>
+- Decision: `primary`
+- Target: `typography`
+- URL recheck: 2026-06-13, HTTP 200
+- Guidance: Use rem/em sizing source for global vs local sizing policy in components and design tokens.
 
