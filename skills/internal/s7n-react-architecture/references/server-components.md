@@ -42,4 +42,12 @@ Use React Server Components to move data access and non-interactive rendering wo
 - Target: `rsc`
 - URL recheck: 2026-06-13, HTTP 200
 - Guidance: Use as React Router/Vite RSC implementation context; verify current framework support before copying APIs.
+### React Server Components, without a framework?
+
+- Things ID(s): `XpjwajaJmjFSymT8XA2rx6`
+- Source: <https://timtech.blog/posts/react-server-components-rsc-no-framework/?utm_source=tldrwebdev>
+- Decision: `secondary`
+- Target: `rsc`
+- URL recheck: 2026-06-13, HTTP 200
+- Guidance: Use frameworkless RSC source as mental-model and caveat material, not default app architecture.
 
