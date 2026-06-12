@@ -165,4 +165,12 @@ Use this reference for source-backed design-system decisions that cut across col
 - Target: `design-system`
 - URL recheck: 2026-06-13, HTTP 200
 - Guidance: Secondary for design-system: current expressive-effects example for liquid glass/glassmorphism, backdrop-filter, SVG displacement/blur filters, refraction, highlights, and textured blur; use mainly as caveat material for contrast, readability over unknown backgrounds, UI hierarchy, reduced visual complexity, fallbacks, and performance; cross-reference html-accessibility, motion-interaction, and network-performance.
+### What You Need to Know about Modern CSS (Spring 2024 Edition) - Front
+
+- Things ID(s): `6D3SdBhegJu8XZ4g1kb8Vz`
+- Source: <https://frontendmasters.com/blog/what-you-need-to-know-about-modern-css-spring-2024-edition/?ck_subscriber_id=1866528194&utm_source=convertkit&utm_medium=email&utm_campaign=%E2%9A%9B%EF%B8%8F%20This%20Week%20In%20React%20#180:%20Transitions,%20Drag%20&%20Drop,%20Metadata%20APIs,%20React%20name,%20Next.js%20Auth,%20useOptimistic,%20Cally,%20Docusaurus,%20New%20Architecture,%20Gesture%20Handler,%20Server%20Components,%20Privacy%20Manifest,%20Bun,%20xz,%20TypeScript,%20Signals...%20-%2013529181>
+- Decision: `secondary`
+- Target: `design`
+- URL recheck: 2026-06-13, HTTP 200
+- Guidance: Retarget to UI/design-system radar: modern CSS roundup is not React architecture.
 
