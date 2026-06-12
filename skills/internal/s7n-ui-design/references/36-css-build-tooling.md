@@ -37,4 +37,12 @@ Use this reference when CSS tooling, utility frameworks, CSS-in-TypeScript, gene
 - Target: `build-tooling`
 - URL recheck: 2026-06-13, HTTP 200, redirects to https://highlight.io/blog/typesafe-tailwind?ck_subscriber_id=1866528194&utm_source=convertkit&utm_medium=email&utm_campaign=%E2%9A%9B%EF%B8%8F+This+Week+In+React+%23144%3A+Server+Actions%2C+Million.js%2C+Rendering%2C+Layout+Animations%2C+Qwik%2C+Lingui%2C+Remix%2C+React-Router%2C+React-Native+macOS%2C+Expo+Modules%2C+Ignite...%20-%2010682168
 - Guidance: Retarget to CSS build tooling: type-safe Tailwind-style utilities and vanilla-extract belong to styling architecture, not motion.
+### The Front-End Developer's Guide to the Terminal
+
+- Things ID(s): `NvDUcqp5wmGRy37PqA5rsd`
+- Source: <https://www.joshwcomeau.com/javascript/terminal-for-js-devs/>
+- Decision: `secondary`
+- Target: `build-tooling`
+- URL recheck: 2026-06-13, HTTP 200
+- Guidance: Use frontend terminal guide as developer workflow support; keep out of UI rules.
 
