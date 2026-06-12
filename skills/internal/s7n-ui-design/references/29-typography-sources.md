@@ -96,4 +96,12 @@ Use this reference for source-backed typography decisions: readable measure, wra
 - Target: `typography`
 - URL recheck: 2026-06-13, HTTP 200
 - Guidance: Use simplified fluid typography as supporting source for clamp-based type scales and zoom caveats.
+### https://www.smashingmagazine.com/2022/01/modern-fluid-typography-css
+
+- Things ID(s): `7AwpfiLoDAXVKCCzF8WKoB`
+- Source: <https://www.smashingmagazine.com/2022/01/modern-fluid-typography-css-clamp/>
+- Decision: `primary`
+- Target: `typography`
+- URL recheck: 2026-06-13, HTTP 200
+- Guidance: Use modern fluid typography with CSS clamp as primary source for responsive type ranges and accessibility caveats.
 
