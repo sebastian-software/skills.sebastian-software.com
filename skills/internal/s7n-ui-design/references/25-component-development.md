@@ -75,3 +75,12 @@ Build components as durable interface primitives: semantic DOM first, clear stat
 - URL recheck: 2026-06-13, HTTP 200
 - Guidance: Primary for component-development with design-system/css-layout-responsive cross-references: component internals should avoid leaking external margins; parent layouts should own inter-component spacing through gap/stack/grid utilities, while margin remains a deliberate content-flow tool.
 
+### Handling The Indentation of a Treeview Component
+
+- Things ID(s): `3rQzahG5KHnXKhJufrcC45`
+- Source: <https://ishadeed.com/article/tree-view-css-indent/>
+- Decision: `primary`
+- Target: `component-development`
+- URL recheck: 2026-06-13, HTTP 200
+- Guidance: Primary for component-development with css-layout-responsive/i18n cross-references: treeview indentation is component layout logic; reserve affordance/toggle space, calculate nesting per item, support LTR/RTL, and prefer robust CSS variables/math over fragile parent-child selector chains.
+
