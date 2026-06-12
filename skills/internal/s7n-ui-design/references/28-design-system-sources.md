@@ -129,3 +129,13 @@ Use this reference for source-backed design-system decisions that cut across col
 - Related URLs: <https://twitter.com/jensimmons/status/1478858248677736454>, <https://twitter.com/ticky/status/1131775548516999168/photo/1>, <https://webkit.org/blog/6682/improving-color-on-the-web/>
 - Guidance: Secondary for design-system colors: useful historical/currentness source cluster for P3/wide-gamut color and Safari tooling, but Twitter links should be ignored and concrete rules need newer color-space/Baseline documentation.
 
+### CSS-Effekt: Blend-Mode + Isolation
+
+- Things ID(s): `2uXBZWVyFU41XQ3zscGQGP`
+- Source: <http://tympanus.net/codrops/css_reference/isolation/>
+- Decision: `secondary`
+- Target: `design-system`
+- URL recheck: 2026-06-13, HTTP 200, redirects to https://tympanus.net/codrops/css_reference/isolation/
+- Related URLs: <https://css-tricks.com/almanac/properties/i/isolation/>
+- Guidance: Secondary for design-system with visual-effects cross-reference: useful isolation/mix-blend-mode containment reference for preventing backdrop blending leaks and understanding stacking-context side effects, but narrow and older.
+
