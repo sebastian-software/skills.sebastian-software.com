@@ -10,4 +10,12 @@ Optimize React rendering by finding the actual source of work before adding memo
 - Avoid architecture that spreads high-churn state through broad context or global rerender paths.
 
 ## Source-Backed Guidance
+### Understanding useMemo and useCallback
+
+- Things ID(s): `RHnL73NybKR7CFZNWzPL4z`, `UqpfDAEKj8biMYQSZ6Fx4e`
+- Source: <https://www.joshwcomeau.com/react/usememo-and-usecallback/>
+- Decision: `secondary`
+- Target: `rendering`
+- URL recheck: 2026-06-13, HTTP 200
+- Guidance: Use useMemo/useCallback source to explain when memoization stabilizes real work and when it adds noise.
 
