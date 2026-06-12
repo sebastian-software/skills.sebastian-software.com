@@ -36,4 +36,12 @@ Choose interaction patterns from the user's task, navigation model, content volu
 - Target: `ux-patterns`
 - URL recheck: 2026-06-13, HTTP 200
 - Guidance: Retarget to UX patterns: priority-plus navigation affects responsive navigation and disclosure.
+### Elastic Overflow Scrolling
+
+- Things ID(s): `ABQkEnL4WnaTjUNZH7YxAM`
+- Source: <https://css-tricks.com/elastic-overflow-scrolling/>
+- Decision: `secondary`
+- Target: `ux-patterns`
+- URL recheck: 2026-06-13, HTTP 200
+- Guidance: Use elastic overflow scrolling source as interaction/platform behavior context.
 
