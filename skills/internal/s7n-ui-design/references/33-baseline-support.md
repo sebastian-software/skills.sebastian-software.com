@@ -70,4 +70,12 @@ Use current browser-support evidence before turning modern web-platform features
 - Target: `baseline`
 - URL recheck: 2026-06-13, HTTP 200
 - Guidance: Use frontend handbook as broad background/radar source only.
+### web.dev
+
+- Things ID(s): `BezGoFfMZr5zFxDLrSfRjh`
+- Source: <https://web.dev/baseline?hl=de>
+- Decision: `primary`
+- Target: `baseline`
+- URL recheck: 2026-06-13, HTTP 200
+- Guidance: Use official web.dev Baseline reference for browser feature availability policy.
 
