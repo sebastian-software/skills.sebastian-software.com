@@ -29,3 +29,12 @@ Use this reference for source-backed typography decisions: readable measure, wra
 - URL recheck: 2026-06-13, HTTP 200
 - Guidance: Secondary for typography: narrow but useful CSS hanging-punctuation note for editorial polish and punctuation alignment; pair with broader typography rules and current support checks before codifying defaults.
 
+### CSS Cap Unit
+
+- Things ID(s): `AsQgs8eSZoWkUxPyGwpXAg`
+- Source: <https://ishadeed.com/article/css-cap-unit/>
+- Decision: `secondary`
+- Target: `typography`
+- URL recheck: 2026-06-13, HTTP 200
+- Guidance: Secondary for typography with component-development cross-reference: useful cap/rcap unit source for aligning icons, spacers, buttons, and type-relative decoration to capital height, but narrow enough to remain a supporting reference.
+
