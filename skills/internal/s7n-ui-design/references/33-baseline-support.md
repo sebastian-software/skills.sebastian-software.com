@@ -46,4 +46,12 @@ Use current browser-support evidence before turning modern web-platform features
 - Target: `baseline`
 - URL recheck: 2026-06-13, HTTP 200
 - Guidance: Secondary for baseline: official web.dev platform-radar source for Baseline, Web Platform Dashboard, support-policy tooling through Browserslist/ESLint/Stylelint/IDE integrations, and prioritization of newly available APIs such as Anchor Positioning, View Transitions, details enhancements, hidden=until-found, @scope, scrollend, and Core Web Vitals APIs; use as support-policy/radar source, not as detailed pattern guidance.
+### What You Need to Know about Modern CSS (Spring 2024 Edition) - Front
+
+- Things ID(s): `SQWBqhYz2wvBeHMtqFK8xz`
+- Source: <https://frontendmasters.com/blog/what-you-need-to-know-about-modern-css-spring-2024-edition/?ref=labnotes.org>
+- Decision: `secondary`
+- Target: `baseline`
+- URL recheck: 2026-06-13, HTTP 200
+- Guidance: Duplicate/supporting modern CSS radar source.
 
