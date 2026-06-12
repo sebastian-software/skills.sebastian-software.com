@@ -50,4 +50,12 @@ Use React Server Components to move data access and non-interactive rendering wo
 - Target: `rsc`
 - URL recheck: 2026-06-13, HTTP 200
 - Guidance: Use frameworkless RSC source as mental-model and caveat material, not default app architecture.
+### What’s the deal with React Server Components?
+
+- Things ID(s): `LRgg3HW35irzGFK32PVymu`
+- Source: <https://newsletters.feedbinusercontent.com/7e8/7e8fb22d82e0ff659ab973eab74e6b5815815bfb.html>
+- Decision: `secondary`
+- Target: `rsc`
+- URL recheck: 2026-06-13, HTTP 200
+- Guidance: Use as RSC explainer and caveat source; pair with primary React WG/framework docs.
 
