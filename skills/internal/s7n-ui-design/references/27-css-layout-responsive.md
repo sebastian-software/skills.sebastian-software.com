@@ -184,3 +184,12 @@ Use CSS layout algorithms deliberately. Grid, Flexbox, Subgrid, container querie
 - Duplicate handling: canonical entry for 2 Things items.
 - Guidance: Secondary for css-layout-responsive: strong modern CSS layout case study using Grid, gap, aspect-ratio, text wrapping, :has(), fluid sizing, and container queries, but case-study-specific rather than a direct reusable rule source.
 
+### Rebuilding a featured news section with modern CSS: Vox news - Ahmad
+
+- Things ID(s): `VWJTy7jcv7sq1r1BXNtREp`
+- Source: <https://ishadeed.com/article/rebuild-featured-news-modern-css/?utm_source=newsletter&utm_medium=email&utm_campaign=wdrl-312>
+- Decision: `secondary`
+- Target: `css-layout-responsive`
+- URL recheck: 2026-06-13, HTTP 200
+- Guidance: Secondary for css-layout-responsive: duplicate/tracking variant of the Vox modern CSS layout case study; decide together with 3XJAUQjYcWgpUKURQC6caV.
+
