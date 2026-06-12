@@ -29,3 +29,12 @@ Keep authentication, credential handling, and browser security policy separate f
 - URL recheck: 2026-06-13, HTTP 200
 - Guidance: Secondary for auth-security, linked to source 30 as technical supplement: API/code-oriented passkeys/WebAuthn explanation covering navigator.credentials.create/get, server challenge, PublicKeyCredential, attestation/assertion, clientDataJSON, origin/challenge validation, public-key storage, and signature verification; cross-reference forms-ux for login and recovery UX.
 
+### Sichere Server durch Header
+
+- Things ID(s): `GFfTZrYzLTvUKPhvfbtNzA`
+- Source: <https://www.smashingmagazine.com/2017/04/secure-web-app-http-headers/>
+- Decision: `secondary`
+- Target: `web-security`
+- URL recheck: 2026-06-13, HTTP 200
+- Guidance: Secondary for web-security: useful historical/explanatory overview of security response headers such as HSTS, CSP, X-Frame-Options/frame-ancestors, X-Content-Type-Options, Referrer-Policy, cookie flags, and older headers; use as context only, because concrete rules must be based on current OWASP/MDN/scanner guidance due to header drift, deprecation, replacement, and context-specific policy tradeoffs.
+
