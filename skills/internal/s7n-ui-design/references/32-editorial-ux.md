@@ -11,3 +11,12 @@ Design long-form reading and content-heavy layouts for comprehension, trust, and
 
 ## Source-Backed Guidance
 
+### Designing for Long-Form Articles | CSS-Tricks - CSS-Tricks
+
+- Things ID(s): `JRKL5RRXuJPP6sh4NdDvry`
+- Source: <https://css-tricks.com/designing-for-long-form-articles/>
+- Decision: `primary`
+- Target: `editorial-ux`
+- URL recheck: 2026-06-13, HTTP 200
+- Guidance: Primary for editorial-ux and typography: long-form reading layout, font size, line length, line height, link underline styling, semantic article/main markup, skip links, reader mode resilience, image integration, and performance caveats.
+
