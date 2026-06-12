@@ -49,3 +49,12 @@ Use measured browser behavior to guide performance changes. Prioritize fixes tha
 - URL recheck: 2026-06-13, HTTP 200
 - Guidance: Retarget from core HTML/A11y to network performance / UX: useful for perceived speed, freshness, caching behavior, and stale-while-revalidate; not security and not forms/A11y.
 
+### Blur-Technik für Bilder Ladeeffekt: https://css-tricks.com/the-blur
+
+- Things ID(s): `39Zh3qKNDgcdRjBxSNfXGr`
+- Source: <https://css-tricks.com/the-blur-up-technique-for-loading-background-images/>
+- Decision: `secondary`
+- Target: `network-performance`
+- URL recheck: 2026-06-13, HTTP 200
+- Guidance: Retarget from core HTML/A11y to network performance / UX. Use as one historical pattern in an image placeholder/perceived-speed catalog: blur-up, base64/LQIP, special encodings, calmer loading, and visually faster pages; not primary alone.
+
