@@ -26,4 +26,12 @@ Design React component APIs so composition, state, styling, and semantics remain
 - Target: `react-api`
 - URL recheck: 2026-06-13, HTTP 200
 - Guidance: Use as typed polymorphic component API guidance; require semantic safety before adding an `as` prop.
+### Building Swipe Actions component with React and Framer Motion · Oleg
+
+- Things ID(s): `31ji52rMMiXpW5b4URoMgg`
+- Source: <https://sinja.io/blog/swipe-actions-react-framer-motion?ck_subscriber_id=1866528194&utm_source=convertkit&utm_medium=email&utm_campaign=%E2%9A%9B%EF%B8%8F%20This%20Week%20In%20React%20#197:%20Waku,%20Effect,%20TanStack,%20Framer%20Motion,%20use(>
+- Decision: `secondary`
+- Target: `react-api`
+- URL recheck: 2026-06-13, HTTP 200
+- Guidance: Swipe-action implementation is useful as a component interaction example; pair with touch, keyboard, reduced-motion, and destructive-action recovery rules.
 
