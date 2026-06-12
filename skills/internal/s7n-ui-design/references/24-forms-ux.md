@@ -21,3 +21,12 @@ Design forms around user recovery: clear labels, browser-supported input attribu
 - URL recheck: 2026-06-13, HTTP 200, redirects to https://developer.mozilla.org/en-US/docs/Web/Security/Practical_implementation_guides/Turning_off_form_autocompletion
 - Guidance: Primary for forms-ux: do not disable autocomplete globally; use autocomplete tokens intentionally, preserve input-purpose identification, allow password managers, and disable autocomplete only for temporary or sensitive values such as OTPs, unique identifiers, or CVV-like fields; cross-reference html-accessibility and security/privacy.
 
+### Form Design für Mobile
+
+- Things ID(s): `5P9g7ariJhS7vPPw9GKFaa`
+- Source: <https://uxplanet.org/building-great-mobile-forms-2fa8e9a258cc#.k5gdyvljy>
+- Decision: `primary`
+- Target: `forms-ux`
+- URL recheck: 2026-06-13, HTTP 200, redirects to https://uxplanet.org/building-great-mobile-forms-2fa8e9a258cc?gi=548f1be0be62
+- Guidance: Primary for forms-ux: mobile forms should minimize taps, prefer visible segmented controls for small option sets, avoid dropdown-heavy flows, use appropriate binary/range/numeric controls, keep forms single-column on small screens, show inline errors, mark optional fields instead of repeating required markers, group related fields, provide comfortable touch areas, and respect platform conventions; cross-reference component-development and ux-patterns.
+
