@@ -12,3 +12,12 @@ Use CSS layout algorithms deliberately. Grid, Flexbox, Subgrid, container querie
 
 ## Source-Backed Guidance
 
+### An Interactive Guide to CSS Grid
+
+- Things ID(s): `DW2EfCKvCaz6HFc4ACAsa8`
+- Source: <https://www.joshwcomeau.com/css/interactive-guide-to-grid/>
+- Decision: `primary`
+- Target: `css-layout-responsive`
+- URL recheck: 2026-06-13, HTTP 200
+- Guidance: Primary for css-layout-responsive: high-quality interactive CSS Grid mental-model source for tracks, placement, alignment, intrinsic sizing, responsive composition, and choosing Grid when layout requires two-dimensional control; pair with specific pattern sources for production recipes.
+
