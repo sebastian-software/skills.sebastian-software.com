@@ -26,4 +26,12 @@ Optimize React rendering by finding the actual source of work before adding memo
 - Target: `rendering`
 - URL recheck: 2026-06-13, HTTP 200
 - Guidance: Use as primary React re-render mental-model source: identify state changes and render paths before optimizing.
+### Snappy UI Optimization with useDeferredValue
+
+- Things ID(s): `TaJ1j2aeDUqyMPcpXwJLwz`
+- Source: <https://www.joshwcomeau.com/react/use-deferred-value/?from=newsletter>
+- Decision: `secondary`
+- Target: `rendering`
+- URL recheck: 2026-06-13, HTTP 200
+- Guidance: Use deferred rendering source for keeping input responsive when derived UI work is expensive.
 
