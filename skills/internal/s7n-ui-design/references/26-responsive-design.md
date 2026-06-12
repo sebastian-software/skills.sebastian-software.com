@@ -48,3 +48,12 @@ Design responsive behavior from content, container, input mode, device constrain
 - URL recheck: 2026-06-13, HTTP 200
 - Guidance: Primary for responsive-design with html-accessibility/editorial-ux cross-references: responsive design includes print and other media; define print styles, test print preview, handle page size/breaks, visible links, forms, overflow, navigation removal, grayscale contrast, ink use, and print-color-adjust restraint.
 
+### Styling Tables the Modern CSS Way - Piccalilli
+
+- Things ID(s): `D8RHkqvhUFYNUdYB5iKKKt`
+- Source: <https://piccalil.li/blog/styling-tables-the-modern-css-way/?utm_source=the-index&utm_medium=newsletter>
+- Decision: `primary`
+- Target: `responsive-design`
+- URL recheck: 2026-06-13, HTTP 200
+- Guidance: Primary for responsive-design with html-accessibility/component-development cross-references: modern table styling starts with semantic table markup, captions/headers, readable alignment, and accessible overflow wrappers with focus styles and scroll cues rather than destroying table semantics.
+
