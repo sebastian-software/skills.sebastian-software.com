@@ -86,4 +86,12 @@ Use current browser-support evidence before turning modern web-platform features
 - Target: `baseline`
 - URL recheck: 2026-06-13, HTTP 200
 - Guidance: Use Modern CSS 2025 as platform radar and currentness source.
+### What's New in Web UI: I/O 2025 Recap | Blog | Chrome for Developers
+
+- Things ID(s): `EKYunbMzvKfgLQ7j4VQ1DF`
+- Source: <https://developer.chrome.com/blog/new-in-web-ui-io-2025-recap?hl=en>
+- Decision: `secondary`
+- Target: `baseline`
+- URL recheck: 2026-06-13, HTTP 200
+- Guidance: Use Chrome Web UI I/O 2025 as platform radar for native UI capabilities.
 
