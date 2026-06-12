@@ -66,4 +66,12 @@ Use stories as reusable UI state fixtures. Prefer one state source that supports
 - Target: `frontend-testing`
 - URL recheck: 2026-06-13, HTTP 200
 - Guidance: Use Storybook 10 as platform/version radar for current Storybook workflows.
+### Storybook Main configuration
+
+- Things ID(s): `J4gWnH6zhLcfrzcEDKZUqM`
+- Source: <https://storybook.js.org/docs/react/api/main-config?ref=storybookblog.ghost.io>
+- Decision: `primary`
+- Target: `frontend-testing`
+- URL recheck: 2026-06-13, HTTP 200, redirects to https://storybook.js.org/docs/api/main-config/main-config?ref=storybookblog.ghost.io
+- Guidance: Use Storybook main configuration docs for setup/configuration checks.
 
