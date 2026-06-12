@@ -210,3 +210,12 @@ Build components as durable interface primitives: semantic DOM first, clear stat
 - URL recheck: 2026-06-13, HTTP 200
 - Guidance: Secondary for component-development with design-system/baseline cross-references: useful @scope/donut-scope explainer for limiting parent component styles before nested content boundaries, but keep as support/context source and pair with current @scope docs before codifying rules.
 
+### Spacer gifs
+
+- Things ID(s): `SBC11yteQ19ob6PX9re3S5`
+- Source: <https://www.joshwcomeau.com/react/modern-spacer-gif/>
+- Decision: `secondary`
+- Target: `component-development`
+- URL recheck: 2026-06-13, HTTP 200
+- Guidance: Secondary for component-development with design-system cross-reference: useful spacing-primitive argument for component architectures and optical alignment, but React-specific and partially outdated around flex gap support; use as caveat/companion to the primary gap-vs-margin source.
+
