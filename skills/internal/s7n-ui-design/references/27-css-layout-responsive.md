@@ -138,3 +138,12 @@ Use CSS layout algorithms deliberately. Grid, Flexbox, Subgrid, container querie
 - URL recheck: 2026-06-13, HTTP 200
 - Guidance: Secondary for css-layout-responsive: practical auto-filling CSS Grid pattern for card/dashboard layouts with max column counts; useful recipe, but narrower than core Grid mental-model sources.
 
+### Better fluid sizing with round()
+
+- Things ID(s): `MJQdXq8gQVsNhXgtAXnefK`
+- Source: <https://ishadeed.com/article/css-round/>
+- Decision: `secondary`
+- Target: `css-layout-responsive`
+- URL recheck: 2026-06-13, HTTP 200
+- Guidance: Secondary for css-layout-responsive with baseline cross-reference: useful CSS round() fluid sizing/grid math source, but feature support and exact syntax should be checked before codifying production rules.
+
