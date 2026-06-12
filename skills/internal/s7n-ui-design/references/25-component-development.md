@@ -174,3 +174,12 @@ Build components as durable interface primitives: semantic DOM first, clear stat
 - URL recheck: 2026-06-13, HTTP 200
 - Guidance: Secondary for component-development: important modal/dialog problem space around preventing background/root scroll, preserving scroll position, avoiding scrollbar reflow, allowing internal modal scroll, and testing iOS Safari/touch leakage; concrete 2019 workaround should be treated as historical/caveat material and paired with current <dialog>, overscroll-behavior, scrollbar-gutter, and browser-support checks.
 
+### Modern CSS Tooltips And Speech Bubbles (Part 1) - Smashing Magazine
+
+- Things ID(s): `9uHi7h8Gqa9v41wbr9VvY3`
+- Source: <https://www.smashingmagazine.com/2024/03/modern-css-tooltips-speech-bubbles-part1/?utm_source=CSS-Weekly&utm_medium=newsletter&utm_campaign=issue-581-march-08-2024>
+- Decision: `secondary`
+- Target: `component-development`
+- URL recheck: 2026-06-13, HTTP 200
+- Guidance: Secondary for component-development: strong CSS shape/API craft for tooltip and speech-bubble visuals using clip-path, border-image, gradients, min()/max(), custom properties, tail position/shape, border-radius corrections, and edge-case clamping; not sufficient as primary tooltip guidance because real tooltip components also need semantics, trigger behavior, dismissal, keyboard/touch support, aria-describedby, popover/anchor positioning, overflow and collision handling.
+
