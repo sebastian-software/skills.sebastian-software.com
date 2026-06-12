@@ -65,3 +65,12 @@ Use this reference for source-backed design-system decisions that cut across col
 - URL recheck: 2026-06-13, HTTP 200
 - Guidance: Primary for design-system colors/theming: official web.dev light-dark()/color-scheme source for native light/dark token switching, system color behavior, Baseline status, reduced media-query complexity, and theme-aware color definitions.
 
+### Fix Color Contrast - Web Accessibility for Text & UI Design - Pimp m
+
+- Things ID(s): `KHCQBTAuZaX1wJEj3kworS`
+- Source: <https://pimpmytype.com/color-contrast/>
+- Decision: `primary`
+- Target: `design-system`
+- URL recheck: 2026-06-13, HTTP 200
+- Guidance: Primary for design-system: color contrast as token, visual hierarchy, and component robustness topic; text contrast, non-text/component contrast, borders/icons/underlines as signifiers, button/input/filter state visibility, and WCAG minimums as floor rather than final design quality; cross-reference typography, component-development, and html-accessibility.
+
