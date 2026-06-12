@@ -75,4 +75,12 @@ Use motion to explain state change, spatial continuity, feedback, and progress. 
 - Target: `motion-interaction`
 - URL recheck: 2026-06-13, HTTP 200
 - Guidance: Use scroll timelines source for scroll-driven animation patterns and caveats.
+### SPAs, Shared Element Transitions, and Re-Evaluating Technology
+
+- Things ID(s): `9FdqY58HR6Cs8szghQTjVP`
+- Source: <https://css-tricks.com/spas-shared-element-transitions-and-re-evaluating-technology/>
+- Decision: `secondary`
+- Target: `motion-interaction`
+- URL recheck: 2026-06-13, HTTP 200
+- Guidance: Use shared-element transition discussion as SPA/MPA motion tradeoff context.
 
