@@ -10,4 +10,12 @@ Use framework features deliberately. Rendering mode, routing, data fetching, CSS
 - Avoid treating one framework's RSC or routing behavior as universal React behavior.
 
 ## Source-Backed Guidance
+### Crafting the Next.js Website
+
+- Things ID(s): `55GsQdEtimywvuTdzNMR8H`
+- Source: <https://rauno.me/craft/nextjs?ck_subscriber_id=1866528194&utm_source=convertkit&utm_medium=email&utm_campaign=%E2%9A%9B%EF%B8%8F+This+Week+In+React+%23143%3A+RSC+Quiz%2C+useFormStatus%2C+Next.js+Website%2C+Panda+CSS%2C+useLayoutEffect%2C+Million.js%2C+Immer%2C+Super+Apps%2C+React-Three-Fiber%2C+Vite...%20-%2010625518>
+- Decision: `secondary`
+- Target: `framework`
+- URL recheck: 2026-06-13, HTTP 200
+- Guidance: Use as framework-site architecture case study, not as universal Next.js guidance.
 
