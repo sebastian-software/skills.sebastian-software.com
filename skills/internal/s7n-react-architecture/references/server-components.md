@@ -18,4 +18,12 @@ Use React Server Components to move data access and non-interactive rendering wo
 - Target: `rsc`
 - URL recheck: 2026-06-13, HTTP 200
 - Guidance: Use as React Server Components mental-model source for server/client split, data access, and interactivity boundaries.
+### RSC From Scratch. Part 1: Server Components · reactwg/server-compone
+
+- Things ID(s): `6snSQEt4cge8xb2J9H1Ho6`, `Caze5uUvVn4cBWdHq7H8c9`
+- Source: <https://github.com/reactwg/server-components/discussions/5>
+- Decision: `primary`
+- Target: `rsc`
+- URL recheck: 2026-06-13, HTTP 200
+- Guidance: Use React WG RSC from-scratch discussion as primary mental-model source for RSC protocol and boundaries.
 
