@@ -12,3 +12,12 @@ Use semantic HTML, native behavior, visible focus, keyboard access, and assistiv
 
 ## Source-Backed Guidance
 
+### 5 Accessibility Quick Wins You Can Implement Today
+
+- Things ID(s): `GrwsAoykPLsoyNE3xaWExr`
+- Source: <https://css-tricks.com/5-accessibility-quick-wins-you-can-implement-today/>
+- Decision: `primary`
+- Target: `core-html-a11y`
+- URL recheck: 2026-06-13, HTTP 200
+- Guidance: User prefers explanatory practice articles as primary when they explain why and how better than specs/MDN.
+
