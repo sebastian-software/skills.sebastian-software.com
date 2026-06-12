@@ -19,4 +19,12 @@ Design long-form reading and content-heavy layouts for comprehension, trust, and
 - Target: `editorial-ux`
 - URL recheck: 2026-06-13, HTTP 200
 - Guidance: Primary for editorial-ux and typography: long-form reading layout, font size, line length, line height, link underline styling, semantic article/main markup, skip links, reader mode resilience, image integration, and performance caveats.
+### Building a Next-Level Code Playground / Sandbox / REPL with Sandpack
+
+- Things ID(s): `XevbXijG53Wp7xT6daqWdp`
+- Source: <https://www.joshwcomeau.com/react/next-level-playground/>
+- Decision: `secondary`
+- Target: `editorial-ux`
+- URL recheck: 2026-06-13, HTTP 200
+- Guidance: Retarget to editorial/interactive docs UX: Sandpack playgrounds support documentation and learning surfaces.
 
