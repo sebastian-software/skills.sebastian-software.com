@@ -129,3 +129,12 @@ Use CSS layout algorithms deliberately. Grid, Flexbox, Subgrid, container querie
 - URL recheck: 2026-06-13, HTTP 200, redirects to https://web.dev/articles/6-css-snippets-every-front-end-developer-should-know-in-2023?ck_subscriber_id=1866528194&utm_source=convertkit&utm_medium=email&utm_campaign=%E2%9A%9B%EF%B8%8F+This+Week+In+React+%23139%3A+React.dev%2C+Remix%2C+next+export%2C+Server+Components%2C+i18n%2C+Error+Boundary%2C+Wakuwork%2C+Astro%2C+React-Native%2C+Bottom+Sheet%2C+TypeScript%2C+TC39...++-+10351123
 - Guidance: Secondary for css-layout-responsive with baseline/design-system/component-development cross-references: official web.dev roundup of useful modern CSS primitives including container queries, scroll snap, grid pile, aspect-ratio, cascade layers, and logical properties; useful support/radar and checklist source, but detailed rules should come from focused sources.
 
+### Auto filling Grid. Good solution for Dashboards
+
+- Things ID(s): `NJQxicZE8mBsnyMGzqgqXb`
+- Source: <https://css-tricks.com/an-auto-filling-css-grid-with-max-columns/?>
+- Decision: `secondary`
+- Target: `css-layout-responsive`
+- URL recheck: 2026-06-13, HTTP 200
+- Guidance: Secondary for css-layout-responsive: practical auto-filling CSS Grid pattern for card/dashboard layouts with max column counts; useful recipe, but narrower than core Grid mental-model sources.
+
