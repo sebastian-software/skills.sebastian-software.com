@@ -12,3 +12,12 @@ Design forms around user recovery: clear labels, browser-supported input attribu
 
 ## Source-Backed Guidance
 
+### Disable Auto Complete (DOM)
+
+- Things ID(s): `JDbStG1Z3KoGW3jhnejquP`
+- Source: <https://developer.mozilla.org/en-US/docs/Web/Security/Securing_your_site/Turning_off_form_autocompletion>
+- Decision: `primary`
+- Target: `forms-ux`
+- URL recheck: 2026-06-13, HTTP 200, redirects to https://developer.mozilla.org/en-US/docs/Web/Security/Practical_implementation_guides/Turning_off_form_autocompletion
+- Guidance: Primary for forms-ux: do not disable autocomplete globally; use autocomplete tokens intentionally, preserve input-purpose identification, allow password managers, and disable autocomplete only for temporary or sensitive values such as OTPs, unique identifiers, or CVV-like fields; cross-reference html-accessibility and security/privacy.
+
