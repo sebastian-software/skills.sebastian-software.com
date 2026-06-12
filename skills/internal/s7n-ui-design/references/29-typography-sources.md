@@ -56,3 +56,12 @@ Use this reference for source-backed typography decisions: readable measure, wra
 - URL recheck: 2026-06-13, HTTP 200
 - Guidance: Secondary for typography with editorial-ux cross-reference: practical :has()/:where() pattern for vertical rhythm in long-form/CMS content, structural spacing between headings, paragraphs, lists, first/last child handling, section grouping, and low specificity; useful as concrete CSS pattern rather than core typography/a11y source.
 
+### Viewport-Sized-Fonts: JS Lösung in dem Fall besser?
+
+- Things ID(s): `TdjvmTShj5R1BoWacaMLUG`
+- Source: <https://www.smashingmagazine.com/2016/05/fluid-typography/>
+- Decision: `secondary`
+- Target: `typography`
+- URL recheck: 2026-06-13, HTTP 200
+- Guidance: Secondary for typography with responsive-design cross-reference: durable fluid typography reasoning and viewport-unit caveats, but 2016 implementation details should be superseded by modern clamp(), container units, zoom/accessibility, and current browser-support sources.
+
