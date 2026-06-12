@@ -26,4 +26,12 @@ Use stories as reusable UI state fixtures. Prefer one state source that supports
 - Target: `frontend-testing/storybook`
 - URL recheck: 2026-06-13, HTTP 200
 - Guidance: Use Storybook coverage as a way to find missing component states and story coverage gaps; verify current commands before implementation.
+### Component Test with Storybook and Vitest
+
+- Things ID(s): `5yq1bxx85VTJjKvgWikMj4`
+- Source: <https://storybook.js.org/blog/component-test-with-storybook-and-vitest/>
+- Decision: `primary`
+- Target: `frontend-testing/storybook`
+- URL recheck: 2026-06-13, HTTP 200
+- Guidance: Treat Storybook stories as component state fixtures that can support interaction, accessibility, visual tests, coverage, and CI review.
 
