@@ -156,3 +156,12 @@ Build components as durable interface primitives: semantic DOM first, clear stat
 - URL recheck: 2026-06-13, HTTP 200
 - Guidance: Primary for component-development with html-accessibility and design-system cross-references: preserve structural border/outline affordances for interactive controls by using border-color: transparent or outline-color: transparent instead of border: none/outline: none when hiding visual borders; supports Forced Colors/High Contrast mode, control recognizability, layout stability, and focus/hover state robustness.
 
+### Getting Creative With HTML Dialog | CSS-Tricks
+
+- Things ID(s): `2j6fXQTkFTQk14JKU8fvQZ`
+- Source: <https://css-tricks.com/getting-creative-with-html-dialog/>
+- Decision: `secondary`
+- Target: `component-development`
+- URL recheck: 2026-06-13, HTTP 200
+- Guidance: Secondary for component-development: useful expressive styling example for native <dialog>, ::backdrop, backdrop-filter, animations, SVG/image backgrounds, and :has(input:valid) state styling; use only as visual/design-system supplement after stronger dialog semantics, focus, close, labels, and reduced-motion rules.
+
