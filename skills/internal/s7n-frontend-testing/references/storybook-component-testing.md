@@ -58,4 +58,12 @@ Use stories as reusable UI state fixtures. Prefer one state source that supports
 - Target: `frontend-testing`
 - URL recheck: 2026-06-13, HTTP 200
 - Guidance: Use Storybook type-safety source for story typing and component fixture quality.
+### Storybook 10
+
+- Things ID(s): `8FA4TdvRCtP23boNj8cir5`
+- Source: <https://storybook.js.org/blog/storybook-10/>
+- Decision: `secondary`
+- Target: `frontend-testing`
+- URL recheck: 2026-06-13, HTTP 200
+- Guidance: Use Storybook 10 as platform/version radar for current Storybook workflows.
 
