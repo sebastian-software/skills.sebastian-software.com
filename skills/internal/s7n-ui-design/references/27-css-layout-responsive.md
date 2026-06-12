@@ -66,3 +66,12 @@ Use CSS layout algorithms deliberately. Grid, Flexbox, Subgrid, container querie
 - URL recheck: 2026-06-13, HTTP 200
 - Guidance: Primary for css-layout-responsive: subgrid solves nested alignment when child components need to inherit parent tracks for titles, descriptions, media, cards, forms, and editorial/list layouts; pair old support notes with current Baseline checks.
 
+### Learn CSS Subgrid - Ahmad Shadeed
+
+- Things ID(s): `Sz9LXzmqASdQXgfQ2K8na`
+- Source: <https://ishadeed.com/article/learn-css-subgrid/?utm_source=CSS-Weekly&utm_campaign=Issue-504&utm_medium=email>
+- Decision: `primary`
+- Target: `css-layout-responsive`
+- URL recheck: 2026-06-13, HTTP 200
+- Guidance: Primary for css-layout-responsive: duplicate/tracking variant of the Ahmad Shadeed subgrid source; decide together with EQmx9Zw92dUPULMadKjBTR and pair old support notes with current Baseline checks.
+
