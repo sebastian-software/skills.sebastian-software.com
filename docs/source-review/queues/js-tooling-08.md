@@ -1,0 +1,56 @@
+# Queue: Skill: JS Tooling #08
+
+These are open Things intake items. Review links before making any skill changes.
+
+| # | Things ID | Title | URLs | Notes excerpt |
+| ---: | --- | --- | --- | --- |
+| 351 | `2RfSKroDnHmzYFsKHfrU6W` | https://github.com/umami-software/umami | <https://github.com/umami-software/umami> |  |
+| 352 | `NnYsEtJZJ32Kn1pAoDbu8M` | https://github.com/unfold/webpack-serve/blob/master/src/index.js | <https://github.com/unfold/webpack-serve/blob/master/src/index.js> |  |
+| 353 | `DAaRsTuwiUSY8RRe3tnXa2` | https://github.com/unjs/fontaine | <https://github.com/unjs/fontaine> |  |
+| 354 | `514qj3Sc9gzqkSZngd8HBe` | https://github.com/unjs/md4x/ | <https://github.com/unjs/md4x/> |  |
+| 355 | `4D4jkQ5K7rBW7cmkcvpLw3` | https://github.com/Vaibhavs10/insanely-fast-whisper | <https://github.com/Vaibhavs10/insanely-fast-whisper> |  |
+| 356 | `8jzDvpsMwH1n2LLc3dVbox` | https://github.com/visgl/react-google-maps | <https://github.com/visgl/react-google-maps> |  |
+| 357 | `Lhw6kDzGaA2qs53RoRaAbu` | https://github.com/voidzero-dev/vite-task | <https://github.com/voidzero-dev/vite-task> |  |
+| 358 | `GiQhoUVyYqEDGWbfF8RvUH` | https://github.com/vxcozy/tome | <https://github.com/vxcozy/tome> |  |
+| 359 | `MFHBdnroyx5GxFXfQoDrR2` | https://github.com/wendy7756/AI-Video-Transcriber | <https://github.com/wendy7756/AI-Video-Transcriber> |  |
+| 360 | `oYj1AsFqrDb2afqk1zNxR` | https://github.com/wondelai/skills | <https://github.com/wondelai/skills> |  |
+| 361 | `4Ncgja45Kn8FF8r73onGm5` | https://github.com/wshobson/agents | <https://github.com/wshobson/agents> |  |
+| 362 | `S9gZW2dVxsAmaUAnmTVXWg` | https://github.com/Yeachan-Heo/oh-my-codex | <https://github.com/Yeachan-Heo/oh-my-codex> |  |
+| 363 | `3R2UwqmbGuNdv3gSYhwdm3` | https://github.com/yichuan-w/LEANN | <https://github.com/yichuan-w/LEANN> |  |
+| 364 | `48BcA11KgKozvTbcdcTrP3` | https://github.com/yt-dlp/yt-dlp | <https://github.com/yt-dlp/yt-dlp> |  |
+| 365 | `SsnhyEHBcvz8r7AF8fs3N3` | https://github.com/z-lab/dflash | <https://github.com/z-lab/dflash> |  |
+| 366 | `NUm7kJMVR1D2ubekzHb3kb` | https://github.com/zilliztech/memsearch | <https://github.com/zilliztech/memsearch> |  |
+| 367 | `Erd8KfhyU355Wx9Rq8AcVo` | https://github.com/zmeyer44/Locker | <https://github.com/zmeyer44/Locker> |  |
+| 368 | `E3ynJnh998FzTD5APB21Mm` | Human Date Parser | <https://github.com/wanasit/chrono> | https://github.com/wanasit/chrono |
+| 369 | `GjYkePJkcT2MnEyM5GdjN7` | Hunspell  | <https://github.com/hunspell/hunspell> | https://github.com/hunspell/hunspell |
+| 370 | `sAwEiZrGos5tzJgodxYqH` | Hyphen Lib | <https://github.com/hunspell/hyphen> | https://github.com/hunspell/hyphen |
+| 371 | `PGZDquw6VMTgtZmoUv7ChL` | I ported JustHTML from Python to JavaScript with Codex CLI and GPT-5.2 in 4.5 hours | <https://simonwillison.net/2025/Dec/15/porting-justhtml/?ref=labnotes.org> | https://simonwillison.net/2025/Dec/15/porting-justhtml/?ref=labnotes.org |
+| 372 | `MQBD235r6rGF7hrRXRGyy5` | Ideen aus Backpack abschauen | <https://github.com/palmerhq/backpack> | https://github.com/palmerhq/backpack |
+| 373 | `JFepF8XE1ayveZb3ZrUTnt` | Image Trace Loader + Image LGIP Loader | <https://github.com/EmilTholin/image-trace-loader><br><https://github.com/zouhir/lqip-loader> | https://github.com/EmilTholin/image-trace-loader  https://github.com/zouhir/lqip-loader |
+| 374 | `RdFWkauz6D7h4mETeDdj3H` | Inline-SVG für PostCSS-Load umsetzen | <https://github.com/TrySound/postcss-inline-svg> | https://github.com/TrySound/postcss-inline-svg |
+| 375 | `9DJa3xQK1tELPaJ8ZVNjVp` | Intersection Observer Polyfill für Safari/iOS - nützlich für das Lazy-Loading von Bildern | <https://github.com/w3c/IntersectionObserver/blob/gh-pages/polyfill/intersection-observer.js><br><https://github.com/w3c/IntersectionObserver><br><https://github.com/deanhume/lazy-observer-load/blob/master/lazy-load.js> | https://github.com/w3c/IntersectionObserver/blob/gh-pages/polyfill/intersection-observer.js  https://github.com/w3c/IntersectionObserver  Beispiel-Code: https://github.com/deanhume/lazy-observer-load/blob/master/lazy-load.js  |
+| 376 | `FkKXwgYNX9RBdYAKSAd26` | JavaScript Color Manipulation | <https://github.com/cdonohue/polychrome> | https://github.com/cdonohue/polychrome  |
+| 377 | `C93W39nmKp4fdcd4BnZg2u` | Jest Config abgleichen | <https://github.com/ro-savage/create-react-app/blob/6d9dffbddaf1fe75938291eefd65b7095b479663/packages/react-scripts/scripts/utils/createJestConfig.js> | https://github.com/ro-savage/create-react-app/blob/6d9dffbddaf1fe75938291eefd65b7095b479663/packages/react-scripts/scripts/utils/createJestConfig.js |
+| 378 | `D33euun92b6aPEvSdsjUny` | Kleine Google Analytics Client API | <https://github.com/lukeed/ganalytics> | https://github.com/lukeed/ganalytics |
+| 379 | `27nHcHys9ctNa4pd3NLdPu` | Kyt der New York Times ist irgendwie sehr ähnlich zum EdgeStack | <https://github.com/NYTimes/kyt/> | https://github.com/NYTimes/kyt/ |
+| 380 | `GSDjz6Hz3592KDrHh4G1QP` | Lean Google Analytics Library: https://github.com/lukeed/ganalytics | <https://github.com/lukeed/ganalytics> |  |
+| 381 | `No56TvF47FT5zVvbGyiZMb` | Learning PWA Tutorial | <https://github.com/ragingwind/learning-pwa> | https://github.com/ragingwind/learning-pwa  |
+| 382 | `NkiZm3vShAyx7hdQy1zoDM` | Leva UI Eingabe library | <https://github.com/pmndrs/leva> | https://github.com/pmndrs/leva |
+| 383 | `57QuWeJoVDWSJFTiznzwyu` | Lightning CSS | <https://github.com/parcel-bundler/lightningcss> | https://github.com/parcel-bundler/lightningcss |
+| 384 | `X4wrpX96pBSEHdV3aSfZoc` | LLM Gemini  | <https://github.com/simonw/llm-gemini> | https://github.com/simonw/llm-gemini |
+| 385 | `EutxmSNfMRWdapochaefoj` | Logger für Edge-Builder | <https://github.com/visionmedia/debug> | - Pino - Debug: https://github.com/visionmedia/debug - Bunyan: Einer der Klassiker - Winston: Langsam |
+| 386 | `D95WbxBXwfBmcJNSSuUbjH` | Logging für Boilerplate | <https://github.com/pinojs/pino><br><https://github.com/rvagg/bole><br><https://github.com/trentm/node-bunyan> | https://github.com/pinojs/pino https://github.com/rvagg/bole https://github.com/trentm/node-bunyan |
+| 387 | `Fu8hVfGZVbHQvaKuPn1uWD` | Luxon Datumslibrary | <https://github.com/moment/luxon> | https://github.com/moment/luxon  |
+| 388 | `JJyJF5BztZY7VvDmbJXMFw` | Markdown-RS | <https://github.com/wooorm/markdown-rs> | https://github.com/wooorm/markdown-rs |
+| 389 | `EXBXdLyxrASNwSozM487Xb` | Marker | <https://github.com/VikParuchuri/marker> | https://github.com/VikParuchuri/marker |
+| 390 | `UMYpmM3r9cXFfFZD9cBX23` | Marketing: Exit-Erkennung der Maus | <https://github.com/luisvinicius167/gliojs> | https://github.com/luisvinicius167/gliojs |
+| 391 | `Dgz7zZsNRTHr3EtprwNJ4z` | Marko Template Language für Advanced Boilerplate | <https://github.com/marko-js/marko> | https://github.com/marko-js/marko |
+| 392 | `NAWyR7DYxfpExp7uTtaEVx` | Meatier | <https://github.com/mattkrick/meatier> | https://github.com/mattkrick/meatier |
+| 393 | `HadJYGLyd6zJgVSGQscBTM` | Medium Style Typo | <https://github.com/mightyCrow/tipograf?utm_source=codropscollective> | https://github.com/mightyCrow/tipograf?utm_source=codropscollective |
+| 394 | `8z7xAcjysYLC7JqD5GGJjU` | mem0/openclaw at main · mem0ai/mem0 · GitHub | <https://github.com/mem0ai/mem0/tree/main/openclaw> | https://github.com/mem0ai/mem0/tree/main/openclaw |
+| 395 | `V4gCFCvskYTRVRaGqegcjo` | Mermaid Loader für Storybook/Styleguidist für UML Diagramme | <https://github.com/popul/mermaid-loader> | https://github.com/popul/mermaid-loader |
+| 396 | `A98WiyNSALiLoarsxXZkR9` | Modular CSS - CSS Modules Nachfolger | <https://github.com/tivac/modular-css> | https://github.com/tivac/modular-css |
+| 397 | `58b3ApG8XZfBwKCAvyuSEt` | Mona Sans & Hubot Sans · GitHub | <https://github.com/mona-sans?utm_source=newsletter&utm_medium=email&utm_campaign=wdrl-306> | https://github.com/mona-sans?utm_source=newsletter&utm_medium=email&utm_campaign=wdrl-306 |
+| 398 | `WZjAiDMpCNi1cpz48m89zb` | Mona Sans & Hubot Sans · GitHub | <https://github.com/mona-sans> | https://github.com/mona-sans |
+| 399 | `GJYg3oqqjTdH3CLYdrZrWE` | Monitor Tasten | <https://github.com/MonitorControl/MonitorControl> | https://github.com/MonitorControl/MonitorControl |
+| 400 | `Q9aZRnJoMLh4SYTr4d2Jw8` | Moonfin Client  | <https://github.com/Moonfin-Client> | https://github.com/Moonfin-Client |
