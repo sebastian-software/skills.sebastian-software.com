@@ -18,4 +18,12 @@ Use framework features deliberately. Rendering mode, routing, data fetching, CSS
 - Target: `framework`
 - URL recheck: 2026-06-13, HTTP 200
 - Guidance: Use as framework-site architecture case study, not as universal Next.js guidance.
+### CSS in React Server Components
+
+- Things ID(s): `p5XfqJB3Kpx4ATxfrtbSt`
+- Source: <https://www.joshwcomeau.com/react/css-in-rsc/>
+- Decision: `secondary`
+- Target: `framework`
+- URL recheck: 2026-06-13, HTTP 200
+- Guidance: Use CSS-in-RSC source for styling constraints across server/client boundaries.
 
