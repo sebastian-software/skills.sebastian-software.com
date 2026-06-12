@@ -43,4 +43,12 @@ Use motion to explain state change, spatial continuity, feedback, and progress. 
 - Target: `motion-interaction`
 - URL recheck: 2026-06-13, HTTP 200
 - Guidance: Use official scroll-driven animation material as primary reference for scroll-linked motion with progressive enhancement.
+### Partial Keyframes • Josh W. Comeau
+
+- Things ID(s): `A9DpMbiBdeSz9AKXASeuBp`
+- Source: <https://www.joshwcomeau.com/animation/partial-keyframes/>
+- Decision: `secondary`
+- Target: `motion-interaction`
+- URL recheck: 2026-06-13, HTTP 200
+- Guidance: Use partial keyframes as animation craft guidance; keep motion purposeful and bounded.
 
