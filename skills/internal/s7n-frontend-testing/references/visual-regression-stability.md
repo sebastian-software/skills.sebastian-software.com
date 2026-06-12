@@ -27,4 +27,12 @@ Visual tests are only useful when the rendering environment is controlled enough
 - Target: `frontend-testing/visual`
 - URL recheck: 2026-06-13, HTTP 200
 - Guidance: Use official Vitest Browser Mode visual-regression guidance for screenshot stability, masking, thresholds, and animation control.
+### Visual testing is the greatest trick in UI development
+
+- Things ID(s): `ANkTcBFxPyLjCTDb3LayDz`, `NRTqMTKvuJNCstP85xtQo4`
+- Source: <https://storybook.js.org/blog/visual-testing-is-the-greatest-trick-in-ui-development/>
+- Decision: `primary`
+- Target: `frontend-testing/visual`
+- URL recheck: 2026-06-13, HTTP 200
+- Guidance: Use as visual-testing workflow source for UI baselines, review loops, and Storybook/Chromatic-backed visual state coverage.
 
