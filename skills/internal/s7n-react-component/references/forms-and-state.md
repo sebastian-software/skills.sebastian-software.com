@@ -10,4 +10,12 @@ Use React state and form libraries in ways that preserve browser semantics, data
 - Handle async, optimistic, loading, error, and reset states without losing user input unexpectedly.
 
 ## Source-Backed Guidance
+### Conditionally Render Fields Using React Hook Form
+
+- Things ID(s): `Jy7y4NBbS9Vxf8Ri6E9QbE`
+- Source: <https://echobind.com/post/conditionally-render-fields-using-react-hook-form?ck_subscriber_id=1866528194&utm_source=convertkit&utm_medium=email&utm_campaign=%E2%9A%9B%EF%B8%8F+This+Week+In+React+%23125%3A+tRPC%2C+T3%2C+Remix%2C+Zustand%2C+Server+Components%2C+Drag+%26+Drop%2C+Forms%2C+Gatsby%2C+Remotion%2C+React-Native%2C+Skia...%20-%209471615>
+- Decision: `secondary`
+- Target: `react-state`
+- URL recheck: 2026-06-13, HTTP 200
+- Guidance: Use as React Hook Form conditional-field guidance; keep conditional fields aligned with validation, unregistering, and user-visible state.
 
