@@ -54,4 +54,12 @@ Use current browser-support evidence before turning modern web-platform features
 - Target: `baseline`
 - URL recheck: 2026-06-13, HTTP 200
 - Guidance: Duplicate/supporting modern CSS radar source.
+### What's new in CSS and UI: I/O 2023 Edition - Chrome Developers
+
+- Things ID(s): `NNV8cwLuZa577Rwiyu51TY`
+- Source: <https://developer.chrome.com/blog/whats-new-css-ui-2023/?utm_source=CSS-Weekly&utm_campaign=Issue-550&utm_medium=email>
+- Decision: `secondary`
+- Target: `baseline`
+- URL recheck: 2026-06-13, HTTP 200
+- Guidance: Use Chrome CSS/UI I/O 2023 as platform radar, not concrete implementation rules.
 
