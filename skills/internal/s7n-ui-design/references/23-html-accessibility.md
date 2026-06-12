@@ -21,3 +21,12 @@ Use semantic HTML, native behavior, visible focus, keyboard access, and assistiv
 - URL recheck: 2026-06-13, HTTP 200
 - Guidance: User prefers explanatory practice articles as primary when they explain why and how better than specs/MDN.
 
+### :has(): the family selector - Chrome Developers
+
+- Things ID(s): `S7QdCNaqFMgg6mtMgPUQEz`
+- Source: <https://developer.chrome.com/blog/has-m105/?utm_source=CSS-Weekly&utm_campaign=Issue-516&utm_medium=email>
+- Decision: `primary`
+- Target: `core-html-a11y`
+- URL recheck: 2026-06-13, HTTP 200
+- Guidance: Use as broader semantic state/parent-context pattern source, not only a11y: parent styling from child/content/focus/error/state conditions; a11y is one use case.
+
