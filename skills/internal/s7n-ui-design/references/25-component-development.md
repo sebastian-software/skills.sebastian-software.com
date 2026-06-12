@@ -111,3 +111,12 @@ Build components as durable interface primitives: semantic DOM first, clear stat
 - URL recheck: 2026-06-13, HTTP 200
 - Guidance: Primary for component-development: modern CSS Anchor Positioning tooltip/floating-ui positioning pattern using anchor-name, position-anchor, position-area, position-try-fallbacks, flip-block, and anchor(); browser support has improved to Baseline Newly available in 2026, so treat as preferred native positioning approach for suitable tooltips/popovers while still testing fallback/collision behavior and adding separate semantics, trigger, dismissal, keyboard/touch, and accessibility rules.
 
+### Practical Accessibility Tips You Can Apply Today
+
+- Things ID(s): `C8Z8ZDF6UyDgoymLZ5tnn6`
+- Source: <https://piccalil.li/blog/practical-accessibility-tips-you-can-apply-today/?ref=main-rss-feed>
+- Decision: `primary`
+- Target: `component-development`
+- URL recheck: 2026-06-13, HTTP 200
+- Guidance: Primary for component-development with html-accessibility cross-reference: practical pattern guidance for accessible dropdowns/modals/controls, prefer semantic elements such as button triggers and structured option lists, use ARIA like aria-expanded/aria-controls as support rather than replacement, and ensure keyboard, screen reader, focus, and assistive-technology usability are part of component APIs and review checklists.
+
