@@ -102,3 +102,12 @@ Use CSS layout algorithms deliberately. Grid, Flexbox, Subgrid, container querie
 - URL recheck: 2026-06-13, HTTP 200
 - Guidance: Primary for css-layout-responsive with component-development/baseline cross-references: strong Anchor Positioning basics source for positioning elements relative to non-parent anchors, anchor(), position-area, span areas, and position-try fallbacks; pair support blocks with current Baseline data.
 
+### Understanding Layout Algorithms
+
+- Things ID(s): `6mSaX9UbSoaLKzpVpCNPHs`
+- Source: <https://www.joshwcomeau.com/css/understanding-layout-algorithms/>
+- Decision: `primary`
+- Target: `css-layout-responsive`
+- URL recheck: 2026-06-13, HTTP 200
+- Guidance: Primary for css-layout-responsive: foundational mental-model source that CSS properties only make sense within layout algorithms such as Flow, Flexbox, Grid, Positioned, and Table; use to teach why width, z-index, sizing, and alignment behave differently by layout mode.
+
