@@ -35,4 +35,12 @@ Use motion to explain state change, spatial continuity, feedback, and progress. 
 - Target: `motion-interaction`
 - URL recheck: 2026-06-13, HTTP 200
 - Guidance: Use CSS `@starting-style` as entry-transition guidance with support and fallback checks.
+### Introducing "Unleash the power of Scroll-Driven Animations" | Blog |
+
+- Things ID(s): `PefC88bAi4AggCxR6R8tnR`
+- Source: <https://developer.chrome.com/blog/scroll-driven-animations-video-course?hl=en>
+- Decision: `primary`
+- Target: `motion-interaction`
+- URL recheck: 2026-06-13, HTTP 200
+- Guidance: Use official scroll-driven animation material as primary reference for scroll-linked motion with progressive enhancement.
 
