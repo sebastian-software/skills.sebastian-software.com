@@ -42,4 +42,12 @@ Design React component APIs so composition, state, styling, and semantics remain
 - Target: `react-api`
 - URL recheck: 2026-06-13, HTTP 200
 - Guidance: Use as component resilience guidance for async states, composition, portals, refs, server/client boundaries, and defensive APIs.
+### A little semantic HTML trick for React components - Queen Raae
+
+- Things ID(s): `UeiE6ioLU1UdsHogUZ6EKB`
+- Source: <https://queen.raae.codes/emails/2022-10-10-semantic-react/?ck_subscriber_id=1866528194&utm_source=convertkit&utm_medium=email&utm_campaign=%E2%9A%9B%EF%B8%8F+This+Week+In+React+%23220%3A+use+RFC%2C+Sandpack%2C+Progressive+enhancement%2C+Streaming%2C+Storybook%2C+React-Native%2C+Codeflow%2C+Fontaine%2C+Unplugin%2C+Node.js+19%2C+TypeRunner...%20-%209215666>
+- Decision: `secondary`
+- Target: `react-component`
+- URL recheck: 2026-06-13, HTTP 200, redirects to https://queen.raae.codes/2022-10-10-semantic-react/?ck_subscriber_id=1866528194&utm_source=convertkit&utm_medium=email&utm_campaign=%E2%9A%9B%EF%B8%8F+This+Week+In+React+%23220%3A+use+RFC%2C+Sandpack%2C+Progressive+enhancement%2C+Streaming%2C+Storybook%2C+React-Native%2C+Codeflow%2C+Fontaine%2C+Unplugin%2C+Node.js+19%2C+TypeRunner...%20-%209215666
+- Guidance: Retarget to React component: preserve semantic HTML through component APIs.
 
