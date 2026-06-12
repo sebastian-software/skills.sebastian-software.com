@@ -165,3 +165,12 @@ Build components as durable interface primitives: semantic DOM first, clear stat
 - URL recheck: 2026-06-13, HTTP 200
 - Guidance: Secondary for component-development: useful expressive styling example for native <dialog>, ::backdrop, backdrop-filter, animations, SVG/image backgrounds, and :has(input:valid) state styling; use only as visual/design-system supplement after stronger dialog semantics, focus, close, labels, and reduced-motion rules.
 
+### Modals: Prevent Root Scrolling
+
+- Things ID(s): `3QzcLphZTBT9z63RiEvdCG`
+- Source: <https://css-tricks.com/prevent-page-scrolling-when-a-modal-is-open/>
+- Decision: `secondary`
+- Target: `component-development`
+- URL recheck: 2026-06-13, HTTP 200
+- Guidance: Secondary for component-development: important modal/dialog problem space around preventing background/root scroll, preserving scroll position, avoiding scrollbar reflow, allowing internal modal scroll, and testing iOS Safari/touch leakage; concrete 2019 workaround should be treated as historical/caveat material and paired with current <dialog>, overscroll-behavior, scrollbar-gutter, and browser-support checks.
+
