@@ -138,3 +138,12 @@ Build components as durable interface primitives: semantic DOM first, clear stat
 - URL recheck: 2026-06-13, HTTP 200
 - Guidance: Primary for component-development with forms-ux, html-accessibility, design-system, and responsive-design cross-references: before building a custom combobox/select, evaluate native customizable select via appearance: base-select, ::picker(select), top-layer picker, anchor positioning, rich option content, internal parts/states, and unchanged JS interfaces; preserve form semantics while testing support, parsing changes, mobile OS picker tradeoffs, width behavior, and fallback strategy.
 
+### The Undeniable Utility Of CSS :has • Josh W. Comeau
+
+- Things ID(s): `6hP6h8HiTHQmQD7GyCmryk`
+- Source: <https://www.joshwcomeau.com/css/has/?ck_subscriber_id=1866528194&utm_source=convertkit&utm_medium=email&utm_campaign=%E2%9A%9B%EF%B8%8F%20This%20Week%20In%20React%20#200:%20Remix,%20React%20Universe,%20Next.js%20dynamicIO,%20:has,%20Redwood,%20MDX,%20Atomic-CRM,%20NewArch,%20Fusebox,%20Hermes,%20Gesture%20Handler,%20TypedGPU,%20Firebase,%20Vite,%20Express,%20TypeScript,%20Rsbuild...%20-%2014977938>
+- Decision: `primary`
+- Target: `component-development`
+- URL recheck: 2026-06-13, HTTP 200
+- Guidance: Primary for component-development, linked to source 2 as practical :has() companion: broad parent/context/state styling tool, use :has(button:focus-visible) and other child-state selectors to keep semantic markup while styling parent containers, use @supports selector(:has(*)) fallbacks, derive UI state from focus/active/checked/data-state, update CSS variables from child state, and avoid replacing semantic children with fake interactive wrapper elements; cross-reference css-layout-responsive, design-system, and html-accessibility.
+
