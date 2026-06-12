@@ -237,4 +237,12 @@ Use this reference for source-backed design-system decisions that cut across col
 - Target: `design-system`
 - URL recheck: 2026-06-13, HTTP 200
 - Guidance: Use color interpolation source as primary guidance for gradients, transitions, color-mix, and OKLCH behavior.
+### SVG Icons für Edge-Boilerblate testen
+
+- Things ID(s): `PYxhJXgGc323sQFmAsbvx6`
+- Source: <https://css-tricks.com/pretty-good-svg-icon-system/>
+- Decision: `secondary`
+- Target: `design-system`
+- URL recheck: 2026-06-13, HTTP 200
+- Guidance: Retarget to design-system icon delivery: SVG icon systems belong with visual assets.
 
