@@ -27,4 +27,12 @@ Use motion to explain state change, spatial continuity, feedback, and progress. 
 - Target: `motion-interaction`
 - URL recheck: 2026-06-13, HTTP 200
 - Guidance: Use color-shifting animation as a motion/effects example; require reduced-motion and readability checks.
+### CSS Stärkung Style
+
+- Things ID(s): `PKAn2UtGhMZx833zTDuwRD`
+- Source: <https://www.joshwcomeau.com/css/starting-style/>
+- Decision: `primary`
+- Target: `motion-interaction`
+- URL recheck: 2026-06-13, HTTP 200
+- Guidance: Use CSS `@starting-style` as entry-transition guidance with support and fallback checks.
 
