@@ -34,4 +34,12 @@ Use React Server Components to move data access and non-interactive rendering wo
 - Target: `rsc`
 - URL recheck: 2026-06-13, HTTP 200
 - Guidance: Use React 19 impossible-components article as RSC capability/risk context, not as a blanket implementation rule.
+### React Server Components with Vite and React-Router | Epic Web Dev
+
+- Things ID(s): `W1VjtM8cD41zRdCJtXKXuJ`
+- Source: <https://www.epicweb.dev/tips/react-server-components-with-vite-and-react-router-2zw1q>
+- Decision: `secondary`
+- Target: `rsc`
+- URL recheck: 2026-06-13, HTTP 200
+- Guidance: Use as React Router/Vite RSC implementation context; verify current framework support before copying APIs.
 
