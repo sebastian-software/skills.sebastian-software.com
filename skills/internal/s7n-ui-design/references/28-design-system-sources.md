@@ -181,4 +181,12 @@ Use this reference for source-backed design-system decisions that cut across col
 - Target: `design-system`
 - URL recheck: 2026-06-13, HTTP 200
 - Guidance: Use modern CSS theming source for token, cascade, and color-scheme architecture tradeoffs.
+### Modern CSS Colors
+
+- Things ID(s): `V7pLWJcxveP4kuoRU3LJkh`
+- Source: <https://piccalil.li/blog/a-pragmatic-guide-to-modern-css-colours-part-two/?ref=main-rss-feed>
+- Decision: `secondary`
+- Target: `design-system`
+- URL recheck: 2026-06-13, HTTP 200
+- Guidance: Use modern CSS colors as design-token and color-space support source.
 
