@@ -29,3 +29,12 @@ Use current browser-support evidence before turning modern web-platform features
 - URL recheck: 2026-06-13, HTTP 200
 - Guidance: Secondary for baseline/design-system practice: useful commentary on global CSS starters/resets, cascade layers, fluid root type, text wrapping, form/table defaults, motion preference guards, and team-specific foot-guns; not a normative starter to copy verbatim.
 
+### The Coyier CSS starter - Piccalilli
+
+- Things ID(s): `C3jrBjqmfgTRorm6wJX8hk`
+- Source: <https://piccalil.li/links/the-coyier-css-starter/?ref=main-rss-feed>
+- Decision: `secondary`
+- Target: `baseline`
+- URL recheck: 2026-06-13, HTTP 200
+- Guidance: Secondary for baseline/design-system practice: duplicate/tracking variant of the Coyier CSS starter commentary; decide together with 7ajo7EGH54gSpHF6dSemLW.
+
