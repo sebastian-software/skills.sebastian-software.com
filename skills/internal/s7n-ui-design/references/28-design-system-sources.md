@@ -92,3 +92,12 @@ Use this reference for source-backed design-system decisions that cut across col
 - URL recheck: 2026-06-13, HTTP 200, redirects to https://alistapart.com/article/finessing-fecolormatrix/
 - Guidance: Secondary for design-system with svg-graphics/visual-effects cross-reference: useful explanatory SVG feColorMatrix source for image/color effects and filter math, but specialized and not a core token/design-system rule source.
 
+### Come To The Light-dark() Side | CSS-Tricks
+
+- Things ID(s): `JZiha4NLETyUWDeSmqz8oA`
+- Source: <https://css-tricks.com/come-to-the-light-dark-side/>
+- Decision: `secondary`
+- Target: `design-system`
+- URL recheck: 2026-06-13, HTTP 200
+- Guidance: Secondary for design-system: practical light-dark()/color-scheme theming article and examples, but the web.dev light-dark source should be the primary rule source; use this as implementation inspiration and caveat material.
+
