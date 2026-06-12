@@ -75,4 +75,12 @@ Use measured browser behavior to guide performance changes. Prioritize fixes tha
 - Target: `network-performance`
 - URL recheck: 2026-06-13, HTTP 200
 - Guidance: Secondary for network-performance: useful responsive image breakpoint reasoning and caveat that too few variants waste bandwidth while too many variants increase storage/processing complexity and reduce CDN cache hit rate; keep as supporting context for srcset/picture/media strategy, paired with newer primary sources.
+### Rethinking Server-Timing As A Critical Monitoring Tool - Smashing Ma
+
+- Things ID(s): `Bzo1tpxKqQLgUNTHZXdYbi`
+- Source: <https://www.smashingmagazine.com/2022/05/rethinking-server-timing-monitoring-tool/>
+- Decision: `secondary`
+- Target: `performance`
+- URL recheck: 2026-06-13, HTTP 200
+- Guidance: Retarget to web performance: Server-Timing belongs to production performance observability.
 
