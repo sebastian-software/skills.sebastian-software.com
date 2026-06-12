@@ -83,4 +83,12 @@ Use measured browser behavior to guide performance changes. Prioritize fixes tha
 - Target: `performance`
 - URL recheck: 2026-06-13, HTTP 200
 - Guidance: Retarget to web performance: Server-Timing belongs to production performance observability.
+### Inline Image Previews with Sharp, BlurHash, and Lambda Functions
+
+- Things ID(s): `W6BxBkRUZG5s6iWde9X8ko`
+- Source: <https://css-tricks.com/inline-image-previews-with-sharp-blurhash-and-lambda-functions/>
+- Decision: `secondary`
+- Target: `network-performance`
+- URL recheck: 2026-06-13, HTTP 200
+- Guidance: Retarget to web performance: inline previews, BlurHash, Sharp, and Lambda concern image loading UX.
 
