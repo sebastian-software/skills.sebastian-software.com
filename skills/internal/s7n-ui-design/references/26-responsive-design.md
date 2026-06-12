@@ -76,3 +76,12 @@ Design responsive behavior from content, container, input mode, device constrain
 - Related URLs: <http://caniuse.com/#search=srcset>
 - Guidance: Secondary for responsive-design with network-performance cross-reference: durable srcset/resolution-switching concept source, but pair with newer primary image sources such as web.dev Learn Images and LCP image guidance for current browser behavior and delivery rules.
 
+### Designing a Utopian layout grid: Working with fluid responsive value
+
+- Things ID(s): `SJwvvggnGGiv4DFzt7ighv`
+- Source: <https://utopia.fyi/blog/designing-a-utopian-layout-grid/>
+- Decision: `secondary`
+- Target: `responsive-design`
+- URL recheck: 2026-06-13, HTTP 200
+- Guidance: Secondary for responsive-design with design-system cross-reference: useful Utopia source for fluid layout grids, min/max design states, spacing/type token handoff, line length, and device-agnostic design-tool setup; keep as design process support rather than normative implementation source.
+
