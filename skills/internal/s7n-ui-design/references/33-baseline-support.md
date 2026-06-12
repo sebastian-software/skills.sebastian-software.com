@@ -78,4 +78,12 @@ Use current browser-support evidence before turning modern web-platform features
 - Target: `baseline`
 - URL recheck: 2026-06-13, HTTP 200
 - Guidance: Use official web.dev Baseline reference for browser feature availability policy.
+### What You Need to Know about Modern CSS (2025 Edition) - Frontend Mas
+
+- Things ID(s): `GE57sYjLMCe7H5RESLcnsV`
+- Source: <https://frontendmasters.com/blog/what-you-need-to-know-about-modern-css-2025-edition/?utm_source=the-index&utm_medium=newsletter>
+- Decision: `secondary`
+- Target: `baseline`
+- URL recheck: 2026-06-13, HTTP 200
+- Guidance: Use Modern CSS 2025 as platform radar and currentness source.
 
