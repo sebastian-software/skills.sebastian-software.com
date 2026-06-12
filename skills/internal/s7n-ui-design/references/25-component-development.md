@@ -66,3 +66,12 @@ Build components as durable interface primitives: semantic DOM first, clear stat
 - URL recheck: 2026-06-13, HTTP 200
 - Guidance: Primary for component-development: prefer native <dialog> with showModal() where appropriate, understand built-in inertness/focus behavior, avoid reflexive custom JS focus traps, but still specify/test initial focus, focus return, close/Escape behavior, background content not receiving page focus, iframe/browser edge cases, and the caveat that this does not mean focus management is optional.
 
+### Gap is the new Margin - Frontend Masters Boost
+
+- Things ID(s): `CyyuZUhVNNfkz7RXcrhpJV`
+- Source: <https://frontendmasters.com/blog/gap-is-the-new-margin/>
+- Decision: `primary`
+- Target: `component-development`
+- URL recheck: 2026-06-13, HTTP 200
+- Guidance: Primary for component-development with design-system/css-layout-responsive cross-references: component internals should avoid leaking external margins; parent layouts should own inter-component spacing through gap/stack/grid utilities, while margin remains a deliberate content-flow tool.
+
