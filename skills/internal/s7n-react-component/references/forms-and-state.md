@@ -18,4 +18,12 @@ Use React state and form libraries in ways that preserve browser semantics, data
 - Target: `react-state`
 - URL recheck: 2026-06-13, HTTP 200
 - Guidance: Use as React Hook Form conditional-field guidance; keep conditional fields aligned with validation, unregistering, and user-visible state.
+### Data Binding in React
+
+- Things ID(s): `Tb378Xb9Q4P6En1cQMtC7h`
+- Source: <https://www.joshwcomeau.com/react/data-binding/>
+- Decision: `secondary`
+- Target: `react-state`
+- URL recheck: 2026-06-13, HTTP 200
+- Guidance: Use data-binding guidance to decide controlled, uncontrolled, and derived form state boundaries.
 
