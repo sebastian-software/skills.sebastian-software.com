@@ -56,3 +56,12 @@ Use this reference for source-backed design-system decisions that cut across col
 - URL recheck: 2026-06-13, HTTP 200
 - Guidance: Primary for design-system colors: relative color syntax and color-mix() enable derived tokens, alpha variants, hover shades, image-derived gradients, fallback layering with @supports, and reducing Sass/preprocessor-only color manipulation.
 
+### CSS-Farbschema-abhängige Farben mit „light-dark()“ | Articles | web.
+
+- Things ID(s): `8yJXAuViV4kkC3m37QWVwv`
+- Source: <https://web.dev/articles/light-dark?hl=de>
+- Decision: `primary`
+- Target: `design-system`
+- URL recheck: 2026-06-13, HTTP 200
+- Guidance: Primary for design-system colors/theming: official web.dev light-dark()/color-scheme source for native light/dark token switching, system color behavior, Baseline status, reduced media-query complexity, and theme-aware color definitions.
+
