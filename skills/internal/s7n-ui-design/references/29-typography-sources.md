@@ -88,4 +88,12 @@ Use this reference for source-backed typography decisions: readable measure, wra
 - Target: `typography`
 - URL recheck: 2026-06-13, HTTP 200
 - Guidance: Duplicate support for hanging punctuation source already integrated.
+### https://css-tricks.com/simplified-fluid-typography/
+
+- Things ID(s): `FSjG6W4nrS1FvNtvR4wb6i`
+- Source: <https://css-tricks.com/simplified-fluid-typography/>
+- Decision: `secondary`
+- Target: `typography`
+- URL recheck: 2026-06-13, HTTP 200
+- Guidance: Use simplified fluid typography as supporting source for clamp-based type scales and zoom caveats.
 
