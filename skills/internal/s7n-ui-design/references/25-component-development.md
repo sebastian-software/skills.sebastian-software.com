@@ -93,3 +93,12 @@ Build components as durable interface primitives: semantic DOM first, clear stat
 - URL recheck: 2026-06-13, HTTP 200
 - Guidance: Primary for component-development: framework-agnostic button component craft, preserve native <button> semantics, type/state/disabled/focus handling, inline-flex/icon gap/padding/border/radius structure, explicit hover/contrast colors, custom properties as configurable CSS API, and controlled variant complexity; cross-reference design-system, html-accessibility, and forms-ux.
 
+### Making content-aware components using CSS :has(), grid, and quantity
+
+- Things ID(s): `D345npubf7a86csT1rb61q`
+- Source: <https://piccalil.li/blog/making-content-aware-components-using-css-has-grid-and-quantity-queries/?ref=main-rss-feed>
+- Decision: `primary`
+- Target: `component-development`
+- URL recheck: 2026-06-13, HTTP 200
+- Guidance: Primary for component-development with css-layout-responsive/design-system/i18n cross-references: components should adapt to content count, container width, and language length using :has(), quantity queries, Grid, container queries, @supports fallbacks, logical properties, and explicit magic-number caveats.
+
