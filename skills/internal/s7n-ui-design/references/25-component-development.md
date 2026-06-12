@@ -120,3 +120,12 @@ Build components as durable interface primitives: semantic DOM first, clear stat
 - URL recheck: 2026-06-13, HTTP 200
 - Guidance: Primary for component-development with html-accessibility cross-reference: practical pattern guidance for accessible dropdowns/modals/controls, prefer semantic elements such as button triggers and structured option lists, use ARIA like aria-expanded/aria-controls as support rather than replacement, and ensure keyboard, screen reader, focus, and assistive-technology usability are part of component APIs and review checklists.
 
+### Standardizing Focus Styles With CSS Custom Properties | CSS-Tricks
+
+- Things ID(s): `PnctxHQnx7iW6p4LZBQixJ`
+- Source: <https://css-tricks.com/standardizing-focus-styles-with-css-custom-properties/>
+- Decision: `primary`
+- Target: `component-development`
+- URL recheck: 2026-06-13, HTTP 200
+- Guidance: Primary for component-development with html-accessibility and design-system cross-references: visible focus indicators are required for interactive components; standardize outline, outline-offset, size/color/style custom properties, currentColor, max(2px, 0.08em), :focus-visible with :focus fallback, high-contrast and dark-mode considerations, and component-specific adjustments for buttons, links, inputs, textareas, and summary.
+
