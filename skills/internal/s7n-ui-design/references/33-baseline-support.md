@@ -62,4 +62,12 @@ Use current browser-support evidence before turning modern web-platform features
 - Target: `baseline`
 - URL recheck: 2026-06-13, HTTP 200
 - Guidance: Use Chrome CSS/UI I/O 2023 as platform radar, not concrete implementation rules.
+### The (Frontend||UI||UX) Developer/Engineer Handbook 2024
+
+- Things ID(s): `YPjE7QDNrmiqjNwqKMzcKX`
+- Source: <https://frontendmasters.com/guides/front-end-handbook/2024/?utm_source=CSS-Weekly&utm_medium=newsletter&utm_campaign=issue-585-april-25-2024>
+- Decision: `secondary`
+- Target: `baseline`
+- URL recheck: 2026-06-13, HTTP 200
+- Guidance: Use frontend handbook as broad background/radar source only.
 
