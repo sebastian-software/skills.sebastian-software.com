@@ -219,3 +219,12 @@ Build components as durable interface primitives: semantic DOM first, clear stat
 - URL recheck: 2026-06-13, HTTP 200
 - Guidance: Secondary for component-development with design-system cross-reference: useful spacing-primitive argument for component architectures and optical alignment, but React-specific and partially outdated around flex gap support; use as caveat/companion to the primary gap-vs-margin source.
 
+### Using Web Components With Next (or Any SSR Framework) | CSS-Tricks
+
+- Things ID(s): `JpmMpZ8kYNc3JJJ7EczCYB`
+- Source: <https://css-tricks.com/using-web-components-with-next-or-any-ssr-framework/>
+- Decision: `secondary`
+- Target: `component-development`
+- URL recheck: 2026-06-13, HTTP 200
+- Guidance: Secondary for component-development with build-tooling cross-reference: useful historical/practical SSR caveat source for Web Components in Next or similar frameworks, but framework behavior and web component SSR options have shifted enough that rules need current sources before codification.
+
