@@ -30,3 +30,12 @@ Build components as durable interface primitives: semantic DOM first, clear stat
 - URL recheck: 2026-06-13, HTTP 200
 - Guidance: Primary for framework-agnostic component-development: low-level primitives, composable APIs, unstyled accessible components, DOM/data-attribute state, controlled/uncontrolled state, and maintainable layering; not React-specific.
 
+### Designing better target sizes
+
+- Things ID(s): `4Vm7AWykJqnAWxAcSfg5Tb`
+- Source: <https://ishadeed.com/article/target-size>
+- Decision: `primary`
+- Target: `component-development`
+- URL recheck: 2026-06-13, HTTP 200, redirects to https://ishadeed.com/article/target-size/
+- Guidance: Primary for component-development with html-accessibility and ux-patterns cross-references: target size, hit area vs visual size, spacing between targets, Fitts law, multi-input/touch contexts, labels as target areas, icon buttons, navigation, pagination, and target-size testing.
+
