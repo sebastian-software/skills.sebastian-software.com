@@ -235,4 +235,12 @@ Build components as durable interface primitives: semantic DOM first, clear stat
 - Target: `component-development`
 - URL recheck: 2026-06-13, HTTP 200
 - Guidance: Use built-in-elements-with-web-components source for progressive enhancement and platform component caveats.
+### You Don’t Need a UI Framework
+
+- Things ID(s): `SbXP41xoCkSv9JziWYw2Dk`
+- Source: <https://www.smashingmagazine.com/2022/05/you-dont-need-ui-framework/>
+- Decision: `secondary`
+- Target: `component-development`
+- URL recheck: 2026-06-13, HTTP 200
+- Guidance: Use no-UI-framework source as component/platform decision context.
 
