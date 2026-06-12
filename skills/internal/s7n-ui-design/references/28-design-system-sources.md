@@ -148,3 +148,12 @@ Use this reference for source-backed design-system decisions that cut across col
 - URL recheck: 2026-06-13, HTTP 200
 - Guidance: Secondary for design-system with visual-effects/component-development cross-references: practical backdrop-filter/frosted-glass UI effect source, useful for caveats around translucency, readability over unknown backgrounds, layering, fallbacks, and performance; not core visual language guidance.
 
+### Grainy Gradients | CSS-Tricks - CSS-Tricks
+
+- Things ID(s): `4W7PqhU6yWzhKBgKEyXER5`
+- Source: <https://css-tricks.com/grainy-gradients/>
+- Decision: `secondary`
+- Target: `design-system`
+- URL recheck: 2026-06-13, HTTP 200
+- Guidance: Secondary for design-system with visual-effects cross-reference: useful grain/noise gradient texture source for reducing banding and adding subtle texture, but specialized visual-effect material that should remain optional and constrained by readability/performance.
+
