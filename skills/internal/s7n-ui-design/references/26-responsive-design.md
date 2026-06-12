@@ -84,4 +84,12 @@ Design responsive behavior from content, container, input mode, device constrain
 - Target: `responsive-design`
 - URL recheck: 2026-06-13, HTTP 200
 - Guidance: Secondary for responsive-design with design-system cross-reference: useful Utopia source for fluid layout grids, min/max design states, spacing/type token handoff, line length, and device-agnostic design-tool setup; keep as design process support rather than normative implementation source.
+### The Guide To Responsive Design In 2023 and Beyond - Ahmad Shadeed
+
+- Things ID(s): `3un8g64C5Lurw8yoHFARJX`
+- Source: <https://ishadeed.com/article/responsive-design/?ck_subscriber_id=1866528194&utm_source=convertkit&utm_medium=email&utm_campaign=%E2%9A%9B%EF%B8%8F+This+Week+In+React+%23134%3A+Gatsby+%E2%9E%A1%EF%B8%8F+Netlify%2C+React+DOM+for+Native%2C+XState%2C+Flashlight%2C+re-renders%2C+Custom+Hooks%2C+Ignite+Cookbook...%20-%2010021836>
+- Decision: `primary`
+- Target: `responsive`
+- URL recheck: 2026-06-13, HTTP 200
+- Guidance: Retarget to responsive design: detailed responsive design source should shape layout adaptation, not React architecture.
 
