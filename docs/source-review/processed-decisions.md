@@ -38,4 +38,12 @@ This file records processed Things source decisions that do not belong directly 
 - Target: `processed-decision`
 - URL recheck: 2026-06-13, HTTP 404
 - Guidance: Rejected for this archive pass: Node.js security best practices is not motion interaction or current frontend skill material.
+### Here’s how I use LLMs to help me write code
+
+- Things ID(s): `2s9CgbhTEusPBnW7aQuvuW`
+- Source: <https://simonwillison.net/2025/Mar/11/using-llms-for-code/>
+- Decision: `ignored`
+- Target: `processed-decision`
+- URL recheck: 2026-06-13, HTTP 200
+- Guidance: Deferred/rejected for design-system work: LLM coding workflow source belongs to agent workflow research, not UI design-system guidance.
 
