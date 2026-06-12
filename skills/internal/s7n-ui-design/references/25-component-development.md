@@ -39,3 +39,12 @@ Build components as durable interface primitives: semantic DOM first, clear stat
 - URL recheck: 2026-06-13, HTTP 200, redirects to https://ishadeed.com/article/target-size/
 - Guidance: Primary for component-development with html-accessibility and ux-patterns cross-references: target size, hit area vs visual size, spacing between targets, Fitts law, multi-input/touch contexts, labels as target areas, icon buttons, navigation, pagination, and target-size testing.
 
+### Designing The Perfect Accordion - Smashing Magazine
+
+- Things ID(s): `QZwsfzjQmjciUPm5WbwrZV`
+- Source: <https://www.smashingmagazine.com/2017/06/designing-perfect-accordion-checklist/>
+- Decision: `primary`
+- Target: `component-development`
+- URL recheck: 2026-06-13, HTTP 200
+- Guidance: Primary for component-development: durable accordion/disclosure interaction rules, icon semantics and position, whole-row target behavior, 44x44 touch target, link vs expand recovery, avoid forced auto-scroll, multi-open vs single-open state, and navigation/FAQ/table-detail variants; cross-reference ux-patterns and html-accessibility.
+
