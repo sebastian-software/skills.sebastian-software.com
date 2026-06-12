@@ -66,3 +66,13 @@ Design responsive behavior from content, container, input mode, device constrain
 - URL recheck: 2026-06-13, HTTP 200, redirects to https://web.dev/blog/viewport-units
 - Guidance: Primary for responsive-design with css-layout-responsive/baseline cross-references: use svh/lvh/dvh and logical viewport units intentionally for mobile browser UI, full-height sections, dialogs, and stable vs dynamic viewport behavior; note scrollbar, keyboard, and update-rate caveats.
 
+### "srcset" ist eine gute Wahl für Responsive Images
+
+- Things ID(s): `A2qYFTpTNwJ87VF9JZu7wH`
+- Source: <https://css-tricks.com/responsive-images-youre-just-changing-resolutions-use-srcset/>
+- Decision: `secondary`
+- Target: `responsive-design`
+- URL recheck: 2026-06-13, HTTP 200
+- Related URLs: <http://caniuse.com/#search=srcset>
+- Guidance: Secondary for responsive-design with network-performance cross-reference: durable srcset/resolution-switching concept source, but pair with newer primary image sources such as web.dev Learn Images and LCP image guidance for current browser behavior and delivery rules.
+
