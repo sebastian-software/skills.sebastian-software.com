@@ -34,4 +34,12 @@ Use stories as reusable UI state fixtures. Prefer one state source that supports
 - Target: `frontend-testing/storybook`
 - URL recheck: 2026-06-13, HTTP 200
 - Guidance: Treat Storybook stories as component state fixtures that can support interaction, accessibility, visual tests, coverage, and CI review.
+### https://storybook.js.org/blog/interaction-testing-with-storybook/
+
+- Things ID(s): `XNcRweYAzmPGAcQZN4ijUi`
+- Source: <https://storybook.js.org/blog/interaction-testing-with-storybook/>
+- Decision: `secondary`
+- Target: `frontend-testing/storybook`
+- URL recheck: 2026-06-13, HTTP 200
+- Guidance: Use Storybook play functions and user-facing queries as component interaction tests close to the story state; verify modern package names.
 
