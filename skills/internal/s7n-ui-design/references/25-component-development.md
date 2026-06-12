@@ -147,3 +147,12 @@ Build components as durable interface primitives: semantic DOM first, clear stat
 - URL recheck: 2026-06-13, HTTP 200
 - Guidance: Primary for component-development, linked to source 2 as practical :has() companion: broad parent/context/state styling tool, use :has(button:focus-visible) and other child-state selectors to keep semantic markup while styling parent containers, use @supports selector(:has(*)) fallbacks, derive UI state from focus/active/checked/data-state, update CSS variables from child state, and avoid replacing semantic children with fake interactive wrapper elements; cross-reference css-layout-responsive, design-system, and html-accessibility.
 
+### You Want border-color: transparent, Not border: none - Frontend Mast
+
+- Things ID(s): `NLbxB8eHs8dnQXE6hhaLUa`
+- Source: <https://frontendmasters.com/blog/you-want-border-color-transparent-not-border-none/>
+- Decision: `primary`
+- Target: `component-development`
+- URL recheck: 2026-06-13, HTTP 200
+- Guidance: Primary for component-development with html-accessibility and design-system cross-references: preserve structural border/outline affordances for interactive controls by using border-color: transparent or outline-color: transparent instead of border: none/outline: none when hiding visual borders; supports Forced Colors/High Contrast mode, control recognizability, layout stability, and focus/hover state robustness.
+
