@@ -205,4 +205,12 @@ Use this reference for source-backed design-system decisions that cut across col
 - Target: `design-system`
 - URL recheck: 2026-06-13, HTTP 200
 - Guidance: Use redesign case study as secondary design-system/process inspiration, not a normative source.
+### SVG Inline
+
+- Things ID(s): `RFLZcQheZd1Q6c2QTBHMQT`
+- Source: <https://github.com/blog/2112-delivering-octicons-with-svg>
+- Decision: `secondary`
+- Target: `design-system`
+- URL recheck: 2026-06-13, HTTP 200, redirects to https://github.blog/engineering/delivering-octicons-with-svg/
+- Guidance: Use SVG inline delivery source for icon-system and SVG-as-DOM tradeoffs.
 
