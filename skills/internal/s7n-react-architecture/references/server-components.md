@@ -26,4 +26,12 @@ Use React Server Components to move data access and non-interactive rendering wo
 - Target: `rsc`
 - URL recheck: 2026-06-13, HTTP 200
 - Guidance: Use React WG RSC from-scratch discussion as primary mental-model source for RSC protocol and boundaries.
+### React 19 lets you write impossible components | Mux
+
+- Things ID(s): `2A7kzYTTWgXACBGMnjjGbH`
+- Source: <https://www.mux.com/blog/react-19-server-components-and-actions>
+- Decision: `secondary`
+- Target: `rsc`
+- URL recheck: 2026-06-13, HTTP 200
+- Guidance: Use React 19 impossible-components article as RSC capability/risk context, not as a blanket implementation rule.
 
