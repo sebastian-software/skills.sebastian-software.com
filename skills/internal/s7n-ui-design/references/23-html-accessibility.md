@@ -67,3 +67,12 @@ Use semantic HTML, native behavior, visible focus, keyboard access, and assistiv
 - URL recheck: 2026-06-13, HTTP 200
 - Guidance: Secondary focus-visible snippet/reminder: useful for visible focus styling, outline offset/width/currentColor caveats, but too small to be a primary focus guidance source.
 
+### Telefon Links in HTML
+
+- Things ID(s): `N5Nr66BdyFks2L75tH4SDz`
+- Source: <https://css-tricks.com/the-current-state-of-telephone-links/>
+- Decision: `secondary`
+- Target: `core-html-a11y`
+- URL recheck: 2026-06-13, HTTP 200
+- Guidance: Secondary for html-accessibility/content-semantics: small semantic HTML pattern for explicit tel: links as call-to-action phone numbers, international phone formatting, not relying on auto-detection, and only disabling iOS telephone auto-detection intentionally when custom markup/styling is provided; old/narrow source, not primary.
+
