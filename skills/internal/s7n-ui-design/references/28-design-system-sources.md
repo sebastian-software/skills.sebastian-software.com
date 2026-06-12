@@ -47,3 +47,12 @@ Use this reference for source-backed design-system decisions that cut across col
 - URL recheck: 2026-06-13, HTTP 200
 - Guidance: Primary for design-system with visual-effects cross-reference: detailed CSS masking guide covering mask vs clip-path vs SVG masks, gradient masks, mask-size/position/repeat, mask-composite, text/image fades, avatar cutouts, tab rounding, and background-independent effects.
 
+### CSS Relative Colors
+
+- Things ID(s): `G6qpQjwaQ8wLy8hefcxBUM`
+- Source: <https://ishadeed.com/article/css-relative-colors/>
+- Decision: `primary`
+- Target: `design-system`
+- URL recheck: 2026-06-13, HTTP 200
+- Guidance: Primary for design-system colors: relative color syntax and color-mix() enable derived tokens, alpha variants, hover shades, image-derived gradients, fallback layering with @supports, and reducing Sass/preprocessor-only color manipulation.
+
