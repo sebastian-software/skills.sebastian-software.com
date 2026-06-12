@@ -19,4 +19,12 @@ Use Playwright-style E2E tests for high-value integrated user paths. Keep tests 
 - Target: `frontend-testing/playwright`
 - URL recheck: 2026-06-13, HTTP 200
 - Guidance: Use as historical Playwright E2E architecture and Cypress/Selenium comparison context, not current feature matrix.
+### Network | Playwright
+
+- Things ID(s): `RaQYW8s5DFcmoWypkrRs3E`
+- Source: <https://playwright.dev/docs/network#record-and-replay-requests>
+- Decision: `primary`
+- Target: `frontend-testing/playwright`
+- URL recheck: 2026-06-13, HTTP 200
+- Guidance: Use Playwright network routing and mocking to make tests deterministic; account for service-worker caveats.
 
