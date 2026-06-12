@@ -102,3 +102,12 @@ Build components as durable interface primitives: semantic DOM first, clear stat
 - URL recheck: 2026-06-13, HTTP 200
 - Guidance: Primary for component-development with css-layout-responsive/design-system/i18n cross-references: components should adapt to content count, container width, and language length using :has(), quantity queries, Grid, container queries, @supports fallbacks, logical properties, and explicit magic-number caveats.
 
+### Perfectly Pointed Tooltips: A Foundation - Frontend Masters Blog
+
+- Things ID(s): `H2vSAorpXj9royWFZTMqfZ`
+- Source: <https://frontendmasters.com/blog/perfectly-pointed-tooltips-a-foundation/>
+- Decision: `primary`
+- Target: `component-development`
+- URL recheck: 2026-06-13, HTTP 200
+- Guidance: Primary for component-development: modern CSS Anchor Positioning tooltip/floating-ui positioning pattern using anchor-name, position-anchor, position-area, position-try-fallbacks, flip-block, and anchor(); browser support has improved to Baseline Newly available in 2026, so treat as preferred native positioning approach for suitable tooltips/popovers while still testing fallback/collision behavior and adding separate semantics, trigger, dismissal, keyboard/touch, and accessibility rules.
+
