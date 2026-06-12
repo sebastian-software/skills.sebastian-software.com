@@ -165,3 +165,12 @@ Use CSS layout algorithms deliberately. Grid, Flexbox, Subgrid, container querie
 - URL recheck: 2026-06-13, HTTP 200
 - Guidance: Secondary for css-layout-responsive with baseline cross-reference: useful 2026 multi-column feature radar for column-wrap/column-height and continuous-content fragmentation, but support is still narrow and concrete production rules should wait for Baseline/current compatibility checks.
 
+### piccalil.li/blog/use-css-clamp-to-create-a-more-flexible-wrapper-uti
+
+- Things ID(s): `HTeJHBycSFbE7hfZQ6uhs3`
+- Source: <https://piccalil.li/blog/use-css-clamp-to-create-a-more-flexible-wrapper-utility/>
+- Decision: `secondary`
+- Target: `css-layout-responsive`
+- URL recheck: 2026-06-13, HTTP 200
+- Guidance: Secondary for css-layout-responsive with typography/editorial-ux cross-references: practical clamp() wrapper utility for fluid content width, gutters, line length, and progressive fallback; narrow quick-tip source rather than broad responsive-layout guidance.
+
