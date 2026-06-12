@@ -11,4 +11,12 @@ Use Playwright-style E2E tests for high-value integrated user paths. Keep tests 
 - Use traces, screenshots, and videos as debugging artifacts when CI fails.
 
 ## Source-Backed Guidance
+### E2E-Testing mit Playwright: Der Weg der Mitte
+
+- Things ID(s): `8gEgkCSpcPb9mbkafEUxfA`
+- Source: <https://www.heise.de/hintergrund/E2E-Testing-mit-Playwright-Der-Weg-der-Mitte-7310444.html?wt_mc=rss.red.ho.ho.atom.beitrag.beitrag>
+- Decision: `secondary`
+- Target: `frontend-testing/playwright`
+- URL recheck: 2026-06-13, HTTP 200
+- Guidance: Use as historical Playwright E2E architecture and Cypress/Selenium comparison context, not current feature matrix.
 
