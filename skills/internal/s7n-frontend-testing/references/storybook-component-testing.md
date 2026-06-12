@@ -18,4 +18,12 @@ Use stories as reusable UI state fixtures. Prefer one state source that supports
 - Target: `frontend-testing/storybook`
 - URL recheck: 2026-06-13, HTTP 404
 - Guidance: Historical @storybook/test consolidation source; useful for explicit action spies and migration context, but original canonical URL is dead and exact API details are version-sensitive.
+### Code coverage with Storybook test runner
+
+- Things ID(s): `5VhreUhQbwfsJgC8ZvHSUP`
+- Source: <https://storybook.js.org/blog/code-coverage-with-the-storybook-test-runner/>
+- Decision: `secondary`
+- Target: `frontend-testing/storybook`
+- URL recheck: 2026-06-13, HTTP 200
+- Guidance: Use Storybook coverage as a way to find missing component states and story coverage gaps; verify current commands before implementation.
 
