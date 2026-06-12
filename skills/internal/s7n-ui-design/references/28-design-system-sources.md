@@ -189,4 +189,12 @@ Use this reference for source-backed design-system decisions that cut across col
 - Target: `design-system`
 - URL recheck: 2026-06-13, HTTP 200
 - Guidance: Use modern CSS colors as design-token and color-space support source.
+### PostCSS Plugin für ChromaJS
+
+- Things ID(s): `GtPxGMm2QEVUHLgNpLfSw6`
+- Source: <https://github.com/gka/chroma.js>
+- Decision: `secondary`
+- Target: `design-system`
+- URL recheck: 2026-06-13, HTTP 200
+- Guidance: Use Chroma/PostCSS source as tooling context for generated color tokens, not runtime design guidance.
 
