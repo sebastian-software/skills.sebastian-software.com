@@ -30,3 +30,12 @@ Use CSS layout algorithms deliberately. Grid, Flexbox, Subgrid, container querie
 - URL recheck: 2026-06-13, HTTP 200
 - Guidance: Primary for css-layout-responsive: high-quality interactive Flexbox mental-model source for one-dimensional layout, intrinsic sizing, wrapping, alignment, distribution, and choosing Flexbox when content-driven rows/columns are more appropriate than Grid.
 
+### Building a breakout element with container units - Piccalilli
+
+- Things ID(s): `LTn1R5dr77ATW9cwGHeHSR`
+- Source: <https://piccalil.li//blog/building-a-breakout-element-with-container-units/>
+- Decision: `primary`
+- Target: `css-layout-responsive`
+- URL recheck: 2026-06-13, HTTP 200
+- Guidance: Primary for css-layout-responsive with responsive-design cross-reference: container units and container queries can solve breakout/content-width layouts relative to parent containers rather than viewport, preserve flexible sidebar/content layouts, and degrade as minimum viable experience when unsupported.
+
