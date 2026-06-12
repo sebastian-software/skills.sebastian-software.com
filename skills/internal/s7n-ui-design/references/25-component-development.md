@@ -183,3 +183,12 @@ Build components as durable interface primitives: semantic DOM first, clear stat
 - URL recheck: 2026-06-13, HTTP 200
 - Guidance: Secondary for component-development: strong CSS shape/API craft for tooltip and speech-bubble visuals using clip-path, border-image, gradients, min()/max(), custom properties, tail position/shape, border-radius corrections, and edge-case clamping; not sufficient as primary tooltip guidance because real tooltip components also need semantics, trigger behavior, dismissal, keyboard/touch support, aria-describedby, popover/anchor positioning, overflow and collision handling.
 
+### Onboarding mit CSS anchor
+
+- Things ID(s): `8ssGUJ4p7WstyFjgfNKtRE`
+- Source: <https://piccalil.li/links/one-of-those-onboarding-uis-with-anchor-positioning/?ref=main-rss-feed>
+- Decision: `secondary`
+- Target: `component-development`
+- URL recheck: 2026-06-13, HTTP 200
+- Guidance: Secondary for component-development with ux-patterns/baseline cross-references: useful real-world anchor-positioning onboarding/callout pattern, but native anchor positioning is already covered by stronger primary sources and onboarding-specific UX/focus/dismissal rules need separate sources.
+
