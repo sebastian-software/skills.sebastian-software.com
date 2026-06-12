@@ -26,4 +26,12 @@ Use React libraries and platform interop as implementation tools, not as permiss
 - Target: `react-interop`
 - URL recheck: 2026-06-13, HTTP 200
 - Guidance: Use migration guidance as a comparison lens for Radix and React Aria accessibility and UX tradeoffs.
+### React Aria Components - React Aria
+
+- Things ID(s): `F4SxcNqNzc6eTRioiBpS1x`
+- Source: <https://react-spectrum.adobe.com/react-aria/react-aria-components.html?ck_subscriber_id=1697729046>
+- Decision: `primary`
+- Target: `react-interop`
+- URL recheck: 2026-06-13, HTTP 200, redirects to https://react-aria.adobe.com/
+- Guidance: Use React Aria Components as primary interop/accessibility infrastructure reference, while still requiring product-specific labels and states.
 
