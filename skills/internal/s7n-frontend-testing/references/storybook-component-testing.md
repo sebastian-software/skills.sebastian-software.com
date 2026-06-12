@@ -42,4 +42,12 @@ Use stories as reusable UI state fixtures. Prefer one state source that supports
 - Target: `frontend-testing/storybook`
 - URL recheck: 2026-06-13, HTTP 200
 - Guidance: Use Storybook play functions and user-facing queries as component interaction tests close to the story state; verify modern package names.
+### I18n with Storybook
+
+- Things ID(s): `EZeoRB2JKjAzHqREbUNFUy`
+- Source: <https://storybook.js.org/blog/internationalize-components-with-storybook/>
+- Decision: `primary`
+- Target: `frontend-testing`
+- URL recheck: 2026-06-13, HTTP 200
+- Guidance: Use I18n with Storybook as primary source for localized UI state coverage.
 
