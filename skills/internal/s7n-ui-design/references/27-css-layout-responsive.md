@@ -93,3 +93,12 @@ Use CSS layout algorithms deliberately. Grid, Flexbox, Subgrid, container querie
 - URL recheck: 2026-06-13, HTTP 200
 - Guidance: Primary for css-layout-responsive: current detailed subgrid guide covering semantic nested markup, extending parent grids through lists/figures, row/column inheritance, gotchas, fallback thinking, and when subgrid enables layouts that would otherwise require flattened DOM or brittle hacks.
 
+### The Basics of Anchor Positioning
+
+- Things ID(s): `ghrCNzohgAzsd9zeZo3cf`
+- Source: <https://ishadeed.com/article/anchor-positioning/>
+- Decision: `primary`
+- Target: `css-layout-responsive`
+- URL recheck: 2026-06-13, HTTP 200
+- Guidance: Primary for css-layout-responsive with component-development/baseline cross-references: strong Anchor Positioning basics source for positioning elements relative to non-parent anchors, anchor(), position-area, span areas, and position-try fallbacks; pair support blocks with current Baseline data.
+
