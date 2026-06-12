@@ -80,4 +80,12 @@ Use this reference for source-backed typography decisions: readable measure, wra
 - Target: `typography`
 - URL recheck: 2026-06-13, HTTP 200
 - Guidance: Use text-box trimming source for type alignment and box metrics when support is acceptable.
+### Adactio: Journal-Hanging punctuation in CSS
+
+- Things ID(s): `GvuG23prSPcK66eZJbib2e`
+- Source: <https://adactio.com/journal/21027>
+- Decision: `secondary`
+- Target: `typography`
+- URL recheck: 2026-06-13, HTTP 200
+- Guidance: Duplicate support for hanging punctuation source already integrated.
 
