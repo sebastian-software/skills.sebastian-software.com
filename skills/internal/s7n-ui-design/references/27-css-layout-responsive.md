@@ -193,3 +193,12 @@ Use CSS layout algorithms deliberately. Grid, Flexbox, Subgrid, container querie
 - URL recheck: 2026-06-13, HTTP 200
 - Guidance: Secondary for css-layout-responsive: duplicate/tracking variant of the Vox modern CSS layout case study; decide together with 3XJAUQjYcWgpUKURQC6caV.
 
+### Sneaky Header Blocker Trick • Josh W. Comeau
+
+- Things ID(s): `CjKv1LaVS2UR3dECZpj82f`
+- Source: <https://www.joshwcomeau.com/css/header-blockers/>
+- Decision: `secondary`
+- Target: `css-layout-responsive`
+- URL recheck: 2026-06-13, HTTP 200
+- Guidance: Secondary for css-layout-responsive with design-system/motion-interaction cross-references: clever sticky-header text-obscuring/layering trick and scroll-driven-animation note, but it depends on specific hero/header design constraints and should remain an example/caveat, not a baseline pattern.
+
