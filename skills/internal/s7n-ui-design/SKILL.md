@@ -29,6 +29,19 @@ Enforces professional UI design guidelines for accessible, well-structured inter
 | Design Registers | [references/20-design-registers.md](references/20-design-registers.md) |
 | Design Planning | [references/21-design-planning.md](references/21-design-planning.md) |
 | UI Quality Gates | [references/22-ui-quality-gates.md](references/22-ui-quality-gates.md) |
+| HTML & Accessibility | [references/23-html-accessibility.md](references/23-html-accessibility.md) |
+| Forms UX | [references/24-forms-ux.md](references/24-forms-ux.md) |
+| Component Development | [references/25-component-development.md](references/25-component-development.md) |
+| Responsive Design | [references/26-responsive-design.md](references/26-responsive-design.md) |
+| CSS Layout | [references/27-css-layout-responsive.md](references/27-css-layout-responsive.md) |
+| Source-Backed Design System Notes | [references/28-design-system-sources.md](references/28-design-system-sources.md) |
+| Source-Backed Typography Notes | [references/29-typography-sources.md](references/29-typography-sources.md) |
+| I18n UX | [references/30-i18n-ux.md](references/30-i18n-ux.md) |
+| UX Patterns | [references/31-ux-patterns.md](references/31-ux-patterns.md) |
+| Editorial UX | [references/32-editorial-ux.md](references/32-editorial-ux.md) |
+| Baseline & Browser Support | [references/33-baseline-support.md](references/33-baseline-support.md) |
+| Auth & Web Security UX | [references/34-auth-web-security.md](references/34-auth-web-security.md) |
+| Motion Interaction | [references/35-motion-interaction.md](references/35-motion-interaction.md) |
 
 ## Core Principles (ALWAYS Apply)
 
