@@ -58,3 +58,12 @@ Use semantic HTML, native behavior, visible focus, keyboard access, and assistiv
 - URL recheck: 2026-06-13, HTTP 200
 - Guidance: Primary for forms UX and HTML input rules: correct input type, inputmode, enterkeyhint, autocomplete/name hints, browser cooperation, mobile keyboard UX, and progressive enhancement.
 
+### Adactio: Notes-March 26th, 2025, 4:13pm
+
+- Things ID(s): `CdRGfJodx35Yo5z8ypsfcX`
+- Source: <https://adactio.com/notes/21812>
+- Decision: `secondary`
+- Target: `core-html-a11y`
+- URL recheck: 2026-06-13, HTTP 200
+- Guidance: Secondary focus-visible snippet/reminder: useful for visible focus styling, outline offset/width/currentColor caveats, but too small to be a primary focus guidance source.
+
