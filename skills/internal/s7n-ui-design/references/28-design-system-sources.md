@@ -139,3 +139,12 @@ Use this reference for source-backed design-system decisions that cut across col
 - Related URLs: <https://css-tricks.com/almanac/properties/i/isolation/>
 - Guidance: Secondary for design-system with visual-effects cross-reference: useful isolation/mix-blend-mode containment reference for preventing backdrop blending leaks and understanding stacking-context side effects, but narrow and older.
 
+### Frosted Glass Effect
+
+- Things ID(s): `DtZcmmnDyYCFnFn16kK8Qe`
+- Source: <https://css-tricks.com/using-css-backdrop-filter-for-ui-effects/>
+- Decision: `secondary`
+- Target: `design-system`
+- URL recheck: 2026-06-13, HTTP 200
+- Guidance: Secondary for design-system with visual-effects/component-development cross-references: practical backdrop-filter/frosted-glass UI effect source, useful for caveats around translucency, readability over unknown backgrounds, layering, fallbacks, and performance; not core visual language guidance.
+
