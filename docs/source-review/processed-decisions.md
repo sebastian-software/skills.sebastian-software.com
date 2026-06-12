@@ -46,4 +46,12 @@ This file records processed Things source decisions that do not belong directly 
 - Target: `processed-decision`
 - URL recheck: 2026-06-13, HTTP 200
 - Guidance: Deferred/rejected for design-system work: LLM coding workflow source belongs to agent workflow research, not UI design-system guidance.
+### https://developers.openai.com/api/docs/guides/prompt-guidance/
+
+- Things ID(s): `WdF3S4Egk3rDJNUTeiD95N`
+- Source: <https://developers.openai.com/api/docs/guides/prompt-guidance/>
+- Decision: `ignored`
+- Target: `processed-decision`
+- URL recheck: 2026-06-13, HTTP 200, redirects to https://developers.openai.com/api/docs/guides/prompt-guidance
+- Guidance: Deferred for OpenAI-specific prompting docs; do not fold into UI design-system references.
 
