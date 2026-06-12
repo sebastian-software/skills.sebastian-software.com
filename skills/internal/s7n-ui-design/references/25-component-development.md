@@ -129,3 +129,12 @@ Build components as durable interface primitives: semantic DOM first, clear stat
 - URL recheck: 2026-06-13, HTTP 200
 - Guidance: Primary for component-development with html-accessibility and design-system cross-references: visible focus indicators are required for interactive components; standardize outline, outline-offset, size/color/style custom properties, currentColor, max(2px, 0.08em), :focus-visible with :focus fallback, high-contrast and dark-mode considerations, and component-specific adjustments for buttons, links, inputs, textareas, and summary.
 
+### The <select> element can now be customized with CSS | Blog | Chrome
+
+- Things ID(s): `WMo2RNEEwqdKHFQaSvzz38`
+- Source: <https://developer.chrome.com/blog/a-customizable-select?hl=en>
+- Decision: `primary`
+- Target: `component-development`
+- URL recheck: 2026-06-13, HTTP 200
+- Guidance: Primary for component-development with forms-ux, html-accessibility, design-system, and responsive-design cross-references: before building a custom combobox/select, evaluate native customizable select via appearance: base-select, ::picker(select), top-layer picker, anchor positioning, rich option content, internal parts/states, and unchanged JS interfaces; preserve form semantics while testing support, parsing changes, mobile OS picker tradeoffs, width behavior, and fallback strategy.
+
