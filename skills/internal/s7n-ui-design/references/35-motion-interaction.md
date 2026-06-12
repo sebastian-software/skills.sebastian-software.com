@@ -67,4 +67,12 @@ Use motion to explain state change, spatial continuity, feedback, and progress. 
 - Target: `motion-interaction`
 - URL recheck: 2026-06-13, HTTP 200
 - Guidance: Use CSS scroll animation source as support/context for native scroll-driven motion.
+### Slide Through Unlimited Dimensions With CSS Scroll Timelines
+
+- Things ID(s): `2eM9FbRLgafx3ULFGUZf9s`
+- Source: <https://css-tricks.com/slide-through-unlimited-dimensions-with-css-scroll-timelines/>
+- Decision: `secondary`
+- Target: `motion-interaction`
+- URL recheck: 2026-06-13, HTTP 200
+- Guidance: Use scroll timelines source for scroll-driven animation patterns and caveats.
 
