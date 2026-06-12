@@ -75,3 +75,12 @@ Use CSS layout algorithms deliberately. Grid, Flexbox, Subgrid, container querie
 - URL recheck: 2026-06-13, HTTP 200
 - Guidance: Primary for css-layout-responsive: duplicate/tracking variant of the Ahmad Shadeed subgrid source; decide together with EQmx9Zw92dUPULMadKjBTR and pair old support notes with current Baseline checks.
 
+### Solved By Modern CSS: Section Layout
+
+- Things ID(s): `JD5mWxmHNyBPhviZWeLCBG`
+- Source: <https://ishadeed.com/article/modern-css-section-layout/>
+- Decision: `primary`
+- Target: `css-layout-responsive`
+- URL recheck: 2026-06-13, HTTP 200
+- Guidance: Primary for css-layout-responsive with component-development cross-reference: modern section/card layout source combining Grid, :has(), quantity queries, clamp(), container query units, size/style queries, min-width fixes, and defensive handling of variable content counts.
+
