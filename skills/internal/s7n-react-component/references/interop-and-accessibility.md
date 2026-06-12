@@ -18,4 +18,12 @@ Use React libraries and platform interop as implementation tools, not as permiss
 - Target: `react-interop`
 - URL recheck: 2026-06-13, HTTP 200
 - Guidance: Use React custom-element support as current interop guidance for attributes, properties, events, refs, and framework support.
+### Migrating from Radix to React Aria: Improving Accessibility and UX
+
+- Things ID(s): `EWLPEibbrFkiZbw1RYjbG8`
+- Source: <https://argos-ci.com/blog/react-aria-migration?ck_subscriber_id=1866528194&utm_source=convertkit&utm_medium=email&utm_campaign=%E2%9A%9B%EF%B8%8F%20This%20Week%20In%20React%20#187:%20Next.js,%20Expo,%20Popover,%20rethrow,%20SWR,%20React-Query,%20Astro,%20PPR,%20tRPC,%20zsa,%20Memory%20leaks,%20INP,%20RN%20IDE,%20Skia,%20WebGPU,%20RNSC,%20Atlas,%20Re.Pack,%20Prisma,%20SwiftUI,%20Flutter,%20Angular...%20-%2014027931>
+- Decision: `secondary`
+- Target: `react-interop`
+- URL recheck: 2026-06-13, HTTP 200
+- Guidance: Use migration guidance as a comparison lens for Radix and React Aria accessibility and UX tradeoffs.
 
