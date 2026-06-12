@@ -1,0 +1,48 @@
+# Second-Pass Review: Design System
+
+Started: 2026-06-13
+
+This file records accelerated second-pass decisions for sources initially mapped
+to `design-system` in `candidate-source-map.csv`.
+
+## Decision Scale
+
+| Decision | Meaning |
+| --- | --- |
+| `primary` | Can shape rules, checklists, or reference structure directly. |
+| `secondary` | Use as supporting example, caveat, or explanatory context. |
+| `ignored` | Do not use for skill/reference updates. |
+| `needs_discussion` | Needs more context before deciding. |
+
+## Review Notes
+
+- Keep `design-system` focused on tokens, color systems, typography handoff,
+  SVG/icon/asset foundations, and visual effects that affect UI clarity.
+- Retarget narrow type sources to `typography`, locale/content sources to
+  `i18n`, and agent/tooling sources out of design-system entirely.
+- Treat SVG, masking, clipping, backdrop filters, and grain/noise as visual
+  effect or visual asset material for now. Do not create a separate top-level
+  category until enough primary sources justify it.
+
+## Decisions
+
+| # | Things ID(s) | Source | Decision | Target | Rationale |
+| ---: | --- | --- | --- | --- | --- |
+| 1 | `4gsbJYcqimixCn8c1QFxtE` | [A Friendly Introduction to SVG](https://www.joshwcomeau.com/svg/friendly-introduction-to-svg/) | `primary` | `design-system` | Primary for design-system with SVG graphics/visual-assets cross-reference: strong current SVG fundamentals source covering inline SVG vs `img`, DOM/CSS addressability, shape primitives, presentational attributes, `viewBox`, scaling, and readable hand-authored SVG for icons/illustrations. |
+| 2 | `3e6uHvLLCNNKDfCz5D2fAT` | [Hanging punctuation in CSS](https://adactio.com/journal/21027) | `secondary` | `typography` | Secondary for typography: narrow but useful CSS hanging-punctuation note for editorial polish and punctuation alignment; pair with broader typography rules and current support checks before codifying defaults. |
+| 3 | `2AbBRRK7CuNanifrxLhPk8` | [Finessing `feColorMatrix`](https://alistapart.com/article/finessing-fecolormatrix/) | `secondary` | `design-system` | Secondary for design-system with SVG graphics/visual-effects cross-reference: useful explanatory SVG `feColorMatrix` source for image/color effects and filter math, but specialized and not a core token/design-system rule source. |
+| 4 | `BmogJdzzdNtTyusnTJ1Q8m` | [Claude Code overview](https://docs.anthropic.com/en/docs/agents-and-tools/claude-code/overview?ref=labnotes.org) | `secondary` | `agent-knowledge-workflows` | Secondary for agent-knowledge-workflows: official Claude Code overview is useful background for agentic coding workflow comparison and tool-specific caveats, but it is not design-system material and should not directly shape UI/frontend skills. |
+| 5 | `JZiha4NLETyUWDeSmqz8oA` | [Come To The `light-dark()` Side](https://css-tricks.com/come-to-the-light-dark-side/) | `secondary` | `design-system` | Secondary for design-system: practical `light-dark()`/`color-scheme` theming article and examples, but the web.dev `light-dark()` source should be the primary rule source; use this as implementation inspiration and caveat material. |
+| 6 | `AsQgs8eSZoWkUxPyGwpXAg` | [CSS Cap Unit](https://ishadeed.com/article/css-cap-unit/) | `secondary` | `typography` | Secondary for typography with component-development cross-reference: useful `cap`/`rcap` unit source for aligning icons, spacers, buttons, and type-relative decoration to capital height, but narrow enough to remain a supporting reference. |
+| 7 | `JQWagG2ZKMtMfbmrkCdqCc` | [Clipping, Clipping, and More Clipping!](https://css-tricks.com/clipping-clipping-and-more-clipping/) | `secondary` | `design-system` | Secondary for design-system with visual-effects cross-reference: useful clipping/`clip-path` effect source, but older and mainly decorative; concrete rules should come from current `clip-path`/masking docs or newer shape sources. |
+| 8 | `8sBvUvCRZqJQFAtVRMXbZy` | [What You Need to Know About CSS Color Interpolation](https://css-tricks.com/what-you-need-to-know-about-css-color-interpolation/) | `primary` | `design-system` | Primary for design-system colors: color interpolation affects gradients, transitions, `color-mix()` behavior, OKLCH/perceptual smoothness, and token-derived visual quality; use for rules about choosing interpolation spaces and avoiding muddy/midpoint artifacts. |
+| 9 | `YMLiyWPuLrdMmQFUPSFZuF` | [`color-mix()` in What's New in CSS and UI 2023](https://developer.chrome.com/blog/whats-new-css-ui-2023/#color-mix) | `secondary` | `design-system` | Secondary for design-system with baseline cross-reference: official 2023 CSS UI roundup section for `color-mix()` awareness, but use focused color-mix/relative-color sources for concrete token and fallback rules. |
+| 10 | `GJtP58SeVAjopqf64SJpgV` | [CSS Masking](https://ishadeed.com/article/css-masking/) | `primary` | `design-system` | Primary for design-system with visual-effects cross-reference: detailed CSS masking guide covering mask vs `clip-path` vs SVG masks, gradient masks, mask-size/position/repeat, mask-composite, text/image fades, avatar cutouts, tab rounding, and background-independent effects. |
+| 11 | `3dmG2U85tSdXyRmBpUTgLp` | [New CSS Color Features Preview](https://css-tricks.com/new-css-color-features-preview/) | `secondary` | `design-system` | Secondary for design-system colors: useful historical/currentness source cluster for P3/wide-gamut color and Safari tooling, but Twitter links should be ignored and concrete rules need newer color-space/Baseline documentation. |
+| 12 | `F8q3w1nmLkSc6SJiFaXgN2` | [Internationalization and Localization With CSS](https://css-tricks.com/snippets/css/internationalization-language-css/) | `secondary` | `i18n` | Secondary for i18n with typography/editorial cross-references: narrow durable source for language-dependent quotes and CLDR-driven punctuation via CSS, useful as localized content-polish note rather than core design-system rule. |
+| 13 | `G6qpQjwaQ8wLy8hefcxBUM` | [CSS Relative Colors](https://ishadeed.com/article/css-relative-colors/) | `primary` | `design-system` | Primary for design-system colors: relative color syntax and `color-mix()` enable derived tokens, alpha variants, hover shades, image-derived gradients, fallback layering with `@supports`, and reducing Sass/preprocessor-only color manipulation. |
+| 14 | `Kuof53aap99153Pe7ng47e` | [CSS Text balancing with `text-wrap: balance`](https://ishadeed.com/article/css-text-wrap-balance/) | `primary` | `typography` | Primary for typography with component-development/editorial cross-references: `text-wrap: balance` can improve headlines, card titles, tooltips, modal titles, and FAQs, but should be limited to short text, understood not to change element width, and checked for whitespace/performance limits. |
+| 15 | `2uXBZWVyFU41XQ3zscGQGP` | [CSS `isolation`](https://tympanus.net/codrops/css_reference/isolation/) | `secondary` | `design-system` | Secondary for design-system with visual-effects cross-reference: useful isolation/`mix-blend-mode` containment reference for preventing backdrop blending leaks and understanding stacking-context side effects, but narrow and older. |
+| 16 | `8yJXAuViV4kkC3m37QWVwv` | [CSS-Farbschema-abhängige Farben mit `light-dark()`](https://web.dev/articles/light-dark?hl=de) | `primary` | `design-system` | Primary for design-system colors/theming: official web.dev `light-dark()`/`color-scheme` source for native light/dark token switching, system color behavior, Baseline status, reduced media-query complexity, and theme-aware color definitions. |
+| 17 | `DtZcmmnDyYCFnFn16kK8Qe` | [Using CSS `backdrop-filter` for UI Effects](https://css-tricks.com/using-css-backdrop-filter-for-ui-effects/) | `secondary` | `design-system` | Secondary for design-system with visual-effects/component-development cross-references: practical backdrop-filter/frosted-glass UI effect source, useful for caveats around translucency, readability over unknown backgrounds, layering, fallbacks, and performance; not core visual language guidance. |
+| 18 | `4W7PqhU6yWzhKBgKEyXER5` | [Grainy Gradients](https://css-tricks.com/grainy-gradients/) | `secondary` | `design-system` | Secondary for design-system with visual-effects cross-reference: useful grain/noise gradient texture source for reducing banding and adding subtle texture, but specialized visual-effect material that should remain optional and constrained by readability/performance. |
