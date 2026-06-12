@@ -48,3 +48,12 @@ Build components as durable interface primitives: semantic DOM first, clear stat
 - URL recheck: 2026-06-13, HTTP 200
 - Guidance: Primary for component-development: durable accordion/disclosure interaction rules, icon semantics and position, whole-row target behavior, 44x44 touch target, link vs expand recovery, avoid forced auto-scroll, multi-open vs single-open state, and navigation/FAQ/table-detail variants; cross-reference ux-patterns and html-accessibility.
 
+### Exklusives Akkordeon | CSS and UI | Chrome for Developers
+
+- Things ID(s): `9p2RqJ1yNp1DAqKmCvEQea`
+- Source: <https://developer.chrome.com/docs/css-ui/exclusive-accordion?hl=de>
+- Decision: `primary`
+- Target: `component-development`
+- URL recheck: 2026-06-13, HTTP 200
+- Guidance: Primary as technical companion to the Smashing accordion pattern source: use native <details name> for exclusive accordion behavior when only one panel should be open, prefer browser semantics over custom state logic, note browser-support/polyfill considerations, and keep the UX caveat that exclusive accordions can hurt comparison/scanning.
+
