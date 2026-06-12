@@ -30,4 +30,12 @@ This file records processed Things source decisions that do not belong directly 
 - Target: `data-architecture`
 - URL recheck: 2026-06-13, HTTP 200
 - Guidance: Ignored after second-pass: older serverless database primer, not relevant enough for current skill structure and no clear reusable rule/reference target.
+### Node.js Security Best Practices | Node.js
+
+- Things ID(s): `4t5jMvm6ttKsjk3SWN2AYv`
+- Source: <https://nodejs.org/en/docs/guides/security/?ck_subscriber_id=1866528194&utm_source=convertkit&utm_medium=email&utm_campaign=%E2%9A%9B%EF%B8%8F+This+Week+In+React+%23124%3A+FLIP%2C+Lifecycle%2C+Next.js%2C+TypeScript%2C+Vanilla-Extract%2C+LiveView%2C+Remix%2C+GitHub%2C+Race+Conditions%2C+Fontpie%2C+Remotion...%20-%209416696>
+- Decision: `ignored`
+- Target: `processed-decision`
+- URL recheck: 2026-06-13, HTTP 404
+- Guidance: Rejected for this archive pass: Node.js security best practices is not motion interaction or current frontend skill material.
 
