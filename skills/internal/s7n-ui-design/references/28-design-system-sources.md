@@ -213,4 +213,12 @@ Use this reference for source-backed design-system decisions that cut across col
 - Target: `design-system`
 - URL recheck: 2026-06-13, HTTP 200, redirects to https://github.blog/engineering/delivering-octicons-with-svg/
 - Guidance: Use SVG inline delivery source for icon-system and SVG-as-DOM tradeoffs.
+### SVG Sprite Loading mit Webpack und React-Komponenten... evtl Ersatz
+
+- Things ID(s): `3syzchS7pMkCg8ATjjBqtF`
+- Source: <http://varun.ca/icon-component/>
+- Decision: `secondary`
+- Target: `design-system`
+- URL recheck: 2026-06-13, HTTP 200, redirects to https://varun.ca/icon-component/
+- Guidance: Use SVG sprite/component workflow source as icon delivery context with current tooling caveats.
 
