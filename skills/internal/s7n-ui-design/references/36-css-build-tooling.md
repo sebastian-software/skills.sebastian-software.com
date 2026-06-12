@@ -45,4 +45,12 @@ Use this reference when CSS tooling, utility frameworks, CSS-in-TypeScript, gene
 - Target: `build-tooling`
 - URL recheck: 2026-06-13, HTTP 200
 - Guidance: Use frontend terminal guide as developer workflow support; keep out of UI rules.
+### Weg von "default" exports in Edge + Dokumentation dafür
+
+- Things ID(s): `ULWyCoeeMPauptUJiyoQYh`
+- Source: <https://github.com/basarat/typescript-book/blob/master/docs/tips/defaultIsBad.md>
+- Decision: `secondary`
+- Target: `build-tooling`
+- URL recheck: 2026-06-13, HTTP 200
+- Guidance: Use default-export guidance as build/tooling policy context.
 
