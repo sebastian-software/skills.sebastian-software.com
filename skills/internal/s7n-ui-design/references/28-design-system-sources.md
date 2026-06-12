@@ -83,3 +83,12 @@ Use this reference for source-backed design-system decisions that cut across col
 - URL recheck: 2026-06-13, HTTP 200
 - Guidance: Primary for design-system with tokens/colors cross-references: contrast-color() can simplify color token pairings for black/white foregrounds but does not guarantee accessibility; midtones need manual/perceptual checks, WCAG 2 contrast can diverge from perceived contrast, APCA/WCAG 3 context matters, text size/weight must be considered, and prefers-contrast plus light/dark mode alternatives should be planned.
 
+### Amiana: Farb-Effekt für Fotos mit SVG-Filter
+
+- Things ID(s): `2AbBRRK7CuNanifrxLhPk8`
+- Source: <http://alistapart.com/article/finessing-fecolormatrix>
+- Decision: `secondary`
+- Target: `design-system`
+- URL recheck: 2026-06-13, HTTP 200, redirects to https://alistapart.com/article/finessing-fecolormatrix/
+- Guidance: Secondary for design-system with svg-graphics/visual-effects cross-reference: useful explanatory SVG feColorMatrix source for image/color effects and filter math, but specialized and not a core token/design-system rule source.
+
