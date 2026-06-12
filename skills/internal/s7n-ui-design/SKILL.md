@@ -42,6 +42,7 @@ Enforces professional UI design guidelines for accessible, well-structured inter
 | Baseline & Browser Support | [references/33-baseline-support.md](references/33-baseline-support.md) |
 | Auth & Web Security UX | [references/34-auth-web-security.md](references/34-auth-web-security.md) |
 | Motion Interaction | [references/35-motion-interaction.md](references/35-motion-interaction.md) |
+| CSS Build Tooling | [references/36-css-build-tooling.md](references/36-css-build-tooling.md) |
 
 ## Core Principles (ALWAYS Apply)
 
