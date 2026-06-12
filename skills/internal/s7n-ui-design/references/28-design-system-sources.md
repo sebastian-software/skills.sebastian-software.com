@@ -119,3 +119,13 @@ Use this reference for source-backed design-system decisions that cut across col
 - URL recheck: 2026-06-13, HTTP 200
 - Guidance: Secondary for design-system with baseline cross-reference: official 2023 CSS UI roundup section for color-mix() awareness, but use focused color-mix/relative-color sources for concrete token and fallback rules.
 
+### CSS P3 Farbraum mit Safari Dev Tools
+
+- Things ID(s): `3dmG2U85tSdXyRmBpUTgLp`
+- Source: <https://css-tricks.com/new-css-color-features-preview/>
+- Decision: `secondary`
+- Target: `design-system`
+- URL recheck: 2026-06-13, HTTP 200
+- Related URLs: <https://twitter.com/jensimmons/status/1478858248677736454>, <https://twitter.com/ticky/status/1131775548516999168/photo/1>, <https://webkit.org/blog/6682/improving-color-on-the-web/>
+- Guidance: Secondary for design-system colors: useful historical/currentness source cluster for P3/wide-gamut color and Safari tooling, but Twitter links should be ignored and concrete rules need newer color-space/Baseline documentation.
+
