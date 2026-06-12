@@ -39,3 +39,12 @@ Design responsive behavior from content, container, input mode, device constrain
 - URL recheck: 2026-06-13, HTTP 200
 - Guidance: Primary for responsive-design plus component-development: do not infer touch/hover/input precision from viewport size; use pointer, hover, any-pointer, and any-hover to adapt hit areas, visible controls, hover-dependent UI, and card/menu/form component behavior; account for hybrid devices and multiple input mechanisms; cross-reference ux-patterns and html-accessibility.
 
+### Printing the web: making webpages look good on paper - Piccalilli
+
+- Things ID(s): `3zNQbsyz9k2bM4nzFdLggX`
+- Source: <https://piccalil.li/blog/printing-the-web-making-webpages-look-good-on-paper/?utm_source=the-index&utm_medium=newsletter>
+- Decision: `primary`
+- Target: `responsive-design`
+- URL recheck: 2026-06-13, HTTP 200
+- Guidance: Primary for responsive-design with html-accessibility/editorial-ux cross-references: responsive design includes print and other media; define print styles, test print preview, handle page size/breaks, visible links, forms, overflow, navigation removal, grayscale contrast, ink use, and print-color-adjust restraint.
+
