@@ -20,3 +20,12 @@ Keep authentication, credential handling, and browser security policy separate f
 - URL recheck: 2026-06-13, HTTP 200
 - Guidance: Primary for auth-security: passkeys/WebAuthn concepts, public/private key authentication, domain-bound phishing resistance, authenticator/WebAuthn/CTAP model, attestation/assertion/challenge flow, public-key storage, and API flow; cross-reference forms-ux for login, fallback, account recovery, and device-sync UX.
 
+### Passkeys: What the Heck and Why?
+
+- Things ID(s): `FDLiaaQoUdiKS77TGNSrv6`
+- Source: <https://css-tricks.com/passkeys-what-the-heck-and-why/>
+- Decision: `secondary`
+- Target: `auth-security`
+- URL recheck: 2026-06-13, HTTP 200
+- Guidance: Secondary for auth-security, linked to source 30 as technical supplement: API/code-oriented passkeys/WebAuthn explanation covering navigator.credentials.create/get, server challenge, PublicKeyCredential, attestation/assertion, clientDataJSON, origin/challenge validation, public-key storage, and signature verification; cross-reference forms-ux for login and recovery UX.
+
