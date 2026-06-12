@@ -11,3 +11,13 @@ Use this reference when CSS tooling, utility frameworks, CSS-in-TypeScript, gene
 
 ## Source-Backed Guidance
 
+### Tailwind's @apply Feature is Better Than it Sounds | CSS-Tricks
+
+- Things ID(s): `3Yiw2X5Df8N3SW6c2rbGjD`, `BUcVr8BFyK5GE9jZy33PUv`
+- Source: <https://css-tricks.com/tailwinds-apply-feature-is-better-than-it-sounds/>
+- Decision: `secondary`
+- Target: `build-tooling`
+- URL recheck: 2026-06-13, HTTP 200
+- Duplicate handling: canonical entry for 2 Things items.
+- Guidance: Secondary for build-tooling with design-system/component-development cross-references: Tailwind @apply can be an escape hatch for third-party markup or token reuse, but should not become a default abstraction; pair with Tailwind official guidance on utility-first reuse and CSS output duplication caveats.
+
