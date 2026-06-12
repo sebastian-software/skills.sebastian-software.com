@@ -29,3 +29,12 @@ Use this reference for source-backed design-system decisions that cut across col
 - URL recheck: 2026-06-13, HTTP 200
 - Guidance: Primary for design-system color foundations: color formats underpin token systems and UI color decisions. Source explains rationale; future skill should codify clear decisions/rules rather than retell the article.
 
+### CSS color interpolation
+
+- Things ID(s): `8sBvUvCRZqJQFAtVRMXbZy`
+- Source: <https://css-tricks.com/what-you-need-to-know-about-css-color-interpolation/>
+- Decision: `primary`
+- Target: `design-system`
+- URL recheck: 2026-06-13, HTTP 200
+- Guidance: Primary for design-system colors: color interpolation affects gradients, transitions, color-mix behavior, OKLCH/perceptual smoothness, and token-derived visual quality; use for rules about choosing interpolation spaces and avoiding muddy/midpoint artifacts.
+
