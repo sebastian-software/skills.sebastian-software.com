@@ -48,3 +48,12 @@ Use CSS layout algorithms deliberately. Grid, Flexbox, Subgrid, container querie
 - URL recheck: 2026-06-13, HTTP 200
 - Guidance: Primary for css-layout-responsive with component-development and baseline cross-references: general CSS Anchor Positioning guide for placing floating UI relative to anchors, reducing custom JS positioning, and defining fallback/collision strategy; pair with component-specific tooltip/popover semantics.
 
+### CSS Container Queries
+
+- Things ID(s): `X4W31kjNukNLBo1dAWmCgc`
+- Source: <https://css-tricks.com/css-container-queries/>
+- Decision: `primary`
+- Target: `css-layout-responsive`
+- URL recheck: 2026-06-13, HTTP 200
+- Guidance: Primary for css-layout-responsive with component-development/responsive-design cross-references: container queries let components and layout regions adapt to their actual container rather than global viewport; use for reusable components, nested layout, and content-aware responsive behavior with progressive support checks.
+
