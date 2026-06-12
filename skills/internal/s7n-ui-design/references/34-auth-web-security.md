@@ -11,3 +11,12 @@ Keep authentication, credential handling, and browser security policy separate f
 
 ## Source-Backed Guidance
 
+### www.smashingmagazine.com/2023/10/passkeys-explainer-future-password
+
+- Things ID(s): `EQSwrzoCqtcV3cNsDbwiJy`
+- Source: <https://www.smashingmagazine.com/2023/10/passkeys-explainer-future-password-less-authentication/>
+- Decision: `primary`
+- Target: `auth-security`
+- URL recheck: 2026-06-13, HTTP 200
+- Guidance: Primary for auth-security: passkeys/WebAuthn concepts, public/private key authentication, domain-bound phishing resistance, authenticator/WebAuthn/CTAP model, attestation/assertion/challenge flow, public-key storage, and API flow; cross-reference forms-ux for login, fallback, account recovery, and device-sync UX.
+
