@@ -197,4 +197,12 @@ Use this reference for source-backed design-system decisions that cut across col
 - Target: `design-system`
 - URL recheck: 2026-06-13, HTTP 200
 - Guidance: Use Chroma/PostCSS source as tooling context for generated color tokens, not runtime design guidance.
+### Redesign Case Study
+
+- Things ID(s): `WkSeLg4zJ3iv4coHK7D6wb`
+- Source: <https://ishadeed.com/article/redesign-2024/?ck_subscriber_id=1697729046>
+- Decision: `secondary`
+- Target: `design-system`
+- URL recheck: 2026-06-13, HTTP 200
+- Guidance: Use redesign case study as secondary design-system/process inspiration, not a normative source.
 
