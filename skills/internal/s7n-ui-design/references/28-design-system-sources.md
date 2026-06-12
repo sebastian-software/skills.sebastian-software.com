@@ -173,4 +173,12 @@ Use this reference for source-backed design-system decisions that cut across col
 - Target: `design`
 - URL recheck: 2026-06-13, HTTP 200
 - Guidance: Retarget to UI/design-system radar: modern CSS roundup is not React architecture.
+### How we’re approaching theming with modern CSS
+
+- Things ID(s): `QzrrbFs1PspCApNApzMHBg`
+- Source: <https://piccalil.li/blog/how-were-approaching-theming-with-modern-css/>
+- Decision: `secondary`
+- Target: `design-system`
+- URL recheck: 2026-06-13, HTTP 200
+- Guidance: Use modern CSS theming source for token, cascade, and color-scheme architecture tradeoffs.
 
