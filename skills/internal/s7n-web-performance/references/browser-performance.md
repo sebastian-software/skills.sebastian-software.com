@@ -13,3 +13,12 @@ Use measured browser behavior to guide performance changes. Prioritize fixes tha
 
 ## Source-Backed Guidance
 
+### Don't fight the browser preload scanner
+
+- Things ID(s): `A7EtoTHWwtpMvsCnmvKiug`
+- Source: <https://web.dev/preload-scanner/?utm_source=CSS-Weekly&utm_campaign=Issue-507&utm_medium=email>
+- Decision: `primary`
+- Target: `network-performance`
+- URL recheck: 2026-06-13, HTTP 200, redirects to https://web.dev/articles/preload-scanner?utm_source=CSS-Weekly&utm_campaign=Issue-507&utm_medium=email
+- Guidance: Primary for network-performance: keep startup resources discoverable in HTML, avoid JS-injected startup scripts, do not lazy-load above-the-fold/LCP images through data-src, avoid hiding LCP images in CSS backgrounds unless preloaded intentionally, and avoid excessive inline/base64 resources that delay discovery and hurt caching; cross-reference component-development, editorial-ux, and media/design-system rules.
+
