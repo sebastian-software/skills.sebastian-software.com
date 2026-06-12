@@ -229,4 +229,12 @@ Use this reference for source-backed design-system decisions that cut across col
 - Target: `design-system`
 - URL recheck: 2026-06-13, HTTP 200
 - Guidance: Use SVG sprite sheet source for icon-system delivery tradeoffs and currentColor styling caveats.
+### What You Need to Know About CSS Color Interpolation | CSS-Tricks
+
+- Things ID(s): `TFQnKUZ6oe7QkRSA5kBEA8`
+- Source: <https://css-tricks.com/what-you-need-to-know-about-css-color-interpolation/>
+- Decision: `primary`
+- Target: `design-system`
+- URL recheck: 2026-06-13, HTTP 200
+- Guidance: Use color interpolation source as primary guidance for gradients, transitions, color-mix, and OKLCH behavior.
 
