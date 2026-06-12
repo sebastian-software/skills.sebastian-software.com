@@ -11,3 +11,12 @@ Use current browser-support evidence before turning modern web-platform features
 
 ## Source-Backed Guidance
 
+### Adactio: Journal-CSS snippets
+
+- Things ID(s): `4m11kz8ZUfiaRXQosiPdmx`
+- Source: <https://adactio.com/journal/21896>
+- Decision: `secondary`
+- Target: `baseline`
+- URL recheck: 2026-06-13, HTTP 200
+- Guidance: Secondary for baseline/design-system practice: practitioner default snippets around logical properties, reduced-motion guarded View Transitions, custom properties, OKLCH, focus-visible, text-wrap, hanging punctuation, low-specificity :where(), cascade layers, and line-height units; useful as habit/radar source, not a normative rule source.
+
