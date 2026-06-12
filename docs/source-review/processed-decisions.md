@@ -62,4 +62,12 @@ This file records processed Things source decisions that do not belong directly 
 - Target: `processed-decision`
 - URL recheck: 2026-06-13, HTTP 200
 - Guidance: Deferred for OpenAI/Codex app-server docs; not design-system source material.
+### I ported JustHTML from Python to JavaScript with Codex CLI and GPT-5
+
+- Things ID(s): `PGZDquw6VMTgtZmoUv7ChL`
+- Source: <https://simonwillison.net/2025/Dec/15/porting-justhtml/?ref=labnotes.org>
+- Decision: `ignored`
+- Target: `processed-decision`
+- URL recheck: 2026-06-13, HTTP 200
+- Guidance: Deferred for agent/Codex workflow research; not frontend-testing skill material.
 
