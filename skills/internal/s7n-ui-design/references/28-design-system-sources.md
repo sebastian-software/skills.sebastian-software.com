@@ -157,3 +157,12 @@ Use this reference for source-backed design-system decisions that cut across col
 - URL recheck: 2026-06-13, HTTP 200
 - Guidance: Secondary for design-system with visual-effects cross-reference: useful grain/noise gradient texture source for reducing banding and adding subtle texture, but specialized visual-effect material that should remain optional and constrained by readability/performance.
 
+### Liquid Glass on the Web - Frontend Masters Blog
+
+- Things ID(s): `NzVLBXdityhvxnVxSaNceA`
+- Source: <https://frontendmasters.com/blog/liquid-glass-on-the-web/>
+- Decision: `secondary`
+- Target: `design-system`
+- URL recheck: 2026-06-13, HTTP 200
+- Guidance: Secondary for design-system: current expressive-effects example for liquid glass/glassmorphism, backdrop-filter, SVG displacement/blur filters, refraction, highlights, and textured blur; use mainly as caveat material for contrast, readability over unknown backgrounds, UI hierarchy, reduced visual complexity, fallbacks, and performance; cross-reference html-accessibility, motion-interaction, and network-performance.
+
