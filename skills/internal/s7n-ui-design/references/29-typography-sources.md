@@ -38,3 +38,12 @@ Use this reference for source-backed typography decisions: readable measure, wra
 - URL recheck: 2026-06-13, HTTP 200
 - Guidance: Secondary for typography with component-development cross-reference: useful cap/rcap unit source for aligning icons, spacers, buttons, and type-relative decoration to capital height, but narrow enough to remain a supporting reference.
 
+### Fluid Typography
+
+- Things ID(s): `UfdqoAE5AUXKwqtZGqPwXZ`
+- Source: <https://betterwebtype.com/articles/2019/05/14/the-state-of-fluid-web-typography/>
+- Decision: `secondary`
+- Target: `typography`
+- URL recheck: 2026-06-13, HTTP 200
+- Guidance: Secondary for typography: useful historical/context source for fluid type, viewport-unit scaling, controlled type ranges, and accessibility caveats around zoom and user preferences; pair with newer primary sources for clamp(), modern CSS units, and current support.
+
