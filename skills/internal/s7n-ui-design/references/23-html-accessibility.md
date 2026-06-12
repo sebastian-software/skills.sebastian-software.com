@@ -39,3 +39,13 @@ Use semantic HTML, native behavior, visible focus, keyboard access, and assistiv
 - URL recheck: 2026-06-13, HTTP 200
 - Guidance: Primary for forms and accessibility: live/inline validation timing, copy-paste tolerance, late validation, recovery paths, and avoiding premature error states.
 
+### A highly configurable switch component using modern CSS techniques
+
+- Things ID(s): `DWLbMdqiECL5aXGfG4Rpfx`, `KievRkcUy5BjHimCZm9jFN`
+- Source: <https://piccalil.li/blog/a-highly-configurable-switch-component-using-modern-css/>
+- Decision: `primary`
+- Target: `core-html-a11y`
+- URL recheck: 2026-06-13, HTTP 200
+- Duplicate handling: canonical entry for 2 Things items.
+- Guidance: Primary for framework-agnostic component-development know-how: custom/native control anatomy, semantic input preservation, focus/state styling, configurable component CSS; not React-specific and not only a11y.
+
