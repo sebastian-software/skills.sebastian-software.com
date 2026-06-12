@@ -10,4 +10,12 @@ Use React libraries and platform interop as implementation tools, not as permiss
 - Keep accessibility pass-through visible in component APIs.
 
 ## Source-Backed Guidance
+### Upcoming custom element support in React
+
+- Things ID(s): `F2b8oMKPck9CBqQooEqZc7`, `TyY59H1w8RYcdG3nVsS6VQ`, `677keroerttLyiagzAjjL3`
+- Source: <https://piccalil.li/blog/upcoming-custom-element-support-in-react/?ref=main-rss-feed>
+- Decision: `primary`
+- Target: `react-interop`
+- URL recheck: 2026-06-13, HTTP 200
+- Guidance: Use React custom-element support as current interop guidance for attributes, properties, events, refs, and framework support.
 
