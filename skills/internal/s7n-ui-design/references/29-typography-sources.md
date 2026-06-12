@@ -112,4 +112,12 @@ Use this reference for source-backed typography decisions: readable measure, wra
 - Target: `typography`
 - URL recheck: 2026-06-13, HTTP 200
 - Guidance: Use rem/em sizing source for global vs local sizing policy in components and design tokens.
+### We Might Need Something Between Root and Relative CSS Units for "Bas
+
+- Things ID(s): `S9FU71oDXYyxejy31L3iLJ`
+- Source: <https://css-tricks.com/we-might-need-something-between-root-and-relative-css-units-for-base-elements/>
+- Decision: `secondary`
+- Target: `typography`
+- URL recheck: 2026-06-13, HTTP 200
+- Guidance: Use base-element unit source as typography/unit radar; verify support before rules.
 
