@@ -11,3 +11,12 @@ Use this reference for source-backed typography decisions: readable measure, wra
 
 ## Source-Backed Guidance
 
+### CSS Text balancing with text-wrap:balance - Ahmad Shadeed
+
+- Things ID(s): `Kuof53aap99153Pe7ng47e`
+- Source: <https://ishadeed.com/article/css-text-wrap-balance/>
+- Decision: `primary`
+- Target: `typography`
+- URL recheck: 2026-06-13, HTTP 200
+- Guidance: Primary for typography with component-development/editorial cross-references: text-wrap: balance can improve headlines, card titles, tooltips, modal titles, and FAQs, but should be limited to short text, understood not to change element width, and checked for whitespace/performance limits.
+
