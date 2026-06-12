@@ -11,4 +11,12 @@ Use vendor tools only after the project need is clear. Compare where baselines l
 - Target: `frontend-testing/vendor`
 - URL recheck: 2026-06-13, HTTP 200
 - Guidance: Treat snapshot and hosted visual-testing tools as vendor options; compare baseline storage, PR review, browsers, and debugging before adopting.
+### Testing Browser / Visual Regressions mit Cypress
+
+- Things ID(s): `GYeWqswXtuQbm4FKbJeuCn`
+- Source: <https://www.cypress.io>
+- Decision: `secondary`
+- Target: `frontend-testing/vendor`
+- URL recheck: 2026-06-13, HTTP 200, redirects to https://www.cypress.io/
+- Guidance: Treat Cypress homepage as vendor-context only; do not use it as direct implementation guidance.
 
