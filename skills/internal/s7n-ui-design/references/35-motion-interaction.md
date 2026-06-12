@@ -83,4 +83,12 @@ Use motion to explain state change, spatial continuity, feedback, and progress. 
 - Target: `motion-interaction`
 - URL recheck: 2026-06-13, HTTP 200
 - Guidance: Use shared-element transition discussion as SPA/MPA motion tradeoff context.
+### Start implementing view transitions on your websites today - Piccali
+
+- Things ID(s): `RiaEW3itKwtGR2GCnMwyhT`
+- Source: <https://piccalil.li/blog/start-implementing-view-transitions-on-your-websites-today/?utm_source=the-index&utm_medium=newsletter>
+- Decision: `secondary`
+- Target: `motion-interaction`
+- URL recheck: 2026-06-13, HTTP 200
+- Guidance: Use View Transitions implementation article as practical companion to official docs.
 
