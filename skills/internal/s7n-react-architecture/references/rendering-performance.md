@@ -18,4 +18,12 @@ Optimize React rendering by finding the actual source of work before adding memo
 - Target: `rendering`
 - URL recheck: 2026-06-13, HTTP 200
 - Guidance: Use useMemo/useCallback source to explain when memoization stabilizes real work and when it adds noise.
+### Why React Re-Renders
+
+- Things ID(s): `JE8s9BXuvL7hLwXSbaQAnh`, `KPYLd3VZiNWcYB6Wd1hCZQ`
+- Source: <https://www.joshwcomeau.com/react/why-react-re-renders/>
+- Decision: `primary`
+- Target: `rendering`
+- URL recheck: 2026-06-13, HTTP 200
+- Guidance: Use as primary React re-render mental-model source: identify state changes and render paths before optimizing.
 
