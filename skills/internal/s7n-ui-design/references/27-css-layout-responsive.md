@@ -174,3 +174,13 @@ Use CSS layout algorithms deliberately. Grid, Flexbox, Subgrid, container querie
 - URL recheck: 2026-06-13, HTTP 200
 - Guidance: Secondary for css-layout-responsive with typography/editorial-ux cross-references: practical clamp() wrapper utility for fluid content width, gutters, line length, and progressive fallback; narrow quick-tip source rather than broad responsive-layout guidance.
 
+### Rebuilding a featured news section with modern CSS: Vox news - Ahmad
+
+- Things ID(s): `3XJAUQjYcWgpUKURQC6caV`, `X1Zu8htQT8puU3Jq847WSb`
+- Source: <https://ishadeed.com/article/rebuild-featured-news-modern-css/>
+- Decision: `secondary`
+- Target: `css-layout-responsive`
+- URL recheck: 2026-06-13, HTTP 200
+- Duplicate handling: canonical entry for 2 Things items.
+- Guidance: Secondary for css-layout-responsive: strong modern CSS layout case study using Grid, gap, aspect-ratio, text wrapping, :has(), fluid sizing, and container queries, but case-study-specific rather than a direct reusable rule source.
+
