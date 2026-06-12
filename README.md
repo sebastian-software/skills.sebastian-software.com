@@ -40,10 +40,14 @@ Current internal skills:
 
 - `s7n-forschungszulage`
 - `s7n-german-typography`
+- `s7n-frontend-testing`
 - `s7n-linkedin-posts`
 - `s7n-print-design`
+- `s7n-react-architecture`
+- `s7n-react-component`
 - `s7n-svg-textures`
 - `s7n-ui-design`
+- `s7n-web-performance`
 
 See `docs/authoring-skills.md`, `docs/sync-workflow.md`,
 `docs/reviewing-external-skills.md`, and `docs/publishing-skill-sync.md` for the
