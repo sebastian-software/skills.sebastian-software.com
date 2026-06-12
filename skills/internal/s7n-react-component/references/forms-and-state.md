@@ -26,4 +26,12 @@ Use React state and form libraries in ways that preserve browser semantics, data
 - Target: `react-state`
 - URL recheck: 2026-06-13, HTTP 200
 - Guidance: Use data-binding guidance to decide controlled, uncontrolled, and derived form state boundaries.
+### React Hooks: The Deep Cuts
+
+- Things ID(s): `bjSgb8q93XCZg6yU6BGtg`
+- Source: <https://css-tricks.com/react-hooks-the-deep-cuts/>
+- Decision: `secondary`
+- Target: `react-state`
+- URL recheck: 2026-06-13, HTTP 200
+- Guidance: Use as hooks-depth context; apply only when hook abstractions clarify ownership and effects rather than hiding state flow.
 
