@@ -67,3 +67,12 @@ Use measured browser behavior to guide performance changes. Prioritize fixes tha
 - URL recheck: 2026-06-13, HTTP 200
 - Guidance: Secondary for network-performance with css-layout-responsive cross-reference: durable layout-stability problem framing for media, widgets, fonts, and late layout CSS, but concrete rules should be paired with current CLS/Core Web Vitals and modern browser guidance.
 
+### having too many different image versions significantly reduces the c
+
+- Things ID(s): `7snEM5KM6NHXf1aMHCpPvB`
+- Source: <https://www.smashingmagazine.com/2016/01/responsive-image-breakpoints-generation/>
+- Decision: `secondary`
+- Target: `network-performance`
+- URL recheck: 2026-06-13, HTTP 200
+- Guidance: Secondary for network-performance: useful responsive image breakpoint reasoning and caveat that too few variants waste bandwidth while too many variants increase storage/processing complexity and reduce CDN cache hit rate; keep as supporting context for srcset/picture/media strategy, paired with newer primary sources.
+
