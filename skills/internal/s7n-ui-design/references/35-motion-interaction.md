@@ -51,4 +51,12 @@ Use motion to explain state change, spatial continuity, feedback, and progress. 
 - Target: `motion-interaction`
 - URL recheck: 2026-06-13, HTTP 200
 - Guidance: Use partial keyframes as animation craft guidance; keep motion purposeful and bounded.
+### Replacing GSAP with scroll animations
+
+- Things ID(s): `KoF6PZDfx7xeawmRwA74uT`
+- Source: <https://piccalil.li/links/replacing-gsap-with-scroll-animations/?ref=main-rss-feed>
+- Decision: `secondary`
+- Target: `motion-interaction`
+- URL recheck: 2026-06-13, HTTP 200
+- Guidance: Use GSAP-to-native scroll animation migration as implementation example, not as blanket replacement rule.
 
