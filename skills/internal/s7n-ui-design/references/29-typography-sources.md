@@ -47,3 +47,12 @@ Use this reference for source-backed typography decisions: readable measure, wra
 - URL recheck: 2026-06-13, HTTP 200
 - Guidance: Secondary for typography: useful historical/context source for fluid type, viewport-unit scaling, controlled type ranges, and accessibility caveats around zoom and user preferences; pair with newer primary sources for clamp(), modern CSS units, and current support.
 
+### Solved With :has(): Vertical Spacing in Long-Form Text
+
+- Things ID(s): `Jny4ki2K9mpmHFq9VEJiMv`
+- Source: <https://css-tricks.com/solved-with-has-vertical-spacing-in-long-form-text/>
+- Decision: `secondary`
+- Target: `typography`
+- URL recheck: 2026-06-13, HTTP 200
+- Guidance: Secondary for typography with editorial-ux cross-reference: practical :has()/:where() pattern for vertical rhythm in long-form/CMS content, structural spacing between headings, paragraphs, lists, first/last child handling, section grouping, and low specificity; useful as concrete CSS pattern rather than core typography/a11y source.
+
