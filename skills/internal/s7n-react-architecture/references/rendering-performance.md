@@ -42,4 +42,12 @@ Optimize React rendering by finding the actual source of work before adding memo
 - Target: `rendering`
 - URL recheck: 2026-06-13, HTTP 200
 - Guidance: Use signals comparison as state-model tradeoff context, not a recommendation to replace React state.
+### Snappy UI Optimization with useDeferredValue
+
+- Things ID(s): `MgrWB7C25KjVb5JSZiDzEQ`
+- Source: <https://www.joshwcomeau.com/react/use-deferred-value/?ck_subscriber_id=1866528194&utm_source=convertkit&utm_medium=email&utm_campaign=%E2%9A%9B%EF%B8%8F%20This%20Week%20In%20React%20#185:%20React%20Conf,%20useDeferredValue,%20React%20Query,%20refs,%20Next.js%20after,%20mini-react,%20Astro,%20MDXTS,%20Radix,%20Solid,%20Redwood,%20Pigment,%20Apollo,%20Playwright,%20Re.Pack,%20RN-Model3D,%20RN%20perf,%20RN%20Video,%20VisionOS,%20LiveView,%20Anchor%20Positioning%20...%20-%2013902810>
+- Decision: `secondary`
+- Target: `react-architecture`
+- URL recheck: 2026-06-13, HTTP 200
+- Guidance: Duplicate/supporting useDeferredValue source for rendering responsiveness.
 
