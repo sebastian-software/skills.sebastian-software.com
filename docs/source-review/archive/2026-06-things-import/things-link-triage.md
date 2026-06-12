@@ -36,21 +36,21 @@ Classify each source into one of these outcomes:
 
 Best-effort category counts from the first pass:
 
-| Category | Open URLs |
-| --- | ---: |
-| Frontend UI / CSS | 2,817 |
-| JavaScript / TypeScript tooling | 737 |
-| AI / LLM / agents | 722 |
-| Testing / quality | 229 |
-| Product / marketing / growth | 145 |
-| Home / shopping / personal noise | 135 |
-| Writing / knowledge / learning | 133 |
-| Visual media / print / SVG | 96 |
-| macOS / productivity / automation | 86 |
-| Web platform / performance / SEO | 83 |
-| Backend / data / cloud | 83 |
-| Security / privacy | 37 |
-| Business / operations / freelance | 22 |
+| Category                          | Open URLs |
+| --------------------------------- | --------: |
+| Frontend UI / CSS                 |     2,817 |
+| JavaScript / TypeScript tooling   |       737 |
+| AI / LLM / agents                 |       722 |
+| Testing / quality                 |       229 |
+| Product / marketing / growth      |       145 |
+| Home / shopping / personal noise  |       135 |
+| Writing / knowledge / learning    |       133 |
+| Visual media / print / SVG        |        96 |
+| macOS / productivity / automation |        86 |
+| Web platform / performance / SEO  |        83 |
+| Backend / data / cloud            |        83 |
+| Security / privacy                |        37 |
+| Business / operations / freelance |        22 |
 
 ## Candidate Skill Areas
 
@@ -139,19 +139,19 @@ several smaller references.
 These sources are worth keeping, but most should update existing references
 rather than create new skills.
 
-| Source | Decision | Target |
-| --- | --- | --- |
-| <https://frontendmasters.com/blog/what-you-need-to-know-about-modern-css-2025-edition/> | Keep as modern CSS change radar | `s7n-ui-design`, likely a new `references/23-modern-css-platform.md` or updates across layout/forms/dialogs |
-| <https://developer.chrome.com/blog/new-in-web-ui-io-2025-recap?hl=en> | Keep | `s7n-ui-design`, modern native UI controls and declarative web platform |
-| <https://developer.chrome.com/blog/view-transitions-in-2025?hl=en> | Keep | `s7n-ui-design`, motion/page transition guidance |
-| <https://ishadeed.com/article/modern-css-section-layout/> | Keep | `s7n-ui-design/references/04-layout-spacing.md` |
-| <https://www.joshwcomeau.com/css/subgrid/> | Keep | `s7n-ui-design/references/04-layout-spacing.md` |
-| <https://developer.chrome.com/blog/a-customizable-select?hl=en> | Keep | `s7n-ui-design/references/08-forms.md` |
-| <https://ishadeed.com/article/field-sizing/> | Keep | `s7n-ui-design/references/08-forms.md` |
-| <https://piccalil.li/blog/styling-tables-the-modern-css-way/> | Keep | `s7n-ui-design/references/12-tables-data.md` |
-| <https://piccalil.li/blog/printing-the-web-making-webpages-look-good-on-paper/> | Keep | `s7n-print-design/references/layout.md` and maybe `s7n-ui-design/references/18-print-styles.md` |
-| <https://css-tricks.com/there-is-no-need-to-trap-focus-on-a-dialog-element/> | Already covered | `s7n-ui-design/references/11-dialog-modal.md` already contains this principle |
-| <https://piccalil.li/blog/a-pragmatic-guide-to-modern-css-colours-part-two/> | Keep if color reference needs refresh | `s7n-ui-design/references/03-colour.md` |
+| Source                                                                                  | Decision                              | Target                                                                                                      |
+| --------------------------------------------------------------------------------------- | ------------------------------------- | ----------------------------------------------------------------------------------------------------------- |
+| <https://frontendmasters.com/blog/what-you-need-to-know-about-modern-css-2025-edition/> | Keep as modern CSS change radar       | `s7n-ui-design`, likely a new `references/23-modern-css-platform.md` or updates across layout/forms/dialogs |
+| <https://developer.chrome.com/blog/new-in-web-ui-io-2025-recap?hl=en>                   | Keep                                  | `s7n-ui-design`, modern native UI controls and declarative web platform                                     |
+| <https://developer.chrome.com/blog/view-transitions-in-2025?hl=en>                      | Keep                                  | `s7n-ui-design`, motion/page transition guidance                                                            |
+| <https://ishadeed.com/article/modern-css-section-layout/>                               | Keep                                  | `s7n-ui-design/references/04-layout-spacing.md`                                                             |
+| <https://www.joshwcomeau.com/css/subgrid/>                                              | Keep                                  | `s7n-ui-design/references/04-layout-spacing.md`                                                             |
+| <https://developer.chrome.com/blog/a-customizable-select?hl=en>                         | Keep                                  | `s7n-ui-design/references/08-forms.md`                                                                      |
+| <https://ishadeed.com/article/field-sizing/>                                            | Keep                                  | `s7n-ui-design/references/08-forms.md`                                                                      |
+| <https://piccalil.li/blog/styling-tables-the-modern-css-way/>                           | Keep                                  | `s7n-ui-design/references/12-tables-data.md`                                                                |
+| <https://piccalil.li/blog/printing-the-web-making-webpages-look-good-on-paper/>         | Keep                                  | `s7n-print-design/references/layout.md` and maybe `s7n-ui-design/references/18-print-styles.md`             |
+| <https://css-tricks.com/there-is-no-need-to-trap-focus-on-a-dialog-element/>            | Already covered                       | `s7n-ui-design/references/11-dialog-modal.md` already contains this principle                               |
+| <https://piccalil.li/blog/a-pragmatic-guide-to-modern-css-colours-part-two/>            | Keep if color reference needs refresh | `s7n-ui-design/references/03-colour.md`                                                                     |
 
 ## Next Review Queue
 
@@ -205,15 +205,15 @@ Use the skill when the user asks to:
 
 ### Initial Source Decisions
 
-| Source | Decision | Notes |
-| --- | --- | --- |
-| <https://vitest.dev/guide/browser/visual-regression-testing.html> | Primary reference | Current Vitest docs cover `toMatchScreenshot`, environment stability, baseline screenshots, update workflow, thresholds, viewports, dynamic content, and CI separation. |
-| <https://playwright.dev/docs/test-snapshots> | Primary reference | Use for Playwright-native visual comparison, `toHaveScreenshot`, `maxDiffPixels`, and deterministic stylesheet masking. |
-| <https://storybook.js.org/docs/writing-tests/integrations/test-runner> | Primary reference with caution | Storybook now recommends the Vitest addon for Vite-powered Storybooks; keep legacy test-runner guidance only for existing setups. |
-| <https://www.smashingmagazine.com/2022/02/testing-pipeline-101-frontend-testing/> | Secondary conceptual source | Useful for test-pyramid framing, but not enough alone for implementation detail. |
-| <https://github.com/americanexpress/jest-image-snapshot> | Defer | Useful historically, but less central if the new skill defaults to Vitest/Playwright. |
-| <https://lost-pixel.com/blog/post/playwright-visual-regression-testing> | Defer | Product-specific; revisit only if the skill includes hosted visual review services. |
-| <https://percy.io/> / <https://www.chromatic.com/> / <https://loki.js.org/> | Defer | Treat as vendor options, not core workflow, unless a project already uses them. |
+| Source                                                                            | Decision                       | Notes                                                                                                                                                                   |
+| --------------------------------------------------------------------------------- | ------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| <https://vitest.dev/guide/browser/visual-regression-testing.html>                 | Primary reference              | Current Vitest docs cover `toMatchScreenshot`, environment stability, baseline screenshots, update workflow, thresholds, viewports, dynamic content, and CI separation. |
+| <https://playwright.dev/docs/test-snapshots>                                      | Primary reference              | Use for Playwright-native visual comparison, `toHaveScreenshot`, `maxDiffPixels`, and deterministic stylesheet masking.                                                 |
+| <https://storybook.js.org/docs/writing-tests/integrations/test-runner>            | Primary reference with caution | Storybook now recommends the Vitest addon for Vite-powered Storybooks; keep legacy test-runner guidance only for existing setups.                                       |
+| <https://www.smashingmagazine.com/2022/02/testing-pipeline-101-frontend-testing/> | Secondary conceptual source    | Useful for test-pyramid framing, but not enough alone for implementation detail.                                                                                        |
+| <https://github.com/americanexpress/jest-image-snapshot>                          | Defer                          | Useful historically, but less central if the new skill defaults to Vitest/Playwright.                                                                                   |
+| <https://lost-pixel.com/blog/post/playwright-visual-regression-testing>           | Defer                          | Product-specific; revisit only if the skill includes hosted visual review services.                                                                                     |
+| <https://percy.io/> / <https://www.chromatic.com/> / <https://loki.js.org/>       | Defer                          | Treat as vendor options, not core workflow, unless a project already uses them.                                                                                         |
 
 ### Skill Workflow Draft
 
@@ -288,15 +288,15 @@ Use the skill when the user asks to:
 
 ### Initial Source Decisions
 
-| Source | Decision | Notes |
-| --- | --- | --- |
-| <https://web.dev/articles/vitals> | Primary reference | Core Web Vitals currently focus on LCP, INP, and CLS with 75th percentile measurement across mobile and desktop. |
-| <https://web.dev/learn/images/> | Primary reference | Good canonical course for image formats, responsive images, compression/encoding, CDNs, and delivery tradeoffs. |
-| <https://www.smashingmagazine.com/2023/01/optimizing-image-element-lcp/> | Keep as secondary implementation guide | Practical explanation of `srcset`, `sizes`, and LCP image behavior. Pair with web.dev primary docs. |
-| <https://web.dev/articles/preload-scanner> | Primary reference | Strong candidate for `resource-discovery.md`; covers how markup, lazy loading, CSS backgrounds, inlining, and client-rendering affect discovery. |
-| <https://developer.chrome.com/blog/web-vitals-extension> | Primary reference for tooling status | Important because the standalone Web Vitals extension ended support in 2025 and DevTools Performance panel is now the recommended path. |
-| <https://developer.chrome.com/docs/lighthouse/overview/> | Primary reference | Use for Lighthouse role and limits, not as the only performance signal. |
-| <https://www.smashingmagazine.com/2022/05/rethinking-server-timing-monitoring-tool/> | Keep as secondary source | Useful for Server-Timing concepts; should be backed by MDN/spec docs before implementation. |
+| Source                                                                               | Decision                               | Notes                                                                                                                                            |
+| ------------------------------------------------------------------------------------ | -------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
+| <https://web.dev/articles/vitals>                                                    | Primary reference                      | Core Web Vitals currently focus on LCP, INP, and CLS with 75th percentile measurement across mobile and desktop.                                 |
+| <https://web.dev/learn/images/>                                                      | Primary reference                      | Good canonical course for image formats, responsive images, compression/encoding, CDNs, and delivery tradeoffs.                                  |
+| <https://www.smashingmagazine.com/2023/01/optimizing-image-element-lcp/>             | Keep as secondary implementation guide | Practical explanation of `srcset`, `sizes`, and LCP image behavior. Pair with web.dev primary docs.                                              |
+| <https://web.dev/articles/preload-scanner>                                           | Primary reference                      | Strong candidate for `resource-discovery.md`; covers how markup, lazy loading, CSS backgrounds, inlining, and client-rendering affect discovery. |
+| <https://developer.chrome.com/blog/web-vitals-extension>                             | Primary reference for tooling status   | Important because the standalone Web Vitals extension ended support in 2025 and DevTools Performance panel is now the recommended path.          |
+| <https://developer.chrome.com/docs/lighthouse/overview/>                             | Primary reference                      | Use for Lighthouse role and limits, not as the only performance signal.                                                                          |
+| <https://www.smashingmagazine.com/2022/05/rethinking-server-timing-monitoring-tool/> | Keep as secondary source               | Useful for Server-Timing concepts; should be backed by MDN/spec docs before implementation.                                                      |
 
 ### Skill Workflow Draft
 
@@ -371,17 +371,17 @@ Use the skill when the user asks to:
 
 ### Initial Source Decisions
 
-| Source | Decision | Notes |
-| --- | --- | --- |
-| <https://developers.openai.com/codex/skills> | Primary reference | Relevant to skill packaging and when reusable workflows belong in skills. |
-| <https://developers.openai.com/codex/subagents> | Primary reference | Relevant if the skill covers delegating work to subagents. |
-| <https://developers.openai.com/codex/workflows> | Primary reference | Relevant to task handoff and structured Codex workflows. |
-| <https://developers.openai.com/codex/app-server> | Primary reference, narrow | Relevant only for automation/server integration, not general agent workflow. |
-| <https://developers.openai.com/api/docs/guides/prompt-guidance> | Primary reference, narrow | Use for prompt mechanics, but avoid making "prompting" the whole skill. |
-| <https://github.com/VoltAgent/awesome-claude-code-subagents> | Defer | Useful discovery list, but not authoritative enough as core guidance. |
-| <https://www.understandingai.org/p/what-i-learned-trying-seven-coding> | Defer | Useful perspective; not implementation reference. |
-| <https://simonwillison.net/2025/Dec/15/porting-justhtml/> | Defer | Potential case study for agentic coding, but not general enough alone. |
-| Heise/OpenAI/ChatGPT news links | Discard for skill archive | News links age quickly and should not become embedded reference material. |
+| Source                                                                 | Decision                  | Notes                                                                        |
+| ---------------------------------------------------------------------- | ------------------------- | ---------------------------------------------------------------------------- |
+| <https://developers.openai.com/codex/skills>                           | Primary reference         | Relevant to skill packaging and when reusable workflows belong in skills.    |
+| <https://developers.openai.com/codex/subagents>                        | Primary reference         | Relevant if the skill covers delegating work to subagents.                   |
+| <https://developers.openai.com/codex/workflows>                        | Primary reference         | Relevant to task handoff and structured Codex workflows.                     |
+| <https://developers.openai.com/codex/app-server>                       | Primary reference, narrow | Relevant only for automation/server integration, not general agent workflow. |
+| <https://developers.openai.com/api/docs/guides/prompt-guidance>        | Primary reference, narrow | Use for prompt mechanics, but avoid making "prompting" the whole skill.      |
+| <https://github.com/VoltAgent/awesome-claude-code-subagents>           | Defer                     | Useful discovery list, but not authoritative enough as core guidance.        |
+| <https://www.understandingai.org/p/what-i-learned-trying-seven-coding> | Defer                     | Useful perspective; not implementation reference.                            |
+| <https://simonwillison.net/2025/Dec/15/porting-justhtml/>              | Defer                     | Potential case study for agentic coding, but not general enough alone.       |
+| Heise/OpenAI/ChatGPT news links                                        | Discard for skill archive | News links age quickly and should not become embedded reference material.    |
 
 ### Skill Workflow Draft
 

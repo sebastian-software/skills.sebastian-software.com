@@ -23,11 +23,11 @@ churn. The Simon Willison article was reviewed as an article source.
 
 ## Decision Summary
 
-| Status | Count | Rationale |
-| --- | ---: | --- |
-| `candidate` | 1 | One article source with durable AI-assisted engineering/process value. |
-| `deferred` | 28 | Active or potentially useful projects captured in the GitHub matrix. |
-| `rejected` | 21 | Old package-shopping notes, stale build-tooling, private/macOS/media utilities, weak no-match org links, or narrow project-specific code links. |
+| Status      | Count | Rationale                                                                                                                                       |
+| ----------- | ----: | ----------------------------------------------------------------------------------------------------------------------------------------------- |
+| `candidate` |     1 | One article source with durable AI-assisted engineering/process value.                                                                          |
+| `deferred`  |    28 | Active or potentially useful projects captured in the GitHub matrix.                                                                            |
+| `rejected`  |    21 | Old package-shopping notes, stale build-tooling, private/macOS/media utilities, weak no-match org links, or narrow project-specific code links. |
 
 ## Candidate Source
 
@@ -76,55 +76,55 @@ No skill changes should be made directly from this cluster.
 
 ## Things Actions
 
-| Things ID | Decision | Final tag | Complete? | Reason |
-| --- | --- | --- | --- | --- |
-| `2RfSKroDnHmzYFsKHfrU6W` | deferred | `Skill Archive Deferred` | yes | Analytics platform project; matrix inventory only. |
-| `NnYsEtJZJ32Kn1pAoDbu8M` | rejected | `Skill Archive Rejected` | yes | Old webpack dev-server source link from 2017; stale build-tooling source. |
-| `DAaRsTuwiUSY8RRe3tnXa2` | deferred | `Skill Archive Deferred` | yes | Font fallback project; inventory only until paired with typography/performance docs. |
-| `514qj3Sc9gzqkSZngd8HBe` | deferred | `Skill Archive Deferred` | yes | Markdown parser project; inventory only. |
-| `4D4jkQ5K7rBW7cmkcvpLw3` | deferred | `Skill Archive Deferred` | yes | Speech transcription project; inventory only. |
-| `8jzDvpsMwH1n2LLc3dVbox` | deferred | `Skill Archive Deferred` | yes | React Google Maps package; inventory only. |
-| `Lhw6kDzGaA2qs53RoRaAbu` | deferred | `Skill Archive Deferred` | yes | Vite task runner project; inventory only. |
-| `GiQhoUVyYqEDGWbfF8RvUH` | deferred | `Skill Archive Deferred` | yes | Documentation platform project; inventory only. |
-| `MFHBdnroyx5GxFXfQoDrR2` | deferred | `Skill Archive Deferred` | yes | AI video transcription project; inventory only. |
-| `oYj1AsFqrDb2afqk1zNxR` | deferred | `Skill Archive Deferred` | yes | External agent skills repo; inventory only. |
-| `4Ncgja45Kn8FF8r73onGm5` | deferred | `Skill Archive Deferred` | yes | Agent marketplace repo; inventory only. |
-| `S9gZW2dVxsAmaUAnmTVXWg` | deferred | `Skill Archive Deferred` | yes | Codex hooks/agent tooling project; inventory only. |
-| `3R2UwqmbGuNdv3gSYhwdm3` | deferred | `Skill Archive Deferred` | yes | RAG/search project; inventory only. |
-| `48BcA11KgKozvTbcdcTrP3` | deferred | `Skill Archive Deferred` | yes | Media download CLI project; inventory only. |
-| `SsnhyEHBcvz8r7AF8fs3N3` | deferred | `Skill Archive Deferred` | yes | Model decoding research/project inventory. |
-| `NUm7kJMVR1D2ubekzHb3kb` | deferred | `Skill Archive Deferred` | yes | AI memory/search project; inventory only. |
-| `Erd8KfhyU355Wx9Rq8AcVo` | rejected | `Skill Archive Rejected` | yes | Low-signal project with no useful description; not source material. |
-| `E3ynJnh998FzTD5APB21Mm` | deferred | `Skill Archive Deferred` | yes | Human-date parser project; inventory only. |
-| `GjYkePJkcT2MnEyM5GdjN7` | deferred | `Skill Archive Deferred` | yes | Spellchecking library project; inventory only. |
-| `sAwEiZrGos5tzJgodxYqH` | deferred | `Skill Archive Deferred` | yes | Hyphenation library project; inventory only. |
-| `PGZDquw6VMTgtZmoUv7ChL` | candidate | `Skill Archive Candidate` | yes | Article source on AI-assisted porting with conformance tests and Codex workflow. |
-| `MQBD235r6rGF7hrRXRGyy5` | rejected | `Skill Archive Rejected` | yes | Old Backpack build-system inspiration; stale project-specific note. |
-| `JFepF8XE1ayveZb3ZrUTnt` | rejected | `Skill Archive Rejected` | yes | Old Webpack image placeholder loaders; stale package-shopping source. |
-| `RdFWkauz6D7h4mETeDdj3H` | rejected | `Skill Archive Rejected` | yes | Narrow PostCSS inline-SVG package note; not durable source material. |
-| `9DJa3xQK1tELPaJ8ZVNjVp` | deferred | `Skill Archive Deferred` | yes | Intersection Observer spec/repo plus lazy-load example; inventory until paired with current docs. |
-| `FkKXwgYNX9RBdYAKSAd26` | rejected | `Skill Archive Rejected` | yes | Old color-manipulation package; package-shopping source. |
-| `C93W39nmKp4fdcd4BnZg2u` | rejected | `Skill Archive Rejected` | yes | Old forked CRA Jest config source link; project-churn source. |
-| `D33euun92b6aPEvSdsjUny` | rejected | `Skill Archive Rejected` | yes | Old Google Analytics helper package; duplicate stale package note. |
-| `27nHcHys9ctNa4pd3NLdPu` | rejected | `Skill Archive Rejected` | yes | Old app build-system inspiration; not durable source material. |
-| `GSDjz6Hz3592KDrHh4G1QP` | rejected | `Skill Archive Rejected` | yes | Duplicate `ganalytics` package note; stale implementation source. |
-| `No56TvF47FT5zVvbGyiZMb` | rejected | `Skill Archive Rejected` | yes | Old PWA tutorial repo from 2016; use current official PWA docs instead. |
-| `NkiZm3vShAyx7hdQy1zoDM` | rejected | `Skill Archive Rejected` | yes | React GUI/input package; package-shopping source. |
-| `57QuWeJoVDWSJFTiznzwyu` | deferred | `Skill Archive Deferred` | yes | Lightning CSS project; inventory only. |
-| `X4wrpX96pBSEHdV3aSfZoc` | deferred | `Skill Archive Deferred` | yes | Gemini plugin for Simon Willison's LLM CLI; inventory only. |
-| `EutxmSNfMRWdapochaefoj` | deferred | `Skill Archive Deferred` | yes | Debug logging utility; inventory only. |
-| `D95WbxBXwfBmcJNSSuUbjH` | deferred | `Skill Archive Deferred` | yes | Node logging package comparison bundle; inventory only. |
-| `Fu8hVfGZVbHQvaKuPn1uWD` | deferred | `Skill Archive Deferred` | yes | Date/time library project; inventory only. |
-| `JJyJF5BztZY7VvDmbJXMFw` | deferred | `Skill Archive Deferred` | yes | Markdown parser project; inventory only. |
-| `EXBXdLyxrASNwSozM487Xb` | deferred | `Skill Archive Deferred` | yes | PDF-to-Markdown project; inventory only. |
-| `UMYpmM3r9cXFfFZD9cBX23` | rejected | `Skill Archive Rejected` | yes | Old exit-intent marketing package; stale/non-skill source. |
-| `Dgz7zZsNRTHr3EtprwNJ4z` | deferred | `Skill Archive Deferred` | yes | Marko framework project; inventory only. |
-| `NAWyR7DYxfpExp7uTtaEVx` | rejected | `Skill Archive Rejected` | yes | Old Meteor-like framework repo from 2016; stale source. |
-| `HadJYGLyd6zJgVSGQscBTM` | rejected | `Skill Archive Rejected` | yes | Archived CSS typography package; stale package-shopping source. |
-| `8z7xAcjysYLC7JqD5GGJjU` | deferred | `Skill Archive Deferred` | yes | AI memory project subpath; inventory only. |
-| `V4gCFCvskYTRVRaGqegcjo` | rejected | `Skill Archive Rejected` | yes | Old Mermaid Webpack loader from 2016; stale source. |
-| `A98WiyNSALiLoarsxXZkR9` | rejected | `Skill Archive Rejected` | yes | CSS Modules successor package; package-shopping source without broader guidance. |
-| `58b3ApG8XZfBwKCAvyuSEt` | rejected | `Skill Archive Rejected` | yes | Mona Sans org/page did not map to a repo; font inventory, not JS tooling source. |
-| `WZjAiDMpCNi1cpz48m89zb` | rejected | `Skill Archive Rejected` | yes | Duplicate Mona Sans org/page; font inventory, not JS tooling source. |
-| `GJYg3oqqjTdH3CLYdrZrWE` | rejected | `Skill Archive Rejected` | yes | macOS monitor-control utility; unrelated personal tooling. |
-| `Q9aZRnJoMLh4SYTr4d2Jw8` | rejected | `Skill Archive Rejected` | yes | Moonfin org/page did not map to useful repo metadata; not source material. |
+| Things ID                | Decision  | Final tag                 | Complete? | Reason                                                                                            |
+| ------------------------ | --------- | ------------------------- | --------- | ------------------------------------------------------------------------------------------------- |
+| `2RfSKroDnHmzYFsKHfrU6W` | deferred  | `Skill Archive Deferred`  | yes       | Analytics platform project; matrix inventory only.                                                |
+| `NnYsEtJZJ32Kn1pAoDbu8M` | rejected  | `Skill Archive Rejected`  | yes       | Old webpack dev-server source link from 2017; stale build-tooling source.                         |
+| `DAaRsTuwiUSY8RRe3tnXa2` | deferred  | `Skill Archive Deferred`  | yes       | Font fallback project; inventory only until paired with typography/performance docs.              |
+| `514qj3Sc9gzqkSZngd8HBe` | deferred  | `Skill Archive Deferred`  | yes       | Markdown parser project; inventory only.                                                          |
+| `4D4jkQ5K7rBW7cmkcvpLw3` | deferred  | `Skill Archive Deferred`  | yes       | Speech transcription project; inventory only.                                                     |
+| `8jzDvpsMwH1n2LLc3dVbox` | deferred  | `Skill Archive Deferred`  | yes       | React Google Maps package; inventory only.                                                        |
+| `Lhw6kDzGaA2qs53RoRaAbu` | deferred  | `Skill Archive Deferred`  | yes       | Vite task runner project; inventory only.                                                         |
+| `GiQhoUVyYqEDGWbfF8RvUH` | deferred  | `Skill Archive Deferred`  | yes       | Documentation platform project; inventory only.                                                   |
+| `MFHBdnroyx5GxFXfQoDrR2` | deferred  | `Skill Archive Deferred`  | yes       | AI video transcription project; inventory only.                                                   |
+| `oYj1AsFqrDb2afqk1zNxR`  | deferred  | `Skill Archive Deferred`  | yes       | External agent skills repo; inventory only.                                                       |
+| `4Ncgja45Kn8FF8r73onGm5` | deferred  | `Skill Archive Deferred`  | yes       | Agent marketplace repo; inventory only.                                                           |
+| `S9gZW2dVxsAmaUAnmTVXWg` | deferred  | `Skill Archive Deferred`  | yes       | Codex hooks/agent tooling project; inventory only.                                                |
+| `3R2UwqmbGuNdv3gSYhwdm3` | deferred  | `Skill Archive Deferred`  | yes       | RAG/search project; inventory only.                                                               |
+| `48BcA11KgKozvTbcdcTrP3` | deferred  | `Skill Archive Deferred`  | yes       | Media download CLI project; inventory only.                                                       |
+| `SsnhyEHBcvz8r7AF8fs3N3` | deferred  | `Skill Archive Deferred`  | yes       | Model decoding research/project inventory.                                                        |
+| `NUm7kJMVR1D2ubekzHb3kb` | deferred  | `Skill Archive Deferred`  | yes       | AI memory/search project; inventory only.                                                         |
+| `Erd8KfhyU355Wx9Rq8AcVo` | rejected  | `Skill Archive Rejected`  | yes       | Low-signal project with no useful description; not source material.                               |
+| `E3ynJnh998FzTD5APB21Mm` | deferred  | `Skill Archive Deferred`  | yes       | Human-date parser project; inventory only.                                                        |
+| `GjYkePJkcT2MnEyM5GdjN7` | deferred  | `Skill Archive Deferred`  | yes       | Spellchecking library project; inventory only.                                                    |
+| `sAwEiZrGos5tzJgodxYqH`  | deferred  | `Skill Archive Deferred`  | yes       | Hyphenation library project; inventory only.                                                      |
+| `PGZDquw6VMTgtZmoUv7ChL` | candidate | `Skill Archive Candidate` | yes       | Article source on AI-assisted porting with conformance tests and Codex workflow.                  |
+| `MQBD235r6rGF7hrRXRGyy5` | rejected  | `Skill Archive Rejected`  | yes       | Old Backpack build-system inspiration; stale project-specific note.                               |
+| `JFepF8XE1ayveZb3ZrUTnt` | rejected  | `Skill Archive Rejected`  | yes       | Old Webpack image placeholder loaders; stale package-shopping source.                             |
+| `RdFWkauz6D7h4mETeDdj3H` | rejected  | `Skill Archive Rejected`  | yes       | Narrow PostCSS inline-SVG package note; not durable source material.                              |
+| `9DJa3xQK1tELPaJ8ZVNjVp` | deferred  | `Skill Archive Deferred`  | yes       | Intersection Observer spec/repo plus lazy-load example; inventory until paired with current docs. |
+| `FkKXwgYNX9RBdYAKSAd26`  | rejected  | `Skill Archive Rejected`  | yes       | Old color-manipulation package; package-shopping source.                                          |
+| `C93W39nmKp4fdcd4BnZg2u` | rejected  | `Skill Archive Rejected`  | yes       | Old forked CRA Jest config source link; project-churn source.                                     |
+| `D33euun92b6aPEvSdsjUny` | rejected  | `Skill Archive Rejected`  | yes       | Old Google Analytics helper package; duplicate stale package note.                                |
+| `27nHcHys9ctNa4pd3NLdPu` | rejected  | `Skill Archive Rejected`  | yes       | Old app build-system inspiration; not durable source material.                                    |
+| `GSDjz6Hz3592KDrHh4G1QP` | rejected  | `Skill Archive Rejected`  | yes       | Duplicate `ganalytics` package note; stale implementation source.                                 |
+| `No56TvF47FT5zVvbGyiZMb` | rejected  | `Skill Archive Rejected`  | yes       | Old PWA tutorial repo from 2016; use current official PWA docs instead.                           |
+| `NkiZm3vShAyx7hdQy1zoDM` | rejected  | `Skill Archive Rejected`  | yes       | React GUI/input package; package-shopping source.                                                 |
+| `57QuWeJoVDWSJFTiznzwyu` | deferred  | `Skill Archive Deferred`  | yes       | Lightning CSS project; inventory only.                                                            |
+| `X4wrpX96pBSEHdV3aSfZoc` | deferred  | `Skill Archive Deferred`  | yes       | Gemini plugin for Simon Willison's LLM CLI; inventory only.                                       |
+| `EutxmSNfMRWdapochaefoj` | deferred  | `Skill Archive Deferred`  | yes       | Debug logging utility; inventory only.                                                            |
+| `D95WbxBXwfBmcJNSSuUbjH` | deferred  | `Skill Archive Deferred`  | yes       | Node logging package comparison bundle; inventory only.                                           |
+| `Fu8hVfGZVbHQvaKuPn1uWD` | deferred  | `Skill Archive Deferred`  | yes       | Date/time library project; inventory only.                                                        |
+| `JJyJF5BztZY7VvDmbJXMFw` | deferred  | `Skill Archive Deferred`  | yes       | Markdown parser project; inventory only.                                                          |
+| `EXBXdLyxrASNwSozM487Xb` | deferred  | `Skill Archive Deferred`  | yes       | PDF-to-Markdown project; inventory only.                                                          |
+| `UMYpmM3r9cXFfFZD9cBX23` | rejected  | `Skill Archive Rejected`  | yes       | Old exit-intent marketing package; stale/non-skill source.                                        |
+| `Dgz7zZsNRTHr3EtprwNJ4z` | deferred  | `Skill Archive Deferred`  | yes       | Marko framework project; inventory only.                                                          |
+| `NAWyR7DYxfpExp7uTtaEVx` | rejected  | `Skill Archive Rejected`  | yes       | Old Meteor-like framework repo from 2016; stale source.                                           |
+| `HadJYGLyd6zJgVSGQscBTM` | rejected  | `Skill Archive Rejected`  | yes       | Archived CSS typography package; stale package-shopping source.                                   |
+| `8z7xAcjysYLC7JqD5GGJjU` | deferred  | `Skill Archive Deferred`  | yes       | AI memory project subpath; inventory only.                                                        |
+| `V4gCFCvskYTRVRaGqegcjo` | rejected  | `Skill Archive Rejected`  | yes       | Old Mermaid Webpack loader from 2016; stale source.                                               |
+| `A98WiyNSALiLoarsxXZkR9` | rejected  | `Skill Archive Rejected`  | yes       | CSS Modules successor package; package-shopping source without broader guidance.                  |
+| `58b3ApG8XZfBwKCAvyuSEt` | rejected  | `Skill Archive Rejected`  | yes       | Mona Sans org/page did not map to a repo; font inventory, not JS tooling source.                  |
+| `WZjAiDMpCNi1cpz48m89zb` | rejected  | `Skill Archive Rejected`  | yes       | Duplicate Mona Sans org/page; font inventory, not JS tooling source.                              |
+| `GJYg3oqqjTdH3CLYdrZrWE` | rejected  | `Skill Archive Rejected`  | yes       | macOS monitor-control utility; unrelated personal tooling.                                        |
+| `Q9aZRnJoMLh4SYTr4d2Jw8` | rejected  | `Skill Archive Rejected`  | yes       | Moonfin org/page did not map to useful repo metadata; not source material.                        |

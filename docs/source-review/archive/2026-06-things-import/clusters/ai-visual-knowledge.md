@@ -192,46 +192,46 @@ skills/internal/s7n-svg-icons-assets/
 
 ## Source Decisions
 
-| # | Things ID | Intake cluster | Opened result | Decision | Target | Notes |
-| ---: | --- | --- | --- | --- | --- | --- |
-| 1 | `HYcJnAikVZnZTV5CgLuvxh` | AI Agents | Josh W. Comeau SVG tutorial, reachable | reject | Dedupe to #22 | Duplicate of #22 and misclassified as AI. |
-| 2 | `DLx6dtUvvNku6kAheFKDwn` | AI Agents | Heise GPT-4 Turbo news, 2023-11-07, reachable | defer | None | Product/news churn; no durable workflow value. |
-| 3 | `BmogJdzzdNtTyusnTJ1Q8m` | AI Agents | Claude Code overview, reachable after redirect | candidate | `s7n-agentic-coding-workflows` | Primary vendor docs for agentic coding tool capabilities and integration surfaces. |
-| 4 | `LL3wanC6CZhVDhyoU7M7Vm` | AI Agents | Same Claude Code overview URL | reject | Dedupe to #3 | Exact duplicate. |
-| 5 | `61RUMT9FQ9SaS2kbVsBXno` | AI Agents | Simon Willison note on Claude Code remote control, 2026-02-25 | defer | Possible later agent workflow note | Product-feature churn; maybe revisit if remote-control workflows become a skill section. |
-| 6 | `GL5jKtGiNcsMHvRmJVk134` | AI Agents | Piccalilli link to `Array.sort` comparator explainer | reject | None | JavaScript fundamentals, not AI Agents. |
-| 7 | `2s9CgbhTEusPBnW7aQuvuW` | AI Agents | Simon Willison "Using LLMs to write code", 2025-03-11 | candidate | `s7n-agentic-coding-workflows` | Durable practice article for human-in-the-loop coding, verification, and use of LLMs as accelerators. |
-| 8 | `WdF3S4Egk3rDJNUTeiD95N` | AI Agents | OpenAI prompt guidance, reachable | candidate | `s7n-agentic-coding-workflows` / `openai-docs` | Primary docs for prompt mechanics; keep narrow and version-aware. |
-| 9 | `9aJpJAKmPr21rxGQxKvmBx` | AI Agents | OpenAI Codex app-server docs, reachable | candidate | `s7n-agentic-coding-workflows` | Primary docs for embedding Codex into apps; narrow integration reference. |
-| 10 | `8JFjCZidLfYGZd1pU2KpiZ` | AI Agents | Awesome Claude Code subagents GitHub repo, reachable | defer | Possible subagent discovery appendix | Useful list but not authoritative enough as core guidance. |
-| 11 | `VaxkmeooV4gNpm6uQBDSUG` | AI Agents | OpenAI Codex for OSS form, web reachable, curl 403 | reject | None | Program/form link, not a durable source card. |
-| 12 | `UyfbZGhEAhtJibi77LpT5f` | AI Agents | OpenAI Codex Security research preview, web reachable, curl 403 | defer | Possible security/vendor review later | Product preview and marketing/news; useful context but not stable skill guidance. |
-| 13 | `Q9MfChRJMMeESe2GBFTnJD` | AI Agents | Same Simon Willison LLM coding article as #7 | reject | Dedupe to #7 | Exact duplicate. |
-| 14 | `4LEiJ6BLxmHXdzTehGWouW` | AI Agents | Heise Q* / OpenAI hype article, 2023-12-01, reachable | defer | None | Speculative news; no repeatable agent workflow. |
-| 15 | `Jf7Rc2e1PxJiagPEECB4td` | AI Agents | Simon Willison MiniMax M2 link post, 2025-10-29 | defer | None | Model-release and pricing churn. |
-| 16 | `RpKSGJZKBTdJiRVHE6cac5` | AI Agents | NN/g complex apps course page, reachable | reject | Possible UI research elsewhere | UX course marketing, not AI Agents. |
-| 17 | `C5VKLTYvZpi7zqjPzHcWwB` | AI Agents | Heise GPT Store news, 2024-01-11, reachable | defer | None | Product/news churn. |
-| 18 | `7tqRSDoVHc9pq7kQsQWVqq` | AI Agents | Simon Willison gpt-oss model article, 2025-08-05 | defer | None | Model-release analysis; not an agent workflow reference. |
-| 19 | `YMNd5vorAg5a5ytDrHuCUU` | AI Agents | Storybook 8 release post, 2024-03-08 | reject | Future Storybook/testing cluster | Misclassified as AI Agents. |
-| 20 | `2kzXeJ9mQBRqL9sSWaBADy` | AI Agents | Piccalilli link on SVG sprite sheets, reachable | candidate | `s7n-svg-icons-assets` | Misclassified, but strong source for sprite/icon delivery workflow. |
-| 21 | `SNLr2zJcERSMLPaDx9Ybbg` | AI Agents | Heise ChatGPT development background, 2023-03-08, reachable | defer | None | Historical/news context, not durable workflow material. |
-| 22 | `4gsbJYcqimixCn8c1QFxtE` | Visual Assets | Josh W. Comeau SVG tutorial, reachable | candidate | `s7n-svg-icons-assets` | Canonical copy for SVG fundamentals, inline SVG, viewBox, primitives, and CSS/JS control. |
-| 23 | `39Zh3qKNDgcdRjBxSNfXGr` | Visual Assets | CSS-Tricks blur-up background images, 2015-12-07 | keep | Existing UI/performance reference | Durable concept but old implementation context; use as background image loading note, not icon skill. |
-| 24 | `Ya4p6mpMcbHQg284vzK93L` | Visual Assets | Simple Icons GitHub repo, reachable | candidate | `s7n-svg-icons-assets` | Strong brand-icon source with npm/CDN/API and licensing caveats. |
-| 25 | `UCaVjsNAni29P5GXAbyXgb` | Visual Assets | CSS-Tricks Images in PostCSS, 2016-04-28 | reject | None | Old PostCSS image-processing article; too stale and narrow for current skill material. |
-| 26 | `PYxhJXgGc323sQFmAsbvx6` | Visual Assets | CSS-Tricks SVG icon system, 2017-06-23 | candidate | `s7n-svg-icons-assets` | Good system-level source on SVG icon delivery and tradeoffs, despite age. |
-| 27 | `RFLZcQheZd1Q6c2QTBHMQT` | Visual Assets | GitHub Octicons SVG delivery, 2016-02-23, redirected | candidate | `s7n-svg-icons-assets` | Durable migration rationale from icon fonts to SVG; note age/version caveat. |
-| 28 | `CdRGfJodx35Yo5z8ypsfcX` | Knowledge | Adactio focus-visible note, 2025-03-26 | keep | Existing `s7n-ui-design` accessibility reference | Tiny but practical UI/accessibility note; not a new skill. |
-| 29 | `Lu5iweaS9neHVthPqcw41w` | Knowledge | MDN CookieStore docs, reachable | reject | None in this pass | Web API docs, not connected to the reviewed AI/visual/source-review skill candidates. |
-| 30 | `38gF2o7eCNHZYoEWkEjMCM` | Knowledge | Storybook 2023 roadmap, 2023-01-04 | defer | Future Storybook/testing cluster | Roadmap/product churn; stale for current Storybook guidance. |
-| 31 | `QZ1jUa3ZkDh6gzxqSWMFvM` | Knowledge | Storybook 7 type safety post, 2023-02-08 | keep | Future Storybook/testing reference | Durable CSF/TypeScript idea, but should be checked against current Storybook 10 docs. |
-| 32 | `Vbyu2TNig2VpdmsvhJcCyF` | Knowledge | Storybook theme switcher addon URL, 404 | reject | None | Dead link. |
-| 33 | `PRgS3nnR3gEojuQ66kyojT` | Knowledge | Smashing Magazine Success at Scale preorder page, 2023-05-25 | reject | None | Book/product announcement; too indirect for a skill reference. |
-| 34 | `8FA4TdvRCtP23boNj8cir5` | Knowledge | Storybook 10 release post, 2025-10-28 | keep | Future Storybook/testing reference | Current-ish Storybook release context: ESM-only, automocking, CSF factories. |
-| 35 | `7hPmaKFZJXrhdZ9wuurZCN` | Knowledge | Storybook 7 beta, 2022-12-16 | reject | None | Old beta announcement superseded by later Storybook releases. |
-| 36 | `VbgccuTXoJunvMiyAtAKJJ` | Knowledge | Storybook 8 beta, 2024-02-06 | reject | None | Beta announcement superseded by Storybook 8/10 release docs. |
-| 37 | `J4gWnH6zhLcfrzcEDKZUqM` | Knowledge | Storybook main config docs, reachable after redirect | keep | Future Storybook/testing reference | Current docs are useful, but belong in a Storybook/tooling cluster. |
-| 38 | `E6EAYebqrj5DaUNh9ztnoY` | Knowledge | Storybook test runner docs URL, 404 | reject | None | Stale URL; use current docs path only if opened in a Storybook/testing pass. |
+|   # | Things ID                | Intake cluster | Opened result                                                   | Decision  | Target                                           | Notes                                                                                                 |
+| --: | ------------------------ | -------------- | --------------------------------------------------------------- | --------- | ------------------------------------------------ | ----------------------------------------------------------------------------------------------------- |
+|   1 | `HYcJnAikVZnZTV5CgLuvxh` | AI Agents      | Josh W. Comeau SVG tutorial, reachable                          | reject    | Dedupe to #22                                    | Duplicate of #22 and misclassified as AI.                                                             |
+|   2 | `DLx6dtUvvNku6kAheFKDwn` | AI Agents      | Heise GPT-4 Turbo news, 2023-11-07, reachable                   | defer     | None                                             | Product/news churn; no durable workflow value.                                                        |
+|   3 | `BmogJdzzdNtTyusnTJ1Q8m` | AI Agents      | Claude Code overview, reachable after redirect                  | candidate | `s7n-agentic-coding-workflows`                   | Primary vendor docs for agentic coding tool capabilities and integration surfaces.                    |
+|   4 | `LL3wanC6CZhVDhyoU7M7Vm` | AI Agents      | Same Claude Code overview URL                                   | reject    | Dedupe to #3                                     | Exact duplicate.                                                                                      |
+|   5 | `61RUMT9FQ9SaS2kbVsBXno` | AI Agents      | Simon Willison note on Claude Code remote control, 2026-02-25   | defer     | Possible later agent workflow note               | Product-feature churn; maybe revisit if remote-control workflows become a skill section.              |
+|   6 | `GL5jKtGiNcsMHvRmJVk134` | AI Agents      | Piccalilli link to `Array.sort` comparator explainer            | reject    | None                                             | JavaScript fundamentals, not AI Agents.                                                               |
+|   7 | `2s9CgbhTEusPBnW7aQuvuW` | AI Agents      | Simon Willison "Using LLMs to write code", 2025-03-11           | candidate | `s7n-agentic-coding-workflows`                   | Durable practice article for human-in-the-loop coding, verification, and use of LLMs as accelerators. |
+|   8 | `WdF3S4Egk3rDJNUTeiD95N` | AI Agents      | OpenAI prompt guidance, reachable                               | candidate | `s7n-agentic-coding-workflows` / `openai-docs`   | Primary docs for prompt mechanics; keep narrow and version-aware.                                     |
+|   9 | `9aJpJAKmPr21rxGQxKvmBx` | AI Agents      | OpenAI Codex app-server docs, reachable                         | candidate | `s7n-agentic-coding-workflows`                   | Primary docs for embedding Codex into apps; narrow integration reference.                             |
+|  10 | `8JFjCZidLfYGZd1pU2KpiZ` | AI Agents      | Awesome Claude Code subagents GitHub repo, reachable            | defer     | Possible subagent discovery appendix             | Useful list but not authoritative enough as core guidance.                                            |
+|  11 | `VaxkmeooV4gNpm6uQBDSUG` | AI Agents      | OpenAI Codex for OSS form, web reachable, curl 403              | reject    | None                                             | Program/form link, not a durable source card.                                                         |
+|  12 | `UyfbZGhEAhtJibi77LpT5f` | AI Agents      | OpenAI Codex Security research preview, web reachable, curl 403 | defer     | Possible security/vendor review later            | Product preview and marketing/news; useful context but not stable skill guidance.                     |
+|  13 | `Q9MfChRJMMeESe2GBFTnJD` | AI Agents      | Same Simon Willison LLM coding article as #7                    | reject    | Dedupe to #7                                     | Exact duplicate.                                                                                      |
+|  14 | `4LEiJ6BLxmHXdzTehGWouW` | AI Agents      | Heise Q\* / OpenAI hype article, 2023-12-01, reachable          | defer     | None                                             | Speculative news; no repeatable agent workflow.                                                       |
+|  15 | `Jf7Rc2e1PxJiagPEECB4td` | AI Agents      | Simon Willison MiniMax M2 link post, 2025-10-29                 | defer     | None                                             | Model-release and pricing churn.                                                                      |
+|  16 | `RpKSGJZKBTdJiRVHE6cac5` | AI Agents      | NN/g complex apps course page, reachable                        | reject    | Possible UI research elsewhere                   | UX course marketing, not AI Agents.                                                                   |
+|  17 | `C5VKLTYvZpi7zqjPzHcWwB` | AI Agents      | Heise GPT Store news, 2024-01-11, reachable                     | defer     | None                                             | Product/news churn.                                                                                   |
+|  18 | `7tqRSDoVHc9pq7kQsQWVqq` | AI Agents      | Simon Willison gpt-oss model article, 2025-08-05                | defer     | None                                             | Model-release analysis; not an agent workflow reference.                                              |
+|  19 | `YMNd5vorAg5a5ytDrHuCUU` | AI Agents      | Storybook 8 release post, 2024-03-08                            | reject    | Future Storybook/testing cluster                 | Misclassified as AI Agents.                                                                           |
+|  20 | `2kzXeJ9mQBRqL9sSWaBADy` | AI Agents      | Piccalilli link on SVG sprite sheets, reachable                 | candidate | `s7n-svg-icons-assets`                           | Misclassified, but strong source for sprite/icon delivery workflow.                                   |
+|  21 | `SNLr2zJcERSMLPaDx9Ybbg` | AI Agents      | Heise ChatGPT development background, 2023-03-08, reachable     | defer     | None                                             | Historical/news context, not durable workflow material.                                               |
+|  22 | `4gsbJYcqimixCn8c1QFxtE` | Visual Assets  | Josh W. Comeau SVG tutorial, reachable                          | candidate | `s7n-svg-icons-assets`                           | Canonical copy for SVG fundamentals, inline SVG, viewBox, primitives, and CSS/JS control.             |
+|  23 | `39Zh3qKNDgcdRjBxSNfXGr` | Visual Assets  | CSS-Tricks blur-up background images, 2015-12-07                | keep      | Existing UI/performance reference                | Durable concept but old implementation context; use as background image loading note, not icon skill. |
+|  24 | `Ya4p6mpMcbHQg284vzK93L` | Visual Assets  | Simple Icons GitHub repo, reachable                             | candidate | `s7n-svg-icons-assets`                           | Strong brand-icon source with npm/CDN/API and licensing caveats.                                      |
+|  25 | `UCaVjsNAni29P5GXAbyXgb` | Visual Assets  | CSS-Tricks Images in PostCSS, 2016-04-28                        | reject    | None                                             | Old PostCSS image-processing article; too stale and narrow for current skill material.                |
+|  26 | `PYxhJXgGc323sQFmAsbvx6` | Visual Assets  | CSS-Tricks SVG icon system, 2017-06-23                          | candidate | `s7n-svg-icons-assets`                           | Good system-level source on SVG icon delivery and tradeoffs, despite age.                             |
+|  27 | `RFLZcQheZd1Q6c2QTBHMQT` | Visual Assets  | GitHub Octicons SVG delivery, 2016-02-23, redirected            | candidate | `s7n-svg-icons-assets`                           | Durable migration rationale from icon fonts to SVG; note age/version caveat.                          |
+|  28 | `CdRGfJodx35Yo5z8ypsfcX` | Knowledge      | Adactio focus-visible note, 2025-03-26                          | keep      | Existing `s7n-ui-design` accessibility reference | Tiny but practical UI/accessibility note; not a new skill.                                            |
+|  29 | `Lu5iweaS9neHVthPqcw41w` | Knowledge      | MDN CookieStore docs, reachable                                 | reject    | None in this pass                                | Web API docs, not connected to the reviewed AI/visual/source-review skill candidates.                 |
+|  30 | `38gF2o7eCNHZYoEWkEjMCM` | Knowledge      | Storybook 2023 roadmap, 2023-01-04                              | defer     | Future Storybook/testing cluster                 | Roadmap/product churn; stale for current Storybook guidance.                                          |
+|  31 | `QZ1jUa3ZkDh6gzxqSWMFvM` | Knowledge      | Storybook 7 type safety post, 2023-02-08                        | keep      | Future Storybook/testing reference               | Durable CSF/TypeScript idea, but should be checked against current Storybook 10 docs.                 |
+|  32 | `Vbyu2TNig2VpdmsvhJcCyF` | Knowledge      | Storybook theme switcher addon URL, 404                         | reject    | None                                             | Dead link.                                                                                            |
+|  33 | `PRgS3nnR3gEojuQ66kyojT` | Knowledge      | Smashing Magazine Success at Scale preorder page, 2023-05-25    | reject    | None                                             | Book/product announcement; too indirect for a skill reference.                                        |
+|  34 | `8FA4TdvRCtP23boNj8cir5` | Knowledge      | Storybook 10 release post, 2025-10-28                           | keep      | Future Storybook/testing reference               | Current-ish Storybook release context: ESM-only, automocking, CSF factories.                          |
+|  35 | `7hPmaKFZJXrhdZ9wuurZCN` | Knowledge      | Storybook 7 beta, 2022-12-16                                    | reject    | None                                             | Old beta announcement superseded by later Storybook releases.                                         |
+|  36 | `VbgccuTXoJunvMiyAtAKJJ` | Knowledge      | Storybook 8 beta, 2024-02-06                                    | reject    | None                                             | Beta announcement superseded by Storybook 8/10 release docs.                                          |
+|  37 | `J4gWnH6zhLcfrzcEDKZUqM` | Knowledge      | Storybook main config docs, reachable after redirect            | keep      | Future Storybook/testing reference               | Current docs are useful, but belong in a Storybook/tooling cluster.                                   |
+|  38 | `E6EAYebqrj5DaUNh9ztnoY` | Knowledge      | Storybook test runner docs URL, 404                             | reject    | None                                             | Stale URL; use current docs path only if opened in a Storybook/testing pass.                          |
 
 ## Open Questions
 
@@ -246,43 +246,43 @@ skills/internal/s7n-svg-icons-assets/
 
 ## Things Actions
 
-| Things ID | Decision | Final tag | Complete? | Reason |
-| --- | --- | --- | --- | --- |
-| `HYcJnAikVZnZTV5CgLuvxh` | rejected | `Skill Archive Rejected` | yes | Duplicate of #22 and misclassified as AI Agents. |
-| `DLx6dtUvvNku6kAheFKDwn` | deferred | `Skill Archive Deferred` | yes | Heise GPT-4 Turbo article is product/news churn. |
-| `BmogJdzzdNtTyusnTJ1Q8m` | candidate | `Skill Archive Candidate` | yes | Primary Claude Code docs for agentic coding workflow proposal. |
-| `LL3wanC6CZhVDhyoU7M7Vm` | rejected | `Skill Archive Rejected` | yes | Exact duplicate of #3. |
-| `61RUMT9FQ9SaS2kbVsBXno` | deferred | `Skill Archive Deferred` | yes | Claude Code remote-control feature is product churn unless a remote workflow section is later needed. |
-| `GL5jKtGiNcsMHvRmJVk134` | rejected | `Skill Archive Rejected` | yes | JavaScript `Array.sort` explainer, not an AI Agents source. |
-| `2s9CgbhTEusPBnW7aQuvuW` | candidate | `Skill Archive Candidate` | yes | Durable Simon Willison practice article for LLM-assisted coding. |
-| `WdF3S4Egk3rDJNUTeiD95N` | candidate | `Skill Archive Candidate` | yes | Primary OpenAI prompt guidance for narrow agentic workflow reference. |
-| `9aJpJAKmPr21rxGQxKvmBx` | candidate | `Skill Archive Candidate` | yes | Primary Codex app-server docs for product integration workflows. |
-| `8JFjCZidLfYGZd1pU2KpiZ` | deferred | `Skill Archive Deferred` | yes | Awesome list is useful discovery material but not authoritative. |
-| `VaxkmeooV4gNpm6uQBDSUG` | rejected | `Skill Archive Rejected` | yes | Codex for OSS form is not durable skill/reference material. |
-| `UyfbZGhEAhtJibi77LpT5f` | deferred | `Skill Archive Deferred` | yes | Codex Security research preview is product/news churn. |
-| `Q9MfChRJMMeESe2GBFTnJD` | rejected | `Skill Archive Rejected` | yes | Exact duplicate of #7. |
-| `4LEiJ6BLxmHXdzTehGWouW` | deferred | `Skill Archive Deferred` | yes | Speculative Q* news article, no repeatable workflow value. |
-| `Jf7Rc2e1PxJiagPEECB4td` | deferred | `Skill Archive Deferred` | yes | MiniMax M2 article is model-release and pricing churn. |
-| `RpKSGJZKBTdJiRVHE6cac5` | rejected | `Skill Archive Rejected` | yes | NN/g course page is UX course marketing, not AI Agents. |
-| `C5VKLTYvZpi7zqjPzHcWwB` | deferred | `Skill Archive Deferred` | yes | GPT Store article is product/news churn. |
-| `7tqRSDoVHc9pq7kQsQWVqq` | deferred | `Skill Archive Deferred` | yes | gpt-oss article is model-release analysis, not agent workflow guidance. |
-| `YMNd5vorAg5a5ytDrHuCUU` | rejected | `Skill Archive Rejected` | yes | Storybook 8 is misclassified as AI Agents. |
-| `2kzXeJ9mQBRqL9sSWaBADy` | candidate | `Skill Archive Candidate` | yes | SVG sprite-sheet source supports `s7n-svg-icons-assets`. |
-| `SNLr2zJcERSMLPaDx9Ybbg` | deferred | `Skill Archive Deferred` | yes | ChatGPT development article is historical/news context. |
-| `4gsbJYcqimixCn8c1QFxtE` | candidate | `Skill Archive Candidate` | yes | Canonical SVG fundamentals source for visual assets. |
-| `39Zh3qKNDgcdRjBxSNfXGr` | candidate | `Skill Archive Candidate` | yes | Keep as existing UI/performance reference for background image loading. |
-| `Ya4p6mpMcbHQg284vzK93L` | candidate | `Skill Archive Candidate` | yes | Simple Icons supports brand SVG asset workflow and licensing notes. |
-| `UCaVjsNAni29P5GXAbyXgb` | rejected | `Skill Archive Rejected` | yes | Old PostCSS image-processing article is stale and too narrow. |
-| `PYxhJXgGc323sQFmAsbvx6` | candidate | `Skill Archive Candidate` | yes | CSS-Tricks SVG icon-system article supports icon delivery guidance. |
-| `RFLZcQheZd1Q6c2QTBHMQT` | candidate | `Skill Archive Candidate` | yes | GitHub Octicons post supports icon-font-to-SVG migration rationale. |
-| `CdRGfJodx35Yo5z8ypsfcX` | candidate | `Skill Archive Candidate` | yes | Keep as existing UI accessibility reference for focus-visible styling. |
-| `Lu5iweaS9neHVthPqcw41w` | rejected | `Skill Archive Rejected` | yes | MDN CookieStore docs do not fit this AI/visual/source-review pass. |
-| `38gF2o7eCNHZYoEWkEjMCM` | deferred | `Skill Archive Deferred` | yes | Storybook 2023 roadmap is stale product churn. |
-| `QZ1jUa3ZkDh6gzxqSWMFvM` | candidate | `Skill Archive Candidate` | yes | Keep for future Storybook/testing reference with current-docs caveat. |
-| `Vbyu2TNig2VpdmsvhJcCyF` | rejected | `Skill Archive Rejected` | yes | Storybook theme switcher URL returned 404. |
-| `PRgS3nnR3gEojuQ66kyojT` | rejected | `Skill Archive Rejected` | yes | Smashing book preorder page is too indirect for skill material. |
-| `8FA4TdvRCtP23boNj8cir5` | candidate | `Skill Archive Candidate` | yes | Keep for future Storybook/testing reference. |
-| `7hPmaKFZJXrhdZ9wuurZCN` | rejected | `Skill Archive Rejected` | yes | Old Storybook 7 beta announcement is superseded. |
-| `VbgccuTXoJunvMiyAtAKJJ` | rejected | `Skill Archive Rejected` | yes | Old Storybook 8 beta announcement is superseded. |
-| `J4gWnH6zhLcfrzcEDKZUqM` | candidate | `Skill Archive Candidate` | yes | Keep current Storybook main-config docs for a future tooling/testing pass. |
-| `E6EAYebqrj5DaUNh9ztnoY` | rejected | `Skill Archive Rejected` | yes | Storybook test-runner URL returned 404. |
+| Things ID                | Decision  | Final tag                 | Complete? | Reason                                                                                                |
+| ------------------------ | --------- | ------------------------- | --------- | ----------------------------------------------------------------------------------------------------- |
+| `HYcJnAikVZnZTV5CgLuvxh` | rejected  | `Skill Archive Rejected`  | yes       | Duplicate of #22 and misclassified as AI Agents.                                                      |
+| `DLx6dtUvvNku6kAheFKDwn` | deferred  | `Skill Archive Deferred`  | yes       | Heise GPT-4 Turbo article is product/news churn.                                                      |
+| `BmogJdzzdNtTyusnTJ1Q8m` | candidate | `Skill Archive Candidate` | yes       | Primary Claude Code docs for agentic coding workflow proposal.                                        |
+| `LL3wanC6CZhVDhyoU7M7Vm` | rejected  | `Skill Archive Rejected`  | yes       | Exact duplicate of #3.                                                                                |
+| `61RUMT9FQ9SaS2kbVsBXno` | deferred  | `Skill Archive Deferred`  | yes       | Claude Code remote-control feature is product churn unless a remote workflow section is later needed. |
+| `GL5jKtGiNcsMHvRmJVk134` | rejected  | `Skill Archive Rejected`  | yes       | JavaScript `Array.sort` explainer, not an AI Agents source.                                           |
+| `2s9CgbhTEusPBnW7aQuvuW` | candidate | `Skill Archive Candidate` | yes       | Durable Simon Willison practice article for LLM-assisted coding.                                      |
+| `WdF3S4Egk3rDJNUTeiD95N` | candidate | `Skill Archive Candidate` | yes       | Primary OpenAI prompt guidance for narrow agentic workflow reference.                                 |
+| `9aJpJAKmPr21rxGQxKvmBx` | candidate | `Skill Archive Candidate` | yes       | Primary Codex app-server docs for product integration workflows.                                      |
+| `8JFjCZidLfYGZd1pU2KpiZ` | deferred  | `Skill Archive Deferred`  | yes       | Awesome list is useful discovery material but not authoritative.                                      |
+| `VaxkmeooV4gNpm6uQBDSUG` | rejected  | `Skill Archive Rejected`  | yes       | Codex for OSS form is not durable skill/reference material.                                           |
+| `UyfbZGhEAhtJibi77LpT5f` | deferred  | `Skill Archive Deferred`  | yes       | Codex Security research preview is product/news churn.                                                |
+| `Q9MfChRJMMeESe2GBFTnJD` | rejected  | `Skill Archive Rejected`  | yes       | Exact duplicate of #7.                                                                                |
+| `4LEiJ6BLxmHXdzTehGWouW` | deferred  | `Skill Archive Deferred`  | yes       | Speculative Q\* news article, no repeatable workflow value.                                           |
+| `Jf7Rc2e1PxJiagPEECB4td` | deferred  | `Skill Archive Deferred`  | yes       | MiniMax M2 article is model-release and pricing churn.                                                |
+| `RpKSGJZKBTdJiRVHE6cac5` | rejected  | `Skill Archive Rejected`  | yes       | NN/g course page is UX course marketing, not AI Agents.                                               |
+| `C5VKLTYvZpi7zqjPzHcWwB` | deferred  | `Skill Archive Deferred`  | yes       | GPT Store article is product/news churn.                                                              |
+| `7tqRSDoVHc9pq7kQsQWVqq` | deferred  | `Skill Archive Deferred`  | yes       | gpt-oss article is model-release analysis, not agent workflow guidance.                               |
+| `YMNd5vorAg5a5ytDrHuCUU` | rejected  | `Skill Archive Rejected`  | yes       | Storybook 8 is misclassified as AI Agents.                                                            |
+| `2kzXeJ9mQBRqL9sSWaBADy` | candidate | `Skill Archive Candidate` | yes       | SVG sprite-sheet source supports `s7n-svg-icons-assets`.                                              |
+| `SNLr2zJcERSMLPaDx9Ybbg` | deferred  | `Skill Archive Deferred`  | yes       | ChatGPT development article is historical/news context.                                               |
+| `4gsbJYcqimixCn8c1QFxtE` | candidate | `Skill Archive Candidate` | yes       | Canonical SVG fundamentals source for visual assets.                                                  |
+| `39Zh3qKNDgcdRjBxSNfXGr` | candidate | `Skill Archive Candidate` | yes       | Keep as existing UI/performance reference for background image loading.                               |
+| `Ya4p6mpMcbHQg284vzK93L` | candidate | `Skill Archive Candidate` | yes       | Simple Icons supports brand SVG asset workflow and licensing notes.                                   |
+| `UCaVjsNAni29P5GXAbyXgb` | rejected  | `Skill Archive Rejected`  | yes       | Old PostCSS image-processing article is stale and too narrow.                                         |
+| `PYxhJXgGc323sQFmAsbvx6` | candidate | `Skill Archive Candidate` | yes       | CSS-Tricks SVG icon-system article supports icon delivery guidance.                                   |
+| `RFLZcQheZd1Q6c2QTBHMQT` | candidate | `Skill Archive Candidate` | yes       | GitHub Octicons post supports icon-font-to-SVG migration rationale.                                   |
+| `CdRGfJodx35Yo5z8ypsfcX` | candidate | `Skill Archive Candidate` | yes       | Keep as existing UI accessibility reference for focus-visible styling.                                |
+| `Lu5iweaS9neHVthPqcw41w` | rejected  | `Skill Archive Rejected`  | yes       | MDN CookieStore docs do not fit this AI/visual/source-review pass.                                    |
+| `38gF2o7eCNHZYoEWkEjMCM` | deferred  | `Skill Archive Deferred`  | yes       | Storybook 2023 roadmap is stale product churn.                                                        |
+| `QZ1jUa3ZkDh6gzxqSWMFvM` | candidate | `Skill Archive Candidate` | yes       | Keep for future Storybook/testing reference with current-docs caveat.                                 |
+| `Vbyu2TNig2VpdmsvhJcCyF` | rejected  | `Skill Archive Rejected`  | yes       | Storybook theme switcher URL returned 404.                                                            |
+| `PRgS3nnR3gEojuQ66kyojT` | rejected  | `Skill Archive Rejected`  | yes       | Smashing book preorder page is too indirect for skill material.                                       |
+| `8FA4TdvRCtP23boNj8cir5` | candidate | `Skill Archive Candidate` | yes       | Keep for future Storybook/testing reference.                                                          |
+| `7hPmaKFZJXrhdZ9wuurZCN` | rejected  | `Skill Archive Rejected`  | yes       | Old Storybook 7 beta announcement is superseded.                                                      |
+| `VbgccuTXoJunvMiyAtAKJJ` | rejected  | `Skill Archive Rejected`  | yes       | Old Storybook 8 beta announcement is superseded.                                                      |
+| `J4gWnH6zhLcfrzcEDKZUqM` | candidate | `Skill Archive Candidate` | yes       | Keep current Storybook main-config docs for a future tooling/testing pass.                            |
+| `E6EAYebqrj5DaUNh9ztnoY` | rejected  | `Skill Archive Rejected`  | yes       | Storybook test-runner URL returned 404.                                                               |

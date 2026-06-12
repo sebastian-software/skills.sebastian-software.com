@@ -2,55 +2,55 @@
 
 These are open Things intake items. Review links before making any skill changes.
 
-| # | Things ID | Title | URLs | Notes excerpt |
-| ---: | --- | --- | --- | --- |
-| 201 | `2LW4PHR3Kjeg1ZPCpuNMn7` | https://github.com/aaif-goose/goose | <https://github.com/aaif-goose/goose> |  |
-| 202 | `VSVtviqwNq1cJ87X4gruz5` | https://github.com/aaron-he-zhu/seo-geo-claude-skills | <https://github.com/aaron-he-zhu/seo-geo-claude-skills> |  |
-| 203 | `N6jX9NUwjka9XHVVZ85epQ` | https://github.com/abhigyanpatwari/GitNexus | <https://github.com/abhigyanpatwari/GitNexus> |  |
-| 204 | `8YmeKxNKkYRbDdfDPDZBgz` | https://github.com/addyosmani/agent-skills | <https://github.com/addyosmani/agent-skills> |  |
-| 205 | `BRSZVjFNig9TGL9i79qMZU` | https://github.com/addyosmani/agent-skills | <https://github.com/addyosmani/agent-skills> |  |
-| 206 | `8w3yPgWQkhzQYy2Bg4eKuu` | https://github.com/adrianhajdin/healthcare | <https://github.com/adrianhajdin/healthcare> |  |
-| 207 | `Hr9Zed9qW5uqBwfmb9wDcb` | https://github.com/aiming-lab/SimpleMem | <https://github.com/aiming-lab/SimpleMem> |  |
-| 208 | `UJUxrwA3BeW6HfNhWv7etF` | https://github.com/AlDanial/cloc | <https://github.com/AlDanial/cloc> |  |
-| 209 | `TxhwVmxrVM26kC7hiBzJw8` | https://github.com/AlexsJones/llmfit | <https://github.com/AlexsJones/llmfit> |  |
-| 210 | `3maSZZsZpiaEdWdhkUW3aY` | https://github.com/alibaba/zvec - Vektor DB | <https://github.com/alibaba/zvec> |  |
-| 211 | `MRx6CjmmEXJVcjgtwNEtjo` | https://github.com/alibaba/zvec?tab=readme-ov-file | <https://github.com/alibaba/zvec?tab=readme-ov-file> |  |
-| 212 | `KrF5ytFsggg2En6oEAJgtU` | https://github.com/anthropics/prompt-eng-interactive-tutorial?tab=readme-ov-file | <https://github.com/anthropics/prompt-eng-interactive-tutorial?tab=readme-ov-file> |  |
-| 213 | `9GFXmN6PLymtSg5XvSKJWj` | https://github.com/barvian/number-flow | <https://github.com/barvian/number-flow> |  |
-| 214 | `MGxzpA9b8dvwipXSr2UQM` | https://github.com/basmilius/weather-icons | <https://github.com/basmilius/weather-icons> |  |
-| 215 | `EX1mjbLVUtEGK1q2PsPwbo` | https://github.com/blackboardsh/electrobun | <https://github.com/blackboardsh/electrobun> |  |
-| 216 | `H6cdvEJ1UAeM1UboevHt2U` | https://github.com/Blaizzy/mlx-audio | <https://github.com/Blaizzy/mlx-audio> |  |
-| 217 | `LASvE29AFePQfQF67EmkMT` | https://github.com/Blaizzy/mlx-vlm | <https://github.com/Blaizzy/mlx-vlm> |  |
-| 218 | `WwdJZYdz7V4w3t3BbgMQpe` | https://github.com/Blaizzy/mlx-vlm | <https://github.com/Blaizzy/mlx-vlm> |  |
-| 219 | `8XeXxPWUfTvhPnRfAyyvEX` | https://github.com/blinkospace/blinko | <https://github.com/blinkospace/blinko> |  |
-| 220 | `HR39aJaGere8aaJGrcVnNQ` | https://github.com/BlockRunAI/ClawRouter | <https://github.com/BlockRunAI/ClawRouter> |  |
-| 221 | `6Q9et29MAjXYC6h3niJCC8` | https://github.com/browser-use/browser-harness | <https://github.com/browser-use/browser-harness> |  |
-| 222 | `U943g74shZxY4Shkz4dWKg` | https://github.com/builderz-labs/mission-control | <https://github.com/builderz-labs/mission-control> |  |
-| 223 | `TSWy31MjxxagXxMEYutTQP` | https://github.com/cassler/awesome-claude-code-setup/ | <https://github.com/cassler/awesome-claude-code-setup/> |  |
-| 224 | `NJp8fctW83rotZAYyguXgP` | https://github.com/clusterzx/paperless-ai | <https://github.com/clusterzx/paperless-ai> |  |
-| 225 | `MenFGzNVC25qCbvnU9AoBZ` | https://github.com/ComposioHQ/awesome-claude-skills | <https://github.com/ComposioHQ/awesome-claude-skills> |  |
-| 226 | `Gt6urvD9hw9yDxB9EXS8tx` | https://github.com/conorbronsdon/avoid-ai-writing | <https://github.com/conorbronsdon/avoid-ai-writing> |  |
-| 227 | `B7nCgP7VvmEYFTxwXNm8HJ` | https://github.com/crewAIInc/crewAI | <https://github.com/crewAIInc/crewAI> |  |
-| 228 | `5yb97yitqwZMHki5hPFiqa` | https://github.com/curiositech/some_claude_skills | <https://github.com/curiositech/some_claude_skills> |  |
-| 229 | `VejA6USbpDUTL1CPWcYk2B` | https://github.com/D4Vinci/Scrapling?tab=readme-ov-file | <https://github.com/D4Vinci/Scrapling?tab=readme-ov-file> |  |
-| 230 | `4BsPUNfiFt2cUFNqMTM2MR` | https://github.com/dabit3/openform | <https://github.com/dabit3/openform> |  |
-| 231 | `CGqrqA4Xz6SthssjN2bc4y` | https://github.com/dandavison/delta | <https://github.com/dandavison/delta> |  |
-| 232 | `HLuHfRoYCBtQLxhBUvuRGR` | https://github.com/danielmiessler/Personal_AI_Infrastructure | <https://github.com/danielmiessler/Personal_AI_Infrastructure> |  |
-| 233 | `7Y7pgs2nRhA7g4Pqc6KSSw` | https://github.com/datalab-to/chandra | <https://github.com/datalab-to/chandra> |  |
-| 234 | `QTWmFXhG1JrRzDMZc4x6rW` | https://github.com/daymade/claude-code-skills | <https://github.com/daymade/claude-code-skills> |  |
-| 235 | `YTLTDSzVQ4ZiywZNXGkhvA` | https://github.com/developit/microbundle/blob/master/src/index.js | <https://github.com/developit/microbundle/blob/master/src/index.js> |  |
-| 236 | `VshboHmWqxH8tcyqvNuob9` | https://github.com/devongovett/unplugin-parcel-macros | <https://github.com/devongovett/unplugin-parcel-macros> |  |
-| 237 | `UCSHSGshuV1TFycs9H6HwT` | https://github.com/dnakov/litter | <https://github.com/dnakov/litter> |  |
-| 238 | `LxVxqjMoLZVkxvj1hVz8zM` | https://github.com/docmd-io/docmd | <https://github.com/docmd-io/docmd> |  |
-| 239 | `TGxnNS9BsFvBGJKk7dyBKT` | https://github.com/drona23/claude-token-efficient/blob/main/CLAUDE.md | <https://github.com/drona23/claude-token-efficient/blob/main/CLAUDE.md> |  |
-| 240 | `Rad8GAqctDRYATQFQmKzoJ` | https://github.com/dylanfeltus/skills | <https://github.com/dylanfeltus/skills> |  |
-| 241 | `XdJrToQzSJR7EWC2Va4ovU` | https://github.com/egoist/sitefetch | <https://github.com/egoist/sitefetch> |  |
-| 242 | `L7FbvpWrsKgv899oVa9oKP` | https://github.com/ehmo/code-overhaul-skill | <https://github.com/ehmo/code-overhaul-skill> |  |
-| 243 | `6mjn9EhKnU7CDWiqxicsvc` | https://github.com/ekwek1/soprano | <https://github.com/ekwek1/soprano> |  |
-| 244 | `CKCHyTCMtyj33kAWrtJLBz` | https://github.com/ekwek1/soprano | <https://github.com/ekwek1/soprano> |  |
-| 245 | `DQJgbF8VkXb5y8PD6L8zPK` | https://github.com/elder-plinius/ST3GG | <https://github.com/elder-plinius/ST3GG> |  |
-| 246 | `SUn4t4pXh8vxyrHVPk2XGq` | https://github.com/every-app/open-seo | <https://github.com/every-app/open-seo> |  |
-| 247 | `SLtaBeh1ws9kvE7i3wJGc2` | https://github.com/everywall/ladder | <https://github.com/everywall/ladder> |  |
-| 248 | `JZ54Sx6fNxzjBCjHpR5L8o` | https://github.com/eza-community/eza | <https://github.com/eza-community/eza> |  |
-| 249 | `5fgrgwsNbFBKFg1af6oRY7` | https://github.com/facebook/fbt | <https://github.com/facebook/fbt> |  |
-| 250 | `PkDJxeq9jFbk9yphJXN9AT` | https://github.com/facebook/react/pull/36173 | <https://github.com/facebook/react/pull/36173> |  |
+|   # | Things ID                | Title                                                                            | URLs                                                                               | Notes excerpt |
+| --: | ------------------------ | -------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ------------- |
+| 201 | `2LW4PHR3Kjeg1ZPCpuNMn7` | https://github.com/aaif-goose/goose                                              | <https://github.com/aaif-goose/goose>                                              |               |
+| 202 | `VSVtviqwNq1cJ87X4gruz5` | https://github.com/aaron-he-zhu/seo-geo-claude-skills                            | <https://github.com/aaron-he-zhu/seo-geo-claude-skills>                            |               |
+| 203 | `N6jX9NUwjka9XHVVZ85epQ` | https://github.com/abhigyanpatwari/GitNexus                                      | <https://github.com/abhigyanpatwari/GitNexus>                                      |               |
+| 204 | `8YmeKxNKkYRbDdfDPDZBgz` | https://github.com/addyosmani/agent-skills                                       | <https://github.com/addyosmani/agent-skills>                                       |               |
+| 205 | `BRSZVjFNig9TGL9i79qMZU` | https://github.com/addyosmani/agent-skills                                       | <https://github.com/addyosmani/agent-skills>                                       |               |
+| 206 | `8w3yPgWQkhzQYy2Bg4eKuu` | https://github.com/adrianhajdin/healthcare                                       | <https://github.com/adrianhajdin/healthcare>                                       |               |
+| 207 | `Hr9Zed9qW5uqBwfmb9wDcb` | https://github.com/aiming-lab/SimpleMem                                          | <https://github.com/aiming-lab/SimpleMem>                                          |               |
+| 208 | `UJUxrwA3BeW6HfNhWv7etF` | https://github.com/AlDanial/cloc                                                 | <https://github.com/AlDanial/cloc>                                                 |               |
+| 209 | `TxhwVmxrVM26kC7hiBzJw8` | https://github.com/AlexsJones/llmfit                                             | <https://github.com/AlexsJones/llmfit>                                             |               |
+| 210 | `3maSZZsZpiaEdWdhkUW3aY` | https://github.com/alibaba/zvec - Vektor DB                                      | <https://github.com/alibaba/zvec>                                                  |               |
+| 211 | `MRx6CjmmEXJVcjgtwNEtjo` | https://github.com/alibaba/zvec?tab=readme-ov-file                               | <https://github.com/alibaba/zvec?tab=readme-ov-file>                               |               |
+| 212 | `KrF5ytFsggg2En6oEAJgtU` | https://github.com/anthropics/prompt-eng-interactive-tutorial?tab=readme-ov-file | <https://github.com/anthropics/prompt-eng-interactive-tutorial?tab=readme-ov-file> |               |
+| 213 | `9GFXmN6PLymtSg5XvSKJWj` | https://github.com/barvian/number-flow                                           | <https://github.com/barvian/number-flow>                                           |               |
+| 214 | `MGxzpA9b8dvwipXSr2UQM`  | https://github.com/basmilius/weather-icons                                       | <https://github.com/basmilius/weather-icons>                                       |               |
+| 215 | `EX1mjbLVUtEGK1q2PsPwbo` | https://github.com/blackboardsh/electrobun                                       | <https://github.com/blackboardsh/electrobun>                                       |               |
+| 216 | `H6cdvEJ1UAeM1UboevHt2U` | https://github.com/Blaizzy/mlx-audio                                             | <https://github.com/Blaizzy/mlx-audio>                                             |               |
+| 217 | `LASvE29AFePQfQF67EmkMT` | https://github.com/Blaizzy/mlx-vlm                                               | <https://github.com/Blaizzy/mlx-vlm>                                               |               |
+| 218 | `WwdJZYdz7V4w3t3BbgMQpe` | https://github.com/Blaizzy/mlx-vlm                                               | <https://github.com/Blaizzy/mlx-vlm>                                               |               |
+| 219 | `8XeXxPWUfTvhPnRfAyyvEX` | https://github.com/blinkospace/blinko                                            | <https://github.com/blinkospace/blinko>                                            |               |
+| 220 | `HR39aJaGere8aaJGrcVnNQ` | https://github.com/BlockRunAI/ClawRouter                                         | <https://github.com/BlockRunAI/ClawRouter>                                         |               |
+| 221 | `6Q9et29MAjXYC6h3niJCC8` | https://github.com/browser-use/browser-harness                                   | <https://github.com/browser-use/browser-harness>                                   |               |
+| 222 | `U943g74shZxY4Shkz4dWKg` | https://github.com/builderz-labs/mission-control                                 | <https://github.com/builderz-labs/mission-control>                                 |               |
+| 223 | `TSWy31MjxxagXxMEYutTQP` | https://github.com/cassler/awesome-claude-code-setup/                            | <https://github.com/cassler/awesome-claude-code-setup/>                            |               |
+| 224 | `NJp8fctW83rotZAYyguXgP` | https://github.com/clusterzx/paperless-ai                                        | <https://github.com/clusterzx/paperless-ai>                                        |               |
+| 225 | `MenFGzNVC25qCbvnU9AoBZ` | https://github.com/ComposioHQ/awesome-claude-skills                              | <https://github.com/ComposioHQ/awesome-claude-skills>                              |               |
+| 226 | `Gt6urvD9hw9yDxB9EXS8tx` | https://github.com/conorbronsdon/avoid-ai-writing                                | <https://github.com/conorbronsdon/avoid-ai-writing>                                |               |
+| 227 | `B7nCgP7VvmEYFTxwXNm8HJ` | https://github.com/crewAIInc/crewAI                                              | <https://github.com/crewAIInc/crewAI>                                              |               |
+| 228 | `5yb97yitqwZMHki5hPFiqa` | https://github.com/curiositech/some_claude_skills                                | <https://github.com/curiositech/some_claude_skills>                                |               |
+| 229 | `VejA6USbpDUTL1CPWcYk2B` | https://github.com/D4Vinci/Scrapling?tab=readme-ov-file                          | <https://github.com/D4Vinci/Scrapling?tab=readme-ov-file>                          |               |
+| 230 | `4BsPUNfiFt2cUFNqMTM2MR` | https://github.com/dabit3/openform                                               | <https://github.com/dabit3/openform>                                               |               |
+| 231 | `CGqrqA4Xz6SthssjN2bc4y` | https://github.com/dandavison/delta                                              | <https://github.com/dandavison/delta>                                              |               |
+| 232 | `HLuHfRoYCBtQLxhBUvuRGR` | https://github.com/danielmiessler/Personal_AI_Infrastructure                     | <https://github.com/danielmiessler/Personal_AI_Infrastructure>                     |               |
+| 233 | `7Y7pgs2nRhA7g4Pqc6KSSw` | https://github.com/datalab-to/chandra                                            | <https://github.com/datalab-to/chandra>                                            |               |
+| 234 | `QTWmFXhG1JrRzDMZc4x6rW` | https://github.com/daymade/claude-code-skills                                    | <https://github.com/daymade/claude-code-skills>                                    |               |
+| 235 | `YTLTDSzVQ4ZiywZNXGkhvA` | https://github.com/developit/microbundle/blob/master/src/index.js                | <https://github.com/developit/microbundle/blob/master/src/index.js>                |               |
+| 236 | `VshboHmWqxH8tcyqvNuob9` | https://github.com/devongovett/unplugin-parcel-macros                            | <https://github.com/devongovett/unplugin-parcel-macros>                            |               |
+| 237 | `UCSHSGshuV1TFycs9H6HwT` | https://github.com/dnakov/litter                                                 | <https://github.com/dnakov/litter>                                                 |               |
+| 238 | `LxVxqjMoLZVkxvj1hVz8zM` | https://github.com/docmd-io/docmd                                                | <https://github.com/docmd-io/docmd>                                                |               |
+| 239 | `TGxnNS9BsFvBGJKk7dyBKT` | https://github.com/drona23/claude-token-efficient/blob/main/CLAUDE.md            | <https://github.com/drona23/claude-token-efficient/blob/main/CLAUDE.md>            |               |
+| 240 | `Rad8GAqctDRYATQFQmKzoJ` | https://github.com/dylanfeltus/skills                                            | <https://github.com/dylanfeltus/skills>                                            |               |
+| 241 | `XdJrToQzSJR7EWC2Va4ovU` | https://github.com/egoist/sitefetch                                              | <https://github.com/egoist/sitefetch>                                              |               |
+| 242 | `L7FbvpWrsKgv899oVa9oKP` | https://github.com/ehmo/code-overhaul-skill                                      | <https://github.com/ehmo/code-overhaul-skill>                                      |               |
+| 243 | `6mjn9EhKnU7CDWiqxicsvc` | https://github.com/ekwek1/soprano                                                | <https://github.com/ekwek1/soprano>                                                |               |
+| 244 | `CKCHyTCMtyj33kAWrtJLBz` | https://github.com/ekwek1/soprano                                                | <https://github.com/ekwek1/soprano>                                                |               |
+| 245 | `DQJgbF8VkXb5y8PD6L8zPK` | https://github.com/elder-plinius/ST3GG                                           | <https://github.com/elder-plinius/ST3GG>                                           |               |
+| 246 | `SUn4t4pXh8vxyrHVPk2XGq` | https://github.com/every-app/open-seo                                            | <https://github.com/every-app/open-seo>                                            |               |
+| 247 | `SLtaBeh1ws9kvE7i3wJGc2` | https://github.com/everywall/ladder                                              | <https://github.com/everywall/ladder>                                              |               |
+| 248 | `JZ54Sx6fNxzjBCjHpR5L8o` | https://github.com/eza-community/eza                                             | <https://github.com/eza-community/eza>                                             |               |
+| 249 | `5fgrgwsNbFBKFg1af6oRY7` | https://github.com/facebook/fbt                                                  | <https://github.com/facebook/fbt>                                                  |               |
+| 250 | `PkDJxeq9jFbk9yphJXN9AT` | https://github.com/facebook/react/pull/36173                                     | <https://github.com/facebook/react/pull/36173>                                     |               |

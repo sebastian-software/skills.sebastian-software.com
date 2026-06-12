@@ -6,7 +6,7 @@ What repeatable agent task or knowledge area does this cluster cover?
 
 ## Source Cards
 
-- 
+-
 
 ## Proposed Outcome
 
@@ -19,11 +19,11 @@ Target skill or proposed skill name:
 
 Use when the user asks to:
 
-- 
+-
 
 Do not use when:
 
-- 
+-
 
 ## Proposed Structure
 
@@ -46,4 +46,4 @@ skills/internal/<skill-name>/
 
 ## Open Questions
 
-- 
+-

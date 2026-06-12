@@ -15,19 +15,19 @@ archive review process.
 
 ## Tagged Intake Counts
 
-| Things category tag | Tasks |
-| --- | ---: |
-| `Skill: JS Tooling` | 535 |
-| `Skill: Frontend UI` | 401 |
-| `Skill: Testing` | 21 |
-| `Skill: AI Agents` | 21 |
-| `Skill: Performance` | 12 |
-| `Skill: Knowledge` | 11 |
-| `Skill: Visual Assets` | 6 |
-| `Skill: Backend Cloud` | 3 |
-| `Skill: Security` | 2 |
-| `Skill: Marketing` | 2 |
-| **Total** | **1,014** |
+| Things category tag    |     Tasks |
+| ---------------------- | --------: |
+| `Skill: JS Tooling`    |       535 |
+| `Skill: Frontend UI`   |       401 |
+| `Skill: Testing`       |        21 |
+| `Skill: AI Agents`     |        21 |
+| `Skill: Performance`   |        12 |
+| `Skill: Knowledge`     |        11 |
+| `Skill: Visual Assets` |         6 |
+| `Skill: Backend Cloud` |         3 |
+| `Skill: Security`      |         2 |
+| `Skill: Marketing`     |         2 |
+| **Total**              | **1,014** |
 
 ## Interpretation
 
@@ -62,16 +62,16 @@ brief before changing any skill.
 
 Completed first final-action pass:
 
-| Cluster brief | Items completed in Things | Candidate | Deferred | Rejected |
-| --- | ---: | ---: | ---: | ---: |
-| `clusters/testing.md` | 21 | 18 | 2 | 1 |
-| `clusters/performance-security-backend.md` | 17 | 9 | 5 | 3 |
-| `clusters/ai-visual-knowledge.md` | 38 | 14 | 10 | 14 |
-| `clusters/marketing-misclassified.md` | 2 | 1 | 1 | 0 |
-| `clusters/js-tooling-01.md` | 50 | 4 | 15 | 31 |
-| `clusters/frontend-ui-01.md` | 50 | 29 | 7 | 14 |
-| `clusters/js-tooling-02.md` | 50 | 0 | 19 | 31 |
-| **Total** | **228** | **75** | **59** | **94** |
+| Cluster brief                              | Items completed in Things | Candidate | Deferred | Rejected |
+| ------------------------------------------ | ------------------------: | --------: | -------: | -------: |
+| `clusters/testing.md`                      |                        21 |        18 |        2 |        1 |
+| `clusters/performance-security-backend.md` |                        17 |         9 |        5 |        3 |
+| `clusters/ai-visual-knowledge.md`          |                        38 |        14 |       10 |       14 |
+| `clusters/marketing-misclassified.md`      |                         2 |         1 |        1 |        0 |
+| `clusters/js-tooling-01.md`                |                        50 |         4 |       15 |       31 |
+| `clusters/frontend-ui-01.md`               |                        50 |        29 |        7 |       14 |
+| `clusters/js-tooling-02.md`                |                        50 |         0 |       19 |       31 |
+| **Total**                                  |                   **228** |    **75** |   **59** |   **94** |
 
 Policy correction after user clarification:
 
@@ -87,36 +87,36 @@ Policy correction after user clarification:
 Corrected decision totals:
 
 | Items completed in Things | Candidate | Deferred | Rejected |
-| ---: | ---: | ---: | ---: |
-| 228 | 66 | 68 | 94 |
+| ------------------------: | --------: | -------: | -------: |
+|                       228 |        66 |       68 |       94 |
 
 Additional batch:
 
-| Cluster brief | Items completed in Things | Candidate | Deferred | Rejected |
-| --- | ---: | ---: | ---: | ---: |
-| `clusters/js-tooling-03.md` | 50 | 0 | 41 | 9 |
-| `clusters/js-tooling-04.md` | 50 | 1 | 32 | 17 |
-| `clusters/js-tooling-05.md` | 50 | 0 | 42 | 8 |
-| `clusters/frontend-ui-02.md` | 50 | 31 | 8 | 11 |
-| `clusters/js-tooling-06.md` | 50 | 0 | 44 | 6 |
-| `clusters/js-tooling-07.md` | 50 | 0 | 41 | 9 |
-| `clusters/frontend-ui-03.md` | 50 | 11 | 23 | 16 |
-| `clusters/js-tooling-08.md` | 50 | 1 | 28 | 21 |
-| `clusters/frontend-ui-04.md` | 50 | 9 | 23 | 18 |
-| `clusters/js-tooling-09.md` | 50 | 2 | 15 | 33 |
-| `clusters/js-tooling-10.md` | 50 | 0 | 31 | 19 |
-| `clusters/frontend-ui-05.md` | 50 | 23 | 12 | 15 |
-| `clusters/js-tooling-11.md` | 35 | 3 | 17 | 15 |
-| `clusters/frontend-ui-06.md` | 50 | 14 | 14 | 22 |
-| `clusters/frontend-ui-09.md` | 1 | 0 | 1 | 0 |
-| `clusters/frontend-ui-07.md` | 50 | 29 | 7 | 14 |
-| `clusters/frontend-ui-08.md` | 50 | 31 | 13 | 6 |
+| Cluster brief                | Items completed in Things | Candidate | Deferred | Rejected |
+| ---------------------------- | ------------------------: | --------: | -------: | -------: |
+| `clusters/js-tooling-03.md`  |                        50 |         0 |       41 |        9 |
+| `clusters/js-tooling-04.md`  |                        50 |         1 |       32 |       17 |
+| `clusters/js-tooling-05.md`  |                        50 |         0 |       42 |        8 |
+| `clusters/frontend-ui-02.md` |                        50 |        31 |        8 |       11 |
+| `clusters/js-tooling-06.md`  |                        50 |         0 |       44 |        6 |
+| `clusters/js-tooling-07.md`  |                        50 |         0 |       41 |        9 |
+| `clusters/frontend-ui-03.md` |                        50 |        11 |       23 |       16 |
+| `clusters/js-tooling-08.md`  |                        50 |         1 |       28 |       21 |
+| `clusters/frontend-ui-04.md` |                        50 |         9 |       23 |       18 |
+| `clusters/js-tooling-09.md`  |                        50 |         2 |       15 |       33 |
+| `clusters/js-tooling-10.md`  |                        50 |         0 |       31 |       19 |
+| `clusters/frontend-ui-05.md` |                        50 |        23 |       12 |       15 |
+| `clusters/js-tooling-11.md`  |                        35 |         3 |       17 |       15 |
+| `clusters/frontend-ui-06.md` |                        50 |        14 |       14 |       22 |
+| `clusters/frontend-ui-09.md` |                         1 |         0 |        1 |        0 |
+| `clusters/frontend-ui-07.md` |                        50 |        29 |        7 |       14 |
+| `clusters/frontend-ui-08.md` |                        50 |        31 |       13 |        6 |
 
 Current corrected totals:
 
 | Items completed in Things | Candidate | Deferred | Rejected |
-| ---: | ---: | ---: | ---: |
-| 1,014 | 221 | 460 | 333 |
+| ------------------------: | --------: | -------: | -------: |
+|                     1,014 |       221 |      460 |      333 |
 
 Applied Things changes:
 
@@ -143,5 +143,5 @@ Verification after latest actions:
 Remaining open intake after latest verification:
 
 | Things category tag | Open intake tasks |
-| --- | ---: |
-| **Total** | **0** |
+| ------------------- | ----------------: |
+| **Total**           |             **0** |

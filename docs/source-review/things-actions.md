@@ -8,10 +8,10 @@ be applied back to Things consistently.
 ```markdown
 ## Things Actions
 
-| Things ID | Decision | Final tag | Complete? | Reason |
-| --- | --- | --- | --- | --- |
-| `abc123` | candidate | `Skill Archive Candidate` | yes | Primary source for visual regression workflow. |
-| `def456` | rejected | `Skill Archive Rejected` | yes | Personal shopping link; no archive relevance. |
+| Things ID | Decision  | Final tag                 | Complete? | Reason                                         |
+| --------- | --------- | ------------------------- | --------- | ---------------------------------------------- |
+| `abc123`  | candidate | `Skill Archive Candidate` | yes       | Primary source for visual regression workflow. |
+| `def456`  | rejected  | `Skill Archive Rejected`  | yes       | Personal shopping link; no archive relevance.  |
 ```
 
 ## Decision Values

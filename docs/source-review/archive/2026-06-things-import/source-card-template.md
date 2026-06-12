@@ -2,15 +2,15 @@
 
 ## Metadata
 
-| Field | Value |
-| --- | --- |
-| URL | <https://example.com/> |
-| Things title |  |
-| Source / author |  |
-| Published / updated |  |
-| Reviewed on | YYYY-MM-DD |
-| Reviewer | Sebastian / Codex |
-| Things tags | `Skill Archive`, `Skill Archive Reviewed` |
+| Field               | Value                                     |
+| ------------------- | ----------------------------------------- |
+| URL                 | <https://example.com/>                    |
+| Things title        |                                           |
+| Source / author     |                                           |
+| Published / updated |                                           |
+| Reviewed on         | YYYY-MM-DD                                |
+| Reviewer            | Sebastian / Codex                         |
+| Things tags         | `Skill Archive`, `Skill Archive Reviewed` |
 
 ## What Is Behind The Link?
 
@@ -18,11 +18,11 @@ Short factual description of the source. Do not decide based on the title alone.
 
 ## Useful Ideas
 
-- 
+-
 
 ## Implementation Details Worth Capturing
 
-- 
+-
 
 ## Caveats
 

@@ -30,6 +30,7 @@ This file records processed Things source decisions that do not belong directly 
 - Target: `data-architecture`
 - URL recheck: 2026-06-13, HTTP 200
 - Guidance: Ignored after second-pass: older serverless database primer, not relevant enough for current skill structure and no clear reusable rule/reference target.
+
 ### Node.js Security Best Practices | Node.js
 
 - Things ID(s): `4t5jMvm6ttKsjk3SWN2AYv`
@@ -38,6 +39,7 @@ This file records processed Things source decisions that do not belong directly 
 - Target: `processed-decision`
 - URL recheck: 2026-06-13, HTTP 404
 - Guidance: Rejected for this archive pass: Node.js security best practices is not motion interaction or current frontend skill material.
+
 ### Here’s how I use LLMs to help me write code
 
 - Things ID(s): `2s9CgbhTEusPBnW7aQuvuW`
@@ -46,6 +48,7 @@ This file records processed Things source decisions that do not belong directly 
 - Target: `processed-decision`
 - URL recheck: 2026-06-13, HTTP 200
 - Guidance: Deferred/rejected for design-system work: LLM coding workflow source belongs to agent workflow research, not UI design-system guidance.
+
 ### https://developers.openai.com/api/docs/guides/prompt-guidance/
 
 - Things ID(s): `WdF3S4Egk3rDJNUTeiD95N`
@@ -54,6 +57,7 @@ This file records processed Things source decisions that do not belong directly 
 - Target: `processed-decision`
 - URL recheck: 2026-06-13, HTTP 200, redirects to https://developers.openai.com/api/docs/guides/prompt-guidance
 - Guidance: Deferred for OpenAI-specific prompting docs; do not fold into UI design-system references.
+
 ### https://developers.openai.com/codex/app-server
 
 - Things ID(s): `9aJpJAKmPr21rxGQxKvmBx`
@@ -62,6 +66,7 @@ This file records processed Things source decisions that do not belong directly 
 - Target: `processed-decision`
 - URL recheck: 2026-06-13, HTTP 200
 - Guidance: Deferred for OpenAI/Codex app-server docs; not design-system source material.
+
 ### I ported JustHTML from Python to JavaScript with Codex CLI and GPT-5
 
 - Things ID(s): `PGZDquw6VMTgtZmoUv7ChL`
@@ -70,4 +75,3 @@ This file records processed Things source decisions that do not belong directly 
 - Target: `processed-decision`
 - URL recheck: 2026-06-13, HTTP 200
 - Guidance: Deferred for agent/Codex workflow research; not frontend-testing skill material.
-

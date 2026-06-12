@@ -2,10 +2,10 @@
 
 Generated from open, non-trashed Things tasks still tagged `Skill Archive Intake`.
 
-| Category | Queue prefix | Items | Chunks |
-| --- | --- | ---: | ---: |
-| `Skill: JS Tooling` | `js-tooling` | 535 | 11 |
-| `Skill: Frontend UI` | `frontend-ui` | 401 | 9 |
+| Category             | Queue prefix  | Items | Chunks |
+| -------------------- | ------------- | ----: | -----: |
+| `Skill: JS Tooling`  | `js-tooling`  |   535 |     11 |
+| `Skill: Frontend UI` | `frontend-ui` |   401 |      9 |
 
 ## Review Instructions
 

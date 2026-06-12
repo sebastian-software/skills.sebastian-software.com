@@ -10,16 +10,16 @@ React Server Components livestream with Dan Abramov and Joe Savona.
 
 ## Decision Summary
 
-| Status | Count | Rationale |
-| --- | ---: | --- |
-| `candidate` | 0 | No direct skill source stronger than existing RSC article/doc candidates. |
-| `deferred` | 1 | Useful React Server Components background/media context, but not a primary source card. |
-| `rejected` | 0 | The source is relevant enough to retain as contextual RSC material. |
+| Status      | Count | Rationale                                                                               |
+| ----------- | ----: | --------------------------------------------------------------------------------------- |
+| `candidate` |     0 | No direct skill source stronger than existing RSC article/doc candidates.               |
+| `deferred`  |     1 | Useful React Server Components background/media context, but not a primary source card. |
+| `rejected`  |     0 | The source is relevant enough to retain as contextual RSC material.                     |
 
 ## Source Notes
 
 - The Feedbin URL resolves conceptually to Kent C. Dodds' `RSC with Dan
-  Abramov and Joe Savona Live Stream` article/page.
+Abramov and Joe Savona Live Stream` article/page.
 - The page is a useful summary of an RSC discussion, including tradeoffs around
   server/client boundaries, waterfalls, caching, streaming, mutations, and
   mental model shifts.
@@ -35,6 +35,6 @@ background review if video or livestream-derived material is accepted.
 
 ## Things Actions
 
-| Things ID | Decision | Final tag | Complete? | Reason |
-| --- | --- | --- | --- | --- |
-| `BSm13NiVTZCXSET8z9uyx5` | deferred | `Skill Archive Deferred` | yes | RSC livestream summary/background; useful context, not a primary skill source. |
+| Things ID                | Decision | Final tag                | Complete? | Reason                                                                         |
+| ------------------------ | -------- | ------------------------ | --------- | ------------------------------------------------------------------------------ |
+| `BSm13NiVTZCXSET8z9uyx5` | deferred | `Skill Archive Deferred` | yes       | RSC livestream summary/background; useful context, not a primary skill source. |

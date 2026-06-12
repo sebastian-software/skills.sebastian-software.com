@@ -30,18 +30,18 @@ mapped in `candidate-source-map.csv` with these fields:
 
 Initial automatic grouping:
 
-| Proposed skill/reference area | Candidate rows | Intended use |
-| --- | ---: | --- |
-| `core-html-a11y` | 53 | Shared HTML, accessibility, native controls, forms, focus, keyboard, and interaction rules. |
-| `css-layout-responsive` | 45 | Layout, responsive behavior, subgrid, viewport units, spacing, container queries, page structure. |
-| `design-system` | 39 | Design-token foundations: typography, color, icons, images, visual effects, CSS units, placeholders, web fonts. |
-| `frontend-testing` | 26 | Visual regression, Playwright, Vitest Browser Mode, Storybook testing, screenshots, CI baselines. |
-| `react-architecture` | 21 | RSC, rendering behavior, hooks performance, Suspense/hydration boundaries, server/client tradeoffs. |
-| `motion-interaction` | 13 | View Transitions, scroll-driven animation, keyframes, transitions, reduced motion. |
-| `react-component` | 12 | React component API, composition, interop, custom elements, refs, async/component resilience. |
-| `s7n-ui-design-core` | 9 | Higher-level product UI, design-system posture, platform radar, broad UI judgment. |
-| `build-tooling` | 2 | Developer terminal habits, TypeScript export style, CSS-in-JS/build-time guidance. |
-| `agent-knowledge-workflows` | 1 | Agent/source/archive workflow source material. |
+| Proposed skill/reference area | Candidate rows | Intended use                                                                                                    |
+| ----------------------------- | -------------: | --------------------------------------------------------------------------------------------------------------- |
+| `core-html-a11y`              |             53 | Shared HTML, accessibility, native controls, forms, focus, keyboard, and interaction rules.                     |
+| `css-layout-responsive`       |             45 | Layout, responsive behavior, subgrid, viewport units, spacing, container queries, page structure.               |
+| `design-system`               |             39 | Design-token foundations: typography, color, icons, images, visual effects, CSS units, placeholders, web fonts. |
+| `frontend-testing`            |             26 | Visual regression, Playwright, Vitest Browser Mode, Storybook testing, screenshots, CI baselines.               |
+| `react-architecture`          |             21 | RSC, rendering behavior, hooks performance, Suspense/hydration boundaries, server/client tradeoffs.             |
+| `motion-interaction`          |             13 | View Transitions, scroll-driven animation, keyframes, transitions, reduced motion.                              |
+| `react-component`             |             12 | React component API, composition, interop, custom elements, refs, async/component resilience.                   |
+| `s7n-ui-design-core`          |              9 | Higher-level product UI, design-system posture, platform radar, broad UI judgment.                              |
+| `build-tooling`               |              2 | Developer terminal habits, TypeScript export style, CSS-in-JS/build-time guidance.                              |
+| `agent-knowledge-workflows`   |              1 | Agent/source/archive workflow source material.                                                                  |
 
 Second-pass reviews may retarget sources into additional areas when the
 automatic grouping is too broad. For example, HTTP caching sources should move
@@ -123,13 +123,13 @@ API details on top, not own the general component craft.
 
 Use source roles during second-pass review:
 
-| Source role | Meaning | How to use |
-| --- | --- | --- |
-| `primary` | Official docs, standards-facing docs, working-group explanation. | Can directly shape rules when still current. |
-| `secondary` | High-quality expert article or case study. | Use for examples, caveats, and heuristics; pair with primary docs where possible. |
-| `duplicate-support` | Duplicate or near-duplicate source. | Use only to confirm strength; do not repeat it in skill references. |
-| `platform-radar` | Official or broad roundup. | Use for prioritization and current-feature awareness, not as narrow implementation rules. |
-| `background` | Contextual source. | Keep out of skill bodies unless it clarifies a decision. |
+| Source role         | Meaning                                                          | How to use                                                                                |
+| ------------------- | ---------------------------------------------------------------- | ----------------------------------------------------------------------------------------- |
+| `primary`           | Official docs, standards-facing docs, working-group explanation. | Can directly shape rules when still current.                                              |
+| `secondary`         | High-quality expert article or case study.                       | Use for examples, caveats, and heuristics; pair with primary docs where possible.         |
+| `duplicate-support` | Duplicate or near-duplicate source.                              | Use only to confirm strength; do not repeat it in skill references.                       |
+| `platform-radar`    | Official or broad roundup.                                       | Use for prioritization and current-feature awareness, not as narrow implementation rules. |
+| `background`        | Contextual source.                                               | Keep out of skill bodies unless it clarifies a decision.                                  |
 
 ## Proposed Skill/Reference Architecture
 

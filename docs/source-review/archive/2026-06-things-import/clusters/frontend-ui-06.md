@@ -2,12 +2,12 @@
 
 ## Metadata
 
-| Field | Value |
-| --- | --- |
-| Things cluster | `Skill: Frontend UI` |
-| Reviewed on | 2026-06-10 |
-| Reviewer | Codex |
-| Write scope | `docs/source-review/clusters/frontend-ui-06.md` only |
+| Field          | Value                                                |
+| -------------- | ---------------------------------------------------- |
+| Things cluster | `Skill: Frontend UI`                                 |
+| Reviewed on    | 2026-06-10                                           |
+| Reviewer       | Codex                                                |
+| Write scope    | `docs/source-review/clusters/frontend-ui-06.md` only |
 
 ## Scope
 
@@ -72,66 +72,66 @@ agent workflow.
 
 ## Decision Summary
 
-| Status | Count | Rationale |
-| --- | ---: | --- |
-| `candidate` | 14 | Durable tooltip/anchor-positioning, accessibility, print CSS, CSS tabs/subgrid, React Aria docs, React hooks/RSC implementation, color-scale, modern CSS layout, and detailed design/CSS case-study sources. |
-| `deferred` | 14 | Potentially useful but better routed to component-library, PostCSS/tooling, router/dialog, responsive tooling, React/RSC media, select/color-picker, or framework-history reviews. |
-| `rejected` | 22 | Broken article URL, stale or archived packages, old boilerplates/SSR/PWA projects, package source files, release/social posts, framework announcements, and low-signal package-shopping items. |
+| Status      | Count | Rationale                                                                                                                                                                                                    |
+| ----------- | ----: | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `candidate` |    14 | Durable tooltip/anchor-positioning, accessibility, print CSS, CSS tabs/subgrid, React Aria docs, React hooks/RSC implementation, color-scale, modern CSS layout, and detailed design/CSS case-study sources. |
+| `deferred`  |    14 | Potentially useful but better routed to component-library, PostCSS/tooling, router/dialog, responsive tooling, React/RSC media, select/color-picker, or framework-history reviews.                           |
+| `rejected`  |    22 | Broken article URL, stale or archived packages, old boilerplates/SSR/PWA projects, package source files, release/social posts, framework announcements, and low-signal package-shopping items.               |
 
 ## Per-Thing Decisions
 
-| # | Things ID | URL group | Decision | Notes |
-| ---: | --- | --- | --- | --- |
-| 251 | `H2vSAorpXj9royWFZTMqfZ` | `frontendmasters-pointed-tooltips` | `candidate` | Practical article on CSS Anchor Positioning through tooltip geometry. |
-| 252 | `8Xf7PX8wkRBkjRzPXaQ5UU` | `plyr-react-github` | `deferred` | React media-player package; component/vendor inventory, not direct skill guidance. |
-| 253 | `MGBuPLzGsamXEwCeHP44PS` | `postcss-flexbugs-fixes-github` | `rejected` | Archived PostCSS package; use current flexbox/browser-support guidance instead. |
-| 254 | `AguDUCCtpqGUuCdPJPJg9v` | `postcss-functions-github` | `deferred` | PostCSS utility package; route to CSS tooling review if needed. |
-| 255 | `TvJdZrKgpyeVNSaVxaFzDL` | `postcss-functions-transformer-source` | `rejected` | Package source file, not article/docs/reference material. |
-| 256 | `GtPxGMm2QEVUHLgNpLfSw6` | `chroma-palettes-vis4-color-scales` | `candidate` | Multi-URL group includes a durable color-scale article and palette helper; Chroma.js repo remains secondary. |
-| 257 | `7WrHBhnXHPjkK1x1DAMpbv` | `polished-github` | `deferred` | Styling utility package; possible CSS-in-JS/tooling inventory only. |
-| 258 | `WgV8JbhdMi2sPmCfWH2QwQ` | `postcss-style-guide-github` | `rejected` | Old/archived PostCSS style-guide generator; not durable UI guidance. |
-| 259 | `H1xDc6da6Nq3M97iYDf69A` | `doiuse-github` | `deferred` | Active CSS browser-support lint package; route to CSS/tooling compatibility review. |
-| 260 | `C8Z8ZDF6UyDgoymLZ5tnn6` | `piccalilli-practical-accessibility-tips` | `candidate` | Practical accessibility snippets and component markup explainers. |
-| 261 | `XCCm5J3r1iqPDmJaMB6N1j` | `preact-redux-isomorphic-github` | `rejected` | Old example app/boilerplate; not direct frontend skill source material. |
-| 262 | `Hf4wSFYTygMz48u1mcTDUw` | `css-tricks-critical-request-redirect` | `rejected` | Provided article URL redirects to the CSS-Tricks homepage; source is unusable. |
-| 263 | `5BipwdFDGsbY4ZXracY2rt` | `react-router-prompt-source` | `deferred` | Router prompt/dialog package code; possible pattern inventory, but not a guide. |
-| 264 | `3zNQbsyz9k2bM4nzFdLggX` | `piccalilli-printing-the-web` | `candidate` | Durable print stylesheet article with debugging and paper-layout guidance. |
-| 265 | `YazxJrDcieJVYmHyRDzrbe` | `css-tricks-pure-css-tabs-details-subgrid` | `candidate` | Practical CSS tabs article using `details`, grid, and subgrid. |
-| 266 | `UTajjJPvdEba1VPwdTizUt` | `create-react-pwa-github` | `rejected` | Stale create-react-app/PWA starter repo; use current PWA docs instead. |
-| 267 | `WkwLDNdcHCPPTzhy7xSeTM` | `radix-twitter-release` | `rejected` | Social/release post about Radix fixes and CSS variables, not source guidance. |
-| 268 | `Wjfp7pFbbdJJVyBehWNDju` | `razzle-github` | `deferred` | Universal React build tool project; route to JS/SSR tooling review. |
-| 269 | `2A7kzYTTWgXACBGMnjjGbH` | `mux-react-19-rsc-actions` | `candidate` | Article explaining React 19 Server Components and Actions through concrete use cases. |
-| 270 | `F4SxcNqNzc6eTRioiBpS1x` | `react-aria-components-docs` | `candidate` | Official React Aria Components documentation for accessible custom-styled components. |
-| 271 | `4WzLVR39bEB3arthAczwBb` | `react-aria-tooltip-github` | `rejected` | Narrow tooltip package repo; use current ARIA/platform tooltip guidance instead. |
-| 272 | `3WYkF1zSWRxCqPsqU7wh4p` | `reactbits-homepage` | `deferred` | Animated component gallery/product homepage; vendor/component inventory only. |
-| 273 | `NPWD11eWu3murnKuyHcuGa` | `react-boilerplate-github` | `rejected` | Old boilerplate repo; not durable workflow guidance. |
-| 274 | `9AeXUcJL1CTMamyowMog9M` | `react-component-queries-github` | `rejected` | Old component-query package superseded by modern CSS container-query guidance. |
-| 275 | `3e46uPxTe8gvm8ehnyasKc` | `react-dom-stream-github` | `rejected` | Old React streaming SSR package; use current React/framework docs instead. |
-| 276 | `Lg2nNwUVYrP5tsbmHCTmFj` | `react-dom-stream-github` | `rejected` | Duplicate old React streaming SSR package with tracking parameter. |
-| 277 | `bjSgb8q93XCZg6yU6BGtg` | `css-tricks-react-hooks-deep-cuts` | `candidate` | Article-style React hooks guide; use as secondary source behind current React docs. |
-| 278 | `UjHjZQ7TBA3S8UeqtxHsir` | `react-imgpro-github` | `rejected` | Old React image-processing component package; not durable effects guidance. |
-| 279 | `JwjayStuekujB2jkURq68P` | `react-loadable-github` | `rejected` | Legacy code-splitting package; prefer current React lazy/Suspense docs. |
-| 280 | `RHX3KcmXehHKSH8nnHmDT2` | `thenewstack-react-panel-rsc` | `rejected` | News/panel summary about RSC adoption; interesting but not actionable skill guidance. |
-| 281 | `4v3oGRw8ckhsmt6rAMYdxp` | `react-path-menu-github` | `rejected` | Animated menu demo package; not a reusable source guide. |
-| 282 | `H2dk9oNy8aqPvq6YnsB3Ui` | `react-prepare-github` | `rejected` | Old async SSR package; superseded by current React/framework data-loading patterns. |
-| 283 | `6Nnu5sxtprHnnwpkYz12xz` | `react-responsive-github` | `deferred` | React media-query package; already better suited to responsive tooling review. |
-| 284 | `49H4xjKuDFNZniFvH6v3yt` | `youtube-react-roundtable-rsc` | `deferred` | RSC roundtable video; possible background material, not direct source-card content. |
-| 285 | `9jyDhDQy27UdXuhYMmL6uz` | `youtube-react-roundtable-rsc` | `deferred` | Exact duplicate of the RSC roundtable video. |
-| 286 | `N9vSFkk6XUZVhCRNZDEHVe` | `react-select-virtualized-select-github` | `deferred` | Select and virtualized-select package inventory; component-library review only. |
-| 287 | `Awvp1FVpZjBViqwdTDb1Wp` | `redwood-rsc-now-404` | `rejected` | Provided RedwoodJS blog URL now 404 and was framework-specific announcement material. |
-| 288 | `M8jjLUR6CSSvPXyM9UDhbd` | `youtube-rsc-under-7-minutes` | `deferred` | RSC explainer video; route to React/RSC media review if videos are accepted. |
-| 289 | `W1VjtM8cD41zRdCJtXKXuJ` | `epicweb-rsc-vite-react-router` | `candidate` | Practical RSC implementation tip using Vite and React Router. |
-| 290 | `XpjwajaJmjFSymT8XA2rx6` | `timtech-rsc-without-framework` | `candidate` | Detailed no-framework RSC experiment with clear caveats. |
-| 291 | `5z3QUJD3kTdKmckn5j5Wkd` | `react-sortable-hoc-github` | `rejected` | Legacy drag/sort package; package shopping, not direct UI guidance. |
-| 292 | `6sQSLwmgR2aFmvazfMCPa1` | `react-accessible-tabs-github` | `rejected` | Old accessible-tabs package; use ARIA APG/current component docs instead. |
-| 293 | `5BEtWpALnkDv6LFZL1Tibf` | `react-toolbox-github` | `rejected` | Old component library package; not direct skill source material. |
-| 294 | `3W8zeFHc4AVXWZ4urZr49T` | `react-color-github` | `deferred` | Color picker package; possible component/design-tool inventory only. |
-| 295 | `3SnoNraGQa25Lza6zkhsx1` | `react-poop-github` | `rejected` | Old React error-handler package; not frontend UI guidance. |
-| 296 | `3XJAUQjYcWgpUKURQC6caV` | `ishadeed-rebuild-featured-news-modern-css` | `candidate` | Strong modern CSS layout rebuild article with concrete implementation details. |
-| 297 | `VWJTy7jcv7sq1r1BXNtREp` | `ishadeed-rebuild-featured-news-modern-css` | `candidate` | Duplicate modern CSS rebuild article with newsletter parameters. |
-| 298 | `X1Zu8htQT8puU3Jq847WSb` | `ishadeed-rebuild-featured-news-modern-css` | `candidate` | Duplicate modern CSS rebuild article. |
-| 299 | `WkSeLg4zJ3iv4coHK7D6wb` | `ishadeed-redesign-2024` | `candidate` | Detailed redesign case study with CSS highlights, responsive layout, and interaction notes. |
-| 300 | `3VLwRbZZGzA5w3cSuFP4hL` | `tom-preston-werner-redwood-next-epoch-rsc` | `deferred` | Framework strategy article about Redwood/RSC; useful context only for RSC history. |
+|   # | Things ID                | URL group                                   | Decision    | Notes                                                                                                        |
+| --: | ------------------------ | ------------------------------------------- | ----------- | ------------------------------------------------------------------------------------------------------------ |
+| 251 | `H2vSAorpXj9royWFZTMqfZ` | `frontendmasters-pointed-tooltips`          | `candidate` | Practical article on CSS Anchor Positioning through tooltip geometry.                                        |
+| 252 | `8Xf7PX8wkRBkjRzPXaQ5UU` | `plyr-react-github`                         | `deferred`  | React media-player package; component/vendor inventory, not direct skill guidance.                           |
+| 253 | `MGBuPLzGsamXEwCeHP44PS` | `postcss-flexbugs-fixes-github`             | `rejected`  | Archived PostCSS package; use current flexbox/browser-support guidance instead.                              |
+| 254 | `AguDUCCtpqGUuCdPJPJg9v` | `postcss-functions-github`                  | `deferred`  | PostCSS utility package; route to CSS tooling review if needed.                                              |
+| 255 | `TvJdZrKgpyeVNSaVxaFzDL` | `postcss-functions-transformer-source`      | `rejected`  | Package source file, not article/docs/reference material.                                                    |
+| 256 | `GtPxGMm2QEVUHLgNpLfSw6` | `chroma-palettes-vis4-color-scales`         | `candidate` | Multi-URL group includes a durable color-scale article and palette helper; Chroma.js repo remains secondary. |
+| 257 | `7WrHBhnXHPjkK1x1DAMpbv` | `polished-github`                           | `deferred`  | Styling utility package; possible CSS-in-JS/tooling inventory only.                                          |
+| 258 | `WgV8JbhdMi2sPmCfWH2QwQ` | `postcss-style-guide-github`                | `rejected`  | Old/archived PostCSS style-guide generator; not durable UI guidance.                                         |
+| 259 | `H1xDc6da6Nq3M97iYDf69A` | `doiuse-github`                             | `deferred`  | Active CSS browser-support lint package; route to CSS/tooling compatibility review.                          |
+| 260 | `C8Z8ZDF6UyDgoymLZ5tnn6` | `piccalilli-practical-accessibility-tips`   | `candidate` | Practical accessibility snippets and component markup explainers.                                            |
+| 261 | `XCCm5J3r1iqPDmJaMB6N1j` | `preact-redux-isomorphic-github`            | `rejected`  | Old example app/boilerplate; not direct frontend skill source material.                                      |
+| 262 | `Hf4wSFYTygMz48u1mcTDUw` | `css-tricks-critical-request-redirect`      | `rejected`  | Provided article URL redirects to the CSS-Tricks homepage; source is unusable.                               |
+| 263 | `5BipwdFDGsbY4ZXracY2rt` | `react-router-prompt-source`                | `deferred`  | Router prompt/dialog package code; possible pattern inventory, but not a guide.                              |
+| 264 | `3zNQbsyz9k2bM4nzFdLggX` | `piccalilli-printing-the-web`               | `candidate` | Durable print stylesheet article with debugging and paper-layout guidance.                                   |
+| 265 | `YazxJrDcieJVYmHyRDzrbe` | `css-tricks-pure-css-tabs-details-subgrid`  | `candidate` | Practical CSS tabs article using `details`, grid, and subgrid.                                               |
+| 266 | `UTajjJPvdEba1VPwdTizUt` | `create-react-pwa-github`                   | `rejected`  | Stale create-react-app/PWA starter repo; use current PWA docs instead.                                       |
+| 267 | `WkwLDNdcHCPPTzhy7xSeTM` | `radix-twitter-release`                     | `rejected`  | Social/release post about Radix fixes and CSS variables, not source guidance.                                |
+| 268 | `Wjfp7pFbbdJJVyBehWNDju` | `razzle-github`                             | `deferred`  | Universal React build tool project; route to JS/SSR tooling review.                                          |
+| 269 | `2A7kzYTTWgXACBGMnjjGbH` | `mux-react-19-rsc-actions`                  | `candidate` | Article explaining React 19 Server Components and Actions through concrete use cases.                        |
+| 270 | `F4SxcNqNzc6eTRioiBpS1x` | `react-aria-components-docs`                | `candidate` | Official React Aria Components documentation for accessible custom-styled components.                        |
+| 271 | `4WzLVR39bEB3arthAczwBb` | `react-aria-tooltip-github`                 | `rejected`  | Narrow tooltip package repo; use current ARIA/platform tooltip guidance instead.                             |
+| 272 | `3WYkF1zSWRxCqPsqU7wh4p` | `reactbits-homepage`                        | `deferred`  | Animated component gallery/product homepage; vendor/component inventory only.                                |
+| 273 | `NPWD11eWu3murnKuyHcuGa` | `react-boilerplate-github`                  | `rejected`  | Old boilerplate repo; not durable workflow guidance.                                                         |
+| 274 | `9AeXUcJL1CTMamyowMog9M` | `react-component-queries-github`            | `rejected`  | Old component-query package superseded by modern CSS container-query guidance.                               |
+| 275 | `3e46uPxTe8gvm8ehnyasKc` | `react-dom-stream-github`                   | `rejected`  | Old React streaming SSR package; use current React/framework docs instead.                                   |
+| 276 | `Lg2nNwUVYrP5tsbmHCTmFj` | `react-dom-stream-github`                   | `rejected`  | Duplicate old React streaming SSR package with tracking parameter.                                           |
+| 277 | `bjSgb8q93XCZg6yU6BGtg`  | `css-tricks-react-hooks-deep-cuts`          | `candidate` | Article-style React hooks guide; use as secondary source behind current React docs.                          |
+| 278 | `UjHjZQ7TBA3S8UeqtxHsir` | `react-imgpro-github`                       | `rejected`  | Old React image-processing component package; not durable effects guidance.                                  |
+| 279 | `JwjayStuekujB2jkURq68P` | `react-loadable-github`                     | `rejected`  | Legacy code-splitting package; prefer current React lazy/Suspense docs.                                      |
+| 280 | `RHX3KcmXehHKSH8nnHmDT2` | `thenewstack-react-panel-rsc`               | `rejected`  | News/panel summary about RSC adoption; interesting but not actionable skill guidance.                        |
+| 281 | `4v3oGRw8ckhsmt6rAMYdxp` | `react-path-menu-github`                    | `rejected`  | Animated menu demo package; not a reusable source guide.                                                     |
+| 282 | `H2dk9oNy8aqPvq6YnsB3Ui` | `react-prepare-github`                      | `rejected`  | Old async SSR package; superseded by current React/framework data-loading patterns.                          |
+| 283 | `6Nnu5sxtprHnnwpkYz12xz` | `react-responsive-github`                   | `deferred`  | React media-query package; already better suited to responsive tooling review.                               |
+| 284 | `49H4xjKuDFNZniFvH6v3yt` | `youtube-react-roundtable-rsc`              | `deferred`  | RSC roundtable video; possible background material, not direct source-card content.                          |
+| 285 | `9jyDhDQy27UdXuhYMmL6uz` | `youtube-react-roundtable-rsc`              | `deferred`  | Exact duplicate of the RSC roundtable video.                                                                 |
+| 286 | `N9vSFkk6XUZVhCRNZDEHVe` | `react-select-virtualized-select-github`    | `deferred`  | Select and virtualized-select package inventory; component-library review only.                              |
+| 287 | `Awvp1FVpZjBViqwdTDb1Wp` | `redwood-rsc-now-404`                       | `rejected`  | Provided RedwoodJS blog URL now 404 and was framework-specific announcement material.                        |
+| 288 | `M8jjLUR6CSSvPXyM9UDhbd` | `youtube-rsc-under-7-minutes`               | `deferred`  | RSC explainer video; route to React/RSC media review if videos are accepted.                                 |
+| 289 | `W1VjtM8cD41zRdCJtXKXuJ` | `epicweb-rsc-vite-react-router`             | `candidate` | Practical RSC implementation tip using Vite and React Router.                                                |
+| 290 | `XpjwajaJmjFSymT8XA2rx6` | `timtech-rsc-without-framework`             | `candidate` | Detailed no-framework RSC experiment with clear caveats.                                                     |
+| 291 | `5z3QUJD3kTdKmckn5j5Wkd` | `react-sortable-hoc-github`                 | `rejected`  | Legacy drag/sort package; package shopping, not direct UI guidance.                                          |
+| 292 | `6sQSLwmgR2aFmvazfMCPa1` | `react-accessible-tabs-github`              | `rejected`  | Old accessible-tabs package; use ARIA APG/current component docs instead.                                    |
+| 293 | `5BEtWpALnkDv6LFZL1Tibf` | `react-toolbox-github`                      | `rejected`  | Old component library package; not direct skill source material.                                             |
+| 294 | `3W8zeFHc4AVXWZ4urZr49T` | `react-color-github`                        | `deferred`  | Color picker package; possible component/design-tool inventory only.                                         |
+| 295 | `3SnoNraGQa25Lza6zkhsx1` | `react-poop-github`                         | `rejected`  | Old React error-handler package; not frontend UI guidance.                                                   |
+| 296 | `3XJAUQjYcWgpUKURQC6caV` | `ishadeed-rebuild-featured-news-modern-css` | `candidate` | Strong modern CSS layout rebuild article with concrete implementation details.                               |
+| 297 | `VWJTy7jcv7sq1r1BXNtREp` | `ishadeed-rebuild-featured-news-modern-css` | `candidate` | Duplicate modern CSS rebuild article with newsletter parameters.                                             |
+| 298 | `X1Zu8htQT8puU3Jq847WSb` | `ishadeed-rebuild-featured-news-modern-css` | `candidate` | Duplicate modern CSS rebuild article.                                                                        |
+| 299 | `WkSeLg4zJ3iv4coHK7D6wb` | `ishadeed-redesign-2024`                    | `candidate` | Detailed redesign case study with CSS highlights, responsive layout, and interaction notes.                  |
+| 300 | `3VLwRbZZGzA5w3cSuFP4hL` | `tom-preston-werner-redwood-next-epoch-rsc` | `deferred`  | Framework strategy article about Redwood/RSC; useful context only for RSC history.                           |
 
 ## Source Groups
 
@@ -217,55 +217,55 @@ Target skills or references:
 
 ## Things Actions
 
-| Things ID | Decision | Final tag | Complete? | Reason |
-| --- | --- | --- | --- | --- |
-| `H2vSAorpXj9royWFZTMqfZ` | candidate | `Skill Archive Candidate` | yes | Practical CSS Anchor Positioning tooltip article. |
-| `8Xf7PX8wkRBkjRzPXaQ5UU` | deferred | `Skill Archive Deferred` | yes | React media-player package; component inventory only. |
-| `MGBuPLzGsamXEwCeHP44PS` | rejected | `Skill Archive Rejected` | yes | Archived PostCSS flexbug package; use current platform guidance. |
-| `AguDUCCtpqGUuCdPJPJg9v` | deferred | `Skill Archive Deferred` | yes | PostCSS utility package; route to CSS tooling review. |
-| `TvJdZrKgpyeVNSaVxaFzDL` | rejected | `Skill Archive Rejected` | yes | Package source file, not guide/reference material. |
-| `GtPxGMm2QEVUHLgNpLfSw6` | candidate | `Skill Archive Candidate` | yes | URL group includes a durable multi-hued color-scale article and palette helper. |
-| `7WrHBhnXHPjkK1x1DAMpbv` | deferred | `Skill Archive Deferred` | yes | Styling utility package; CSS-in-JS/tooling inventory. |
-| `WgV8JbhdMi2sPmCfWH2QwQ` | rejected | `Skill Archive Rejected` | yes | Old/archived PostCSS style-guide generator. |
-| `H1xDc6da6Nq3M97iYDf69A` | deferred | `Skill Archive Deferred` | yes | CSS browser-support lint package; tooling review material. |
-| `C8Z8ZDF6UyDgoymLZ5tnn6` | candidate | `Skill Archive Candidate` | yes | Practical accessibility snippets and component markup explainers. |
-| `XCCm5J3r1iqPDmJaMB6N1j` | rejected | `Skill Archive Rejected` | yes | Old Preact/Redux example app and boilerplate. |
-| `Hf4wSFYTygMz48u1mcTDUw` | rejected | `Skill Archive Rejected` | yes | Provided CSS-Tricks article URL redirects to homepage. |
-| `5BipwdFDGsbY4ZXracY2rt` | deferred | `Skill Archive Deferred` | yes | Router prompt/dialog package code; needs better pattern sources. |
-| `3zNQbsyz9k2bM4nzFdLggX` | candidate | `Skill Archive Candidate` | yes | Durable print stylesheet and print debugging article. |
-| `YazxJrDcieJVYmHyRDzrbe` | candidate | `Skill Archive Candidate` | yes | CSS tabs article using `details`, grid, and subgrid. |
-| `UTajjJPvdEba1VPwdTizUt` | rejected | `Skill Archive Rejected` | yes | Stale create-react-app/PWA starter repo. |
-| `WkwLDNdcHCPPTzhy7xSeTM` | rejected | `Skill Archive Rejected` | yes | Radix release/social post, not source guidance. |
-| `Wjfp7pFbbdJJVyBehWNDju` | deferred | `Skill Archive Deferred` | yes | Universal React build tool project; JS/SSR tooling review. |
-| `2A7kzYTTWgXACBGMnjjGbH` | candidate | `Skill Archive Candidate` | yes | React 19 Server Components and Actions article with concrete use cases. |
-| `F4SxcNqNzc6eTRioiBpS1x` | candidate | `Skill Archive Candidate` | yes | Official React Aria Components docs for accessible custom components. |
-| `4WzLVR39bEB3arthAczwBb` | rejected | `Skill Archive Rejected` | yes | Narrow tooltip package repo; prefer current ARIA/platform guidance. |
-| `3WYkF1zSWRxCqPsqU7wh4p` | deferred | `Skill Archive Deferred` | yes | Animated component gallery/product homepage. |
-| `NPWD11eWu3murnKuyHcuGa` | rejected | `Skill Archive Rejected` | yes | Old React boilerplate repo. |
-| `9AeXUcJL1CTMamyowMog9M` | rejected | `Skill Archive Rejected` | yes | Old component-query package superseded by container queries. |
-| `3e46uPxTe8gvm8ehnyasKc` | rejected | `Skill Archive Rejected` | yes | Old React streaming SSR package. |
-| `Lg2nNwUVYrP5tsbmHCTmFj` | rejected | `Skill Archive Rejected` | yes | Duplicate old React streaming SSR package. |
-| `bjSgb8q93XCZg6yU6BGtg` | candidate | `Skill Archive Candidate` | yes | Article-style React hooks guide; secondary to current React docs. |
-| `UjHjZQ7TBA3S8UeqtxHsir` | rejected | `Skill Archive Rejected` | yes | Old React image-processing package. |
-| `JwjayStuekujB2jkURq68P` | rejected | `Skill Archive Rejected` | yes | Legacy code-splitting package; prefer lazy/Suspense docs. |
-| `RHX3KcmXehHKSH8nnHmDT2` | rejected | `Skill Archive Rejected` | yes | RSC news/panel summary, not actionable guidance. |
-| `4v3oGRw8ckhsmt6rAMYdxp` | rejected | `Skill Archive Rejected` | yes | Animated menu demo package, not source guidance. |
-| `H2dk9oNy8aqPvq6YnsB3Ui` | rejected | `Skill Archive Rejected` | yes | Old async SSR package. |
-| `6Nnu5sxtprHnnwpkYz12xz` | deferred | `Skill Archive Deferred` | yes | React media-query package; responsive tooling inventory. |
-| `49H4xjKuDFNZniFvH6v3yt` | deferred | `Skill Archive Deferred` | yes | RSC roundtable video; background/media review only. |
-| `9jyDhDQy27UdXuhYMmL6uz` | deferred | `Skill Archive Deferred` | yes | Duplicate RSC roundtable video. |
-| `N9vSFkk6XUZVhCRNZDEHVe` | deferred | `Skill Archive Deferred` | yes | Select and virtualized-select packages; component inventory. |
-| `Awvp1FVpZjBViqwdTDb1Wp` | rejected | `Skill Archive Rejected` | yes | RedwoodJS blog URL now 404 and framework-specific. |
-| `M8jjLUR6CSSvPXyM9UDhbd` | deferred | `Skill Archive Deferred` | yes | RSC explainer video; defer to React/RSC media review. |
-| `W1VjtM8cD41zRdCJtXKXuJ` | candidate | `Skill Archive Candidate` | yes | Practical RSC implementation tip for Vite and React Router. |
-| `XpjwajaJmjFSymT8XA2rx6` | candidate | `Skill Archive Candidate` | yes | No-framework RSC experiment with clear caveats. |
-| `5z3QUJD3kTdKmckn5j5Wkd` | rejected | `Skill Archive Rejected` | yes | Legacy drag/sort package. |
-| `6sQSLwmgR2aFmvazfMCPa1` | rejected | `Skill Archive Rejected` | yes | Old accessible-tabs package; prefer ARIA APG/current docs. |
-| `5BEtWpALnkDv6LFZL1Tibf` | rejected | `Skill Archive Rejected` | yes | Old React component library package. |
-| `3W8zeFHc4AVXWZ4urZr49T` | deferred | `Skill Archive Deferred` | yes | Color picker package; component/design-tool inventory. |
-| `3SnoNraGQa25Lza6zkhsx1` | rejected | `Skill Archive Rejected` | yes | Old React error-handler package. |
-| `3XJAUQjYcWgpUKURQC6caV` | candidate | `Skill Archive Candidate` | yes | Strong modern CSS layout rebuild article. |
-| `VWJTy7jcv7sq1r1BXNtREp` | candidate | `Skill Archive Candidate` | yes | Duplicate modern CSS layout rebuild article. |
-| `X1Zu8htQT8puU3Jq847WSb` | candidate | `Skill Archive Candidate` | yes | Duplicate modern CSS layout rebuild article. |
-| `WkSeLg4zJ3iv4coHK7D6wb` | candidate | `Skill Archive Candidate` | yes | Detailed redesign case study with CSS implementation highlights. |
-| `3VLwRbZZGzA5w3cSuFP4hL` | deferred | `Skill Archive Deferred` | yes | Redwood/RSC framework strategy article; context only. |
+| Things ID                | Decision  | Final tag                 | Complete? | Reason                                                                          |
+| ------------------------ | --------- | ------------------------- | --------- | ------------------------------------------------------------------------------- |
+| `H2vSAorpXj9royWFZTMqfZ` | candidate | `Skill Archive Candidate` | yes       | Practical CSS Anchor Positioning tooltip article.                               |
+| `8Xf7PX8wkRBkjRzPXaQ5UU` | deferred  | `Skill Archive Deferred`  | yes       | React media-player package; component inventory only.                           |
+| `MGBuPLzGsamXEwCeHP44PS` | rejected  | `Skill Archive Rejected`  | yes       | Archived PostCSS flexbug package; use current platform guidance.                |
+| `AguDUCCtpqGUuCdPJPJg9v` | deferred  | `Skill Archive Deferred`  | yes       | PostCSS utility package; route to CSS tooling review.                           |
+| `TvJdZrKgpyeVNSaVxaFzDL` | rejected  | `Skill Archive Rejected`  | yes       | Package source file, not guide/reference material.                              |
+| `GtPxGMm2QEVUHLgNpLfSw6` | candidate | `Skill Archive Candidate` | yes       | URL group includes a durable multi-hued color-scale article and palette helper. |
+| `7WrHBhnXHPjkK1x1DAMpbv` | deferred  | `Skill Archive Deferred`  | yes       | Styling utility package; CSS-in-JS/tooling inventory.                           |
+| `WgV8JbhdMi2sPmCfWH2QwQ` | rejected  | `Skill Archive Rejected`  | yes       | Old/archived PostCSS style-guide generator.                                     |
+| `H1xDc6da6Nq3M97iYDf69A` | deferred  | `Skill Archive Deferred`  | yes       | CSS browser-support lint package; tooling review material.                      |
+| `C8Z8ZDF6UyDgoymLZ5tnn6` | candidate | `Skill Archive Candidate` | yes       | Practical accessibility snippets and component markup explainers.               |
+| `XCCm5J3r1iqPDmJaMB6N1j` | rejected  | `Skill Archive Rejected`  | yes       | Old Preact/Redux example app and boilerplate.                                   |
+| `Hf4wSFYTygMz48u1mcTDUw` | rejected  | `Skill Archive Rejected`  | yes       | Provided CSS-Tricks article URL redirects to homepage.                          |
+| `5BipwdFDGsbY4ZXracY2rt` | deferred  | `Skill Archive Deferred`  | yes       | Router prompt/dialog package code; needs better pattern sources.                |
+| `3zNQbsyz9k2bM4nzFdLggX` | candidate | `Skill Archive Candidate` | yes       | Durable print stylesheet and print debugging article.                           |
+| `YazxJrDcieJVYmHyRDzrbe` | candidate | `Skill Archive Candidate` | yes       | CSS tabs article using `details`, grid, and subgrid.                            |
+| `UTajjJPvdEba1VPwdTizUt` | rejected  | `Skill Archive Rejected`  | yes       | Stale create-react-app/PWA starter repo.                                        |
+| `WkwLDNdcHCPPTzhy7xSeTM` | rejected  | `Skill Archive Rejected`  | yes       | Radix release/social post, not source guidance.                                 |
+| `Wjfp7pFbbdJJVyBehWNDju` | deferred  | `Skill Archive Deferred`  | yes       | Universal React build tool project; JS/SSR tooling review.                      |
+| `2A7kzYTTWgXACBGMnjjGbH` | candidate | `Skill Archive Candidate` | yes       | React 19 Server Components and Actions article with concrete use cases.         |
+| `F4SxcNqNzc6eTRioiBpS1x` | candidate | `Skill Archive Candidate` | yes       | Official React Aria Components docs for accessible custom components.           |
+| `4WzLVR39bEB3arthAczwBb` | rejected  | `Skill Archive Rejected`  | yes       | Narrow tooltip package repo; prefer current ARIA/platform guidance.             |
+| `3WYkF1zSWRxCqPsqU7wh4p` | deferred  | `Skill Archive Deferred`  | yes       | Animated component gallery/product homepage.                                    |
+| `NPWD11eWu3murnKuyHcuGa` | rejected  | `Skill Archive Rejected`  | yes       | Old React boilerplate repo.                                                     |
+| `9AeXUcJL1CTMamyowMog9M` | rejected  | `Skill Archive Rejected`  | yes       | Old component-query package superseded by container queries.                    |
+| `3e46uPxTe8gvm8ehnyasKc` | rejected  | `Skill Archive Rejected`  | yes       | Old React streaming SSR package.                                                |
+| `Lg2nNwUVYrP5tsbmHCTmFj` | rejected  | `Skill Archive Rejected`  | yes       | Duplicate old React streaming SSR package.                                      |
+| `bjSgb8q93XCZg6yU6BGtg`  | candidate | `Skill Archive Candidate` | yes       | Article-style React hooks guide; secondary to current React docs.               |
+| `UjHjZQ7TBA3S8UeqtxHsir` | rejected  | `Skill Archive Rejected`  | yes       | Old React image-processing package.                                             |
+| `JwjayStuekujB2jkURq68P` | rejected  | `Skill Archive Rejected`  | yes       | Legacy code-splitting package; prefer lazy/Suspense docs.                       |
+| `RHX3KcmXehHKSH8nnHmDT2` | rejected  | `Skill Archive Rejected`  | yes       | RSC news/panel summary, not actionable guidance.                                |
+| `4v3oGRw8ckhsmt6rAMYdxp` | rejected  | `Skill Archive Rejected`  | yes       | Animated menu demo package, not source guidance.                                |
+| `H2dk9oNy8aqPvq6YnsB3Ui` | rejected  | `Skill Archive Rejected`  | yes       | Old async SSR package.                                                          |
+| `6Nnu5sxtprHnnwpkYz12xz` | deferred  | `Skill Archive Deferred`  | yes       | React media-query package; responsive tooling inventory.                        |
+| `49H4xjKuDFNZniFvH6v3yt` | deferred  | `Skill Archive Deferred`  | yes       | RSC roundtable video; background/media review only.                             |
+| `9jyDhDQy27UdXuhYMmL6uz` | deferred  | `Skill Archive Deferred`  | yes       | Duplicate RSC roundtable video.                                                 |
+| `N9vSFkk6XUZVhCRNZDEHVe` | deferred  | `Skill Archive Deferred`  | yes       | Select and virtualized-select packages; component inventory.                    |
+| `Awvp1FVpZjBViqwdTDb1Wp` | rejected  | `Skill Archive Rejected`  | yes       | RedwoodJS blog URL now 404 and framework-specific.                              |
+| `M8jjLUR6CSSvPXyM9UDhbd` | deferred  | `Skill Archive Deferred`  | yes       | RSC explainer video; defer to React/RSC media review.                           |
+| `W1VjtM8cD41zRdCJtXKXuJ` | candidate | `Skill Archive Candidate` | yes       | Practical RSC implementation tip for Vite and React Router.                     |
+| `XpjwajaJmjFSymT8XA2rx6` | candidate | `Skill Archive Candidate` | yes       | No-framework RSC experiment with clear caveats.                                 |
+| `5z3QUJD3kTdKmckn5j5Wkd` | rejected  | `Skill Archive Rejected`  | yes       | Legacy drag/sort package.                                                       |
+| `6sQSLwmgR2aFmvazfMCPa1` | rejected  | `Skill Archive Rejected`  | yes       | Old accessible-tabs package; prefer ARIA APG/current docs.                      |
+| `5BEtWpALnkDv6LFZL1Tibf` | rejected  | `Skill Archive Rejected`  | yes       | Old React component library package.                                            |
+| `3W8zeFHc4AVXWZ4urZr49T` | deferred  | `Skill Archive Deferred`  | yes       | Color picker package; component/design-tool inventory.                          |
+| `3SnoNraGQa25Lza6zkhsx1` | rejected  | `Skill Archive Rejected`  | yes       | Old React error-handler package.                                                |
+| `3XJAUQjYcWgpUKURQC6caV` | candidate | `Skill Archive Candidate` | yes       | Strong modern CSS layout rebuild article.                                       |
+| `VWJTy7jcv7sq1r1BXNtREp` | candidate | `Skill Archive Candidate` | yes       | Duplicate modern CSS layout rebuild article.                                    |
+| `X1Zu8htQT8puU3Jq847WSb` | candidate | `Skill Archive Candidate` | yes       | Duplicate modern CSS layout rebuild article.                                    |
+| `WkSeLg4zJ3iv4coHK7D6wb` | candidate | `Skill Archive Candidate` | yes       | Detailed redesign case study with CSS implementation highlights.                |
+| `3VLwRbZZGzA5w3cSuFP4hL` | deferred  | `Skill Archive Deferred`  | yes       | Redwood/RSC framework strategy article; context only.                           |
