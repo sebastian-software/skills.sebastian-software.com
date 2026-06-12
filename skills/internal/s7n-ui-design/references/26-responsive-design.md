@@ -12,3 +12,12 @@ Design responsive behavior from content, container, input mode, device constrain
 
 ## Source-Backed Guidance
 
+### Accessible Front-End Patterns For Responsive Tables (Part 1) - Smash
+
+- Things ID(s): `YNbLiP3ydejFvtxQDKKxAK`
+- Source: <https://www.smashingmagazine.com/2022/12/accessible-front-end-patterns-responsive-tables-part1/>
+- Decision: `primary`
+- Target: `responsive-design`
+- URL recheck: 2026-06-13, HTTP 200
+- Guidance: Primary for responsive-design with component-development and html-accessibility cross-references: responsive tables have no universal solution; choose layout pattern from data comparison/scanning needs, preserve table semantics, headers, alignment, spacing, visual scanning, and accessibility when transforming tables for small screens.
+
