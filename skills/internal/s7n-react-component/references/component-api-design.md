@@ -34,4 +34,12 @@ Design React component APIs so composition, state, styling, and semantics remain
 - Target: `react-api`
 - URL recheck: 2026-06-13, HTTP 200
 - Guidance: Swipe-action implementation is useful as a component interaction example; pair with touch, keyboard, reduced-motion, and destructive-action recovery rules.
+### https://shud.in/thoughts/build-bulletproof-react-components
+
+- Things ID(s): `TuoM9pdAhh65cwH5sRyxeq`
+- Source: <https://shud.in/thoughts/build-bulletproof-react-components>
+- Decision: `primary`
+- Target: `react-api`
+- URL recheck: 2026-06-13, HTTP 200
+- Guidance: Use as component resilience guidance for async states, composition, portals, refs, server/client boundaries, and defensive APIs.
 
