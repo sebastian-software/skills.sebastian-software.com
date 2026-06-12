@@ -84,3 +84,12 @@ Use CSS layout algorithms deliberately. Grid, Flexbox, Subgrid, container querie
 - URL recheck: 2026-06-13, HTTP 200
 - Guidance: Primary for css-layout-responsive with component-development cross-reference: modern section/card layout source combining Grid, :has(), quantity queries, clamp(), container query units, size/style queries, min-width fixes, and defensive handling of variable content counts.
 
+### Subgrid
+
+- Things ID(s): `GeEhJHNGGvhjeJuMrZajg8`
+- Source: <https://www.joshwcomeau.com/css/subgrid/>
+- Decision: `primary`
+- Target: `css-layout-responsive`
+- URL recheck: 2026-06-13, HTTP 200
+- Guidance: Primary for css-layout-responsive: current detailed subgrid guide covering semantic nested markup, extending parent grids through lists/figures, row/column inheritance, gotchas, fallback thinking, and when subgrid enables layouts that would otherwise require flattened DOM or brittle hacks.
+
