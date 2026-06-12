@@ -30,3 +30,12 @@ Design forms around user recovery: clear labels, browser-supported input attribu
 - URL recheck: 2026-06-13, HTTP 200, redirects to https://uxplanet.org/building-great-mobile-forms-2fa8e9a258cc?gi=548f1be0be62
 - Guidance: Primary for forms-ux: mobile forms should minimize taps, prefer visible segmented controls for small option sets, avoid dropdown-heavy flows, use appropriate binary/range/numeric controls, keep forms single-column on small screens, show inline errors, mark optional fields instead of repeating required markers, group related fields, provide comfortable touch areas, and respect platform conventions; cross-reference component-development and ux-patterns.
 
+### Form Usability
+
+- Things ID(s): `TKAxWsA8VEbzoFkewYJ1H8`
+- Source: <http://baymard.com/blog/slider-interfaces>
+- Decision: `primary`
+- Target: `forms-ux`
+- URL recheck: 2026-06-13, HTTP 200, redirects to https://baymard.com/blog/slider-interfaces
+- Guidance: Primary for forms-ux: sliders are false simplicity unless implemented carefully; use only for exploratory range/filter interaction, account for non-linear value distributions, make dual handles visually unambiguous, define safe click behavior, always provide text input fallbacks for precise values and degraded motor control, and keep live updates low-latency; cross-reference component-development, ux-patterns, and network-performance.
+
