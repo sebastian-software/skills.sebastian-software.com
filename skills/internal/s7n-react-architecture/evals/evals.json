@@ -1,0 +1,14 @@
+{
+  "evals": [
+    {
+      "name": "rsc-boundary",
+      "prompt": "A Next.js page fetches product data and renders an interactive filter sidebar. Decide server/client boundaries.",
+      "expected": "Keeps data access and static product rendering server-side, isolates filter interactivity in client components, and explains serialization and bundle tradeoffs."
+    },
+    {
+      "name": "rerender-diagnosis",
+      "prompt": "A React dashboard lags while typing into a search box. The team wants to add useMemo everywhere.",
+      "expected": "Diagnoses state ownership and render paths first, then applies targeted deferral, memoization, or component boundary changes."
+    }
+  ]
+}
