@@ -147,3 +147,12 @@ Use CSS layout algorithms deliberately. Grid, Flexbox, Subgrid, container querie
 - URL recheck: 2026-06-13, HTTP 200
 - Guidance: Secondary for css-layout-responsive with baseline cross-reference: useful CSS round() fluid sizing/grid math source, but feature support and exact syntax should be checked before codifying production rules.
 
+### Case Study: Rebuilding TechCrunch layout with modern CSS
+
+- Things ID(s): `T7zVCPcxKYUbhjEGHWCoCT`
+- Source: <https://ishadeed.com/article/rebuilding-techcrunch-modern-css>
+- Decision: `secondary`
+- Target: `css-layout-responsive`
+- URL recheck: 2026-06-13, HTTP 200, redirects to https://ishadeed.com/article/rebuilding-techcrunch-modern-css/
+- Guidance: Secondary for css-layout-responsive: strong modern CSS layout case study useful for examples and implementation inspiration, but case-study-specific rather than a direct rule source.
+
