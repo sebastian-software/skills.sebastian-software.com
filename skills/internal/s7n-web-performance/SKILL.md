@@ -22,7 +22,7 @@ Use this skill for browser-facing performance work where implementation choices 
 
 ## Reference Files
 
-- [references/browser-performance.md](references/browser-performance.md) - Source-backed rules for images, LCP, preload behavior, caching, and perceived loading.
+- [references/browser-performance.md](references/browser-performance.md) - Browser performance rules for images, LCP, preload behavior, caching, and perceived loading.
 
 ## Boundaries
 

@@ -1,7 +1,7 @@
 ---
 name: s7n-ui-design
 description: |
-  Professional UI design guidelines for accessible, well-structured interfaces. Use when: writing CSS, HTML, or frontend component code; designing websites, apps, dashboards, or any web interface; reviewing or improving existing UI designs; making decisions about colour, typography, layout, spacing, buttons, or forms; ensuring WCAG 2.2 AA accessibility; creating design systems or component libraries. Covers OKLCH colour palettes, spacing systems, fluid typography with clamp(), container queries, subgrid, form validation patterns, button hierarchy, dark mode, reduced motion, SEO meta tags, and Core Web Vitals.
+  Broad UI design planning and review for web apps, dashboards, forms, content pages, and design-system work. Use when the user asks for an overall UI critique, design direction, UX polish, interface quality gates, or a cross-cutting frontend design pass. For narrow implementation questions, prefer the focused S7N skills listed below.
 license: MIT
 metadata:
   author: sebastian-software
@@ -10,280 +10,58 @@ metadata:
 
 # S7N UI Design
 
-Enforces professional UI design guidelines for accessible, well-structured interfaces. Apply these rules to every UI design decision without exception.
+Use this skill as the broad UI design orchestrator. It is for the overall shape of an interface: hierarchy, clarity, coherence, interaction cost, cognitive load, and whether the design is good enough to ship.
 
-## Quick Reference
+Do not use this skill as a source archive. Article-derived input has already been distilled into rules, workflows, and references.
 
-| Topic | Reference File |
-|-------|---------------|
-| Fundamentals | [references/01-fundamentals.md](references/01-fundamentals.md) |
-| Less is More | [references/02-less-is-more.md](references/02-less-is-more.md) |
-| Colour | [references/03-colour.md](references/03-colour.md) |
-| Layout & Spacing | [references/04-layout-spacing.md](references/04-layout-spacing.md) |
-| Typography | [references/05-typography.md](references/05-typography.md) |
-| Web Fonts | [references/05b-webfonts.md](references/05b-webfonts.md) |
-| Copywriting | [references/06-copywriting.md](references/06-copywriting.md) |
-| Buttons | [references/07-buttons.md](references/07-buttons.md) |
-| Forms | [references/08-forms.md](references/08-forms.md) |
-| SEO for Frontend | [references/09-seo.md](references/09-seo.md) |
-| Design Registers | [references/20-design-registers.md](references/20-design-registers.md) |
-| Design Planning | [references/21-design-planning.md](references/21-design-planning.md) |
-| UI Quality Gates | [references/22-ui-quality-gates.md](references/22-ui-quality-gates.md) |
-| HTML & Accessibility | [references/23-html-accessibility.md](references/23-html-accessibility.md) |
-| Forms UX | [references/24-forms-ux.md](references/24-forms-ux.md) |
-| Component Development | [references/25-component-development.md](references/25-component-development.md) |
-| Responsive Design | [references/26-responsive-design.md](references/26-responsive-design.md) |
-| CSS Layout | [references/27-css-layout-responsive.md](references/27-css-layout-responsive.md) |
-| Design System Rules | [references/28-design-system-rules.md](references/28-design-system-rules.md) |
-| Typography Rules | [references/29-typography-rules.md](references/29-typography-rules.md) |
-| I18n UX | [references/30-i18n-ux.md](references/30-i18n-ux.md) |
-| UX Patterns | [references/31-ux-patterns.md](references/31-ux-patterns.md) |
-| Editorial UX | [references/32-editorial-ux.md](references/32-editorial-ux.md) |
-| Baseline & Browser Support | [references/33-baseline-support.md](references/33-baseline-support.md) |
-| Auth & Web Security UX | [references/34-auth-web-security.md](references/34-auth-web-security.md) |
-| Motion Interaction | [references/35-motion-interaction.md](references/35-motion-interaction.md) |
-| CSS Build Tooling | [references/36-css-build-tooling.md](references/36-css-build-tooling.md) |
+## Use First For
 
-## Core Principles (ALWAYS Apply)
+- Overall UI reviews, product surface critiques, redesign direction, and visual polish.
+- Early design planning before choosing layout, component, motion, or copy details.
+- Quality gates before shipping a frontend experience.
+- Deciding which focused S7N skill should handle a specific design problem.
 
-### 1. Minimise Usability Risks
-- Meet WCAG 2.2 level AA accessibility requirements
-- Consider users with poor eyesight, low computer literacy, reduced dexterity
-- Avoid thin/light grey text, icons without labels, colored headings that look like links
+## Route Specific Work
 
-### 2. Have a Logical Reason for Every Design Detail
-- Every element must have a purpose that improves usability
-- Design using objective logic, not subjective opinion
-- Be able to articulate the rationale behind each decision
+- Layout, spacing, responsive CSS, grid/flex, safe areas: use `s7n-layout-spacing`.
+- Typeface choice, readable measure, font loading, text hierarchy: use `s7n-typography`.
+- Color palettes, semantic tokens, dark mode, theming: use `s7n-color-theming`.
+- Buttons, dialogs, navigation, component primitives: use `s7n-component-primitives`.
+- Inputs, validation, field grouping, form flows: use `s7n-forms-ux`.
+- Tables, dense data, comparison views: use `s7n-data-tables`.
+- HTML semantics, focus, ARIA, keyboard access: use `s7n-accessibility-html`.
+- Motion, transitions, scroll interaction, reduced motion: use `s7n-motion-interaction`.
+- Metadata, structured data, frontend SEO: use `s7n-frontend-seo`.
+- CSS layers, custom properties, browser support, build tooling: use `s7n-css-architecture`.
+- Localization, RTL, text expansion, international UX: use `s7n-i18n-ux`.
+- Interface copy, empty-state language, editorial UX: use `s7n-editorial-ux`.
+- Loading, error, success, and not-found states: use `s7n-error-loading-states`.
+- Auth UX and browser-security-sensitive flows: use `s7n-auth-security-ux`.
+- Print output and paged media: use `s7n-print-design`.
+- Runtime speed and Core Web Vitals: use `s7n-web-performance`.
+- React architecture or component implementation: use `s7n-react-architecture` or `s7n-react-component`.
+- Test strategy and Playwright/Vitest frontend checks: use `s7n-frontend-testing`.
 
-### 3. Minimise Interaction Cost
-- Keep related actions close (Fitts's Law)
-- Reduce distractions
-- Minimise choices (Hick's Law)
-- Use minimum 48pt × 48pt target areas
+## Review Workflow
 
-### 4. Minimise Cognitive Load
-- Remove unnecessary styles/information
-- Break information into smaller groups
-- Use familiar design patterns (Jakob's Law)
-- Maintain consistency
-- Create clear visual hierarchy
+1. Identify the job-to-be-done, primary user, primary action, and failure modes.
+2. Check whether the current UI has one clear information hierarchy and one clear next action per state.
+3. Remove visual or interaction elements that do not clarify, accelerate, reassure, or prevent mistakes.
+4. Route narrow issues to the focused skills above instead of expanding this skill.
+5. Verify the result against the quality gates before considering the UI done.
 
-### 5. Create a Design System
-- Define predefined colour palette
-- Set typography scale
-- Use a consistent project spacing scale
-- Create reusable components
+## Baseline Rules
 
-## Critical Rules (NEVER Violate)
+- Every visible element needs a job. Decoration is acceptable only when it improves recognition, trust, orientation, or comprehension.
+- Optimize for scanning first, then reading. Users should understand state, next action, and risk without decoding the layout.
+- Keep interaction cost low: related controls belong near the content they affect, destructive actions need recoverability, and repeated workflows need density.
+- Do not make accessibility, responsive behavior, localization, or loading/error states late-stage patches.
+- Prefer fewer stronger patterns over many local exceptions.
 
-### Colour
-- Text contrast: minimum 4.5:1 ratio (small text ≤18px)
-- Large text/UI elements: minimum 3:1 ratio
-- Never rely on colour alone to convey meaning
-- Use brand colour ONLY for interactive elements
-- Avoid pure black (#000000) on white - use dark grey instead
-- Use OKLCH for perceptually uniform palettes; derive variations with relative color syntax
-- Use `light-dark()` for theme switching without media query duplication
+## References
 
-### Typography
-- Use single sans-serif typeface for most interfaces
-- UI text (labels, buttons, nav): 14px base
-- Body text: 16px base, scale to 18-20px for long-form reading via `clamp()`
-- Line height: minimum 1.5 (150%) for body text
-- Line length: 40-80 characters per line
-- Left-align text (for English)
-- Limit font weights: typically 2, max 3 (e.g. Regular 400, Medium 500, Bold 700)
-
-### Layout
-- Space elements based on relationship (closer = more related)
-- Use 12-column grid for main layout
-- Align elements to create neat edges
-- Be generous with white space
-- Use container queries for component-level responsiveness; media queries for page-level layout
-- Use subgrid to align nested content across sibling elements (e.g. card grids)
-- Use responsive images (`srcset`, `loading="lazy"`, `aspect-ratio` to prevent layout shift)
-- Gate hover effects behind `@media (hover: hover) and (pointer: fine)` — never hide content behind hover
-- Use `env(safe-area-inset-*)` with `viewport-fit=cover` for fixed/sticky elements on notched devices
-
-### Motion
-- In product UI, use motion only for state change, feedback, progress, or spatial continuity
-- Keep product transitions short (usually 150-250ms) and do not make users wait for choreography
-- Avoid page-load sequences, decorative loops, bounce, elastic easing, and layout-property animation in task surfaces
-- Always respect `prefers-reduced-motion`
-
-### Icons
-- Use SVG icons exclusively — never emoji or icon fonts
-- One icon set, used consistently (e.g. Lucide, Heroicons, Phosphor)
-- Use `currentColor` to inherit text colour; match stroke width to font weight
-- Always pair icons with visible text labels; icon-only buttons need `aria-label`
-
-### Buttons
-- Define 3 button weights: Primary, Secondary, Tertiary
-- Use single primary button per screen
-- Left-align buttons (most important first)
-- Button text: verb + noun (e.g., "Save post")
-- Minimum size: 48pt × 48pt
-- Avoid disabled buttons - validate on submit instead
-- Prefer undo over confirmation for reversible destructive actions; reserve confirmation dialogs for irreversible, high-cost, or batch operations
-
-### Interaction States
-- Every interactive component needs Default, Hover, Focus, Active, Disabled, Loading, Error, and Success states
-- Hover never substitutes for Focus; keyboard users need a visible `:focus-visible` state
-- Loading, Error, and Success states must preserve the component's size and mental model
-- Disabled states need an explanation or an alternate path whenever the user can reasonably expect the action to be available
-
-### Forms
-- Single column layout
-- Stack labels above inputs
-- Mark both required (*) and optional fields
-- Match field width to expected input
-- Use conventional form field styles
-- Display hints above fields (not below)
-- Use `:user-valid`/`:user-invalid` for validation that respects interaction timing
-
-### Empty States
-- Design empty states as part of the real component, not as blank space
-- Explain what belongs there, why it matters, and the next useful action
-- Use first-use empty states to teach in context; avoid blocking tours when inline guidance is enough
-- Distinguish first-use, user-cleared, no-results, no-permission, loading, and error states
-
-### SEO
-- Unique `<title>` per page (50-60 chars, primary keyword near the beginning)
-- Unique `<meta name="description">` per page (150-160 chars)
-- Self-referencing `<link rel="canonical">` on every page
-- One `<h1>` per page, logical heading hierarchy (no level skipping)
-- Open Graph tags (`og:title`, `og:description`, `og:image`) for social sharing
-- JSON-LD structured data for rich results (Article, Product, BreadcrumbList, FAQPage)
-- Descriptive, hyphenated image file names and natural alt text
-- Meet Core Web Vitals: LCP < 2.5s, INP < 200ms, CLS < 0.1
-
-### Favicons
-- Five icons: `favicon.ico` (32×32), `icon.svg` (with dark mode), `apple-touch-icon.png` (180×180), `icon-192.png`, `icon-512.png`
-- SVG favicons support `@media (prefers-color-scheme: dark)` for automatic dark mode
-- For PWAs: add `manifest.webmanifest` with `icon-192.png`, `icon-mask.png` (512×512, maskable), and `icon-512.png`
-- Maskable icons need extra padding — safe zone is a 409×409 circle
-- Do not generate multiple PNG sizes, multiple Apple touch icon sizes, or `browserconfig.xml`
-
-## Design Checklist
-
-Before finalizing any UI design:
-
-1. **Accessibility**
-   - [ ] All text has 4.5:1+ contrast ratio
-   - [ ] UI elements have 3:1+ contrast ratio
-   - [ ] Colour is not the only indicator
-   - [ ] Target areas are 48pt+ minimum
-   - [ ] Text links are underlined
-   - [ ] Semantic HTML used (`<nav>`, `<main>`, `<search>`, landmarks)
-   - [ ] Icons have visible text labels (or `aria-label` for icon-only buttons)
-   - [ ] Images have meaningful `alt` text (empty `alt=""` for decorative)
-   - [ ] Skip link present as first focusable element
-   - [ ] Viewport meta tag does not disable zoom (`user-scalable=no` / `maximum-scale=1`)
-   - [ ] Composite widgets (tabs, toolbars, menus) use single Tab stop with arrow-key navigation
-   - [ ] Focused elements are not hidden by sticky headers, drawers, or overlays
-   - [ ] Drag interactions have visible single-pointer alternatives
-   - [ ] Async validation, save, and toast updates are announced with `aria-live` when needed
-
-2. **Visual Hierarchy**
-   - [ ] Clear order of importance
-   - [ ] Primary action is most prominent
-   - [ ] Related elements are grouped
-   - [ ] Consistent spacing applied
-
-3. **Interaction States**
-   - [ ] Default, hover, focus, active, disabled, loading, error, and success states exist for every interactive component
-   - [ ] Focus is visible without relying on hover
-   - [ ] Loading/error/success feedback appears where the user acted
-   - [ ] State changes do not resize controls or shift neighbouring layout
-
-4. **Typography**
-   - [ ] 1-2 typefaces (+ optional display/heading typeface)
-   - [ ] UI text 14px+, body text 16px+ (18-20px for long-form reading)
-   - [ ] Line height 1.5+ for body text
-   - [ ] Left-aligned text
-   - [ ] 40-80 characters per line
-
-5. **Copywriting**
-   - [ ] Concise text (no unnecessary words)
-   - [ ] Sentence case used
-   - [ ] Plain language (no jargon)
-   - [ ] Front-loaded important info
-   - [ ] Descriptive button text
-   - [ ] Empty states explain the missing content and provide the next useful action
-
-6. **Forms**
-   - [ ] Single column layout
-   - [ ] Labels above inputs
-   - [ ] Required/optional fields marked
-   - [ ] Field widths match expected input
-   - [ ] High contrast borders (3:1+)
-   - [ ] Inputs use meaningful `name`, `autocomplete`, `type`, and `inputmode`
-   - [ ] Paste is never blocked for codes, passwords, or payment fields
-
-7. **SEO**
-   - [ ] Unique `<title>` with primary keyword (50-60 chars)
-   - [ ] Unique `<meta name="description">` (150-160 chars)
-   - [ ] Self-referencing canonical tag
-   - [ ] One `<h1>` per page, no heading level skips
-   - [ ] Open Graph tags present (`og:title`, `og:description`, `og:image`)
-   - [ ] JSON-LD structured data where applicable
-   - [ ] Descriptive image file names and alt text
-   - [ ] LCP image not lazy-loaded, has `fetchpriority="high"`
-   - [ ] Favicons: `favicon.ico`, `icon.svg` (with dark mode), `apple-touch-icon.png`, `icon-192.png`, `icon-512.png`
-   - [ ] PWA: `manifest.webmanifest` with `icon-192.png`, `icon-mask.png` (maskable), `icon-512.png`
-
-## Implementation
-
-When creating UI code:
-
-1. Choose the design register first: product, brand, or content-heavy surface
-2. Discover the existing design system: tokens, shared components, CSS layers, spacing, typography, icon set, motion rules, and comparable screens
-3. For net-new or ambiguous UI, plan the surface before writing code: goal, primary action, register, content, states, and constraints
-4. Read the relevant reference files for detailed guidelines
-5. Apply ALL rules without exception
-6. Verify against the checklist above
-7. Before calling UI complete, pass the measurable quality gates or name the remaining risk explicitly
-8. Use the project's spacing scale consistently; when none exists, start from [references/04-layout-spacing.md](references/04-layout-spacing.md)
-9. Use the colour palette structure from [references/03-colour.md](references/03-colour.md)
-10. Use the Popover API for tooltips, dropdowns, and menus (no JS library needed)
-11. Use `@starting-style` for CSS-only entry animations on dialogs and popovers
-12. Use the View Transition API for page transitions and shared element animations; always respect `prefers-reduced-motion`
-
-## Colour Palette Template (OKLCH)
-
-```
-Brand:         oklch(60% 0.15 hue)     - Interactive elements
-Text strong:   oklch(25% 0.02 hue)     - Headings, primary text (4.5:1+)
-Text weak:     oklch(45% 0.02 hue)     - Secondary text (4.5:1+)
-Stroke strong: oklch(58% 0.02 hue)     - Form borders, icons (3:1+)
-Stroke weak:   oklch(92% 0.005 hue)    - Decorative borders
-Fill:          oklch(97% 0.003 hue)    - Secondary backgrounds
-Background:    oklch(100% 0 0)         - White or near-white
-```
-
-## Typography Scale (1.200 Minor Third)
-
-```
-Heading 1: 40px / 48px line-height / bold
-Heading 2: 32px / 40px line-height / bold
-Heading 3: 24px / 32px line-height / bold
-Heading 4: 20px / 28px line-height / bold
-Body:      16px / 24px line-height / regular
-Small:     14px / 20px line-height / regular
-```
-
-## Default Spacing Scale
-
-```
-XS:  8pt   - Closely related elements
-S:   16pt  - Related elements
-M:   24pt  - Component padding
-L:   32pt  - Grid gutters, section gaps
-XL:  48pt  - Large section gaps
-XXL: 80pt  - Page section padding
-```
-
-Use this scale as a starting point when a project has no established spacing
-tokens. Existing project tokens and design-system spacing conventions take
-precedence.
+- [references/01-fundamentals.md](references/01-fundamentals.md) - broad UI design principles and quality heuristics.
+- [references/02-less-is-more.md](references/02-less-is-more.md) - reduction, clarity, and restraint.
+- [references/20-design-registers.md](references/20-design-registers.md) - registers for design intent and decisions.
+- [references/21-design-planning.md](references/21-design-planning.md) - planning workflow before implementation.
+- [references/22-ui-quality-gates.md](references/22-ui-quality-gates.md) - final review gates before shipping.

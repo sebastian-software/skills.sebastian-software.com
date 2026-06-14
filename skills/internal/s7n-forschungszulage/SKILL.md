@@ -186,57 +186,9 @@ Dies sind die entscheidenden Felder, die ueber Erfolg oder Ablehnung bestimmen. 
 
 ## Sprache und Ton: Der Schluessel zum Erfolg
 
-Die haeufigste Ursache fuer Ablehnungen ist nicht ein schlechtes Projekt, sondern eine schlechte Beschreibung. Die Sprache entscheidet, ob der Gutachter das FuE-Potenzial erkennt. Dabei gibt es drei grosse Gefahrenzonen:
+Die haeufigste Ursache fuer Ablehnungen ist nicht ein schlechtes Projekt, sondern eine schlechte Beschreibung. Schreibe fuer wissenschaftlich-technische Gutachter: konkret, aktiv, knapp und frei von Behoerdendeutsch, Marketing-Sprache und Nominalstil.
 
-### Gefahrenzone 1: Behoerdendeutsch
-
-Foerderantraege verleiten zum Amtsstil. Gutachter sind aber Wissenschaftler - schreibe fuer sie, nicht fuer Verwaltungsbeamte.
-
-**Typische Symptome und Gegengifte:**
-
-| Behoerdendeutsch (vermeiden)       | Klares Deutsch (verwenden)   |
-| ---------------------------------- | ---------------------------- |
-| "Im Rahmen des Vorhabens"          | Weglassen oder "Im Vorhaben" |
-| "Es erfolgt eine Analyse"          | "Wir analysieren"            |
-| "Die Durchfuehrung der Evaluation" | "Wir evaluieren"             |
-| "Zur Anwendung bringen"            | "Anwenden"                   |
-| "Unter Beruecksichtigung von"      | "Dabei beruecksichtigen wir" |
-| "Seitens des Unternehmens"         | "Wir"                        |
-
-### Gefahrenzone 2: Marketing-Sprache
-
-Der Antrag ist kein Verkaufsprospekt. Gutachter reagieren allergisch auf werbliche Uebertreibungen - sie signalisieren fehlende Substanz.
-
-| Marketing-Sprache (Todsünde) | Sachliche Alternative                                  |
-| ---------------------------- | ------------------------------------------------------ |
-| "Revolutionaer"              | Beschreibe den konkreten Unterschied                   |
-| "Einzigartig"                | "Bisher nicht verfuegbar, weil..."                     |
-| "Hochinnovativ"              | Die Innovation beschreiben statt behaupten             |
-| "Bahnbrechend"               | "Erstmals wird X mit Y kombiniert"                     |
-| "Disruptiv"                  | "Unterscheidet sich von bisherigen Ansaetzen durch..." |
-| "Synergieffekte nutzen"      | Konkret benennen was zusammenwirkt und warum           |
-
-### Gefahrenzone 3: Weichmacher
-
-Zu viele Absicherungswoerter ("koennte", "moeglicherweise", "gewissermassen") signalisieren Unsicherheit ueber das eigene Projekt - nicht ueber die Forschung.
-
-| Weich (vermeiden)            | Klar (verwenden)    |
-| ---------------------------- | ------------------- |
-| "Es soll versucht werden"    | "Wir entwickeln"    |
-| "Moeglicherweise gelingt es" | "Ziel ist es"       |
-| "Gewissermassen neuartig"    | "Neuartig, weil..." |
-
-**Ausnahme**: Im Feld "Risiken" sind Formulierungen der Unsicherheit korrekt und erwuenscht.
-
-### Drei Goldene Regeln
-
-1. **Praesens statt Futur**: "Das Vorhaben entwickelt..." statt "Das Vorhaben wird entwickeln..." - Praesens wirkt aktiver und ueberzeugender
-2. **Aktiv statt Passiv**: "Wir analysieren die Daten" statt "Die Daten werden analysiert" - Aktiv macht klar, wer handelt
-3. **Verben statt Nominalstil**: "Wir pruefen ob..." statt "Die Durchfuehrung der Ueberpruefung..." - Verben machen Saetze lebendig und kurz
-
-### Die fuenf Sprachpruefungen
-
-Bevor ein Antrag eingereicht wird, fuehre diese fuenf Pruefungen durch:
+Bevor ein Antrag eingereicht wird, fuehre diese fuenf Sprachpruefungen durch:
 
 1. **Klarheitspruefung**: Versteht ein Gutachter aus einem verwandten Fachgebiet jeden Satz sofort? Keine Bandwurmsaetze (max. 20 Woerter), keine Nominalstil-Ketten, ein Gedanke pro Satz.
 
@@ -248,7 +200,7 @@ Bevor ein Antrag eingereicht wird, fuehre diese fuenf Pruefungen durch:
 
 5. **Zeichenoekonomie**: Traegt jeder Satz inhaltlich bei? Keine Fuellphrasen ("Im Rahmen des vorliegenden Vorhabens" = 42 verschwendete Zeichen), keine Wiederholungen zwischen Feldern.
 
-Fuer ausfuehrliche Beispiele, Vorher/Nachher-Vergleiche und eine vollstaendige Liste zu vermeidender Phrasen lies `references/antragssprache.md`.
+Fuer Vorher/Nachher-Beispiele, Wortlisten und Formulierungsalternativen lies `references/antragssprache.md`.
 
 ## FuE-Kategorien
 
@@ -318,35 +270,16 @@ Mehrere Unternehmen forschen gemeinsam. Jeder Partner beantragt separat fuer sei
 
 ## Haeufige Fehler und wie du sie vermeidest
 
-### Fehler 1: Unklare Projektbeschreibung
+Pruefe besonders auf diese Ablehnungsrisiken:
 
-**Problem**: Die BSFZ kann nicht erkennen, was genau erforscht wird.
-**Loesung**: Konkrete technische Details statt vager Beschreibungen. "Wir entwickeln einen neuartigen Machine-Learning-Ansatz basierend auf Transformer-Architektur fuer..." statt "Wir nutzen KI fuer innovative Loesungen."
+- Unklare Projektbeschreibung ohne konkrete technische Details.
+- Wirtschaftliche statt technische oder wissenschaftliche Risiken.
+- Fehlende Abgrenzung zum Stand der Technik.
+- Unbegruendete Superlative wie "einzigartig", "revolutionaer" oder "disruptiv".
+- Zu grosse Sammelvorhaben oder zu kleine Routine-Anpassungen.
+- Verschwendete Zeichenlimits durch Fuellphrasen.
 
-### Fehler 2: Wirtschaftliche statt technische Risiken
-
-**Problem**: "Es ist unsicher, ob der Markt das annimmt" ist kein FuE-Risiko.
-**Loesung**: Fokussiere auf technische/wissenschaftliche Unsicherheiten. "Es ist unklar, ob die Latenzzeit unter 10ms gehalten werden kann bei gleichzeitiger Verarbeitung von..."
-
-### Fehler 3: Fehlende Abgrenzung zum Stand der Technik
-
-**Problem**: Nicht erklaert, warum bestehende Loesungen nicht ausreichen.
-**Loesung**: Benenne konkret existierende Alternativen und deren spezifische Limitierungen.
-
-### Fehler 4: Unbegruendete Superlative
-
-**Problem**: "Einzigartig", "revolutionaer", "weltweit erstmalig" ohne Belege.
-**Loesung**: Ersetze Superlative durch konkrete Vergleiche und messbare Unterschiede.
-
-### Fehler 5: Zu grosse oder zu kleine Vorhaben
-
-**Problem**: Ein Vorhaben, das eigentlich 5 separate Projekte umfasst, oder ein Vorhaben, das nur eine Routine-Anpassung ist.
-**Loesung**: Jedes Vorhaben muss eine "genau definierte unteilbare Aufgabe mit klar festgelegten Zielen" sein.
-
-### Fehler 6: Zeichenlimits verschwendet
-
-**Problem**: Floskeln wie "Im Rahmen des Projekts..." oder "In der heutigen Zeit..." verbrauchen wertvolle Zeichen.
-**Loesung**: Direkt zum Punkt kommen. Jeder Satz muss inhaltlichen Mehrwert bringen.
+Fuer detaillierte Gegenstrategien lies `references/ablehnungsgruende.md` und `references/checkliste.md`.
 
 ## Storytelling-Techniken fuer den Antrag
 
