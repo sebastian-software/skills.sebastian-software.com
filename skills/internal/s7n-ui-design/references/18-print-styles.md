@@ -29,8 +29,6 @@ Useful when the print stylesheet is large or maintained by a different team.
 
 The browser downloads `print.css` at low priority and only applies it when printing, so it does not block rendering.
 
-Source: [MDN: Printing](https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Media_queries/Printing), [Smashing Magazine: Print Stylesheets in 2018](https://www.smashingmagazine.com/2018/05/print-stylesheets-in-2018/)
-
 ### Hiding Non-Essential Elements
 
 Interactive and navigational elements serve no purpose on paper. Hide them with `display: none`.
@@ -73,8 +71,6 @@ Interactive and navigational elements serve no purpose on paper. Hide them with 
 ```
 
 The blacklist approach is more common because it is easier to reason about. The whitelist approach is safer for large sites where the page structure changes frequently.
-
-Source: [CSS-Tricks: Print Stylesheet Approaches -- Blacklist vs Whitelist](https://css-tricks.com/print-stylesheet-approaches-blacklist-vs-whitelist/)
 
 ## @page Rule
 
@@ -185,8 +181,6 @@ Chromium supports margin at-rules (`@top-center`, `@bottom-center`, `@bottom-rig
 
 **Browser support:** `margin`, `size`, and `page-orientation` work in all major browsers. Margin at-rules and named pages are Chromium-only as of early 2026.
 
-Source: [MDN: @page](https://developer.mozilla.org/en-US/docs/Web/CSS/@page), [MDN: @page/size](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/At-rules/@page/size), [Chrome Developers: Print Margins](https://developer.chrome.com/blog/print-margins)
-
 ## Page Breaks
 
 ### Modern Properties vs Legacy Properties
@@ -259,8 +253,6 @@ Orphans are lines left at the bottom of a page before a break. Widows are lines 
 
 **Note on Flexbox/Grid:** Fragmentation (page breaks) is poorly supported inside flex and grid containers. Keep print layouts in simple block flow for reliable results.
 
-Source: [MDN: page-break-before](https://developer.mozilla.org/en-US/docs/Web/CSS/page-break-before), [MDN: break-inside](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/break-inside), [CSS-Tricks: page-break](https://css-tricks.com/almanac/properties/p/page-break/), [Quirksmode: widows and orphans](https://quirksmode.org/css/css2/widows.html)
-
 ## Typography for Print
 
 ### Serif Fonts
@@ -290,8 +282,6 @@ Print media uses points (pt), not pixels. 1pt = 1/72 inch. Standard body text is
 ### Line Height
 
 Use unitless values for `line-height`. Minimum 1.5 for body text (consistent with WCAG SC 1.4.12). Decrease for headings (1.2-1.3). Increase for very long lines.
-
-Source: [SitePoint: Printer-friendly Pages with CSS](https://www.sitepoint.com/css-printer-friendly-pages/), [Jotform: The Perfect Print Stylesheet](https://www.jotform.com/blog/css-perfect-print-stylesheet-98272/)
 
 ## Showing URLs After Links
 
@@ -359,8 +349,6 @@ Long URLs can break layouts. Use `overflow-wrap` and `word-break` to allow wrapp
 }
 ```
 
-Source: [CSS-Tricks: Print URL After Links](https://css-tricks.com/snippets/css/print-url-after-links/), [Hamatti: Display Full URL After Link](https://hamatti.org/posts/display-full-url-after-link-when-page-is-printed/), [CSS-Tricks: Handling Long Words and URLs](https://css-tricks.com/snippets/css/prevent-long-urls-from-breaking-out-of-container/)
-
 ## Colour Adjustments
 
 ### Removing Backgrounds
@@ -424,8 +412,6 @@ Remove coloured underlines and make links black text so they blend with body cop
 }
 ```
 
-Source: [MDN: print-color-adjust](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/print-color-adjust), [CSS-Tricks: print-color-adjust](https://css-tricks.com/almanac/properties/p/print-color-adjust/)
-
 ## Image Handling
 
 ### Prevent Overflow
@@ -477,8 +463,6 @@ Prevent oversized images from wasting ink and paper.
 }
 ```
 
-Source: [Smashing Magazine: Print Stylesheets in 2018](https://www.smashingmagazine.com/2018/05/print-stylesheets-in-2018/), [SitePoint: Printer-friendly Pages with CSS](https://www.sitepoint.com/css-printer-friendly-pages/)
-
 ## Common Elements to Hide
 
 | Element / Selector | Reason |
@@ -516,8 +500,6 @@ Some content is useful on paper but hidden on screen.
 ```
 
 **Use cases:** QR codes linking back to the page, "Printed from [URL]" attribution, expanded table of contents, legal disclaimers.
-
-Source: [CSS-Tricks: Blacklist vs Whitelist](https://css-tricks.com/print-stylesheet-approaches-blacklist-vs-whitelist/), [Manuel Matuzovic: I Totally Forgot About Print Style Sheets](https://www.matuzo.at/blog/i-totally-forgot-about-print-style-sheets/)
 
 ## Layout Adjustments
 
@@ -591,8 +573,6 @@ Wide tables are problematic on paper. Ensure header rows repeat on each page and
 }
 ```
 
-Source: [Smashing Magazine: Print Stylesheets in 2018](https://www.smashingmagazine.com/2018/05/print-stylesheets-in-2018/), [SitePoint: Printer-friendly Pages with CSS](https://www.sitepoint.com/css-printer-friendly-pages/)
-
 ## When Print Styles Matter Most
 
 Print styles are especially important for content that people routinely print or save as PDF:
@@ -610,8 +590,6 @@ Print styles are especially important for content that people routinely print or
 - **Maps and directions** -- still printed despite mobile devices
 
 Even if analytics suggest few users print, the ones who do expect a usable result. A broken print layout reflects poorly on the site.
-
-Source: [Manuel Matuzovic: I Totally Forgot About Print Style Sheets](https://www.matuzo.at/blog/i-totally-forgot-about-print-style-sheets/), [618media: Designing for Print with CSS Tips](https://618media.com/en/blog/designing-for-print-with-css-tips/)
 
 ## Complete Starter Print Stylesheet
 
@@ -786,8 +764,6 @@ Navigation, sidebars, and advertisements waste paper, ink, and reader attention.
 
 ### Mistake 10: Not linearising multi-column layouts
 Columns that work on screen can produce bizarre results on paper -- content split across pages in an unreadable order. Collapse to a single column.
-
-Source: [PixelFreeStudio: Print Styles Gone Wrong](https://blog.pixelfreestudio.com/print-styles-gone-wrong-avoiding-pitfalls-in-media-print-css/), [Smashing Magazine: Print Stylesheets in 2018](https://www.smashingmagazine.com/2018/05/print-stylesheets-in-2018/)
 
 ## Chapter Summary
 

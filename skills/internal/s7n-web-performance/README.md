@@ -4,4 +4,3 @@ First-party Sebastian Software skill for frontend and browser-facing performance
 
 Use for Core Web Vitals, LCP images, responsive media, preload scanner behavior,
 cache freshness, and loading UX decisions.
-

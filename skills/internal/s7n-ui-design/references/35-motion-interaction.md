@@ -9,102 +9,17 @@ Use motion to explain state change, spatial continuity, feedback, and progress. 
 - Use View Transitions, scroll-driven animations, keyframes, and entry/exit animations only after support and fallback behavior are clear.
 - Preserve focus, scroll position, URL state, and semantic navigation when adding page or component transitions.
 
-## Source-Backed Guidance
+## Additional Rules
 
-### Reibungslose Übergänge mit der View Transition API | View Transition
-
-- Things ID(s): `WnRXZj2vu69LuHodEyqL8n`
-- Source: <https://developer.chrome.com/docs/web-platform/view-transitions?hl=de>
-- Decision: `primary`
-- Target: `motion-interaction`
-- URL recheck: 2026-06-13, HTTP 200
-- Guidance: Primary for motion-interaction with ux-patterns cross-reference: official View Transition API overview for same-document SPA transitions via document.startViewTransition() and cross-document MPA transitions via @view-transition navigation:auto; use for spatial continuity in navigation, filtering/reordering, list-to-detail, and persistent UI, while enforcing prefers-reduced-motion, performance, focus/scroll context, and semantic navigation checks.
-### Color Shifting in CSS • Josh W. Comeau
-
-- Things ID(s): `NwAFPEuYCCySvUqkKHLUQ7`
-- Source: <https://www.joshwcomeau.com/animation/color-shifting/>
-- Decision: `secondary`
-- Target: `motion-interaction`
-- URL recheck: 2026-06-13, HTTP 200
-- Guidance: Use color-shifting animation as a motion/effects example; require reduced-motion and readability checks.
-### CSS Stärkung Style
-
-- Things ID(s): `PKAn2UtGhMZx833zTDuwRD`
-- Source: <https://www.joshwcomeau.com/css/starting-style/>
-- Decision: `primary`
-- Target: `motion-interaction`
-- URL recheck: 2026-06-13, HTTP 200
-- Guidance: Use CSS `@starting-style` as entry-transition guidance with support and fallback checks.
-### Introducing "Unleash the power of Scroll-Driven Animations" | Blog |
-
-- Things ID(s): `PefC88bAi4AggCxR6R8tnR`
-- Source: <https://developer.chrome.com/blog/scroll-driven-animations-video-course?hl=en>
-- Decision: `primary`
-- Target: `motion-interaction`
-- URL recheck: 2026-06-13, HTTP 200
-- Guidance: Use official scroll-driven animation material as primary reference for scroll-linked motion with progressive enhancement.
-### Partial Keyframes • Josh W. Comeau
-
-- Things ID(s): `A9DpMbiBdeSz9AKXASeuBp`
-- Source: <https://www.joshwcomeau.com/animation/partial-keyframes/>
-- Decision: `secondary`
-- Target: `motion-interaction`
-- URL recheck: 2026-06-13, HTTP 200
-- Guidance: Use partial keyframes as animation craft guidance; keep motion purposeful and bounded.
-### Replacing GSAP with scroll animations
-
-- Things ID(s): `KoF6PZDfx7xeawmRwA74uT`
-- Source: <https://piccalil.li/links/replacing-gsap-with-scroll-animations/?ref=main-rss-feed>
-- Decision: `secondary`
-- Target: `motion-interaction`
-- URL recheck: 2026-06-13, HTTP 200
-- Guidance: Use GSAP-to-native scroll animation migration as implementation example, not as blanket replacement rule.
-### Scroll animations with CSS
-
-- Things ID(s): `8V4jYWhNUxGdgiTCsWQC46`
-- Source: <https://webkit.org/blog/17101/a-guide-to-scroll-driven-animations-with-just-css/>
-- Decision: `secondary`
-- Target: `motion-interaction`
-- URL recheck: 2026-06-13, HTTP 200
-- Guidance: Use CSS scroll animation source as support/context for native scroll-driven motion.
-### Slide Through Unlimited Dimensions With CSS Scroll Timelines
-
-- Things ID(s): `2eM9FbRLgafx3ULFGUZf9s`
-- Source: <https://css-tricks.com/slide-through-unlimited-dimensions-with-css-scroll-timelines/>
-- Decision: `secondary`
-- Target: `motion-interaction`
-- URL recheck: 2026-06-13, HTTP 200
-- Guidance: Use scroll timelines source for scroll-driven animation patterns and caveats.
-### SPAs, Shared Element Transitions, and Re-Evaluating Technology
-
-- Things ID(s): `9FdqY58HR6Cs8szghQTjVP`
-- Source: <https://css-tricks.com/spas-shared-element-transitions-and-re-evaluating-technology/>
-- Decision: `secondary`
-- Target: `motion-interaction`
-- URL recheck: 2026-06-13, HTTP 200
-- Guidance: Use shared-element transition discussion as SPA/MPA motion tradeoff context.
-### Start implementing view transitions on your websites today - Piccali
-
-- Things ID(s): `RiaEW3itKwtGR2GCnMwyhT`
-- Source: <https://piccalil.li/blog/start-implementing-view-transitions-on-your-websites-today/?utm_source=the-index&utm_medium=newsletter>
-- Decision: `secondary`
-- Target: `motion-interaction`
-- URL recheck: 2026-06-13, HTTP 200
-- Guidance: Use View Transitions implementation article as practical companion to official docs.
-### Transitioning to Auto Height
-
-- Things ID(s): `HvePeTUvd6w78TCaLYxu5R`
-- Source: <https://css-tricks.com/transitioning-to-auto-height/>
-- Decision: `secondary`
-- Target: `motion-interaction`
-- URL recheck: 2026-06-13, HTTP 200
-- Guidance: Use auto-height transition source for entry/size animation caveats and support checks.
-### Unleash the Power of Scroll-Driven Animations
-
-- Things ID(s): `LRZPLysX3xsSyj4wmfm8Bu`
-- Source: <https://css-tricks.com/unleash-the-power-of-scroll-driven-animations/>
-- Decision: `secondary`
-- Target: `motion-interaction`
-- URL recheck: 2026-06-13, HTTP 200
-- Guidance: Use as scroll-driven animation companion source; prefer official docs for API details.
-
+- View Transition API overview for same-document SPA transitions via document.startViewTransition() and cross-document MPA transitions via @view-transition navigation:auto; use for spatial continuity in navigation, filtering/reordering, list-to-detail, and persistent UI, while enforcing prefers-reduced-motion, performance, focus/scroll context, and semantic navigation checks.
+- Use color-shifting animation as a motion/effects example; require reduced-motion and readability checks.
+- Use CSS `@starting-style` as entry-transition guidance with support and fallback checks.
+- Use scroll-driven animation material as rule for scroll-linked motion with progressive enhancement.
+- Use partial keyframes as animation craft guidance; keep motion purposeful and bounded.
+- Use GSAP-to-native scroll animation migration as implementation example, not as blanket replacement rule.
+- Use CSS scroll animation as support/context for native scroll-driven motion.
+- Use scroll timelines for scroll-driven animation patterns and caveats.
+- Use shared-element transition discussion as SPA/MPA motion tradeoff context.
+- Use View Transitions implementation as practical companion to docs.
+- Use auto-height transition for entry/size animation caveats and support checks.
+- Use as scroll-driven animation companion guidance; prefer docs for API details.

@@ -9,6 +9,3 @@ CI should make frontend regressions visible without making every visual change p
 - Store artifacts so reviewers can inspect actual, expected, and diff output.
 - Separate scheduled broad checks from required smoke checks when full coverage is expensive or flaky.
 - Document who can approve baseline changes and what evidence is required.
-
-## Source-Backed Guidance
-

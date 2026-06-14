@@ -10,21 +10,7 @@ Choose the smallest test layer that proves the user-facing risk.
 - Use E2E tests for critical integrated workflows that cross routing, network, auth, persistence, or backend boundaries.
 - Keep E2E suites small and stable; do not use them to exhaustively test component state permutations.
 
-## Source-Backed Guidance
-### Modern frontend testing with Vitest, Storybook, and Playwright - Def
+## Additional Rules
 
-- Things ID(s): `ANFaGjt7bZgYFMXy7hkE57`
-- Source: <https://www.defined.net/blog/modern-frontend-testing/>
-- Decision: `primary`
-- Target: `frontend-testing/layer`
-- URL recheck: 2026-06-13, HTTP 200
-- Guidance: Use as stack-level testing strategy source separating unit, Storybook component, visual snapshot, E2E, and static analysis responsibilities.
-### Testing Pipeline 101 For Frontend Testing - Smashing Magazine
-
-- Things ID(s): `DwjDaAfMi8Hi6eKr9nPFtT`
-- Source: <https://www.smashingmagazine.com/2022/02/testing-pipeline-101-frontend-testing/>
-- Decision: `secondary`
-- Target: `frontend-testing/layer`
-- URL recheck: 2026-06-13, HTTP 200
-- Guidance: Use as broad frontend testing pipeline and CI/CD framing, subordinate to more specific Storybook, Vitest, and Playwright sources.
-
+- Use as stack-level testing strategy guidance separating unit, Storybook component, visual snapshot, E2E, and static analysis responsibilities.
+- Use as broad frontend testing pipeline and CI/CD framing, subordinate to more specific Storybook, Vitest, and Playwright sources.

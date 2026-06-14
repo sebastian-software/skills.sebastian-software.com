@@ -36,8 +36,6 @@ The most common pattern for primary site navigation on desktop. Displays top-lev
 - Place in `<header>` for conventional positioning
 - Ensure link contrast meets 4.5:1 minimum
 
-Source: [web.dev - Website Navigation](https://web.dev/articles/website-navigation), [NN/g - Menu Design Checklist](https://www.nngroup.com/articles/menu-design/)
-
 ### Vertical Sidebar Navigation
 
 A persistent column of links on the left side, common in applications, dashboards, and documentation sites.
@@ -58,8 +56,6 @@ A persistent column of links on the left side, common in applications, dashboard
 - Front-load keywords in labels
 - Show current location clearly
 - Consider collapsible sections for deep hierarchies
-
-Source: [NN/g - Vertical Navigation](https://www.nngroup.com/videos/vertical-navigation/), [NN/g - Menu Design Checklist](https://www.nngroup.com/articles/menu-design/)
 
 ### Hamburger / Disclosure Navigation
 
@@ -107,8 +103,6 @@ A toggle button that reveals hidden navigation. On mobile, this is the standard 
 **Why disclosure over ARIA menu roles:**
 The WAI-ARIA APG explicitly recommends the disclosure pattern for site navigation. The `menu`, `menubar`, and `menuitem` roles shift screen readers into forms/application mode with keyboard commands (arrow keys, a-z shortcuts) that confuse users navigating a website. Reserve ARIA menu roles for application-style interfaces that mimic desktop software menus.
 
-Source: [NN/g - Hamburger Menus](https://www.nngroup.com/articles/hamburger-menus/), [Adrian Roselli - Link Disclosure Widget Navigation](https://adrianroselli.com/2019/06/link-disclosure-widget-navigation.html), [W3C APG - Disclosure Navigation](https://www.w3.org/WAI/ARIA/apg/patterns/disclosure/examples/disclosure-navigation/), [web.dev - Website Navigation](https://web.dev/articles/website-navigation)
-
 ### Disclosure Navigation with Sub-menus
 
 For sites with two-level navigation, combine top-level links with disclosure buttons that expand sub-navigation.
@@ -145,8 +139,6 @@ For sites with two-level navigation, combine top-level links with disclosure but
 - Focus-out closes submenus
 - Click-outside closes submenus
 - Do NOT use `aria-haspopup` (requires specific role containers that do not fit this pattern)
-
-Source: [Adrian Roselli - Link Disclosure Widget Navigation](https://adrianroselli.com/2019/06/link-disclosure-widget-navigation.html), [W3C APG - Disclosure Pattern](https://www.w3.org/WAI/ARIA/apg/patterns/disclosure/)
 
 ### Mega Menu
 
@@ -185,8 +177,6 @@ A large two-dimensional dropdown panel that displays many navigation options gro
 - No clear boundary indicators for screen magnifier users
 
 **Accessibility note:** Consider providing an alternative full-page navigation for assistive technology users, as screen magnifier users see only a portion of a mega menu at a time.
-
-Source: [NN/g - Mega Menus Work Well](https://www.nngroup.com/articles/mega-menus-work-well/), [NN/g - Menu Design Checklist](https://www.nngroup.com/articles/menu-design/)
 
 ### Tab Navigation
 
@@ -255,8 +245,6 @@ Tabs divide content into panels within the same page context, reducing cognitive
 - ALL CAPS labels (reduces legibility)
 - Using jargon or marketing terms as labels
 
-Source: [NN/g - Tabs, Used Right](https://www.nngroup.com/articles/tabs-used-right/)
-
 ### Bottom Tab Bar (Mobile)
 
 A fixed bar at the bottom of the screen with 3-5 primary navigation destinations. The dominant mobile navigation pattern.
@@ -284,8 +272,6 @@ A fixed bar at the bottom of the screen with 3-5 primary navigation destinations
 - Use `<nav aria-label="Main">` wrapping a list of links
 - Mark active item with `aria-current="page"`
 - Ensure icons have accessible text via visible labels (preferred) or `aria-label`
-
-Source: [NN/g - Mobile Navigation Patterns](https://www.nngroup.com/articles/mobile-navigation-patterns/), [Smashing Magazine - Navigation Design for Mobile UX](https://www.smashingmagazine.com/2022/11/navigation-design-mobile-ux/)
 
 ### Breadcrumbs
 
@@ -335,8 +321,6 @@ nav[aria-label="Breadcrumb"] li + li::before {
 - Omitting `aria-label` when multiple `<nav>` landmarks exist
 
 **Key insight:** Breadcrumbs "never cause problems in user testing: people might overlook this small design element, but they never misinterpret" them. The cost-benefit ratio is strongly favourable.
-
-Source: [NN/g - Breadcrumb Navigation Useful](https://www.nngroup.com/articles/breadcrumb-navigation-useful/)
 
 ### Pagination
 
@@ -451,8 +435,6 @@ main *:focus {
 
 Note: `scroll-padding-top` on `<html>` is generally more maintainable as it centralises the logic around the obscuring element rather than requiring every focusable element to know about the header.
 
-Source: [NN/g - Sticky Headers](https://www.nngroup.com/articles/sticky-headers/), [Smashing Magazine - Sticky Menus UX Guidelines](https://www.smashingmagazine.com/2023/05/sticky-menus-ux-guidelines/), [Vispero - Prevent Focused Elements from Being Obscured](https://www.tpgi.com/prevent-focused-elements-from-being-obscured-by-sticky-headers/), [W3C - WCAG 2.2 Focus Not Obscured](https://www.w3.org/WAI/WCAG22/Understanding/focus-not-obscured-minimum)
-
 ### In-Page Filtered Search
 
 A search input that filters visible items on the current page. Useful for long lists, directories, or documentation indexes.
@@ -492,8 +474,6 @@ searchInput.addEventListener('input', () => {
 **Use `hidden` attribute** instead of CSS classes for hiding -- it is semantic and removes items from the accessibility tree.
 
 **Limitation:** This pattern works only with DOM-resident content. It cannot query a database or API.
-
-Source: [CSS-Tricks - In-Page Filtered Search](https://css-tricks.com/in-page-filtered-search-with-vanilla-javascript/)
 
 ## Accessibility Requirements
 
@@ -540,8 +520,6 @@ Every navigation region must use the `<nav>` element. When multiple `<nav>` elem
 - All perceivable content should live within a landmark region
 - Use semantic HTML elements (`<nav>`, `<main>`, `<header>`, `<footer>`, `<aside>`, `<search>`) before adding ARIA roles
 
-Source: [W3C WAI - Landmark Regions](https://www.w3.org/WAI/ARIA/apg/practices/landmark-regions/), [MDN - ARIA navigation role](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/navigation_role)
-
 ### Do Not Use ARIA Menu Roles for Site Navigation
 
 This is a critical and commonly violated rule. The `menu`, `menubar`, and `menuitem` roles are designed for application-style menus (like a desktop file menu), not website navigation.
@@ -556,8 +534,6 @@ This is a critical and commonly violated rule. The `menu`, `menubar`, and `menui
 - Use `<nav>` containing `<ul>` with `<li>` and `<a>` elements
 - Use disclosure buttons (`aria-expanded`) for expandable sections
 - Let links behave as normal links (Tab key, Enter to activate)
-
-Source: [web.dev - Website Navigation](https://web.dev/articles/website-navigation), [Adrian Roselli - Link Disclosure Widget Navigation](https://adrianroselli.com/2019/06/link-disclosure-widget-navigation.html)
 
 ### Keyboard Navigation
 
@@ -656,8 +632,6 @@ Insert the toggle button via JavaScript (or `<template>`) so the navigation rema
 
 For container queries on navigation components, see `04-layout-spacing.md` (section "Use Container Queries for Component-Level Responsiveness").
 
-Source: [Smashing Magazine - Navigation Design for Mobile UX](https://www.smashingmagazine.com/2022/11/navigation-design-mobile-ux/), [NN/g - Mobile Navigation Patterns](https://www.nngroup.com/articles/mobile-navigation-patterns/)
-
 ## Modern CSS Techniques
 
 ### Scroll-Snap for Horizontal Tabs
@@ -690,8 +664,6 @@ When tabs overflow on small screens, use CSS scroll-snap for a swipeable tab str
 - `scroll-state(snapped)` container queries enable styling based on snap position
 
 Use these as progressive enhancements with fallbacks for browsers that do not yet support them.
-
-Source: [Chrome for Developers - New in Web UI I/O 2025](https://developer.chrome.com/blog/new-in-web-ui-io-2025-recap)
 
 ### Sticky Positioning
 
@@ -801,8 +773,6 @@ Keyboard users must Tab through every navigation link on every page load. A skip
 
 Screen readers benefit from `<ul>` inside `<nav>` because they announce "list, N items", giving users a sense of the navigation scope before they enter it.
 
-Source: [NN/g - Menu Design Checklist](https://www.nngroup.com/articles/menu-design/), [NN/g - Hamburger Menus](https://www.nngroup.com/articles/hamburger-menus/), [web.dev - Website Navigation](https://web.dev/articles/website-navigation)
-
 ## NN/g Menu Design Checklist (17 Guidelines Summary)
 
 1. Show navigation on larger screens -- never hide in hamburger on desktop
@@ -822,8 +792,6 @@ Source: [NN/g - Menu Design Checklist](https://www.nngroup.com/articles/menu-des
 15. Consider sticky or partially sticky menus for long pages
 16. Optimise for easy physical access to frequently used items (Fitts's Law)
 17. Avoid innovative or gimmicky navigation patterns
-
-Source: [NN/g - Menu Design Checklist](https://www.nngroup.com/articles/menu-design/)
 
 ## Chapter Summary
 

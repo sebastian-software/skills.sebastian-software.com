@@ -30,4 +30,3 @@ Use this skill for reusable React component work. Keep React-specific API decisi
 ## Boundaries
 
 Use `s7n-react-architecture` for React Server Components, hydration, rendering boundaries, and app-level performance architecture. Use `s7n-ui-design` for visual design and framework-agnostic UI quality rules.
-

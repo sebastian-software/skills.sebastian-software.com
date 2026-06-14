@@ -38,4 +38,3 @@ Use this skill to choose, implement, or review frontend tests for browser-facing
 ## Boundaries
 
 Do not use this skill for backend-only tests, load tests, security testing, vendor procurement, or simply running an existing test command without changing or interpreting the test strategy.
-

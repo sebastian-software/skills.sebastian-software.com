@@ -9,53 +9,11 @@ Use React Server Components to move data access and non-interactive rendering wo
 - Treat serialization, streaming, caching, and framework constraints as architecture inputs.
 - Verify current framework support before copying examples across Next.js, React Router, Vite, or custom RSC setups.
 
-## Source-Backed Guidance
-### Making Sense of React Server Components
+## Additional Rules
 
-- Things ID(s): `2H1JnB15fxw9Kmu6y7C25e`, `Nhyw6TeAjQJu6QMw5miJb3`
-- Source: <https://www.joshwcomeau.com/react/server-components/>
-- Decision: `primary`
-- Target: `rsc`
-- URL recheck: 2026-06-13, HTTP 200
-- Guidance: Use as React Server Components mental-model source for server/client split, data access, and interactivity boundaries.
-### RSC From Scratch. Part 1: Server Components · reactwg/server-compone
-
-- Things ID(s): `6snSQEt4cge8xb2J9H1Ho6`, `Caze5uUvVn4cBWdHq7H8c9`
-- Source: <https://github.com/reactwg/server-components/discussions/5>
-- Decision: `primary`
-- Target: `rsc`
-- URL recheck: 2026-06-13, HTTP 200
-- Guidance: Use React WG RSC from-scratch discussion as primary mental-model source for RSC protocol and boundaries.
-### React 19 lets you write impossible components | Mux
-
-- Things ID(s): `2A7kzYTTWgXACBGMnjjGbH`
-- Source: <https://www.mux.com/blog/react-19-server-components-and-actions>
-- Decision: `secondary`
-- Target: `rsc`
-- URL recheck: 2026-06-13, HTTP 200
-- Guidance: Use React 19 impossible-components article as RSC capability/risk context, not as a blanket implementation rule.
-### React Server Components with Vite and React-Router | Epic Web Dev
-
-- Things ID(s): `W1VjtM8cD41zRdCJtXKXuJ`
-- Source: <https://www.epicweb.dev/tips/react-server-components-with-vite-and-react-router-2zw1q>
-- Decision: `secondary`
-- Target: `rsc`
-- URL recheck: 2026-06-13, HTTP 200
-- Guidance: Use as React Router/Vite RSC implementation context; verify current framework support before copying APIs.
-### React Server Components, without a framework?
-
-- Things ID(s): `XpjwajaJmjFSymT8XA2rx6`
-- Source: <https://timtech.blog/posts/react-server-components-rsc-no-framework/?utm_source=tldrwebdev>
-- Decision: `secondary`
-- Target: `rsc`
-- URL recheck: 2026-06-13, HTTP 200
-- Guidance: Use frameworkless RSC source as mental-model and caveat material, not default app architecture.
-### What’s the deal with React Server Components?
-
-- Things ID(s): `LRgg3HW35irzGFK32PVymu`
-- Source: <https://newsletters.feedbinusercontent.com/7e8/7e8fb22d82e0ff659ab973eab74e6b5815815bfb.html>
-- Decision: `secondary`
-- Target: `rsc`
-- URL recheck: 2026-06-13, HTTP 200
-- Guidance: Use as RSC explainer and caveat source; pair with primary React WG/framework docs.
-
+- Use React Server Components mental-model for server/client split, data access, and interactivity boundaries.
+- Use React WG RSC from-scratch discussion as mental-model for RSC protocol and boundaries.
+- Use React 19 impossible-components as RSC capability/risk context, not as a blanket implementation rule.
+- Use as React Router/Vite RSC implementation context; verify current framework support before copying APIs.
+- Use frameworkless RSC as mental-model and caveat material, not default app architecture.
+- Use as RSC explainer and caveat guidance; pair with React WG/framework docs.

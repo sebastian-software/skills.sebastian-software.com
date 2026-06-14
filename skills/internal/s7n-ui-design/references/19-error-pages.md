@@ -43,8 +43,6 @@ Every error page — regardless of status code — should contain the same struc
 </main>
 ```
 
-Sources: [NN/g — Error-Message Guidelines](https://www.nngroup.com/articles/error-message-guidelines/), [NN/g — Improving the Dreaded 404 Error Message](https://www.nngroup.com/articles/improving-dreaded-404-error-message/)
-
 ## 404 Not Found Pages
 
 The most common error page users encounter. The goal is to acknowledge the problem and immediately offer alternative paths.
@@ -84,8 +82,6 @@ A search box is the single most valuable element on a 404 page. It transforms a 
 ### URL Spelling Correction
 
 NN/g research found that implementing URL spelling correction (suggesting similar valid URLs) reduced 404 errors by at least 40% on tested sites. When a URL is close to a valid path, show a clickable suggestion: "Did you mean /products instead of /prodcts?"
-
-Sources: [NN/g — Improving the Dreaded 404 Error Message](https://www.nngroup.com/articles/improving-dreaded-404-error-message/), [UXPin — 404 Page Best Practices](https://www.uxpin.com/studio/blog/404-page-best-practices/), [IxDF — How to Design Great 404 Error Pages](https://www.interaction-design.org/literature/article/how-to-design-great-404-error-pages)
 
 ## 500 Server Error Pages
 
@@ -141,8 +137,6 @@ The most critical rule for 500 pages: **they must be completely self-contained s
 - Do not require JavaScript to render the page
 - Do not load the error page through the same application pipeline that just crashed
 - Do not promise an exact resolution time unless you are certain
-
-Sources: [Serpstat — How to Create a 500 Error Page Template](https://serpstat.com/blog/how-to-create-a-500-error-page/), [Medium — How to Design Better Error Pages](https://medium.com/design-ideas-thoughts/designing-error-pages-8d82e16e3472)
 
 ## Offline Pages (Service Worker Fallback)
 
@@ -219,8 +213,6 @@ document.getElementById("retry").addEventListener("click", () => {
 - Mark cached content visually so users understand what is fresh vs potentially stale
 - For content-heavy sites, consider caching the last few visited pages for offline reading
 
-Sources: [web.dev — Create an Offline Fallback Page](https://web.dev/articles/offline-fallback-page), [Chrome Developers — Managing Fallback Responses with Workbox](https://developer.chrome.com/docs/workbox/managing-fallback-responses/)
-
 ## HTTP Status Codes Designers Should Know
 
 Not every status code needs a custom page, but designers and developers should understand what users experience for each.
@@ -262,8 +254,6 @@ Redirects are invisible to users — no error page is shown. They matter for SEO
 - **404 vs 410**: 404 means "we don't know this URL." 410 means "this used to exist but was deliberately removed." 410 tells search engines to de-index the URL faster.
 - **500 vs 503**: 500 means something broke unexpectedly. 503 means the service is intentionally unavailable (maintenance) or temporarily overloaded. 503 should include a `Retry-After` header.
 
-Source: [MDN — HTTP Response Status Codes](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status)
-
 ## Accessibility
 
 Error pages are visited by all users, including those using assistive technologies. They must meet the same accessibility standards as every other page.
@@ -302,8 +292,6 @@ Error pages are visited by all users, including those using assistive technologi
 - Use `aria-label="Suggested pages"` or similar on navigation sections to distinguish them from the main site navigation
 - Do not use `role="alert"` on the entire page — it is not a dynamic notification, it is a full page
 
-Sources: [W3C WAI — Page Structure: Headings](https://www.w3.org/WAI/tutorials/page-structure/headings/), [W3C WAI — Form Notifications](https://www.w3.org/WAI/tutorials/forms/notifications/), [The A11Y Project — Accessible Heading Structure](https://www.a11yproject.com/posts/how-to-accessible-heading-structure/)
-
 ## Common Mistakes
 
 ### Generic Messages
@@ -329,8 +317,6 @@ Error pages that are not responsive. Users on mobile devices encounter errors at
 
 ### Auto-Redirecting Too Quickly
 Some sites auto-redirect from error pages to the homepage after a few seconds. This disorients users, removes their ability to read the message, and creates accessibility problems for slow readers and screen reader users.
-
-Sources: [NN/g — Error-Message Guidelines](https://www.nngroup.com/articles/error-message-guidelines/), [NN/g — Hostile Patterns in Error Messages](https://www.nngroup.com/articles/hostile-error-messages/), [CXL — Error Messages: Best Practices and Common Mistakes](https://cxl.com/blog/error-messages/), [Smashing Magazine — Designing Better Error Messages UX](https://www.smashingmagazine.com/2022/08/error-messages-ux-design/)
 
 ## When Custom Error Pages Matter Most
 

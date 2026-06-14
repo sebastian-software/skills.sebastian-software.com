@@ -52,8 +52,6 @@ Use native HTML table elements for tabular data. Semantic markup gives screen re
 - `<th>` -- header cells; must always have a `scope` attribute
 - `<td>` -- data cells
 
-Source: MDN `<table>` element reference; W3C WAI Tables Tutorial (w3.org/WAI/tutorials/tables/)
-
 ### The `scope` Attribute
 
 Always set `scope` on every `<th>`. While screen readers can often guess header direction, explicit scope removes ambiguity.
@@ -71,8 +69,6 @@ Always set `scope` on every `<th>`. While screen readers can often guess header 
 <!-- Header spanning a group of rows -->
 <th scope="rowgroup" rowspan="3">Electronics</th>
 ```
-
-Source: MDN table accessibility; W3C WAI Tables Tutorial; WebAIM data tables guide
 
 ### Complex Tables with `headers` and `id`
 
@@ -101,8 +97,6 @@ When a table has multi-level headers (nested column groups, irregular spans), `s
 
 **Guidance:** Prefer simpler tables. If you need `id`/`headers`, consider whether the table can be split into multiple simpler tables instead.
 
-Source: MDN `<table>` element; W3C WAI irregular headers tutorial
-
 ### `<colgroup>` and `<col>`
 
 Use `<colgroup>` to style entire columns without repeating classes on every cell:
@@ -130,8 +124,6 @@ The permitted child order inside `<table>` is:
 4. `<tbody>` elements (one or more), or `<tr>` elements directly
 5. `<tfoot>` (optional)
 
-Source: MDN `<table>` element reference
-
 ## Accessibility
 
 ### Screen Reader Table Navigation
@@ -142,8 +134,6 @@ Screen readers provide dedicated table navigation commands. In JAWS and NVDA, us
 - The caption text
 - Number of rows and columns
 - Current cell position
-
-Source: W3C WAI Tables Tutorial; Adrian Roselli responsive accessible table article
 
 ### Caption Is Not Optional
 
@@ -172,8 +162,6 @@ caption.visually-hidden {
   border: 0;
 }
 ```
-
-Source: W3C WAI Caption & Summary tutorial; W3C WCAG technique H39
 
 ### Sortable Column Accessibility
 
@@ -216,8 +204,6 @@ Sortable tables need careful ARIA implementation. The W3C ARIA Authoring Practic
 
 After sorting, update the text content: "Sorted by name, ascending". Clear after approximately one second to avoid stale announcements.
 
-Source: W3C WAI ARIA APG sortable table example; Adrian Roselli "Sortable Table Columns" (2021); Deque University sortable table library
-
 ### Scrollable Table Containers
 
 When a table overflows its container (common on mobile), the scroll container must be keyboard accessible.
@@ -247,8 +233,6 @@ When a table overflows its container (common on mobile), the scroll container mu
 }
 ```
 
-Source: Adrian Roselli "A Responsive Accessible Table"; Deque axe rule scrollable-region-focusable; Accessibility Insights documentation
-
 ### Expandable Rows
 
 Use the disclosure pattern for tables with expandable detail rows:
@@ -277,13 +261,9 @@ tr.hidden { display: none; }
 tr.shown  { display: table-row; }
 ```
 
-Source: Adrian Roselli "Table with Expando Rows" (2019)
-
 ### Do Not Use ARIA Table Roles as a Substitute for Semantic HTML
 
 The first rule of ARIA: do not use ARIA if native HTML can achieve the same result. Building a "table" from `<div>` elements with `role="table"`, `role="row"`, `role="cell"` is a last resort, not a best practice.
-
-Source: W3C ARIA in HTML specification; ADG "table of divs" experiment
 
 ## Responsive Patterns
 
@@ -344,8 +324,6 @@ Transform each row into a card-like block on narrow screens. Column headers beco
 
 **Critical accessibility note:** Changing `display` properties on table elements removes table semantics from the accessibility tree. When using this pattern, add ARIA roles via JavaScript to restore semantics, or accept that on mobile the content is read as a flat list (which can be acceptable if the stacked layout is genuinely easier to read).
 
-Source: CSS-Tricks "Responsive Data Tables"; Adrian Roselli "A Responsive Accessible Table"
-
 ### Pattern 3: Priority Columns
 
 Hide less important columns at narrow widths. Show a control to let users toggle hidden columns back.
@@ -357,8 +335,6 @@ Hide less important columns at narrow widths. Show a control to let users toggle
 ```
 
 **Indicate hidden columns:** Show a message like "3 columns hidden" with a button to reveal them. Never silently remove data.
-
-Source: NN/g data tables article (column management guidance)
 
 ### Pattern 4: Container Queries (Modern Approach)
 
@@ -383,13 +359,9 @@ Container queries let the table respond to the width of its parent container rat
 
 **Browser support:** Chrome 105+, Firefox 110+, Safari 16+. As of 2025, container queries have broad production readiness.
 
-Source: web.dev container query patterns; MDN CSS container queries guide
-
 ### Comparison Tables on Mobile
 
 NN/g research recommends converting comparison tables to a tabbed interface on mobile, showing one item at a time with swipe or tab navigation. Side-by-side comparison becomes impractical below about 3 items on small screens.
-
-Source: NN/g "Comparison Tables" article
 
 ## Sticky Headers and Columns
 
@@ -411,8 +383,6 @@ thead th {
 - `border-collapse: collapse` causes borders to scroll away with sticky headers. Use `border-collapse: separate; border-spacing: 0;` and apply borders to individual cells instead.
 - The table must not be inside a container with `overflow: hidden` (this creates a new containing block that prevents sticky from reaching the viewport).
 - Always set `background-color` on sticky headers so content does not show through underneath.
-
-Source: CSS-Tricks "Position Sticky and Table Headers"; CodyHouse sticky table header guide
 
 ### Sticky First Column
 
@@ -436,8 +406,6 @@ thead th:first-child {
   z-index: 3;
 }
 ```
-
-Source: NN/g data tables article (frozen columns guidance); CSS-Tricks position sticky examples
 
 ### Sticky Headers with Scroll Shadow
 
@@ -469,16 +437,12 @@ Use `box-shadow` rather than `border-bottom` because borders on sticky elements 
 - Place filters above the table, not inside it
 - Use plain language for filter syntax
 
-Source: NN/g data tables article (filtering guidance)
-
 ### Column Reordering and Hiding
 
 - Allow users to choose which columns are visible
 - Support both drag-and-drop and menu-based column management
 - Always provide a non-drag-and-drop alternative for accessibility
 - Display a count of hidden columns so users know data exists
-
-Source: NN/g data tables article
 
 ## Pagination vs Infinite Scroll vs Load More
 
@@ -526,8 +490,6 @@ Source: NN/g data tables article
 
 **Implementation:** Place a "Load more" or "Show next 25" button below the current results. Include the count of remaining items.
 
-Source: NN/g "Infinite Scrolling: When to Use It, When to Avoid It"; UX Planet pagination vs infinite scroll analysis; Crocoblock pagination comparison
-
 ## Typography in Tables
 
 ### Tabular (Monospaced) Numerals
@@ -550,8 +512,6 @@ td {
 
 **Important:** The font must include tabular numeral alternates. If it does not, this declaration has no effect. Common fonts with tabular numerals: Inter, Roboto, Source Sans, system-ui fonts.
 
-Source: MDN font-variant-numeric; Sebastian De Deyne "Tabular Numbers"; Web Typography "Numerals and Tables"
-
 ### Right-Align Numeric Columns
 
 Numbers should be right-aligned so decimal points and digit places line up vertically. This makes magnitude comparison instantaneous through visual scanning.
@@ -569,8 +529,6 @@ th.numeric {
 ```
 
 **Exceptions:** Identifiers that happen to be numbers (order numbers, ZIP codes, phone numbers) are not quantities -- left-align them as text.
-
-Source: NN/g data tables article (alignment guidance); Butterick's Practical Typography
 
 ### Text Alignment by Data Type
 
@@ -607,8 +565,6 @@ tbody tr:nth-child(even) {
 - Do not rely on colour alone to convey information
 - Test in Windows High Contrast Mode (background colours may be overridden)
 
-Source: A List Apart "Zebra Striping: Does it Really Help?"; A List Apart "Zebra Striping: More Data for the Case"
-
 ### Borders
 
 Borders are an alternative to striping for row delineation.
@@ -639,8 +595,6 @@ tbody tr:hover {
 
 Combine with zebra striping: the hover colour should be distinct from both the white and striped row colours.
 
-Source: NN/g data tables article (visual scanning support)
-
 ### Cell Padding and Density
 
 Generous padding improves readability. Cramped tables are harder to scan.
@@ -668,8 +622,6 @@ Using `<div>` with `display: table` or Flexbox/Grid to create table-like layouts
 
 **Fix:** Use native `<table>`, `<thead>`, `<tbody>`, `<tr>`, `<th>`, `<td>`. Reserve Grid/Flexbox for page layout, not tabular data.
 
-Source: ADG "table of divs experiment"; W3C ARIA table role documentation
-
 ### Mistake 2: Missing `<caption>`
 
 Without a caption, the table has no accessible name. Screen reader users hear "table, 5 columns, 12 rows" but have no idea what data the table contains.
@@ -694,8 +646,6 @@ Row actions that only appear on hover are invisible to keyboard users and touch 
 
 **Fix:** Show 1-2 primary actions always visible. Put additional actions in a menu (accessible via button with `aria-haspopup`).
 
-Source: NN/g data tables article
-
 ### Mistake 6: Using Colour Alone for Status
 
 A green/red dot without a text label or icon shape fails WCAG 1.4.1 (Use of Colour) and is invisible to colour-blind users.
@@ -713,8 +663,6 @@ Users lose their position, cannot compare rows at different positions, and canno
 When columns being compared require horizontal scrolling to see side by side, the comparison task becomes effectively impossible.
 
 **Fix:** Let users reorder columns. Freeze the identifier column. Keep comparison targets adjacent.
-
-Source: NN/g data tables article; NN/g comparison tables article
 
 ## CSS Techniques
 
@@ -821,8 +769,6 @@ Prefer `container-type: inline-size` (not `size`) because it avoids containment 
 }
 ```
 
-Source: Adrian Roselli "A Responsive Accessible Table" (print styles section)
-
 ### CSS Subgrid for Table-Like Layouts
 
 CSS Subgrid (part of Grid Level 2) allows card-based or list layouts to maintain column alignment without semantic `<table>` markup. This is appropriate when the data is not truly tabular but needs visual column alignment (for example, a list of settings with label/value pairs).
@@ -844,8 +790,6 @@ CSS Subgrid (part of Grid Level 2) allows card-based or list layouts to maintain
 **Do not use Subgrid as a replacement for `<table>` when the data is genuinely tabular.** Screen readers have no way to navigate a grid of `<div>` elements as a table. Use Subgrid for visual alignment in non-tabular layouts.
 
 Browser support: Chrome 117+, Firefox 71+, Safari 16+. Broadly available as of late 2024.
-
-Source: MDN Subgrid documentation; Josh W. Comeau "Brand New Layouts with CSS Subgrid"; caniuse.com/css-subgrid
 
 ## Quick Reference: Complete Table Template
 
@@ -965,25 +909,3 @@ tfoot td {
   border-top: 2px solid var(--border-color);
 }
 ```
-
-## Sources
-
-- NN/g: "Data Tables" -- https://www.nngroup.com/articles/data-tables/
-- NN/g: "Comparison Tables" -- https://www.nngroup.com/articles/comparison-tables/
-- CSS-Tricks: "Responsive Data Tables" -- https://css-tricks.com/responsive-data-tables/
-- CSS-Tricks: "Position Sticky and Table Headers" -- https://css-tricks.com/position-sticky-and-table-headers/
-- Adrian Roselli: "A Responsive Accessible Table" -- https://adrianroselli.com/2017/11/a-responsive-accessible-table.html
-- Adrian Roselli: "Table with Expando Rows" -- https://adrianroselli.com/2019/09/table-with-expando-rows.html
-- Adrian Roselli: "Sortable Table Columns" -- https://adrianroselli.com/2021/04/sortable-table-columns.html
-- MDN: `<table>` element -- https://developer.mozilla.org/en-US/docs/Web/HTML/Element/table
-- MDN: `aria-sort` attribute -- https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-sort
-- MDN: `font-variant-numeric` -- https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/font-variant-numeric
-- W3C WAI: Tables Tutorial -- https://www.w3.org/WAI/tutorials/tables/
-- W3C WAI: Caption & Summary -- https://www.w3.org/WAI/tutorials/tables/caption-summary/
-- W3C WAI APG: Sortable Table Example -- https://www.w3.org/WAI/ARIA/apg/patterns/table/examples/sortable-table/
-- Heydon Pickering: Inclusive Components "Data Tables" -- https://inclusive-components.design/data-tables/
-- WebAIM: Creating Accessible Tables -- https://webaim.org/techniques/tables/data
-- Deque University: Sortable Table -- https://dequeuniversity.com/library/aria/table-sortable
-- A List Apart: "Zebra Striping: Does it Really Help?" -- https://alistapart.com/article/zebrastripingdoesithelp/
-- NN/g: "Infinite Scrolling Tips" -- https://www.nngroup.com/articles/infinite-scrolling-tips/
-- ADG: "Table of Divs Experiment" -- https://www.accessibility-developer-guide.com/examples/tables/table-of-divs-experiment/

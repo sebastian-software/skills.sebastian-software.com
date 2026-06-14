@@ -158,8 +158,6 @@ Start from a single SVG source file:
 4. **PWA icons** — export PNGs at 192×192 and 512×512
 5. **Maskable icon** — export PNG at 512×512 with extra padding so content fits within 409×409 safe zone
 
-Source: [How to Favicon in 2024: Six files that fit most needs](https://evilmartians.com/chronicles/how-to-favicon-in-2021-six-files-that-fit-most-needs) by Evil Martians (continuously updated — current title: "Five icons and a JSON file").
-
 ## Open Graph and Social Metadata
 
 When a URL is shared on social media, the platform scrapes Open Graph tags to build the preview card. Without them, platforms guess — and guess poorly.

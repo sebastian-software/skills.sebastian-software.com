@@ -9,22 +9,7 @@ Design long-form reading and content-heavy layouts for comprehension, trust, and
 - Use layout breakout patterns only when they support content comprehension.
 - Preserve readability in print, reader mode, RSS/email reuse, dark mode, and narrow viewports.
 
-## Source-Backed Guidance
+## Additional Rules
 
-### Designing for Long-Form Articles | CSS-Tricks - CSS-Tricks
-
-- Things ID(s): `JRKL5RRXuJPP6sh4NdDvry`
-- Source: <https://css-tricks.com/designing-for-long-form-articles/>
-- Decision: `primary`
-- Target: `editorial-ux`
-- URL recheck: 2026-06-13, HTTP 200
-- Guidance: Primary for editorial-ux and typography: long-form reading layout, font size, line length, line height, link underline styling, semantic article/main markup, skip links, reader mode resilience, image integration, and performance caveats.
-### Building a Next-Level Code Playground / Sandbox / REPL with Sandpack
-
-- Things ID(s): `XevbXijG53Wp7xT6daqWdp`
-- Source: <https://www.joshwcomeau.com/react/next-level-playground/>
-- Decision: `secondary`
-- Target: `editorial-ux`
-- URL recheck: 2026-06-13, HTTP 200
-- Guidance: Retarget to editorial/interactive docs UX: Sandpack playgrounds support documentation and learning surfaces.
-
+- Long-form reading layout, font size, line length, line height, link underline styling, semantic guidance/main markup, skip links, reader mode resilience, image integration, and performance caveats.
+- Sandpack playgrounds support documentation and learning surfaces.

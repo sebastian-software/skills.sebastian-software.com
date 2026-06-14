@@ -110,8 +110,6 @@ Accepts any length value. Supports longhand properties: `scroll-padding-top`, `s
 
 **Accessibility note:** Carousels must be keyboard-navigable. Ensure focusable items inside each slide receive focus in order, and consider adding `role="group"` with `aria-label` on each slide and `aria-roledescription="carousel"` on the container.
 
-Source: [CSS-Tricks -- Practical CSS Scroll Snapping](https://css-tricks.com/practical-css-scroll-snapping/), [MDN -- scroll-snap-type](https://developer.mozilla.org/en-US/docs/Web/CSS/scroll-snap-type)
-
 ## Scroll-Driven Animations
 
 Scroll-driven animations tie animation progress to scroll position rather than time. They run on the compositor thread, so they are performant by default -- no JavaScript scroll listeners needed.
@@ -248,8 +246,6 @@ Wrap scroll-driven animations in a motion preference check:
 }
 ```
 
-Source: [MDN -- animation-timeline](https://developer.mozilla.org/en-US/docs/Web/CSS/animation-timeline), [web.dev -- Scroll-driven Animations](https://web.dev/articles/scroll-driven-animations)
-
 ## Smooth Scrolling and Reduced Motion
 
 ### scroll-behavior: smooth
@@ -331,8 +327,6 @@ element.scrollIntoView({
 - Move focus to the first new item after loading (or at minimum, keep the button visible)
 - Show a loading indicator on the button itself during fetch
 - Display the total count if known: "Showing 20 of 142 results"
-
-Source: [NN/g -- Infinite Scrolling](https://www.nngroup.com/articles/infinite-scrolling/)
 
 ## Back-to-Top Buttons
 
@@ -418,8 +412,6 @@ btn.addEventListener('click', () => {
 - On mobile, position within thumb reach (bottom-right for right-handed, but bottom-right works for both)
 - Do not use it as a substitute for good information architecture -- if users constantly need back-to-top, the page may be too long
 
-Source: [NN/g -- Back to Top](https://www.nngroup.com/articles/back-to-top/)
-
 ## Overscroll Behaviour
 
 `overscroll-behavior` controls what happens when a user scrolls past the boundary of a scroll container. By default, scrolling "chains" to the parent -- reaching the bottom of a modal continues scrolling the page behind it.
@@ -467,8 +459,6 @@ body {
 | `none` | No chaining and no local overscroll effects |
 
 Use `contain` rather than `none` in most cases -- it preserves the platform's native bounce or glow effect, which gives users visual feedback that they have reached the end.
-
-Source: [MDN -- overscroll-behavior](https://developer.mozilla.org/en-US/docs/Web/CSS/overscroll-behavior)
 
 ## Scroll Margins and Scroll Padding for Anchor Navigation
 
@@ -533,8 +523,6 @@ html {
 ```
 
 Update `--header-h` in JavaScript if the header height changes dynamically, or use a `ResizeObserver` to keep it in sync.
-
-Source: [MDN -- scroll-margin](https://developer.mozilla.org/en-US/docs/Web/CSS/scroll-margin), [MDN -- scroll-padding](https://developer.mozilla.org/en-US/docs/Web/CSS/scroll-padding)
 
 ## Scrollbar Styling
 
@@ -626,8 +614,6 @@ Setting `scrollbar-width: none` or `::-webkit-scrollbar { display: none }` hides
 - Ensure keyboard and screen reader users can still navigate the content
 - Only hide in contexts where swipe/touch is the primary interaction (carousels, horizontal lists)
 
-Source: [MDN -- scrollbar-color](https://developer.mozilla.org/en-US/docs/Web/CSS/scrollbar-color), [MDN -- scrollbar-width](https://developer.mozilla.org/en-US/docs/Web/CSS/scrollbar-width)
-
 ## Virtual Scrolling for Large Lists
 
 Virtual scrolling (also called windowing) renders only the visible portion of a list plus a small buffer. Instead of creating DOM nodes for thousands of items, it maintains a small set of elements and recycles them as the user scrolls.
@@ -707,8 +693,6 @@ Virtual scrolling creates significant accessibility challenges:
 - Ensure the scroll container has `role="list"` (or `role="grid"` for tables) and items have appropriate roles
 - Add keyboard shortcuts for jumping to specific positions (first, last, page up/down)
 - Consider pagination as an alternative -- it solves the same performance problem while being fully accessible
-
-Source: [TanStack Virtual documentation](https://tanstack.com/virtual/latest)
 
 ## Common Scroll Mistakes
 

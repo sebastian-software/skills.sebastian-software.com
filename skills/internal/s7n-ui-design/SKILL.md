@@ -34,8 +34,8 @@ Enforces professional UI design guidelines for accessible, well-structured inter
 | Component Development | [references/25-component-development.md](references/25-component-development.md) |
 | Responsive Design | [references/26-responsive-design.md](references/26-responsive-design.md) |
 | CSS Layout | [references/27-css-layout-responsive.md](references/27-css-layout-responsive.md) |
-| Source-Backed Design System Notes | [references/28-design-system-sources.md](references/28-design-system-sources.md) |
-| Source-Backed Typography Notes | [references/29-typography-sources.md](references/29-typography-sources.md) |
+| Design System Rules | [references/28-design-system-rules.md](references/28-design-system-rules.md) |
+| Typography Rules | [references/29-typography-rules.md](references/29-typography-rules.md) |
 | I18n UX | [references/30-i18n-ux.md](references/30-i18n-ux.md) |
 | UX Patterns | [references/31-ux-patterns.md](references/31-ux-patterns.md) |
 | Editorial UX | [references/32-editorial-ux.md](references/32-editorial-ux.md) |

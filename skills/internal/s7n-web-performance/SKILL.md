@@ -29,4 +29,3 @@ Use this skill for browser-facing performance work where implementation choices 
 Do not use this skill as a marketing SEO audit. Cross-reference SEO only when performance affects crawlable content, Core Web Vitals, metadata delivery, or social/media assets.
 
 Do not treat security headers as performance work unless transport, caching, or policy choices directly affect loading behavior.
-

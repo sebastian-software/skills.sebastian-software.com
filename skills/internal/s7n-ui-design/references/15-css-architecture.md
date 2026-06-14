@@ -111,8 +111,6 @@ Other global keywords for reference:
 | `components` | Component-specific styles |
 | `utilities` | Single-purpose overrides (highest normal priority) |
 
-**Source:** CSS-Tricks -- "A Complete Guide to CSS Cascade Layers"; MDN -- `@layer`
-
 ## CSS Nesting
 
 Native CSS nesting groups related rules inside a parent selector. Supported in Chrome 113+, Firefox 117+, Safari 16.6+.
@@ -210,8 +208,6 @@ Limit nesting to 2-3 levels maximum. Deeper nesting creates:
 }
 ```
 
-**Source:** MDN -- "CSS nesting"; web.dev -- "CSS Nesting"; Kilian Valkhof -- "The gotchas of CSS nesting"
-
 ## Scoped Styles (`@scope`)
 
 `@scope` defines style boundaries so rules apply only within a subtree. Supported in Chrome 118+, Edge 118+, Safari 17.4+, Firefox 146+.
@@ -278,8 +274,6 @@ Scope proximity is a cascade criterion that comes after specificity but before s
 - Grouping pseudo-classes, states, and media queries within a selector
 - Expressing modifier relationships
 - Improving readability of related rules
-
-**Source:** MDN -- `@scope`; Chrome Developers -- "Limit the reach of your selectors with @scope"; Frontend Masters -- "How to @scope CSS now that it's Baseline"
 
 ## Custom Properties Architecture
 
@@ -352,8 +346,6 @@ Scope proximity is a cascade criterion that comes after specificity but before s
 - **All tokens on `:root`** -- scope component tokens to component selectors
 - **Skipping the semantic layer** -- going straight from primitive to component makes theming impossible
 - **Custom properties for static values** -- if a value never changes and is never shared, just use the value directly
-
-**Source:** Keith J. Grant -- "A Structured Approach to Custom Properties"; Penpot -- "Developer's Guide to Design Tokens"
 
 ## CSS Methodologies
 
@@ -453,8 +445,6 @@ Use cascade layers as the orchestration layer -- they work with any methodology:
 
 Cascade layers + low-specificity methodology = the strongest combination.
 
-**Source:** CUBE CSS -- cube.fyi; Every Layout -- every-layout.dev; Smashing Magazine -- "CSS Cascade Layers vs BEM vs Utility Classes"
-
 ## Anchor Positioning
 
 CSS anchor positioning connects an absolutely positioned element to one or more anchor elements. Supported in Chrome 125+, Edge 125+. Safari and Firefox do not yet fully support it -- use as progressive enhancement.
@@ -531,8 +521,6 @@ Define named custom fallback positions:
 }
 ```
 
-**Source:** CSS-Tricks -- "CSS Anchor Positioning Guide"; Chrome Developers -- "Anchor Positioning API"; MDN -- "CSS Anchor Positioning"
-
 ## CSS File Organisation
 
 ### Layer-Based File Structure
@@ -586,8 +574,6 @@ The single entry point declares layer order and imports everything:
 - One component per file, named after the component
 - Third-party CSS goes into its own layer or a sub-layer: `@import url('vendor.css') layer(components.vendor);`
 - Build tools should bundle `@import` statements for production to avoid sequential loading
-
-**Source:** Matthias Ott -- "How I Structure My CSS"; iO Digital -- "Modular CSS Architecture with @layer"
 
 ## When to Use Which Approach
 
@@ -691,29 +677,6 @@ Custom property inheritance is cheap -- browsers handle it efficiently.
 - Avoid setting custom properties on every element; prefer `:root` or component roots
 - `@property` registration with `inherits: false` prevents unnecessary recalculation down the tree
 - Cascade layers add minimal parsing overhead -- the benefit of eliminating `!important` chains outweighs any cost
-
-**Source:** MDN -- "CSS Performance Optimization"; DebugBear -- "Reduce Unused CSS"; Jens Oliver Meiert -- "CSS Optimization Basics"
-
-## Sources
-
-- CSS-Tricks: "A Complete Guide to CSS Cascade Layers" -- https://css-tricks.com/css-cascade-layers/
-- MDN: `@layer` -- https://developer.mozilla.org/en-US/docs/Web/CSS/@layer
-- MDN: "CSS nesting" -- https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_nesting
-- MDN: `@scope` -- https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/At-rules/@scope
-- MDN: "CSS Performance Optimization" -- https://developer.mozilla.org/en-US/docs/Learn_web_development/Extensions/Performance/CSS
-- web.dev: "CSS Nesting" -- https://web.dev/learn/css/nesting
-- Chrome Developers: "Limit the reach of your selectors with @scope" -- https://developer.chrome.com/docs/css-ui/at-scope
-- Chrome Developers: "CSS Anchor Positioning API" -- https://developer.chrome.com/blog/anchor-positioning-api
-- CSS-Tricks: "CSS Anchor Positioning Guide" -- https://css-tricks.com/css-anchor-positioning-guide/
-- CUBE CSS -- https://cube.fyi/
-- Every Layout -- https://every-layout.dev/
-- Smashing Magazine: "CSS Cascade Layers vs BEM vs Utility Classes" -- https://www.smashingmagazine.com/2025/06/css-cascade-layers-bem-utility-classes-specificity-control/
-- Keith J. Grant: "A Structured Approach to Custom Properties" -- https://keithjgrant.com/posts/2024/06/a-structured-approach-to-custom-properties/
-- Matthias Ott: "How I Structure My CSS" -- https://matthiasott.com/notes/how-i-structure-my-css
-- Frontend Masters: "How to @scope CSS now that it's Baseline" -- https://frontendmasters.com/blog/how-to-scope-css-now-that-its-baseline/
-- Kilian Valkhof: "The Gotchas of CSS Nesting" -- https://kilianvalkhof.com/2023/css-html/the-gotchas-of-css-nesting/
-- Jens Oliver Meiert: "CSS Optimization Basics" -- https://leanpub.com/css-optimization-basics
-- DebugBear: "Reduce Unused CSS" -- https://www.debugbear.com/blog/reduce-unused-css
 
 ## Chapter Summary
 

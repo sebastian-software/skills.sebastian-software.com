@@ -8,8 +8,6 @@ This reference covers the implementation side of dark mode. For OKLCH colour pal
 
 The `color-scheme` property tells the browser which colour schemes your site supports. It does NOT style your authored content -- it only affects browser-provided UI: form controls, scrollbars, spellcheck underlines, and CSS system colour keywords.
 
-**Source:** web.dev/articles/color-scheme -- "color-scheme exclusively determines the default appearance, whereas prefers-color-scheme determines the stylable appearance."
-
 ### Meta tag (preferred -- parsed before CSS, renders faster):
 ```html
 <meta name="color-scheme" content="light dark">
@@ -55,8 +53,6 @@ Not all images need adjustment. Product photos, user avatars, and branded imager
 
 Best for hero images, illustrations, and branded graphics where quality matters most.
 
-**Source:** web.dev/articles/prefers-color-scheme, CSS-Tricks
-
 ### Strategy 2: Brightness/contrast filter for photographs
 
 Photographs rarely need inversion. Slightly reduce brightness to stop them "glowing" on dark backgrounds:
@@ -70,8 +66,6 @@ Photographs rarely need inversion. Slightly reduce brightness to stop them "glow
 ```
 
 Research showed "the majority of the surveyed people prefer slightly less vibrant and brilliant images when dark mode is active."
-
-**Source:** web.dev/articles/prefers-color-scheme, CSS-Tricks
 
 ### Strategy 3: Invert + hue-rotate for diagrams and line art
 
@@ -88,8 +82,6 @@ Black-on-white diagrams become unreadable on dark backgrounds. Invert them and a
 
 Standard `invert(1)` flips hues; adding `hue-rotate(180deg)` corrects them. This only works well for monochrome or minimal-colour content.
 
-**Source:** monochrome.sutic.nu/2024/02/25/hue-preserving-invert-css-filter-for-dark-mode
-
 ### Strategy 4: `currentColor` for inline SVGs
 
 SVGs using `currentColor` automatically adapt to text colour changes, requiring no special dark mode handling:
@@ -102,8 +94,6 @@ SVGs using `currentColor` automatically adapt to text colour changes, requiring 
 
 This is the preferred approach for icons and simple graphics. Works with `<use href="...">` references as well.
 
-**Source:** web.dev/articles/prefers-color-scheme
-
 ### Strategy 5: Transparent PNG handling
 
 Logos and icons on transparent backgrounds may disappear in dark mode. Solutions:
@@ -114,8 +104,6 @@ Logos and icons on transparent backgrounds may disappear in dark mode. Solutions
 ## Adjust Shadows for Dark Mode
 
 Box shadows are effectively invisible against dark backgrounds. A `box-shadow: 0 2px 8px oklch(0% 0 0 / 0.1)` that works in light mode becomes imperceptible in dark mode.
-
-**Source:** parker.mov/notes/good-dark-mode-shadows -- "Box shadows alone are basically imperceptible in dark mode."
 
 ### Approach 1: Darker, more opaque shadows
 
@@ -184,8 +172,6 @@ The base dark surface is `oklch(13% 0.03 hue)` (approximately `#121212`). Elevat
 | 16dp | 15% | Navigation drawers |
 | 24dp | 16% | Dialogs |
 
-**Source:** Material Design 2: Dark Theme (m2.material.io/design/color/dark-theme.html)
-
 ### Material Design 3: Tonal surface tint
 
 MD3 shifted from white overlays to **primary colour tint** overlays. Elevated surfaces carry a subtle brand colour cast instead of pure white:
@@ -200,13 +186,9 @@ MD3 shifted from white overlays to **primary colour tint** overlays. Elevated su
 }
 ```
 
-**Source:** Material Design 3: Elevation (m3.material.io/styles/elevation/applying-elevation) -- "Tonal color overlays...the overlay color coming from the primary color slot."
-
 ### Apple HIG approach
 
 Apple uses two sets of background colours: "base" (dimmer, for background interfaces) and "elevated" (brighter, for foreground interfaces). Apple additionally uses vibrancy -- dynamically blending foreground and background colours to make foreground content stand out.
-
-**Source:** Apple HIG: Dark Mode (developer.apple.com/design/human-interface-guidelines/dark-mode)
 
 ### Practical CSS implementation with OKLCH
 
@@ -240,8 +222,6 @@ Pure white (`oklch(100% 0 0)`) on dark backgrounds causes "halation" -- the text
 --text-secondary: oklch(75% 0.01 var(--hue));
 ```
 
-**Source:** Atmos (atmos.style/blog/dark-mode-ui-best-practices), UX Planet -- "Something around #E0E0E0 or #F0F0F0 works much better for body text."
-
 ### Desaturate accent colours by 20-30%
 
 Fully saturated colours "vibrate" on dark backgrounds, causing visual discomfort. Reduce chroma compared to light mode values:
@@ -256,8 +236,6 @@ Fully saturated colours "vibrate" on dark backgrounds, causing visual discomfort
 
 "Colors should have around 20 points lower saturation on dark mode than on light mode."
 
-**Source:** Atmos (atmos.style/blog/dark-mode-ui-best-practices), BOIA -- "highly saturated blues, reds, or greens can appear to vibrate or bleed."
-
 ### WCAG still applies in full
 
 WCAG Success Criterion 1.4.3 does not include exceptions for dark mode. The same minimums apply to both themes:
@@ -267,8 +245,6 @@ WCAG Success Criterion 1.4.3 does not include exceptions for dark mode. The same
 Every colour combination must be verified independently in each theme. Colours that pass on white may fail on dark grey and vice versa.
 
 APCA (the algorithm behind WCAG 3 draft) handles dark backgrounds more accurately than WCAG 2. See `03-colour.md` for APCA contrast values.
-
-**Source:** BOIA (boia.org/blog/offering-a-dark-mode-doesnt-satisfy-wcag-color-contrast-requirements)
 
 ## Implement a User Preference Toggle
 
@@ -280,8 +256,6 @@ The best implementation offers three choices, defaulting to "system":
 1. Check `localStorage` for explicit user choice
 2. If value is "system" or absent, defer to `prefers-color-scheme` media query
 3. Apply theme via `data-theme` attribute on `<html>`
-
-**Source:** whitep4nth3r.com/blog/best-light-dark-mode-theme-toggle-javascript, lexingtonthemes.com
 
 ### JavaScript implementation:
 
@@ -362,8 +336,6 @@ This script is synchronous and intentionally tiny. No external file, no `async`,
 
 **React/Next.js note:** This causes a hydration mismatch warning because server-rendered HTML lacks the `data-theme` attribute. Suppress with `suppressHydrationWarning` on `<html>`. Libraries like `next-themes` handle this automatically.
 
-**Source:** CSS-Tricks, notanumber.in/blog/fixing-react-dark-mode-flickering
-
 ### Strategy 2: `<meta name="color-scheme">` tag
 
 ```html
@@ -384,13 +356,9 @@ document.cookie = `theme=${choice};path=/;max-age=31536000;SameSite=Lax`;
 // Works with any server framework (Node, PHP, Python, etc.)
 ```
 
-**Source:** CSS-Tricks (showed PHP cookie approach)
-
 ### Strategy 4: `Sec-CH-Prefers-Color-Scheme` client hint
 
 The server receives the user's colour preference at request time via an HTTP header, enabling the correct CSS to be inlined. Limited browser support -- use as progressive enhancement only.
-
-**Source:** web.dev/articles/prefers-color-scheme
 
 ### Strategy 5: Conditional stylesheets (CSS-only, no toggle support)
 
@@ -408,8 +376,6 @@ Zero flash for system-preference-following themes. Does not support a manual ove
 - **Chrome/Edge:** DevTools > Rendering panel > "Emulate CSS media feature prefers-color-scheme" > select light or dark
 - **Firefox:** DevTools > Inspector > toggle sun/moon icon in toolbar
 - **Safari:** Develop menu > Settings for page > Appearance > Dark
-
-**Source:** web.dev/articles/prefers-color-scheme
 
 ### Automated screenshot testing
 
@@ -433,8 +399,6 @@ Dark mode and forced-colours mode are separate features. A forced-colours user m
 ```
 
 DevTools: Rendering panel > "Emulate CSS media feature forced-colors" > active.
-
-**Source:** Smashing Magazine (smashingmagazine.com/2022/03/windows-high-contrast-colors-mode-css-custom-properties)
 
 ### Contrast re-verification
 

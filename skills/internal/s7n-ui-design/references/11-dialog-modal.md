@@ -52,8 +52,6 @@ dialog.addEventListener("close", () => {
 });
 ```
 
-**Source:** [MDN `<dialog>` Element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dialog), [web.dev Building a Dialog Component](https://web.dev/articles/building/a-dialog-component)
-
 ## Dialog vs Popover API
 
 | Feature | `<dialog>` + `.showModal()` | `<dialog>` + `.show()` | Popover API |
@@ -91,8 +89,6 @@ dialog.addEventListener("close", () => {
 ### Combining Both
 
 `<dialog popover>` is valid HTML. This gives you dialog semantics with popover control (including light dismiss). Useful for non-modal dialogs that should dismiss when clicking outside.
-
-**Sources:** [Hidde de Vries -- Dialog, Modal, Popover Differences](https://hidde.blog/dialog-modal-popover-differences/), [Frontend Masters -- Dialog vs Popovers](https://frontendmasters.com/blog/whats-the-difference-between-htmls-dialog-element-and-popovers/), [CSS-Tricks -- Popovers and Dialogs](https://css-tricks.com/clarifying-the-relationship-between-popovers-and-dialogs/)
 
 ## Overlay Positioning and Clipping
 
@@ -132,8 +128,6 @@ a different direction.
 
 The W3C APA Working Group confirmed: the native dialog element's behaviour is correct. You should NOT prevent users from tabbing to browser UI. "Focus trapping" means preventing access to page content behind the dialog, not imprisoning users in the dialog forever.
 
-**Source:** [CSS-Tricks -- No Need to Trap Focus on Dialog](https://css-tricks.com/there-is-no-need-to-trap-focus-on-a-dialog-element/)
-
 ### The `autofocus` Attribute
 
 - Place `autofocus` on the element the user is most likely to interact with first
@@ -152,8 +146,6 @@ The W3C APA Working Group confirmed: the native dialog element's behaviour is co
   </form>
 </dialog>
 ```
-
-**Source:** [Jared Cunha -- Dialog Accessibility and UX](https://jaredcunha.com/blog/html-dialog-getting-accessibility-and-ux-right)
 
 ## Accessibility
 
@@ -207,8 +199,6 @@ Use `alertdialog` instead of the default `dialog` role when the dialog demands i
 - `Shift+Tab`: moves backward through focusable elements
 - `Enter`: activates focused button/control
 
-**Sources:** [MDN `<dialog>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dialog), [Adrian Roselli -- Dialog Focus in Screen Readers](https://adrianroselli.com/2020/10/dialog-focus-in-screen-readers.html), [W3C APG -- Modal Dialog Pattern](https://www.w3.org/WAI/ARIA/apg/patterns/dialog-modal/examples/dialog/)
-
 ## Backdrop Styling
 
 The `::backdrop` pseudo-element is a full-viewport box rendered immediately behind any element in the top layer. It only appears when a dialog is opened with `.showModal()`.
@@ -230,8 +220,6 @@ dialog::backdrop {
   background: oklch(0% 0 0 / 0.25);
 }
 ```
-
-**Source:** [MDN ::backdrop](https://developer.mozilla.org/en-US/docs/Web/CSS/::backdrop), [Chrome Developers -- ::backdrop inheritance changes](https://developer.chrome.com/blog/css-backdrop-inheritance)
 
 ## Entry and Exit Animations
 
@@ -298,8 +286,6 @@ dialog[open]::backdrop {
 }
 ```
 
-**Sources:** [Chrome Developers -- Four New CSS Features for Entry/Exit Animations](https://developer.chrome.com/blog/entry-exit-animations/), [web.dev -- Baseline Entry Animations](https://web.dev/blog/baseline-entry-animations), [Frontend Masters -- Dialog with Entry and Exit Animations](https://frontendmasters.com/blog/the-dialog-element-with-entry-and-exit-animations/)
-
 ## The `closedby` Attribute
 
 The `closedby` attribute (Chrome 134+, March 2025) provides declarative control over how dialogs can be dismissed:
@@ -331,8 +317,6 @@ dialog.addEventListener("click", (event) => {
 ```
 
 This works because clicking the `::backdrop` fires a click event on the dialog itself where `event.target === dialog`. Clicking content inside the dialog has a different target due to event bubbling.
-
-**Sources:** [MDN HTMLDialogElement.closedBy](https://developer.mozilla.org/en-US/docs/Web/API/HTMLDialogElement/closedBy), [ste.digital -- closedby and command invokers](https://ste.digital/blog/levelling-up-your-dialogs-with-closedby-and-command-invokers)
 
 ## When to Use Modals vs Inline Expansion vs New Page
 
@@ -367,8 +351,6 @@ Ask before using an overlay:
 3. **When** -- Is the timing user-initiated or interruptive?
 4. **Where** -- Will the entire overlay be visible?
 5. **Why** -- Could this be a regular page instead?
-
-**Sources:** [NN/g -- Modal vs Nonmodal](https://www.nngroup.com/articles/modal-nonmodal-dialog/), [NN/g -- Overuse of Overlays](https://www.nngroup.com/articles/overuse-of-overlays/)
 
 ## Confirmation Dialogs for Destructive Actions
 
@@ -425,8 +407,6 @@ For the full rationale and undo-toast pattern, see `07-buttons.md` (section "Pre
   </form>
 </dialog>
 ```
-
-**Sources:** [NN/g -- Confirmation Dialog](https://www.nngroup.com/articles/confirmation-dialog/), [UX Planet -- Confirmation Dialogs](https://uxplanet.org/confirmation-dialogs-how-to-design-dialogues-without-irritation-7b4cf2599956), [UX Movement -- Destructive Actions](https://uxmovement.com/buttons/how-to-design-destructive-actions-that-prevent-data-loss/)
 
 ## Dialog HTML Structure Pattern
 
@@ -506,8 +486,6 @@ dialog > form > footer {
 }
 ```
 
-**Source:** [web.dev -- Building a Dialog Component](https://web.dev/articles/building/a-dialog-component)
-
 ## Scroll Lock
 
 Prevent background scrolling when a modal is open:
@@ -561,8 +539,6 @@ Background scrolling while a modal is open is disorienting. Always use `html:has
 
 Do not show pop-ups right after a user enters a screen. Modals should be user-initiated or directly related to a critical system event. Auto-triggered marketing modals erode trust.
 
-**Sources:** [NN/g -- Modal vs Nonmodal](https://www.nngroup.com/articles/modal-nonmodal-dialog/), [NN/g -- Overuse of Overlays](https://www.nngroup.com/articles/overuse-of-overlays/), [Fireart -- Nested Modals](https://fireart.studio/blog/learn-why-you-should-exclude-nested-models-from-your-design-and-how-to-replace-them/)
-
 ## Toast and Notification Patterns
 
 Use the Popover API for toast notifications. Toasts are non-modal, non-blocking messages that appear temporarily and dismiss automatically.
@@ -610,8 +586,6 @@ function showToast(message, duration = 5000) {
 - Auto-dismiss after 5-10 seconds
 - Position at the bottom of the viewport to avoid blocking content
 - Do NOT use toasts for critical errors or actions requiring user response (use a dialog instead)
-
-**Source:** [Frontend Masters -- Menus, Toasts and More with Popover API](https://frontendmasters.com/blog/menus-toasts-and-more/)
 
 ## Chapter Summary
 

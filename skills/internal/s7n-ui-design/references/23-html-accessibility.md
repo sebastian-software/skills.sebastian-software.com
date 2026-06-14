@@ -23,68 +23,12 @@ Use semantic HTML, native behavior, visible focus, keyboard access, and assistiv
 - Feedback: are validation, async save, toast, and route-change updates announced only when announcement helps the user?
 - Input mode: are touch, hover, pointer precision, and target sizes based on actual input capabilities rather than viewport assumptions?
 
-## Source-Backed Guidance
+## Additional Rules
 
-### 5 Accessibility Quick Wins You Can Implement Today
-
-- Things ID(s): `GrwsAoykPLsoyNE3xaWExr`
-- Source: <https://css-tricks.com/5-accessibility-quick-wins-you-can-implement-today/>
-- Decision: `primary`
-- Target: `core-html-a11y`
-- URL recheck: 2026-06-13, HTTP 200
-- Guidance: User prefers explanatory practice articles as primary when they explain why and how better than specs/MDN.
-
-### :has(): the family selector - Chrome Developers
-
-- Things ID(s): `S7QdCNaqFMgg6mtMgPUQEz`
-- Source: <https://developer.chrome.com/blog/has-m105/?utm_source=CSS-Weekly&utm_campaign=Issue-516&utm_medium=email>
-- Decision: `primary`
-- Target: `core-html-a11y`
-- URL recheck: 2026-06-13, HTTP 200
-- Guidance: Use as broader semantic state/parent-context pattern source, not only a11y: parent styling from child/content/focus/error/state conditions; a11y is one use case.
-
-### A Complete Guide To Live Validation UX - Smashing Magazine
-
-- Things ID(s): `WV1CJTgNqUcfKj5TqVkNY`
-- Source: <https://www.smashingmagazine.com/2022/09/inline-validation-web-forms-ux/>
-- Decision: `primary`
-- Target: `core-html-a11y`
-- URL recheck: 2026-06-13, HTTP 200
-- Guidance: Primary for forms and accessibility: live/inline validation timing, copy-paste tolerance, late validation, recovery paths, and avoiding premature error states.
-
-### A highly configurable switch component using modern CSS techniques
-
-- Things ID(s): `DWLbMdqiECL5aXGfG4Rpfx`, `KievRkcUy5BjHimCZm9jFN`
-- Source: <https://piccalil.li/blog/a-highly-configurable-switch-component-using-modern-css/>
-- Decision: `primary`
-- Target: `core-html-a11y`
-- URL recheck: 2026-06-13, HTTP 200
-- Duplicate handling: canonical entry for 2 Things items.
-- Guidance: Primary for framework-agnostic component-development know-how: custom/native control anatomy, semantic input preservation, focus/state styling, configurable component CSS; not React-specific and not only a11y.
-
-### Adactio: Journal-Three attributes for better web forms
-
-- Things ID(s): `Qbn2aNkkGwuJsrin323izj`
-- Source: <https://adactio.com/journal/19842?utm_source=newsletter&utm_medium=email&utm_campaign=wdrl-309>
-- Decision: `primary`
-- Target: `core-html-a11y`
-- URL recheck: 2026-06-13, HTTP 200
-- Guidance: Primary for forms UX and HTML input rules: correct input type, inputmode, enterkeyhint, autocomplete/name hints, browser cooperation, mobile keyboard UX, and progressive enhancement.
-
-### Adactio: Notes-March 26th, 2025, 4:13pm
-
-- Things ID(s): `CdRGfJodx35Yo5z8ypsfcX`
-- Source: <https://adactio.com/notes/21812>
-- Decision: `secondary`
-- Target: `core-html-a11y`
-- URL recheck: 2026-06-13, HTTP 200
-- Guidance: Secondary focus-visible snippet/reminder: useful for visible focus styling, outline offset/width/currentColor caveats, but too small to be a primary focus guidance source.
-
-### Telefon Links in HTML
-
-- Things ID(s): `N5Nr66BdyFks2L75tH4SDz`
-- Source: <https://css-tricks.com/the-current-state-of-telephone-links/>
-- Decision: `secondary`
-- Target: `core-html-a11y`
-- URL recheck: 2026-06-13, HTTP 200
-- Guidance: Secondary for html-accessibility/content-semantics: small semantic HTML pattern for explicit tel: links as call-to-action phone numbers, international phone formatting, not relying on auto-detection, and only disabling iOS telephone auto-detection intentionally when custom markup/styling is provided; old/narrow source, not primary.
+- User prefers explanatory practice articles as when they explain why and how better than specs/MDN.
+- Use as broader semantic state/parent-context pattern guidance, not only a11y: parent styling from child/content/focus/error/state conditions; a11y is one use case.
+- Live/inline validation timing, copy-paste tolerance, late validation, recovery paths, and avoiding premature error states.
+- Custom/native control anatomy, semantic input preservation, focus/state styling, configurable component CSS; not React-specific and not only a11y.
+- Correct input type, inputmode, enterkeyhint, autocomplete/name hints, browser cooperation, mobile keyboard UX, and progressive enhancement.
+- focus-visible snippet/reminder: useful for visible focus styling, outline offset/width/currentColor caveats, but too small to be a focus guidance.
+- Small semantic HTML pattern for explicit tel: links as call-to-action phone numbers, international phone formatting, not relying on auto-detection, and only disabling iOS telephone auto-detection intentionally when custom markup/styling is provided; old/narrow guidance, not .

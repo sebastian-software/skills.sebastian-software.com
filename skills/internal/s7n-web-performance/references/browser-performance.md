@@ -33,92 +33,15 @@ Use measured browser behavior to guide performance changes. Prioritize fixes tha
 - Are state transitions limited to composited or paint-only properties, with layout-property animation avoided in long lists and dense work surfaces?
 - Is the optimization verified with before/after evidence from browser tooling or production metrics?
 
-## Source-Backed Guidance
+## Additional Rules
 
-### Don't fight the browser preload scanner
-
-- Things ID(s): `A7EtoTHWwtpMvsCnmvKiug`
-- Source: <https://web.dev/preload-scanner/?utm_source=CSS-Weekly&utm_campaign=Issue-507&utm_medium=email>
-- Decision: `primary`
-- Target: `network-performance`
-- URL recheck: 2026-06-13, HTTP 200, redirects to https://web.dev/articles/preload-scanner?utm_source=CSS-Weekly&utm_campaign=Issue-507&utm_medium=email
-- Guidance: Primary for network-performance: keep startup resources discoverable in HTML, avoid JS-injected startup scripts, do not lazy-load above-the-fold/LCP images through data-src, avoid hiding LCP images in CSS backgrounds unless preloaded intentionally, and avoid excessive inline/base64 resources that delay discovery and hurt caching; cross-reference component-development, editorial-ux, and media/design-system rules.
-
-### Learn Images
-
-- Things ID(s): `Ga7AGaG4XpqaaevALg1naW`
-- Source: <https://web.dev/learn/images/>
-- Decision: `primary`
-- Target: `network-performance`
-- URL recheck: 2026-06-13, HTTP 200
-- Guidance: Primary for network-performance with responsive-design cross-reference: broad official image course covering key performance issues, raster vs SVG, GIF/PNG/JPEG/WebP/AVIF, responsive images, srcset/sizes, picture/art direction, compression and encoding automation, CMS/framework integration, and image CDNs; use as umbrella reference for image delivery and responsive media rules.
-
-### Optimizing The Image Element LCP - Smashing Magazine
-
-- Things ID(s): `FaoTKJcTt6HmVMi7k1UqQy`
-- Source: <https://www.smashingmagazine.com/2023/01/optimizing-image-element-lcp/>
-- Decision: `primary`
-- Target: `network-performance`
-- URL recheck: 2026-06-13, HTTP 200
-- Guidance: Primary for network-performance with responsive-design and component-development cross-references: optimize LCP images through correct img/srcset/sizes, rendered size and DPR-aware variants, avoid lazy-loading LCP images, keep LCP image discoverable in initial HTML, use fetchpriority=high intentionally, understand preload scanner behavior, and avoid blind preload overuse.
-
-### Aktuelle Informationen mit „Stale-while-revalid“ | Articles | web.de
-
-- Things ID(s): `H4ZzMUXWoJQhbuWbXfDPAQ`
-- Source: <https://web.dev/articles/stale-while-revalidate?hl=de>
-- Decision: `secondary`
-- Target: `network-performance`
-- URL recheck: 2026-06-13, HTTP 200
-- Guidance: Retarget from core HTML/A11y to network performance / UX: useful for perceived speed, freshness, caching behavior, and stale-while-revalidate; not security and not forms/A11y.
-
-### Blur-Technik für Bilder Ladeeffekt: https://css-tricks.com/the-blur
-
-- Things ID(s): `39Zh3qKNDgcdRjBxSNfXGr`
-- Source: <https://css-tricks.com/the-blur-up-technique-for-loading-background-images/>
-- Decision: `secondary`
-- Target: `network-performance`
-- URL recheck: 2026-06-13, HTTP 200
-- Guidance: Retarget from core HTML/A11y to network performance / UX. Use as one historical pattern in an image placeholder/perceived-speed catalog: blur-up, base64/LQIP, special encodings, calmer loading, and visually faster pages; not primary alone.
-
-### Gute Ideen für statisches Layout
-
-- Things ID(s): `KEuj9jCREMgQEfD2pYJ4rS`
-- Source: <https://www.smashingmagazine.com/2016/08/ways-to-reduce-content-shifting-on-page-load/>
-- Decision: `secondary`
-- Target: `network-performance`
-- URL recheck: 2026-06-13, HTTP 200
-- Guidance: Secondary for network-performance with css-layout-responsive cross-reference: durable layout-stability problem framing for media, widgets, fonts, and late layout CSS, but concrete rules should be paired with current CLS/Core Web Vitals and modern browser guidance.
-
-### having too many different image versions significantly reduces the c
-
-- Things ID(s): `7snEM5KM6NHXf1aMHCpPvB`
-- Source: <https://www.smashingmagazine.com/2016/01/responsive-image-breakpoints-generation/>
-- Decision: `secondary`
-- Target: `network-performance`
-- URL recheck: 2026-06-13, HTTP 200
-- Guidance: Secondary for network-performance: useful responsive image breakpoint reasoning and caveat that too few variants waste bandwidth while too many variants increase storage/processing complexity and reduce CDN cache hit rate; keep as supporting context for srcset/picture/media strategy, paired with newer primary sources.
-### Rethinking Server-Timing As A Critical Monitoring Tool - Smashing Ma
-
-- Things ID(s): `Bzo1tpxKqQLgUNTHZXdYbi`
-- Source: <https://www.smashingmagazine.com/2022/05/rethinking-server-timing-monitoring-tool/>
-- Decision: `secondary`
-- Target: `performance`
-- URL recheck: 2026-06-13, HTTP 200
-- Guidance: Retarget to web performance: Server-Timing belongs to production performance observability.
-### Inline Image Previews with Sharp, BlurHash, and Lambda Functions
-
-- Things ID(s): `W6BxBkRUZG5s6iWde9X8ko`
-- Source: <https://css-tricks.com/inline-image-previews-with-sharp-blurhash-and-lambda-functions/>
-- Decision: `secondary`
-- Target: `network-performance`
-- URL recheck: 2026-06-13, HTTP 200
-- Guidance: Retarget to web performance: inline previews, BlurHash, Sharp, and Lambda concern image loading UX.
-
-### How's Linear so fast? A technical breakdown
-
-- Things ID(s): not provided
-- Source: <https://performance.dev/how-is-linear-so-fast-a-technical-breakdown?ref=labnotes.org>
-- Decision: `secondary`
-- Target: `browser-performance`
-- URL recheck: 2026-06-14, HTTP 200, canonical https://performance.dev/how-is-linear-so-fast-a-technical-breakdown
-- Guidance: Secondary for browser-performance with UI-design and motion-interaction cross-references: useful product-app performance case study on local-first data, IndexedDB-backed initial loads, optimistic mutations, durable retry queues, granular observable updates, keyboard-first workflows, command palettes, and restrained animation. Treat as implementation context and decision vocabulary, not as a mandate to use MobX or duplicate Linear's architecture.
+- Keep startup resources discoverable in HTML, avoid JS-injected startup scripts, do not lazy-load above-the-fold/LCP images through data-src, avoid hiding LCP images in CSS backgrounds unless preloaded intentionally, and avoid excessive inline/base64 resources that delay discovery and hurt caching; connect to component-development, editorial-ux, and media/design-system rules.
+- Cover image performance across raster vs SVG, GIF/PNG/JPEG/WebP/AVIF, responsive images, srcset/sizes, picture art direction, compression, encoding automation, CMS/framework integration, and image CDNs.
+- Optimize LCP images through correct img/srcset/sizes, rendered size and DPR-aware variants, avoid lazy-loading LCP images, keep LCP image discoverable in initial HTML, use fetchpriority=high intentionally, understand preload scanner behavior, and avoid blind preload overuse.
+- Use stale-while-revalidate only where the product can tolerate the freshness model; treat it as perceived speed and caching behavior, not a security or forms concern.
+- Treat blur-up, base64/LQIP, special encodings, and calmer loading states as placeholder patterns, not as substitutes for correct real-resource discovery.
+- Frame layout stability around media, widgets, fonts, and late layout CSS; pair historical CLS examples with current Core Web Vitals behavior.
+- Balance responsive image breakpoint count: too few variants waste bandwidth, while too many increase storage, processing complexity, and CDN cache fragmentation.
+- Server-Timing belongs to production performance observability.
+- Inline previews, BlurHash, Sharp, and Lambda concern image loading UX.
+- For product-app performance, consider local-first data, IndexedDB-backed initial loads, optimistic mutations, durable retry queues, granular observable updates, keyboard-first workflows, command palettes, and restrained animation. Do not treat MobX or any single app architecture as mandatory.

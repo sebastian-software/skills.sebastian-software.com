@@ -30,4 +30,3 @@ Use this skill for React architecture decisions that affect rendering, server/cl
 ## Boundaries
 
 Do not use this skill for visual design or generic component APIs unless rendering architecture is the primary issue. Cross-reference `s7n-ui-design`, `s7n-react-component`, `s7n-web-performance`, and `s7n-frontend-testing` as needed.
-
