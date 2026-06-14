@@ -22,21 +22,54 @@ function extractFrontmatter(text: string, skillFile: string): string {
   return text.slice(4, end);
 }
 
+function isTopLevelField(line: string): boolean {
+  return line.trim() !== "" && !line.startsWith(" ") && !line.startsWith("-") && line.includes(":");
+}
+
+function parseFieldLine(line: string): { key: string; value: string } | undefined {
+  const separator = line.indexOf(":");
+  if (separator <= 0) {
+    return undefined;
+  }
+
+  return {
+    key: line.slice(0, separator),
+    value: line.slice(separator + 1),
+  };
+}
+
+function readIndentedContinuation(lines: string[], startIndex: number): string {
+  const continuation: string[] = [];
+  for (const line of lines.slice(startIndex)) {
+    if (!line.startsWith(" ") && !line.startsWith("\t")) {
+      break;
+    }
+
+    const value = line.trim();
+    if (value !== "") {
+      continuation.push(value);
+    }
+  }
+
+  return continuation.join(" ");
+}
+
 function parseFrontmatterLines(frontmatter: string): Record<string, string> {
   const metadata: Record<string, string> = {};
-  for (const line of frontmatter.split("\n")) {
-    if (line.trim() === "" || line.startsWith(" ") || line.startsWith("-")) {
+  const lines = frontmatter.split("\n");
+
+  for (const [index, line] of lines.entries()) {
+    if (!isTopLevelField(line)) {
       continue;
     }
 
-    const separator = line.indexOf(":");
-    if (separator <= 0) {
+    const field = parseFieldLine(line);
+    if (field === undefined) {
       continue;
     }
 
-    const key = line.slice(0, separator);
-    const value = line.slice(separator + 1);
-    metadata[key] = cleanScalar(value);
+    const scalar = cleanScalar(field.value);
+    metadata[field.key] = scalar === "" ? readIndentedContinuation(lines, index + 1) : scalar;
   }
 
   return metadata;

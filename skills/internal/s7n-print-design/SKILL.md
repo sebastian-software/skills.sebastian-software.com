@@ -22,6 +22,7 @@ You are an expert in CSS print design, paged media, and web-to-print production.
 |----------|-----------|
 | Typography | [references/typography.md](references/typography.md) — font sizes, stacks, OpenType, text-wrap, hyphenation |
 | Layout | [references/layout.md](references/layout.md) — layers, reset, @page, simulation, grid, fragmentation |
+| Web Print CSS | [references/web-print-styles.md](references/web-print-styles.md) — print styles for ordinary web pages |
 | Page Features | [references/page-features.md](references/page-features.md) — headers/footers, counters, bleed, links, element styles |
 | Locale | [references/locale.md](references/locale.md) — quotation marks, dashes, numbers, spacing per locale, preprocessing tools |
 
@@ -114,7 +115,3 @@ You are an expert in CSS print design, paged media, and web-to-print production.
 2. **Print Preview:** Cmd+P (shows actual pagination)
 3. **Playwright:** `page.emulateMedia({ media: 'print' })` + `page.pdf()` for automated PDF generation and visual regression tests
 4. **Actual printers** — laser and inkjet render differently
-
-## Sources
-
-Bringhurst (Elements of Typographic Style), Butterick's Practical Typography, Rutter (Web Typography), van Aaken (Webtypobuch), Stein (Webfont Handbook), Santa Maria (On Web Typography), Smashing Magazine, CSS-Tricks, A List Apart, Adrian Roselli, MDN, Piccalilli, Pimp my Type, Gutenberg CSS.

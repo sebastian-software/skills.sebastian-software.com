@@ -115,7 +115,6 @@ future changes happen here through normal pull requests.
 
 Initial internal import candidates:
 
-- `sebastian-software/forschungszulage-skill`
 - `sebastian-software/effective-ui-design-skill`
 - `sebastian-software/effective-german-typography-skill`
 - `sebastian-software/effective-linkedin-posts`

@@ -42,6 +42,9 @@ Check:
   and reduced motion are handled in the real UI.
 - **Layout stability:** images, embeds, loading indicators, and async content do
   not shift the page unexpectedly.
+- **Web code details:** focus is not obscured by sticky UI, async updates are
+  announced when needed, form fields expose meaningful browser hints, and
+  stateful UI can be deep-linked when users need to share or return to it.
 
 Do not use this pass to change the design register, invent a new visual
 direction, or add decoration. If the pass reveals that the direction itself is
@@ -65,6 +68,8 @@ Ask:
 - Is restraint doing real work, or is it hiding an absent point of view?
 - Is boldness doing real work, or is it compensating for weak hierarchy and
   content?
+- For product UI, does navigation, data presentation, or workflow structure
+  reflect the product domain, or could the same shell fit any dashboard?
 
 Product UI can pass this gate by being extremely clear and quiet. Brand UI can
 pass by being memorable. Content-heavy UI can pass by being unusually readable
@@ -88,6 +93,9 @@ Check:
   when they do not serve the primary action.
 - Font choices do not require unnecessary weights, families, or blocking loads.
 - The interface remains usable on slower mobile devices and weaker connections.
+- Large client-rendered lists, tables, feeds, or search results are virtualised,
+  paginated, or progressively loaded before they threaten scroll or input
+  responsiveness.
 
 If performance risk is visible in the design itself, fix the design decision.
 If performance risk depends on implementation details, measure before and after
@@ -108,6 +116,30 @@ Verify:
 - Motion behaviour with `prefers-reduced-motion`.
 - Screenshots or browser inspection when a dev server or static preview is
   available.
+
+## Code-Level Web Checks
+
+Run these checks when reviewing implementation code, especially React, Next.js,
+Vue, Svelte, or plain HTML/CSS:
+
+- Use `<button>` for actions and `<a>`/router links for navigation. Do not use
+  clickable `<div>`/`span` elements for primary interaction.
+- Icon-only controls have accessible names; decorative icons are hidden from
+  assistive technology.
+- Form inputs have `label`, meaningful `name`, appropriate `type`,
+  `autocomplete`, and `inputmode`. Do not block paste.
+- Async validation, save status, background work, and toast messages use local
+  feedback and `aria-live` when screen reader users need the update.
+- Text containers handle long content with wrapping, `min-width: 0` in flex/grid
+  children, or deliberate truncation with a path to the full value.
+- Dates, times, numbers, and currencies use `Intl.*` APIs rather than hardcoded
+  formatting.
+- Animations list properties explicitly; avoid `transition: all`, layout
+  animation, and non-interruptible effects.
+- URL state reflects tabs, filters, pagination, selected records, and expanded
+  panels when users need shareable or restorable UI state.
+- Dark themes set `color-scheme`; browser UI such as form controls and
+  scrollbars should not fight the theme.
 
 Do not treat a clean automated check as proof of visual quality. Automated
 checks catch measurable defects; rendered inspection catches whether the UI

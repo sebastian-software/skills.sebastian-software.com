@@ -14,7 +14,7 @@ Base design decisions on risk - the risk that someone could have difficulty usin
 
 **Guidelines:**
 - Consider people with poor eyesight, low computer literacy, reduced dexterity and cognitive ability
-- Meet WCAG 2.1 level AA requirements as minimum
+- Meet WCAG 2.2 level AA requirements as minimum
 - Keep an eye out for potential usability risks
 - If anything is slightly vague, confusing or unclear - simplify it
 
@@ -204,7 +204,7 @@ Design interfaces that can be used by everyone, regardless of disability.
 
 **Key principles:**
 - Provide comparable experience for all
-- Meet WCAG 2.1 level AA as minimum
+- Meet WCAG 2.2 level AA as minimum
 - Include people with disabilities in usability testing
 
 ### Use Semantic HTML
@@ -310,7 +310,7 @@ The `tabindex="-1"` on the target element ensures browsers move focus there when
 
 ### Never Disable Zoom
 
-Setting `user-scalable=no` or `maximum-scale=1` on the viewport meta tag prevents users from zooming in. This violates WCAG 2.1 Success Criterion 1.4.4 (Resize Text, Level AA) and makes the interface unusable for people with low vision.
+Setting `user-scalable=no` or `maximum-scale=1` on the viewport meta tag prevents users from zooming in. This violates WCAG Success Criterion 1.4.4 (Resize Text, Level AA) and makes the interface unusable for people with low vision.
 
 ```html
 <!-- Never do this -->
@@ -440,6 +440,41 @@ Browsers that support `:focus-visible` automatically suppress focus rings on mou
 - Offset from element (not inside it)
 - Consistent across all interactive elements
 
+### Keep Focus Visible and Unobscured
+
+WCAG 2.2 adds explicit focus visibility expectations. When keyboard focus moves
+to an element, sticky headers, bottom bars, drawers, popovers, or floating
+toolbars must not fully cover it.
+
+Use `scroll-margin-*` on headings, form fields, and interactive targets that can
+receive focus via skip links, validation jumps, deep links, or route changes:
+
+```css
+:target,
+:focus {
+  scroll-margin-block-start: var(--sticky-header-offset, 80px);
+  scroll-margin-block-end: var(--sticky-footer-offset, 64px);
+}
+```
+
+If a component opens an overlay, focus must move into it and return to the
+trigger when it closes. If a component scrolls to an error, move focus to the
+first actionable error field, not only to a summary message.
+
+### Provide Alternatives for Dragging
+
+Any critical action that can be performed by dragging must also have a visible
+single-pointer or keyboard alternative:
+
+- Sortable rows: provide move up/down controls or a reorder menu.
+- Sliders: provide an input field or stepper when exact values matter.
+- Swipe actions: provide a visible button, menu item, or inline action.
+- Canvas interactions: provide a panel, list, or keyboard commands for the same
+  operation.
+
+Drag can be a convenience, but it must not be the only path to complete the
+task.
+
 ### Keyboard Navigation in Composite Widgets
 
 Composite widgets — tab bars, toolbars, menu bars, listboxes, tree views — should act as a single Tab stop. Users press Tab to reach the widget, then use arrow keys to move between items within it. This is the roving tabindex pattern defined in the WAI-ARIA Authoring Practices Guide (APG).
@@ -518,6 +553,26 @@ work. The interface should feel responsive, not performed.
 Brand and campaign surfaces can use more expressive motion when motion carries
 the story. Product surfaces need restraint because users repeat the same actions
 many times.
+
+### CSS Keyframe Motion Discipline
+
+CSS keyframes are best for simple, local motion: a one-element entrance, a
+finite shimmer, a mask reveal, a subtle glow, or a background motif. Use a
+timeline library or View Transitions when the motion coordinates multiple
+elements, depends on gestures, or needs interruption control.
+
+Rules:
+
+- Prefer finite durations and iteration counts. Avoid infinite loops in product
+  UI unless the animation communicates ongoing progress and respects reduced
+  motion.
+- Use `animation-fill-mode: both` when an element must hold its before/after
+  state.
+- Do not make critical state depend on hover-triggered animations, delayed class
+  toggles, or wall-clock JavaScript.
+- List animated properties explicitly. Never use `transition: all`.
+- Keep render-critical motion deterministic: the element should have a valid
+  default state even if animation does not run.
 
 **Questions to justify an animation:**
 - Does it show the user where information came from or went to?

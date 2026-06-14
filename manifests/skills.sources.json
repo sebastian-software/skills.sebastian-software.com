@@ -1,12 +1,6 @@
 {
   "internal": [
     {
-      "id": "s7n-forschungszulage",
-      "repo": "https://github.com/sebastian-software/forschungszulage-skill",
-      "ref": "main",
-      "path": "."
-    },
-    {
       "id": "s7n-ui-design",
       "repo": "https://github.com/sebastian-software/effective-ui-design-skill",
       "ref": "main",
@@ -32,6 +26,55 @@
     }
   ],
   "external": [
+    {
+      "id": "antfu-skills",
+      "type": "git",
+      "repo": "https://github.com/antfu/skills.git",
+      "ref": "main",
+      "vendor": true,
+      "include": [
+        {
+          "path": "skills/vitest",
+          "name": "vitest",
+          "installName": "antfu-vitest",
+          "rename": "source-prefix"
+        }
+      ]
+    },
+    {
+      "id": "get-convex-agent-skills",
+      "type": "git",
+      "repo": "https://github.com/get-convex/agent-skills.git",
+      "ref": "main",
+      "vendor": true,
+      "include": [
+        {
+          "path": "skills/convex-quickstart",
+          "name": "convex-quickstart",
+          "installName": "convex-quickstart"
+        },
+        {
+          "path": "skills/convex-setup-auth",
+          "name": "convex-setup-auth",
+          "installName": "convex-setup-auth"
+        },
+        {
+          "path": "skills/convex-create-component",
+          "name": "convex-create-component",
+          "installName": "convex-create-component"
+        },
+        {
+          "path": "skills/convex-migration-helper",
+          "name": "convex-migration-helper",
+          "installName": "convex-migration-helper"
+        },
+        {
+          "path": "skills/convex-performance-audit",
+          "name": "convex-performance-audit",
+          "installName": "convex-performance-audit"
+        }
+      ]
+    },
     {
       "id": "marketingskills",
       "type": "git",

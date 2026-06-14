@@ -1,0 +1,19 @@
+{
+  "evals": [
+    {
+      "name": "choose-visual-layer",
+      "prompt": "This React app has Vitest unit tests and Playwright E2E tests, but CSS refactors keep breaking production. Propose what tests to add.",
+      "expected": "Recommends Storybook/component state coverage plus visual regression instead of more brittle DOM assertions."
+    },
+    {
+      "name": "harden-codegen",
+      "prompt": "Use Playwright codegen output to create a maintainable checkout smoke test.",
+      "expected": "Treats generated code as a draft, improves locators, removes incidental waits, scopes assertions to the user goal, and keeps the flow small."
+    },
+    {
+      "name": "stabilize-visual-test",
+      "prompt": "A visual regression test flakes across macOS laptops and Linux CI.",
+      "expected": "Diagnoses environment and dynamic rendering differences, recommends stable browser/container/font setup, masking, disabled animations, and intentional thresholds."
+    }
+  ]
+}
