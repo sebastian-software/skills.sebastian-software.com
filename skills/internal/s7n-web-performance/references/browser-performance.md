@@ -15,6 +15,9 @@ Use measured browser behavior to guide performance changes. Prioritize fixes tha
 - Keep responsive image variants pragmatic. Too few waste bytes; too many increase storage, generation work, and CDN cache fragmentation.
 - Choose placeholder techniques such as blur-up, BlurHash, LQIP, or traced previews only after image sizing, compression, cache behavior, and LCP discovery are correct.
 - Use Server-Timing or equivalent instrumentation when frontend symptoms may be caused by backend/rendering latency.
+- For interaction-heavy tools, reduce perceived latency with local reads, optimistic writes, durable retry queues, and narrowly subscribed UI updates before chasing micro-optimizations.
+- Keep high-frequency workflows keyboard-accessible and command-driven where appropriate; path length is part of perceived performance.
+- Animate only when motion clarifies state or spatial origin. Prefer `transform` and `opacity`, keep durations short, and avoid layout-triggering properties in dense task surfaces.
 
 ## Performance Review Checklist
 
@@ -24,6 +27,10 @@ Use measured browser behavior to guide performance changes. Prioritize fixes tha
 - Are media dimensions, aspect ratios, and skeletons reserving stable space before content arrives?
 - Are cache headers, `stale-while-revalidate`, and CDN behavior aligned with product freshness expectations?
 - Are placeholders smaller than the problem they solve, cacheable where appropriate, and not delaying real image discovery?
+- Do interaction-heavy flows show immediate local feedback without waiting for network confirmation?
+- Are live updates scoped to the components and fields that changed rather than causing broad list or page re-renders?
+- Do keyboard shortcuts, command palettes, or focused interaction paths reduce repeated task cost without hiding mouse/touch alternatives?
+- Are state transitions limited to composited or paint-only properties, with layout-property animation avoided in long lists and dense work surfaces?
 - Is the optimization verified with before/after evidence from browser tooling or production metrics?
 
 ## Source-Backed Guidance
@@ -106,3 +113,12 @@ Use measured browser behavior to guide performance changes. Prioritize fixes tha
 - Target: `network-performance`
 - URL recheck: 2026-06-13, HTTP 200
 - Guidance: Retarget to web performance: inline previews, BlurHash, Sharp, and Lambda concern image loading UX.
+
+### How's Linear so fast? A technical breakdown
+
+- Things ID(s): not provided
+- Source: <https://performance.dev/how-is-linear-so-fast-a-technical-breakdown?ref=labnotes.org>
+- Decision: `secondary`
+- Target: `browser-performance`
+- URL recheck: 2026-06-14, HTTP 200, canonical https://performance.dev/how-is-linear-so-fast-a-technical-breakdown
+- Guidance: Secondary for browser-performance with UI-design and motion-interaction cross-references: useful product-app performance case study on local-first data, IndexedDB-backed initial loads, optimistic mutations, durable retry queues, granular observable updates, keyboard-first workflows, command palettes, and restrained animation. Treat as implementation context and decision vocabulary, not as a mandate to use MobX or duplicate Linear's architecture.
