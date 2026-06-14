@@ -1,72 +1,33 @@
-# Source Review Workflow
+# Source Review Principle
 
-Use Things as the operational queue and this repository as the durable record of
-what actually changed in the skills.
+Things links are an input channel, not durable project content.
 
-The current rule is: **process one canonical Things link at a time and update
-the relevant skill or decision log directly**. Do not create new source cards or
-cluster briefs for routine intake work.
+When a source is useful, fold the reusable rule, checklist item, caveat, or
+implementation guidance into the relevant skill under `skills/`. Keep only a
+small source metadata block next to the rule when provenance matters.
 
-## Current Workflow
+When a source is not useful enough to change a skill, leave it out of the
+repository. The repository should not preserve intake queues, copied link
+archives, generated Things reports, or bulk triage notes.
 
-1. Open the Things link and verify what is behind it.
-2. Read the existing target skill/reference before deciding.
-3. Choose one outcome:
-   - `Candidate`: update or create the relevant skill/reference.
-   - `Deferred`: record only a compact decision if the source may matter later.
-   - `Rejected`: record only a compact decision when auditability is useful.
+## Current Rule
+
+Process links one at a time:
+
+1. Verify the source.
+2. Read the target skill/reference.
+3. Update the skill only if the source improves repeatable agent behavior.
 4. Commit the source-specific change.
-5. Mark the Things item reviewed and complete only after the commit exists.
-
-Prefer one commit per canonical Things link. Exact duplicate Things items should
-be handled in the canonical source commit rather than receiving empty commits.
+5. Keep operational state in Things, not in this repository.
 
 ## Commit Metadata
 
-Every source-processing commit should include:
+For source-processing commits, include:
 
 ```text
-Things-ID: <id or comma-separated ids>
+Things-ID: <id, or not provided>
 Source: <url>
 Decision: primary|secondary|ignored|deferred|rejected
-Target: <skill/reference or decision log>
+Target: <skill/reference>
 URL-Recheck: <date and result>
 ```
-
-## Decision Bar
-
-Interesting is not enough. A source should affect a skill only when it improves
-a repeatable agent workflow, rule, checklist, caveat, or implementation
-decision.
-
-Prefer:
-
-- official documentation and standards-facing references,
-- durable explanatory articles,
-- high-quality implementation guides,
-- sources that explain tradeoffs, failure modes, or decision criteria.
-
-Treat package-shopping links, GitHub repositories, product homepages, release
-announcements, stale news, and social posts conservatively. Route them to
-`processed-decisions.md` as deferred or rejected unless they contain durable
-workflow guidance.
-
-## Things Tags
-
-When applying the final Things decision:
-
-- add `Skill Archive Reviewed`,
-- remove `Skill Archive Intake`,
-- add exactly one final tag: `Skill Archive Candidate`,
-  `Skill Archive Deferred`, or `Skill Archive Rejected`,
-- keep broad category tags such as `Skill: Frontend UI` for auditability,
-- complete the Things item after the matching commit exists.
-
-## Files
-
-- `processed-decisions.md` -- compact log for handled links that should not
-  become skill/reference content.
-- `archive/2026-06-things-import/` -- preserved historical intake, queue,
-  cluster, second-pass, and candidate-map artifacts from the June 2026 import.
-- `things-actions.md` and `scripts/apply_things_actions.py` -- optional helper
-  format and script for bulk-retagging Things after reviewed decisions exist.

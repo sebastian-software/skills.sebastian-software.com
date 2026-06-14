@@ -3,5 +3,6 @@ coverage/
 dist/
 **/dist/
 reports/
+__pycache__/
 *.tgz
 .DS_Store
