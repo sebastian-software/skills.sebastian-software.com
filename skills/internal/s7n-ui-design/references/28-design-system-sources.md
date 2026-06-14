@@ -8,6 +8,21 @@ Use this reference for source-backed design-system decisions that cut across col
 - Use modern theme primitives only when fallback and browser-support behavior are understood.
 - Treat SVG, masks, clipping, filters, and backdrop effects as interface clarity tools, not default decoration.
 - Check contrast, forced-colors behavior, reduced visual complexity, and performance before adopting visual effects.
+- Define color pairs, not isolated colors. Every brand, surface, status, and accent token needs known foreground, border, focus, hover, active, disabled, and forced-colors behavior.
+- Use OKLCH, relative color syntax, and `color-mix()` for token derivation when they improve consistency; guard support and manually verify contrast for midtones and state colors.
+- Use `light-dark()` with `color-scheme` for simple system-theme tokens, but keep explicit theme architecture when products need user-selected themes or cross-brand variants.
+- Treat `contrast-color()` as a convenience for simple black/white foreground choices, not an accessibility guarantee.
+- Prefer inline SVG or a deliberate SVG delivery system for icons that need `currentColor`, CSS state styling, accessibility control, or design-system theming.
+- Use masks, clipping, backdrop filters, glass, grain, and SVG filters only when the effect improves hierarchy or media integration. Do not let effects reduce text contrast or make controls depend on unknown backgrounds.
+
+## Token Review Checklist
+
+- Does every semantic token have a role, not just a visual name?
+- Are derived colors checked in light mode, dark mode, hover/focus/active states, disabled states, and forced-colors mode?
+- Do gradients, transitions, and `color-mix()` operations use a color space that avoids muddy interpolation?
+- Can the icon system inherit text color, align to type, expose labels, and avoid duplicated sprite/runtime complexity?
+- Are visual effects optional layers with fallbacks, or does meaning depend on masking/filtering/translucency?
+- Are wide-gamut/P3 colors and modern color functions support-gated for the product's browser baseline?
 
 ## Source-Backed Guidance
 
@@ -246,3 +261,20 @@ Use this reference for source-backed design-system decisions that cut across col
 - URL recheck: 2026-06-13, HTTP 200
 - Guidance: Retarget to design-system icon delivery: SVG icon systems belong with visual assets.
 
+### CSS Color functions are here!
+
+- Things ID(s): `ABmLQ3YmgL1jo327ToQeEc`
+- Source: <https://m.youtube.com/watch?v=7Hfq6i94FwE>
+- Decision: `secondary`
+- Target: `design-system`
+- Transcript extraction: 2026-06-14, 202 words
+- Guidance: Use as lightweight feature-radar support for modern CSS color functions. Keep detailed token rules grounded in primary color-function and contrast sources.
+
+### Modern CSS Theming - Light Mode / Dark Mode and More!
+
+- Things ID(s): `HqysXLoFPaC5WRu9dvAF8E`
+- Source: <https://m.youtube.com/watch?v=F1s8MZoGVL8>
+- Decision: `secondary`
+- Target: `design-system`
+- Transcript extraction: 2026-06-14, 6,000 words
+- Guidance: Use as practical theming architecture context for CSS custom properties, light/dark mode, and local theme overrides. Prefer semantic tokens, explicit cascade ownership, and support-aware use of `color-scheme` / `light-dark()`.

@@ -8,6 +8,20 @@ Use this reference for source-backed typography decisions: readable measure, wra
 - Use modern wrapping tools on short headings and compact labels only when they improve scannability.
 - Use fluid sizing with zoom and user preferences in mind.
 - Align icons, decoration, and local spacing to the type context rather than to arbitrary pixels.
+- Use `rem` for global scale decisions and `em`/font-relative units for local component relationships such as icon size, padding, inline gaps, badges, and decorations.
+- Prefer `clamp()`-based fluid type within bounded ranges; avoid unbounded viewport-unit type that ignores zoom, user preferences, or narrow/large extremes.
+- Use `text-wrap: balance` for short headings, card titles, tooltips, modal headings, and FAQs. Do not apply it blindly to long body text or performance-sensitive large blocks.
+- Use text-box trimming, cap units, and hanging punctuation as polish only when support and fallback behavior are acceptable for the product.
+- For editorial or CMS content, define vertical rhythm from semantic structure rather than arbitrary spacing after every element.
+
+## Typography Review Checklist
+
+- Are type sizes bounded at minimum and maximum values, and do they still work at browser zoom?
+- Is the line length readable for the content type, especially when media or full-bleed layouts are present?
+- Do icons, counters, badges, and inline controls align to the font metrics rather than arbitrary pixel centers?
+- Are heading wraps intentional, balanced, and still searchable/copyable text?
+- Does long-form content keep rhythm across headings, paragraphs, lists, quotes, figures, and first/last child edges?
+- Are newer text metrics features guarded or treated as progressive enhancement?
 
 ## Source-Backed Guidance
 
@@ -120,4 +134,3 @@ Use this reference for source-backed typography decisions: readable measure, wra
 - Target: `typography`
 - URL recheck: 2026-06-13, HTTP 200
 - Guidance: Use base-element unit source as typography/unit radar; verify support before rules.
-

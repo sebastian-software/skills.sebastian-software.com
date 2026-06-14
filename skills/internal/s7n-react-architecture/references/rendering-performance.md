@@ -51,3 +51,20 @@ Optimize React rendering by finding the actual source of work before adding memo
 - URL recheck: 2026-06-13, HTTP 200
 - Guidance: Duplicate/supporting useDeferredValue source for rendering responsiveness.
 
+### React Compiler: It's Stranger Than You Think
+
+- Things ID(s): `57vJhjeocJ8yQmaYmaFntU`
+- Source: <https://m.youtube.com/watch?v=wnXGSwrOw80>
+- Decision: `secondary`
+- Target: `rendering`
+- Transcript extraction: 2026-06-14, 6,289 words
+- Guidance: Use as React Compiler mental-model and caveat material. Treat the compiler as a rendering optimization aid, not a substitute for clear state ownership, stable component boundaries, or measuring actual render work.
+
+### What's next for the React Compiler?
+
+- Things ID(s): `LZS2D9BTTAWTfcQ1sKc4PY`
+- Source: <https://m.youtube.com/watch?v=qd5yk2gxbtg>
+- Decision: `secondary`
+- Target: `rendering`
+- Transcript extraction: 2026-06-14, 2,800 words
+- Guidance: Use as React Compiler roadmap/radar context only. Verify current React/compiler docs before changing lint rules, memoization policy, or build assumptions.

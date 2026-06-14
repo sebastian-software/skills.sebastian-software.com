@@ -9,6 +9,19 @@ Use semantic HTML, native behavior, visible focus, keyboard access, and assistiv
 - Keep focus visible, predictable, and returned to a logical place after dialogs, popovers, disclosures, and route changes.
 - Make interactive targets large enough for touch and pointer use, and do not infer input mode from viewport width alone.
 - Test keyboard and screen-reader behavior for every custom or composite widget.
+- Let HTML carry meaning before adding JavaScript: use landmarks, headings, labels, captions, explicit link purposes, and native form controls as the baseline.
+- Preserve browser assistance. Use accurate `type`, `name`, `autocomplete`, `inputmode`, and `enterkeyhint`; avoid disabling autocomplete or paste unless the value is genuinely temporary or sensitive.
+- Delay validation until the user has had a fair chance to answer. Prefer `:user-valid` / `:user-invalid`, clear recovery copy, and submit-time validation over premature red error states.
+- Keep visible focus as a design token, not an afterthought: standardize outline color, width, offset, dark-mode behavior, and forced-colors behavior across links, buttons, inputs, `summary`, and custom triggers.
+
+## Application Checklist
+
+- Native first: can a `button`, `a`, `label`, `input`, `select`, `details`, `dialog`, `table`, or landmark solve the job without a custom role?
+- Name and purpose: does every control have a stable accessible name, and does every link/button text explain the action or destination?
+- Focus path: can keyboard users enter, operate, dismiss, and leave the pattern without losing context?
+- Form help: do fields expose input purpose to the browser and allow password managers, autofill, paste, and mobile keyboard optimization?
+- Feedback: are validation, async save, toast, and route-change updates announced only when announcement helps the user?
+- Input mode: are touch, hover, pointer precision, and target sizes based on actual input capabilities rather than viewport assumptions?
 
 ## Source-Backed Guidance
 
@@ -75,4 +88,3 @@ Use semantic HTML, native behavior, visible focus, keyboard access, and assistiv
 - Target: `core-html-a11y`
 - URL recheck: 2026-06-13, HTTP 200
 - Guidance: Secondary for html-accessibility/content-semantics: small semantic HTML pattern for explicit tel: links as call-to-action phone numbers, international phone formatting, not relying on auto-detection, and only disabling iOS telephone auto-detection intentionally when custom markup/styling is provided; old/narrow source, not primary.
-

@@ -1,0 +1,67 @@
+ObjC.import("Foundation");
+
+function privateData(properties) {
+  try {
+    return JSON.parse(properties._private_experimental_Json || "{}");
+  } catch (error) {
+    return {};
+  }
+}
+
+function run(argv) {
+  if (!argv.length) {
+    throw new Error("Usage: osascript -l JavaScript scripts/export-things-open-items.jxa /path/to/output.json");
+  }
+
+  const outputPath = argv[0];
+  const things = Application("Things3");
+  const memberships = new Map();
+
+  for (const list of things.lists()) {
+    const listName = list.name();
+    if (listName === "Logbuch" || listName === "Papierkorb") {
+      continue;
+    }
+
+    for (const toDo of list.toDos()) {
+      const properties = toDo.properties();
+      const existing = memberships.get(properties.id) || [];
+      existing.push(listName);
+      memberships.set(properties.id, existing);
+    }
+  }
+
+  const items = things.toDos().map((toDo) => {
+    const properties = toDo.properties();
+    const data = privateData(properties);
+
+    return {
+      id: properties.id,
+      name: properties.name || "",
+      notes: properties.notes || "",
+      status: properties.status || data.status || "",
+      tags: properties.tagNames || data.tagNames || "",
+      area: data.area ? data.area.name : "",
+      project: data.project ? data.project.name : "",
+      lists: memberships.get(properties.id) || [],
+      created: properties.creationDate ? properties.creationDate.toISOString() : data.creationDate || "",
+      modified: properties.modificationDate ? properties.modificationDate.toISOString() : data.modificationDate || "",
+      due: properties.dueDate ? properties.dueDate.toISOString() : "",
+      activation: properties.activationDate ? properties.activationDate.toISOString() : "",
+    };
+  });
+
+  const payload = {
+    exportedAt: new Date().toISOString(),
+    source: "Things3 JXA read-only export, open to-dos only; Logbuch and Papierkorb ignored",
+    items,
+  };
+
+  const json = JSON.stringify(payload, null, 2);
+  const ok = $(json).writeToFileAtomicallyEncodingError(outputPath, true, $.NSUTF8StringEncoding, null);
+  if (!ok) {
+    throw new Error(`Could not write ${outputPath}`);
+  }
+
+  return `${items.length}\t${json.length}`;
+}

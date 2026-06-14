@@ -9,6 +9,32 @@ Build components as durable interface primitives: semantic DOM first, clear stat
 - Expose state through real DOM state, attributes, data attributes, and custom properties instead of hidden implementation details.
 - Define disabled, loading, empty, error, success, hover, focus, active, reduced-motion, high-contrast, and translated-text behavior.
 - Keep component APIs portable across plain HTML/CSS, React, and Web Components unless framework specifics are required.
+- Use low-level primitives for behavior and composition; keep visual styling and app-specific policy layered above them.
+- Prefer configurable CSS APIs over prop explosions: custom properties, data attributes, parts/slots, and semantic child structure scale better than many one-off visual props.
+- Derive parent/container styling from real child state with `:has()`, `:focus-visible`, `:checked`, `aria-expanded`, data attributes, or form validity instead of replacing semantic children with fake wrappers.
+- For floating UI, separate three decisions: trigger semantics, positioning/collision strategy, and dismissal/focus behavior. Anchor positioning can solve placement, but it does not solve accessibility by itself.
+- Before building custom select, switch, accordion, dialog, tooltip, menu, tabs, or navigation, check whether current native elements plus progressive enhancement meet the requirement.
+- Preserve structural affordances in high contrast mode. Hide optional borders with transparent colors rather than deleting borders/outlines that carry layout or recognizability.
+
+## Component Pattern Rules
+
+- **Buttons and links:** choose by outcome, not appearance. Buttons mutate state; links navigate. Keep `type="button"` explicit for non-submit buttons inside forms.
+- **Switches and checkboxes:** keep the real input in the DOM, associate a visible label, and style from checked/focus/disabled state.
+- **Accordions/disclosures:** use `details`/`summary` where the interaction model fits; consider `details name` for exclusive sections, but avoid exclusive accordions when users need comparison.
+- **Dialogs:** prefer native `dialog.showModal()` when suitable; still specify initial focus, focus return, Escape/close affordance, scroll locking, and background interaction behavior.
+- **Tooltips/popovers:** use `aria-describedby` or popover semantics intentionally; support keyboard/touch dismissal and test collision, overflow, reduced motion, and viewport edges.
+- **Selects/comboboxes:** evaluate customizable native `select` before custom comboboxes; test mobile picker behavior, fallback parsing, width, option content, and form submission.
+- **Navigation:** keep a semantic nav baseline with reachable links before adding disclosure, priority-plus, or burger behavior. JS enhances organization; it should not create the only path.
+- **Treeviews and nested lists:** reserve affordance space, calculate indentation through CSS variables/logical properties, and support LTR/RTL without fragile selector chains.
+
+## Review Checklist
+
+- Does the component still work with no JavaScript or with delayed JavaScript where that is reasonable?
+- Are visual states connected to real semantic state rather than duplicate hidden state?
+- Can the component be translated, zoomed, used with touch, used with keyboard, and used in forced-colors mode?
+- Does the parent layout control external spacing while the component controls only its internal rhythm?
+- Are optional visual effects, animation, and masking removable without losing meaning?
+- Are the component's escape hatches documented: slots, `className`, CSS variables, data attributes, refs, and event callbacks?
 
 ## Source-Backed Guidance
 
@@ -243,4 +269,3 @@ Build components as durable interface primitives: semantic DOM first, clear stat
 - Target: `component-development`
 - URL recheck: 2026-06-13, HTTP 200
 - Guidance: Use no-UI-framework source as component/platform decision context.
-

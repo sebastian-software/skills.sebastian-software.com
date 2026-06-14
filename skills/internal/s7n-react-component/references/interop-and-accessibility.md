@@ -35,3 +35,11 @@ Use React libraries and platform interop as implementation tools, not as permiss
 - URL recheck: 2026-06-13, HTTP 200, redirects to https://react-aria.adobe.com/
 - Guidance: Use React Aria Components as primary interop/accessibility infrastructure reference, while still requiring product-specific labels and states.
 
+### Goodbye, forwardRef
+
+- Things ID(s): `DDiUYHKpVPG5Za3Zx8EpnC`
+- Source: <https://m.youtube.com/watch?v=m4QbeS9BTNU>
+- Decision: `secondary`
+- Target: `react-interop`
+- Transcript extraction: 2026-06-14, 3,059 words
+- Guidance: Use as React ref API change/radar context. Keep refs as explicit imperative escape hatches for focus, measurement, animation, and third-party interop; verify the current React version before changing public component APIs.

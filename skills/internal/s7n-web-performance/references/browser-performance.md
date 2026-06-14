@@ -10,6 +10,21 @@ Use measured browser behavior to guide performance changes. Prioritize fixes tha
 - Reserve media and widget space to avoid avoidable CLS.
 - Use cache freshness directives deliberately; stale content can improve perceived speed only when the product can tolerate the freshness model.
 - Treat placeholder techniques as perceived-performance tools, not substitutes for correct image delivery.
+- Do not hide startup resources behind JavaScript, `data-src`, client-only rendering, or CSS backgrounds unless there is a deliberate preload/discovery plan.
+- Use `fetchpriority="high"` narrowly for the actual likely LCP image; avoid broad preload/fetchpriority use that competes with CSS, fonts, or scripts.
+- Keep responsive image variants pragmatic. Too few waste bytes; too many increase storage, generation work, and CDN cache fragmentation.
+- Choose placeholder techniques such as blur-up, BlurHash, LQIP, or traced previews only after image sizing, compression, cache behavior, and LCP discovery are correct.
+- Use Server-Timing or equivalent instrumentation when frontend symptoms may be caused by backend/rendering latency.
+
+## Performance Review Checklist
+
+- Is the LCP element known from measurement, not guessed?
+- Is the LCP image or text discoverable in initial HTML, correctly sized, and not lazy-loaded?
+- Do `srcset` and `sizes` match rendered layout across viewport/container states?
+- Are media dimensions, aspect ratios, and skeletons reserving stable space before content arrives?
+- Are cache headers, `stale-while-revalidate`, and CDN behavior aligned with product freshness expectations?
+- Are placeholders smaller than the problem they solve, cacheable where appropriate, and not delaying real image discovery?
+- Is the optimization verified with before/after evidence from browser tooling or production metrics?
 
 ## Source-Backed Guidance
 
@@ -91,4 +106,3 @@ Use measured browser behavior to guide performance changes. Prioritize fixes tha
 - Target: `network-performance`
 - URL recheck: 2026-06-13, HTTP 200
 - Guidance: Retarget to web performance: inline previews, BlurHash, Sharp, and Lambda concern image loading UX.
-

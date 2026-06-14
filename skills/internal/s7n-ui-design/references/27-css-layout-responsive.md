@@ -9,6 +9,22 @@ Use CSS layout algorithms deliberately. Grid, Flexbox, Subgrid, container querie
 - Use Subgrid when nested children need to align with ancestor tracks without flattening semantic markup.
 - Use container queries for reusable components that must respond to actual container size.
 - Use anchor positioning for suitable floating UI, while keeping semantics, collision behavior, and fallback behavior separate.
+- Start from the layout algorithm. `width`, `min-width`, `z-index`, alignment, and intrinsic sizing behave differently in Flow, Flexbox, Grid, Positioned, and Table layout.
+- Use `gap` for component and layout rhythm when the parent owns spacing; use margin intentionally for document/content flow and optically special cases.
+- Use full-bleed/grid wrapper patterns when readable text and breakout media must coexist without wrapper sprawl.
+- Use quantity queries, `:has()`, container query units, and `@supports` fallbacks for content-aware sections instead of brittle breakpoint-only layouts.
+- Use `min-width: 0`, intrinsic sizing constraints, and explicit aspect ratios defensively in cards, grids, media, and overflow-prone components.
+- Treat new primitives such as `round()`, multi-column wrapping features, `@scope`, and style queries as support-gated enhancements until the target browser baseline is verified.
+
+## Layout Selection Guide
+
+- **Flow:** best for documents, editorial content, natural vertical rhythm, and text-first pages.
+- **Flexbox:** best for one axis, unknown item sizes, toolbar/button rows, inline clusters, and content-driven wrapping.
+- **Grid:** best for two-dimensional control, dashboards, page sections, card mosaics, full-bleed wrappers, and explicit alignment.
+- **Subgrid:** best when nested markup must inherit card/list/form/editorial tracks while keeping semantic structure intact.
+- **Container queries:** best for reusable components embedded in sidebars, cards, split panes, and CMS regions where viewport breakpoints are misleading.
+- **Anchor positioning:** best for tooltips, callouts, popovers, onboarding highlights, and floating UI that should be tied to a trigger without custom JS geometry.
+- **Multi-column:** best for continuous editorial content, not interactive card grids; verify fragmentation, reading order, and support before using newer wrapping controls.
 
 ## Source-Backed Guidance
 
@@ -211,3 +227,83 @@ Use CSS layout algorithms deliberately. Grid, Flexbox, Subgrid, container querie
 - URL recheck: 2026-06-13, HTTP 200
 - Guidance: Secondary for css-layout-responsive: concise practical subgrid example for aligning headings/summaries across responsive cards and understanding gap inheritance; useful companion to broader subgrid primary sources.
 
+### The Next Big Thing in CSS: margin-trim!
+
+- Things ID(s): `FWD8wR32NM1oPbGAt8s7yB`
+- Source: <https://m.youtube.com/watch?v=UE01cIWJBko>
+- Decision: `secondary`
+- Target: `css-layout-responsive`
+- Transcript extraction: 2026-06-14, 607 words
+- Guidance: Use as `margin-trim` feature radar and spacing-model context: it can simplify first/last-child edge trimming in stacks and sections, but keep it support-gated and subordinate to the broader parent-owned spacing rule.
+
+### Modern CSS, the state of the web, Safari's progress, and more! With Jen Simmons
+
+- Things ID(s): `PyHcUTT5X6yRruxphcvkW`
+- Source: <https://m.youtube.com/watch?v=nn3vYS_msc0>
+- Decision: `secondary`
+- Target: `css-layout-responsive` plus `baseline`
+- Transcript extraction: 2026-06-14, 18,755 words
+- Guidance: Use as platform-radar context for current CSS/web platform progress, not as narrow implementation guidance. When it changes a rule, verify against Baseline/current browser docs first.
+
+### 5 super useful CSS properties that don't get enough attention
+
+- Things ID(s): `E6cJqR9gdX9zXB2M2sWn62`
+- Source: <https://m.youtube.com/watch?v=o1HzOJfgugE>
+- Decision: `secondary`
+- Target: `css-layout-responsive`
+- Transcript extraction: 2026-06-14, 3,864 words
+- Guidance: Use as practical CSS property radar. Treat individual properties as prompts for support checks and focused docs before adding production rules.
+
+### Animate HTML Details & Summary Elements Using Pure CSS
+
+- Things ID(s): `r2LD3cjRvwKCXR4oP6UGx`
+- Source: <https://m.youtube.com/watch?v=idoaw75xjhU>
+- Decision: `secondary`
+- Target: `component-development` plus `css-layout-responsive`
+- Transcript extraction: 2026-06-14, 2,781 words
+- Guidance: Use as implementation context for progressively enhancing native `details`/`summary` interactions with CSS. Preserve native disclosure semantics, focus behavior, reduced-motion handling, and support fallbacks.
+
+### Direction-aware effects using modern CSS
+
+- Things ID(s): `5DTLXCrFAxCybKj8EX2A7Y`, `AiDyyLTCCvdTkE8FnL27eN`
+- Source: <https://m.youtube.com/watch?v=gnQPS0hogkE>, <https://m.youtube.com/watch?v=G_h2pGZcOzc>
+- Decision: `secondary`
+- Target: `css-layout-responsive` plus `component-development`
+- Transcript extraction: 2026-06-14, 2,062 and 4,479 words
+- Guidance: Use as examples of deriving directional/hover effects from CSS state and geometry. Keep effects decorative, pointer-gated, keyboard-safe, and nonessential to understanding or operating the component.
+
+### CSS Tips - Practical img Element Defaults
+
+- Things ID(s): `FkqraCkn7VSM8efGXRwaiJ`
+- Source: <https://m.youtube.com/watch?v=mA-FxOYlpCs>
+- Decision: `secondary`
+- Target: `css-layout-responsive` plus `web-performance`
+- Transcript extraction: 2026-06-14, 1,284 words
+- Guidance: Use as practical image-default context: image display, sizing, aspect-ratio, and overflow defaults should support stable layout and responsive media without fighting semantic `img` behavior.
+
+### CSS Variable Secrets
+
+- Things ID(s): `NtTiMDV9cMsYxRGVTGHtf2`
+- Source: <https://m.youtube.com/watch?v=ZuZizqDF4q8>
+- Decision: `secondary`
+- Target: `css-layout-responsive` plus `design-system`
+- Transcript extraction: 2026-06-14, 9,860 words
+- Guidance: Use as advanced custom-property context for theming, local layout math, state-derived values, and API design. Prefer clear semantic custom properties over clever cascading that hides ownership.
+
+### How to Create Stunning Slanted Containers with CSS
+
+- Things ID(s): `PTU9nMeKg769JZ3xDku5B`
+- Source: <https://m.youtube.com/watch?v=emP8tWHtpwk>
+- Decision: `secondary`
+- Target: `css-layout-responsive`
+- Transcript extraction: 2026-06-14, 4,144 words
+- Guidance: Use as decorative section-shape implementation context only. Do not promote slanted containers as a default pattern; require content readability, hit-target stability, and responsive overflow checks.
+
+### Josh Comeau - Secret Mechanisms of CSS
+
+- Things ID(s): `YWHwVxxJHzHnKUSXmm3vZv`
+- Source: <https://m.youtube.com/watch?v=Xt1Cw4qM3Ec>
+- Decision: `secondary`
+- Target: `css-layout-responsive`
+- Transcript extraction: 2026-06-14, 9,147 words
+- Guidance: Use as explanatory support for CSS mental models and layout-algorithm thinking. The rule remains: identify the layout algorithm before interpreting sizing, positioning, stacking, or alignment behavior.

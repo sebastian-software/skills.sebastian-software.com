@@ -43,3 +43,56 @@ Use framework features deliberately. Rendering mode, routing, data fetching, CSS
 - URL recheck: 2026-06-13, HTTP 200
 - Guidance: Retarget to React architecture: use as framework-boundary caveat source for Next.js vs React fundamentals.
 
+### Asset loading in React
+
+- Things ID(s): `KXorttcJMbTTaaaM6KnXog`
+- Source: <https://m.youtube.com/watch?v=dxWLp-8mXes>
+- Decision: `secondary`
+- Target: `framework`
+- Transcript extraction: 2026-06-14, 2,120 words
+- Guidance: Use as React asset-loading radar/context. Keep asset priority, preload, discovery, and render timing coordinated with browser-performance rules rather than treating asset loading as only a component concern.
+
+### I Didn't Know Next.js Server Actions Could Do This!
+
+- Things ID(s): `FVdnJMA2yW4QgrYhfmhxf`
+- Source: <https://m.youtube.com/watch?v=ZZCXnNAOqqU>
+- Decision: `secondary`
+- Target: `framework`
+- Transcript extraction: 2026-06-14, 1,543 words
+- Guidance: Use as Next.js Server Actions capability context. Before adopting patterns, verify current framework behavior around validation, auth, redirects, cache invalidation, error handling, progressive enhancement, and form semantics.
+
+### Nextjs Server Actions Just Got Better
+
+- Things ID(s): `XA6tVGijwpAMV7H8kdGfHq`
+- Source: <https://m.youtube.com/watch?v=ahB3DgUMs1A>
+- Decision: `secondary`
+- Target: `framework`
+- Transcript extraction: 2026-06-14, 2,522 words
+- Guidance: Use as Server Actions update/radar source. Treat API changes as framework-version-specific and pair with official Next.js docs before encoding rules.
+
+### I Was Wrong About React Router
+
+- Things ID(s): `7otzbFZ55ksUFhpP7S9gS5`
+- Source: <https://m.youtube.com/watch?v=m86HssTKExU>
+- Decision: `secondary`
+- Target: `framework`
+- Transcript extraction: 2026-06-14, 4,377 words
+- Guidance: Use as React Router architecture tradeoff context: routing, data loading, server rendering, and framework features should be evaluated as a coherent app architecture, not as isolated library preferences.
+
+### React Router 7.2 Just Added This GAME-CHANGING Feature!
+
+- Things ID(s): `tpWThWDAcdaAzGGr1v2G7`
+- Source: <https://m.youtube.com/watch?v=6zwi5O3CST8>
+- Decision: `secondary`
+- Target: `framework`
+- Transcript extraction: 2026-06-14, 1,668 words
+- Guidance: Use as React Router feature-radar context. Verify current React Router docs before relying on specific APIs in skill guidance.
+
+### An Honest Review of TanStack vs Next.js
+
+- Things ID(s): `KDKoKoAJEHSufpuCMXtszp`, `RQ2ueLwCSfzGtQY2YVAm9D`
+- Source: <https://m.youtube.com/watch?v=D27AfH0pSp8>
+- Decision: `secondary`
+- Target: `framework`
+- Transcript extraction: 2026-06-14, 5,195 words
+- Guidance: Use as framework comparison context. Capture tradeoffs around routing, data loading, server rendering, deployment model, ecosystem maturity, and team familiarity instead of turning one framework into a default.
