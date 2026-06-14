@@ -52,41 +52,65 @@ They are technical.
 
 The skills aim to produce working output: semantic HTML, stable CSS, accessible interactions, resilient React components, measurable performance improvements, and copy that helps users complete tasks.
 
-## Internal Skills
+## Skill System
 
-### UI And Product Craft
+The internal collection is intentionally split into small experts. Several skills began as broader imports and have since been decomposed into narrower first-party skills. In particular, `s7n-ui-design` is no longer the place where every UI rule lives. It is now the routing and quality-gate skill for broad interface work.
 
-- `s7n-ui-design` - broad UI planning, critique, and quality gates.
-- `s7n-layout-spacing` - layout structure, spacing systems, grids, responsive behavior.
-- `s7n-typography` - UI typography, readable measure, font loading, hierarchy.
-- `s7n-color-theming` - color systems, contrast, tokens, theming, dark mode.
-- `s7n-component-primitives` - buttons, navigation, dialogs, component states.
-- `s7n-forms-ux` - form layout, validation, field states, completion flows.
-- `s7n-data-tables` - tables, dense data, comparison views, row actions.
-- `s7n-accessibility-html` - semantic HTML, keyboard behavior, focus, ARIA.
-- `s7n-motion-interaction` - purposeful motion, transitions, scroll patterns.
-- `s7n-error-loading-states` - loading, empty, success, error, and retry states.
-- `s7n-i18n-ux` - localization, RTL, text expansion, locale-aware UI.
-- `s7n-editorial-ux` - labels, microcopy, empty states, error copy.
-- `s7n-auth-security-ux` - auth UX, passkeys, password flows, permission prompts.
-- `s7n-frontend-seo` - metadata, structured data, previews, crawlable frontend output.
+Use the broad skill when the task is ambiguous or cross-cutting. Use the specialist skills when the problem has a clear domain.
 
-### Frontend Engineering
+### UI Orchestrator
 
-- `s7n-react-architecture` - React app structure, data flow, rendering boundaries.
-- `s7n-react-component` - component implementation, APIs, state, effects.
-- `s7n-css-architecture` - cascade, layers, scoping, custom properties, browser support.
-- `s7n-web-performance` - Core Web Vitals, images, preload behavior, caching.
-- `s7n-frontend-testing` - frontend test strategy, Playwright, Vitest, selectors.
+| Skill           | Use it for                                                                                                                 |
+| --------------- | -------------------------------------------------------------------------------------------------------------------------- |
+| `s7n-ui-design` | Broad UI planning, critique, design direction, and final quality gates. Routes narrow work to the specialist skills below. |
+
+### UI Specialist Skills Split From The Broader Design System
+
+| Skill                      | Use it for                                                                                    |
+| -------------------------- | --------------------------------------------------------------------------------------------- |
+| `s7n-layout-spacing`       | Layout structure, spacing systems, grids, responsive behavior, safe areas, layout stability.  |
+| `s7n-typography`           | UI typography, readable measure, font loading, type hierarchy, text rhythm.                   |
+| `s7n-color-theming`        | Color systems, contrast, semantic tokens, theming, dark mode.                                 |
+| `s7n-component-primitives` | Buttons, navigation, dialogs, menus, reusable component states.                               |
+| `s7n-forms-ux`             | Form layout, labels, validation, field states, completion flows.                              |
+| `s7n-data-tables`          | Tables, dense data, comparison views, sorting, filtering, row actions.                        |
+| `s7n-accessibility-html`   | Semantic HTML, landmarks, keyboard behavior, focus, ARIA restraint.                           |
+| `s7n-motion-interaction`   | Purposeful motion, transitions, scroll patterns, reduced-motion behavior.                     |
+| `s7n-error-loading-states` | Loading, empty, success, error, partial failure, retry, and not-found states.                 |
+| `s7n-i18n-ux`              | Localization, RTL, text expansion, locale-aware formatting, translation-safe UI.              |
+| `s7n-editorial-ux`         | Labels, microcopy, empty states, button text, error copy, product writing clarity.            |
+| `s7n-auth-security-ux`     | Login, signup, passkeys, password flows, recovery, permission prompts, security-sensitive UX. |
+| `s7n-frontend-seo`         | Metadata, structured data, previews, canonical URLs, crawlable frontend output.               |
+
+### Frontend Engineering Skills
+
+| Skill                    | Use it for                                                                            |
+| ------------------------ | ------------------------------------------------------------------------------------- |
+| `s7n-react-architecture` | React app structure, data flow, rendering boundaries, context and state architecture. |
+| `s7n-react-component`    | Component implementation, APIs, state, effects, composition, edge cases.              |
+| `s7n-css-architecture`   | Cascade layers, scoping, custom properties, browser baseline support, build tooling.  |
+| `s7n-web-performance`    | Core Web Vitals, image delivery, LCP, preload behavior, caching, perceived loading.   |
+| `s7n-frontend-testing`   | Frontend test strategy, Playwright, Vitest, selectors, test reliability.              |
 
 ### Content, Media, And Specialist Output
 
-- `s7n-german-typography` - German punctuation, spacing, quotes, typographic cleanup.
-- `s7n-linkedin-posts` - LinkedIn post ideas, hooks, formats, and writing structure.
-- `s7n-print-design` - print CSS, paged media, screen-to-print output.
-- `s7n-svg-textures` - SVG filters, procedural textures, organic visual effects.
+| Skill                   | Use it for                                                                 |
+| ----------------------- | -------------------------------------------------------------------------- |
+| `s7n-german-typography` | German punctuation, spacing, quotes, dashes, typographic cleanup.          |
+| `s7n-linkedin-posts`    | LinkedIn post ideas, hooks, formats, content calendars, writing structure. |
+| `s7n-print-design`      | Print CSS, paged media, screen-to-print output, printable documents.       |
+| `s7n-svg-textures`      | SVG filters, procedural textures, organic visual effects.                  |
 
 The `s7n-*` prefix is the compact Sebastian Software namespace. It keeps first-party skills distinct after installation.
+
+### Split History
+
+The current skill map is the authoritative one. Older source repositories and early imports were broader, especially around UI design. This repository now owns the refined structure:
+
+- Broad planning and review stays in `s7n-ui-design`.
+- Specific UI execution moved into focused specialist skills.
+- Technical frontend concerns live in separate engineering skills.
+- Niche domains that do not fit the shared skill series are kept out of this repository.
 
 ## Repository Layout
 
