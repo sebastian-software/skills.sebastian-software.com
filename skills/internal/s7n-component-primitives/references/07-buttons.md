@@ -68,7 +68,7 @@ Secondary button fill contrast < 3:1 is too low to clearly indicate button shape
 2. Button shape contrast: minimum 3:1
 3. Button text contrast: minimum 4.5:1
 4. If identical button styles, contrast between them: minimum 3:1
-5. Target area: minimum 48pt x 48pt
+5. Target area: WCAG 2.2 AA minimum is 24 x 24 CSS px with spacing exceptions; use 44-48 CSS px as the comfortable touch default for primary controls
 
 ## Use a Single Primary Button for the Most Important Action
 
@@ -206,7 +206,8 @@ Button text = meaningful when read out of context.
 Small targets = harder to click/touch (especially motor impairments or one-handed use).
 
 **Guidelines:**
-- Minimum 48pt x 48pt
+- Meet WCAG 2.2 AA target size: at least 24 x 24 CSS px, or sufficient spacing/equivalent alternatives for smaller inline targets
+- Prefer 44-48 CSS px targets for common touch, coarse-pointer, and high-frequency controls
 - Frequently used buttons: even larger
 
 **Small interactive elements:**
@@ -318,4 +319,4 @@ Even with friction, mistakes happen. Undo removes a lot of risk while maintainin
 2. Avoid disabled buttons - enable and validate on submit instead
 3. Order buttons left to right, most important to least important
 4. Button text: verb + noun, meaningful out of context
-5. Minimum 48pt x 48pt target size, 8pt+ separation
+5. Minimum 24 x 24 CSS px target size for WCAG 2.2 AA; prefer 44-48 CSS px targets and 8px+ separation for comfortable touch use

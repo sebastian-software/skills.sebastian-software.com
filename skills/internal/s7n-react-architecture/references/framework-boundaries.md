@@ -8,6 +8,29 @@ Use framework features deliberately. Rendering mode, routing, data fetching, CSS
 - Keep CSS and styling choices compatible with server/client boundaries.
 - Use observability such as Server-Timing when architecture decisions need production feedback.
 - Avoid treating one framework's RSC or routing behavior as universal React behavior.
+- Verify exact framework versions before copying examples for Server Actions, RSC, streaming, asset loading, cache invalidation, or route loaders.
+- Keep browser resource discovery coordinated with framework abstractions; framework image/script/font helpers still need LCP, preload, and cache review.
+
+## Framework Decision Checklist
+
+- Which React version is installed, and which framework features are stable in this version?
+- Does the route render at build time, request time, stream time, or only on the client?
+- Where does data load: server component, route loader, client query, action, cache, or edge function?
+- How are mutations validated, authorized, retried, and reflected in cached UI?
+- How are errors represented: thrown responses, error boundaries, not-found boundaries, form state, or toast state?
+- How are CSS, fonts, images, scripts, and metadata discovered by the browser?
+- Can the chosen pattern be observed in production with Server-Timing, logs, traces, RUM, or framework analytics?
+
+## React vs Framework APIs
+
+React provides primitives such as Server Components, Suspense, Actions, transitions, `use`, and form-related hooks. Frameworks decide how those primitives connect to routing, bundling, server execution, caching, redirects, deployment, and invalidation.
+
+Do not write skill guidance that assumes:
+
+- Next.js Server Actions work the same way as React Router, Remix, Vite, or custom RSC setups.
+- A framework's cache invalidation model is part of React itself.
+- A route loader, server function, edge runtime, or server action has the same security and deployment constraints across frameworks.
+- A framework image/font/script helper automatically solves LCP or preload discovery.
 
 ## Additional Rules
 

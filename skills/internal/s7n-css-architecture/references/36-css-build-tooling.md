@@ -8,6 +8,30 @@ Use this reference when CSS tooling, utility frameworks, CSS-in-TypeScript, gene
 - Prefer build-time or zero-runtime styling when it improves type safety and removes runtime work without hiding plain CSS behavior.
 - Use utility composition escape hatches sparingly, especially when they can duplicate output or obscure component boundaries.
 - Check generated CSS size, cascade behavior, token consistency, and framework upgrade paths before codifying tooling patterns.
+- Connect browser-support policy to tooling: Browserslist, Baseline-aware linting, Stylelint/ESLint rules, IDE warnings, and CI should reflect the project's actual support target.
+- Make generated CSS inspectable. If a styling tool hides cascade order, specificity, duplication, or runtime injection cost, treat that as architecture risk.
+
+## Baseline Tooling
+
+- Prefer one declared support target rather than scattered assumptions in comments and docs.
+- Use Browserslist or equivalent project policy when build tools, transpilers, prefixers, or linters need a browser target.
+- Add Baseline-aware linting where available for CSS features that the project should not use yet.
+- Keep `@supports` blocks and progressive-enhancement fallbacks close to the feature they guard.
+- Review support targets when the project drops old browsers, enters an enterprise/WebView environment, or adopts a newly available platform feature.
+
+## Generated CSS Review
+
+Before adopting or expanding a styling tool, inspect:
+
+- final CSS size and duplication,
+- cascade layer order,
+- selector specificity,
+- critical CSS and code-splitting behavior,
+- runtime style injection or hydration requirements,
+- token consistency,
+- source maps and debug output,
+- dark mode and forced-colors behavior,
+- upgrade and migration path.
 
 ## Additional Rules
 

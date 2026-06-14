@@ -8,7 +8,7 @@ Use CSS layout algorithms deliberately. Grid, Flexbox, Subgrid, container querie
 - Use Grid for two-dimensional placement, track control, and page or card composition.
 - Use Subgrid when nested children need to align with ancestor tracks without flattening semantic markup.
 - Use container queries for reusable components that must respond to actual container size.
-- Use anchor positioning for suitable floating UI, while keeping semantics, collision behavior, and fallback behavior separate.
+- Use anchor positioning for suitable floating UI when project support allows it, while keeping semantics, collision behavior, and fallback behavior separate.
 - Start from the layout algorithm. `width`, `min-width`, `z-index`, alignment, and intrinsic sizing behave differently in Flow, Flexbox, Grid, Positioned, and Table layout.
 - Use `gap` for component and layout rhythm when the parent owns spacing; use margin intentionally for document/content flow and optically special cases.
 - Use full-bleed/grid wrapper patterns when readable text and breakout media must coexist without wrapper sprawl.
@@ -23,7 +23,7 @@ Use CSS layout algorithms deliberately. Grid, Flexbox, Subgrid, container querie
 - **Grid:** best for two-dimensional control, dashboards, page sections, card mosaics, full-bleed wrappers, and explicit alignment.
 - **Subgrid:** best when nested markup must inherit card/list/form/editorial tracks while keeping semantic structure intact.
 - **Container queries:** best for reusable components embedded in sidebars, cards, split panes, and CMS regions where viewport breakpoints are misleading.
-- **Anchor positioning:** best for tooltips, callouts, popovers, onboarding highlights, and floating UI that should be tied to a trigger without custom JS geometry.
+- **Anchor positioning:** best for tooltips, callouts, popovers, onboarding highlights, and floating UI that should be tied to a trigger without custom JS geometry; keep it support-gated for critical behavior.
 - **Multi-column:** best for continuous editorial content, not interactive card grids; verify fragmentation, reading order, and support before using newer wrapping controls.
 
 ## Additional Rules

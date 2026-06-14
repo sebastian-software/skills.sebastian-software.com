@@ -264,7 +264,7 @@ A fixed bar at the bottom of the screen with 3-5 primary navigation destinations
 - Each icon leads directly to a destination (never opens a menu or popup)
 - Use familiar, recognisable icons paired with text labels
 - Place in the thumb-friendly zone (bottom of screen)
-- Minimum tap target: 48x48px with adequate spacing between items
+- Comfortable tap target: 44-48 CSS px with adequate spacing between items; ensure smaller targets meet WCAG 2.2 target-size rules
 - Clearly distinguish active from inactive state using colour and contrast
 - Use short noun labels (Home, Search, Profile) not verbs
 
@@ -558,7 +558,7 @@ This is a critical and commonly violated rule. The `menu`, `menubar`, and `menui
 - Visible focus indicators on every interactive element (use `:focus-visible`)
 - Skip link as the first focusable element on the page
 
-See `01-fundamentals.md` for focus indicator styling (`:focus-visible`), skip link implementation, target size requirements (48x48pt minimum), and `prefers-reduced-motion` patterns.
+See `01-fundamentals.md` for focus indicator styling (`:focus-visible`), skip link implementation, target size requirements, and `prefers-reduced-motion` patterns.
 
 ## Mobile vs Desktop Patterns
 
@@ -785,7 +785,7 @@ Screen readers benefit from `<ul>` inside `<nav>` because they announce "list, N
 8. Make labels easy to scan (left-align, front-load keywords)
 9. For large sites, show several navigation tiers in sub-menus
 10. Use visual cues (images, icons, colour) for long menus
-11. Make links big enough to tap or click easily (48px+ targets)
+11. Make links big enough to tap or click easily (44-48 CSS px comfortable targets for common touch controls)
 12. Signify sub-menus with a caret or arrow icon
 13. Use click-activated rather than hover-activated sub-menus
 14. Avoid multilevel cascading menus -- use mega menus or landing pages

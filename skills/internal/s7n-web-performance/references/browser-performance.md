@@ -33,6 +33,52 @@ Use measured browser behavior to guide performance changes. Prioritize fixes tha
 - Are state transitions limited to composited or paint-only properties, with layout-property animation avoided in long lists and dense work surfaces?
 - Is the optimization verified with before/after evidence from browser tooling or production metrics?
 
+## Measurement Policy
+
+Measure before optimizing unless the problem is an obvious correctness issue such as a lazy-loaded LCP image.
+
+- Use field data for user-impact decisions: RUM, CrUX, Search Console Core Web Vitals, or product analytics that report LCP, INP, and CLS.
+- Use lab tools to debug and prevent regressions: Chrome DevTools Performance panel, Lighthouse, WebPageTest, Playwright traces, and framework profilers.
+- Treat Lighthouse as a diagnostic tool, not the full truth. Lighthouse can measure LCP and CLS in lab conditions, but it cannot directly measure real INP because there is no real user input; use TBT as a lab proxy only.
+- Prefer Chrome DevTools Performance panel for local Core Web Vitals debugging. The standalone Web Vitals extension ended support in 2025 after its core workflow moved into DevTools.
+- Segment field data by page type, device class, geography, connection, and logged-in/out state when possible. A single aggregate score can hide the failing cohort.
+- Verify changes with before/after evidence and include the metric, test conditions, and remaining uncertainty.
+
+## Core Web Vitals Targets
+
+Use the current stable Core Web Vitals set:
+
+- **LCP:** good at 2.5s or less.
+- **INP:** good at 200ms or less.
+- **CLS:** good at 0.1 or less.
+
+Evaluate at the 75th percentile, segmented across mobile and desktop where data is available. Do not treat one fast local run as proof that users are passing.
+
+## LCP Debug Order
+
+1. Confirm the actual LCP element in field/lab tooling.
+2. Check server and document timing: TTFB, redirects, HTML streaming, and render-blocking resources.
+3. Ensure the LCP resource is discoverable in initial HTML, not injected by JavaScript or hidden in a CSS background without a preload.
+4. Ensure the LCP image is not lazy-loaded and has correct `srcset`, `sizes`, dimensions, and compression.
+5. Use `fetchpriority="high"` only for the likely LCP resource, and avoid broad preloads that compete with CSS, fonts, or scripts.
+6. Check font loading when the LCP is text.
+
+## INP Debug Order
+
+1. Identify the slow interaction from field attribution or manual reproduction.
+2. Separate input delay, processing duration, and presentation delay.
+3. Reduce long tasks, hydration cost, broad re-renders, expensive event handlers, layout thrash, and synchronous third-party work.
+4. Keep urgent visual feedback local and immediate.
+5. Move non-urgent work into transitions, idle periods, workers, or server boundaries when the stack supports it.
+
+## CLS Debug Order
+
+1. Identify which element shifted and what inserted, resized, or restyled it.
+2. Reserve space for images, embeds, ads, banners, skeletons, and late-loaded widgets.
+3. Avoid inserting content above existing content unless the action is user-initiated.
+4. Match fallback and final font metrics with `font-size-adjust`, size-adjusted font faces, or restrained font loading.
+5. Keep animations on transform/opacity rather than layout properties.
+
 ## Additional Rules
 
 - Keep startup resources discoverable in HTML, avoid JS-injected startup scripts, do not lazy-load above-the-fold/LCP images through data-src, avoid hiding LCP images in CSS backgrounds unless preloaded intentionally, and avoid excessive inline/base64 resources that delay discovery and hurt caching; connect to component-development, editorial-ux, and media/design-system rules.

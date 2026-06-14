@@ -24,6 +24,47 @@ Design responsive behavior from content, container, input mode, device constrain
 - Are hover-revealed controls still visible or reachable on touch, keyboard, and hybrid devices?
 - Are fixed/sticky elements safe-area aware and tested with browser UI, zoom, and virtual keyboards?
 
+## Breakpoint Strategy
+
+Breakpoints should come from content and task needs, not device names.
+
+- Use container queries for reusable components whose layout depends on their available inline size.
+- Use media queries for page-level layout, global navigation, viewport constraints, print, and input capability checks.
+- Keep component breakpoints close to the component when they describe component behavior.
+- Avoid "mobile/tablet/desktop" assumptions in rule names. Prefer intent names such as `compact`, `comfortable`, `wide`, `dense`, or `comparison`.
+- Test at awkward widths, not only common device presets.
+
+## Input Capability
+
+Viewport width is not an input-mode proxy.
+
+- Use `(hover: hover)` and `(pointer: fine)` before adding hover-only refinements.
+- Use `(any-hover: hover)` and `(any-pointer: coarse)` when hybrid devices matter.
+- Never hide required controls behind hover. Hover can reveal convenience actions only when a keyboard/touch path remains visible or discoverable.
+- Increase target size and spacing for coarse pointers, but do not remove keyboard support from pointer-focused layouts.
+
+## Viewport Units and Safe Areas
+
+Use viewport units deliberately:
+
+- `svh` for stable minimum-height surfaces that should not jump when browser UI appears.
+- `dvh` for panels that should track the visible viewport, such as drawers or command surfaces, after testing resize behavior.
+- `lvh` only when the largest possible viewport is explicitly desired and clipped content is acceptable.
+- `env(safe-area-inset-*)` for fixed/sticky controls near device edges.
+- `scrollbar-gutter: stable` when scrollbar appearance would shift a centered or fixed-width layout.
+
+Test full-height layouts with mobile browser chrome, virtual keyboards, zoom, landscape orientation, and long translated labels.
+
+## Responsive Content Preservation
+
+Do not solve small screens by deleting meaning.
+
+- Tables need headers, captions, comparison paths, keyboard-accessible overflow, and scroll cues after transformation.
+- Dashboards need prioritized scan paths, not random card stacking.
+- Navigation needs a reachable semantic baseline before disclosure or burger behavior.
+- Forms need grouped labels, hints, errors, and submit controls that remain visible and associated.
+- Images and media need explicit dimensions/aspect ratios, `sizes`, and LCP-aware source discovery.
+
 ## Additional Rules
 
 - Responsive tables have no universal solution; choose layout pattern from data comparison/scanning needs, preserve table semantics, headers, alignment, spacing, visual scanning, and accessibility when transforming tables for small screens.

@@ -48,10 +48,10 @@ Build components as durable interface primitives: semantic DOM first, clear stat
 - Treeview indentation is component layout logic; reserve affordance/toggle space, calculate nesting per item, support LTR/RTL, and prefer robust CSS variables/math over fragile parent-child selector chains.
 - Framework-agnostic button component craft, preserve native <button> semantics, type/state/disabled/focus handling, inline-flex/icon gap/padding/border/radius structure, explicit hover/contrast colors, custom properties as configurable CSS API, and controlled variant complexity; connect to design-system, html-accessibility, and forms-ux.
 - Components should adapt to content count, container width, and language length using :has(), quantity queries, Grid, container queries, @supports fallbacks, logical properties, and explicit magic-number caveats.
-- Modern CSS Anchor Positioning tooltip/floating-ui positioning pattern using anchor-name, position-anchor, position-area, position-try-fallbacks, flip-block, and anchor(); browser support has improved to Baseline Newly available in 2026, so treat as preferred native positioning approach for suitable tooltips/popovers while still testing fallback/collision behavior and adding separate semantics, trigger, dismissal, keyboard/touch, and accessibility rules.
+- Modern CSS Anchor Positioning tooltip/floating-ui positioning pattern using anchor-name, position-anchor, position-area, position-try-fallbacks, flip-block, and anchor(); treat as preferred native positioning when current project support data confirms availability, otherwise use it as progressive enhancement with tested fallback/collision behavior and separate semantics, trigger, dismissal, keyboard/touch, and accessibility rules.
 - Pattern guidance for accessible dropdowns/modals/controls, prefer semantic elements such as button triggers and structured option lists, use ARIA like aria-expanded/aria-controls as support rather than replacement, and ensure keyboard, screen reader, focus, and assistive-technology usability are part of component APIs and review checklists.
 - Visible focus indicators are required for interactive components; standardize outline, outline-offset, size/color/style custom properties, currentColor, max(2px, 0.08em), :focus-visible with :focus fallback, high-contrast and dark-mode considerations, and component-specific adjustments for buttons, links, inputs, textareas, and summary.
-- Before building a custom combobox/select, evaluate native customizable select via appearance: base-select, ::picker(select), top-layer picker, anchor positioning, rich option content, internal parts/states, and unchanged JS interfaces; preserve form semantics while testing support, parsing changes, mobile OS picker tradeoffs, width behavior, and fallback strategy.
+- Before building a custom combobox/select, evaluate native `select` first and customizable select (`appearance: base-select`, `::picker(select)`, top-layer picker, anchor positioning, rich option content, internal parts/states, and unchanged JS interfaces) only as support-gated progressive enhancement; preserve form semantics while testing parsing changes, mobile OS picker tradeoffs, width behavior, and fallback strategy.
 - Has() companion: broad parent/context/state styling tool, use :has(button:focus-visible) and other child-state selectors to keep semantic markup while styling parent containers, use @supports selector(:has(*)) fallbacks, derive UI state from focus/active/checked/data-state, update CSS variables from child state, and avoid replacing semantic children with fake interactive wrapper elements; connect to css-layout-responsive, design-system, and html-accessibility.
 - Preserve structural border/outline affordances for interactive controls by using border-color: transparent or outline-color: transparent instead of border: none/outline: none when hiding visual borders; supports Forced Colors/High Contrast mode, control recognizability, layout stability, and focus/hover state robustness.
 - Expressive styling example for native <dialog>, ::backdrop, backdrop-filter, animations, SVG/image backgrounds, and :has(input:valid) state styling; use only as visual/design-system supplement after stronger dialog semantics, focus, close, labels, and reduced-motion rules.
@@ -64,3 +64,27 @@ Build components as durable interface primitives: semantic DOM first, clear stat
 - Historical/practical SSR caveat guidance for Web Components in Next or similar frameworks, but framework behavior and web component SSR options have shifted enough that rules need current sources before codification.
 - Use built-in-elements-with-web-components for progressive enhancement and platform component caveats.
 - Use no-UI-framework as component/platform decision context.
+
+## Native UI Feature Status
+
+Use native platform primitives when they preserve semantics and reduce custom
+state code. Do not treat native visual APIs as accessibility shortcuts.
+
+| Primitive | Current guidance |
+| --- | --- |
+| `<dialog>` | Production-ready for suitable modal interactions. Still define initial focus, focus return, close affordances, scroll behavior, mobile layout, and tests. |
+| Popover | Preferred primitive for non-modal top-layer UI such as menus, teaching bubbles, and lightweight disclosures when semantics fit. Pair with button triggers, dismissal rules, and keyboard/touch checks. |
+| Command/invoker attributes | Useful for reducing glue JavaScript when supported by the target browsers. Keep command behavior reachable with ordinary controls when support is mixed. |
+| Anchor positioning | Placement tool only. Use with Popover or fixed/top-layer placement; keep semantics and dismissal separate. |
+| Customizable select | Radar/progressive enhancement. Keep the native `select` value, form submission, and mobile fallback intact. Do not replace accessible select/combobox behavior for visual styling alone. |
+| Interest-triggered popovers and CSS carousel primitives | Radar only unless the product is explicitly browser-gated. Build critical hovercards and carousels with tested input, focus, and fallback behavior. |
+
+For every native UI primitive, test:
+
+- keyboard path into, through, and out of the component,
+- visible focus and focus return,
+- Escape/light-dismiss behavior where relevant,
+- touch and coarse-pointer behavior,
+- zoom/reflow and small viewport behavior,
+- forced-colors/high-contrast rendering,
+- screen-reader announcements for name, role, state, and description.
