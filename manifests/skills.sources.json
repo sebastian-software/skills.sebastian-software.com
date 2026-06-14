@@ -1,12 +1,6 @@
 {
   "internal": [
     {
-      "id": "s7n-forschungszulage",
-      "repo": "https://github.com/sebastian-software/forschungszulage-skill",
-      "ref": "main",
-      "path": "."
-    },
-    {
       "id": "s7n-ui-design",
       "repo": "https://github.com/sebastian-software/effective-ui-design-skill",
       "ref": "main",

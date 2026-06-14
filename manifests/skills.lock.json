@@ -59,17 +59,6 @@
       "toolVersion": "0.0.0-alpha.0"
     },
     {
-      "id": "s7n-forschungszulage",
-      "kind": "internal",
-      "sourceUrl": "https://github.com/sebastian-software/forschungszulage-skill",
-      "requestedRef": "main",
-      "resolvedRef": "f04b38fccd1dbe23214193b45254609dc1387735",
-      "included": ["s7n-forschungszulage"],
-      "integrity": "sha256-1d88146838c235cb9d57a5256e6ce074045e5c9bdbd3a09b64800dd34b54bff3",
-      "updatedAt": "2026-06-09T08:19:51.000Z",
-      "toolVersion": "0.0.0-alpha.0"
-    },
-    {
       "id": "s7n-german-typography",
       "kind": "internal",
       "sourceUrl": "https://github.com/sebastian-software/effective-german-typography-skill",
