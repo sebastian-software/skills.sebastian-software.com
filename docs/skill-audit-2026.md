@@ -11,6 +11,7 @@ This note records the implementation priorities from the June 2026 external revi
 5. **Performance guidance now reflects current tooling.** The Web Vitals extension is no longer treated as a live recommendation; DevTools Performance panel, field data, and lab/field distinctions are emphasized.
 6. **React architecture guidance now reflects React 19.** Server Components, Server Actions, form Actions, `useActionState`, `useFormStatus`, `useOptimistic`, `use`, hydration diagnostics, and framework-boundary caveats are represented.
 7. **Thin split-skill references were made actionable.** Forms, responsive design, frontend testing, visual baselines, i18n, auth/security UX, and CSS build tooling gained decision rules and checklists.
+8. **Frontend SEO gained an AI/GEO and distribution layer.** `s7n-frontend-seo` now covers AI search eligibility, entity clarity, business profile consistency, Merchant Center/Business Profile distribution, LLM crawler access, optional `llms.txt`/Markdown/API surfaces, and practitioner GEO heuristics without treating speculative tactics as ranking rules.
 
 ## External Source Classes Used
 
@@ -18,7 +19,9 @@ This note records the implementation priorities from the June 2026 external revi
 - Accessibility standards and support references: W3C WCAG 2.2, WAI APG, assistive-technology support data.
 - Performance references: web.dev Core Web Vitals, Chrome DevTools/Web Vitals tooling notes, preload scanner guidance.
 - Framework references: React 19 release notes and React RSC documentation.
+- Search and AI-discovery references: Google Search Central AI features and generative AI optimization guidance, Google Business Profile API, schema.org, IndexNow, OpenAI crawler documentation, Anthropic crawler documentation.
 - Practitioner radar: modern CSS and native UI articles were treated as trend/radar input only unless confirmed by current official support data.
+- SEO/GEO practitioner radar: Aleyda Solis, Mike King/iPullRank, Lily Ray, Kevin Indig, Cindy Krum, Jason Barnard/Kalicube, Brodie Clark, Glenn Gabe, Marie Haynes, Crystal Carter, and Jono Alderson were treated as sources of heuristics and review questions, not direct ranking guarantees.
 
 ## Review Rule For Future Updates
 
