@@ -25,10 +25,9 @@ Use semantic HTML, native behavior, visible focus, keyboard access, and assistiv
 
 ## Additional Rules
 
-- User prefers explanatory practice articles as when they explain why and how better than specs/MDN.
 - Use as broader semantic state/parent-context pattern guidance, not only a11y: parent styling from child/content/focus/error/state conditions; a11y is one use case.
 - Live/inline validation timing, copy-paste tolerance, late validation, recovery paths, and avoiding premature error states.
 - Custom/native control anatomy, semantic input preservation, focus/state styling, configurable component CSS; not React-specific and not only a11y.
 - Correct input type, inputmode, enterkeyhint, autocomplete/name hints, browser cooperation, mobile keyboard UX, and progressive enhancement.
 - focus-visible snippet/reminder: useful for visible focus styling, outline offset/width/currentColor caveats, but too small to be a focus guidance.
-- Small semantic HTML pattern for explicit tel: links as call-to-action phone numbers, international phone formatting, not relying on auto-detection, and only disabling iOS telephone auto-detection intentionally when custom markup/styling is provided; old/narrow guidance, not .
+- Use explicit `tel:` links for call-to-action phone numbers, preserve international phone formatting in visible text, and disable iOS telephone auto-detection only when custom markup/styling provides an equivalent intentional link.
