@@ -1,47 +1,236 @@
 # Browser Performance
 
-Use measured browser behavior to guide performance changes. Prioritize fixes that improve user-visible loading, rendering stability, and interaction latency without making the system harder to maintain.
+Performance is measured browser behavior, not folklore. Every change should move a
+specific metric — LCP, INP, CLS, transferred bytes, or time to first interaction —
+and be verifiable in browser tooling or field data. Optimize the bottleneck the
+measurement reveals, not the technique that is easiest to apply.
 
-## Working Rules
+## Measure first, fix the bottleneck
 
-- Keep LCP resources discoverable in initial HTML whenever possible.
-- Do not lazy-load above-the-fold or likely-LCP images.
-- Use responsive images to match rendered size and DPR without exploding variant count.
-- Reserve media and widget space to avoid avoidable CLS.
-- Use cache freshness directives deliberately; stale content can improve perceived speed only when the product can tolerate the freshness model.
-- Treat placeholder techniques as perceived-performance tools, not substitutes for correct image delivery.
-- Do not hide startup resources behind JavaScript, `data-src`, client-only rendering, or CSS backgrounds unless there is a deliberate preload/discovery plan.
-- Use `fetchpriority="high"` narrowly for the actual likely LCP image; avoid broad preload/fetchpriority use that competes with CSS, fonts, or scripts.
-- Keep responsive image variants pragmatic. Too few waste bytes; too many increase storage, generation work, and CDN cache fragmentation.
-- Choose placeholder techniques such as blur-up, BlurHash, LQIP, or traced previews only after image sizing, compression, cache behavior, and LCP discovery are correct.
-- Use Server-Timing or equivalent instrumentation when frontend symptoms may be caused by backend/rendering latency.
-- For interaction-heavy tools, reduce perceived latency with local reads, optimistic writes, durable retry queues, and narrowly subscribed UI updates before chasing micro-optimizations.
-- Keep high-frequency workflows keyboard-accessible and command-driven where appropriate; path length is part of perceived performance.
-- Animate only when motion clarifies state or spatial origin. Prefer `transform` and `opacity`, keep durations short, and avoid layout-triggering properties in dense task surfaces.
+- Establish the measured problem before changing anything: which Core Web Vital
+  fails, on which page, on which device class and connection. Distinguish lab
+  (Lighthouse, DevTools, WebPageTest) from field data (CrUX, RUM); ship decisions
+  against field data where it exists, because lab numbers hide real device and
+  network variance.
+- Identify the actual LCP element from a trace before optimizing it. The LCP
+  element is frequently not the element a developer assumes; guessing wastes
+  effort on the wrong resource.
+- Use `Server-Timing` headers or equivalent RUM instrumentation when a frontend
+  symptom may originate from backend or rendering latency. Do not optimize the
+  client for a slow document response.
+- Budget the critical path: count render-blocking requests, their bytes, and
+  their round trips. The first-paint cost is dominated by what must arrive and
+  execute before the browser can render, not by total page weight.
 
-## Performance Review Checklist
+## LCP and resource discovery
 
-- Is the LCP element known from measurement, not guessed?
-- Is the LCP image or text discoverable in initial HTML, correctly sized, and not lazy-loaded?
-- Do `srcset` and `sizes` match rendered layout across viewport/container states?
-- Are media dimensions, aspect ratios, and skeletons reserving stable space before content arrives?
-- Are cache headers, `stale-while-revalidate`, and CDN behavior aligned with product freshness expectations?
-- Are placeholders smaller than the problem they solve, cacheable where appropriate, and not delaying real image discovery?
-- Do interaction-heavy flows show immediate local feedback without waiting for network confirmation?
-- Are live updates scoped to the components and fields that changed rather than causing broad list or page re-renders?
-- Do keyboard shortcuts, command palettes, or focused interaction paths reduce repeated task cost without hiding mouse/touch alternatives?
-- Are state transitions limited to composited or paint-only properties, with layout-property animation avoided in long lists and dense work surfaces?
-- Is the optimization verified with before/after evidence from browser tooling or production metrics?
+- Keep the LCP resource discoverable in the initial HTML response so the
+  preload scanner finds it before the main parser blocks on scripts or CSS. The
+  scanner is a separate lightweight parser that fetches resources early; it only
+  sees URLs present in the served markup.
+- Never lazy-load the LCP image or any above-the-fold image. `loading="lazy"`
+  on the LCP element delays its request until layout, which directly inflates
+  LCP. Apply `loading="lazy"` only to images below the fold.
+- Do not hide startup-critical resources behind JavaScript, `data-src`, CSS
+  background images, client-only rendering, or `@import` chains unless a
+  deliberate `preload` plan compensates. Each of these is invisible to the
+  preload scanner and defers discovery until later in the pipeline.
+- Apply `fetchpriority="high"` to the single likely LCP image so the browser
+  raises it above other images in the same fetch queue. Do not apply it broadly;
+  multiple high-priority fetches compete with CSS, fonts, and scripts and cancel
+  the benefit.
+- Use `<link rel="preload">` only for a late-discovered critical resource (for
+  example a hero image referenced from CSS, or a critical font). Preloading
+  resources the scanner already finds, or preloading many resources, steals
+  bandwidth from the critical path and regresses LCP.
+- Establish early connections to required cross-origin hosts with
+  `<link rel="preconnect">` for origins used immediately, and `dns-prefetch`
+  for origins used later. Preconnect at most a few origins; each open connection
+  has a cost.
+- Avoid large base64 / inline data URIs for above-the-fold assets. They bloat the
+  HTML the parser must process, cannot be cached separately, and delay discovery
+  of everything after them.
 
-## Additional Rules
+## INP and main-thread responsiveness
 
-- Keep startup resources discoverable in HTML, avoid JS-injected startup scripts, do not lazy-load above-the-fold/LCP images through data-src, avoid hiding LCP images in CSS backgrounds unless preloaded intentionally, and avoid excessive inline/base64 resources that delay discovery and hurt caching; connect to component-development, editorial-ux, and media/design-system rules.
-- Cover image performance across raster vs SVG, GIF/PNG/JPEG/WebP/AVIF, responsive images, srcset/sizes, picture art direction, compression, encoding automation, CMS/framework integration, and image CDNs.
-- Optimize LCP images through correct img/srcset/sizes, rendered size and DPR-aware variants, avoid lazy-loading LCP images, keep LCP image discoverable in initial HTML, use fetchpriority=high intentionally, understand preload scanner behavior, and avoid blind preload overuse.
-- Use stale-while-revalidate only where the product can tolerate the freshness model; treat it as perceived speed and caching behavior, not a security or forms concern.
-- Treat blur-up, base64/LQIP, special encodings, and calmer loading states as placeholder patterns, not as substitutes for correct real-resource discovery.
-- Frame layout stability around media, widgets, fonts, and late layout CSS; pair historical CLS examples with current Core Web Vitals behavior.
-- Balance responsive image breakpoint count: too few variants waste bandwidth, while too many increase storage, processing complexity, and CDN cache fragmentation.
-- Server-Timing belongs to production performance observability.
-- Inline previews, BlurHash, Sharp, and Lambda concern image loading UX.
-- For product-app performance, consider local-first data, IndexedDB-backed initial loads, optimistic mutations, durable retry queues, granular observable updates, keyboard-first workflows, command palettes, and restrained animation. Do not treat MobX or any single app architecture as mandatory.
+- Treat INP as the responsiveness metric: it measures the latency from user input
+  to the next paint across the worst interactions of a visit. Optimize input
+  handlers, not just initial load.
+- Break up long tasks. Any task over 50 ms blocks the main thread and delays
+  input handling. Split work with `await scheduler.yield()` where supported, or
+  yield via `setTimeout` / `postMessage`, so the browser can paint and process
+  input between chunks.
+- Move heavy, non-DOM computation off the main thread into a Web Worker. The main
+  thread should be reserved for input handling, layout, and paint.
+- Decouple visual feedback from expensive work: paint the input acknowledgement
+  first, then run the heavy update in a subsequent frame. INP is measured to the
+  next paint, so a fast visual response improves the metric even when total work
+  is unchanged.
+- Defer or remove third-party scripts that execute on the main thread during
+  interaction. Load non-critical scripts with `defer` or `async`, and gate
+  analytics and tag managers behind idle time.
+- Use CSS `content-visibility: auto` with `contain-intrinsic-size` on large
+  offscreen sections to skip their rendering work until they approach the
+  viewport, reducing layout and paint cost.
+
+## CLS and layout stability
+
+- Reserve space for every element that arrives or resizes after first paint:
+  images, video, ads, embeds, and injected widgets. Unreserved late content
+  pushes layout and accumulates layout shift.
+- Set explicit `width` and `height` (or a CSS `aspect-ratio`) on all media so the
+  browser reserves the correct box before bytes arrive. Intrinsic sizing from
+  dimension attributes prevents the reflow that dominates CLS.
+- Reserve space with skeletons or fixed containers for asynchronously loaded
+  widgets and data regions; a skeleton that matches the final box size prevents
+  shift, a smaller placeholder does not.
+- Never insert content above existing content unless it is space-reserved or a
+  direct response to user interaction. Banners, cookie notices, and late hero
+  content injected at the top are common CLS sources.
+- Trigger layout-affecting animation with `transform`, not with properties that
+  change box geometry (`top`, `height`, `margin`). Geometry changes force layout
+  and can register as shift.
+
+## Image delivery
+
+- Choose format by content: AVIF first for photographic content (best
+  compression), WebP as the widely supported fallback, and keep JPEG/PNG only for
+  compatibility. Use SVG for icons, logos, and line art; it is resolution
+  independent and usually smaller than a raster equivalent. Replace animated GIF
+  with a muted, looping, autoplay `<video>` (H.264/AV1) — orders of magnitude
+  smaller.
+- Serve multiple sources with `<picture>` and `type` so the browser picks the
+  best format it supports, and fall back gracefully.
+- Match the delivered image to the rendered size and device pixel ratio with
+  `srcset` (width descriptors) and an accurate `sizes` attribute. A `sizes` value
+  that does not match the real layout across breakpoints makes the browser pick
+  the wrong candidate and waste bytes.
+- Use `<picture>` with media-conditioned `<source>` only for genuine art
+  direction (different crop or aspect ratio per viewport). For pure
+  resolution-switching, `srcset` + `sizes` on a single `<img>` is sufficient and
+  simpler.
+- Keep the responsive variant set pragmatic. Too few variants force oversized
+  downloads; too many inflate storage, generation work, and CDN cache
+  fragmentation. Pick breakpoints from the actual rendered widths in the layout.
+- Automate encoding and variant generation through an image CDN or build pipeline
+  (for example Sharp, or a CMS/framework image component) rather than hand-tuning
+  files. Derive quality, format negotiation, and sizing from request context.
+- Treat placeholder techniques — blur-up, BlurHash, LQIP, dominant-color, traced
+  SVG — as perceived-performance tools applied *after* sizing, compression, cache
+  behavior, and LCP discovery are correct. A placeholder that delays the real
+  image's discovery makes loading slower, not faster. Keep the placeholder
+  payload far smaller than the asset it stands in for.
+
+## Fonts
+
+- Set `font-display: swap` (or `optional` for non-critical text) so text renders
+  immediately in a fallback and never blocks paint waiting for the web font.
+  Invisible text (FOIT) blocks LCP when the LCP element is text.
+- `preload` only the one or two font files actually used for above-the-fold text,
+  and only the formats actually served. Preloading every weight competes with the
+  LCP image for bandwidth.
+- Self-host fonts or `preconnect` to the font origin; a third-party font host adds
+  connection setup to the critical path.
+- Subset fonts to the glyphs the product uses and serve `woff2` (best
+  compression, universal modern support). Ship only the weights and styles the
+  design actually renders.
+- Minimize layout shift from font swap by pairing the web font with a metrics-
+  matched fallback using `size-adjust`, `ascent-override`, and
+  `descent-override` in `@font-face`, so the fallback occupies nearly the same
+  space as the final font.
+
+## JavaScript and the main thread
+
+- Ship less JavaScript before measuring anything else: parse, compile, and
+  execution of script is the largest controllable main-thread cost on most pages.
+- Split bundles at route and interaction boundaries with dynamic `import()` so the
+  initial load ships only what first paint needs; load the rest on navigation or
+  on first interaction with a feature.
+- Audit and remove unused dependencies and dead code; a large utility pulled in
+  for one helper inflates parse cost for every visit. Prefer platform APIs over
+  libraries where the platform suffices.
+- Hydrate selectively. For server-rendered pages, avoid hydrating static regions;
+  defer or island-hydrate interactive components so the main thread is not blocked
+  re-running the whole tree at load.
+- Do not adopt a single client architecture (a specific state library, an
+  all-in-one framework) as mandatory. Choose the rendering and state approach from
+  the measured bottleneck, not from habit.
+
+## Network and caching
+
+- Set cache lifetimes deliberately per resource class. Fingerprinted static assets
+  (hashed filenames) should be `Cache-Control: public, max-age=31536000,
+  immutable`; HTML and frequently changing data need short or revalidated
+  lifetimes.
+- Use `stale-while-revalidate` only where the product tolerates briefly serving
+  stale content: it improves perceived speed by returning a cached response
+  immediately while revalidating in the background. It is a caching/freshness
+  tradeoff, never a correctness or security mechanism — do not apply it to
+  authenticated, transactional, or per-user-sensitive responses.
+- Distinguish CDN edge caching from browser caching and set both intentionally;
+  an asset cached at the edge but `no-store` in the browser still pays a round
+  trip on every navigation.
+- Serve over HTTP/2 or HTTP/3 so multiple resources share a connection without
+  head-of-line blocking; this changes the cost model — many small cacheable files
+  can beat one large bundle that invalidates wholesale.
+- Compress text responses with Brotli (better ratio than gzip) and serve
+  pre-compressed static assets where possible.
+
+## Navigation, bfcache, and speculative loading
+
+- Keep pages eligible for the back/forward cache (bfcache) so back navigation is
+  instant. Do not use `unload` handlers (use `pagehide`/`visibilitychange`
+  instead), and avoid `Cache-Control: no-store` on the document, which evicts the
+  page from bfcache.
+- Speculatively prefetch or prerender likely next navigations with the
+  Speculation Rules API (`<script type="speculationrules">`), tuned to `moderate`
+  or `conservative` eagerness so it does not waste bandwidth on unlikely paths.
+  Prefetch loads the document; prerender renders it for an instant transition.
+- Restrict prefetch/prerender to same-site, idempotent GET navigations the user is
+  likely to take. Never speculatively load destinations with side effects.
+- Annotate the LCP image and critical scripts on prerendered pages the same way as
+  on the live page; a prerender that still lazy-loads its hero gains nothing.
+
+## Perceived loading and interaction latency
+
+- Show immediate local feedback for every interaction. Perceived speed is driven
+  by the time to the first visible response, which can be far shorter than time to
+  completion.
+- For interaction-heavy tools, reduce real and perceived latency with local reads,
+  optimistic writes, durable retry queues, and narrowly subscribed UI updates
+  before chasing micro-optimizations. Local-first data and an IndexedDB-backed
+  initial load remove the network from the critical interaction path.
+- Scope live updates to the components and fields that changed. A broadly
+  subscribed update that re-renders a whole list or page on every change is a
+  common, invisible INP regression.
+- Treat path length as part of perceived performance: keep high-frequency
+  workflows keyboard-accessible and command-driven where appropriate, without
+  hiding the mouse/touch alternative.
+- Animate only when motion clarifies state change or spatial origin. Prefer
+  `transform` and `opacity`, keep durations short (sub-200 ms for UI feedback),
+  and avoid layout-triggering properties in dense or long-list surfaces. Honor
+  `prefers-reduced-motion`.
+
+## Review checklist
+
+- Is the failing metric and the offending element known from measurement (lab and,
+  where available, field), not guessed?
+- Is the LCP resource present in the initial HTML, correctly sized, not
+  lazy-loaded, and prioritized with `fetchpriority="high"` only where warranted?
+- Do `srcset` and `sizes` match the real rendered widths across breakpoints, and
+  are formats negotiated (AVIF/WebP) with a fallback?
+- Are explicit dimensions or `aspect-ratio` set on all media, and is space
+  reserved for late widgets, ads, and injected content?
+- Do fonts use `font-display`, a metrics-matched fallback, subset `woff2`, and
+  preload limited to above-the-fold faces?
+- Are long tasks broken up, heavy work moved off the main thread or deferred, and
+  third-party scripts kept off the interaction path?
+- Are cache lifetimes set per resource class, with `immutable` for fingerprinted
+  assets and `stale-while-revalidate` only on tolerant, non-sensitive responses?
+- Is the page bfcache-eligible (no `unload`, no `no-store` on the document), and
+  are likely navigations speculatively loaded with bounded eagerness?
+- Do interaction-heavy flows give immediate local feedback, with updates scoped to
+  changed fields rather than broad re-renders?
+- Is animation limited to composited properties, honoring `prefers-reduced-motion`?
+- Is the change verified with before/after evidence from browser tooling or field
+  metrics?

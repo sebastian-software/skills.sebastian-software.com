@@ -30,5 +30,5 @@ Use this skill when UI must survive translation, locale changes, longer strings,
 
 ## References
 
-- [references/17-i18n-rtl.md](references/17-i18n-rtl.md) - RTL and international layout concerns.
-- [references/30-i18n-ux.md](references/30-i18n-ux.md) - localization, formatting, and translation-safe UX rules.
+- [references/i18n-rtl.md](references/i18n-rtl.md) - RTL and international layout concerns.
+- [references/i18n-ux.md](references/i18n-ux.md) - localization, formatting, and translation-safe UX rules.

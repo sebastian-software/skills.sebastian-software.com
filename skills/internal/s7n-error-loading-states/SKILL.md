@@ -30,5 +30,5 @@ Use this skill for the states users see while work is pending, unavailable, fail
 
 ## References
 
-- [references/13-loading-states.md](references/13-loading-states.md) - loading, progress, and skeleton patterns.
-- [references/19-error-pages.md](references/19-error-pages.md) - error page and recovery patterns.
+- [references/loading-states.md](references/loading-states.md) - loading, progress, and skeleton patterns.
+- [references/error-pages.md](references/error-pages.md) - error page and recovery patterns.

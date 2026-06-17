@@ -22,13 +22,16 @@ Use this skill for motion that clarifies state, continuity, feedback, and progre
 
 ## Rules
 
+- Author the static, reduced-motion experience first; layer motion inside `@media (prefers-reduced-motion: no-preference)` and never lose information when motion is off.
+- Animate only `transform` and `opacity` on hot paths; never animate layout properties (`width`, `height`, `top`, `left`, `margin`) in task surfaces.
+- Keep UI transitions short (≈150–250ms) and make every animation interruptible by user input.
 - Motion should never hide latency or force users to wait for choreography.
-- Avoid layout-property animation in task surfaces.
 - Do not make content available only through hover or scroll tricks.
 - Use scroll effects only when they improve comprehension or orientation.
-- Preserve stable layout during transitions.
+- Feature-detect and reduced-motion-guard View Transitions and scroll-driven animations; the content change must work when they are unsupported.
+- Preserve focus, scroll position, URL state, and stable layout during transitions.
 
 ## References
 
-- [references/14-scroll-patterns.md](references/14-scroll-patterns.md) - scroll interaction patterns and risks.
-- [references/35-motion-interaction.md](references/35-motion-interaction.md) - motion principles, timing, and reduced-motion rules.
+- [references/scroll-patterns.md](references/scroll-patterns.md) - scroll interaction patterns and risks.
+- [references/motion-interaction.md](references/motion-interaction.md) - motion principles, timing, and reduced-motion rules.

@@ -1,0 +1,41 @@
+# Design System Rules
+
+Use this reference for reusable design-system decisions that cut across colour, tokens, SVG, visual effects, media, and component clarity. Keep durable rules here only when they affect reusable UI quality, not one-off decoration.
+
+## Working Rules
+
+### Color spaces and token derivation
+
+- Author palettes and ramps in a perceptual color space (OKLCH or LCH) so equal numeric steps read as equal visual steps and lightness stays predictable across hues. Reduce chroma as colors approach white or black to avoid garish extremes.
+- Define color pairs, not isolated colors. Every brand, surface, status, and accent token needs known foreground, border, focus, hover, active, disabled, and forced-colors behavior.
+- Derive related tokens (hover, active, disabled, tints, alpha variants) with relative color syntax (`oklch(from …)`) and `color-mix()` instead of hand-tuned hex or preprocessor math, so one base change cascades. Treat these as Baseline-2024 features: ship a static fallback ahead of the derived value and gate non-baseline use behind `@supports`.
+- Pick the interpolation color space deliberately for gradients, transitions, and `color-mix()`. Interpolate in OKLCH or another perceptual space to avoid muddy or desaturated midpoints; sRGB interpolation through gray is the common cause of dead-looking gradients.
+- Treat the color format itself as a token decision. Define when the system uses `hex`, `rgb()`, `hsl()`, `oklch()`, `color-mix()`, and relative color syntax, and keep raw values out of components — reference semantic tokens only.
+
+### Contrast and accessibility
+
+- Treat WCAG 2 minimums (4.5:1 text, 3:1 large text and non-text/UI) as a floor, not a target; perceived contrast can still be weak at the minimum, especially for borders, icons, and underlines that carry meaning. Verify state visibility for buttons, inputs, and filters, not just static text.
+- Manually check midtone and state colors rather than trusting a single ratio. WCAG 2 can diverge from perceived contrast; APCA (the WCAG 3 draft model) accounts for text size and weight and handles dark surfaces better. Where compliance is required, pass WCAG 2 and treat APCA as a supplementary check.
+- Treat `contrast-color()` as a convenience for picking black or white foregrounds, not an accessibility guarantee; it has minimal browser support, so provide an explicit fallback. Plan `prefers-contrast` and light/dark alternatives rather than relying on automatic foreground selection.
+
+### Theming architecture
+
+- Use semantic tokens with explicit cascade ownership: define theme values at a single owning scope and let local overrides flow through custom properties, so component code never hard-codes a theme.
+- Use `light-dark()` with `color-scheme` for simple per-property system-theme switching, but keep an explicit theme architecture (data attribute or class plus token sets) when products need user-selected themes, local theme overrides, or cross-brand variants.
+- Gate wide-gamut/P3 colors and modern color functions on the product's browser baseline. Provide an sRGB fallback first and layer the P3 or modern-function value behind `@supports (color: oklch(0 0 0))` (or the relevant feature query) so unsupported browsers stay correct.
+
+### SVG, icons, and visual effects
+
+- Prefer inline SVG, or a deliberate SVG delivery system (sprite or component), for icons that need `currentColor`, CSS state styling, accessibility control, or design-system theming. Author SVG with a correct `viewBox`, presentational attributes, and shape primitives so it scales cleanly and stays readable by hand.
+- Treat masks, clipping, backdrop filters, glass, grain, and SVG filters as interface-clarity tools, not default decoration, and choose the right primitive: `clip-path` for hard geometric cutouts, CSS or SVG masks for soft/gradient fades (text and image fades, avatar cutouts, rounded tabs). Reserve `feColorMatrix` for specialized image/color math.
+- Check contrast, forced-colors behavior, reduced visual complexity, and performance before adopting any effect. Keep effects optional layers with fallbacks; never let meaning depend on translucency, filtering, or an unknown backdrop, and never let an effect drop text contrast.
+- Control stacking with `isolation: isolate` and explicit stacking contexts so blend modes, filters, and backdrop effects do not leak into unintended backgrounds.
+
+## Token Review Checklist
+
+- Does every semantic token have a role, not just a visual name?
+- Are derived colors checked in light mode, dark mode, hover/focus/active states, disabled states, and forced-colors mode?
+- Do gradients, transitions, and `color-mix()` operations use a color space that avoids muddy interpolation?
+- Can the icon system inherit text color, align to type, expose labels, and avoid duplicated sprite/runtime complexity?
+- Are visual effects optional layers with fallbacks, or does meaning depend on masking/filtering/translucency?
+- Are wide-gamut/P3 colors and modern color functions support-gated for the product's browser baseline?

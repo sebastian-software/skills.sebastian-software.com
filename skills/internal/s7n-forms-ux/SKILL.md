@@ -30,5 +30,5 @@ Use this skill for forms as task flows: helping users enter correct information 
 
 ## References
 
-- [references/08-forms.md](references/08-forms.md) - baseline form layout and field rules.
-- [references/24-forms-ux.md](references/24-forms-ux.md) - validation, completion, and edge cases.
+- [references/forms.md](references/forms.md) - baseline form layout and field rules.
+- [references/forms-ux.md](references/forms-ux.md) - validation, completion, and edge cases.

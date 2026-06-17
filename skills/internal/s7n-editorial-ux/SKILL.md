@@ -30,5 +30,5 @@ Use this skill for words inside product UI: labels, helper text, empty states, h
 
 ## References
 
-- [references/06-copywriting.md](references/06-copywriting.md) - concise interface and product copy rules.
-- [references/32-editorial-ux.md](references/32-editorial-ux.md) - editorial UX patterns and wording checks.
+- [references/copywriting.md](references/copywriting.md) - concise interface and product copy rules.
+- [references/editorial-ux.md](references/editorial-ux.md) - editorial UX patterns and wording checks.

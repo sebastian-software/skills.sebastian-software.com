@@ -30,6 +30,6 @@ Use this skill for color decisions that affect usability, brand expression, acce
 
 ## References
 
-- [references/03-colour.md](references/03-colour.md) - palette construction, contrast, and practical color rules.
-- [references/16-dark-mode.md](references/16-dark-mode.md) - dark mode implementation and pitfalls.
-- [references/28-design-system-rules.md](references/28-design-system-rules.md) - token and design-system rules.
+- [references/colour.md](references/colour.md) - palette construction, contrast, and practical color rules.
+- [references/dark-mode.md](references/dark-mode.md) - dark mode implementation and pitfalls.
+- [references/design-system-rules.md](references/design-system-rules.md) - token and design-system rules.

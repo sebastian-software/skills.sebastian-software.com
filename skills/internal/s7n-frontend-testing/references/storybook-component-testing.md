@@ -1,21 +1,45 @@
 # Storybook Component Testing
 
-Use stories as reusable UI state fixtures. Prefer one state source that supports documentation, review, interaction testing, accessibility checks, and visual snapshots.
+Use stories as the single source of UI state. One story should drive documentation,
+manual review, interaction tests, accessibility checks, and visual snapshots — so a
+state is defined once and exercised everywhere, instead of being re-stubbed per test.
 
 ## Working Rules
 
-- Put meaningful UI states in stories before duplicating setup in tests.
-- Use user-facing queries and interactions rather than implementation details.
-- Keep story `play` functions focused on behavior that belongs to the component state.
-- Treat Storybook version and addon APIs as current-version details; verify before coding exact imports.
+- Define each meaningful state as its own named story before duplicating setup in a
+  test file: default, loading, empty, error, disabled, long-content, and any
+  data-variant that changes layout. The story name is the spec.
+- Type stories so the args stay in sync with the component. Use
+  `satisfies Meta<typeof Component>` on `meta` and `StoryObj<typeof meta>` for each
+  story; this surfaces prop drift at compile time instead of in a broken snapshot.
+- Drive behavior from `play` functions using `@storybook/test` (`within`,
+  `userEvent`, `expect`, `fn`). Query through `canvas.getByRole`/`getByLabelText`
+  and interact via `userEvent`; never reach into component internals or query by
+  generated class names.
+- Assert on side effects with spy args: pass `fn()` from `@storybook/test` to
+  callback props (`onClick`, `onChange`) and assert `expect(args.onChange)
+  .toHaveBeenCalledWith(...)` in the `play`. This verifies the contract a parent
+  relies on, not the implementation.
+- Keep each `play` scoped to one component's behavior. A `play` that navigates routes,
+  hits a real backend, or coordinates multiple pages is an E2E test in disguise — move
+  it to Playwright.
+- Stub inputs at the story boundary so the state is deterministic: provide data through
+  args or loaders, wrap with decorators for theme, router, and i18n providers, and pin
+  the locale, timezone, and any randomness the component reads.
+- Cover localized and RTL states explicitly. Add stories that render under each
+  supported locale (and `dir="rtl"`) when text length or direction changes layout;
+  these double as visual-regression and accessibility fixtures.
+- Use Storybook's coverage and the test runner to find missing states: an interactive
+  branch with no story is an untested state. Add the story rather than a bespoke test.
+- Treat Storybook and addon APIs as version-specific. Confirm the installed major
+  version and its package/import names (the test utilities have moved between packages
+  across releases) before writing exact imports.
 
-## Additional Rules
+## Review checklist
 
-- Historical @storybook/test consolidation guidance; useful for explicit action spies and migration context, but original canonical URL is dead and exact API details are version-sensitive.
-- Use Storybook coverage as a way to find missing component states and story coverage gaps; verify current commands before implementation.
-- Treat Storybook stories as component state fixtures that can support interaction, accessibility, visual tests, coverage, and CI review.
-- Use Storybook play functions and user-facing queries as component interaction tests close to the story state; verify modern package names.
-- Use I18n with Storybook as for localized UI state coverage.
-- Use Storybook type-safety for story typing and component fixture quality.
-- Use Storybook 10 as platform/version radar for current Storybook workflows.
-- Use Storybook main configuration docs for setup/configuration checks.
+- Does every visible state and interaction branch have a named story?
+- Do `play` functions query by role/label and assert via spied callback args?
+- Are theme, router, locale, timezone, and randomness pinned by decorators/args?
+- Do RTL and per-locale stories exist where direction or text length shifts layout?
+- Is `meta` typed with `satisfies Meta` so prop changes break the build, not a snapshot?
+- Does any `play` cross page or backend boundaries that belong in E2E instead?
