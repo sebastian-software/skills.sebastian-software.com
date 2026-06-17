@@ -558,7 +558,7 @@ This is a critical and commonly violated rule. The `menu`, `menubar`, and `menui
 - Visible focus indicators on every interactive element (use `:focus-visible`)
 - Skip link as the first focusable element on the page
 
-See `01-fundamentals.md` for focus indicator styling (`:focus-visible`), skip link implementation, target size requirements (48x48pt minimum), and `prefers-reduced-motion` patterns.
+See the `s7n-ui-design` skill for focus indicator styling (`:focus-visible`), skip link implementation, target size requirements (48x48pt minimum), and `prefers-reduced-motion` patterns.
 
 ## Mobile vs Desktop Patterns
 
@@ -630,7 +630,7 @@ Insert the toggle button via JavaScript (or `<template>`) so the navigation rema
 }
 ```
 
-For container queries on navigation components, see `04-layout-spacing.md` (section "Use Container Queries for Component-Level Responsiveness").
+For container queries on navigation components, see the `s7n-layout-spacing` skill (section "Use Container Queries for Component-Level Responsiveness").
 
 ## Modern CSS Techniques
 
@@ -690,7 +690,7 @@ Use `env(safe-area-inset-top)` for notched devices:
 
 ### Logical Properties
 
-Use logical properties (`padding-inline-start`, `margin-inline`) so navigation adapts to RTL languages. See `04-layout-spacing.md` for the full property mapping and `17-i18n-rtl.md` for extended RTL patterns.
+Use logical properties (`padding-inline-start`, `margin-inline`) so navigation adapts to RTL languages. See the `s7n-layout-spacing` skill for the full property mapping and the `s7n-i18n-ux` skill for extended RTL patterns.
 
 ### Hiding Navigation Accessibly
 

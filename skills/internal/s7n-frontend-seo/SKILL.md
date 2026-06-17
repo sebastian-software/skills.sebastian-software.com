@@ -30,4 +30,4 @@ Use this skill for the frontend details that make public pages understandable to
 
 ## References
 
-- [references/09-seo.md](references/09-seo.md) - frontend SEO metadata, structured data, and implementation checks.
+- [references/seo.md](references/seo.md) - frontend SEO metadata, structured data, and implementation checks.

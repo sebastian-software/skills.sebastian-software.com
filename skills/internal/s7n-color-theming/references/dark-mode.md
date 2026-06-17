@@ -2,7 +2,7 @@
 
 Learn how to implement dark mode beyond colour selection: handling images, shadows, elevation, user preferences, and edge cases.
 
-This reference covers the implementation side of dark mode. For OKLCH colour palettes, the `light-dark()` function, transparent colour systems, and colour token architecture, see `03-colour.md`.
+This reference covers the implementation side of dark mode. For OKLCH colour palettes, the `light-dark()` function, transparent colour systems, and colour token architecture, see `colour.md`.
 
 ## Declare `color-scheme` for Browser UA Adaptation
 
@@ -149,7 +149,7 @@ Use lighter surfaces as the primary elevation indicator, with heavier shadows as
 }
 ```
 
-See `03-colour.md` for the base dark surface colours (Background, Fill, Overlay) and the `light-dark()` function.
+See `colour.md` for the base dark surface colours (Background, Fill, Overlay) and the `light-dark()` function.
 
 ## Build an Elevation System for Dark Mode
 
@@ -205,7 +205,7 @@ For most projects, 3 to 5 surface levels is sufficient:
 }
 ```
 
-See `03-colour.md` for the 3-level Background/Fill/Overlay pattern. This section extends that to a full elevation scale.
+See `colour.md` for the 3-level Background/Fill/Overlay pattern. This section extends that to a full elevation scale.
 
 ## Adjust Contrast for Dark Mode
 
@@ -244,7 +244,7 @@ WCAG Success Criterion 1.4.3 does not include exceptions for dark mode. The same
 
 Every colour combination must be verified independently in each theme. Colours that pass on white may fail on dark grey and vice versa.
 
-APCA (the algorithm behind WCAG 3 draft) handles dark backgrounds more accurately than WCAG 2. See `03-colour.md` for APCA contrast values.
+APCA (the algorithm behind WCAG 3 draft) handles dark backgrounds more accurately than WCAG 2. See `colour.md` for APCA contrast values.
 
 ## Implement a User Preference Toggle
 
@@ -307,7 +307,7 @@ function setTheme(choice) {   // "light" | "dark" | "system"
 }
 ```
 
-See `03-colour.md` for the full set of semantic colour tokens to define in each theme block.
+See `colour.md` for the full set of semantic colour tokens to define in each theme block.
 
 ## Prevent Flash of Incorrect Theme
 
@@ -440,7 +440,7 @@ Colours that pass WCAG 4.5:1 on white may fail on dark grey. Every text/backgrou
 Not respecting `prefers-color-scheme` forces users to manually toggle every site they visit. Always honour the OS setting as the default.
 
 ### Mistake 5: Pure black backgrounds
-`oklch(0% 0 0)` causes excessive contrast with white text, leading to eye strain and halation. Use dark grey (approximately `oklch(13% 0.03 hue)`). See `03-colour.md` for the recommended dark background value.
+`oklch(0% 0 0)` causes excessive contrast with white text, leading to eye strain and halation. Use dark grey (approximately `oklch(13% 0.03 hue)`). See `colour.md` for the recommended dark background value.
 
 ### Mistake 6: Not desaturating accent colours
 Vivid saturated colours vibrate and bleed on dark backgrounds. Reduce chroma by 20-30% for dark mode.

@@ -55,7 +55,7 @@ An element with `dir="auto"` will match `:dir(ltr)` or `:dir(rtl)` based on cont
 
 ## Extend Logical Properties Beyond the Basics
 
-Core logical property mappings for margin, padding, width, and height are covered in **04-layout-spacing.md** (section "Use Logical Properties"). The following mappings extend that foundation for full RTL support:
+Map every physical CSS property to its logical equivalent so layout follows writing mode and direction. Margin, padding, and sizing use `margin-inline`/`margin-block`, `padding-inline`/`padding-block`, and `inline-size`/`block-size`. The following mappings extend that foundation for full RTL support:
 
 ### Positioning
 
@@ -530,7 +530,7 @@ pseudoLocalize('Hello world'); // → "Ħḗŀŀǿ ẇǿřŀḓ"
 ## Chapter Summary
 
 1. Set text direction with HTML `dir` (not CSS `direction`) -- use `ltr`, `rtl`, or `auto` for user-generated content
-2. Use CSS logical properties for all spacing, positioning, borders, border-radius, floats, and text alignment (see also 04-layout-spacing.md)
+2. Use CSS logical properties for all spacing, positioning, borders, border-radius, floats, and text alignment
 3. Mirror page layout and directional icons for RTL but never flip media controls, logos, checkmarks, or clocks
 4. Design flexible containers that accommodate 100-200% text expansion for short strings and 30% for longer content
 5. Wrap user-generated content of unknown direction in `<bdi>` elements to isolate bidirectional text

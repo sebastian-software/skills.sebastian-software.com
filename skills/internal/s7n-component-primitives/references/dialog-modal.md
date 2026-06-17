@@ -223,7 +223,7 @@ dialog::backdrop {
 
 ## Entry and Exit Animations
 
-For the underlying CSS features (`@starting-style`, `transition-behavior: allow-discrete`, animating `display`), see `01-fundamentals.md`. Below is the dialog-specific pattern combining all four:
+For the underlying CSS features (`@starting-style`, `transition-behavior: allow-discrete`, animating `display`), see the `s7n-ui-design` skill. Below is the dialog-specific pattern combining all four:
 
 ### Complete Entry + Exit Animation Pattern
 
@@ -390,7 +390,7 @@ Ask before using an overlay:
 
 ### Prefer Undo Over Confirmation
 
-For the full rationale and undo-toast pattern, see `07-buttons.md` (section "Prefer Undo Over Confirmation Dialogs"). Reserve confirmation dialogs ONLY for truly irreversible, high-cost, or batch operations.
+For the full rationale and undo-toast pattern, see `buttons.md` (section "Prefer Undo Over Confirmation Dialogs"). Reserve confirmation dialogs ONLY for truly irreversible, high-cost, or batch operations.
 
 ```html
 <dialog aria-labelledby="confirm-title" aria-describedby="confirm-desc">

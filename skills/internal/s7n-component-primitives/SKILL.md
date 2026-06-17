@@ -30,8 +30,8 @@ Use this skill for reusable UI building blocks and the interaction rules attache
 
 ## References
 
-- [references/07-buttons.md](references/07-buttons.md) - button hierarchy, labels, and states.
-- [references/10-navigation.md](references/10-navigation.md) - navigation structure and affordances.
-- [references/11-dialog-modal.md](references/11-dialog-modal.md) - dialogs, modals, and confirmation flows.
-- [references/25-component-development.md](references/25-component-development.md) - component API and implementation rules.
-- [references/31-ux-patterns.md](references/31-ux-patterns.md) - reusable UX patterns.
+- [references/buttons.md](references/buttons.md) - button hierarchy, labels, and states.
+- [references/navigation.md](references/navigation.md) - navigation structure and affordances.
+- [references/dialog-modal.md](references/dialog-modal.md) - dialogs, modals, and confirmation flows.
+- [references/component-development.md](references/component-development.md) - component API and implementation rules.
+- [references/ux-patterns.md](references/ux-patterns.md) - reusable UX patterns.

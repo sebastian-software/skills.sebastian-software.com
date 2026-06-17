@@ -60,8 +60,8 @@ Do not use this skill as a source archive. Article-derived input has already bee
 
 ## References
 
-- [references/01-fundamentals.md](references/01-fundamentals.md) - broad UI design principles and quality heuristics.
-- [references/02-less-is-more.md](references/02-less-is-more.md) - reduction, clarity, and restraint.
-- [references/20-design-registers.md](references/20-design-registers.md) - registers for design intent and decisions.
-- [references/21-design-planning.md](references/21-design-planning.md) - planning workflow before implementation.
-- [references/22-ui-quality-gates.md](references/22-ui-quality-gates.md) - final review gates before shipping.
+- [references/fundamentals.md](references/fundamentals.md) - broad UI design principles and quality heuristics.
+- [references/less-is-more.md](references/less-is-more.md) - reduction, clarity, and restraint.
+- [references/design-registers.md](references/design-registers.md) - registers for design intent and decisions.
+- [references/design-planning.md](references/design-planning.md) - planning workflow before implementation.
+- [references/ui-quality-gates.md](references/ui-quality-gates.md) - final review gates before shipping.

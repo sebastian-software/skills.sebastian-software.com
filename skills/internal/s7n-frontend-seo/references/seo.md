@@ -214,7 +214,7 @@ The `<h1>` signals the primary topic of the page to search engines.
 
 ### Landmark Elements
 
-Use the correct semantic elements for page regions. This is already covered in [01-fundamentals.md](01-fundamentals.md) — the SEO benefit is that search engines can identify and weight content by its structural role.
+Use the correct semantic elements for page regions. This is already covered in the `s7n-ui-design` skill — the SEO benefit is that search engines can identify and weight content by its structural role.
 
 | Element | SEO Role |
 |---------|----------|
@@ -303,7 +303,7 @@ Use JSON-LD (JavaScript Object Notation for Linked Data) embedded in a `<script>
 
 ## Image SEO
 
-Images are covered for responsive loading in [04-layout-spacing.md](04-layout-spacing.md) and for alt text in accessibility guidelines. This section adds the SEO-specific considerations.
+Images are covered for responsive loading in the `s7n-layout-spacing` skill and for alt text in accessibility guidelines. This section adds the SEO-specific considerations.
 
 ### File Names
 
@@ -375,7 +375,7 @@ Measures how quickly the main content becomes visible.
 - Preload the LCP image: `<link rel="preload" as="image" href="hero.webp">`
 - Use `fetchpriority="high"` on the LCP element
 - Avoid lazy-loading the LCP image
-- Preload one critical web font (see [05b-webfonts.md](05b-webfonts.md))
+- Preload one critical web font (see the `s7n-typography` skill)
 - Inline critical CSS or use `<link rel="preload" as="style">` for the stylesheet
 - Minimise render-blocking scripts — use `defer` or `async` on `<script>` tags
 
@@ -386,7 +386,7 @@ Measures responsiveness — how quickly the page reacts to user input.
 **Frontend actions:**
 - Keep event handlers fast — avoid synchronous layout calculations in click/input handlers
 - Break long tasks (> 50ms) with `requestAnimationFrame` or `scheduler.yield()`
-- Provide immediate visual feedback on interaction (see the 8 interaction states in [01-fundamentals.md](01-fundamentals.md))
+- Provide immediate visual feedback on interaction (see the 8 interaction states in the `s7n-ui-design` skill)
 - Avoid layout thrashing — batch DOM reads before DOM writes
 - Use CSS transitions for state changes rather than JavaScript-driven animation
 
@@ -398,7 +398,7 @@ Measures visual stability — how much content moves unexpectedly during loading
 - Set explicit `width` and `height` on all images and videos
 - Use `aspect-ratio` in CSS for responsive media containers
 - Reserve space for ads, embeds, and dynamically injected content
-- Use `font-display: fallback` or `optional` and `font-size-adjust` to reduce font-swap layout shift (see [05b-webfonts.md](05b-webfonts.md))
+- Use `font-display: fallback` or `optional` and `font-size-adjust` to reduce font-swap layout shift (see the `s7n-typography` skill)
 - Place dynamic content (banners, cookie notices) in fixed or reserved space — never push existing content down
 
 ## Internal Linking
@@ -501,13 +501,13 @@ Many performance optimisations are covered across other chapters. This is a cros
 
 | Technique | SEO Impact | Reference |
 |-----------|-----------|-----------|
-| Font preloading and `font-display` | Reduces LCP and CLS | [05b-webfonts.md](05b-webfonts.md) |
-| `font-size-adjust` for fallback fonts | Reduces CLS during font swap | [05-typography.md](05-typography.md) |
-| Responsive images with `srcset` | Reduces LCP on mobile | [04-layout-spacing.md](04-layout-spacing.md) |
-| `aspect-ratio` on media | Prevents CLS | [04-layout-spacing.md](04-layout-spacing.md) |
-| `loading="lazy"` for off-screen images | Reduces initial page weight | [04-layout-spacing.md](04-layout-spacing.md) |
-| CSS-only animations (`transform`, `opacity`) | Improves INP | [01-fundamentals.md](01-fundamentals.md) |
-| Reduced motion preferences | Accessibility and performance | [01-fundamentals.md](01-fundamentals.md) |
+| Font preloading and `font-display` | Reduces LCP and CLS | the `s7n-typography` skill |
+| `font-size-adjust` for fallback fonts | Reduces CLS during font swap | the `s7n-typography` skill |
+| Responsive images with `srcset` | Reduces LCP on mobile | the `s7n-layout-spacing` skill |
+| `aspect-ratio` on media | Prevents CLS | the `s7n-layout-spacing` skill |
+| `loading="lazy"` for off-screen images | Reduces initial page weight | the `s7n-layout-spacing` skill |
+| CSS-only animations (`transform`, `opacity`) | Improves INP | the `s7n-ui-design` skill |
+| Reduced motion preferences | Accessibility and performance | the `s7n-ui-design` skill |
 
 ## Chapter Summary
 

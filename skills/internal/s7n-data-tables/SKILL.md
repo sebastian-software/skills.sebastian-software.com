@@ -30,4 +30,4 @@ Use this skill when the primary UI problem is understanding, comparing, filterin
 
 ## References
 
-- [references/12-tables-data.md](references/12-tables-data.md) - table structure, dense data, and responsive data patterns.
+- [references/tables-data.md](references/tables-data.md) - table structure, dense data, and responsive data patterns.

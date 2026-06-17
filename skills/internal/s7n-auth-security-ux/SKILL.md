@@ -22,12 +22,15 @@ Use this skill for user-facing security flows where clarity, trust, and browser 
 
 ## Rules
 
+- Default to passkeys/WebAuthn for new accounts; design enrollment, fallback, device-sync, and recovery as deliberate states, not an afterthought.
 - Do not block password managers or paste unless there is a documented security requirement.
-- Recovery flows are part of auth UX, not an afterthought.
+- Always verify origin, challenge, and signature server-side before trusting a WebAuthn assertion.
 - Security copy should be precise, calm, and free of vague reassurance.
 - Permission prompts need context before the browser prompt appears.
-- Avoid leaking sensitive state through overly specific public error messages.
+- Avoid leaking sensitive state through overly specific public error messages, including whether an account exists.
+
+For passkey lifecycle, credential forms, recovery, security headers, permission prompts, and copy, read the reference below.
 
 ## References
 
-- [references/34-auth-web-security.md](references/34-auth-web-security.md) - auth UX, browser security, and sensitive frontend flow rules.
+- [references/auth-web-security.md](references/auth-web-security.md) - passkey/WebAuthn lifecycle, credential forms, recovery, sessions, security headers, permission prompts, and security copy.

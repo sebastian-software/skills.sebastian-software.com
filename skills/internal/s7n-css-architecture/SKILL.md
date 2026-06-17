@@ -30,6 +30,6 @@ Use this skill for making CSS maintainable, predictable, and compatible with the
 
 ## References
 
-- [references/15-css-architecture.md](references/15-css-architecture.md) - cascade, layers, scoping, and maintainable CSS.
-- [references/33-baseline-support.md](references/33-baseline-support.md) - browser baseline and support decisions.
-- [references/36-css-build-tooling.md](references/36-css-build-tooling.md) - CSS build tooling and generated output rules.
+- [references/css-architecture.md](references/css-architecture.md) - cascade, layers, scoping, and maintainable CSS.
+- [references/baseline-support.md](references/baseline-support.md) - browser baseline and support decisions.
+- [references/css-build-tooling.md](references/css-build-tooling.md) - CSS build tooling and generated output rules.

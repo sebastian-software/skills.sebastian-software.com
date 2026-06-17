@@ -30,6 +30,6 @@ Use this skill for typography in digital interfaces. It covers type choice, hier
 
 ## References
 
-- [references/05-typography.md](references/05-typography.md) - core UI typography rules.
-- [references/05b-webfonts.md](references/05b-webfonts.md) - webfont loading, fallbacks, and performance.
-- [references/29-typography-rules.md](references/29-typography-rules.md) - practical typography implementation rules.
+- [references/typography.md](references/typography.md) - core UI typography rules.
+- [references/webfonts.md](references/webfonts.md) - webfont loading, fallbacks, and performance.
+- [references/typography-rules.md](references/typography-rules.md) - practical typography implementation rules.

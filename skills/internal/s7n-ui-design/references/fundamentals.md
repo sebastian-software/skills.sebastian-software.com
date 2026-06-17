@@ -113,11 +113,11 @@ Fill        - Secondary backgrounds
 Background  - White or near-white
 ```
 
-**Typography Options:** See [05-typography.md](05-typography.md) for the type scale (1.200 Minor Third, base 16px).
+**Typography Options:** See the `s7n-typography` skill for the type scale (1.200 Minor Third, base 16px).
 
-**Spacing Options:** See [04-layout-spacing.md](04-layout-spacing.md) for the 8pt grid (XS–XXL).
+**Spacing Options:** See the `s7n-layout-spacing` skill for the 8pt grid (XS–XXL).
 
-**Shadow Options:** See [03-colour.md](03-colour.md) for the two shadow levels (Raised, Overlay).
+**Shadow Options:** See the `s7n-color-theming` skill for the two shadow levels (Raised, Overlay).
 
 **Border Radius Options:**
 - Small: 8pt

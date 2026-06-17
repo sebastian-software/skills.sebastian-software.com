@@ -8,11 +8,5 @@ Use this reference when CSS tooling, utility frameworks, CSS-in-TypeScript, gene
 - Prefer build-time or zero-runtime styling when it improves type safety and removes runtime work without hiding plain CSS behavior.
 - Use utility composition escape hatches sparingly, especially when they can duplicate output or obscure component boundaries.
 - Check generated CSS size, cascade behavior, token consistency, and framework upgrade paths before codifying tooling patterns.
-
-## Additional Rules
-
-- Tailwind @apply can be an escape hatch for third-party markup or token reuse, but should not become a default abstraction; pair with Tailwind guidance on utility-first reuse and CSS output duplication caveats.
-- Vanilla-extract-specific architecture example for zero-runtime CSS, TypeScript theme contracts, createTheme, style/styleVariants, Sprinkles, Recipes, tokens, dark mode, and variant APIs; keep as tool-specific example rather than general styling rule.
-- Type-safe Tailwind-style utilities and vanilla-extract belong to styling architecture, not motion.
-- Use frontend terminal guide as developer workflow support; keep out of UI rules.
-- Use default-export guidance as build/tooling policy context.
+- Reserve Tailwind `@apply` for narrow cases such as styling third-party markup or reusing a token set; do not let it become a default abstraction, since it duplicates output and hides component boundaries that utility-first markup would make explicit.
+- When using a zero-runtime CSS-in-TypeScript tool (such as vanilla-extract), express tokens through a typed theme contract (`createTheme`) and model variants with the tool's own primitives (`styleVariants`, recipes, sprinkles) so the type system enforces token usage and dark mode at build time.

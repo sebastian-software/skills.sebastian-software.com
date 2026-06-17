@@ -1,0 +1,36 @@
+# Forms UX
+
+Design forms around user recovery: clear labels, browser-supported input attributes, tolerant validation, meaningful error messages, and submission flows that preserve native behavior.
+
+## Working Rules
+
+- Choose `type`, `name`, `autocomplete`, `inputmode`, and `enterkeyhint` intentionally so the browser shows the right keyboard and autofill.
+- Validate after useful interaction, not at first keystroke.
+- Preserve paste, autofill, password managers, native validation, and submitter semantics unless there is a specific risk.
+- Pair custom widgets with precise keyboard, focus, error, and fallback behavior.
+
+### Autocomplete and Autofill
+
+- Set specific `autocomplete` tokens (`email`, `tel`, `street-address`, `cc-number`, `one-time-code`, etc.) so browsers and password managers can fill fields and preserve input-purpose identification for assistive tech.
+- Never disable autocomplete globally. Turn it off (`autocomplete="off"`) only for values that must not be stored or reused, such as one-time codes, CVV/CVC, and per-transaction unique identifiers.
+
+### Mobile Forms
+
+- Match the on-screen keyboard to the field with `inputmode` and `type` (`type="email"`, `inputmode="numeric"` for codes, `type="tel"` for phone numbers).
+- Keep mobile forms single-column and prefer a visible segmented control or radio set over a dropdown for small option counts to cut taps.
+- On constrained mobile layouts, mark optional fields with "(optional)" rather than repeating a required marker on every field.
+- Size touch targets at least 44x44 CSS px and respect platform conventions for pickers and native controls.
+
+### Sliders and Range Inputs
+
+- Reserve sliders for exploratory range or filter interaction, not precise data entry.
+- Always pair a slider with a text or number input so users needing exact values or with limited motor control have a reliable path.
+- Account for non-linear value distributions and make dual-handle (min/max) ranges visually unambiguous about which handle is which.
+
+### Modern Form APIs
+
+- Submit programmatically with `form.requestSubmit()` rather than `form.submit()` so constraint validation runs and a `submit` event fires.
+- Read `event.submitter` on the `SubmitEvent` to know which button triggered submission instead of tracking focus or click state.
+- Use the `formdata` event to inject or transform entries on the `FormData` without intercepting submission.
+- Open native date/color/select pickers from a custom control with `HTMLInputElement.showPicker()`, gated on a user gesture.
+- Disable an entire subtree from focus and interaction with the `inert` attribute (for example, the inactive step of a multi-step form) instead of toggling `disabled`/`tabindex` per element.

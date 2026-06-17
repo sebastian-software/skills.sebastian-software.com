@@ -31,6 +31,6 @@ Use this skill for the structural geometry of an interface: where things sit, ho
 
 ## References
 
-- [references/04-layout-spacing.md](references/04-layout-spacing.md) - spacing systems, grids, white space, and visual grouping.
-- [references/26-responsive-design.md](references/26-responsive-design.md) - responsive design decisions and breakpoints.
-- [references/27-css-layout-responsive.md](references/27-css-layout-responsive.md) - CSS layout primitives and responsive implementation.
+- [references/layout-spacing.md](references/layout-spacing.md) - spacing systems, grids, white space, and visual grouping.
+- [references/responsive-design.md](references/responsive-design.md) - responsive design decisions and breakpoints.
+- [references/css-layout-responsive.md](references/css-layout-responsive.md) - CSS layout primitives and responsive implementation.
