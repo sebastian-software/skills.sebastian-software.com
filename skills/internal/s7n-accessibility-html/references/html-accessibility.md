@@ -27,8 +27,15 @@ decided.
 - Use real lists for grouped items and `table` with `th`, `scope`, `caption`,
   and `thead`/`tbody` for tabular data. Never use a table for layout, and never
   fake rows with stacked `div`s when the data is genuinely tabular.
+- Write valid, well-formed HTML — unique ids, properly nested and closed
+  elements, no duplicate attributes. WCAG 2.2 dropped 4.1.1 Parsing as a separate
+  criterion, but malformed structure still breaks accessible names, focus, form
+  behavior, and assistive-tech mapping through inconsistent browser repair.
 - Provide a "skip to main content" link as the first focusable element so
   keyboard users bypass repeated navigation.
+- Keep repeated help mechanisms — contact links, chat or support entry points,
+  self-service docs — in a consistent relative position across pages so users who
+  rely on them can find them in the same place each time.
 
 ## ARIA as a repair layer
 
@@ -50,6 +57,12 @@ decided.
 - Use `aria-hidden="true"` only on content that is also unreachable by keyboard;
   never hide a focusable element from the accessibility tree, or a keyboard user
   lands on something a screen reader cannot describe.
+- Treat the WAI-ARIA Authoring Practices as implementation references, not as a
+  guarantee: a pattern that follows the spec can still behave inconsistently
+  across screen-reader/browser pairs. Verify support-sensitive features —
+  `aria-controls`, `aria-describedby`, live regions, comboboxes, grids,
+  treeviews, and application-style menus — in real assistive technology rather
+  than assuming the markup alone is enough.
 
 ## Accessible names
 
@@ -84,6 +97,15 @@ decided.
   `tel`, `postal-code`, `name`) so autofill and password managers work. Do not
   disable autocomplete or block paste unless the value is genuinely one-time or
   sensitive.
+- Do not gate authentication behind a cognitive-function test — memorizing a
+  password unaided, transcribing characters, solving a puzzle, or retyping a code
+  by hand — unless an accessible alternative is offered. Support password
+  managers, paste into login and one-time-code fields, passkeys, and email/magic
+  links so signing in does not depend on memory or manual transcription.
+- Do not ask the user to re-enter information already provided earlier in the same
+  process; carry it forward or offer it for selection, except where re-entry is
+  genuinely required for security or confirmation (for example a deliberate
+  password re-type).
 - Drive the right mobile keyboard and submit action with `inputmode`
   (`numeric`, `decimal`, `tel`, `email`, `url`, `search`) and `enterkeyhint`
   (`search`, `send`, `go`, `next`, `done`). Use these to refine the on-screen
@@ -141,6 +163,10 @@ decided.
 - Maintain a logical DOM order that matches the visual order so the Tab sequence
   is predictable. Reserve `tabindex="-1"` for programmatic focus targets, and
   avoid positive `tabindex` values, which fight the natural order.
+- Keep the focused control fully visible. Sticky headers, drawers, floating
+  toolbars, cookie banners, and other overlays must not cover the element that has
+  focus as the user tabs through; use `scroll-padding`/`scroll-margin` and layout
+  offsets so a scrolled-to control is not hidden behind fixed chrome.
 
 ## Announcements and live regions
 
@@ -171,9 +197,22 @@ decided.
 - Make components configurable through CSS custom properties and state-driven
   selectors rather than swapping markup per variant, so a single accessible
   structure serves every visual theme.
-- Test every custom or composite widget with keyboard only and with a screen
-  reader before considering it done; visual correctness does not prove the role,
-  name, and keyboard model are right.
+- Provide a single-pointer (and keyboard) alternative for any interaction that
+  otherwise requires a dragging movement — reorderable lists, sliders, maps,
+  croppers, and canvas controls — unless the dragging is genuinely essential. A
+  tap/click path such as up/down buttons, a menu, or numeric entry must reach the
+  same result as the drag.
+- Test every custom or composite widget before considering it done; visual
+  correctness does not prove the role, name, and keyboard model are right. Drive
+  it with the keyboard only and confirm focus order, focus return, Escape, and
+  the absence of any keyboard trap; check forced-colors mode whenever the widget
+  has custom borders, icons, or focus styling; check reduced motion whenever a
+  transition conveys state change or spatial orientation; and exercise it in at
+  least one screen-reader/browser pair when it has custom roles, live updates,
+  dialogs, menus, comboboxes, grids, or non-trivial focus management.
+- Run automated accessibility checks as a baseline, then manually verify the
+  behavior they cannot infer — name quality, focus order, announcement timing,
+  and keyboard model. A clean automated report is necessary, not sufficient.
 
 ## Semantic and state-driven styling
 
@@ -196,8 +235,9 @@ decided.
   the visual boundaries of UI components and meaningful graphics. Verify focus and
   state indicators against every background they appear on.
 - Make interactive targets large enough for touch and imprecise pointers; treat
-  roughly 24x24 CSS pixels as a floor and a larger size as the comfortable target,
-  with adequate spacing between adjacent hit areas.
+  24x24 CSS pixels as the floor (the spacing, inline, and essential exceptions
+  aside) and prefer 44-48 CSS pixels for frequently used touch controls, with
+  adequate spacing between adjacent hit areas.
 - Do not infer input capability from viewport width. Use pointer media queries
   (`@media (pointer: coarse)` / `(hover: none)`) to adapt target sizes and hover
   affordances to the actual device, since a narrow window on a desktop still has a

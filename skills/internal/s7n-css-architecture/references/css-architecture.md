@@ -447,7 +447,7 @@ Cascade layers + low-specificity methodology = the strongest combination.
 
 ## Anchor Positioning
 
-CSS anchor positioning connects an absolutely positioned element to one or more anchor elements. Supported in Chrome 125+, Edge 125+. Safari and Firefox do not yet fully support it -- use as progressive enhancement.
+CSS anchor positioning connects an absolutely positioned element to one or more anchor elements. Treat it as progressive enhancement unless current project support data confirms the target browsers all implement the required properties; do not assume in-app webviews and pinned enterprise browsers match the latest engine.
 
 Use anchor positioning for dropdowns, tooltips, popovers, and context menus when
 browser support allows it. The overlay should still escape ancestor clipping by
@@ -456,6 +456,20 @@ living in the top layer (`popover`) or using `position: fixed`.
 Do not solve clipped overlays with larger z-index values. If an ancestor clips
 overflow, the overlay must move out of that clipping context or use a native
 top-layer primitive.
+
+Anchor positioning solves placement and collision strategy only. It does not
+solve trigger semantics, accessible names and descriptions, dismissal, focus
+movement, touch behavior, or screen-reader expectations; supply those
+separately.
+
+Choose the adoption path by support level:
+
+- Broad support: prefer anchor positioning for suitable floating UI to remove
+  fragile JavaScript geometry code.
+- Mixed support: keep the component usable with a simpler position,
+  fixed/top-layer placement, or an existing floating-positioning library.
+- Task-critical floating UI: do not rely on anchor positioning without a tested
+  fallback.
 
 ### `anchor-name` and `position-anchor`
 

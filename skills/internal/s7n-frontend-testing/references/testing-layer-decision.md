@@ -23,6 +23,9 @@ to the lowest layer that can still observe the behavior that matters.
 - Use static checks (type checking, lint, `eslint-plugin-jsx-a11y`, dependency and
   import rules) as the cheapest layer; they catch whole classes of bugs with zero
   runtime cost, so run them first and treat them as required.
+- Treat automated accessibility checks (axe-style scans) as a floor, not a proof of
+  accessibility. For custom widgets, add manual keyboard and screen-reader verification of
+  focus order, roles, and names.
 
 ## Anti-patterns
 
@@ -32,6 +35,9 @@ to the lowest layer that can still observe the behavior that matters.
 - Do not test framework internals or third-party libraries; test your usage of them.
 - Do not duplicate one behavior across three layers. Pick the layer that owns it and
   delete the redundant coverage elsewhere.
+- Do not run every test across every browser engine by default. Run a targeted browser
+  test on the specific path that is engine-sensitive instead of multiplying the whole
+  suite across engines.
 
 ## Decision checklist
 

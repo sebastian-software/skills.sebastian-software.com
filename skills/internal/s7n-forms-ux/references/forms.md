@@ -217,7 +217,7 @@ For long lists, use autocomplete search (predictive search).
   - Steppers: 4 clicks
 
 **Design tips:**
-- Minimum 48pt x 48pt button target area
+- Use 44-48 CSS px button targets for comfortable touch; smaller controls must meet WCAG 2.2 target-size rules or provide sufficient spacing or an equivalent alternative
 - Place buttons horizontally (more space between = less mistakes)
 - Use "+/-" buttons (not arrows/chevrons - differentiates from dropdowns)
 - Not suitable for large numeric changes

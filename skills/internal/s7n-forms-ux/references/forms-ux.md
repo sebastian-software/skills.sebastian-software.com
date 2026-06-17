@@ -4,9 +4,12 @@ Design forms around user recovery: clear labels, browser-supported input attribu
 
 ## Working Rules
 
+- Reach for native `<form>`, `<label>`, `<input>`, `<select>`, `<textarea>`, `<button>`, `<fieldset>`, and `<legend>` before building custom equivalents.
 - Choose `type`, `name`, `autocomplete`, `inputmode`, and `enterkeyhint` intentionally so the browser shows the right keyboard and autofill.
 - Validate after useful interaction, not at first keystroke.
 - Preserve paste, autofill, password managers, native validation, and submitter semantics unless there is a specific risk.
+- Do not apply global `novalidate` or wrap fields in custom validation layers that hide input purpose, mobile keyboards, password managers, or autofill.
+- Associate each error message with its field programmatically (for example `aria-describedby`) so assistive tech announces it.
 - Pair custom widgets with precise keyboard, focus, error, and fallback behavior.
 
 ### Autocomplete and Autofill
@@ -20,6 +23,7 @@ Design forms around user recovery: clear labels, browser-supported input attribu
 - Keep mobile forms single-column and prefer a visible segmented control or radio set over a dropdown for small option counts to cut taps.
 - On constrained mobile layouts, mark optional fields with "(optional)" rather than repeating a required marker on every field.
 - Size touch targets at least 44x44 CSS px and respect platform conventions for pickers and native controls.
+- Detect coarse pointers with `pointer`/`hover` media queries rather than inferring touch from viewport width, and test hybrid devices that have both.
 
 ### Sliders and Range Inputs
 
@@ -34,3 +38,8 @@ Design forms around user recovery: clear labels, browser-supported input attribu
 - Use the `formdata` event to inject or transform entries on the `FormData` without intercepting submission.
 - Open native date/color/select pickers from a custom control with `HTMLInputElement.showPicker()`, gated on a user gesture.
 - Disable an entire subtree from focus and interaction with the `inert` attribute (for example, the inactive step of a multi-step form) instead of toggling `disabled`/`tabindex` per element.
+
+### Custom Controls
+
+- Do not replace a native select, combobox, date picker, slider, or file input for visual styling alone.
+- When a custom control is justified, test the mobile OS picker it replaces and verify the value parses back correctly on every target platform.

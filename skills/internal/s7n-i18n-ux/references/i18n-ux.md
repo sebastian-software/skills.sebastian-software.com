@@ -4,8 +4,14 @@ Design global interfaces so language, country, currency, units, timezone, direct
 
 ## Working Rules
 
-- Separate language choice from country, region, currency, units, timezone, and fulfilment context.
+- Separate language choice from country, region, currency, units, timezone, tax, legal region, and fulfilment context; keep them independent unless the product domain explicitly ties them together.
 - Treat an inferred locale (from `Accept-Language` or IP geolocation) as a default, never a lock. Never force a redirect based on it, and always expose an override the user can set and that persists.
+- Preserve the user's current task and in-progress state when they switch language or region; do not reset the page, form, or position.
+- Identify every locale with a BCP 47 language tag and drive all formatting from it through `Intl` (dates, numbers, currency, lists, relative time).
 - Make locale controls discoverable, reversible, keyboard-accessible, and screen-reader-friendly. Label languages in their own endonym (`Deutsch`, not `German`) and set `lang` plus `dir` on the option so each name renders in its own script.
 - Support translated text expansion, RTL, and changed reading order; test forms, navigation, tables, and component labels with long translated strings.
+- Build messages from placeholders that translators can reorder; never assemble a sentence by concatenating translated fragments in a fixed source order.
+- Never let truncation remove the only part of a label or option that distinguishes it from its siblings.
+- Keep data-grid headers able to identify their cells after responsive transformation (stacked or card layouts), alongside locale-aware alignment and number formatting.
+- Localize form input examples, placeholders, address structure, name and phone-number fields, postal codes, and validation copy per locale.
 - Render quotation marks and other locale-specific punctuation with CSS rather than literal characters in copy: declare `quotes` per language with `:lang()` and emit `<q>` or `quotes`-aware content so the browser inserts the correct marks (`«»`, `„“`, `“”`) for each locale.

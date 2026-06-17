@@ -1,7 +1,7 @@
 ---
 name: s7n-frontend-seo
 description: |
-  Frontend SEO, metadata, titles, descriptions, canonical URLs, structured data, Open Graph, Twitter cards, robots hints, favicons, indexability, and content-rendering checks. Use when building or reviewing public pages that need search/social previews or crawlable frontend output.
+  Frontend SEO, AI search/GEO, metadata, titles, descriptions, canonical URLs, structured data, Open Graph, Twitter cards, robots hints, favicons, indexability, content-rendering checks, entity clarity, business details, and LLM crawler access. Use when building or reviewing public pages that need search/social previews, crawlable frontend output, AI Overview/AI Mode eligibility, ChatGPT/Claude search visibility, or local/business profile consistency.
 license: MIT
 metadata:
   author: sebastian-software
@@ -10,15 +10,16 @@ metadata:
 
 # S7N Frontend SEO
 
-Use this skill for the frontend details that make public pages understandable to search engines, link previews, and users before they click.
+Use this skill for the frontend details that make public pages understandable to search engines, AI search systems, link previews, agents, and users before they click.
 
 ## Workflow
 
-1. Identify page intent, canonical URL, primary entity, and target preview text.
+1. Identify page intent, canonical URL, primary entity, search surface, and target preview text.
 2. Set title, description, canonical, robots behavior, and social metadata.
 3. Add structured data only when it accurately represents visible page content.
-4. Verify crawlable rendered content, heading structure, image alt text, and internal links.
-5. Check previews and indexability after implementation.
+4. Verify crawlable rendered content, heading structure, image alt text, internal links, and entity consistency.
+5. For local or business facts, define the source of truth and sync it across website, structured data, Google Business Profile, Merchant Center, feeds, and citations.
+6. Check previews, indexability, and business profiles after implementation.
 
 ## Rules
 
@@ -27,7 +28,11 @@ Use this skill for the frontend details that make public pages understandable to
 - Structured data must not invent claims or hidden content.
 - Public pages need meaningful server-rendered or reliably rendered content.
 - Performance, accessibility, and content clarity are SEO inputs.
+- Google generative search does not require `llms.txt`, AI text files, special Markdown, or special schema.org markup; do not prescribe them as Google ranking requirements.
+- AI/GEO work should improve extractable facts, entity clarity, and crawler access policy, not chase prompt-injection or keyword-stuffing tactics.
+- Keep business facts consistent across the visible page, JSON-LD, Search Console, Google Business Profile, Merchant Center, social profiles, review sites, and local citations.
 
 ## References
 
 - [references/seo.md](references/seo.md) - frontend SEO metadata, structured data, and implementation checks.
+- [references/ai-geo-distribution.md](references/ai-geo-distribution.md) - AI search/GEO, entity authority, business data distribution, LLM crawler access, and agent-readable content.

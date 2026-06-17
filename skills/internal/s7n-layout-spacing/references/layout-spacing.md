@@ -262,7 +262,7 @@ Fewer alignments = simpler, neater.
 
 **Application:**
 - Keep actions close to related elements
-- Ensure sufficient target area (48pt x 48pt minimum)
+- Meet WCAG target-size minimums, and prefer 44-48 CSS px for common touch controls
 - Move close buttons to start position (near menu icon)
 - Increase size of menu items for faster/easier tapping
 - Add visible borders to indicate target area

@@ -264,7 +264,7 @@ A fixed bar at the bottom of the screen with 3-5 primary navigation destinations
 - Each icon leads directly to a destination (never opens a menu or popup)
 - Use familiar, recognisable icons paired with text labels
 - Place in the thumb-friendly zone (bottom of screen)
-- Minimum tap target: 48x48px with adequate spacing between items
+- Comfortable tap target: 44-48 CSS px with adequate spacing between items; smaller targets must still meet the WCAG 2.2 AA target-size rules (24 x 24 CSS px or the spacing exception)
 - Clearly distinguish active from inactive state using colour and contrast
 - Use short noun labels (Home, Search, Profile) not verbs
 
@@ -361,7 +361,7 @@ Headers that remain visible during scrolling, keeping navigation accessible with
 
 **Design rules (NN/g):**
 - Minimise space: maximise content-to-chrome ratio
-- Keep headers compact -- minimum tap targets of 1cm x 1cm, text approximately 16pt minimum
+- Keep headers compact, but keep tap targets at the WCAG 2.2 AA floor of 24x24 CSS px (44-48 px comfortable) and body text at least 16 px
 - No more than 5 items in a sticky navigation bar
 - Use opaque backgrounds (never translucent -- causes low contrast)
 - Clearly separate header from content with borders or shadows
@@ -558,7 +558,7 @@ This is a critical and commonly violated rule. The `menu`, `menubar`, and `menui
 - Visible focus indicators on every interactive element (use `:focus-visible`)
 - Skip link as the first focusable element on the page
 
-See the `s7n-ui-design` skill for focus indicator styling (`:focus-visible`), skip link implementation, target size requirements (48x48pt minimum), and `prefers-reduced-motion` patterns.
+See the `s7n-ui-design` skill for focus indicator styling (`:focus-visible`), skip link implementation, target size requirements, and `prefers-reduced-motion` patterns.
 
 ## Mobile vs Desktop Patterns
 
@@ -785,7 +785,7 @@ Screen readers benefit from `<ul>` inside `<nav>` because they announce "list, N
 8. Make labels easy to scan (left-align, front-load keywords)
 9. For large sites, show several navigation tiers in sub-menus
 10. Use visual cues (images, icons, colour) for long menus
-11. Make links big enough to tap or click easily (48px+ targets)
+11. Make links big enough to tap or click easily (44-48 CSS px comfortable targets for common touch controls)
 12. Signify sub-menus with a caret or arrow icon
 13. Use click-activated rather than hover-activated sub-menus
 14. Avoid multilevel cascading menus -- use mega menus or landing pages
