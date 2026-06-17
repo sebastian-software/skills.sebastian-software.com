@@ -14,23 +14,6 @@
       "toolVersion": "0.0.0-alpha.0"
     },
     {
-      "id": "get-convex-agent-skills",
-      "kind": "external",
-      "sourceUrl": "https://github.com/get-convex/agent-skills.git",
-      "requestedRef": "main",
-      "resolvedRef": "7a6fcc6882f344577a34365fdadbd0f8f8c467d7",
-      "included": [
-        "convex-quickstart",
-        "convex-setup-auth",
-        "convex-create-component",
-        "convex-migration-helper",
-        "convex-performance-audit"
-      ],
-      "integrity": "sha256-e474cce796cb4c47a62f1e81a3079a1b6e622f50f7a720f3530ada0ba4565d08",
-      "updatedAt": "2026-06-09T22:01:17.782Z",
-      "toolVersion": "0.0.0-alpha.0"
-    },
-    {
       "id": "marketingskills",
       "kind": "external",
       "sourceUrl": "https://github.com/coreyhaines31/marketingskills.git",
