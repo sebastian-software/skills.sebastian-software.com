@@ -20,6 +20,9 @@ performance problems are state placed too high or unstable boundaries, not missi
 - Measure with the React Profiler: record an interaction, find which components rendered
   and why ("Why did this render?"), and confirm a render is actually expensive before
   optimizing. A component that renders often but cheaply usually needs no change.
+- First confirm the bottleneck is React render work at all. A slow interaction may be
+  JavaScript outside React, layout/paint, network, hydration, or backend latency — check
+  the browser Performance panel before assuming the fix lives in memoization.
 
 ## Move state and split components before memoizing
 
@@ -59,6 +62,15 @@ performance problems are state placed too high or unstable boundaries, not missi
   of blocking on the update. Use it for tab switches, navigation, and filter applies.
 - Reach for deferral and transitions before memoization when the complaint is input lag;
   they attack latency directly, whereas memoization only reduces wasted renders.
+- Use `useOptimistic` for immediate UI feedback during a pending mutation only when the
+  rollback and retry path on failure is clear; without defined failure handling it leaves
+  the UI showing state that never committed.
+- Read pending state with `useFormStatus` inside design-system submit controls rather than
+  prop-drilling a `pending` flag from the parent form; the control subscribes to its
+  enclosing `<form>` directly.
+- When unwrapping a Promise with `use()` during render, read a framework- or cache-owned
+  promise. Do not create a new uncached promise in render — it is recreated every render
+  and re-suspends instead of resolving.
 
 ## Context and global state architecture
 

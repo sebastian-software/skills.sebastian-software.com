@@ -27,12 +27,17 @@ baseline changes a reviewed decision rather than a silent overwrite.
 
 - Keep visual baseline images in version control and require their updates to appear as an
   explicit, reviewable diff in the PR — never auto-commit new baselines from CI.
-- Store actual, expected, and diff images (and Playwright traces) as build artifacts on
-  failure, so a reviewer can judge a regression without reproducing it locally.
+- Store actual, expected, and diff images, Playwright traces, videos, console logs, and
+  network logs as build artifacts on failure, so a reviewer can judge a regression without
+  reproducing it locally.
 - Block any baseline change that is not paired with the intentional UI change that caused it;
   a baseline diff in an unrelated PR is a red flag.
 - Document who may approve baseline updates and what evidence is required (linked design change,
-  before/after images), and enforce it through code review.
+  before/after images), and enforce it through code review. Document how to regenerate baselines
+  locally and when a baseline update needs explicit design approval.
+- When a baseline changes only because a browser, font, or toolchain version moved, update the
+  environment lock and call out the version change in the PR rather than absorbing it silently
+  into a feature diff.
 
 ## Review checklist
 

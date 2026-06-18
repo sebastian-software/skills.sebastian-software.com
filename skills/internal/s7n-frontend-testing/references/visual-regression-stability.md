@@ -27,19 +27,23 @@ or live data — and the team learns to rubber-stamp updates, which defeats the 
 - Disable animations and transitions before capture. Inject CSS that sets
   `animation: none !important; transition: none !important; caret-color: transparent`,
   and pause CSS animations and video; with Playwright pass `animations: 'disabled'` to
-  `toHaveScreenshot`.
+  `toHaveScreenshot`. Stop skeleton shimmer, canvas noise, live clocks, and rotating
+  content unless that motion is the subject of the test.
 - Wait for the deterministic end state (web-first assertion or `expect(locator)
   .toBeVisible()`), not a fixed timeout, so capture happens after content settles.
 - Mask regions that are legitimately non-deterministic — timestamps, avatars, ads,
-  randomized IDs — via the runner's mask option (Playwright `mask: [locator]`) or by
-  overlaying a fixed placeholder. Mask the smallest region possible; do not mask away the
-  thing under test.
+  randomized IDs, user-generated content, maps, analytics banners, and third-party embeds
+  — via the runner's mask option (Playwright `mask: [locator]`) or by overlaying a fixed
+  placeholder. Mask the smallest region possible; do not mask away the thing under test.
 
 ## Thresholds and baselines
 
 - Start with a near-zero pixel threshold and only raise it with a written reason
   (documented sub-pixel anti-aliasing on one engine). A loose blanket threshold hides real
-  regressions.
+  regressions. Before raising a threshold to make a test pass, first narrow the screenshot,
+  stabilize the fixture, or split the assertion.
+- Keep dark mode, high-contrast, locale, and RTL screenshots only for states where that
+  appearance is part of the risk being guarded; do not snapshot every theme by default.
 - Generate baselines in CI (or the shared container), never from a developer laptop, so the
   reference matches the comparison environment.
 - Treat a baseline update as a product/design decision, not routine test maintenance: review

@@ -41,7 +41,7 @@ Interaction cost = sum of physical and mental effort required to achieve a task.
 **1. Keep related actions close (Fitts's Law)**
 - The closer and larger a target, the faster it is to click
 - Keep actions close to the element they relate to
-- Ensure sufficient target area: minimum 48pt x 48pt
+- Ensure sufficient target area: treat 24x24 CSS px as the WCAG 2.2 AA floor (spacing/inline/essential exceptions aside) and prefer 44-48 CSS px for frequently used touch controls
 
 **2. Reduce distractions**
 - Avoid animated banners, pop-ups, unnecessary visuals

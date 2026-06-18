@@ -19,6 +19,9 @@ or a custom RSC setup.
   every module it imports becomes part of the client bundle. Place the directive at the
   leaf of interactivity, not high in the tree, so the server portion stays large and the
   client island stays small.
+- Do not conflate Server Components with Server Actions. `'use server'` marks
+  server-callable functions invoked from the client (mutations), not a way to declare a
+  Server Component — server is already the default and needs no directive.
 
 ## Drawing the boundary
 
@@ -83,6 +86,20 @@ or a custom RSC setup.
 - Treat advanced patterns (async server components composing client islands, passing
   Promises across the boundary) as version-specific capabilities to verify, not blanket
   rules, and pair any rule with current React Working Group / framework documentation.
+- React 19 makes the high-level Server Components model stable for apps on a framework with
+  RSC support, but the lower-level bundler/server APIs stay framework-sensitive. If you
+  author a framework or RSC bundler integration rather than consume one, expect to pin
+  versions or track Canary; do not assume the integration surface is stable.
+
+## Hydration mismatches
+
+- A hydration mismatch means the server HTML and the first client render disagree. Fix the
+  cause, not the symptom — do not silence the warning with `suppressHydrationWarning`
+  unless the difference is genuinely expected (e.g. a rendered timestamp).
+- Audit the usual sources: values that differ between server and client (`Date.now()`,
+  `Math.random()`, `window`/`localStorage` reads), locale- or timezone-dependent date and
+  number formatting, invalid HTML nesting the browser repairs, branches gated on
+  browser-only globals, and browser extensions mutating the HTML before hydration.
 
 ## Review checklist
 

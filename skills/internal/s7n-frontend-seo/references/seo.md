@@ -4,6 +4,8 @@ Search engine optimisation techniques that frontend developers and designers dir
 
 This chapter covers the intersection of UI design and SEO — the markup, metadata, and performance decisions made in HTML, CSS, and page structure. Keyword research, backlink strategy, analytics setup, and server configuration (robots.txt, sitemaps) are outside the scope of a UI design system.
 
+For AI search and GEO, entity authority, business data distribution, LLM crawler access, feeds, and source-of-truth decisions, see [references/ai-geo-distribution.md](ai-geo-distribution.md).
+
 ## Document Head and Meta Tags
 
 The `<head>` is the first thing search engines parse. Get the basics right on every page.
@@ -276,6 +278,8 @@ Use JSON-LD (JavaScript Object Notation for Linked Data) embedded in a `<script>
 | `BreadcrumbList` | Breadcrumb navigation | Breadcrumb trail in results |
 | `FAQPage` | FAQ sections | Expandable Q&A in results |
 | `Organization` | Company info | Knowledge panel, logo |
+| `LocalBusiness` | Physical business or location pages | Local panels, business facts |
+| `Service` | Service pages | Entity clarity for offered services |
 | `WebSite` | Homepage | Sitelinks search box |
 | `HowTo` | Step-by-step guides | Step-by-step rich result |
 
@@ -300,6 +304,10 @@ Use JSON-LD (JavaScript Object Notation for Linked Data) embedded in a `<script>
 - Only mark up content that is visible on the page — hidden structured data violates Google's guidelines
 - Validate with Google's Rich Results Test before deploying
 - One JSON-LD block per distinct entity; multiple blocks per page are fine
+- Use stable `@id` values when the same entity appears across pages
+- Keep business details, product data, reviews, prices, availability, and opening hours synchronized with the operational source of truth
+
+For AI/GEO, structured data still helps with entity clarity and rich-result eligibility, but Google does not require special AI schema or extra GEO markup. See [references/ai-geo-distribution.md](ai-geo-distribution.md).
 
 ## Image SEO
 
@@ -522,3 +530,4 @@ Many performance optimisations are covered across other chapters. This is a cros
 9. Link important pages within 3 clicks of the homepage with descriptive anchor text
 10. Keep URLs lowercase, hyphenated, short, and descriptive
 11. Use five favicon files: `favicon.ico` (32×32), `icon.svg` (with dark mode), `apple-touch-icon.png` (180×180), `icon-192.png`, `icon-512.png` — add `manifest.webmanifest` with `icon-mask.png` (maskable) for PWAs
+12. For AI/GEO and business surfaces, keep entity facts, structured data, Business Profile/Merchant Center data, sitemaps, feeds, and crawler policy consistent with the visible page

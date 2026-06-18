@@ -14,12 +14,15 @@ Evaluate any visual, E2E, or hosted testing tool against these before adopting i
   hosted review workflow is a deliberate requirement.
 - PR review workflow: does it surface actual/expected/diff in the pull request, or only in an
   external dashboard? Reviewers should judge a UI change without leaving the PR.
-- Browser and device coverage: which engines (Chromium, Firefox, WebKit) and viewports/devices
-  run by default, and does that match the audience you actually support?
-- Determinism controls: can it pin fonts, disable animations, mask dynamic regions, and set
-  pixel thresholds? A tool that cannot stabilize these will produce noisy, ignored diffs.
+- Browser and device coverage: which engines (Chromium, Firefox, WebKit), viewports, devices,
+  DPRs, and OS images run by default, and does that match the audience you actually support?
+- Determinism controls: can it pin fonts, disable animations, mask dynamic regions and
+  third-party embeds, and set pixel thresholds? A tool that cannot stabilize these will produce
+  noisy, ignored diffs.
 - Debuggability: does a failure ship a trace, diff image, or replay, or just a red check? Fast
   diagnosis is what keeps a suite alive.
+- Local reproduction: can a developer reproduce and regenerate a failing diff without the
+  vendor, and what happens to the suite when the vendor service is down?
 - Fit with the existing stack: reuse the runner the project already has (Playwright, Vitest,
   Storybook) before introducing a parallel system that duplicates setup and CI time.
 
@@ -31,6 +34,11 @@ Evaluate any visual, E2E, or hosted testing tool against these before adopting i
   specific features; feature matrices and integrations change between releases.
 - Prefer one well-integrated tool per layer over several overlapping ones; consolidate when two
   tools cover the same layer.
+- Do not choose a tool from homepage or sales claims; validate it with a small proof of concept
+  on one stable component, one responsive page, and one intentionally changed baseline before
+  adopting it.
+- Keep lock-in low: retain stable selectors, reusable fixtures, and local reproduction commands
+  so the suite survives dropping the vendor.
 
 ## Selection checklist
 

@@ -9,9 +9,22 @@ measurement reveals, not the technique that is easiest to apply.
 
 - Establish the measured problem before changing anything: which Core Web Vital
   fails, on which page, on which device class and connection. Distinguish lab
-  (Lighthouse, DevTools, WebPageTest) from field data (CrUX, RUM); ship decisions
-  against field data where it exists, because lab numbers hide real device and
-  network variance.
+  (Lighthouse, DevTools, WebPageTest, Playwright traces) from field data (CrUX,
+  RUM, Search Console Core Web Vitals); ship decisions against field data where it
+  exists, because lab numbers hide real device and network variance.
+- Hold each Core Web Vital to its current "good" threshold, evaluated at the 75th
+  percentile of real users: LCP at or below 2.5 s, INP at or below 200 ms, CLS at
+  or below 0.1. A single fast local run is not proof; p75 must pass per device
+  class (mobile and desktop) and per page type. Segment field data by geography,
+  connection, and logged-in/out state where available, because an aggregate score
+  hides the failing cohort.
+- Treat Lighthouse as a diagnostic, not ground truth: it measures LCP and CLS in
+  lab conditions but cannot measure real INP, because there is no real user input.
+  Use Total Blocking Time (TBT) as the lab proxy for interaction cost and confirm
+  INP against field data.
+- Debug Core Web Vitals locally in the Chrome DevTools Performance panel. The
+  standalone Web Vitals extension was retired in 2025 once its live-metrics and
+  field-data workflow moved into DevTools; do not depend on it.
 - Identify the actual LCP element from a trace before optimizing it. The LCP
   element is frequently not the element a developer assumes; guessing wastes
   effort on the wrong resource.
@@ -56,6 +69,11 @@ measurement reveals, not the technique that is easiest to apply.
 - Treat INP as the responsiveness metric: it measures the latency from user input
   to the next paint across the worst interactions of a visit. Optimize input
   handlers, not just initial load.
+- Decompose a slow interaction into its three parts before fixing it — input delay
+  (main thread busy before the handler runs), processing duration (the handler
+  itself), and presentation delay (layout and paint of the next frame) — and attack
+  the dominant part. Idle-time and load-time main-thread work inflates input delay
+  even when the handler is cheap.
 - Break up long tasks. Any task over 50 ms blocks the main thread and delays
   input handling. Split work with `await scheduler.yield()` where supported, or
   yield via `setTimeout` / `postMessage`, so the browser can paint and process
@@ -214,7 +232,8 @@ measurement reveals, not the technique that is easiest to apply.
 ## Review checklist
 
 - Is the failing metric and the offending element known from measurement (lab and,
-  where available, field), not guessed?
+  where available, field), not guessed, and judged against the p75 "good"
+  thresholds (LCP 2.5 s, INP 200 ms, CLS 0.1) rather than one local run?
 - Is the LCP resource present in the initial HTML, correctly sized, not
   lazy-loaded, and prioritized with `fetchpriority="high"` only where warranted?
 - Do `srcset` and `sizes` match the real rendered widths across breakpoints, and

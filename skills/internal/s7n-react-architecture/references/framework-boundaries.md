@@ -61,6 +61,9 @@ caching behavior is universal React behavior.
 - Confirm the framework's current behavior for redirects, error propagation, and
   closures-over-server-values before relying on them; action semantics are
   framework-version-specific.
+- Guard sensitive mutations against duplicate execution: make them idempotent, or dedupe
+  by request key, so a double submit, retry, or replayed action does not charge, send, or
+  create twice.
 
 ## CSS and asset delivery
 

@@ -47,6 +47,24 @@ manager-friendly.
 - Offer a visible "show password" toggle with an accessible name and pressed
   state instead of masking that users cannot verify.
 
+## Accessible authentication
+
+Meet WCAG 2.2 Accessible Authentication: never make a cognitive-function test
+(memorizing, transcribing, solving a puzzle, or a complex gesture) the only way
+to sign in.
+
+- Allow paste and password managers in username, password, one-time-code, and
+  recovery-code fields, not only the main password box.
+- Do not gate login behind CAPTCHA or puzzle-only challenges. When abuse
+  prevention is required, pair it with an accessible alternative and server-side
+  risk controls rather than a harder puzzle.
+- Set `autocomplete="one-time-code"` on OTP inputs, and keep entry tolerant:
+  accept pasted codes, ignore surrounding spaces or hyphens, auto-advance only
+  when it does not block correction, and expose a single text-field fallback for
+  split-box code UIs.
+- Make session timeouts visible and, where the risk allows, extendable, so users
+  with slower input are not silently logged out mid-task.
+
 ## Recovery, sessions, and re-authentication
 
 - Treat account recovery as part of auth UX. Design what happens when the user
@@ -64,7 +82,9 @@ These are the server-side guarantees the UI depends on; verify them with current
 OWASP and MDN guidance rather than copying older header lists, which drift.
 
 - Serve auth and any credentialed flow only over HTTPS in a secure context;
-  WebAuthn and many platform capabilities require it.
+  WebAuthn and many platform capabilities require it. For features that only work
+  in a secure context, design a graceful fallback or state the environment
+  requirement plainly instead of failing silently.
 - Send `Strict-Transport-Security` (HSTS) so the browser refuses downgrade.
 - Define a `Content-Security-Policy` that constrains script sources; it is the
   primary defense against injected scripts stealing credentials or tokens.
@@ -85,6 +105,9 @@ OWASP and MDN guidance rather than copying older header lists, which drift.
   not on page load. A denied prompt is expensive to recover from.
 - Design the denied and "ask again" states; never trap the user in a flow that
   only works if they accept.
+- Check the browser's policy for the capability — clipboard, camera, microphone,
+  geolocation, payment, cross-origin embeds, and downloads each have their own
+  constraints — before the UI promises a feature that the browser may block.
 
 ## Security copy and error messaging
 
@@ -96,6 +119,14 @@ OWASP and MDN guidance rather than copying older header lists, which drift.
 - Reserve detailed, actionable messages for states the user can fix (expired
   code, locked account with a recovery link), and route security-relevant
   detail to logs, not the screen.
+- Confirm completed security-sensitive changes so the user can spot an
+  unauthorized one: password changed, passkey added, session revoked, recovery
+  email sent.
+- Warn before irreversible or high-risk actions, but for reversible account
+  settings prefer an undo or recovery path over a blocking confirmation.
+- Show secrets, tokens, and backup codes once, behind an explicit reveal, and do
+  not redisplay them afterward; offer copy or download as a deliberate user
+  action rather than leaving them on screen.
 
 ## Review checklist
 
@@ -107,4 +138,6 @@ OWASP and MDN guidance rather than copying older header lists, which drift.
   cookie flags match current OWASP/MDN guidance?
 - Do permission prompts have in-product context and a designed denied state?
 - Is public error copy free of account-existence and field-level leakage?
+- Does login meet WCAG 2.2 Accessible Authentication, with no CAPTCHA-only path
+  and tolerant one-time-code entry?
 - Have keyboard and screen-reader flows been verified for every auth screen?

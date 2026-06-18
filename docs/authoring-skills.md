@@ -84,6 +84,25 @@ If a bullet only rates or points at a source instead of telling the agent what t
 do, either rewrite it as a real rule or drop it. A short reference of concrete
 rules is worth more than a long one of source summaries.
 
+### Classify a source before it changes a rule
+
+Not every source carries the same weight. Before turning something into a default
+rule, classify it:
+
+- **Normative** — an official spec, standard, or stable framework/platform
+  documentation.
+- **Compatibility** — Baseline, MDN browser-compat data, the Web Platform
+  Dashboard, Can I Use.
+- **Practice** — an article or talk with durable implementation reasoning.
+- **Radar** — a single-browser demo, proposal, release note, conference recap, or
+  experimental API.
+
+Only **normative** and **compatibility** sources should change a skill's default
+rules. **Practice** sources can improve workflows and examples. **Radar** items
+stay explicitly support-gated (behind `@supports`, a Baseline check, or a stated
+fallback) and never become an unconditional default. This keeps fast-moving
+platform features from hardening into rules before they are safe to rely on.
+
 ## Internal Skills
 
 Internal skills live under `skills/internal`. They are first-party Sebastian
