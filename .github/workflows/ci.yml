@@ -29,6 +29,7 @@ jobs:
           DALO_STORE: ${{ runner.temp }}/dalo-store
           DALO_TARGET: ${{ runner.temp }}/dalo-target
         run: |
+          git switch -c ci-source
           dalo init
           dalo target link generic "$DALO_TARGET"
           dalo source add s7n "$GITHUB_WORKSPACE"
