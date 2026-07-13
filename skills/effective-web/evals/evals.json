@@ -1,0 +1,39 @@
+{
+  "evals": [
+    {
+      "name": "choose-visual-layer",
+      "prompt": "This React app has Vitest unit tests and Playwright E2E tests, but CSS refactors keep breaking production. Propose what tests to add.",
+      "expected": "Recommends Storybook/component state coverage plus visual regression instead of more brittle DOM assertions."
+    },
+    {
+      "name": "harden-codegen",
+      "prompt": "Use Playwright codegen output to create a maintainable checkout smoke test.",
+      "expected": "Treats generated code as a draft, improves locators, removes incidental waits, scopes assertions to the user goal, and keeps the flow small."
+    },
+    {
+      "name": "stabilize-visual-test",
+      "prompt": "A visual regression test flakes across macOS laptops and Linux CI.",
+      "expected": "Diagnoses environment and dynamic rendering differences, recommends stable browser/container/font setup, masking, disabled animations, and intentional thresholds."
+    },
+    {
+      "name": "rsc-boundary",
+      "prompt": "A Next.js page fetches product data and renders an interactive filter sidebar. Decide server/client boundaries.",
+      "expected": "Keeps data access and static product rendering server-side, isolates filter interactivity in client components, and explains serialization and bundle tradeoffs."
+    },
+    {
+      "name": "rerender-diagnosis",
+      "prompt": "A React dashboard lags while typing into a search box. The team wants to add useMemo everywhere.",
+      "expected": "Diagnoses state ownership and render paths first, then applies targeted deferral, memoization, or component boundary changes."
+    },
+    {
+      "name": "choose-state-ownership",
+      "prompt": "Design a reusable React Combobox component that can be controlled by a form library but also work standalone.",
+      "expected": "Defines controlled/uncontrolled boundaries, accessible DOM requirements, refs, and state callbacks without replacing native semantics blindly."
+    },
+    {
+      "name": "polymorphic-api-review",
+      "prompt": "Review this React Button component that supports an as prop for links, buttons, and divs.",
+      "expected": "Challenges unsafe polymorphism, preserves semantic button/link behavior, and requires accessible names, focus, disabled, and event behavior."
+    }
+  ]
+}

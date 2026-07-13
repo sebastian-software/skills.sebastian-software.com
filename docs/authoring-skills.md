@@ -1,7 +1,8 @@
 # Authoring Skills
 
-Skills are small, focused instruction packages. Each skill must be understandable
-from its `SKILL.md` without loading every bundled resource into context.
+Skills are focused instruction packages. A skill may route a cohesive domain to
+multiple workflows, but it must remain understandable from `SKILL.md` without
+loading every bundled resource into context.
 
 ## Required Structure
 
@@ -21,20 +22,21 @@ purpose. Do not add external snapshots or generated copies.
 
 ## `SKILL.md` Frontmatter
 
-Every skill starts with valid YAML frontmatter containing at least `name` and
+Every new skill starts with valid YAML frontmatter containing only `name` and
 `description`:
 
 ```yaml
 ---
-name: s7n-forms-ux
+name: effective-web
 description: >-
-  Form layout, labels, validation, field states, and completion flows. Use when
-  building or reviewing sign-up, checkout, settings, or any multi-field form.
+  Design, build, review, and improve user-facing web experiences. Use for UI/UX,
+  CSS, React, accessibility, frontend SEO, performance, or frontend testing.
 ---
 ```
 
-DALO parses standard YAML, including literal and folded block scalars. Optional
-DALO metadata includes `id`, `owners`, `tags`, and `requires`.
+DALO parses standard YAML, including literal and folded block scalars. It still
+tolerates legacy metadata on existing skills, but do not add new fields unless
+the repository contract changes.
 
 ### Writing the description
 
@@ -53,8 +55,10 @@ The description is what an agent sees before deciding whether to load a skill.
 - Use `assets/` for templates, images, fonts, or output resources.
 - Use `examples/` for complete examples that clarify expected usage.
 
-Keep `SKILL.md` lean. Move long tables, examples, policy text, and API details
-into references so agents load only the context needed for the current task.
+Keep `SKILL.md` lean. For a routed skill, link every route directly from
+`SKILL.md` and keep references one level deep. Move long tables, examples,
+policy text, and API details into references so agents load only the context
+needed for the current task.
 
 ## Distill, Don't Archive
 
@@ -85,3 +89,5 @@ Before merging a change:
 2. Confirm links to bundled references, scripts, assets, and examples resolve.
 3. Run the repository's DALO CI smoke test.
 4. Check that `dalo status` reports no inventory warnings or duplicate slots.
+5. For routed skills, confirm every reference is linked directly from `SKILL.md`
+   and that old public skill names no longer appear in internal links.

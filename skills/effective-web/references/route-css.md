@@ -1,0 +1,25 @@
+# CSS Architecture
+
+Use this skill for making CSS maintainable, predictable, and compatible with the project's browser-support promise.
+
+## Workflow
+
+1. Identify styling ownership: global reset, tokens, layout primitives, components, utilities, overrides.
+2. Define cascade order explicitly with layers or local conventions.
+3. Use custom properties for semantic tokens and runtime theming.
+4. Choose progressive enhancement boundaries based on the supported baseline.
+5. Keep build tooling simple enough that generated CSS remains debuggable.
+
+## Rules
+
+- Avoid specificity arms races; solve ordering and scope instead.
+- Do not encode semantic state only in class names when native state or attributes fit better.
+- Gate modern CSS with feature queries when unsupported behavior would break the UI.
+- Prefer readable source CSS over clever generated output.
+- Document exceptions in the local component or token contract, not as global folklore.
+
+## References
+
+- [css-architecture.md](css-architecture.md) - cascade, layers, scoping, and maintainable CSS.
+- [baseline-support.md](baseline-support.md) - browser baseline and support decisions.
+- [css-build-tooling.md](css-build-tooling.md) - CSS build tooling and generated output rules.
