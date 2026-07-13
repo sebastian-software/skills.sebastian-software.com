@@ -5,8 +5,9 @@ engineering, and content work.
 
 This repository is the first-party source for Sebastian Software agent skills.
 It contains the skills themselves and no installer, vendored third-party
-snapshots, generated distribution tree, or dependency lockfiles. [DALO](https://dalo.sh)
-handles source tracking, resolution, selection, and installation.
+snapshots, generated distribution tree, or dependency lockfiles. Installation
+is handled by an Agent Skills-compatible manager such as
+[DALO](https://dalo.sh) or Vercel's [skills CLI](https://skills.sh/docs).
 
 ## Why This Exists
 
@@ -57,12 +58,22 @@ skills/<name>/
 `SKILL.md` is the public interface. Its YAML frontmatter must contain a unique,
 portable `name` and a useful `description`.
 
-## Install With DALO
+## Installation
+
+### Managed setup with DALO
+
+[DALO](https://dalo.sh) manages skill sources, reviewed selections, versions,
+approvals, and installation targets. It is the recommended option for teams,
+multiple agent targets, or setups that combine this collection with external
+skill catalogs.
+
+Install DALO, then register this repository as the `sebastian` team source:
 
 ```sh
+curl -fsSL https://dalo.sh/install.sh | sh
 dalo init
 dalo target link codex
-dalo source add sebastian git@github.com:sebastian-software/skills.sebastian-software.com.git
+dalo source add sebastian https://github.com/sebastian-software/skills.sebastian-software.com.git
 dalo status
 dalo sync
 dalo doctor
@@ -72,6 +83,21 @@ DALO treats this repository as a trusted team source, so all first-party skills
 are active together. External repositories are configured separately as DALO
 catalogs; they are never copied or renamed here. See [docs/dalo.md](docs/dalo.md)
 for the complete setup and the curated external selection.
+
+### Quick install with skills.sh
+
+Vercel's [skills CLI](https://skills.sh/docs) is a lightweight alternative for
+trying the collection or installing individual skills without setting up a
+separate source manager:
+
+```sh
+npx skills add sebastian-software/skills.sebastian-software.com --skill effective-web
+```
+
+Omit `--skill effective-web` to choose interactively, or pass `--all` to install
+the complete collection. The skills CLI is convenient for direct installation
+and broad agent compatibility; DALO adds reproducible multi-source management,
+explicit trust and selection state, and health checks for long-lived team setups.
 
 ## Contributing
 
