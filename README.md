@@ -36,7 +36,7 @@ loads form guidance without exposing a long menu of overlapping skill names.
 | `github-pr-auto-review` | GitHub PR review, maintenance, feedback, and CI recovery. |
 | `metro-english` | Natural metropolitan US team English for professional writing. |
 | `smart-dependency-updater` | Researched dependency-update portfolios and PR delivery. |
-| `german-typography` | German punctuation, spacing, quotes, and dashes. |
+| `locale-typography` | Locale-aware punctuation, spacing, quotes, dashes, and formatting guidance for 26 European and North American locales. |
 | `linkedin-posts` | LinkedIn ideas, formats, calendars, and post writing. |
 
 The broad web domain uses the memorable `effective-web` identity. Specialist
