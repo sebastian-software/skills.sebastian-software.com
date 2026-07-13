@@ -1,8 +1,7 @@
-node_modules/
+.DS_Store
+__pycache__/
 coverage/
 dist/
-**/dist/
+node_modules/
 reports/
-__pycache__/
 *.tgz
-.DS_Store

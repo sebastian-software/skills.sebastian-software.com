@@ -5,8 +5,10 @@ from its `SKILL.md` without loading every bundled resource into context.
 
 ## Required Structure
 
-```txt
-skill-name/
+First-party skills live directly under `skills/`:
+
+```text
+skills/skill-name/
   SKILL.md
   references/
   scripts/
@@ -15,11 +17,11 @@ skill-name/
 ```
 
 Only `SKILL.md` is required. Add the other directories when they serve a clear
-purpose.
+purpose. Do not add external snapshots or generated copies.
 
 ## `SKILL.md` Frontmatter
 
-Every skill must start with YAML frontmatter containing at least `name` and
+Every skill starts with valid YAML frontmatter containing at least `name` and
 `description`:
 
 ```yaml
@@ -27,94 +29,59 @@ Every skill must start with YAML frontmatter containing at least `name` and
 name: s7n-forms-ux
 description: >-
   Form layout, labels, validation, field states, and completion flows. Use when
-  building or reviewing sign-up, checkout, settings, or any multi-field form, and
-  when handling inline validation, error recovery, autocomplete, or input types.
+  building or reviewing sign-up, checkout, settings, or any multi-field form.
 ---
 ```
 
-The `name` field is the install name used in the flat `dist/skills` output. It
-must be unique across internal and vendor skills.
+DALO parses standard YAML, including literal and folded block scalars. Optional
+DALO metadata includes `id`, `owners`, `tags`, and `requires`.
 
-### Writing the `description`
+### Writing the description
 
-The `description` is the only thing an agent sees before deciding whether to load
-a skill, so it is the most important field for getting the right skill to trigger
-at the right time.
+The description is what an agent sees before deciding whether to load a skill.
 
-- State what the skill covers, then list concrete situations that should trigger
-  it ("Use when …"). Name the artifacts and tasks a user would actually mention
-  (forms, checkout, validation, RTL, passkeys), not abstract goals.
-- Prefer specific trigger phrases over vague summaries. `Use when designing
-interfaces` triggers unreliably; the form example above triggers because it
-  names the concrete work.
-- Keep it to a few sentences. Detail belongs in the body and `references/`, not
-  the description.
+- State what the skill covers and name concrete trigger situations.
+- Prefer terms users actually mention over abstract goals.
+- Keep the trigger concise; details belong in the body and references.
+- Keep the frontmatter name portable: lowercase ASCII letters, digits, `.`, `_`,
+  and `-` only.
 
 ## Resource Directories
 
-- Use `references/` for detailed guidance that should be loaded only when
-  needed.
-- Use `scripts/` for deterministic helpers that agents can run instead of
-  rewriting repeatedly.
-- Use `assets/` for templates, images, fonts, or other output resources.
+- Use `references/` for detailed guidance loaded only when needed.
+- Use `scripts/` for deterministic helpers agents can run.
+- Use `assets/` for templates, images, fonts, or output resources.
 - Use `examples/` for complete examples that clarify expected usage.
 
 Keep `SKILL.md` lean. Move long tables, examples, policy text, and API details
-into references so the agent can load only what the current task needs.
+into references so agents load only the context needed for the current task.
 
 ## Distill, Don't Archive
 
-This repository ships skills, not an intake log. When an article, talk, or spec
-is useful, absorb its **knowledge** into an actionable rule, checklist item, or
-short example. The source itself does not belong in the skill.
+This repository ships skills, not an intake log. When a source is useful, absorb
+its knowledge into an actionable rule, checklist item, or short example.
 
-A reference file should read as instructions an agent can act on directly:
+- Write imperative guidance an agent can act on.
+- Remove source-review commentary and internal tracking notes.
+- Do not paste source material merely to preserve it.
+- Classify fast-moving platform guidance and keep experimental behavior gated.
 
-- **Do** write imperative rules: "Prefer native `<dialog>` with `showModal()`;
-  still set initial focus, focus return, and `Escape` handling explicitly."
-- **Don't** describe the source: "Article covering native dialog, focus, and
-  `Escape` behavior; use as context."
-- **Don't** leave curation meta-commentary: "duplicate/supporting guidance",
-  "use as context only", "radar guidance, not a normative rule", "too small to
-  be a rule", or "decide together with `<id>`".
-- **Don't** paste source URLs, internal tracking ids, or notes about the author's
-  reading preferences into a reference.
+Normative specifications and compatibility data may change defaults. Practice
+material can improve workflows and examples. Experimental or single-source
+claims stay support-gated and never become unconditional defaults.
 
-If a bullet only rates or points at a source instead of telling the agent what to
-do, either rewrite it as a real rule or drop it. A short reference of concrete
-rules is worth more than a long one of source summaries.
+## First-Party Boundary
 
-### Classify a source before it changes a rule
+Everything below `skills/` is maintained here as Sebastian Software source.
+External skills must be configured as DALO catalog sources. Do not copy them,
+rename their frontmatter, add `SOURCE.md` snapshots, or maintain repository-local
+source and lock manifests.
 
-Not every source carries the same weight. Before turning something into a default
-rule, classify it:
+## Review
 
-- **Normative** — an official spec, standard, or stable framework/platform
-  documentation.
-- **Compatibility** — Baseline, MDN browser-compat data, the Web Platform
-  Dashboard, Can I Use.
-- **Practice** — an article or talk with durable implementation reasoning.
-- **Radar** — a single-browser demo, proposal, release note, conference recap, or
-  experimental API.
+Before merging a change:
 
-Only **normative** and **compatibility** sources should change a skill's default
-rules. **Practice** sources can improve workflows and examples. **Radar** items
-stay explicitly support-gated (behind `@supports`, a Baseline check, or a stated
-fallback) and never become an unconditional default. This keeps fast-moving
-platform features from hardening into rules before they are safe to rely on.
-
-## Internal Skills
-
-Internal skills live under `skills/internal`. They are first-party Sebastian
-Software source after import. Update them through pull requests in this
-repository.
-
-Use the `s7n-*` prefix for every internal install name. `s7n` is the compact
-Sebastian Software namespace; it keeps bundled first-party skills distinct from
-external or generic skills once installed into shared agent skill directories.
-
-## Vendor Skills
-
-Vendor skills live under `skills/vendor`. Every vendor skill must include
-`SOURCE.md` documenting where it came from, the reviewed ref, the license, and
-whether local modifications exist.
+1. Confirm the trigger description still selects the skill for the right tasks.
+2. Confirm links to bundled references, scripts, assets, and examples resolve.
+3. Run the repository's DALO CI smoke test.
+4. Check that `dalo status` reports no inventory warnings or duplicate slots.
