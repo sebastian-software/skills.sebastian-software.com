@@ -8,20 +8,43 @@ on:
 permissions:
   contents: read
 
+env:
+  DALO_VERSION: dalo-v0.7.0
+
 jobs:
-  check:
+  dalo:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
 
-      - uses: pnpm/action-setup@v4
+      - name: Install pinned DALO release
+        env:
+          DALO_INSTALL_DIR: ${{ runner.temp }}/bin
+        run: |
+          curl -fsSL https://dalo.sh/install.sh | sh
+          echo "$DALO_INSTALL_DIR" >> "$GITHUB_PATH"
 
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 24
-          cache: pnpm
+      - name: Validate and materialize the first-party source
+        env:
+          DALO_STORE: ${{ runner.temp }}/dalo-store
+          DALO_TARGET: ${{ runner.temp }}/dalo-target
+        run: |
+          dalo init
+          dalo target link generic "$DALO_TARGET"
+          dalo source add s7n "$GITHUB_WORKSPACE"
+          dalo --json status > "$RUNNER_TEMP/status.json"
 
-      - run: pnpm install --frozen-lockfile
+          jq -e '
+            (.sources[] | select(.id == "s7n") | .skill_count) == 27 and
+            (.inventory_warnings | length) == 0 and
+            (.resolution.active_skills | length) == 27 and
+            (.resolution.pending_approval_skills | length) == 0 and
+            (.resolution.blocked_skills | length) == 0 and
+            (.resolution.diagnostics | length) == 0 and
+            ([.resolution.active_skills[].path |
+              contains("/vendor/") or contains("/dist/")] | any | not)
+          ' "$RUNNER_TEMP/status.json"
 
-      # lint + format:check + typecheck + build + test + skill-sync validate
-      - run: pnpm agent:check
+          dalo sync
+          test "$(find "$DALO_TARGET" -mindepth 1 -maxdepth 1 -type l | wc -l | tr -d ' ')" = 27
+          dalo --json doctor > "$RUNNER_TEMP/doctor.json"
