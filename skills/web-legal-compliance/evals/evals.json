@@ -1,0 +1,59 @@
+{
+  "evals": [
+    {
+      "name": "scope-multi-region-saas",
+      "prompt": "Our German SaaS company sells to businesses across the EU, Canada, and the US. Draft all legal pages we need.",
+      "expected": "Builds a fact and jurisdiction inventory before drafting, separates EU member-state, Canadian provincial, and US state overlays, and returns placeholders and counsel questions instead of inventing facts or promising universal compliance."
+    },
+    {
+      "name": "avoid-us-impressum",
+      "prompt": "Create the legally required US Impressum for a Delaware LLC brochure website.",
+      "expected": "Explains that there is no single general federal Impressum equivalent, checks state, activity, privacy, marketing, and regulated-sector triggers, and distinguishes required disclosures from recommended trust information."
+    },
+    {
+      "name": "review-eu-odr-link",
+      "prompt": "Review an EU shop footer that still links to the European Commission ODR platform and otherwise has a generic worldwide legal notice.",
+      "expected": "Flags the legacy ODR link because Regulation 524/2013 was repealed effective 2025-07-20, verifies current national ADR duties, and rejects the generic worldwide notice as a substitute for establishment and target-market analysis."
+    },
+    {
+      "name": "separate-canadian-layers",
+      "prompt": "A Toronto ecommerce business is launching in Quebec and sends promotional email nationwide. Is one English privacy page enough?",
+      "expected": "Separates federal and provincial privacy, Quebec language and consumer overlays, CASL message behavior, and ecommerce disclosures; identifies missing facts and live official sources rather than giving a blanket yes or no."
+    },
+    {
+      "name": "inspect-consent-behavior",
+      "prompt": "Our privacy policy lists Google Analytics and Meta Pixel, so please mark cookie compliance complete.",
+      "expected": "Refuses to infer compliance from text, inventories device access and purposes, tests browser storage and network capture before and after choices plus withdrawal, and maps the behavior to the applicable regional rule."
+    },
+    {
+      "name": "consent-state-migration",
+      "prompt": "We are adding session replay to the existing analytics category. Existing users already chose Accept analytics, so enable replay under that stored choice and update the banner copy.",
+      "expected": "Rejects silent reinterpretation, checks purpose and regional applicability, requires Product/Legal approval, versions or migrates stored consent, keeps app-owned state authoritative, and verifies downstream SDK gating."
+    },
+    {
+      "name": "gpc-conflict",
+      "prompt": "A California user previously clicked Accept all, but their browser now sends GPC. Keep analytics and advertising enabled because the explicit click should win.",
+      "expected": "Verifies current California scope, maps GPC to covered sale or sharing behavior, does not treat it as a universal analytics opt-out, and refuses to let stored consent override a binding signal without source-backed approval."
+    },
+    {
+      "name": "california-below-ccpa-threshold",
+      "prompt": "Our small commercial website collects email addresses from California residents but is below every CCPA business threshold, so remove the privacy policy.",
+      "expected": "Rejects the CCPA-only shortcut, checks CalOPPA independently, verifies its commercial-site, California-consumer, collection, conspicuous-policy, and disclosure triggers, and does not invent CCPA duties that do not apply."
+    },
+    {
+      "name": "california-subscription-renewal",
+      "prompt": "A California customer started an annual SaaS subscription online in August 2025. The renewal terms are only in the Terms page and cancellation requires calling sales.",
+      "expected": "Checks the current Automatic Renewal Law and contract date, reviews proximate terms and affirmative-consent evidence, acknowledgment and reminders, and requires a direct non-obstructive online cancellation path rather than relying on generic Terms."
+    },
+    {
+      "name": "uk-post-brexit-route",
+      "prompt": "Reuse our EU legal notice and cookie setup unchanged for the UK launch.",
+      "expected": "Routes the UK separately, checks current ecommerce and 2015 trading-disclosure rules, current UK GDPR and PECR including 2026 amendments, and tests the consent runtime instead of assuming EU identity."
+    },
+    {
+      "name": "route-implementation-work",
+      "prompt": "Turn the approved disclosure requirements into a localized footer, consent dialog, and Playwright tests.",
+      "expected": "Keeps this skill responsible for the requirement and evidence matrix, routes frontend implementation and testing to effective-web, and routes approved locale-specific prose typography to locale-typography."
+    }
+  ]
+}

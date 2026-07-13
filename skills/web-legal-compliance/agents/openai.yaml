@@ -1,0 +1,4 @@
+interface:
+  display_name: "Web Legal Compliance"
+  short_description: "Regional legal checks for websites"
+  default_prompt: "Use $web-legal-compliance to review this website for applicable legal disclosures."
