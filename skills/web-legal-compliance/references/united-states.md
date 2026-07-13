@@ -53,6 +53,11 @@ independently. Add federal and state child, student, health, biometric,
 financial, communications, and video privacy regimes when the facts trigger
 them.
 
+Read [California](united-states-california.md) whenever California residents,
+transactions, tracking, formation, or business activity may be in scope. Do
+not use the CCPA threshold analysis as a shortcut for CalOPPA, automatic
+renewal, direct-marketing, data-broker, or communications-privacy rules.
+
 ### Advertising and communications
 
 - Apply FTC Act truthfulness and unfairness principles to representations,
@@ -82,9 +87,6 @@ Open and verify current statutes, regulations, and linked guidance:
 - [FTC privacy and security guidance](https://www.ftc.gov/business-guidance/privacy-security)
 - [FTC CAN-SPAM compliance guide](https://www.ftc.gov/business-guidance/resources/can-spam-act-compliance-guide-business)
 - [FTC Children's Online Privacy Protection Rule](https://www.ftc.gov/legal-library/browse/rules/childrens-online-privacy-protection-rule-coppa)
-- [California Attorney General: CCPA](https://oag.ca.gov/privacy/ccpa)
-- [California Attorney General: Global Privacy Control](https://oag.ca.gov/privacy/ccpa/gpc)
-- [California Privacy Protection Agency](https://cppa.ca.gov/)
 - [Colorado Attorney General: Colorado Privacy Act](https://coag.gov/resources/colorado-privacy-act/)
 - [Congress.gov](https://www.congress.gov/)
 - [GovInfo](https://www.govinfo.gov/)

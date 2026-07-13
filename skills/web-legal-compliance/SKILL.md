@@ -31,6 +31,8 @@ visible result of facts and operational decisions, not as boilerplate.
    - [United Kingdom](references/united-kingdom.md)
    - [Canada](references/canada.md)
    - [United States](references/united-states.md)
+     - [California](references/united-states-california.md) when California
+       residents, transactions, tracking, or business activity are in scope
 4. For cookies, tracking, privacy choices, or consent interfaces, also read
    [Consent and tracking](references/consent-and-tracking.md).
 5. Verify current law and regulator guidance from primary official sources.

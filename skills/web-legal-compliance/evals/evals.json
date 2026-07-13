@@ -36,6 +36,16 @@
       "expected": "Verifies current California scope, maps GPC to covered sale or sharing behavior, does not treat it as a universal analytics opt-out, and refuses to let stored consent override a binding signal without source-backed approval."
     },
     {
+      "name": "california-below-ccpa-threshold",
+      "prompt": "Our small commercial website collects email addresses from California residents but is below every CCPA business threshold, so remove the privacy policy.",
+      "expected": "Rejects the CCPA-only shortcut, checks CalOPPA independently, verifies its commercial-site, California-consumer, collection, conspicuous-policy, and disclosure triggers, and does not invent CCPA duties that do not apply."
+    },
+    {
+      "name": "california-subscription-renewal",
+      "prompt": "A California customer started an annual SaaS subscription online in August 2025. The renewal terms are only in the Terms page and cancellation requires calling sales.",
+      "expected": "Checks the current Automatic Renewal Law and contract date, reviews proximate terms and affirmative-consent evidence, acknowledgment and reminders, and requires a direct non-obstructive online cancellation path rather than relying on generic Terms."
+    },
+    {
       "name": "uk-post-brexit-route",
       "prompt": "Reuse our EU legal notice and cookie setup unchanged for the UK launch.",
       "expected": "Routes the UK separately, checks current ecommerce and 2015 trading-disclosure rules, current UK GDPR and PECR including 2026 amendments, and tests the consent runtime instead of assuming EU identity."
