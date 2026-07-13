@@ -1,0 +1,28 @@
+# Frontend SEO and AI Search
+
+Use this skill for the frontend details that make public pages understandable to search engines, AI search systems, link previews, agents, and users before they click.
+
+## Workflow
+
+1. Identify page intent, canonical URL, primary entity, search surface, and target preview text.
+2. Set title, description, canonical, robots behavior, and social metadata.
+3. Add structured data only when it accurately represents visible page content.
+4. Verify crawlable rendered content, heading structure, image alt text, internal links, and entity consistency.
+5. For local or business facts, define the source of truth and sync it across website, structured data, Google Business Profile, Merchant Center, feeds, and citations.
+6. Check previews, indexability, and business profiles after implementation.
+
+## Rules
+
+- Metadata must describe the actual page, not a generic product promise.
+- Avoid duplicate titles and descriptions across important pages.
+- Structured data must not invent claims or hidden content.
+- Public pages need meaningful server-rendered or reliably rendered content.
+- Performance, accessibility, and content clarity are SEO inputs.
+- Google generative search does not require `llms.txt`, AI text files, special Markdown, or special schema.org markup; do not prescribe them as Google ranking requirements.
+- AI/GEO work should improve extractable facts, entity clarity, and crawler access policy, not chase prompt-injection or keyword-stuffing tactics.
+- Keep business facts consistent across the visible page, JSON-LD, Search Console, Google Business Profile, Merchant Center, social profiles, review sites, and local citations.
+
+## References
+
+- [seo.md](seo.md) - frontend SEO metadata, structured data, and implementation checks.
+- [ai-geo-distribution.md](ai-geo-distribution.md) - AI search/GEO, entity authority, business data distribution, LLM crawler access, and agent-readable content.

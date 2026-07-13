@@ -15,35 +15,17 @@ consistently good work. These skills turn practical judgment from engineering,
 design review, product work, and repeated agent sessions into focused workflows
 and checks.
 
-The collection is deliberately granular. A form problem should load a form
-expert, not a complete design encyclopedia. Detailed material lives in
-`references/` and is loaded only when useful.
+The collection is deliberately routed. Cohesive domains can expose one memorable
+skill while keeping specialized workflows in `references/`, so a form problem
+loads form guidance without exposing a long menu of overlapping skill names.
 
 ## Skills
 
-### UI and frontend
+### Web design and engineering
 
 | Skill | Focus |
 | --- | --- |
-| `s7n-ui-design` | Broad UI planning, critique, direction, and quality gates. |
-| `s7n-layout-spacing` | Layout, spacing, grids, responsive behavior, and safe areas. |
-| `s7n-typography` | Type hierarchy, readable measure, font loading, and text rhythm. |
-| `s7n-color-theming` | Color systems, contrast, semantic tokens, and dark mode. |
-| `s7n-component-primitives` | Buttons, navigation, dialogs, menus, and reusable states. |
-| `s7n-forms-ux` | Form layout, labels, validation, and completion flows. |
-| `s7n-data-tables` | Tables, dense data, sorting, filtering, and row actions. |
-| `s7n-accessibility-html` | Semantics, focus, keyboard access, and ARIA restraint. |
-| `s7n-motion-interaction` | Motion, transitions, scroll patterns, and reduced motion. |
-| `s7n-error-loading-states` | Loading, empty, success, error, and retry states. |
-| `s7n-i18n-ux` | Localization, RTL, text expansion, and locale-aware UI. |
-| `s7n-editorial-ux` | Labels, microcopy, errors, empty states, and product writing. |
-| `s7n-auth-security-ux` | Login, passkeys, recovery, permissions, and security UX. |
-| `s7n-frontend-seo` | Metadata, structured data, previews, and crawlable output. |
-| `s7n-react-architecture` | React rendering boundaries, state, data flow, and hydration. |
-| `s7n-react-component` | Component APIs, composition, forms, refs, and interop. |
-| `s7n-css-architecture` | Cascade, scoping, tokens, browser support, and CSS tooling. |
-| `s7n-web-performance` | Core Web Vitals, images, caching, and resource loading. |
-| `s7n-frontend-testing` | Playwright, Vitest, Storybook, E2E, and visual testing. |
+| `effective-web` | Routed web design and engineering guidance: UI/UX, CSS, React, accessibility, SEO, performance, testing, and SVG textures. |
 
 ### Content and specialist work
 
@@ -56,10 +38,9 @@ expert, not a complete design encyclopedia. Detailed material lives in
 | `s7n-german-typography` | German punctuation, spacing, quotes, and dashes. |
 | `s7n-linkedin-posts` | LinkedIn ideas, formats, calendars, and post writing. |
 | `s7n-print-design` | Print CSS, paged media, and printable documents. |
-| `s7n-svg-textures` | SVG filters, procedural textures, and surface effects. |
 
-The `s7n-*` prefix is the compact Sebastian Software namespace. Other names are
-kept where a skill has an established first-party identity.
+The broad web domain uses the memorable `effective-web` identity. Existing
+specialist names stay stable until their domains warrant a similar consolidation.
 
 ## Repository Interface
 
@@ -100,7 +81,7 @@ case, a clearer trigger, or a focused reference that reduces repeated
 explanation.
 
 - Do not add article archives, source-review notes, or generic inspiration lists.
-- Do not make one skill responsible for unrelated domains.
+- Group cohesive domains behind a clear router; keep unrelated work separate.
 - Prefer practical rules, examples, and checks over broad advice.
 - Keep `SKILL.md` lean and move detail into `references/`.
 - Do not vendor external skills; manage them through DALO.

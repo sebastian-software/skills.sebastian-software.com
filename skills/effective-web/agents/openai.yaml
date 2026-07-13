@@ -1,0 +1,4 @@
+interface:
+  display_name: "Effective Web"
+  short_description: "Design and engineer effective web experiences"
+  default_prompt: "Use $effective-web to review and improve this web experience."
