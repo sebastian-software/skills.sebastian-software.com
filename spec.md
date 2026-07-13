@@ -36,7 +36,7 @@ The first implementation phase is a pnpm monorepo with a publishable
 ## Repository Layout
 
 ```txt
-sebastian-software-skills/
+skills.sebastian-software.com/
   README.md
   spec.md
   package.json
