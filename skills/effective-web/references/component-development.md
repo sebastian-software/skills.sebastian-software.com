@@ -16,11 +16,20 @@ Build components as durable interface primitives: semantic DOM first, clear stat
 - For floating UI, separate three decisions: trigger semantics, positioning/collision strategy, and dismissal/focus behavior. Anchor positioning can solve placement, but it does not solve accessibility by itself.
 - Before building custom select, switch, accordion, dialog, tooltip, menu, tabs, or navigation, check whether current native elements plus progressive enhancement meet the requirement. Ship a usable baseline (semantic markup, reachable links, skip links, sensible focus flow) that works before JavaScript loads, and let JavaScript enhance organization rather than create the only path.
 - Reach for native platform primitives that preserve semantics and replace hand-written state code, but never treat a native visual API as an accessibility shortcut. Use command/invoker attributes (`command`/`commandfor`) to cut glue JavaScript only where target browsers support them, and keep the same actions reachable through ordinary controls where support is mixed. Treat experimental primitives such as interest-triggered popovers and CSS carousels as not-yet-shippable unless the product is explicitly browser-gated; build critical hovercards and carousels with tested input, focus, and fallback behavior.
-- Give interactive controls a target of at least 44x44 CSS pixels with adequate spacing between adjacent targets, independent of the visual size. Extend the hit area past small visual bounds (icon buttons, pagination, toggles), make the whole label or row part of the target, and apply Fitts's law by placing frequent actions where they are easy to reach. Verify target sizes under touch and pointer input.
+- Give interactive controls a target of at least 44x44 CSS pixels with adequate spacing between adjacent targets, independent of the visual size. Extend the hit area past small visual bounds (icon buttons, pagination, toggles), make the whole label or row part of the target, and apply Fitts's law by placing frequent actions where they are easy to reach. Expanded targets must not overlap adjacent interactive targets. Verify target sizes under touch and pointer input.
 - Require a visible focus indicator on every interactive component. Standardize it through custom properties for size, color, and style; draw it with `outline` plus `outline-offset` using `currentColor` and a minimum thickness such as `max(2px, 0.08em)`; key it on `:focus-visible` with a `:focus` fallback; and verify it holds up in dark mode and forced-colors mode, adjusting per control type (button, link, input, textarea, `summary`).
 - Make components adapt to content count, container width, and language length using container queries, quantity queries (`:has()` over child counts), Grid, and logical properties, with `@supports` fallbacks. Prefer these over hard-coded breakpoints, and document any remaining magic numbers as deliberate.
 - Keep layout stable when overlays or state changes appear: reserve space with `scrollbar-gutter`, prevent scroll chaining with `overscroll-behavior`, and avoid layout shift from appearing/disappearing chrome rather than relying on fixed pixel offsets.
 - Preserve structural affordances in high contrast mode. Hide optional borders with transparent colors (`border-color: transparent`, `outline-color: transparent`) rather than `border: none` or `outline: none`, so forced-colors mode, control recognizability, layout stability, and focus/hover states survive.
+- Keep tightly nested rounded surfaces concentric when they visually form one
+  shell: derive the outer radius from the inner radius plus the intervening
+  inset. Apply the geometry only when spacing is even and the curves are meant
+  to share a center; choose radii independently for asymmetric or clearly
+  separate surfaces.
+- Prefer optical alignment when mathematically centered text or icons still
+  look unbalanced. Correct the source SVG `viewBox` or path when possible;
+  otherwise use a small, documented local adjustment and verify it across icon
+  variants, writing directions, and zoom levels.
 
 ## Component Pattern Rules
 
@@ -40,6 +49,10 @@ Build components as durable interface primitives: semantic DOM first, clear stat
 - Are visual states connected to real semantic state rather than duplicate hidden state?
 - Can the component be translated, zoomed, used with touch, used with keyboard, and used in forced-colors mode?
 - Does the parent layout control external spacing while the component controls only its internal rhythm?
+- Do tightly nested radii remain concentric where the surfaces form one shell,
+  and are asymmetric surfaces allowed to use independent geometry?
+- Are visibly asymmetric icons optically aligned at the source or through a
+  small documented adjustment that survives variants and RTL?
 - Are optional visual effects, animation, and masking removable without losing meaning?
-- Do interactive targets meet the 44x44 pixel minimum with adequate spacing, and does every focusable element show a visible `:focus-visible` indicator in light, dark, and forced-colors modes?
+- Do interactive targets meet the 44x44 pixel minimum without overlap and with adequate spacing, and does every focusable element show a visible `:focus-visible` indicator in light, dark, and forced-colors modes?
 - Are the component's escape hatches documented: slots, `className`, CSS variables, data attributes, refs, and event callbacks?

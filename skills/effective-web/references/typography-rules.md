@@ -8,6 +8,26 @@ Use this reference for typography decisions: readable measure, wrapping, fluid s
 - Use modern wrapping tools on short headings and compact labels only when they improve scannability.
 - Use fluid sizing with zoom and user preferences in mind.
 - Align icons, decoration, and local spacing to the type context rather than to arbitrary pixels.
+- Name shared type tokens by role (`text-body-sm`, `text-label`,
+  `text-display`) when a team needs usage rules; use size-only names only when
+  their intended roles are already unambiguous. Keep the number of roles,
+  families, sizes, and weights deliberately small.
+- Prefer the high-level CSS property for registered variable-font axes and
+  OpenType features: use `font-weight`, `font-stretch`, `font-style`,
+  `font-optical-sizing`, and `font-variant-*`. Reserve
+  `font-variation-settings` and `font-feature-settings` for custom axes and
+  features that have no dedicated property, so fallbacks retain the intended
+  behavior.
+- Set `font-synthesis: none` at the root as a deliberate quality default, then
+  load every weight and style the interface uses. Treat missing bold or italic
+  as an asset/configuration defect to fix rather than silently accepting faux
+  glyphs; verify fallback and failure states so hierarchy remains legible while
+  fonts load or fail.
+- Let link underlines use the font's metrics where available with
+  `text-underline-position: from-font` and
+  `text-decoration-thickness: from-font`; retain
+  `text-decoration-skip-ink: auto`, and tune offset or thickness only when the
+  typeface or interaction treatment needs it.
 - Use `rem` for global scale decisions and `em`/font-relative units for local component relationships such as icon size, padding, inline gaps, badges, and decorations.
 - Prefer `clamp()`-based fluid type within bounded ranges; avoid unbounded viewport-unit type that ignores zoom, user preferences, or narrow/large extremes. Keep at least one term of a fluid `font-size` in a zoom-respecting unit (`rem`/`em`) so text still scales with the browser zoom and default-size settings; never express it in `vw` alone.
 - Use `text-wrap: balance` for short headings, card titles, tooltips, modal headings, and FAQs. Do not apply it blindly to long body text or performance-sensitive large blocks; many engines stop balancing after a small number of lines (around 6 in Chromium) and it must not be relied on to change an element's width.
@@ -23,5 +43,11 @@ Use this reference for typography decisions: readable measure, wrapping, fluid s
 - Is the line length readable for the content type, especially when media or full-bleed layouts are present?
 - Do icons, counters, badges, and inline controls align to the font metrics rather than arbitrary pixel centers?
 - Are heading wraps intentional, balanced, and still searchable/copyable text?
+- Do shared type tokens express their role, and do standard axes/features use
+  resilient high-level properties instead of unnecessary raw tags?
+- Are all requested weights and styles loaded under the root
+  `font-synthesis: none` policy, including fallback and font-failure states?
+- Do link underlines follow the font metrics without cutting through glyphs or
+  weakening the link affordance?
 - Does long-form content keep rhythm across headings, paragraphs, lists, quotes, figures, and first/last child edges?
 - Are newer text metrics features guarded or treated as progressive enhancement?

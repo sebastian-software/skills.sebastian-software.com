@@ -11,11 +11,22 @@ Use this reference for reusable design-system decisions that cut across colour, 
 - Derive related tokens (hover, active, disabled, tints, alpha variants) with relative color syntax (`oklch(from …)`) and `color-mix()` instead of hand-tuned hex or preprocessor math, so one base change cascades. Treat these as Baseline-2024 features: ship a static fallback ahead of the derived value and gate non-baseline use behind `@supports`.
 - Pick the interpolation color space deliberately for gradients, transitions, and `color-mix()`. Interpolate in OKLCH or another perceptual space to avoid muddy or desaturated midpoints; sRGB interpolation through gray is the common cause of dead-looking gradients.
 - Treat the color format itself as a token decision. Define when the system uses `hex`, `rgb()`, `hsl()`, `oklch()`, `color-mix()`, and relative color syntax, and keep raw values out of components — reference semantic tokens only.
+- Treat a color-format migration as a representation change, not an implicit
+  redesign: preserve selectors, token roles, gradient structure, alpha, and
+  formatting unless the task explicitly changes the palette. Leave CSS
+  keywords and third-party configuration formats alone when they require hex or
+  another specific syntax. Convert with a tested color implementation, inspect
+  out-of-gamut results, and verify every foreground/background pair after the
+  migration.
 
 ### Contrast and accessibility
 
 - Treat WCAG 2 minimums (4.5:1 text, 3:1 large text and non-text/UI) as a floor, not a target; perceived contrast can still be weak at the minimum, especially for borders, icons, and underlines that carry meaning. Verify state visibility for buttons, inputs, and filters, not just static text.
-- Manually check midtone and state colors rather than trusting a single ratio. WCAG 2 can diverge from perceived contrast; APCA (the WCAG 3 draft model) accounts for text size and weight and handles dark surfaces better. Where compliance is required, pass WCAG 2 and treat APCA as a supplementary check.
+- Use APCA as the primary design and review metric: its contrast value is
+  polarity-aware, and its acceptance thresholds vary with text size and weight.
+  Where a formal WCAG 2.x conformance claim, contract, or audit is in scope,
+  also pass the applicable WCAG 2 ratios; those ratios are a separate
+  compliance gate, not the design target.
 - Treat `contrast-color()` as a convenience for picking black or white foregrounds, not an accessibility guarantee; it has minimal browser support, so provide an explicit fallback. Plan `prefers-contrast` and light/dark alternatives rather than relying on automatic foreground selection.
 
 ### Theming architecture
@@ -34,7 +45,11 @@ Use this reference for reusable design-system decisions that cut across colour, 
 ## Token Review Checklist
 
 - Does every semantic token have a role, not just a visual name?
+- Does a format-only color migration preserve token meaning, CSS structure,
+  third-party format contracts, and foreground/background relationships?
 - Are derived colors checked in light mode, dark mode, hover/focus/active states, disabled states, and forced-colors mode?
+- Do colors pass APCA as the design target, with WCAG 2 ratios added when a
+  formal conformance requirement applies?
 - Do gradients, transitions, and `color-mix()` operations use a color space that avoids muddy interpolation?
 - Can the icon system inherit text color, align to type, expose labels, and avoid duplicated sprite/runtime complexity?
 - Are visual effects optional layers with fallbacks, or does meaning depend on masking/filtering/translucency?

@@ -34,6 +34,21 @@
       "name": "polymorphic-api-review",
       "prompt": "Review this React Button component that supports an as prop for links, buttons, and divs.",
       "expected": "Challenges unsafe polymorphism, preserves semantic button/link behavior, and requires accessible names, focus, disabled, and event behavior."
+    },
+    {
+      "name": "typography-system-review",
+      "prompt": "Review a product UI that uses one-off text sizes, font-variation-settings for weight, synthetic italic, and custom link underlines that cut through descenders.",
+      "expected": "Introduces a small role-based type system, prefers high-level CSS font properties, keeps root font-synthesis none while requiring real loaded faces and resilient fallbacks, and fixes underlines with font metrics and skip-ink."
+    },
+    {
+      "name": "polish-nested-controls",
+      "prompt": "Polish a compact card with equal parent/child border radii, a visibly off-center arrow icon, and two 20px icon buttons whose expanded hit areas overlap.",
+      "expected": "Applies concentric radii only where the nested geometry warrants it, corrects the source icon or makes a documented optical adjustment, and provides large non-overlapping targets without imposing universal animation or shadow magic numbers."
+    },
+    {
+      "name": "migrate-color-representation",
+      "prompt": "Convert an existing tokenized theme from hex and rgb to OKLCH without redesigning it, including gradients, alpha colors, third-party chart configuration, light/dark states, and contrast checks.",
+      "expected": "Preserves token semantics and CSS structure, leaves formats required by third parties alone, uses tested conversion and gamut handling, treats APCA as the design metric, and adds WCAG 2 checks only when formal conformance is required."
     }
   ]
 }
