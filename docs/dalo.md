@@ -10,7 +10,7 @@ separate, selectively pinned catalogs.
 dalo init
 dalo target link codex
 dalo target link generic ~/.agents/skills
-dalo source add s7n git@github.com:sebastian-software/skills.sebastian-software.com.git
+dalo source add sebastian git@github.com:sebastian-software/skills.sebastian-software.com.git
 ```
 
 Run `dalo target detect` first when setting up a different machine, and link only

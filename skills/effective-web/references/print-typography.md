@@ -375,7 +375,7 @@ h1 { font-feature-settings: 'ss01' 1, 'swsh' 1; }
 - **Apostrophe** `'` (U+2019), never a prime `'`
 - **Brackets in italic text:** Keep parentheses and brackets upright — italic brackets have an awkward unbalanced stance
 
-Locale-specific conventions (quotation marks, dashes, number formatting, French spacing) and typographic preprocessing tools — see [locale.md](locale.md).
+Locale-specific conventions (quotation marks, dashes, number formatting, French spacing) and typographic preprocessing tools — see [print locale rules](print-locale.md).
 
 ## Letter-Spacing
 

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Locale Typography"
+  short_description: "Typography rules across 26 locales"
+  default_prompt: "Use $locale-typography to localize and review this text typographically."
