@@ -29,7 +29,7 @@ Do not use this skill as a source archive. Article-derived input has already bee
 - Interface copy, empty-state language, editorial UX: read [Interface Copy](route-copy.md).
 - Loading, error, success, and not-found states: read [Error and Loading States](route-states.md).
 - Auth UX and browser-security-sensitive flows: read [Auth and Security UX](route-auth.md).
-- Print output and paged media: use `s7n-print-design`.
+- Print output and paged media: read [Print Design](route-print.md).
 - Runtime speed and Core Web Vitals: read [Web Performance](route-performance.md).
 - React architecture: read [React Architecture](route-react-architecture.md).
 - React component implementation: read [React Components](route-react-components.md).

@@ -32,13 +32,13 @@ jobs:
           git switch -c ci-source
           dalo init
           dalo target link generic "$DALO_TARGET"
-          dalo source add s7n "$GITHUB_WORKSPACE"
+          dalo source add sebastian "$GITHUB_WORKSPACE"
           dalo --json status > "$RUNNER_TEMP/status.json"
 
           jq -e '
-            (.sources[] | select(.id == "s7n") | .skill_count) == 8 and
+            (.sources[] | select(.id == "sebastian") | .skill_count) == 7 and
             (.inventory_warnings | length) == 0 and
-            (.resolution.active_skills | length) == 8 and
+            (.resolution.active_skills | length) == 7 and
             (.resolution.pending_approval_skills | length) == 0 and
             (.resolution.blocked_skills | length) == 0 and
             (.resolution.diagnostics | length) == 0 and
@@ -47,6 +47,11 @@ jobs:
           ' "$RUNNER_TEMP/status.json"
 
           dalo sync
-          test "$(find "$DALO_TARGET" -mindepth 1 -maxdepth 1 -type l | wc -l | tr -d ' ')" = 8
+          test "$(find "$DALO_TARGET" -mindepth 1 -maxdepth 1 -type l | wc -l | tr -d ' ')" = 7
           test -L "$DALO_TARGET/effective-web"
+          test -L "$DALO_TARGET/german-typography"
+          test -L "$DALO_TARGET/linkedin-posts"
+          test ! -e "$DALO_TARGET/s7n-print-design"
+          test ! -e "$DALO_TARGET/s7n-german-typography"
+          test ! -e "$DALO_TARGET/s7n-linkedin-posts"
           dalo --json doctor > "$RUNNER_TEMP/doctor.json"

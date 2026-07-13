@@ -25,7 +25,7 @@ loads form guidance without exposing a long menu of overlapping skill names.
 
 | Skill | Focus |
 | --- | --- |
-| `effective-web` | Routed web design and engineering guidance: UI/UX, CSS, React, accessibility, SEO, performance, testing, and SVG textures. |
+| `effective-web` | Routed web design and engineering guidance: UI/UX, CSS, React, accessibility, SEO, performance, testing, SVG textures, and web-to-print. |
 
 ### Content and specialist work
 
@@ -35,12 +35,11 @@ loads form guidance without exposing a long menu of overlapping skill names.
 | `github-pr-auto-review` | GitHub PR review, maintenance, feedback, and CI recovery. |
 | `metro-english` | Natural metropolitan US team English for professional writing. |
 | `smart-dependency-updater` | Researched dependency-update portfolios and PR delivery. |
-| `s7n-german-typography` | German punctuation, spacing, quotes, and dashes. |
-| `s7n-linkedin-posts` | LinkedIn ideas, formats, calendars, and post writing. |
-| `s7n-print-design` | Print CSS, paged media, and printable documents. |
+| `german-typography` | German punctuation, spacing, quotes, and dashes. |
+| `linkedin-posts` | LinkedIn ideas, formats, calendars, and post writing. |
 
-The broad web domain uses the memorable `effective-web` identity. Existing
-specialist names stay stable until their domains warrant a similar consolidation.
+The broad web domain uses the memorable `effective-web` identity. Specialist
+skills use descriptive, portable names without a repository-specific prefix.
 
 ## Repository Interface
 
@@ -63,7 +62,7 @@ portable `name` and a useful `description`.
 ```sh
 dalo init
 dalo target link codex
-dalo source add s7n git@github.com:sebastian-software/skills.sebastian-software.com.git
+dalo source add sebastian git@github.com:sebastian-software/skills.sebastian-software.com.git
 dalo status
 dalo sync
 dalo doctor

@@ -1,18 +1,24 @@
----
-name: s7n-print-design
-description: Professional print design guidelines for producing high-quality printed output from HTML/CSS. Use when building or styling pages intended for print — articles, blog posts, resumes/CVs, reports, invoices, books, brochures, or any document that must look excellent on paper (A4 or Letter). Also use when the user mentions 'print stylesheet,' 'print CSS,' '@media print,' '@page,' 'print layout,' 'paged media,' or wants a web page to match its printed output 1:1 on screen.
----
+# Print Design
 
-# S7N Print Design
+Apply expert CSS print design, paged-media, and web-to-print judgment. Bring the
+precision of professional typesetting to HTML and CSS, aiming for print-quality
+results without pretending that browsers provide every DTP capability.
 
-You are an expert in CSS print design, paged media, and web-to-print production. You think like an InDesign operator and bring that precision to HTML/CSS. You are fluent in typography principles (Bringhurst, Butterick, Tschichold) and the full vocabulary of traditional and digital typesetting. Your goal is HTML/CSS that achieves print-quality results rivaling dedicated DTP software.
+## Contents
+
+- [Quick Decision Guide](#quick-decision-guide)
+- [References](#references)
+- [Print vs. Screen](#print-vs-screen)
+- [Architecture and Typography](#architecture)
+- [Colors, Fragmentation, Images, Links, and Tables](#colors)
+- [Testing](#testing)
 
 ## Quick Decision Guide
 
 | Task | Approach |
 |------|----------|
 | Simple print stylesheet | `@media print` block in existing CSS |
-| Screen preview matching print | Paper-simulation technique (see [layout.md](references/layout.md)) |
+| Screen preview matching print | Paper-simulation technique (see [print layout](print-layout.md)) |
 | Resume / single-page document | Fixed-dimension `<article>` elements |
 | Multi-page article or book | Multiple `.page` elements with `page-break-after` |
 
@@ -20,11 +26,11 @@ You are an expert in CSS print design, paged media, and web-to-print production.
 
 | Category | Reference |
 |----------|-----------|
-| Typography | [references/typography.md](references/typography.md) — font sizes, stacks, OpenType, text-wrap, hyphenation |
-| Layout | [references/layout.md](references/layout.md) — layers, reset, @page, simulation, grid, fragmentation |
-| Web Print CSS | [references/web-print-styles.md](references/web-print-styles.md) — print styles for ordinary web pages |
-| Page Features | [references/page-features.md](references/page-features.md) — headers/footers, counters, bleed, links, element styles |
-| Locale | [references/locale.md](references/locale.md) — quotation marks, dashes, numbers, spacing per locale, preprocessing tools |
+| Typography | [print-typography.md](print-typography.md) — font sizes, stacks, OpenType, text-wrap, hyphenation |
+| Layout | [print-layout.md](print-layout.md) — layers, reset, @page, simulation, grid, fragmentation |
+| Web Print CSS | [print-web-styles.md](print-web-styles.md) — print styles for ordinary web pages |
+| Page Features | [print-page-features.md](print-page-features.md) — headers/footers, counters, bleed, links, element styles |
+| Locale | [print-locale.md](print-locale.md) — quotation marks, dashes, numbers, spacing per locale, preprocessing tools |
 
 ## Print vs. Screen
 
@@ -95,7 +101,7 @@ You are an expert in CSS print design, paged media, and web-to-print production.
 
 - **Never dump raw URLs inline** — clutter the layout, nobody types them
 - Use numbered footnotes (CSS counters) or a single QR code, or both
-- Expand abbreviations on paper (see [page-features.md](references/page-features.md))
+- Expand abbreviations on paper (see [paged-media features](print-page-features.md))
 
 ## Tables
 

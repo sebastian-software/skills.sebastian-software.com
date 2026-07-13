@@ -1,5 +1,5 @@
 ---
-name: s7n-german-typography
+name: german-typography
 description: Apply correct German typography rules when writing or reviewing German text. Use when asked to "fix typography", "review typography", write German content, or edit German text in Markdown, HTML, JSX, or plain text. Covers quotation marks, dashes, spaces with units, ellipsis, apostrophes, and regional variants (Germany, Austria, Switzerland).
 ---
 

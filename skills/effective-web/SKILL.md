@@ -7,9 +7,10 @@ description: >-
   components, forms, tables, accessibility, motion, internationalization,
   interface copy, loading and error states, auth UX, CSS architecture,
   frontend SEO and AI search, browser performance, frontend testing, React
-  architecture, React component APIs, or SVG textures. Do not use for
-  backend-only work, infrastructure or deployment, general-purpose writing,
-  or print design.
+  architecture, React component APIs, SVG textures, print stylesheets, paged
+  media, or web-to-print output. Do not use for backend-only work,
+  infrastructure or deployment, general-purpose writing, or print production
+  that is unrelated to HTML and CSS.
 ---
 
 # Effective Web
@@ -58,6 +59,7 @@ broad design route and load the matching focused route directly.
 | Decide React server/client boundaries, state placement, hydration, or rendering | [React Architecture](references/route-react-architecture.md) |
 | Design reusable React APIs, composition, state ownership, refs, or interop | [React Components](references/route-react-components.md) |
 | Create SVG noise, grain, paper, clouds, organic surfaces, or filter effects | [SVG Textures](references/route-textures.md) |
+| Build print stylesheets, paged media, printable documents, or web-to-print output | [Print Design](references/route-print.md) |
 
 ## Detailed Reference Index
 
@@ -140,13 +142,20 @@ Read only the references needed for the selected route.
 - [Filter primitives](references/filter-primitives.md)
 - [CSS integration](references/css-integration.md)
 
+### Print design
+
+- [Print layout](references/print-layout.md)
+- [Print typography](references/print-typography.md)
+- [Web print styles](references/print-web-styles.md)
+- [Paged-media features](references/print-page-features.md)
+- [Print locale rules](references/print-locale.md)
+
 ## Boundaries
 
-- Route print and paged-media work to `s7n-print-design`.
 - Route German punctuation and typographic language rules to
-  `s7n-german-typography`.
+  `german-typography`.
 - Route general marketing copy and campaigns to external DALO catalog skills;
   use Interface Copy only for language embedded in a web experience.
 - Keep backend-only architecture, infrastructure, deployment, load testing, and
-  security audits outside this skill unless they directly constrain the
-  browser-facing result.
+  security audits, and non-web desktop publishing outside this skill unless
+  they directly constrain the browser-facing result.
