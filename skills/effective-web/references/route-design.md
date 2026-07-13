@@ -10,6 +10,8 @@ Do not use this skill as a source archive. Article-derived input has already bee
 
 - Overall UI reviews, product surface critiques, redesign direction, and visual polish.
 - Early design planning before choosing layout, component, motion, or copy details.
+- AI-assisted features where the task, modality, uncertainty, user control, and
+  handoff need to be designed before choosing a chat surface.
 - Quality gates before shipping a frontend experience.
 - Deciding which focused Effective Web route should handle a specific problem.
 
@@ -57,4 +59,6 @@ Do not use this skill as a source archive. Article-derived input has already bee
 - [less-is-more.md](less-is-more.md) - reduction, clarity, and restraint.
 - [design-registers.md](design-registers.md) - registers for design intent and decisions.
 - [design-planning.md](design-planning.md) - planning workflow before implementation.
+- [ai-interface-design.md](ai-interface-design.md) - match AI capabilities to
+  tasks, modalities, uncertainty, control, and environmental constraints.
 - [ui-quality-gates.md](ui-quality-gates.md) - final review gates before shipping.

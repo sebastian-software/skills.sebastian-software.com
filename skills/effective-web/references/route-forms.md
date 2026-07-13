@@ -17,8 +17,12 @@ Use this skill for forms as task flows: helping users enter correct information 
 - Required and optional states must be clear; do not make users infer them.
 - Disabled controls need explanation or an alternate path when users expect availability.
 - Preserve entered data across errors, navigation, and refresh where possible.
+- Consider Baseline 2026 `field-sizing: content` for auto-growing text fields;
+  bound the size and keep the fixed-size behavior as a coherent older-browser path.
 
 ## References
 
 - [forms.md](forms.md) - baseline form layout and field rules.
 - [forms-ux.md](forms-ux.md) - validation, completion, and edge cases.
+- [platform-feature-radar.md](platform-feature-radar.md) - recent interoperable
+  form and control capabilities an older model may not know.

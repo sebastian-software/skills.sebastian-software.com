@@ -74,6 +74,19 @@ Normative specifications and compatibility data may change defaults. Practice
 material can improve workflows and examples. Experimental or single-source
 claims stay support-gated and never become unconditional defaults.
 
+## Behavioral Evals
+
+For consequential workflow or judgment changes, add an eval that tests the
+failure mode the new rule is meant to prevent.
+
+- Use a realistic prompt containing a plausible misconception, incomplete fix,
+  or tempting shortcut; do not merely ask the agent to repeat the rule.
+- State the expected decision and the evidence or tradeoff it must surface,
+  without prescribing incidental wording or one exact implementation.
+- Include fallback and degraded-state scenarios for progressive enhancements.
+- Prefer a few discriminating cases over broad happy-path coverage that a
+  baseline model would already pass.
+
 ## First-Party Boundary
 
 Everything below `skills/` is maintained here as Sebastian Software source.

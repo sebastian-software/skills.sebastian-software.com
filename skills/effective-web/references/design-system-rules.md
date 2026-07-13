@@ -35,6 +35,24 @@ Use this reference for reusable design-system decisions that cut across colour, 
 - Use `light-dark()` with `color-scheme` for simple per-property system-theme switching, but keep an explicit theme architecture (data attribute or class plus token sets) when products need user-selected themes, local theme overrides, or cross-brand variants.
 - Gate wide-gamut/P3 colors and modern color functions on the product's browser baseline. Provide an sRGB fallback first and layer the P3 or modern-function value behind `@supports (color: oklch(0 0 0))` (or the relevant feature query) so unsupported browsers stay correct.
 
+### Agent-readable system contracts
+
+- Treat design decisions as maintained infrastructure. Record component purpose,
+  allowed variants, token roles, states, accessibility constraints, examples,
+  and anti-examples in versioned text next to the implementation.
+- Give both engineers and agents a small closed vocabulary: semantic tokens,
+  approved components, explicit usage rules, and migration mappings. Do not ask
+  them to infer the system from screenshots or a large set of near-duplicates.
+- Keep the executable component, its stories, and its guidance synchronized.
+  When the system changes, identify stale rules and examples instead of leaving
+  an old instruction file to drift silently.
+- Audit for raw values, detached variants, competing icon/type/color systems,
+  undefined tokens, and duplicate interaction patterns. Use deterministic
+  inventory and linting before asking an LLM to interpret ambiguous findings.
+- Preserve room for documented product-specific components. A closed token set
+  should prevent accidental drift, not force every legitimate exception into a
+  generic primitive.
+
 ### SVG, icons, and visual effects
 
 - Prefer inline SVG, or a deliberate SVG delivery system (sprite or component), for icons that need `currentColor`, CSS state styling, accessibility control, or design-system theming. Author SVG with a correct `viewBox`, presentational attributes, and shape primitives so it scales cleanly and stays readable by hand.
@@ -54,3 +72,7 @@ Use this reference for reusable design-system decisions that cut across colour, 
 - Can the icon system inherit text color, align to type, expose labels, and avoid duplicated sprite/runtime complexity?
 - Are visual effects optional layers with fallbacks, or does meaning depend on masking/filtering/translucency?
 - Are wide-gamut/P3 colors and modern color functions support-gated for the product's browser baseline?
+- Can a contributor discover the approved component, variant, and token without
+  reverse-engineering screenshots or copying a nearby implementation?
+- Do deterministic checks catch raw values, undefined tokens, duplicates, and
+  stale system guidance before generated code can amplify them?

@@ -6,7 +6,14 @@ Use current browser-support evidence before turning modern web-platform features
 
 - Prefer Baseline and official platform documentation (MDN, the Web Platform Dashboard) over anecdotal support guesses or copy-pasted "can I use this yet" snippets.
 - Adopt a feature as a default only once Baseline confirms it meets the project's support target. Treat "Baseline Widely available" as a safe default and "Baseline Newly available" as something to gate or enhance progressively.
-- Gate newer APIs behind `@supports`, with a defined fallback for the unsupported path, whenever absent support would break layout or function rather than degrade gracefully.
+- Actively surface useful Baseline Newly available features when they can replace
+  custom JavaScript, improve semantics, or simplify a component. A model cutoff
+  is not a reason to keep recommending an older workaround; state the Baseline
+  year and adoption class, then apply the project's fallback policy.
+- Decide support from three factors together: the fallback experience, the
+  product's actual browser distribution, and the harm if an unsupported user
+  cannot complete the task. A global support percentage is not a release rule.
+- Gate newer APIs behind `@supports`, with a defined fallback for the unsupported path, whenever absent support would break layout or function rather than degrade gracefully. Remember that a feature query proves that syntax parses, not that a browser's implementation is complete, interoperable, accessible, or bug-free.
 - Encode the support target once in Browserslist and let Stylelint, autoprefixing, and CI read from it, so support policy is enforced mechanically instead of by memory.
 - Wire the same support target into design-system defaults, so shared components ship only features the target browsers honor.
 - Prefer logical properties (`margin-block`, `inset-inline`, `padding-block`) over physical ones so layouts adapt to writing mode and direction.
@@ -22,6 +29,9 @@ Use current browser-support evidence before turning modern web-platform features
 - Treat Baseline as compatibility evidence only, not as proof of accessibility, usability, performance, security, assistive-technology behavior, or framework support; verify those separately.
 - When sources disagree, trust current Baseline/MDN/Web Platform Dashboard data over older articles, release notes, social posts, or single-browser demos.
 - Before relying on a modern feature, classify it as a safe default, a progressive enhancement, or project-gated (allowed only once the project's support policy confirms it), and implement accordingly.
+- Run a feature-erasure test for progressive enhancements: temporarily remove the
+  declaration or conditional block and complete the primary task using the
+  remaining experience. Test the fallback itself, not only the enhanced path.
 
 ## Adoption Policy
 
@@ -40,14 +50,25 @@ Use product data when available. Without it, prefer Widely available features fo
 
 1. Decide whether the feature is critical, additive, or decorative.
 2. Check the project's declared support policy: Browserslist, framework target, mobile OS support, WebView constraints, and CI browsers.
-3. Check current Baseline/MDN/Web Platform Dashboard status.
-4. For UI and interaction features, test keyboard, zoom, forced-colors/high-contrast, reduced motion, touch, and at least one screen-reader/browser combination when practical.
-5. Choose the implementation path:
+3. Compare product analytics or RUM with global support data when available; the
+   audience may over-index on older school, enterprise, embedded, or assistive setups.
+4. Check current Baseline/MDN/Web Platform Dashboard status.
+5. Remove the feature and test the fallback through the primary user task. When
+   syntax support may hide partial or buggy behavior, test representative target
+   browsers instead of trusting `@supports` alone.
+6. Evaluate harm: distinguish cosmetic degradation from obscured content, blocked
+   transactions, lost work, or exclusion from an essential service. Do not use
+   this calculation to waive accessibility requirements.
+7. For UI and interaction features, test keyboard, zoom, forced-colors/high-contrast, reduced motion, touch, and at least one screen-reader/browser combination when practical.
+8. Choose the implementation path:
    - **Default:** no fallback beyond normal resilient CSS/HTML.
    - **Progressive enhancement:** add `@supports`, fallback markup/style, or optional enhancement behavior.
    - **Polyfill:** only when the feature is critical and the polyfill preserves semantics, accessibility, and performance acceptably.
    - **Avoid:** choose a simpler established pattern.
-6. Record the decision in the component or design-system rule once the feature becomes a shared default.
+9. Record the decision in the component or design-system rule once the feature becomes a shared default.
+10. When the model's knowledge date may predate the current platform, read the
+    dated [platform feature radar](platform-feature-radar.md), then verify its
+    leads against current Baseline or MDN before implementation.
 
 ## Polyfill Guidance
 

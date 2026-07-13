@@ -35,6 +35,29 @@ state is defined once and exercised everywhere, instead of being re-stubbed per 
   version and its package/import names (the test utilities have moved between packages
   across releases) before writing exact imports.
 
+## Audit an inherited or agent-generated UI
+
+Do not begin by trusting `AGENTS.md`, design notes, or the running happy path as
+the source of truth. Reconcile them with the code that is actually reachable.
+
+- Inventory component files, imports, routes, stories, tokens, and icon sources
+  with deterministic repository tooling. Classify live, unreachable, duplicate,
+  and unknown components; do not delete an unreferenced export until dynamic
+  imports, framework discovery, package consumers, and tests are checked.
+- Render every meaningful conditional state in isolation. Agent-generated UI
+  often hides loading, empty, error, permission, long-content, and invalid states
+  behind branches that no normal demo reaches.
+- Add accessibility checks to the rendered state catalog and CI, then manually
+  verify keyboard flow, names, focus, announcements, zoom, and high contrast.
+  Automated results are a floor, not proof of accessibility.
+- Surface design-system drift alongside stories: raw colors and spacing,
+  undefined tokens, competing primitives, inconsistent icons, and components
+  that express the same job through different interaction models.
+- Map routes and core journeys in addition to isolated components so missing
+  connections, dead flows, and state handoffs are visible.
+- Store structured findings and compare audits over time. Turn confirmed defects
+  into explicit work; do not use one aggregate health score to hide severity.
+
 ## Review checklist
 
 - Does every visible state and interaction branch have a named story?
@@ -43,3 +66,5 @@ state is defined once and exercised everywhere, instead of being re-stubbed per 
 - Do RTL and per-locale stories exist where direction or text length shifts layout?
 - Is `meta` typed with `satisfies Meta` so prop changes break the build, not a snapshot?
 - Does any `play` cross page or backend boundaries that belong in E2E instead?
+- For an inherited UI, is there a code-backed live/dead/unknown inventory and a
+  rendered catalog of every meaningful state rather than only the happy path?
