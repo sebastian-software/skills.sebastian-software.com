@@ -508,22 +508,27 @@ Use the correct typographic marks:
 
 Browsers synthesise bold/italic when the required font file isn't loaded. Faux bold smears outlines; faux italic mechanically slants the roman. Both look wrong.
 
+Set `font-synthesis: none` at the root so missing assets fail visibly instead of
+quietly changing the letterforms. Then load and declare every weight and style
+the interface uses, and verify that fallback and font-failure states preserve a
+legible hierarchy.
+
 ```css
-/* Prevent browser synthesis - only use real font files */
+:root {
+  font-synthesis: none;
+}
+
 @font-face {
   font-family: 'MyFont';
   src: url('myfont-regular.woff2') format('woff2');
   font-weight: 400;
   font-style: normal;
 }
-
-/* If you don't have an italic, explicitly prevent synthesis */
-.no-synthesis {
-  font-synthesis: none;
-}
 ```
 
-**Always ensure you have font files for every weight and style you use.** If you specify `font-weight: bold` but only loaded the regular weight, the browser will fake it.
+If the interface requests `font-weight: 700` or italic, provide the matching
+face or variable-font range. Do not rely on browser synthesis as the normal
+rendering path.
 
 ## Table Typography
 

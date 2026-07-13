@@ -6,7 +6,7 @@ Learn how to use colour sparingly and purposefully to add meaning to an interfac
 
 Contrast = difference in perceived brightness between two colours (ratio 1:1 to 21:1).
 
-### WCAG 2.2 Level AA Requirements
+### WCAG 2.2 Level AA Compliance Requirements
 
 **3:1 Minimum - Large text and UI elements:**
 - Text above 18px bold OR above 24px regular
@@ -42,7 +42,11 @@ Improved method in WCAG 3 draft - solves WCAG 2 limitations.
 - Swapping text/background colours affects contrast
 - Works better for dark interfaces
 
-**Recommendation:** Use APCA for personal projects. For commercial projects requiring compliance, stick with WCAG 2 until WCAG 3 releases, but try to pass both.
+**Default:** Use APCA as the primary design and review standard for all
+projects. It is the acceptance metric for perceived contrast, including dark
+interfaces and text-size/weight decisions. When a project must make a formal
+WCAG 2.x conformance claim or satisfy a contract/audit based on WCAG 2, also
+pass the applicable WCAG 2 ratios as a separate compliance gate.
 
 ## Don't Rely on Colour Alone to Convey Meaning
 
