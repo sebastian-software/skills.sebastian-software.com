@@ -38,6 +38,7 @@ loads form guidance without exposing a long menu of overlapping skill names.
 | `smart-dependency-updater` | Researched dependency-update portfolios and PR delivery. |
 | `locale-typography` | Locale-aware punctuation, spacing, quotes, dashes, and formatting guidance for 26 European and North American locales. |
 | `linkedin-posts` | LinkedIn ideas, formats, calendars, and post writing. |
+| `web-legal-compliance` | Evidence-backed website legal disclosures and consent surfaces across the EU/EEA, UK, Canada, and the United States. |
 
 The broad web domain uses the memorable `effective-web` identity. Specialist
 skills use descriptive, portable names without a repository-specific prefix.
