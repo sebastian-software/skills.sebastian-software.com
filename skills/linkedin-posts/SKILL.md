@@ -187,12 +187,14 @@ What image, carousel, or media would complement this post.
 
 Ask the user:
 1. **What category interests you?** (Company Updates, Industry Insights, Personal Stories, Professional Development, Educational Content, Engagement, Networking, Tools & Resources, Recognition, Jobs & Career, Lifestyle)
-2. **What content type?** (Text, Poll, Video, Image/Infographic, Document/PDF carousel — prefers suitable image/infographic ideas, otherwise adapts another category idea)
+2. **What content type?** (Text, Poll, Video, Image/Infographic, or
+   Document/PDF carousel — choose it after assessing the selected topic and
+   available capacity)
 3. **How much time do you have?** (Low/Medium/High effort)
 
-Then load the matching category file and present the top 5 topic prompts. Explain
-why each fits, then develop selected prompts into original, evidence-led post
-concepts rather than reusing the database wording.
+Then load the matching category file and present concise summaries of the top 5
+topic prompts without quoting their database wording. Explain why each fits,
+then develop selected prompts into original, evidence-led post concepts.
 
 ---
 
