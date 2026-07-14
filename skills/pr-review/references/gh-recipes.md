@@ -61,8 +61,10 @@ gh pr diff <N> --repo "$REPO"
 
 For just the new commits since your last review, list commits from the JSON and
 diff them in the worktree (section 6): `git diff <last-reviewed-sha>..HEAD`.
-If the author force-pushed and that SHA is unreachable, inspect the full PR diff
-instead of treating the failed range as evidence that nothing changed.
+If the author force-pushed and that SHA is unreachable, inspect the full current
+PR diff, re-read your earlier review, and explicitly revalidate every previously
+reviewed behavior or fix. A full current diff alone cannot reveal a change that
+was dropped during the rewrite.
 
 ## 2b. Read the linked ticket (intent gate)
 
@@ -177,15 +179,15 @@ remove it after.
 
 ```bash
 WT="$(mktemp -d)/pr-<N>"
-# make the PR head branch available locally and add a worktree on it
-git fetch origin "<head>:<head>" 2>/dev/null || git fetch origin "<head>"
-git worktree add "$WT" "<head>"
+# fetch the current PR head and avoid any local branch checked out elsewhere
+git fetch origin "<head>"
+git worktree add --detach "$WT" "origin/<head>"
 cd "$WT"
 
 # ... make the fix ...
 git add -A
 git commit -m "fix: <what and why>"
-git push                      # pushes to origin/<head> (the PR branch)
+git push origin HEAD:"<head>" # pushes the detached worktree HEAD to the PR branch
 
 cd - >/dev/null
 git worktree remove "$WT" --force
@@ -193,28 +195,23 @@ git worktree remove "$WT" --force
 
 Fork PRs: the head branch lives in the contributor's fork, so a normal push
 won't work — that's a Mode A situation anyway. For your own PRs the branch is in
-this repo, so the plain push above is correct.
-
-If the first fetch fails because `<head>` is checked out in another worktree,
-do not reuse a stale local branch. Fetch the remote-tracking ref and create the
-throwaway worktree from that fresh ref instead.
+this repo, so the explicit push above is correct.
 
 ## 7. Keep the branch current (rebase-before-merge)
 
 Rebasing onto base keeps history linear and is preferred over a merge commit.
 Always end with `--force-with-lease` (refuses to clobber if someone else pushed).
+A force-push can dismiss stale approvals and mark inline review threads outdated
+when repository settings enable those effects. Rebase only when needed, and
+re-check the review state before asking authors or reviewers to repeat work.
 
 ```bash
 cd "$WT"
 git fetch origin "<base>"
 git rebase "origin/<base>"
 # resolve real conflicts normally, THEN:
-git push --force-with-lease
+git push --force-with-lease origin HEAD:"<head>"
 ```
-
-A force-push can dismiss stale approvals and mark inline review threads outdated
-when repository settings enable those effects. Rebase only when needed, and
-re-check the review state before asking authors or reviewers to repeat work.
 
 **Lockfile conflicts** — don't hand-merge them, regenerate. Resolve any
 `package.json` conflict first, then rebuild the lockfile so it matches:
