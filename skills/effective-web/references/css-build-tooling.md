@@ -13,6 +13,20 @@ Use this reference when CSS tooling, utility frameworks, CSS-in-TypeScript, gene
 - Wire the project's browser-support target into tooling: Browserslist, Baseline-aware linting, Stylelint/ESLint rules, IDE warnings, and CI should all reflect the same support policy rather than scattered assumptions.
 - Keep generated CSS inspectable; if a styling tool hides cascade order, specificity, duplication, or runtime injection cost, treat that as architecture risk.
 - Keep `@supports` blocks and progressive-enhancement fallbacks next to the feature they guard, and re-review the support target when the project drops old browsers, enters an enterprise/WebView environment, or adopts a newly available platform feature.
+- Prefer the cascade's natural fallback when one unsupported declaration can be
+  ignored safely: declare the usable fallback first and the enhancement second.
+  Reach for `@supports` when several declarations must change together, when the
+  fallback must be undone, or when parsing support is itself part of the test.
+- Keep components independent of token calculators and CSS generators. Generated
+  output should terminate in stable semantic custom properties or documented
+  utility contracts that authored CSS can consume without knowing the tool.
+- Before accepting a framework's promised speed, prototype a representative hard
+  requirement and inspect override volume, generated CSS, team comprehension,
+  debugging, and the likely upgrade path. Familiarity alone is not evidence of
+  project fit.
+- Generate utility variants from the owning token source and keep them bounded
+  to one documented job. Reject arbitrary-value families that silently create a
+  second design system.
 
 ## Generated CSS Review
 

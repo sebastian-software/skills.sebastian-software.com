@@ -9,6 +9,10 @@ state is defined once and exercised everywhere, instead of being re-stubbed per 
 - Define each meaningful state as its own named story before duplicating setup in a
   test file: default, loading, empty, error, disabled, long-content, and any
   data-variant that changes layout. The story name is the spec.
+- Give stateful layout behavior enough fixture context to fail honestly. Sticky,
+  overlapping, scrolling, focus-dependent, and container-dependent components
+  need representative height, width, item counts, surrounding content, and
+  keyboard controls rather than a tightly cropped happy-path canvas.
 - Type stories so the args stay in sync with the component. Use
   `satisfies Meta<typeof Component>` on `meta` and `StoryObj<typeof meta>` for each
   story; this surfaces prop drift at compile time instead of in a broken snapshot.

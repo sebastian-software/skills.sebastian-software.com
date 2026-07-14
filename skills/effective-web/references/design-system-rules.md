@@ -49,21 +49,43 @@ Use this reference for reusable design-system decisions that cut across colour, 
 
 ### Agent-readable system contracts
 
+- Map measurements from design artifacts to the nearest approved token first.
+  Record and review meaningful deviations instead of importing raw pixels as new
+  component values; preserve the intended hierarchy, not accidental measurement
+  noise from one frame.
+- When coupled geometry depends on part of a composite token, expose that stable
+  sub-value once and derive the dependent offset from it. Do not duplicate a
+  border width, inset, or radius as a second magic constant that can drift.
 - Treat design decisions as maintained infrastructure. Record component purpose,
   allowed variants, token roles, states, accessibility constraints, examples,
   and anti-examples in versioned text next to the implementation.
+- Document the full reuse ladder: tokens, utilities, layout compositions, and
+  patterns. For every configurable unit, state its purpose, suitable use,
+  inputs, defaults, variants, exceptions, representative example, and important
+  semantic, content, or layout limits.
 - Give both engineers and agents a small closed vocabulary: semantic tokens,
   approved components, explicit usage rules, and migration mappings. Do not ask
   them to infer the system from screenshots or a large set of near-duplicates.
 - Keep the executable component, its stories, and its guidance synchronized.
-  When the system changes, identify stale rules and examples instead of leaving
-  an old instruction file to drift silently.
+  When a reusable API changes, update its examples and configuration guidance in
+  the same task; identify stale rules instead of leaving old instructions to
+  drift silently.
+- Keep short explanations of intent, constraints, surprising math, and coupling
+  near the source. Keep fuller rendered examples in the pattern library or
+  design-system documentation, and link the two rather than duplicating them.
 - Audit for raw values, detached variants, competing icon/type/color systems,
   undefined tokens, and duplicate interaction patterns. Use deterministic
   inventory and linting before asking an LLM to interpret ambiguous findings.
+- Treat an append-only system as a health warning: if contributors repeatedly
+  add selectors or components instead of discovering and adapting existing
+  ones, improve ownership, naming, documentation, and removal practices before
+  expanding the catalog again.
 - Preserve room for documented product-specific components. A closed token set
   should prevent accidental drift, not force every legitimate exception into a
   generic primitive.
+- Document supported component-plus-utility and composition combinations. A
+  flexible API whose valid recipes live only in contributor memory is not a
+  reusable system contract.
 
 ### SVG, icons, and visual effects
 
@@ -87,5 +109,9 @@ Use this reference for reusable design-system decisions that cut across colour, 
   output-gamut gates, and verified foreground/background pairs in both branches?
 - Can a contributor discover the approved component, variant, and token without
   reverse-engineering screenshots or copying a nearby implementation?
+- Do tokens, utilities, compositions, and patterns expose their purpose,
+  defaults, inputs, variants, limits, and representative examples?
+- Did a reusable API change update its source-adjacent guidance, rendered
+  examples, and stories in the same task?
 - Do deterministic checks catch raw values, undefined tokens, duplicates, and
   stale system guidance before generated code can amplify them?

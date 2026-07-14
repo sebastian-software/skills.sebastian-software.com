@@ -2,6 +2,19 @@
 
 Learn how to design descriptive and accessible buttons with a clear visual hierarchy.
 
+## Implementation Contract
+
+- Build a shared visual treatment against a real `<button>` first so form,
+  keyboard, disabled, focus, and user-agent behavior are visible. Then verify a
+  semantically appropriate link variant separately; shared appearance does not
+  make the elements interchangeable.
+- Keep visible labels as real text and decorative icon geometry out of the
+  accessible name. Let variants override an intentional set of semantic custom
+  properties rather than duplicate the whole rule set.
+- Prototype hover and press behavior in the browser and verify contrast, focus,
+  touch, reduced motion, and every theme. Do not retain speculative animation or
+  state capability without an identified product or design-system use.
+
 ## Define 3 Button Weights
 
 3 weights to indicate importance of actions:

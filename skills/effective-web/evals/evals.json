@@ -204,6 +204,61 @@
       "name": "rewrite-generated-copy-without-voice-drift",
       "prompt": "A German marketing page has an accepted professional du voice. Every section uses a variation of 'Nicht nur X. Sondern Y.', generic transformation claims, and repeated em dashes. Rewrite it without switching to Sie or banning punctuation globally.",
       "expected": "Preserves the recorded professional du relationship, treats repeated cadence, unsupported claims, and punctuation density as contextual signals rather than forbidden tokens, rewrites with concrete product nouns, verbs, evidence, and limits, and routes any durable voice change through an ADR instead of silently changing formality."
+    },
+    {
+      "name": "reconcile-design-artifact-with-browser-evidence",
+      "prompt": "A signed-off Figma design shows three offset sticky cards at a tall desktop size. In a browser prototype, the final card becomes unreachable on short laptop viewports and keyboard focus can remain behind another card. The developer says the website is the source of truth and wants to simplify it without involving design.",
+      "expected": "Treats the accepted design intent as binding but the static geometry as an incomplete responsive hypothesis, documents the short-viewport and focus evidence, proposes a simpler usable core and optional enhancement, shows it in a resizable example, and seeks approval for the intentional divergence instead of silently overriding design."
+    },
+    {
+      "name": "prototype-one-responsive-uncertainty",
+      "prompt": "A new editorial masthead has an unresolved visual reordering idea that may conflict with source and focus order. Plan the next step without turning the prototype into an unbounded redesign project.",
+      "expected": "Decomposes the regions and ownership first, names one layout hypothesis, defines prototype focus, non-goals, fidelity, representative semantic content, and exit condition, builds it reversibly without asking about settled choices, and escalates only if evidence requires a change to accepted intent or scope."
+    },
+    {
+      "name": "gate-stateful-flair-with-fixtures",
+      "prompt": "Add sticky overlap and animated reveal to a reusable card collection. The plain version works at the three supplied breakpoints, and the team wants to skip Storybook because the production page looks good.",
+      "expected": "Verifies a semantic usable core through feature erasure, continuous resize, shallow viewports, keyboard focus, text selection, hash targets, representative content and supported browsers; adds a stateful resizable fixture in Storybook or an isolated route; and suspends or redesigns flair that obscures focus or requires exception-heavy patches."
+    },
+    {
+      "name": "structure-frontend-review-and-debt",
+      "prompt": "Send a responsive homepage build for design review. During the review, a stakeholder requests a new navigation model two days before launch, while a known typography compromise is described only in a private chat.",
+      "expected": "Sends a bounded review brief with completion state, requested feedback, browser evidence, joint decisions and open asks; separates immediate requirement and accessibility risks from batchable polish; records the late request with cost, risk, displaced work, decision owner and reconsideration boundary; and gives the typography debt a current state, target state, owner and trigger."
+    },
+    {
+      "name": "evolve-documented-css-abstractions",
+      "prompt": "A component needs one unusual spacing value. The proposal adds a global token, five utility variants and a public custom property, while the repository already contains several undocumented versions of similar components and an unused prototype kept for reference.",
+      "expected": "Keeps the one-off need local unless repeated use or an established system decision proves a stable abstraction, audits existing ownership and discoverability, removes the unused prototype because Git preserves history, avoids speculative utilities, and updates purpose, defaults, inputs, limits, examples and source-adjacent guidance in the same task when a reusable API genuinely changes."
+    },
+    {
+      "name": "build-coherent-fluid-type-and-space-scales",
+      "prompt": "A marketing site defines every heading with an unrelated px-based clamp formula and every large section gap with another viewport-only value. Browser zoom barely changes the display type, and components import values directly from the scale generator. Redesign the system.",
+      "expected": "Defines small- and large-context type scales with deliberate endpoint ratios, interpolates corresponding steps with bounded formulas that retain a root-relative term, allows explicit outliers without corrupting the scale, and verifies the whole scale at continuous widths and browser zoom. It creates paired fluid spacing only for justified regional transitions and exposes stable semantic custom properties so components do not depend on the generator."
+    },
+    {
+      "name": "keep-layout-compositions-intrinsic-and-bounded",
+      "prompt": "A shared responsive grid has eight viewport and container queries, several undo rules, and a required empty wrapper used only so the parent can be queried. Another developer suggests adding more options so every gallery, footer and card list can use it.",
+      "expected": "Treats the compound conditions, query-only markup and undo chain as evidence that the primitive no longer has one stable job; restates the intended behavior, keeps the common composition intrinsic and configurable through semantic custom properties with useful fallbacks, distinguishes auto-fit from auto-fill deliberately, and moves genuinely mode-specific behavior into the owning pattern instead of expanding a universal grid."
+    },
+    {
+      "name": "choose-natural-css-fallback-before-support-branch",
+      "prompt": "A team wraps every modern declaration in an @supports block, including a decorative property that unsupported browsers can simply ignore. The resulting stylesheet duplicates whole component rules across support branches. Review the strategy.",
+      "expected": "Declares a usable fallback first and lets the cascade ignore the single unsupported enhancement when that leaves coherent content and interaction. It reserves @supports for coordinated declaration changes, fallback removal or parsing-sensitive behavior, keeps any branch next to the feature, and judges the fallback by task completion and friction rather than pixel parity."
+    },
+    {
+      "name": "harden-global-css-and-authored-content",
+      "prompt": "Global CSS covers headings and paragraphs only. A CMS page introduces a long German compound word, a URL, wrapped checkbox labels, hidden generated fields, a code block, a details element and a hash link beneath a sticky header. Define the missing implementation and verification contract.",
+      "expected": "Extends the semantic baseline and resizable kitchen-sink fixture to prose, code, forms, selection, disclosures and fragment navigation; requires the correct lang for hyphenation plus emergency wrapping, horizontal code overflow, native labelled controls with accent-color where suitable, generated-markup-safe form rhythm, visible disabled communication, selection contrast and scroll clearance for the real hash target under persistent UI."
+    },
+    {
+      "name": "design-durable-css-component-contracts",
+      "prompt": "A card variant uses fixed-size text badges, duplicates border width in an overlay offset, clips the focus ring with overflow hidden, changes only on descendant hover, and creates a second modifier class whenever an optional decorative child appears. Review the component CSS.",
+      "expected": "Requires a content and localization contract before fixed text geometry, derives coupled overlay geometry from one exposed value, keeps layers in a local stacking context without clipping focus, mirrors hover feedback for keyboard and touch, and uses real child presence or semantic state rather than redundant variants when no other behavior changes. It keeps selectable text, distinct destinations and parent-owned external layout intact."
+    },
+    {
+      "name": "challenge-opaque-container-filling-type",
+      "prompt": "To make a heading fill its container, a prototype duplicates the heading as aria-hidden reference text and uses @property plus trigonometric CSS math. It overflows at intermediate widths, but the team wants to ship it because the effect is impressive. Decide what to do.",
+      "expected": "Confirms the visual intent and compares the effect with a simple token-based responsive heading in the real container across continuous widths. It treats duplicated content, opaque math, support, semantics, developer comprehension and failure behavior as architecture risks; keeps a readable wrapping fallback inside the enhancement; and ships the complex version only if it prevents a meaningful user-facing failure, otherwise deleting it and recording any bounded follow-up debt."
     }
   ]
 }

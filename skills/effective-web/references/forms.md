@@ -291,6 +291,21 @@ If you can't break into steps, group related fields with headings.
 
 **If not decorative, needs sufficient contrast.**
 
+## Start from Native Control Styling
+
+Keep native inputs, selects, textareas, checkboxes, and radios as the functional
+baseline. Inherit the surrounding font, use `accent-color` for system-rendered
+choice controls where it fits the design, and add custom control chrome only
+when a real requirement exceeds the native behavior.
+
+Associate every control with a visible label and test labels that wrap over
+multiple lines, disabled explanations, validation messages, hidden inputs, and
+unexpected wrappers produced by form builders or CMS integrations. Do not make
+vertical rhythm depend on an adjacent-sibling selector that silently breaks when
+generated markup inserts another element. Let the form's parent composition own
+available width while controls fill that space and size internal padding relative
+to their text.
+
 ## Use 16px Minimum Font Size for Inputs on Mobile
 
 iOS Safari automatically zooms into input fields when font size is below 16px. This is intentional behaviour to ensure readability, but can be disorienting.

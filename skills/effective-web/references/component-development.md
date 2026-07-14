@@ -23,6 +23,10 @@ Build components as durable interface primitives: semantic DOM first, clear stat
   surface, expand it with a positioned pseudo-element and raise the secondary
   controls above that layer. Verify non-overlapping hit areas, DOM/focus order,
   visible focus rings, text selection, and screen-reader names.
+- Treat focus as a state that may invalidate decorative positioning. When
+  sticky, overlapping, clipped, or docked treatment can obscure the focused
+  item, suspend the treatment while focus is within the affected collection and
+  verify the full keyboard path in a suitably tall and resizable fixture.
 - Require a visible focus indicator on every interactive component. Standardize it through custom properties for size, color, and style; draw it with `outline` plus `outline-offset` using `currentColor` and a minimum thickness such as `max(2px, 0.08em)`; key it on `:focus-visible` with a `:focus` fallback; and verify it holds up in dark mode and forced-colors mode, adjusting per control type (button, link, input, textarea, `summary`).
 - Make components adapt to content count, container width, and language length using container queries, quantity queries (`:has()` over child counts), Grid, and logical properties, with `@supports` fallbacks. Prefer these over hard-coded breakpoints, and document any remaining magic numbers as deliberate.
 - Keep layout stable when overlays or state changes appear: reserve space with `scrollbar-gutter`, prevent scroll chaining with `overscroll-behavior`, and avoid layout shift from appearing/disappearing chrome rather than relying on fixed pixel offsets.
@@ -36,6 +40,21 @@ Build components as durable interface primitives: semantic DOM first, clear stat
   look unbalanced. Correct the source SVG `viewBox` or path when possible;
   otherwise use a small, documented local adjustment and verify it across icon
   variants, writing directions, and zoom levels.
+- Inventory every observed use before extracting a visual primitive. Confirm
+  size, color, placement, states, content, and context independence; one repeated
+  shape in a design file is not yet proof of one reusable contract.
+- Treat repeated authored CSS inside a component as an ownership diagnostic.
+  Shared behavior should normally remain in globals, compositions, utilities,
+  or tokens, while the component owns its distinctive internal relationship.
+  Do not optimize for a low line count, but investigate unexplained restatement.
+- Give fixed geometry around text — circular badges, clipped labels, fixed-height
+  headings — only when content length and localization are contractually bounded.
+  Otherwise let content size the element or provide explicit wrapping and
+  overflow behavior.
+- When a component clips or masks media, verify that focus indicators and
+  meaningful content are not clipped with it. Keep overlay layers inside a local
+  stacking context and derive coupled offsets from one exposed value instead of
+  repeating matching constants.
 
 ## Component Pattern Rules
 
@@ -60,5 +79,8 @@ Build components as durable interface primitives: semantic DOM first, clear stat
 - Are visibly asymmetric icons optically aligned at the source or through a
   small documented adjustment that survives variants and RTL?
 - Are optional visual effects, animation, and masking removable without losing meaning?
+- Does the component have a representative story, pattern-library example, or
+  isolated fixture when its state or layout behavior cannot be verified on a
+  simple static page?
 - Do interactive targets meet the 24x24 CSS px floor, use 44-48px touch targets where practical, avoid overlap, and show a visible `:focus-visible` indicator in light, dark, and forced-colors modes?
 - Are the component's escape hatches documented: slots, `className`, CSS variables, data attributes, refs, and event callbacks?

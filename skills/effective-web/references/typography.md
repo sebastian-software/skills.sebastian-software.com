@@ -207,6 +207,18 @@ Instead of just scaling individual font sizes, scale the **type scale ratio itse
 - The hierarchy stays proportional at all sizes
 - Smooth fluid interpolation - no breakpoint jumps
 
+Build the scale as one system rather than a collection of unrelated formulas.
+Choose the small- and large-context base sizes and ratios, derive corresponding
+steps at both ends, and interpolate each pair. A smaller ratio at the narrow end
+and a larger ratio at the wide end can preserve readable hierarchy without
+making display text dominate small containers. Keep deliberate outliers explicit
+instead of distorting the entire ratio to accommodate one heading.
+
+Export the result through stable semantic custom properties. Components should
+consume the properties, not depend on the calculator, token generator, or build
+tool that produced them. Verify the complete scale at continuous widths and at
+browser zoom, not only at its two configured endpoints.
+
 ### Fluid Typography with clamp()
 
 Use `clamp()` for font sizes that scale smoothly:
@@ -230,6 +242,10 @@ h2 {
 - No hard jumps at breakpoints
 - Smooth scaling between screen sizes
 - Headings get proportionally bigger with more space
+
+Keep a root-relative term in the preferred value and use relative units for the
+bounds. A viewport-only formula can appear fluid while weakening browser zoom
+and user font-size preferences.
 
 **Note:** For UI elements like buttons and labels, fixed sizes (14px) often work better for consistency.
 

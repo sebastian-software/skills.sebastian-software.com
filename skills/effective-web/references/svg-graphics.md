@@ -6,6 +6,10 @@ and motion model deliberately.
 
 ## Delivery
 
+- Choose CSS geometry for simple, parameterized shapes when the rules remain
+  shorter and clearer than an asset. Prefer an exported SVG when CSS recreation
+  would require opaque clipping, gradients, pseudo-elements, or hours of tuning.
+  Prototype borderline cases and compare maintenance cost, not technical novelty.
 - Use `<img src="…svg" alt="…">` for static, cacheable graphics whose internal
   nodes do not need CSS or JavaScript. It behaves like other replaced images and
   keeps the SVG out of the document DOM.
@@ -27,6 +31,9 @@ and motion model deliberately.
   `block-size: auto` where appropriate.
 - Keep the artwork inside its viewBox with intentional optical padding. Fix
   off-center icon geometry at the source before compensating with arbitrary CSS.
+- Collaborate on asset boundaries. Well-prepared SVG parts with intentional
+  intrinsic geometry, viewBoxes, and grouping can remove breakpoint logic and
+  absolute-positioning compensation from the consuming component.
 - Set `preserveAspectRatio` deliberately when the artwork should crop, meet, or
   stretch inside a differently shaped viewport. Do not accept clipping or
   distortion as an accidental default.
