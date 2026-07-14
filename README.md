@@ -28,6 +28,12 @@ loads form guidance without exposing a long menu of overlapping skill names.
 | --- | --- |
 | `effective-web` | Routed web design and engineering guidance: UI/UX, CSS, React, accessibility, SEO, performance, testing, SVG textures, and web-to-print. |
 
+### Engineering workflows
+
+| Skill | Focus |
+| --- | --- |
+| `port-codebases` | Resource-aware, behavior-preserving ports across languages, runtimes, frameworks, platforms, and major APIs. |
+
 ### Marketing and sales
 
 | Skill | Focus |

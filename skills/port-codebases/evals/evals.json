@@ -1,0 +1,39 @@
+{
+  "evals": [
+    {
+      "name": "resource-constrained-port",
+      "prompt": "Port this 90,000-line Java service to Rust. I can run only one coding agent at a time and the complete test suite costs two hours, so we cannot afford independent reviewers or full tests after every file. Start the implementation.",
+      "expected": "Selects a Solo profile without lowering final correctness gates, establishes a behavior oracle and migration contract, pilots a representative vertical slice, uses separate implement and cold-review passes, runs narrow checks per batch and scheduled full-suite checkpoints, and measures verified progress rather than generated lines."
+    },
+    {
+      "name": "reject-compile-green-cheating",
+      "prompt": "The translated crates have 4,000 compiler errors. Get everything compiling quickly; stub difficult functions, add TODOs, and skip tests that only fail in the new implementation so we can repair behavior later.",
+      "expected": "Rejects stubs and skipped tests as corruption of the correctness signal, clusters compiler errors by root cause and dependency unit, defines exact batch ownership and review, preserves test inventory, and treats compilation as one intermediate gate rather than parity."
+    },
+    {
+      "name": "choose-delivery-shape-from-seams",
+      "prompt": "We want to move a Python monolith to Go. The billing engine has a stable HTTP boundary and can deploy independently, but request authentication and ORM models are shared throughout the remaining application. Should we rewrite everything at once or migrate incrementally?",
+      "expected": "Chooses delivery shape from coupling rather than ideology: considers an incremental billing slice at the stable deployable seam, avoids a long-lived dual implementation for tightly coupled auth and models without a credible boundary, records temporary architecture and removal gates, and separates behavior preservation from redesign."
+    },
+    {
+      "name": "adversarial-semantic-review",
+      "prompt": "Review a mechanical C++ to Rust port that compiles and passes happy-path tests. It wraps an asynchronous C close callback in a Rust Box, uses truncation to split negative timestamps, and moved a side-effecting expression into debug_assert!.",
+      "expected": "Reviews source and target semantics adversarially, traces asynchronous ownership and exactly-once cleanup, checks negative time normalization, notices that release builds erase debug_assert side effects, and asks for focused regression tests instead of accepting compilation and plausible code."
+    },
+    {
+      "name": "parallelism-is-not-the-goal",
+      "prompt": "We have access to 32 agents. Split every source file across them immediately and maximize lines translated per minute. They can share one checkout and run whatever commands they need.",
+      "expected": "Starts with contract and representative pilot, partitions only along dependency and ownership boundaries, uses isolated worktrees or exclusive files and bounded resource use, establishes an integration owner and adversarial review capacity, forbids destructive shared-state operations, and optimizes verified behavior per cost rather than line throughput."
+    },
+    {
+      "name": "verify-the-green-suite",
+      "prompt": "All CI checks are green after our runtime rewrite, so declare parity and ship. Several jobs finished suspiciously fast, assertion counts are lower, and the new native allocator is not visible to the existing leak sanitizer.",
+      "expected": "Refuses to equate status color with parity, verifies tests and platform shards actually ran, compares counts and skip behavior, instruments the new allocator or records the missing leak gate as residual risk, distinguishes merge from release confidence, and recommends a proportionate canary or rollback path."
+    },
+    {
+      "name": "tier-models-by-role-and-risk",
+      "prompt": "We can afford a premium reasoning model only occasionally. Have it plan the port, let a cheaper coding model implement continuously, use the cheapest model for quick review, and bring the premium model back every few milestones. Design the workflow without making the premium model review every file.",
+      "expected": "Treats model tier and concurrency as separate controls, has the architect define the contract, pilot, mappings, work packets, risk policy, and milestone gates; gives builders bounded slices; uses deterministic tools and a cheap verifier as a filter rather than semantic authority; creates risk-weighted milestone packets; escalates cross-cutting or ambiguous changes; and tunes assignments from rework and defect evidence."
+    }
+  ]
+}
