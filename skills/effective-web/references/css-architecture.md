@@ -90,10 +90,10 @@ Rolls back to the previous layer's value for a property:
 ```
 
 Other global keywords for reference:
-- `initial` -- browser default
+- `initial` -- specification initial value
 - `inherit` -- parent element value
-- `unset` -- remove all author styling
-- `revert` -- remove author origin only
+- `unset` -- `inherit` for inherited properties, otherwise `initial`
+- `revert` -- roll back author-origin styling
 - `revert-layer` -- roll back to previous layer
 
 ### Recommended Layer Structure

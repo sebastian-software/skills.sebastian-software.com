@@ -380,7 +380,7 @@ Plain justified text creates uneven word spacing and "rivers" of white space. If
 }
 ```
 
-**Fine-grained hyphenation controls** (`hyphenate-limit-lines`, `hyphenate-limit-zone`, `hyphenate-limit-last`) have limited browser support (~80%, no Safari). Use them as progressive enhancement:
+**Fine-grained hyphenation controls** (`hyphenate-limit-lines`, `hyphenate-limit-zone`, `hyphenate-limit-last`) have uneven engine support. Safari supports specific legacy controls such as `-webkit-hyphenate-limit-lines` and `-webkit-hyphenate-limit-before`/`-webkit-hyphenate-limit-after`, while Chromium support is limited; use them as progressive enhancement:
 
 ```css
 .justified-prose {
@@ -652,8 +652,8 @@ This creates a predictable, harmonious rhythm throughout the page. Embedded medi
 Common mistake: placing text directly on photos.
 
 **Contrast requirements:**
-- Small text (≤18px): 4.5:1 minimum
-- Large text (>18px bold OR >24px regular): 3:1 minimum
+- Small text (below 18.66px bold or below 24px regular): 4.5:1 minimum
+- Large text (at least 18.66px bold OR at least 24px regular): 3:1 minimum
 
 ### Solutions
 

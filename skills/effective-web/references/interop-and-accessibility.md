@@ -101,8 +101,9 @@ screen reader — not against the library's reputation.
   only at the leaf that needs interactivity (state, effects, event handlers,
   browser APIs, refs to DOM). Pushing the boundary down keeps more of the tree
   off the client bundle.
-- Pass only serializable props across the server/client boundary — no functions,
-  class instances, or `Date` where a primitive serializes; pass children as
+- Pass only serializable props across the server/client boundary — no functions
+  or class instances; `Date` is serializable, though a primitive may be clearer
+  when it matches the consumer's needs. Pass children as
   already-rendered server content into a client wrapper to keep static parts on
   the server.
 - Gate browser-only code (`window`, `localStorage`, `matchMedia`, measuring DOM)

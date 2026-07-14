@@ -9,12 +9,12 @@ Contrast = difference in perceived brightness between two colours (ratio 1:1 to 
 ### WCAG 2.2 Level AA Compliance Requirements
 
 **3:1 Minimum - Large text and UI elements:**
-- Text above 18px bold OR above 24px regular
+- Text at least 18.66px bold OR at least 24px regular
 - UI elements (form fields, buttons, checkboxes)
 - Decorative elements don't need to meet this ratio
 
 **4.5:1 Minimum - Small text:**
-- Text 18px or less
+- Text below 18.66px bold or below 24px regular
 
 ### Common Contrast Issues
 - Close icon contrast < 3:1
