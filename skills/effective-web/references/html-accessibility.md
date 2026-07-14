@@ -17,9 +17,12 @@ decided.
   or `span` has none of this; recreating it needs `tabindex="0"`, `role`,
   keydown handlers for Enter and Space, and a disabled story — so use the native
   element instead.
-- Provide exactly one `h1` per page or view, and nest headings without skipping
-  levels (`h1` → `h2` → `h3`). Headings are the primary screen-reader navigation
-  map; do not pick a level for its font size — style with CSS instead.
+- Give each page or view a clear primary heading. One `h1` is a useful project
+  convention for many pages, not a standalone WCAG requirement; multiple `h1`
+  elements are not automatically a conformance failure. Build a logical outline,
+  avoid skipped levels by default, and keep the visual hierarchy consistent with
+  the semantic hierarchy. Pick heading levels for structure and style them with
+  CSS.
 - Wrap regions in landmarks: one `main`, plus `header`/`banner`, `nav`,
   `aside`/`complementary`, `footer`/`contentinfo`. Give multiple landmarks of the
   same type distinct accessible names (`aria-label` or `aria-labelledby`) so "two
@@ -66,29 +69,36 @@ decided.
 
 ## Accessible names
 
-- Give every control a stable, meaningful accessible name. Prefer a visible
-  `label` associated by `for`/`id`, or wrap the control in the `label`. Fall
-  back to `aria-label`/`aria-labelledby` only when no visible text exists.
+- Give every control a stable, meaningful accessible name. Prefer native text,
+  an associated visible `label`, or another host-language mechanism; use
+  `aria-labelledby` to reference visible text, and reserve `aria-label` for cases
+  where neither is practical.
 - Make link and button text describe the action or destination on its own. Avoid
-  "click here" and bare "read more"; if the visible text must stay short, extend
-  it with `aria-label` or visually hidden text that names the target.
-- Give icon-only controls an explicit name (`aria-label`) and mark the decorative
-  icon `aria-hidden="true"`. An `svg` used as an image needs `role="img"` and a
-  `title`/`aria-label`; a purely decorative `svg` should be hidden.
+  "click here" and bare "read more"; if the visible text must stay short, add
+  distinguishing context with `aria-labelledby` or visually hidden text without
+  replacing the visible phrase.
+- Name icon-only controls with visually hidden text when practical, or a
+  localized `aria-label` as a fallback, and mark the icon `aria-hidden="true"`.
+  Do not rely on an SVG `title` to name its parent control.
 - Always provide meaningful `alt` for informative images, and `alt=""` for
   decorative ones so they are skipped. Do not start `alt` with "image of".
 - When a visible label and the accessible name differ, keep the visible text as
   the start of the accessible name so speech-input users can activate the control
   by saying what they see.
 
+See [Accessible Names and Descriptions](accessible-names.md) for name
+computation, repeated controls, descriptions, image alternatives, and
+verification.
+
 ## Forms and labels
 
 - Pair every field with a programmatically associated `label`. Group related
   controls (radios, related checkboxes, address blocks) in a `fieldset` with a
   `legend`. Placeholder text is not a label and disappears on input.
-- Mark required fields with the native `required` attribute (optionally
-  `aria-required="true"`), and do not rely on color or a bare asterisk alone to
-  signal "required".
+- Mark required native fields with `required`; add `aria-required="true"` only
+  for a justified custom-control or compatibility case, because repeating the
+  native state is normally redundant. Do not rely on color or a bare asterisk
+  alone to signal "required".
 - Associate help text and error text with the field via `aria-describedby`, and
   set `aria-invalid="true"` on a field that fails validation so the error is
   announced and reachable, not merely shown in red.
@@ -117,6 +127,10 @@ decided.
   submit over flashing errors on every keystroke. On failure, keep the entered
   values, move focus to the first invalid field or an error summary, and give
   concrete recovery copy that states how to fix the problem.
+- Keep the submit action available until submission is actually in progress.
+  Do not disable it merely because the form appears incomplete: let users invoke
+  validation, then focus an error summary whose entries link to the associated
+  fields and keep inline errors available at each field.
 - Never convey a field's state by color alone; pair color with an icon, text, or
   border change so it survives low vision and color-vision differences.
 
@@ -170,15 +184,18 @@ decided.
 
 ## Announcements and live regions
 
-- Announce dynamic changes the user did not directly trigger through a live
-  region. Use `aria-live="polite"` (or `role="status"`) for non-urgent updates
-  such as "saved" or search-result counts, and `aria-live="assertive"` (or
-  `role="alert"`) only for errors that must interrupt.
+- First prefer focus, native state, and normal document structure. Use a live
+  region for an important asynchronous change users would otherwise miss. Use
+  `aria-live="polite"` (or `role="status"`) for non-urgent updates such as
+  "saved" or changed result counts, and `aria-live="assertive"` (or
+  `role="alert"`) only when interruption is justified.
 - Render the live-region container in the DOM before the message arrives, then
   inject text into it; a region added together with its content may not be
   announced.
-- Announce only what helps. Do not wire up live regions for changes the user
-  caused and can see, or the interface becomes noisy and users disable speech.
+- Announce only what helps. A user-triggered change can still need an
+  announcement when its result appears away from focus, while an asynchronous
+  change may need none when focus or state already communicates it. Keep
+  interactive recovery UI outside the live region.
 - Treat `ariaNotify()` as a progressive enhancement while it remains outside
   Baseline. Prefer semantic DOM updates and established live-region behavior;
   use it only for useful announcements that are not already expressed, feature-
@@ -188,6 +205,10 @@ decided.
 - For long or background operations, communicate progress with a native
   `progress` element or `role="progressbar"` with `aria-valuenow`/min/max so the
   state is conveyed rather than implied by a spinner.
+
+See [Visibility, Discoverability, and Notifications](visibility-and-notifications.md)
+for live-region boundaries, hiding mechanisms, modal surfaces, and searchable
+collapsed content.
 
 ## Composite widgets and custom controls
 
@@ -268,8 +289,8 @@ decided.
 
 - Is each job solved by a native element (`button`, `a`, `label`, `input`,
   `select`, `details`, `dialog`, `table`, landmark) before any custom role?
-- Is there one `h1`, a logical heading outline, landmark regions, and a skip
-  link?
+- Is there a clear primary heading, a logical heading outline whose semantic and
+  visual hierarchy agree, landmark regions, and a skip link?
 - Does every control and link have a meaningful, stable accessible name, and do
   icon-only controls carry an explicit name with the icon hidden?
 - Is every field labelled, with errors associated via `aria-describedby` +
@@ -280,11 +301,14 @@ decided.
 - Does focus stay visible (`:focus-visible` token, not color alone), move into
   and out of dialogs/popovers correctly, and reset to the heading or `main` on SPA
   route changes?
-- Are dynamic, user-unprompted changes announced via an appropriate live region,
-  and silent when announcement would only add noise?
+- Are important changes conveyed once through focus, state, structure, or an
+  appropriate live region, without duplicate or noisy narration?
 - Does each custom or composite widget implement the full role, name, value,
   state, and keyboard model, with the native input preserved underneath?
 - Do contrast, target size, pointer media queries, `prefers-reduced-motion`,
   `forced-colors`, and 200%/400% zoom all pass?
 - Have keyboard-only and screen-reader passes been run for every interactive
   pattern?
+
+Use [Accessibility Testing and Evidence](accessibility-testing.md) to define the
+conformance, interoperability, and usability evidence appropriate to the flow.

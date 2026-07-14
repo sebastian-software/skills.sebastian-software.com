@@ -112,6 +112,9 @@ Read only the references needed for the selected route.
 ### Inclusive and resilient UX
 
 - [HTML accessibility](references/html-accessibility.md)
+- [Accessible names and descriptions](references/accessible-names.md)
+- [Visibility, discoverability, and notifications](references/visibility-and-notifications.md)
+- [Accessibility testing and evidence](references/accessibility-testing.md)
 - [Internationalization and RTL](references/i18n-rtl.md)
 - [Internationalization UX](references/i18n-ux.md)
 - [Copywriting](references/copywriting.md)
