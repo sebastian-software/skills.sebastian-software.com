@@ -78,6 +78,11 @@ For each strategic decision, record:
 Keep a strategy stable long enough to learn, but do not protect it from contrary
 evidence because of sunk cost.
 
+When the decision is durable, cross-cutting, or costly to reverse, record it in
+the repository's ADR convention. Use the `decision-records` skill to preserve
+the rationale, alternatives, consequences, and review triggers rather than
+creating a parallel strategy artifact.
+
 ## Use a coherent portfolio
 
 When the company has multiple products or services, prefer shared customer,

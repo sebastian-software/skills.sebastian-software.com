@@ -31,7 +31,8 @@ tools can read. Treat an ADR as a shared project artifact, not as agent memory.
 3. Choose the operation:
    - create a `proposed` record for an undecided choice;
    - create an `accepted` record for an agreed choice;
-   - amend only non-semantic errors or explicitly mutable review evidence;
+   - amend only non-semantic errors or explicitly mutable review evidence, such
+     as a dated validation result in a field the record marks as updatable;
    - supersede an accepted decision when its rationale or outcome changes;
    - mark a record `deprecated` when it no longer applies and has no successor.
 4. Read [ADR format and lifecycle](references/adr-format.md), then write the

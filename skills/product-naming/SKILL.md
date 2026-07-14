@@ -36,14 +36,15 @@ ideas do not receive invented domain, linguistic, or legal certainty.
    memorability, unwanted meaning, category confusion, and team constraints.
 6. Research only the surviving candidates. Load [Screening and verification](references/screening-and-verification.md)
    for current domain, search, language, trademark, and handle checks.
-7. Score evidence transparently, retain three to six finalists, and recommend a
-   top choice plus a credible fallback. State unknowns and required professional
-   clearance.
+7. Score evidence transparently and retain three to six finalists. State
+   unknowns and required professional clearance.
 8. Test finalists with representative speakers in realistic situations: hearing
    the name once, spelling it, recalling it later, searching for it, and using it
    in a sentence.
-9. Record the decision, rejected alternatives, verification date, reservation
-   actions, and conditions that would reopen the choice.
+9. Recommend a top choice plus a credible fallback after the spoken-name test.
+10. Record the decision, rejected alternatives, verification date, reservation
+    actions, and conditions that would reopen the choice with `decision-records`
+    when the repository uses ADRs or another durable decision convention.
 
 ## Operating Rules
 
@@ -90,3 +91,5 @@ For a full naming assignment, return:
   specialist only when one is separately configured.
 - Use `web-legal-compliance` for website disclosures and jurisdiction-specific
   launch requirements; it does not replace trademark counsel.
+- Use `decision-records` to preserve a durable naming choice, the rejected
+  alternatives, and conditions that would reopen it.

@@ -33,6 +33,16 @@ Country-code registries can expose different lookup rules and privacy limits.
 If automated verification is unavailable or ambiguous, label the status
 unconfirmed and give the user the exact manual check to perform.
 
+## Verify social and platform handles
+
+Check the relevant social, developer, app-store, and marketplace platforms
+directly for each finalist. Search the exact handle and predictable variants;
+record the platform, result, source, and timestamp. Do not infer availability
+from a web-search result or a missing profile: platform search can be partial,
+and an inactive, parked, or squatted account can still block use. If a result
+is ambiguous, label it unconfirmed and give the user the exact platform lookup
+to complete.
+
 ## Check languages and speech
 
 For each required language:
@@ -62,6 +72,14 @@ Do not conclude that a name is legally clear merely because an exact database
 search returns nothing. Common-law use, company names, pending applications,
 phonetic similarity, and classification judgment may still matter.
 
+Use the distinctiveness spectrum as one preliminary screening lens, always in
+the context of the candidate's goods and services: generic -> descriptive ->
+suggestive -> arbitrary -> coined or fanciful. Generic terms cannot identify a
+single source; descriptive marks can face registration or enforcement limits
+unless they acquire distinctiveness; suggestive, arbitrary, and coined marks
+are usually stronger starting points. This is not a legal classification or
+clearance: jurisdiction, evidence, and the specific goods and services matter.
+
 ## Use a transparent scorecard
 
 Score only after recording evidence. A practical scale is 1–5 for:
@@ -73,6 +91,7 @@ Score only after recording evidence. A practical scale is 1–5 for:
 - memorability
 - search and category separation
 - domain practicality
+- inherent distinctiveness
 - preliminary legal risk
 - portfolio and future fit
 

@@ -19,6 +19,7 @@ record. Prefer the repository's existing format when it has one.
 - Date: 2026-07-14
 - Deciders: Product and frontend team
 - Supersedes: ADR-0017
+- Superseded by: —
 
 ## Context
 
@@ -73,6 +74,10 @@ Use the repository's vocabulary when defined. Otherwise:
 - `rejected`: considered but not adopted.
 - `deprecated`: no longer applicable and has no direct successor.
 - `superseded`: replaced by another ADR; link the successor.
+
+Only update evidence that the record explicitly identifies as mutable, such as
+a dated validation result or review outcome. Do not use that exception to alter
+the accepted decision, context, rationale, or original consequences.
 
 When a decision changes:
 
