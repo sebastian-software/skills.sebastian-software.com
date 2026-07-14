@@ -85,7 +85,7 @@ only when multiple plans need ordering.
 
 ## Routing Boundaries
 
-- Route pull-request review and upkeep to `github-pr-auto-review`.
+- Route pull-request review and upkeep to `pr-review`.
 - Route dependency portfolio research and update delivery to
   `smart-dependency-updater`.
 - Route browser-facing design and frontend implementation detail to

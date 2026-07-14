@@ -61,6 +61,8 @@ gh pr diff <N> --repo "$REPO"
 
 For just the new commits since your last review, list commits from the JSON and
 diff them in the worktree (section 6): `git diff <last-reviewed-sha>..HEAD`.
+If the author force-pushed and that SHA is unreachable, inspect the full PR diff
+instead of treating the failed range as evidence that nothing changed.
 
 ## 2b. Read the linked ticket (intent gate)
 
@@ -193,6 +195,10 @@ Fork PRs: the head branch lives in the contributor's fork, so a normal push
 won't work — that's a Mode A situation anyway. For your own PRs the branch is in
 this repo, so the plain push above is correct.
 
+If the first fetch fails because `<head>` is checked out in another worktree,
+do not reuse a stale local branch. Fetch the remote-tracking ref and create the
+throwaway worktree from that fresh ref instead.
+
 ## 7. Keep the branch current (rebase-before-merge)
 
 Rebasing onto base keeps history linear and is preferred over a merge commit.
@@ -206,6 +212,10 @@ git rebase "origin/<base>"
 git push --force-with-lease
 ```
 
+A force-push can dismiss stale approvals and mark inline review threads outdated
+when repository settings enable those effects. Rebase only when needed, and
+re-check the review state before asking authors or reviewers to repeat work.
+
 **Lockfile conflicts** — don't hand-merge them, regenerate. Resolve any
 `package.json` conflict first, then rebuild the lockfile so it matches:
 
@@ -217,7 +227,19 @@ git rebase --continue
 # npm → `npm install` + package-lock.json ; yarn → `yarn install` + yarn.lock
 ```
 
-## 8. CI recovery — Supabase stuck check
+## 8. CI recovery
+
+For a completed GitHub Actions run that appears transiently flaky, first rerun
+only failed jobs and their dependencies once:
+
+```bash
+gh run rerun <run-id> --failed --repo "$REPO"
+```
+
+Inspect the new result before escalating. Do not rerun a deterministic code or
+configuration failure; fix the cause instead.
+
+### Supabase stuck check
 
 Only after the branch is genuinely up to date (section 7). Closing+reopening
 re-triggers the preview branch. At most once or twice; never loop.
@@ -242,4 +264,6 @@ gh pr view <N> --repo "$REPO" --json statusCheckRollup \
 gh api repos/"$REPO"/deployments --jq '.[0].statuses_url'   # fallback
 ```
 
-Then drive that URL with the `agent-browser` skill to check real behavior.
+Then drive that URL with the optional external `agent-browser` skill when it is
+configured. Otherwise, keep the verification static and report that the preview
+could not be exercised.

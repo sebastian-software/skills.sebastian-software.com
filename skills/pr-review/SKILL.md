@@ -118,8 +118,9 @@ it, so the user can decide and apply it themselves:
 - any CI action you'd take (rebase + `--force-with-lease`, Supabase
   close/reopen).
 
-Read-only verification still runs (preview deployment + `agent-browser`, local
-lint/typecheck/unit) — it observes, it changes nothing.
+Read-only verification still runs (preview deployment + the optional external
+`agent-browser` skill when configured, or local lint/typecheck/unit) — it
+observes, it changes nothing.
 
 Group the output by PR so it's easy to scan, and make plainly clear that nothing
 was applied — the responsibility to act stays with the user. You may offer at the
@@ -341,7 +342,7 @@ You usually review by reading. When you do need to see behavior:
 
 - **Never start a dev server.** Use the PR's **preview deployment** if one exists
   (Vercel and friends post the URL in checks/comments) and drive it with the
-  `agent-browser` skill.
+  optional external `agent-browser` skill when configured.
 - Otherwise stay static: in the worktree, run only what works without a server
   (lint, typecheck, unit tests). Don't expect everything to pass locally — treat
   green as a bonus signal, not a gate.
