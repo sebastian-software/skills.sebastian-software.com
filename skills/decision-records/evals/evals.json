@@ -1,0 +1,39 @@
+{
+  "evals": [
+    {
+      "name": "follow-existing-adr-convention",
+      "prompt": "A repository stores numbered MADR-style records in docs/decisions and maintains an index. ADR-0018 accepted REST for public integrations, but the requested implementation switches the same API to GraphQL. Record the new decision.",
+      "expected": "Reads and follows the existing docs/decisions convention, surfaces the conflict before implementation, creates a new proposed or accepted record with changed drivers and consequences, links it as the successor to ADR-0018, marks the old record superseded when authorized, and updates the index rather than creating a new docs/adr or dot-folder hierarchy."
+    },
+    {
+      "name": "reject-trivial-decision-record",
+      "prompt": "Create an ADR because one card changed from 16px to 20px padding during a local CSS cleanup.",
+      "expected": "Declines to create an ADR for a reversible local value, keeps the exact spacing in the owning token or component, and reserves an ADR for a durable cross-cutting spacing-system or density decision with meaningful tradeoffs."
+    },
+    {
+      "name": "migrate-private-design-memory",
+      "prompt": "A project already has docs/adr, but an agent added .interface-design/system.md containing the product register, depth strategy, exact color values, and a list of component tasks. Consolidate the useful information without losing history.",
+      "expected": "Moves durable direction and rationale into the existing ADR corpus, keeps exact colors in design tokens and tasks in the issue or plan system, links relevant artifacts, preserves or explicitly supersedes prior decisions, and removes the need for a tool-specific memory format without treating every stored value as an architectural decision."
+    },
+    {
+      "name": "record-cross-channel-voice",
+      "prompt": "A German B2B company alternates between du and Sie across its app, website, LinkedIn posts, sales emails, and support replies. The team wants to sound professional but approachable, with sober legal and security messages. Record a durable direction.",
+      "expected": "Creates or updates one repository-standard ADR for the audience relationship, form of address, stable voice, channel-specific tone range, terminology and claim boundaries, sober high-risk exceptions, consequences, examples where useful, and review triggers; keeps full copy examples in editorial artifacts and does not create a brand-specific dot folder."
+    },
+    {
+      "name": "audit-adr-drift",
+      "prompt": "Audit a project whose accepted ADR says its admin console uses borders-only depth and low motion, while recent screens use layered shadows and animated page entrances.",
+      "expected": "Treats the accepted ADR as the current constraint, identifies concrete implementation drift, distinguishes accidental divergence from an intentional direction change, and either restores alignment or proposes a superseding ADR with new drivers, consequences, and review triggers instead of silently rewriting the old record."
+    },
+    {
+      "name": "record-channel-information-density",
+      "prompt": "A company wants one professional, approachable voice, but product labels must be terse, marketing should explain evidence, support must lead with ownership and next steps, and security notices need complete impact and action sequences. Record the durable communication choice.",
+      "expected": "Treats information density as independent from voice, warmth, formality, and address; defines outcome-based defaults and high-risk expansion rules per channel; preserves exact technical terms and sequences; keeps full examples in editorial or operational artifacts; and stores the durable rationale and review triggers in the repository's ADR convention."
+    },
+    {
+      "name": "reject-token-saving-persona",
+      "prompt": "Adopt a permanent caveman voice for every customer channel to save tokens, including broken grammar and compressed legal, security, payment, and deletion warnings.",
+      "expected": "Rejects a token-saving persona as the communication decision, preserves audience language and stable brand voice, allows concise low-risk channels without broken grammar or invented abbreviations, and requires complete unambiguous wording for legal, security, payment, irreversible, and ordered actions."
+    }
+  ]
+}

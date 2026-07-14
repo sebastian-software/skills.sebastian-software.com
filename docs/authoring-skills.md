@@ -11,6 +11,7 @@ First-party skills live directly under `skills/`:
 ```text
 skills/skill-name/
   SKILL.md
+  agents/
   references/
   scripts/
   assets/
@@ -50,6 +51,8 @@ The description is what an agent sees before deciding whether to load a skill.
 
 ## Resource Directories
 
+- Use `agents/` for optional product-facing skill metadata such as
+  `openai.yaml`; never store project decisions or agent memory there.
 - Use `references/` for detailed guidance loaded only when needed.
 - Use `scripts/` for deterministic helpers agents can run.
 - Use `assets/` for templates, images, fonts, or output resources.
@@ -73,6 +76,26 @@ its knowledge into an actionable rule, checklist item, or short example.
 Normative specifications and compatibility data may change defaults. Practice
 material can improve workflows and examples. Experimental or single-source
 claims stay support-gated and never become unconditional defaults.
+
+## Persist Decisions in Shared ADRs
+
+When a skill needs to preserve durable project rationale, use the project's
+Architecture Decision Record convention instead of inventing a skill-specific
+dot folder, memory file, or private schema.
+
+- Discover and follow existing ADR directories, templates, numbering, statuses,
+  and indexes before creating anything.
+- Use `docs/adr/` with plain Markdown only when the project has no convention and
+  the decision genuinely warrants a durable record.
+- Record cross-cutting technical, product, design, content, marketing,
+  communication, security, operational, and process choices when their rationale
+  must survive contributors, tools, channels, or sessions.
+- Keep exact values and executable behavior in code, configuration, design
+  tokens, editorial guides, or tests. The ADR owns direction, rationale,
+  tradeoffs, consequences, and review triggers.
+- Preserve accepted history. Supersede decisions instead of silently rewriting
+  them to match current implementation.
+- Route ADR creation, review, and lifecycle details through `decision-records`.
 
 ## Behavioral Evals
 

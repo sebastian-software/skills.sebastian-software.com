@@ -28,6 +28,12 @@ loads form guidance without exposing a long menu of overlapping skill names.
 | --- | --- |
 | `effective-web` | Routed web design and engineering guidance: UI/UX, CSS, React, accessibility, SEO, performance, testing, SVG textures, and web-to-print. |
 
+### Engineering and project decisions
+
+| Skill | Focus |
+| --- | --- |
+| `decision-records` | Repository-native ADR creation, supersession, review, and drift control for durable technical, product, design, content, marketing, and communication decisions. |
+
 ### Marketing and sales
 
 | Skill | Focus |
@@ -56,6 +62,7 @@ Every public skill lives directly below `skills/`:
 ```text
 skills/<name>/
 ├── SKILL.md
+├── agents/       # optional product-facing skill metadata
 ├── references/   # optional progressive-disclosure material
 ├── scripts/      # optional deterministic helpers
 ├── assets/       # optional output resources
