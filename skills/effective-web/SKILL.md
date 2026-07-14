@@ -78,6 +78,7 @@ Read only the references needed for the selected route.
 - [Redesign preservation](references/redesign-preservation.md)
 - [UI fundamentals](references/fundamentals.md)
 - [Less is more](references/less-is-more.md)
+- [UI anti-patterns](references/ui-antipatterns.md)
 - [UI quality gates](references/ui-quality-gates.md)
 - [AI interface design](references/ai-interface-design.md)
 

@@ -203,26 +203,15 @@ Do not apply this lens to dense operational tools that need stronger scanning
 affordances, brand pages that need a bolder point of view, or consumer products
 where warmth, illustration, or expressiveness is part of the value.
 
-## Generic UI Failure Modes
+## UI Anti-Pattern Check
 
-Check these before choosing a visual direction. They are not timeless taste
-laws; they are current generated-UI failure modes that often indicate the design
-was chosen by category reflex instead of product intent.
-
-- Generic hero plus metrics row plus identical card grid.
-- Decorative gradient text, glass panels, or soft shadows with no information
-  role.
-- Over-rounded cards, nested cards, or every section framed as a card.
-- Tiny labels or numbered markers repeated as section scaffolding.
-- Warm neutral backgrounds or dark dashboards chosen by category default rather
-  than context.
-- Placeholder imagery where the subject requires real product, place, person,
-  object, or state evidence.
-- Dense product surfaces decorated like brand pages.
-- Brand surfaces made invisible by excessive product restraint.
-
-If a failure mode appears, do not "polish" around it. Change the brief decision:
-register, hierarchy, media strategy, density, or interaction model.
+For generic or agent-generated output, read
+[UI anti-patterns](ui-antipatterns.md). Separate objective defects from
+context-dependent advisories, look for clusters across independent choices, and
+preserve patterns justified by the task, register, design system, or accepted
+decision. If a cluster appears, do not polish around it. Change the owning brief
+decision: register, hierarchy, media strategy, density, communication, or
+interaction model.
 
 ## Specificity Check
 

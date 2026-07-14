@@ -52,10 +52,13 @@ Do not use this skill as a source archive. Article-derived input has already bee
 5. Check whether the UI has one clear information hierarchy and one clear next
    action per state. Remove elements that do not clarify, accelerate, reassure,
    express the intended relationship, or prevent mistakes.
-6. Route narrow issues to the focused routes above instead of expanding this
+6. For generic or agent-generated output, classify findings with
+   [UI anti-patterns](ui-antipatterns.md). Fix objective defects first and treat
+   stylistic tells as context-dependent advisories or clusters, not taste laws.
+7. Route narrow issues to the focused routes above instead of expanding this
    route. Record new durable direction or communication decisions through
    `decision-records` rather than a tool-specific memory file.
-7. Verify the rendered result and implementation against the accepted direction,
+8. Verify the rendered result and implementation against the accepted direction,
    redesign baseline when applicable, and quality gates before considering the
    UI done.
 
@@ -78,6 +81,8 @@ Do not use this skill as a source archive. Article-derived input has already bee
   and overhaul modes plus protected brand, IA, copy, analytics, and accessibility
   contracts.
 - [design-planning.md](design-planning.md) - planning workflow before implementation.
+- [ui-antipatterns.md](ui-antipatterns.md) - defect, advisory, cluster, and
+  accepted-exception review for generated UI and copy.
 - [ai-interface-design.md](ai-interface-design.md) - match AI capabilities to
   tasks, modalities, uncertainty, control, and environmental constraints.
 - [ui-quality-gates.md](ui-quality-gates.md) - final review gates before shipping.

@@ -184,6 +184,26 @@
       "name": "honor-design-system-provenance",
       "prompt": "A Shopify admin app already uses the official platform component system. A redesign imports components from two unrelated design systems and hand-copies the appearance of missing Shopify patterns because the designer prefers their defaults.",
       "expected": "Keeps one owning official system, verifies its current packages and supported patterns, avoids mixing complete systems or approximating official behavior by appearance, bridges genuine gaps explicitly within the existing stack, and records a durable system replacement only through an authorized decision and migration plan."
+    },
+    {
+      "name": "classify-generated-ui-cluster",
+      "prompt": "Review a new B2B automation landing page with no design system or ADR. It uses a cream background, an italic serif hero with an uppercase eyebrow pill, six identical rounded feature cards with icon tiles, a glowing gradient CTA, and the line 'Not just automation. A revolution.' The designer argues that every individual choice is common and accessible.",
+      "expected": "Does not mislabel stylistic familiarity as an accessibility defect; classifies the individual tells as advisories, recognizes their cross-domain cluster as evidence of an unexamined category template, and revises the owning direction, evidence, hierarchy, media, and copy choices instead of swapping decorations one by one."
+    },
+    {
+      "name": "preserve-justified-antipattern-exceptions",
+      "prompt": "An editorial publication's accepted design system uses one type family, an italic serif feature headline, and 01/02/03 markers for a real three-step investigative method. A generic UI scanner flags all three as AI slop. Review the findings.",
+      "expected": "Treats the documented editorial register, coherent type system, and meaningful sequence as accepted exceptions rather than style violations; still verifies legibility, hierarchy, responsiveness, and implementation quality; and rejects font blacklists or context-free suppression of intentional brand language."
+    },
+    {
+      "name": "separate-antipattern-evidence-from-judgment",
+      "prompt": "Audit an inherited admin screen that uses Inter and a decorative grid background, but also contains empty image sources, low-contrast labels, a menu clipped by overflow hidden, and a mobile layout that removes approval actions. Prioritize the findings.",
+      "expected": "Prioritizes the verified broken images, contrast, clipped interaction, and lost mobile capability by user impact; treats the font and decorative grid as contextual advisories; checks for a broader generic-output cluster; and does not present a clean or noisy automated scan as proof of design quality."
+    },
+    {
+      "name": "rewrite-generated-copy-without-voice-drift",
+      "prompt": "A German marketing page has an accepted professional du voice. Every section uses a variation of 'Nicht nur X. Sondern Y.', generic transformation claims, and repeated em dashes. Rewrite it without switching to Sie or banning punctuation globally.",
+      "expected": "Preserves the recorded professional du relationship, treats repeated cadence, unsupported claims, and punctuation density as contextual signals rather than forbidden tokens, rewrites with concrete product nouns, verbs, evidence, and limits, and routes any durable voice change through an ADR instead of silently changing formality."
     }
   ]
 }

@@ -71,7 +71,9 @@ wrong, return to the Design Readiness Check and revise the brief.
 ## Generic Output Gate
 
 Use this gate to catch templated AI output without turning design into a
-polishing loop.
+polishing loop. Classify suspected patterns with
+[UI anti-patterns](ui-antipatterns.md): objective defects can block, individual
+style tells are advisory, and clusters indicate a likely direction problem.
 
 Ask:
 

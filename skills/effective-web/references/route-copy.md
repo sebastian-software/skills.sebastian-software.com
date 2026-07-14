@@ -11,7 +11,10 @@ Use this skill for words inside product UI: labels, helper text, empty states, h
 4. Make labels concrete and action text outcome-oriented.
 5. Match tone to consequence without changing the recorded voice: calm for
    errors, direct for actions, sparse for repeated workflows.
-6. Check text expansion, localization, accessibility names, and cross-channel
+6. When copy feels generic or generated, use [UI anti-patterns](ui-antipatterns.md)
+   to check repeated cadence, manufactured contrast, unsupported claims, and
+   redundant language without banning individual words or punctuation.
+7. Check text expansion, localization, accessibility names, and cross-channel
    consistency. Use `decision-records` when the work changes a durable
    communication direction.
 
@@ -27,3 +30,5 @@ Use this skill for words inside product UI: labels, helper text, empty states, h
 
 - [copywriting.md](copywriting.md) - concise interface and product copy rules.
 - [editorial-ux.md](editorial-ux.md) - editorial UX patterns and wording checks.
+- [ui-antipatterns.md](ui-antipatterns.md) - contextual generated-copy and
+  marketing tells plus exception handling.
