@@ -32,7 +32,9 @@ Load only the relevant category file based on the user's topic:
 - If the user wants a content calendar → load 2-3 relevant categories
 - If the user wants to browse all → ask which category first, don't load all at once
 - For writing a specific post → ask for context (see below), use the matching category file for inspiration
-- For a document/PDF carousel request → use suitable `I` ideas as the visual concept, then adapt the deliverable into an accessible document post.
+- For a document/PDF carousel request → prefer suitable `I` ideas as the visual
+  concept. If the requested category has none, adapt another suitable idea from
+  that category into an accessible document post.
 
 ---
 
@@ -183,7 +185,7 @@ What image, carousel, or media would complement this post.
 
 Ask the user:
 1. **What category interests you?** (Company Updates, Industry Insights, Personal Stories, Professional Development, Educational Content, Engagement, Networking, Tools & Resources, Recognition, Jobs & Career, Lifestyle)
-2. **What content type?** (Text, Poll, Video, Image/Infographic, Document/PDF carousel — uses suitable image/infographic ideas as prompts)
+2. **What content type?** (Text, Poll, Video, Image/Infographic, Document/PDF carousel — prefers suitable image/infographic ideas, otherwise adapts another category idea)
 3. **How much time do you have?** (Low/Medium/High effort)
 
 Then load the matching category file and present the top 5 matches with their sample publications.
