@@ -21,12 +21,14 @@ Use this reference for reusable design-system decisions that cut across colour, 
 
 ### Contrast and accessibility
 
-- Treat WCAG 2 minimums (4.5:1 text, 3:1 large text and non-text/UI) as a floor, not a target; perceived contrast can still be weak at the minimum, especially for borders, icons, and underlines that carry meaning. Verify state visibility for buttons, inputs, and filters, not just static text.
-- Use APCA as the primary design and review metric: its contrast value is
-  polarity-aware, and its acceptance thresholds vary with text size and weight.
-  Where a formal WCAG 2.x conformance claim, contract, or audit is in scope,
-  also pass the applicable WCAG 2 ratios; those ratios are a separate
-  compliance gate, not the design target.
+- Meet applicable WCAG 2.2 AA contrast requirements (4.5:1 text, 3:1 large
+  text and non-text/UI) as the compliance baseline. Design beyond the minimum
+  where needed: perceived contrast can still be weak at the ratio, especially
+  for borders, icons, and underlines that carry meaning. Verify state
+  visibility for buttons, inputs, and filters, not just static text.
+- Use APCA as a supplementary design and review check: its contrast value is
+  polarity-aware, and its guidance varies with text size and weight. It does
+  not replace applicable WCAG 2.x conformance requirements.
 - Treat `contrast-color()` as a Baseline-2026 convenience for picking black or
   white foregrounds, not an accessibility guarantee. Declare an explicit color
   before it when older targets matter, and verify the selected pair because
@@ -76,8 +78,8 @@ Use this reference for reusable design-system decisions that cut across colour, 
 - Does a format-only color migration preserve token meaning, CSS structure,
   third-party format contracts, and foreground/background relationships?
 - Are derived colors checked in light mode, dark mode, hover/focus/active states, disabled states, and forced-colors mode?
-- Do colors pass APCA as the design target, with WCAG 2 ratios added when a
-  formal conformance requirement applies?
+- Do colors meet applicable WCAG 2.2 AA ratios, with APCA used as a
+  supplementary perceptual check?
 - Do gradients, transitions, and `color-mix()` operations use a color space that avoids muddy interpolation?
 - Can the icon system inherit text color, align to type, expose labels, and avoid duplicated sprite/runtime complexity?
 - Are visual effects optional layers with fallbacks, or does meaning depend on masking/filtering/translucency?
