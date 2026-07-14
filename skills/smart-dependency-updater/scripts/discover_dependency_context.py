@@ -29,6 +29,7 @@ LOCKFILES = {
     "Pipfile.lock": "pipenv",
     "go.sum": "go",
     "Gemfile.lock": "bundler",
+    "gradle.lockfile": "gradle",
     "packages.lock.json": "dotnet",
 }
 
@@ -38,6 +39,8 @@ MANIFESTS = {
     "pyproject.toml": "python",
     "requirements.txt": "python",
     "requirements-dev.txt": "python",
+    "setup.cfg": "python",
+    "setup.py": "python",
     "go.mod": "go",
     "Gemfile": "ruby",
     "pom.xml": "java",
@@ -49,7 +52,8 @@ MANIFESTS = {
 
 def read_json(path: Path) -> dict[str, Any]:
     try:
-        return json.loads(path.read_text(encoding="utf-8"))
+        data = json.loads(path.read_text(encoding="utf-8"))
+        return data if isinstance(data, dict) else {"_error": "JSON root is not an object"}
     except Exception as exc:
         return {"_error": str(exc)}
 
@@ -64,18 +68,35 @@ def read_toml(path: Path) -> dict[str, Any]:
 
 
 def find_files(root: Path, names: set[str]) -> list[Path]:
-    ignored = {".git", "node_modules", "target", ".venv", "venv", "dist", "build", ".next"}
+    ignored = {
+        ".git",
+        "node_modules",
+        "target",
+        ".venv",
+        "venv",
+        "dist",
+        "build",
+        ".next",
+        "vendor",
+    }
     matches: list[Path] = []
     for current, dirs, files in os.walk(root):
         dirs[:] = [d for d in dirs if d not in ignored]
         for name in files:
-            if name in names or name.endswith(".csproj") or name.endswith(".fsproj"):
+            if (
+                name in names
+                or (name.startswith("requirements") and name.endswith(".txt"))
+                or name.endswith(".csproj")
+                or name.endswith(".fsproj")
+            ):
                 matches.append(Path(current, name))
     return sorted(matches)
 
 
 def parse_package_json(path: Path) -> dict[str, Any]:
     data = read_json(path)
+    if "_error" in data:
+        return {"path": str(path), "_error": data["_error"]}
     dep_sections = [
         "dependencies",
         "devDependencies",
@@ -98,6 +119,8 @@ def parse_package_json(path: Path) -> dict[str, Any]:
 
 def parse_cargo_toml(path: Path) -> dict[str, Any]:
     data = read_toml(path)
+    if "_error" in data:
+        return {"path": str(path), "_error": data["_error"]}
     sections = ["dependencies", "dev-dependencies", "build-dependencies"]
     package = data.get("package", {}) if isinstance(data, dict) else {}
     workspace = data.get("workspace", {}) if isinstance(data, dict) else {}
@@ -118,6 +141,8 @@ def parse_cargo_toml(path: Path) -> dict[str, Any]:
 
 def parse_pyproject(path: Path) -> dict[str, Any]:
     data = read_toml(path)
+    if "_error" in data:
+        return {"path": str(path), "_error": data["_error"]}
     project = data.get("project", {}) if isinstance(data, dict) else {}
     tool = data.get("tool", {}) if isinstance(data, dict) else {}
     return {
@@ -133,7 +158,10 @@ def parse_pyproject(path: Path) -> dict[str, Any]:
 
 
 def parse_go_mod(path: Path) -> dict[str, Any]:
-    text = path.read_text(encoding="utf-8", errors="replace")
+    try:
+        text = path.read_text(encoding="utf-8", errors="replace")
+    except OSError as exc:
+        return {"path": str(path), "_error": str(exc)}
     module = re.search(r"^module\s+(.+)$", text, re.MULTILINE)
     go_version = re.search(r"^go\s+(.+)$", text, re.MULTILINE)
     requires = re.findall(r"^\s*require\s+(?:\(|([^\s]+)\s+)", text, re.MULTILINE)
@@ -147,11 +175,14 @@ def parse_go_mod(path: Path) -> dict[str, Any]:
 
 
 def parse_requirements(path: Path) -> dict[str, Any]:
-    lines = [
-        line.strip()
-        for line in path.read_text(encoding="utf-8", errors="replace").splitlines()
-        if line.strip() and not line.strip().startswith("#")
-    ]
+    try:
+        lines = [
+            line.strip()
+            for line in path.read_text(encoding="utf-8", errors="replace").splitlines()
+            if line.strip() and not line.strip().startswith("#")
+        ]
+    except OSError as exc:
+        return {"path": str(path), "_error": str(exc)}
     return {"path": str(path), "entries": len(lines)}
 
 
@@ -174,8 +205,9 @@ def main() -> int:
         name = path.name
         if name in LOCKFILES:
             result["lockfiles"].append({"path": str(rel), "manager": LOCKFILES[name]})
-        if name in MANIFESTS or name.endswith(".csproj") or name.endswith(".fsproj"):
-            ecosystem = MANIFESTS.get(name, "dotnet")
+        is_requirements = name.startswith("requirements") and name.endswith(".txt")
+        if name in MANIFESTS or is_requirements or name.endswith(".csproj") or name.endswith(".fsproj"):
+            ecosystem = MANIFESTS.get(name, "python" if is_requirements else "dotnet")
             result["manifests"].append({"path": str(rel), "ecosystem": ecosystem})
         if name == "package.json":
             parsed = parse_package_json(path)

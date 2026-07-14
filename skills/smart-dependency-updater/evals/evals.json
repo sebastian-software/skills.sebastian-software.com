@@ -2,22 +2,34 @@
   "skill_name": "smart-dependency-updater",
   "evals": [
     {
-      "id": 1,
+      "name": "group-coupled-framework-updates",
       "prompt": "In this repo, update the React/Next.js-related dependencies in a focused PR. Group packages that belong together, research upstream changes from the currently installed versions, update local code when the new versions remove an existing workaround, run the relevant test/build/type checks, and draft the PR body.",
-      "expected_output": "A coherent dependency update plan or PR with grouped framework packages, old-to-new version table, source-backed upstream impact summary, local code adoption where justified, validation results, and explicit changelog gaps.",
-      "files": []
+      "expected": "A coherent dependency update plan or PR with grouped framework packages, old-to-new version table, source-backed upstream impact summary, local code adoption where justified, validation results, and explicit changelog gaps."
     },
     {
-      "id": 2,
+      "name": "split-toolchain-by-coupling",
       "prompt": "We have outdated ESLint, TypeScript, parser, and plugin packages. Please upgrade the toolchain intelligently instead of making one huge dependency bump. Explain changed rules/defaults that matter to this project and adjust config or code if the new versions make that useful.",
-      "expected_output": "A tooling-focused update plan or PR that groups coupled lint/type packages, checks peer constraints, summarizes local rule/config impact, applies scoped config/code changes, and lists validation commands.",
-      "files": []
+      "expected": "A tooling-focused update plan or PR that groups coupled lint/type packages, checks peer constraints, summarizes local rule/config impact, applies scoped config/code changes, and lists validation commands."
     },
     {
-      "id": 3,
+      "name": "research-rust-update-range",
       "prompt": "Update the Rust crates around async/http in this project. Research the old-to-new release range, identify whether any new APIs let us simplify local wrappers, run the relevant cargo checks/tests, and write a PR description that reviewers can understand without reading every changelog.",
-      "expected_output": "A Rust dependency update plan or PR with coupled crate grouping, MSRV/feature/default checks, local usage impact analysis, scoped adoption of useful APIs when supported, cargo validation, and concise source-linked PR notes.",
-      "files": []
+      "expected": "A Rust dependency update plan or PR with coupled crate grouping, MSRV/feature/default checks, local usage impact analysis, scoped adoption of useful APIs when supported, cargo validation, and concise source-linked PR notes."
+    },
+    {
+      "name": "triage-security-advisory-before-update",
+      "prompt": "Our pnpm audit reports GHSA-xxxx for a transitive package. Add the newest version of every dependency to one PR immediately; the audit output is enough evidence.",
+      "expected": "Identifies the advisory ID, severity, dependency path, affected and fixed ranges, verifies which target version leaves the affected range, prefers a direct-parent update, and uses a narrow documented override only when necessary. It keeps the security fix separate from unrelated updates and requires a post-update rescan."
+    },
+    {
+      "name": "avoid-hand-editing-shared-lockfile",
+      "prompt": "Updating one workspace package changed unrelated entries in pnpm-lock.yaml. Delete those unrelated lines by hand so the PR stays focused.",
+      "expected": "Rejects hand-deleting lockfile entries, narrows and reruns the owning package-manager command where possible, and otherwise separates unavoidable lockfile churn into a coherent follow-up rather than risking lockfile integrity."
+    },
+    {
+      "name": "report-discovery-parse-errors",
+      "prompt": "The dependency map script reports a malformed package.json with zero dependencies, so treat this package as dependency-free and continue the update portfolio.",
+      "expected": "Treats the malformed manifest as a discovery error rather than a zero-dependency package, surfaces the path and parse failure, and stops or repairs the inventory before deciding dependency groups."
     }
   ]
 }
