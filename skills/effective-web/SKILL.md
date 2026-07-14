@@ -164,14 +164,18 @@ Read only the references needed for the selected route.
 
 ## Boundaries
 
+- Route product discovery, strategy, outcome, scope, prioritization, quality-bar,
+  and release decisions to `product-management`; return here to design,
+  implement, and verify the resulting browser experience.
 - Route Impressum, legal notices, privacy and cookie notice requirements,
   online-sales disclosures, and multi-jurisdiction compliance analysis to
   `web-legal-compliance`; return here for the resulting frontend implementation
   and verification work.
 - Route locale-specific punctuation, quotation, spacing, and language-level
   typographic rules to `locale-typography`.
-- Route general marketing copy and campaigns to external DALO catalog skills;
-  use Interface Copy only for language embedded in a web experience.
+- Route general marketing copy and campaigns to the separately managed skills
+  selected from the DALO `marketingskills` catalog; use Interface Copy only for
+  language embedded in a web experience.
 - Keep backend-only architecture, infrastructure, deployment, load testing, and
   security audits, and non-web desktop publishing outside this skill unless
   they directly constrain the browser-facing result.

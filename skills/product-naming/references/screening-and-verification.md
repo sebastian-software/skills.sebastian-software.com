@@ -1,0 +1,87 @@
+# Screening and Verification
+
+Naming evidence changes quickly. Perform live checks for every finalist, record
+the date and source, and distinguish confirmed facts from unresolved risk.
+
+## Search for confusing use
+
+For each candidate, search:
+
+- exact name and common spelling variants
+- name plus the product category and adjacent categories
+- company, software, app, developer package, and social platforms
+- relevant national business registers when appropriate
+- required countries and languages, not only the researcher's location
+
+Review actual results and official pages. Classify conflicts by similarity of
+name, goods or services, geography, audience, prominence, and likelihood of
+confusion. A restaurant with the same word is different evidence from a SaaS
+product serving the same buyer, but neither should be silently omitted.
+
+## Verify domain status
+
+Use a current registrar, registry-supported lookup, RDAP, or authoritative
+WHOIS service suitable for the top-level domain. Search results and an HTTP
+failure do not prove availability. Record:
+
+- domain and TLD
+- registered, available, reserved, premium, or uncertain
+- lookup source and timestamp
+- active use, redirect, parking, or sale status when relevant
+
+Country-code registries can expose different lookup rules and privacy limits.
+If automated verification is unavailable or ambiguous, label the status
+unconfirmed and give the user the exact manual check to perform.
+
+## Check languages and speech
+
+For each required language:
+
+- verify ordinary and slang meanings with reliable dictionaries and native or
+  fluent speakers
+- note pronunciation, stress, gender or inflection issues, and likely spelling
+- search for phonetic neighbors and unwanted phrases
+- test the spoken name without showing the spelling first
+
+Machine translation and model intuition are preliminary filters. They do not
+replace a representative speaker for a commercial naming decision.
+
+## Run preliminary trademark screening
+
+Search authoritative databases appropriate to the intended markets, such as
+EUIPO, DPMA, WIPO Global Brand Database, USPTO, or relevant national offices.
+Review identical and similar marks, not only exact text, and note:
+
+- owner and status
+- word, figurative, or combined mark
+- goods and services classes and descriptions
+- territory and filing or registration dates
+- similarity or confusion risk that needs professional review
+
+Do not conclude that a name is legally clear merely because an exact database
+search returns nothing. Common-law use, company names, pending applications,
+phonetic similarity, and classification judgment may still matter.
+
+## Use a transparent scorecard
+
+Score only after recording evidence. A practical scale is 1–5 for:
+
+- strategic fit
+- distinctiveness
+- pronunciation and spoken spelling
+- cross-language compatibility
+- memorability
+- search and category separation
+- domain practicality
+- preliminary legal risk
+- portfolio and future fit
+
+Show important uncertainty beside the score. Weight hard constraints explicitly
+and do not let an average hide a fatal language or conflict problem.
+
+## Recommend and reserve carefully
+
+Present a top choice and fallback with their tradeoffs. Before public reveal or
+significant design work, coordinate domain, handle, company-name, and trademark
+steps. These are external and sometimes irreversible actions; execute them only
+with explicit authorization and appropriate legal advice.

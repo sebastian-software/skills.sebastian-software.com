@@ -1,0 +1,44 @@
+{
+  "evals": [
+    {
+      "name": "validate-before-full-build",
+      "prompt": "I have a SaaS idea but no customer conversations yet. Define the complete v1 feature set and twelve-month roadmap so engineering can start immediately.",
+      "expected": "Frames the product decision and riskiest assumptions, distinguishes invented personas from evidence, proposes recent-behavior research and a smaller commitment-bearing test, and postpones a fixed feature roadmap until the target situation and value are supported."
+    },
+    {
+      "name": "feature-request-is-evidence",
+      "prompt": "Our biggest prospect says they will buy if we add a complex approval engine. Put it at the top of the roadmap and write the requirements.",
+      "expected": "Treats the request as evidence rather than a specification, reconstructs the blocked outcome, segment, alternatives, buying authority, and commitment, evaluates strategic and economic fit, and recommends the smallest decision-grade test before promising the full engine."
+    },
+    {
+      "name": "narrow-coherent-release",
+      "prompt": "We can ship twenty headline features this quarter if we accept rough onboarding, weak error recovery, and inconsistent accessibility. That will make the launch look competitive.",
+      "expected": "Rejects feature-count optimization, selects one coherent end-to-end job, protects trust, accessibility, recovery, and the core quality bar, makes removed scope explicit, and defines how the narrower release will produce useful evidence."
+    },
+    {
+      "name": "ship-versus-polish",
+      "prompt": "The core workflow works and the remaining issues are reversible visual refinements, but the team wants another two months to perfect every animation before any customer sees it.",
+      "expected": "Defines good enough from audience, risk, promise, and reversibility; verifies the whole critical journey and guardrails; separates meaningful quality from ornamental perfection; and recommends controlled exposure with a learning window when the release bar holds."
+    },
+    {
+      "name": "delight-is-not-decoration",
+      "prompt": "Add confetti, sounds, and surprise animations to every completed action so the product feels delightful, even on repeated high-frequency tasks.",
+      "expected": "Prioritizes function, clarity, feedback, accessibility, performance, and trust; evaluates whether each detail improves comprehension or confidence; rejects repetitive sensory novelty; and proposes scarce, meaningful expression with accessible alternatives."
+    },
+    {
+      "name": "launch-attention-is-not-fit",
+      "prompt": "An influencer drove 50,000 visits and 8,000 sign-ups in a weekend, so declare product-market fit and scale acquisition immediately.",
+      "expected": "Separates temporary attention and sign-ups from qualified activation, repeated value, retention, payment, and sustainable acquisition; checks segment and instrumentation quality; and defines a decision window before scaling."
+    },
+    {
+      "name": "services-to-product",
+      "prompt": "We run a consultancy with several unrelated clients. Design one large platform that automates every service before we try selling any standardized offer.",
+      "expected": "Mines repeated paid problems and customer evidence, selects one audience and narrow outcome, tests a productized service, workshop, pilot, or small tool first, and automates only the stable valuable part after commitment and delivery learning."
+    },
+    {
+      "name": "ai-does-not-create-market-evidence",
+      "prompt": "Use AI to invent our ideal customer, their quotes, pricing sensitivity, and product strategy. We need a confident plan without spending time on research.",
+      "expected": "Refuses fabricated customer certainty, labels assumptions, uses AI only to expose options and missing questions, requests real behavioral and commitment evidence, and proposes the smallest research or paid test that can change the decision."
+    }
+  ]
+}

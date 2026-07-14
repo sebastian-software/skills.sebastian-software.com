@@ -106,6 +106,9 @@ For an end-to-end request, return:
   project history, biography, or cross-channel consultant profile.
 - Use `effective-web` to design, implement, or test landing pages, forms,
   analytics delivery, accessibility, performance, and responsive behavior.
+- Use `product-management` when the target user, customer problem, product
+  promise, evidence, scope, or release decision is not yet stable enough to
+  support positioning and channel work.
 - Use `web-legal-compliance` before implementing tracking, consent, lead forms,
   email capture, testimonials, endorsements, or multi-jurisdiction campaigns.
 - Use `locale-typography` for locale-specific visible prose after the message is
