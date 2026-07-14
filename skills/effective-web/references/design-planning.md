@@ -16,6 +16,24 @@ system, representative screens, content, and brand or editorial guidance. An
 accepted decision is a constraint until it is explicitly superseded; do not
 silently redesign around it.
 
+## Design Intent and Browser Evidence
+
+Treat design artifacts as hypotheses about a responsive system, not complete
+descriptions of every browser condition. Keep accepted product, brand, and
+design decisions binding while validating the proposed implementation with
+realistic content, viewports, inputs, user settings, and browser behavior.
+
+When browser evidence requires a different implementation:
+
+- Preserve the underlying intent rather than copying the supplied geometry.
+- Record the observed constraint, affected users or states, simpler option,
+  agreed divergence, and resulting behavior.
+- Show the behavior in a resizable browser example when a static screenshot
+  cannot communicate the tradeoff.
+- Ask for approval when the change alters product intent, scope, content, or an
+  accepted decision. Do not use "the browser is the source of truth" as license
+  to make those changes silently.
+
 For net-new or materially changed surfaces, use the compact Design Read from
 [Design directions](design-directions.md): surface register, audience, primary
 job, primary direction, expression, density, motion, depth, communication,
@@ -58,6 +76,49 @@ question when the information cannot be inferred.
 11. **Anti-goals:** What would be a wrong direction for this audience or product?
 12. **Modality:** Can users provide input and consume output through the proposed
     interface in their real physical, social, and cognitive context?
+
+## Visual Decomposition and Oversight Audit
+
+For net-new, ambiguous, visually important, or risky surfaces, decompose the
+design before turning it into tickets or production components. Keep the pass
+rough and decision-oriented:
+
+- Mark page regions, layout systems, reusable patterns, global rules, content
+  dependencies, and component ownership boundaries.
+- Identify behavior that a static frame cannot answer, such as wrapping,
+  reordering, scrolling, sticky positioning, overlap, disclosure, and focus.
+- Check minimum, typical, and maximum CMS content; localization and long words;
+  source, reading, and focus order; hidden or duplicated content; contradictory
+  responsive states; fixed dimensions; asset constraints; zoom; short
+  viewports; and keyboard, touch, pointer, and reduced-motion input.
+- Resolve likely design mistakes and requirement gaps with the owning designer
+  or stakeholder before writing compensating CSS.
+- Convert only the remaining implementation uncertainty into a bounded
+  prototype. Do not prototype decisions that existing evidence already settles.
+
+## Bounded Browser Prototypes
+
+Use a prototype to answer one named layout or interaction question. State its
+hypothesis, focus, non-goals, fidelity, and exit condition before building it.
+Use realistic semantics and enough representative content to test the behavior,
+but keep the artifact reversible and intentionally cheaper than production.
+
+Create a small local prototype autonomously when it stays within the accepted
+intent and can be discarded safely. Ask before continuing when its result would
+change product intent, scope, content, or an accepted decision.
+
+Close the prototype with one explicit outcome:
+
+- **Discard:** the idea failed or the question no longer matters.
+- **Rebuild:** preserve the learned behavior, then implement it with production
+  semantics, tokens, support policy, accessibility, and ownership.
+- **Productionize:** retain code only when the prototype became sufficiently
+  representative, then review it as production code and replace rough values,
+  shortcuts, fixtures, and assumptions.
+
+Feed the conclusion back into the design brief, implementation plan, and any
+durable decision record. Do not leave the prototype as an unexplained parallel
+implementation.
 
 ## Decide Before Styling
 
@@ -258,6 +319,31 @@ Rules:
   specific to what the product actually does.
 - Respect reduced motion and performance budgets.
 
+## Review and Change Contracts
+
+Do not hand a visual build over as a bare URL. Send a compact review brief that
+states:
+
+- What is complete and ready to inspect.
+- Which feedback is needed now and which areas are intentionally out of scope.
+- Which responsive, interaction, accessibility, or browser evidence matters.
+- Which joint decisions explain intentional divergence from earlier artifacts.
+- Which unresolved questions need one named decision.
+
+Use a short recording or resizable preview when behavior matters, and preserve
+the conclusions in a written thread or decision record. Escalate requirement,
+accessibility, and primary-flow problems immediately; batch cosmetic findings
+when delay will not hide user harm or rework.
+
+For a late request, record the desired outcome, source, evidence, expected cost
+and risk, displaced work, decision owner, and the funded planning boundary or
+condition for reconsideration. Do not let private messages silently expand the
+active implementation scope.
+
+When a deadline requires a bounded compromise, record the acceptable current
+state, desired state, known limitation, owner, and concrete follow-up trigger.
+Do not label invisible debt as pragmatic delivery.
+
 ## Compact Design Brief
 
 For ambiguous or net-new UI, write a compact brief before implementation. Keep
@@ -280,6 +366,8 @@ Use this structure:
 - Required states: [default, empty, loading, error, success, permissions]
 - Content and media: [real data, copy, images, diagrams, examples]
 - Context adaptation: [devices, inputs, orientation, connection, platform expectations]
+- Browser evidence: [responsive constraints, tested behavior, and agreed divergence from design artifacts]
+- Open behavior questions: [bounded prototype hypothesis and exit condition; omit when none]
 - Communication: [audience relationship, form of address, stable voice, and state/channel tone constraints]
 - Constraints: [design system, framework, accessibility, i18n, performance]
 - Anti-goals: [wrong directions to avoid]

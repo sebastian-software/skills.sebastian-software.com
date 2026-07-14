@@ -32,6 +32,9 @@ Use current browser-support evidence before turning modern web-platform features
 - Run a feature-erasure test for progressive enhancements: temporarily remove the
   declaration or conditional block and complete the primary task using the
   remaining experience. Test the fallback itself, not only the enhanced path.
+- Treat the feature-erasure result as a core-to-enhancement gate: do not add
+  decorative overlap, sticky behavior, advanced type effects, or motion until
+  the remaining semantic experience is readable, operable, and verified.
 
 ## Adoption Policy
 

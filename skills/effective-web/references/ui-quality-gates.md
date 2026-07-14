@@ -9,7 +9,7 @@ right issue. Mark each category as `blocked`, `risky`, or `acceptable`.
 | Category | Blocked | Risky | Acceptable |
 |----------|---------|-------|------------|
 | Accessibility | WCAG AA blocker, keyboard trap, missing labels on critical controls, unreadable contrast | Minor ARIA gaps, weak focus styling, unclear alt text | Keyboard, semantics, labels, focus, contrast, target size, and announcements are covered |
-| Responsive layout | Horizontal overflow, unusable mobile layout, clipped primary action, text that cannot fit | Awkward spacing, density, or ordering at one breakpoint | Mobile, tablet, desktop, zoom, long text, and touch input work |
+| Responsive layout | Horizontal overflow, unusable mobile layout, clipped primary action, text that cannot fit | Awkward spacing, density, or ordering at one breakpoint | Continuous resize, short and narrow viewports, zoom, long text, and touch input work |
 | Performance | Implementation choice likely breaks LCP, INP, CLS, or interaction responsiveness | Heavy assets, expensive animation, or unbounded rendering need verification | Critical assets, layout stability, and interaction cost are handled |
 | Theming | Hard-coded colours break tokens, dark mode, contrast, or semantic state colours | Some one-off values need token consolidation | Tokens and semantic colours are used consistently |
 | State coverage | Missing empty, loading, error, success, disabled, or permission state for the core flow | Secondary states exist but need clearer copy or interaction detail | All states required by the brief are implemented in the real components |
@@ -40,6 +40,46 @@ system at the cheapest useful layer:
   primitive or process when the same defect appears in multiple features.
 - Keep a release-time audit as a verification layer, not the first time the team
   considers accessibility.
+
+## Core and Enhancement Gate
+
+Build and verify the semantic, usable core before adding decorative overlap,
+sticky behavior, advanced typography, motion, or another optional enhancement.
+The core must preserve the primary task, content, source order, focus order, and
+readable fallback when the enhancement is removed or unsupported.
+
+Before starting the enhancement pass, verify the core with:
+
+- Feature erasure and delayed or unavailable JavaScript where relevant.
+- Continuous resizing instead of a few named breakpoints, including shallow
+  landscape viewports and mobile browser chrome.
+- Keyboard navigation, visible and unobscured focus, zoom, touch, pointer, text
+  selection, and hash-target navigation.
+- Minimum, typical, maximum, empty, long, and localized content.
+- Representative browsers from the project's support policy.
+
+Keep flair optional. Suspend sticky, overlapping, clipped, or animated treatment
+when it obscures focused content or blocks the primary task. If the enhancement
+requires compound conditions, undo chains, duplicated content, opaque math, or
+repeated exception selectors, revisit the underlying design and layout model
+before adding another patch.
+
+## Reusable UI Fixtures
+
+Create a fixture in the same implementation task when changing global CSS,
+reusable components, or stateful layout and interaction behavior:
+
+- For global CSS, maintain a semantic kitchen sink with headings, prose, lists,
+  forms, tables, media, selection, focus, hash targets, and uncommon elements.
+- For reusable components, use the project's Storybook or pattern library and
+  cover representative content, states, themes, locale, and interaction.
+- For sticky, overlapping, scrolling, focus-dependent, or container-dependent
+  behavior, provide enough surrounding height, width, items, and controls to
+  reproduce the behavior while resizing and navigating by keyboard.
+- If no component workshop exists, use a small isolated local route or example.
+  Keep fixture-only styles and data out of production behavior.
+- For a simple one-off page region, verify the real page instead of creating a
+  parallel fixture without reuse value.
 
 ## Final Execution Pass
 

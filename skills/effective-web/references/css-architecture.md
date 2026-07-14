@@ -535,6 +535,24 @@ Define named custom fallback positions:
 }
 ```
 
+## Evolve Abstractions from Evidence
+
+- Start a new component need locally. Promote a token, utility, composition, or
+  public custom property only after multiple concrete uses or an established
+  system decision proves that the abstraction has one stable job.
+- Give utilities a useful default, one portable responsibility, and only the
+  token-backed inputs needed for intentional variation. Do not turn one local
+  exception into a global capability "just in case."
+- Treat growing utility clusters, arbitrary values, compound queries, undo
+  rules, duplicated content, opaque math, and repeated exception selectors as
+  signals to revisit ownership or the layout model before patching further.
+- Refactor existing rules when requirements change. CSS that only accumulates
+  new selectors and overrides is becoming append-only even if every individual
+  addition appears harmless.
+- Remove superseded experiments, selectors, and component options when Git
+  already preserves their history. Retain temporary debt only with a documented
+  current state, desired state, owner, and follow-up trigger.
+
 ## CSS File Organisation
 
 ### Layer-Based File Structure

@@ -204,6 +204,31 @@
       "name": "rewrite-generated-copy-without-voice-drift",
       "prompt": "A German marketing page has an accepted professional du voice. Every section uses a variation of 'Nicht nur X. Sondern Y.', generic transformation claims, and repeated em dashes. Rewrite it without switching to Sie or banning punctuation globally.",
       "expected": "Preserves the recorded professional du relationship, treats repeated cadence, unsupported claims, and punctuation density as contextual signals rather than forbidden tokens, rewrites with concrete product nouns, verbs, evidence, and limits, and routes any durable voice change through an ADR instead of silently changing formality."
+    },
+    {
+      "name": "reconcile-design-artifact-with-browser-evidence",
+      "prompt": "A signed-off Figma design shows three offset sticky cards at a tall desktop size. In a browser prototype, the final card becomes unreachable on short laptop viewports and keyboard focus can remain behind another card. The developer says the website is the source of truth and wants to simplify it without involving design.",
+      "expected": "Treats the accepted design intent as binding but the static geometry as an incomplete responsive hypothesis, documents the short-viewport and focus evidence, proposes a simpler usable core and optional enhancement, shows it in a resizable example, and seeks approval for the intentional divergence instead of silently overriding design."
+    },
+    {
+      "name": "prototype-one-responsive-uncertainty",
+      "prompt": "A new editorial masthead has an unresolved visual reordering idea that may conflict with source and focus order. Plan the next step without turning the prototype into an unbounded redesign project.",
+      "expected": "Decomposes the regions and ownership first, names one layout hypothesis, defines prototype focus, non-goals, fidelity, representative semantic content, and exit condition, builds it reversibly without asking about settled choices, and escalates only if evidence requires a change to accepted intent or scope."
+    },
+    {
+      "name": "gate-stateful-flair-with-fixtures",
+      "prompt": "Add sticky overlap and animated reveal to a reusable card collection. The plain version works at the three supplied breakpoints, and the team wants to skip Storybook because the production page looks good.",
+      "expected": "Verifies a semantic usable core through feature erasure, continuous resize, shallow viewports, keyboard focus, text selection, hash targets, representative content and supported browsers; adds a stateful resizable fixture in Storybook or an isolated route; and suspends or redesigns flair that obscures focus or requires exception-heavy patches."
+    },
+    {
+      "name": "structure-frontend-review-and-debt",
+      "prompt": "Send a responsive homepage build for design review. During the review, a stakeholder requests a new navigation model two days before launch, while a known typography compromise is described only in a private chat.",
+      "expected": "Sends a bounded review brief with completion state, requested feedback, browser evidence, joint decisions and open asks; separates immediate requirement and accessibility risks from batchable polish; records the late request with cost, risk, displaced work, decision owner and reconsideration boundary; and gives the typography debt a current state, target state, owner and trigger."
+    },
+    {
+      "name": "evolve-documented-css-abstractions",
+      "prompt": "A component needs one unusual spacing value. The proposal adds a global token, five utility variants and a public custom property, while the repository already contains several undocumented versions of similar components and an unused prototype kept for reference.",
+      "expected": "Keeps the one-off need local unless repeated use or an established system decision proves a stable abstraction, audits existing ownership and discoverability, removes the unused prototype because Git preserves history, avoids speculative utilities, and updates purpose, defaults, inputs, limits, examples and source-adjacent guidance in the same task when a reusable API genuinely changes."
     }
   ]
 }
