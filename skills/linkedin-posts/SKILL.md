@@ -1,6 +1,6 @@
 ---
 name: linkedin-posts
-description: "Create LinkedIn posts, find content ideas, plan a content calendar, and tailor professional posts to an audience, voice, and goal."
+description: "Create LinkedIn posts, find LinkedIn content ideas, plan a LinkedIn content calendar, and tailor professional posts to an audience, voice, and goal. Use when the user mentions a LinkedIn post, LinkedIn content, LinkedIn idea, social media post for LinkedIn, LinkedIn engagement, or content calendar for LinkedIn."
 ---
 
 # LinkedIn Posts
@@ -25,13 +25,14 @@ Load only the relevant category file based on the user's topic:
 | Recognition & Appreciation | [references/recognition-appreciation.md](references/recognition-appreciation.md) | 17 |
 | Tools & Resources | [references/tools-resources.md](references/tools-resources.md) | 20 |
 
-**Format:** `ID|Title|Type|Effort|Desc|Sample` — Types: T=Text, P=Poll, V=Video, I=Image/infographic, D=Document (PDF carousel) — Effort: L/M/H
+**Format:** `ID|Title|Type|Effort|Desc|Sample` — Types: T=Text, P=Poll, V=Video, I=Image/infographic — Effort: L/M/H
 
 **Routing rules:**
 - If the user asks for ideas in a specific category → load that file
 - If the user wants a content calendar → load 2-3 relevant categories
 - If the user wants to browse all → ask which category first, don't load all at once
 - For writing a specific post → ask for context (see below), use the matching category file for inspiration
+- For a document/PDF carousel request → use suitable `I` ideas as the visual concept, then adapt the deliverable into an accessible document post.
 
 ---
 
@@ -182,7 +183,7 @@ What image, carousel, or media would complement this post.
 
 Ask the user:
 1. **What category interests you?** (Company Updates, Industry Insights, Personal Stories, Professional Development, Educational Content, Engagement, Networking, Tools & Resources, Recognition, Jobs & Career, Lifestyle)
-2. **What content type?** (Text, Poll, Video, Document/PDF carousel, Image/Infographic)
+2. **What content type?** (Text, Poll, Video, Image/Infographic, Document/PDF carousel — uses suitable image/infographic ideas as prompts)
 3. **How much time do you have?** (Low/Medium/High effort)
 
 Then load the matching category file and present the top 5 matches with their sample publications.
