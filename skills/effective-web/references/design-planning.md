@@ -32,6 +32,8 @@ question when the information cannot be inferred.
 10. **Context:** Which devices, inputs, orientation, connection, and physical
    usage conditions matter?
 11. **Anti-goals:** What would be a wrong direction for this audience or product?
+12. **Modality:** Can users provide input and consume output through the proposed
+    interface in their real physical, social, and cognitive context?
 
 ## Decide Before Styling
 
@@ -42,6 +44,9 @@ Before choosing colours, spacing, shadows, or typography, decide:
   dashboard grid, wizard, timeline, canvas, or article.
 - The interaction model: inline edit, explicit submit, autosave, modal,
   popover, route change, optimistic update, or background task.
+- For AI-assisted work, the interface modality: inline suggestion, structured
+  control, preview-and-approve flow, batch action, conversation, voice, or a
+  combination. Do not choose chat merely because the capability uses an LLM.
 - The surface density: sparse, normal, dense, or data-heavy.
 - The tone: quiet utility, confident product, instructional, editorial,
   promotional, or immersive.

@@ -54,9 +54,22 @@ performance problems are state placed too high or unstable boundaries, not missi
 ## Keeping input responsive
 
 - When typing or another high-frequency input drives expensive derived UI (large filtered
-  lists, charts), keep the input itself controlled and synchronous, and wrap the
-  expensive derived render in `useDeferredValue` so the input stays responsive while the
-  heavy view catches up. This is the first tool for "the search box lags while typing".
+  lists, charts), keep the input itself controlled and synchronous, and pass a
+  deferred value to the expensive view so the input stays responsive while the
+  heavy view catches up. For CPU-bound child rendering, put that view behind a
+  `memo` boundary with stable props; `useDeferredValue` does not stop an
+  un-memoized child from rendering during the urgent parent render.
+- Defer the narrow value consumed by the slow subtree. It can be a derived value
+  such as filtered data or generated output; it does not have to be the original
+  state variable. Do not create a fresh object solely to defer it on every render,
+  because the changed identity schedules unnecessary background work.
+- Treat deferral as rendering prioritization, not throttling or debouncing. It has
+  no fixed delay and does not prevent network requests. Debounce separately when
+  the product should reduce request volume rather than merely keep input responsive.
+- Compare the current and deferred values when users need to know that visible
+  content is stale. Add a restrained stale treatment only when the mismatch could
+  confuse them; do not add a spinner or opacity change that pulls attention away
+  from the control they are actively using.
 - Wrap non-urgent state updates triggered by an interaction in `useTransition` (or
   `startTransition`) so React can keep the UI interactive and show pending state instead
   of blocking on the update. Use it for tab switches, navigation, and filter applies.
@@ -102,7 +115,9 @@ performance problems are state placed too high or unstable boundaries, not missi
 - Are `useMemo`/`useCallback` used only for expensive work or reference stability, with
   the whole prop chain stabilized rather than one link?
 - Is input lag addressed with `useDeferredValue` / `useTransition` rather than blanket
-  memoization?
+  memoization, with a stable memoized boundary around CPU-heavy deferred content?
+- Is the deferred value scoped to the slow subtree, and is stale-state feedback
+  shown only when it improves comprehension?
 - Are contexts split by update frequency, values memoized, and broad hot state moved to a
   selector-based store?
 - Are long lists virtualized with stable keys?

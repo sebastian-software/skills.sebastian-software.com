@@ -49,6 +49,66 @@
       "name": "migrate-color-representation",
       "prompt": "Convert an existing tokenized theme from hex and rgb to OKLCH without redesigning it, including gradients, alpha colors, third-party chart configuration, light/dark states, and contrast checks.",
       "expected": "Preserves token semantics and CSS structure, leaves formats required by third parties alone, uses tested conversion and gamut handling, treats APCA as the design metric, and adds WCAG 2 checks only when formal conformance is required."
+    },
+    {
+      "name": "defer-expensive-subtree",
+      "prompt": "A controlled search input still lags after the developer passes its query through useDeferredValue, but the expensive results component is not memoized and receives a new options object on every render. Diagnose and fix the design.",
+      "expected": "Explains that deferral needs a skippable memoized boundary for CPU-heavy child rendering, stabilizes the props consumed by that boundary, keeps the input synchronous, and distinguishes rendering prioritization from request debouncing."
+    },
+    {
+      "name": "evaluate-progressive-enhancement",
+      "prompt": "A healthcare appointment flow wants to adopt a CSS feature with 94% global support. @supports returns true in the team's main browser, but deleting the feature makes the booking controls overlap. Decide whether and how to ship it.",
+      "expected": "Evaluates the actual fallback, product browser distribution, partial-implementation risk, and high harm of a blocked essential task; requires a usable fallback and representative-browser testing rather than approving it from the percentage or @supports result alone."
+    },
+    {
+      "name": "design-earned-motion",
+      "prompt": "Add a playful arrow micro-interaction to a branded onboarding completion link without making the workflow slower or excluding keyboard and reduced-motion users.",
+      "expected": "Allows restrained earned delight, prefers a brief event-driven impulse when persistence is unnecessary, supports focus or activation as well as hover, preserves native link semantics, and keeps the reduced-motion path static and complete."
+    },
+    {
+      "name": "choose-animation-engine",
+      "prompt": "The team wants a JavaScript animation library solely to express basic hover fades, but also needs one gesture-driven SVG morph elsewhere. Choose the implementation strategy and explain the performance checks.",
+      "expected": "Uses native CSS for basic state transitions, considers WAAPI or a capable library only for the morph and gesture requirement, distinguishes browser-engine animation from main-thread per-frame loops, and measures the actual properties and rendering cost."
+    },
+    {
+      "name": "build-accessible-svg",
+      "prompt": "Turn an exported SVG illustration into a responsive themed React component with a small decorative path animation. The export has fixed dimensions, no viewBox, generated IDs, and an interactive click handler on the svg element itself.",
+      "expected": "Repairs the real artwork bounds and viewBox, chooses inline delivery for theming, moves interaction to a native button or link, defines decorative or informative naming explicitly, makes motion keyboard-equivalent and reduced-motion-safe, and audits generated IDs and optimization."
+    },
+    {
+      "name": "diagnose-percentage-height",
+      "prompt": "A child with height: 100% stays content-height inside a parent whose height is auto. The proposed fix sets 100% height on every ancestor. Diagnose the sizing chain and choose a resilient layout.",
+      "expected": "Explains the circular percentage-height dependency and definite-size requirement, then prefers min-height, flex or grid stretch, intrinsic sizing, or an intentionally definite ancestor instead of blindly propagating 100% heights."
+    },
+    {
+      "name": "design-elevation-shadows",
+      "prompt": "Create raised and overlay shadow tokens for a branded interface on a tinted background. The current proposal uses one fuzzy transparent-black shadow everywhere and animates it on every card hover.",
+      "expected": "Defines a consistent light direction, tinted semantic shadow colors, sharper and more opaque low elevation plus softer and less opaque high elevation, limits layering to places that earn it, and avoids animating repeated layered shadows without performance evidence."
+    },
+    {
+      "name": "choose-ai-interface-modality",
+      "prompt": "Add AI to a warehouse inspection workflow. The team proposes a chatbot, but technicians wear gloves, cannot safely read long responses while moving, and must verify every safety-relevant recommendation.",
+      "expected": "Audits input, output, social, and cognitive constraints; rejects chat as an automatic default; proposes an appropriate hands-free or glanceable capture path plus a persistent review-and-approve surface; exposes evidence and uncertainty; and preserves manual, cancel, and recovery paths."
+    },
+    {
+      "name": "operationalize-accessibility",
+      "prompt": "A team runs one automated accessibility scan before each release and keeps finding the same keyboard and focus regressions late. Redesign the quality process without treating a green scan as proof.",
+      "expected": "Moves accessibility requirements into component contracts and acceptance criteria, assigns severity and ownership, adds static/component/CI checks at the cheapest layers, retains manual keyboard and assistive-technology review for consequential flows, and fixes recurring defects in shared primitives or process."
+    },
+    {
+      "name": "audit-agent-generated-ui",
+      "prompt": "An inherited agent-generated app looks fine on its main route, but has hundreds of component files, sparse stories, conflicting tokens, and an AGENTS.md that may be stale. Plan a Storybook-based audit.",
+      "expected": "Builds a deterministic live/dead/unknown inventory before trusting prose or deleting files, renders every meaningful conditional state, surfaces token and primitive drift, combines automated accessibility checks with manual verification, maps routes and journeys, and stores severity-aware findings that can be diffed over time."
+    },
+    {
+      "name": "promote-recent-baseline-feature",
+      "prompt": "A form uses JavaScript to measure and auto-grow a textarea because the model says CSS cannot do it reliably. The project targets Baseline 2026 but also supports a few older enterprise browsers. Review the implementation.",
+      "expected": "Surfaces Baseline 2026 Newly available field-sizing: content despite an older model cutoff, proposes it as the primary current-platform implementation, bounds and tests its sizing behavior, preserves a coherent fixed-size fallback for older browsers, and verifies the exact current feature status rather than relying on memory."
+    },
+    {
+      "name": "enhance-customizable-select",
+      "prompt": "Replace a custom color picker combobox with customizable select. The design removes all option text in favor of swatches and assumes the new select styling is Baseline because select itself is widely available.",
+      "expected": "Separates the subfeature's Limited availability from the select element's status, keeps real option text and native semantics, makes swatches additive, support-gates the visual enhancement, and tests the classic fallback, accessible value, mobile picker, hydration, and form submission."
     }
   ]
 }

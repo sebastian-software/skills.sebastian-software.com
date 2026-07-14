@@ -23,6 +23,24 @@ right issue. Mark each category as `blocked`, `risky`, or `acceptable`.
 - All `acceptable`: the implementation can ship from a measurable-quality
   perspective.
 
+## Accessibility as an operating capability
+
+Do not postpone accessibility to a final audit. Make it part of the delivery
+system at the cheapest useful layer:
+
+- Put semantic, keyboard, focus, contrast, motion, target-size, and naming
+  requirements in component acceptance criteria and design-system contracts.
+- Give accessibility defects owners and severity. A blocked primary task cannot
+  become acceptable because an automated scan is green or the release is late.
+- Run static and component-level checks during development, browser checks in CI,
+  and manual keyboard and assistive-technology review for consequential flows.
+- Include disabled people and representative assistive setups in usability work
+  when the product risk or audience warrants it.
+- Track regressions and recurring root causes across releases. Fix the shared
+  primitive or process when the same defect appears in multiple features.
+- Keep a release-time audit as a verification layer, not the first time the team
+  considers accessibility.
+
 ## Final Execution Pass
 
 Use this pass after implementation, not as an open-ended polish loop. Its job is

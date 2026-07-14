@@ -1,6 +1,9 @@
 # Motion Interaction
 
-Use motion to explain state change, spatial continuity, feedback, and progress. Every animation must carry meaning: where something came from, where it went, what changed, or that the system is working. Remove decorative motion that delays task completion or makes layout harder to understand.
+Use motion to explain state change, spatial continuity, feedback, and progress,
+or to create an earned moment of brand character. Functional motion must clarify
+the interface. Expressive motion must be restrained, optional, and unable to
+delay or obscure the user's task.
 
 ## Reduced Motion First
 
@@ -11,8 +14,11 @@ Use motion to explain state change, spatial continuity, feedback, and progress. 
 
 ## Performance-Safe Properties
 
-- Animate only `transform` and `opacity` for movement, scaling, and fades. These run on the compositor and avoid layout and paint on every frame.
-- Never animate layout-affecting properties (`width`, `height`, `top`, `left`, `margin`, `padding`) in task surfaces — they force synchronous layout (layout thrash) and drop frames. Use `transform: translate()` / `scale()` instead.
+- Prefer `transform` and `opacity` for movement, scaling, and fades because they
+  can avoid layout and paint. Some `filter` animations can also be composited,
+  but large blur/filter regions are expensive; verify them in the Performance
+  panel on representative hardware rather than assuming GPU promotion is free.
+- Avoid animating layout-affecting properties (`width`, `height`, `top`, `left`, `margin`, `padding`) on hot paths in task surfaces — they trigger repeated layout and can drop frames. Use `transform: translate()` / `scale()` when the visual result and hit-testing remain correct.
 - Promote an element to its own layer with `will-change: transform` only for the duration of an animation, then remove it; leaving `will-change` set permanently wastes memory.
 - Read layout values (`offsetWidth`, `getBoundingClientRect`) before writing styles within a frame, never interleaved, to avoid forced reflow. Batch reads and writes (or use `requestAnimationFrame`) when measuring for JS-driven motion.
 - Keep product UI transitions short — roughly 150–250ms for state changes and micro-interactions; reserve longer durations only for large spatial moves. Motion must never make the user wait for choreography or hide real latency.
@@ -41,7 +47,15 @@ Use motion to explain state change, spatial continuity, feedback, and progress. 
 ## Scroll-Driven and Spatial Motion
 
 - Prefer native CSS scroll-driven animations (`animation-timeline: scroll()` / `view()`) over JavaScript scroll listeners; they run off the main thread and cannot jank. See [scroll-patterns.md](scroll-patterns.md) for ranges, the `animation`-shorthand ordering rule, and required `@supports` / reduced-motion guards.
-- Reach for a JavaScript animation library (GSAP, Motion) only when a behaviour genuinely exceeds CSS — coordinated timelines, physics, or FLIP measurements. Do not adopt a library as a blanket replacement for transitions or scroll-driven animations that the platform already handles.
+- Choose by execution model and capability, not by the label "CSS" or
+  "JavaScript": CSS transitions/keyframes fit declarative states; the Web
+  Animations API adds imperative playback control over the browser animation
+  engine; `requestAnimationFrame` fits per-frame logic but competes on the main
+  thread. Measure dropped frames and main-thread contention for the actual effect.
+- Reach for a JavaScript animation library only when it adds a needed capability
+  such as coordinated timelines, physics, FLIP measurement, gesture tracking, or
+  SVG morphing. Prefer a platform-native solution for basic transitions; reject
+  a library that merely wraps CSS behavior while adding bundle and main-thread cost.
 - When animating color (state, theme, or accent shifts), keep text and its background within contrast requirements at every frame, not only at the endpoints, and suppress purely decorative color cycling under reduced motion.
 
 ## State Continuity
@@ -49,12 +63,31 @@ Use motion to explain state change, spatial continuity, feedback, and progress. 
 - Preserve focus, scroll position, URL state, and semantic navigation when adding page or component transitions. A transition must never strand keyboard focus, reset the scroll position unexpectedly, or replace a real navigation with a non-semantic animation.
 - Do not gate content behind hover or scroll: information must be reachable without a pointer hover and without triggering a scroll effect, so keyboard, touch, and assistive-technology users get the same content.
 
+## Earned Delight
+
+- Permit expressive motion on brand, editorial, onboarding, success, and other
+  memorable surfaces when it reinforces the product's point of view. Do not use
+  delight to compensate for a weak flow or add it to dense repeated task surfaces.
+- Keep playful micro-interactions brief, subtle, and non-blocking. Preserve the
+  object's visual mass when squashing or stretching, use a deliberate transform
+  origin, and avoid exaggerated bounce on frequently used controls.
+- Choose state-driven motion when the visual state should persist for as long as
+  the condition does. Choose event-driven motion for a short acknowledgement or
+  playful impulse that should return immediately even while hover/focus remains.
+- Trigger equivalent feedback from keyboard focus/activation, not pointer hover
+  alone. Suppress non-essential expressive motion for reduced-motion users while
+  preserving the same control, label, state, and outcome.
+
 ## Review Checklist
 
-- Does every animation convey meaning (feedback, state, orientation, continuity), and would removing it lose nothing for the user's task?
+- Does functional motion clarify feedback, state, orientation, or continuity?
+  If motion is expressive, is the moment earned, restrained, and non-blocking?
 - Is there a `prefers-reduced-motion: reduce` path that still shows the final state and all feedback without large or translational motion?
-- Are only `transform` and `opacity` animated on hot paths, with no layout-property animation causing reflow?
+- Are compositor-friendly properties preferred on hot paths, with filter cost
+  measured and no unnecessary layout-property animation causing reflow?
 - Are durations short (≈150–250ms for UI state) and the easing appropriate (ease-out in, ease-in out)?
 - Can every in-progress animation be interrupted, reversed, or cancelled by user input?
 - Are View Transitions and scroll-driven animations feature-detected, reduced-motion-guarded, and functional when unsupported?
 - Do transitions preserve focus, scroll position, URL state, and semantic navigation?
+- Does any animation library add a capability the platform does not already
+  provide, and has its execution model been verified under main-thread load?

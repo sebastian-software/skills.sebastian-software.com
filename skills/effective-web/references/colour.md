@@ -383,9 +383,16 @@ Elements with higher elevation appear closer and more prominent.
 
 **Shadow tips:**
 - Light comes from top (mimics real world)
-- Use "Text strong" colour instead of black
-- Small/sharp = slightly raised
-- Large/soft = elevated higher
+- Define one light direction for the system and preserve the ratio between the
+  horizontal and vertical offsets at every elevation.
+- Use a darker relative of the surrounding surface or a tinted semantic shadow
+  token instead of transparent black, which can desaturate coloured backgrounds.
+- Small/sharp/opaque = slightly raised. As elevation increases, increase offset
+  and blur while reducing each layer's opacity.
+- Layer two or more subtle shadows only when a hero, overlay, or branded surface
+  benefits visibly. Layering multiplies paint cost; do not animate layered
+  shadows, repeat them across dense lists, or adopt them without low-end-device
+  testing.
 
 ### Colour Indicates Depth
 - Light colours look more elevated than dark

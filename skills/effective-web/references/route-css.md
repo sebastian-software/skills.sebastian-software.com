@@ -8,6 +8,8 @@ Use this skill for making CSS maintainable, predictable, and compatible with the
 2. Define cascade order explicitly with layers or local conventions.
 3. Use custom properties for semantic tokens and runtime theming.
 4. Choose progressive enhancement boundaries based on the supported baseline.
+   Check the dated feature radar when the model may not know the current
+   platform, and promote useful Newly available features with an honest fallback.
 5. Keep build tooling simple enough that generated CSS remains debuggable.
 
 ## Rules
@@ -22,4 +24,6 @@ Use this skill for making CSS maintainable, predictable, and compatible with the
 
 - [css-architecture.md](css-architecture.md) - cascade, layers, scoping, and maintainable CSS.
 - [baseline-support.md](baseline-support.md) - browser baseline and support decisions.
+- [platform-feature-radar.md](platform-feature-radar.md) - dated leads for recent
+  Baseline features that older model knowledge may miss.
 - [css-build-tooling.md](css-build-tooling.md) - CSS build tooling and generated output rules.

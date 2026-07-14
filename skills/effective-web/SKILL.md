@@ -6,9 +6,11 @@ description: >-
   React components. Use for UI/UX direction, layout, typography, color,
   components, forms, tables, accessibility, motion, internationalization,
   interface copy, loading and error states, auth UX, CSS architecture,
-  frontend SEO and AI search, browser performance, frontend testing, React
-  architecture, React component APIs, SVG textures, print stylesheets, paged
-  media, or web-to-print output. Do not use for backend-only work,
+  frontend SEO and AI search, AI-assisted interface design, browser
+  performance, frontend testing, React
+  architecture, React component APIs, SVG graphics, icons, paths, animation,
+  and textures, print stylesheets, paged media, or web-to-print output. Do not
+  use for backend-only work,
   infrastructure or deployment, general-purpose writing, or print production
   that is unrelated to HTML and CSS.
 ---
@@ -40,6 +42,7 @@ broad design route and load the matching focused route directly.
 | User intent | Read |
 | --- | --- |
 | Plan, critique, redesign, polish, or quality-gate a whole experience | [Design and Review](references/route-design.md) |
+| Design an AI-assisted feature, choose chat versus structured UI, or expose uncertainty and control | [Design and Review](references/route-design.md) |
 | Fix hierarchy, grids, spacing, responsive layout, or safe areas | [Layout and Spacing](references/route-layout.md) |
 | Improve type hierarchy, measure, rhythm, fallbacks, or font loading | [Typography](references/route-typography.md) |
 | Build palettes, semantic tokens, contrast, dark mode, or themes | [Color and Theming](references/route-color.md) |
@@ -58,6 +61,7 @@ broad design route and load the matching focused route directly.
 | Diagnose Core Web Vitals, images, caching, resource loading, or perceived speed | [Web Performance](references/route-performance.md) |
 | Decide React server/client boundaries, state placement, hydration, or rendering | [React Architecture](references/route-react-architecture.md) |
 | Design reusable React APIs, composition, state ownership, refs, or interop | [React Components](references/route-react-components.md) |
+| Build, style, animate, optimize, or make accessible SVG icons and illustrations | [SVG Graphics](references/route-svg.md) |
 | Create SVG noise, grain, paper, clouds, organic surfaces, or filter effects | [SVG Textures](references/route-textures.md) |
 | Build print stylesheets, paged media, printable documents, or web-to-print output | [Print Design](references/route-print.md) |
 
@@ -72,6 +76,7 @@ Read only the references needed for the selected route.
 - [UI fundamentals](references/fundamentals.md)
 - [Less is more](references/less-is-more.md)
 - [UI quality gates](references/ui-quality-gates.md)
+- [AI interface design](references/ai-interface-design.md)
 
 ### Layout, type, and color
 
@@ -113,6 +118,7 @@ Read only the references needed for the selected route.
 
 - [CSS architecture](references/css-architecture.md)
 - [Browser baseline support](references/baseline-support.md)
+- [Web-platform feature radar](references/platform-feature-radar.md)
 - [CSS build tooling](references/css-build-tooling.md)
 - [SEO](references/seo.md)
 - [AI search and entity distribution](references/ai-geo-distribution.md)
@@ -136,8 +142,9 @@ Read only the references needed for the selected route.
 - [Forms and state](references/forms-and-state.md)
 - [Interop and accessibility](references/interop-and-accessibility.md)
 
-### SVG textures
+### SVG
 
+- [SVG graphics](references/svg-graphics.md)
 - [Texture recipes](references/texture-recipes.md)
 - [Filter primitives](references/filter-primitives.md)
 - [CSS integration](references/css-integration.md)
