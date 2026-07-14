@@ -91,7 +91,6 @@ Score only after recording evidence. A practical scale is 1–5 for:
 - memorability
 - search and category separation
 - domain practicality
-- inherent distinctiveness
 - preliminary legal risk
 - portfolio and future fit
 
