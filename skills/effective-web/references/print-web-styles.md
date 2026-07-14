@@ -261,14 +261,14 @@ On paper, serif typefaces (Georgia, Times New Roman, Garamond) are traditionally
 
 ### Point-Based Sizing
 
-Print media uses points (pt), not pixels. 1pt = 1/72 inch. Standard body text is 12pt.
+Print media uses points (pt), not pixels. 1pt = 1/72 inch. Body text is typically 11pt (see [print typography](print-typography.md) for the authoritative scale); 12pt suits generous layouts or audiences needing larger type.
 
 ```css
 @media print {
   body {
     font-family: Georgia, "Times New Roman", serif;
-    font-size: 12pt;
-    line-height: 1.5;
+    font-size: 11pt;
+    line-height: 1.4;
     color: #000;
   }
 
@@ -281,7 +281,7 @@ Print media uses points (pt), not pixels. 1pt = 1/72 inch. Standard body text is
 
 ### Line Height
 
-Use unitless values for `line-height`. Minimum 1.5 for body text (consistent with WCAG SC 1.4.12). Decrease for headings (1.2-1.3). Increase for very long lines.
+Use unitless values for `line-height`. Body text on paper reads well at 1.35–1.4 (tighter than screen; see [print typography](print-typography.md)). Decrease for headings (1.2-1.3). Increase for very long lines.
 
 ## Showing URLs After Links
 
@@ -612,8 +612,8 @@ Copy-paste this into your main stylesheet as a starting point. Adjust selectors 
     background: #fff;
     color: #000;
     font-family: Georgia, "Times New Roman", serif;
-    font-size: 12pt;
-    line-height: 1.5;
+    font-size: 11pt;
+    line-height: 1.4;
   }
 
   /* ---- Hide non-print elements ---- */
@@ -771,7 +771,7 @@ Columns that work on screen can produce bizarre results on paper -- content spli
 2. Use `@page` to set margins (2cm default), page size (A4 or letter), and orientation
 3. Declare both legacy `page-break-*` and modern `break-*` properties for maximum browser compatibility
 4. Set `orphans: 3` and `widows: 3` on paragraphs to avoid stranded lines across page breaks
-5. Switch to a serif font at 12pt with 1.5 line-height for printed body text
+5. Switch to a serif font at 11pt with 1.35–1.4 line-height for printed body text
 6. Show URLs after external links using `a[href^="http"]::after { content: " (" attr(href) ")"; }` and filter out internal, mailto, and tel links
 7. Remove backgrounds, box-shadows, and text-shadows; use `print-color-adjust: exact` only where colour carries meaning
 8. Constrain images with `max-width: 100%` and `break-inside: avoid`; hide decorative images to save ink

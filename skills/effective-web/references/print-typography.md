@@ -207,7 +207,7 @@ Even 0.5pt differences in apparent size matter on paper — `font-size-adjust` p
 }
 ```
 
-**`text-wrap: pretty`** — Chrome 117+, Safari 19+. **`text-wrap: balance`** — Chrome 114+, Firefox 121+, Safari 17.5+. **`hyphens: auto`** requires `lang` attribute on `<html>`.
+**`text-wrap: pretty`** — Chrome 117+, Safari 26+. **`text-wrap: balance`** — Chrome 114+, Firefox 121+, Safari 17.5+. **`hyphens: auto`** requires `lang` attribute on `<html>`.
 
 **`<wbr>`** (word break opportunity) — insert in HTML where long unbreakable strings (URLs, chemical names, identifiers) may break across lines *without* inserting a hyphen. Useful for print where long strings must fit within the measure.
 

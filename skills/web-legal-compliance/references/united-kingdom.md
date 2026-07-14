@@ -2,8 +2,8 @@
 
 Use this route when the operator, affected people, transactions, device access,
 or marketing connects to the United Kingdom. Treat post-Brexit UK law as a
-separate route; do not reuse an EU result without checking retained and amended
-assimilated and amended UK legislation and current ICO guidance.
+separate route; do not reuse an EU result without checking assimilated and
+amended UK legislation and current ICO guidance.
 
 ## Issue Map
 

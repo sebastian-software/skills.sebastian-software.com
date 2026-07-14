@@ -144,8 +144,8 @@ Interfaces = rectangles within rectangles.
 
 **Points vs Pixels:**
 - @1x: 1pt = 1px
-- @2x: 1pt = 4px (2x2)
-- @3x: 1pt = 9px (3x3)
+- @2x: 1pt = 2px per axis (a 1pt square covers 2×2 device pixels)
+- @3x: 1pt = 3px per axis (a 1pt square covers 3×3 device pixels)
 
 Always work in points (@1x).
 
@@ -464,10 +464,10 @@ Use these everywhere: `padding: var(--s1)`, `gap: var(--s0)`, `margin-block-star
 
 When a page region needs a much larger change than ordinary component spacing,
 interpolate between two different steps rather than scaling one fixed token.
-For example, a section gap may move from the small scale's `--space-l` to the
-large scale's `--space-3xl` while remaining bounded between them. Reserve these
-paired tokens for intentional regional transitions; component padding and gaps
-should normally use a single stable step.
+For example, a section gap may interpolate from `--s1` at narrow viewports up
+to `--s4` at wide ones while remaining bounded between the two steps. Reserve
+these paired steps for intentional regional transitions; component padding and
+gaps should normally use a single stable step.
 
 Keep fluid spacing tied to a root-relative rhythm and expose the result as a
 semantic custom property. Test short landscape viewports, mobile browser chrome,
