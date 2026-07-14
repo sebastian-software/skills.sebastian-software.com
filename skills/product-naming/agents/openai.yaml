@@ -1,0 +1,4 @@
+interface:
+  display_name: "Product Naming"
+  short_description: "Research distinctive product names"
+  default_prompt: "Use $product-naming to research and shortlist distinctive, pronounceable product names."

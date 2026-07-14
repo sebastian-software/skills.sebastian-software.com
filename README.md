@@ -22,6 +22,13 @@ loads form guidance without exposing a long menu of overlapping skill names.
 
 ## Skills
 
+### Product management
+
+| Skill | Focus |
+| --- | --- |
+| `product-management` | Evidence-led discovery, product strategy, outcomes, scope, prioritization, product quality, release decisions, and learning loops. |
+| `product-naming` | Strategic name generation, multilingual spoken-name testing, live conflict research, and evidence-backed shortlists. |
+
 ### Web design and engineering
 
 | Skill | Focus |
