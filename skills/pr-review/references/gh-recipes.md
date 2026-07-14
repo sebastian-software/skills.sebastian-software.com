@@ -1,4 +1,4 @@
-# gh / git recipes
+# GitHub gh / git recipes
 
 Concrete commands for the workflow in SKILL.md. Placeholders: `<N>` = PR number,
 `<head>`/`<base>` = the PR's head/base branch names.
