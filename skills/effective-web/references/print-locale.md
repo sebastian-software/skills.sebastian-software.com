@@ -1,90 +1,76 @@
-# Locale Conventions Reference
+# Print Locale Integration
 
-Locale-specific typography rules for Western languages. See SKILL.md for principles.
+Use this reference to integrate reviewed locale typography into print CSS and
+web-to-print pipelines. `locale-typography` owns language-level choices for
+quotation marks, punctuation spacing, dashes, numbers, and non-breaking
+spaces; do not duplicate or infer those rules here.
 
-## Quotation Marks
+## Choose the Locale Before Styling
 
-Set correct quotation marks per language using the CSS `quotes` property:
+Set the document language on the printed HTML and route visible prose to
+`locale-typography` for the matching profile. Preserve an established,
+reviewed house style when it intentionally differs from a locale default.
 
-```css
-html[lang="de"] { quotes: "„" "\201C" "‚" "\2018"; }
-html[lang="en"] { quotes: "\201C" "\201D" "\2018" "\2019"; }
-q { quotes: auto; }  /* let browser pick from lang attribute */
+```html
+<html lang="de-DE">
 ```
 
-| Locale | Primary | Unicode | Secondary | Unicode |
-|--------|---------|---------|-----------|---------|
-| en-US | "…" | U+201C / U+201D | '…' | U+2018 / U+2019 |
-| en-GB | '…' | U+2018 / U+2019 | "…" | U+201C / U+201D |
-| de-DE/AT | „…" | U+201E / U+201C | ‚…' | U+201A / U+2018 |
-| de-CH | «…» | U+00AB / U+00BB | ‹…› | U+2039 / U+203A |
-| fr-FR | « … » | U+00AB nbsp … nbsp U+00BB | "…" | U+201C / U+201D |
-| es-ES | «…» | U+00AB / U+00BB | "…" | U+201C / U+201D |
-| it-IT | «…» or "…" | varies | '…' | U+2018 / U+2019 |
-| pt-PT | «…» | U+00AB / U+00BB | "…" | U+201C / U+201D |
-| pt-BR | "…" | U+201C / U+201D | '…' | U+2018 / U+2019 |
-| nl-NL | '…' (modern) | U+2018 / U+2019 | "…" | U+201C / U+201D |
-| nl-BE | «…» | U+00AB / U+00BB | "…" | U+201C / U+201D |
-| pl-PL | „…" | U+201E / U+201D | «…» | U+00AB / U+00BB |
+For dynamic numbers, currencies, dates, units, and lists, use locale-aware
+formatting APIs before print layout rather than assembling localized strings in
+CSS or a template.
 
-German guillemets point **inward** (»text«). French guillemets require nbsp **inside** (« text »). Swiss guillemets follow French direction (outward) but without internal spacing.
+## CSS Quotation Integration
 
-**Thin space** (`&thinsp;`, U+2009) between nested quotation marks to prevent visual merging: "She said 'hello' " — insert thin space between ' and ".
+Use the CSS `quotes` property only after selecting the quotation system from
+the matching `locale-typography` profile. Keep the locale values in the source
+of truth instead of copying per-locale tables into print styles.
 
-## Dashes
+```css
+/* Values must come from the reviewed locale profile for the document's lang. */
+html[lang="de"] {
+  quotes: "„" "“" "‚" "‘";
+}
 
-| Locale | Parenthetical | Spacing | Range |
-|--------|---------------|---------|-------|
-| en-US | Em dash — (U+2014) | No spaces | En dash, no spaces |
-| en-GB | En dash – (U+2013) | Spaced: word – word | En dash, no spaces |
-| de-DE/AT/CH | En dash – (U+2013) | Spaced: Wort – Wort | En dash, no spaces |
-| fr-FR | En dash – (U+2013) | Spaced: mot – mot | En dash, no spaces |
-| es-ES | Em dash — (U+2014) | Space before, not inside | En dash, no spaces |
-| it-IT | Em or En dash | Spaced | En dash, no spaces |
-| pt-PT/BR | Em dash — (U+2014) | Spaced | En dash, no spaces |
-| nl-NL | En or Em dash | Spaced | En dash, no spaces |
-| pl-PL | Em dash — (U+2014) | Spaced | En dash, no spaces |
+q::before { content: open-quote; }
+q::after  { content: close-quote; }
+```
 
-## Number Formatting
+Use `quotes: auto` only when the target rendering environment and the document
+language produce the reviewed result. Test nested quotations in the generated
+print output; do not add visual thin spaces merely to prevent marks from
+appearing close together.
 
-| Locale | Decimal | Thousands | Example | Currency position |
-|--------|---------|-----------|---------|-------------------|
-| en-US/GB | `.` | `,` | 1,234.56 | Before, no space: $1,234.56 |
-| de-DE/AT | `,` | `.` | 1.234,56 | After, space: 1.234,56 € |
-| de-CH | `.` | `'` | 1'234.56 | After, space: 1'234.56 CHF |
-| fr-FR | `,` | ` ` (nnbsp) | 1 234,56 | After, nnbsp: 1 234,56 € |
-| es-ES | `,` | `.` | 1.234,56 | After, space: 1.234,56 € |
-| it-IT | `,` | `.` | 1.234,56 | After, space: 1.234,56 € |
-| pt-PT | `,` | `.` | 1.234,56 | After, space: 1.234,56 € |
-| pt-BR | `,` | `.` | 1.234,56 | Before, no space: R$1.234,56 |
-| nl-NL | `,` | `.` | 1.234,56 | Before, space: € 1.234,56 |
-| pl-PL | `,` | ` ` (nbsp) | 1 234,56 | After, space: 1 234,56 zł |
+## Preprocessing Safely
 
-**Unit spacing:** Non-breaking space between number and unit: `10 kg`, `100 %`, `20 °C` (ISO 80000-1). Use narrow no-break space (U+202F) for tighter fit.
+Never run blind SmartyPants-style substitutions over Markdown, HTML, JSX,
+templates, structured data, or quoted source material. They can alter code,
+attribute values, and locale-specific punctuation incorrectly.
 
-## French Punctuation Spacing
+When preprocessing is necessary, use a locale-aware tool with an explicit
+locale, limit it to rendered prose, and review the output before publishing.
+Keep transformations such as quote direction, dash style, and spacing in the
+`locale-typography` profile or an explicit project house-style rule.
 
-French is unique among Western languages — mandatory non-breaking space before high punctuation:
+## Temporary Portuguese Rules
 
-| Mark | Space before | Type |
-|------|-------------|------|
-| `:` (colon) | Yes | No-break space (U+00A0) |
-| `;` `?` `!` | Yes | Narrow no-break space (U+202F) |
-| `«` (opening) | Space after | No-break space (U+00A0) |
-| `»` (closing) | Space before | No-break space (U+00A0) |
+`locale-typography` has a reviewed `es-ES` profile. It does not yet contain
+profiles for `pt-PT` or `pt-BR`, so keep the following existing print rules as
+explicit, temporary exceptions until equivalent profiles are added there:
 
-The colon takes a full nbsp; semicolon, question mark, and exclamation take a **narrow** nbsp (Imprimerie nationale rules). Handle via preprocessor or `lang="fr"` specific rules.
+| Locale | Quotations | Parenthetical dash | Numbers and currency |
+| --- | --- | --- | --- |
+| `pt-PT` | `«…»`, then `“…”` | Spaced em dash | `1.234,56`; currency after a space |
+| `pt-BR` | `“…”`, then `‘…’` | Spaced em dash | `1.234,56`; `R$` before with no space |
 
-## Typographic Preprocessing
+For a new Portuguese requirement, obtain a reviewed locale or house-style
+decision and add the durable rule to `locale-typography` rather than extending
+this temporary table.
 
-Automate character substitution at build time instead of manual Unicode input:
+## Print Verification
 
-| Tool | Key features |
-|------|-------------|
-| SmartyPants / smartypants.js | Curly quotes, en/em dashes, ellipsis (English-centric) |
-| richtypo.js | **Locale-aware** — per-language rule packages, widow prevention |
-| Tipograph | **Locale-aware** — configurable presets per locale |
-| Typeset | Hanging punctuation, optical alignment, ligatures, soft hyphens |
-| typogr.js | Wraps elements in `<span>` for CSS styling (ampersands, caps, widows) |
-
-**Common transformations:** `"` → "…", `'` → '…', `--` → –, `---` → —, `...` → …, widow prevention (nbsp between last two words). Locale-aware tools handle quote direction, dash style, and spacing rules per language automatically.
+- Confirm the printed document has the intended `lang` attribute.
+- Check nested quotations, punctuation adjacency, and line-break behavior in
+  the generated PDF or printed page.
+- Verify that numbers, currencies, units, dates, and lists use the exact
+  target locale.
+- Re-check the output after a preprocessor or font change.
