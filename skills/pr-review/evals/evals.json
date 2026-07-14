@@ -1,0 +1,39 @@
+{
+  "evals": [
+    {
+      "name": "approve-with-specific-praise-and-optional-taste",
+      "prompt": "Review a focused PR that correctly adds a nullable database field, includes a safe backfill and rollback, and has protective integration coverage. The only thing you would personally choose differently is the helper name. Decide the review and write it for a human teammate.",
+      "expected": "Approves the PR, specifically recognizes the safe migration or protective coverage, labels the naming preference as optional or omits it, and does not turn taste into a completion condition or manufacture other findings."
+    },
+    {
+      "name": "block-cross-tenant-access-without-losing-warmth",
+      "prompt": "Review a PR that cleanly refactors invoice downloads and adds useful unit tests, but moves the ownership check after the invoice fetch so an authenticated user can retrieve another tenant's invoice by ID. Write the review for the human author.",
+      "expected": "Acknowledges a concrete strength without using a praise sandwich, clearly requests changes for the reachable cross-tenant exposure, explains the consequence, asks for authorization before object access plus a protective regression test, and stays direct without attacking the author."
+    },
+    {
+      "name": "critical-accessibility-can-block",
+      "prompt": "Review a checkout PR where the new payment confirmation control is visually polished and well tested at the component level, but it is a div with only an onClick handler and cannot be focused or activated by keyboard. This is the only way to complete payment. Decide whether to approve and write the feedback.",
+      "expected": "Treats the inaccessible primary flow as a material blocker despite accessibility being cross-cutting, names the keyboard consequence, requests a semantic interactive control and behavioral coverage, and still recognizes a real strength in the implementation."
+    },
+    {
+      "name": "do-not-block-on-test-ritual",
+      "prompt": "Review a PR that deletes an obsolete guard after the backend invariant changed. Existing integration tests exercise the resulting behavior, CI is green, and a new unit test would only mock the deleted guard. The diff is otherwise clear. Decide the review.",
+      "expected": "Approves without demanding a low-value mock test, cites the existing behavioral coverage as sufficient, and does not invent cleanup requirements."
+    },
+    {
+      "name": "unresolved-critical-boundary-needs-evidence",
+      "prompt": "Review a large but polished PR that changes subscription entitlements. The diff suggests service-role writes may bypass the new cap, but the relevant RLS policy and integration result are unavailable. The author asks for a quick approval because the release is waiting. Decide the next action and write it.",
+      "expected": "Does not approve blindly, asks one focused blocking question or requests the missing authorization evidence, explains the billing-bypass risk, acknowledges what is already solid, and avoids confidence percentages or vague hedging."
+    },
+    {
+      "name": "write-compact-actionable-inline-finding",
+      "prompt": "Review a PR line where user.email is read immediately after findUser(id), which returns User or null. Write the inline comment for a human teammate.",
+      "expected": "Anchors the comment to the line, names the reachable null access and crash consequence, proposes the smallest credible guard or missing-user path, avoids labels and throat-clearing, and sounds like a natural teammate rather than a rigid template."
+    },
+    {
+      "name": "expand-high-risk-review-context",
+      "prompt": "Review a PR that moves authorization for invoice downloads from the server route into a hidden client button. The author is new to the service. Write the actionable feedback.",
+      "expected": "Explains the server-side authorization boundary and cross-tenant exposure clearly enough for a new author, anchors the issue, requires authorization before object access, names an appropriate regression test, and does not compress the security finding into an ambiguous one-liner or severity emoji."
+    }
+  ]
+}
