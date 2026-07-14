@@ -23,8 +23,8 @@ accessibility, performance, and verification boundaries.
 
 ## Workflow
 
-1. Inspect the product goal, primary users and actions, existing stack, local
-   conventions, browser support, and available evidence.
+1. Inspect the product goal, primary users and actions, accepted ADRs, existing
+   stack, local conventions, browser support, and available evidence.
 2. Select one primary route from the table. Read that route before acting.
 3. Load only the detailed references required by the route and current problem.
    Add another route only when the work genuinely crosses concerns.
@@ -42,6 +42,7 @@ broad design route and load the matching focused route directly.
 | User intent | Read |
 | --- | --- |
 | Plan, critique, redesign, polish, or quality-gate a whole experience | [Design and Review](references/route-design.md) |
+| Modernize an existing site or app without losing brand, content, routes, analytics, or accessibility contracts | [Design and Review](references/route-design.md) |
 | Design an AI-assisted feature, choose chat versus structured UI, or expose uncertainty and control | [Design and Review](references/route-design.md) |
 | Fix hierarchy, grids, spacing, responsive layout, or safe areas | [Layout and Spacing](references/route-layout.md) |
 | Improve type hierarchy, measure, rhythm, fallbacks, or font loading | [Typography](references/route-typography.md) |
@@ -73,6 +74,8 @@ Read only the references needed for the selected route.
 
 - [Design planning](references/design-planning.md)
 - [Design registers](references/design-registers.md)
+- [Design directions](references/design-directions.md)
+- [Redesign preservation](references/redesign-preservation.md)
 - [UI fundamentals](references/fundamentals.md)
 - [Less is more](references/less-is-more.md)
 - [UI quality gates](references/ui-quality-gates.md)
@@ -135,6 +138,7 @@ Read only the references needed for the selected route.
 
 ### React
 
+- [React performance priorities](references/react-performance-priorities.md)
 - [Server Components](references/server-components.md)
 - [Rendering performance](references/rendering-performance.md)
 - [Framework boundaries](references/framework-boundaries.md)

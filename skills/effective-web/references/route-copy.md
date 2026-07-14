@@ -4,11 +4,16 @@ Use this skill for words inside product UI: labels, helper text, empty states, h
 
 ## Workflow
 
-1. Identify the user's question at that moment: what is this, why does it matter, what happens next?
-2. Remove copy that explains the interface instead of making the interface clearer.
-3. Make labels concrete and action text outcome-oriented.
-4. Match tone to consequence: calm for errors, direct for actions, sparse for repeated workflows.
-5. Check text expansion, localization, and accessibility names.
+1. Read accepted ADRs and editorial guidance for audience relationship, form of
+   address, stable voice, vocabulary, claim boundaries, and channel exceptions.
+2. Identify the user's question at that moment: what is this, why does it matter, what happens next?
+3. Remove copy that explains the interface instead of making the interface clearer.
+4. Make labels concrete and action text outcome-oriented.
+5. Match tone to consequence without changing the recorded voice: calm for
+   errors, direct for actions, sparse for repeated workflows.
+6. Check text expansion, localization, accessibility names, and cross-channel
+   consistency. Use `decision-records` when the work changes a durable
+   communication direction.
 
 ## Rules
 

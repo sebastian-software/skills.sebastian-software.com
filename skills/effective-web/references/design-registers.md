@@ -5,6 +5,12 @@ interface's job: whether design serves a task, carries a brand impression, or
 supports long-form comprehension. The same colour, typography, motion, and
 layout choices can be excellent in one register and wrong in another.
 
+Do not confuse register with direction. Product, brand, and content-heavy
+describe why the surface exists; precise, warm, minimalist, premium, playful,
+and editorial describe how it should feel. After choosing the register, read
+[Design directions](design-directions.md) and select compatible expression,
+density, warmth, precision, motion, depth, and communication constraints.
+
 ## Product Register
 
 Use for apps, dashboards, admin screens, settings, data tables, editors, and
