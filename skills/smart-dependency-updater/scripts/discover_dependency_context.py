@@ -3,6 +3,8 @@
 
 from __future__ import annotations
 
+import ast
+import configparser
 import json
 import os
 import re
@@ -49,6 +51,15 @@ MANIFESTS = {
     "Directory.Packages.props": "dotnet",
 }
 
+REQUIREMENTS_FILENAME = re.compile(
+    r"^requirements(?:[-_.][A-Za-z0-9][A-Za-z0-9_.-]*)?\.txt$",
+    re.IGNORECASE,
+)
+REQUIREMENT_ENTRY = re.compile(
+    r"^(?:-[-A-Za-z][^\s]*(?:\s+.+)?|[A-Za-z0-9][A-Za-z0-9_.-]*(?:\[[^]]+])?"
+    r"(?:\s*(?:===|==|!=|<=|>=|<|>|~=|@)\s*.+)?)$"
+)
+
 
 def read_json(path: Path) -> dict[str, Any]:
     try:
@@ -65,6 +76,10 @@ def read_toml(path: Path) -> dict[str, Any]:
         return tomllib.loads(path.read_text(encoding="utf-8"))
     except Exception as exc:
         return {"_error": str(exc)}
+
+
+def is_requirements_candidate(name: str) -> bool:
+    return bool(REQUIREMENTS_FILENAME.fullmatch(name))
 
 
 def find_files(root: Path, names: set[str]) -> list[Path]:
@@ -85,7 +100,7 @@ def find_files(root: Path, names: set[str]) -> list[Path]:
         for name in files:
             if (
                 name in names
-                or (name.startswith("requirements") and name.endswith(".txt"))
+                or is_requirements_candidate(name)
                 or name.endswith(".csproj")
                 or name.endswith(".fsproj")
             ):
@@ -157,6 +172,67 @@ def parse_pyproject(path: Path) -> dict[str, Any]:
     }
 
 
+def requirement_entry_count(value: str) -> int:
+    return len([line for line in value.splitlines() if line.strip() and not line.strip().startswith("#")])
+
+
+def parse_setup_cfg(path: Path) -> dict[str, Any]:
+    config = configparser.RawConfigParser()
+    try:
+        with path.open(encoding="utf-8") as file:
+            config.read_file(file)
+    except (OSError, configparser.Error) as exc:
+        return {"path": str(path), "_error": str(exc)}
+
+    install_requires = config.get("options", "install_requires", fallback="")
+    extras = {
+        name: requirement_entry_count(value)
+        for name, value in config.items("options.extras_require")
+    } if config.has_section("options.extras_require") else {}
+    return {
+        "path": str(path),
+        "setuptools": {
+            "install_requires": requirement_entry_count(install_requires),
+            "extras": extras,
+        },
+    }
+
+
+def literal_dependency_count(node: ast.AST) -> int | None:
+    try:
+        value = ast.literal_eval(node)
+    except (ValueError, TypeError):
+        return None
+    return len(value) if isinstance(value, (list, tuple, set)) else None
+
+
+def parse_setup_py(path: Path) -> dict[str, Any]:
+    try:
+        tree = ast.parse(path.read_text(encoding="utf-8"), filename=str(path))
+    except (OSError, SyntaxError) as exc:
+        return {"path": str(path), "_error": str(exc)}
+
+    dependency_counts: dict[str, int | None] = {}
+    extras: dict[str, int | None] = {}
+    for node in ast.walk(tree):
+        if not isinstance(node, ast.Call) or not (
+            isinstance(node.func, ast.Name) and node.func.id == "setup"
+        ):
+            continue
+        for keyword in node.keywords:
+            if keyword.arg in {"install_requires", "setup_requires"}:
+                dependency_counts[keyword.arg] = literal_dependency_count(keyword.value)
+            elif keyword.arg == "extras_require" and isinstance(keyword.value, ast.Dict):
+                for key, value in zip(keyword.value.keys, keyword.value.values, strict=True):
+                    if isinstance(key, ast.Constant) and isinstance(key.value, str):
+                        extras[key.value] = literal_dependency_count(value)
+        break
+    return {
+        "path": str(path),
+        "setuptools": {"dependency_counts": dependency_counts, "extras": extras},
+    }
+
+
 def parse_go_mod(path: Path) -> dict[str, Any]:
     try:
         text = path.read_text(encoding="utf-8", errors="replace")
@@ -183,7 +259,11 @@ def parse_requirements(path: Path) -> dict[str, Any]:
         ]
     except OSError as exc:
         return {"path": str(path), "_error": str(exc)}
-    return {"path": str(path), "entries": len(lines)}
+    return {
+        "path": str(path),
+        "entries": len(lines),
+        "is_requirements_file": all(REQUIREMENT_ENTRY.fullmatch(line) for line in lines),
+    }
 
 
 def main() -> int:
@@ -203,9 +283,14 @@ def main() -> int:
     for path in files:
         rel = path.relative_to(root)
         name = path.name
+        requirements = None
+        if is_requirements_candidate(name):
+            requirements = parse_requirements(path)
+        is_requirements = requirements is not None and (
+            "_error" in requirements or requirements["is_requirements_file"]
+        )
         if name in LOCKFILES:
             result["lockfiles"].append({"path": str(rel), "manager": LOCKFILES[name]})
-        is_requirements = name.startswith("requirements") and name.endswith(".txt")
         if name in MANIFESTS or is_requirements or name.endswith(".csproj") or name.endswith(".fsproj"):
             ecosystem = MANIFESTS.get(name, "python" if is_requirements else "dotnet")
             result["manifests"].append({"path": str(rel), "ecosystem": ecosystem})
@@ -221,8 +306,17 @@ def main() -> int:
             parsed = parse_pyproject(path)
             parsed["path"] = str(rel)
             result["python"].append(parsed)
-        elif name.startswith("requirements") and name.endswith(".txt"):
-            parsed = parse_requirements(path)
+        elif name == "setup.cfg":
+            parsed = parse_setup_cfg(path)
+            parsed["path"] = str(rel)
+            result["python"].append(parsed)
+        elif name == "setup.py":
+            parsed = parse_setup_py(path)
+            parsed["path"] = str(rel)
+            result["python"].append(parsed)
+        elif is_requirements:
+            parsed = requirements
+            assert parsed is not None
             parsed["path"] = str(rel)
             result["python"].append(parsed)
         elif name == "go.mod":
