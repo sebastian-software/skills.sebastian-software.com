@@ -27,13 +27,23 @@ Use this reference for reusable design-system decisions that cut across colour, 
   Where a formal WCAG 2.x conformance claim, contract, or audit is in scope,
   also pass the applicable WCAG 2 ratios; those ratios are a separate
   compliance gate, not the design target.
-- Treat `contrast-color()` as a convenience for picking black or white foregrounds, not an accessibility guarantee; it has minimal browser support, so provide an explicit fallback. Plan `prefers-contrast` and light/dark alternatives rather than relying on automatic foreground selection.
+- Treat `contrast-color()` as a Baseline-2026 convenience for picking black or
+  white foregrounds, not an accessibility guarantee. Declare an explicit color
+  before it when older targets matter, and verify the selected pair because
+  mathematical preference between black and white can still leave mid-tone
+  backgrounds perceptually weak. Plan `prefers-contrast` and light/dark
+  alternatives rather than relying on automatic foreground selection.
 
 ### Theming architecture
 
 - Use semantic tokens with explicit cascade ownership: define theme values at a single owning scope and let local overrides flow through custom properties, so component code never hard-codes a theme.
 - Use `light-dark()` with `color-scheme` for simple per-property system-theme switching, but keep an explicit theme architecture (data attribute or class plus token sets) when products need user-selected themes, local theme overrides, or cross-brand variants.
-- Gate wide-gamut/P3 colors and modern color functions on the product's browser baseline. Provide an sRGB fallback first and layer the P3 or modern-function value behind `@supports (color: oklch(0 0 0))` (or the relevant feature query) so unsupported browsers stay correct.
+- Gate wide-gamut/P3 colors and modern color functions on the product's browser
+  baseline. Provide an intentional sRGB semantic token first, use `@supports`
+  for colour-notation support, and combine it with `@media (color-gamut: p3)`
+  before overriding the token with a P3 value. A successful feature query does
+  not prove that the output device can render P3. Derive and gamut-map each
+  variant for its target gamut, and verify contrast in both branches.
 
 ### Agent-readable system contracts
 
@@ -71,7 +81,8 @@ Use this reference for reusable design-system decisions that cut across colour, 
 - Do gradients, transitions, and `color-mix()` operations use a color space that avoids muddy interpolation?
 - Can the icon system inherit text color, align to type, expose labels, and avoid duplicated sprite/runtime complexity?
 - Are visual effects optional layers with fallbacks, or does meaning depend on masking/filtering/translucency?
-- Are wide-gamut/P3 colors and modern color functions support-gated for the product's browser baseline?
+- Do wide-gamut/P3 tokens have intentional sRGB fallbacks, separate syntax and
+  output-gamut gates, and verified foreground/background pairs in both branches?
 - Can a contributor discover the approved component, variant, and token without
   reverse-engineering screenshots or copying a nearby implementation?
 - Do deterministic checks catch raw values, undefined tokens, duplicates, and

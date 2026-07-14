@@ -179,6 +179,12 @@ decided.
   announced.
 - Announce only what helps. Do not wire up live regions for changes the user
   caused and can see, or the interface becomes noisy and users disable speech.
+- Treat `ariaNotify()` as a progressive enhancement while it remains outside
+  Baseline. Prefer semantic DOM updates and established live-region behavior;
+  use it only for useful announcements that are not already expressed, feature-
+  detect it, coalesce rapid messages, inherit the correct `lang`, avoid duplicate
+  narration, and retain a tested live-region fallback where the message is
+  essential.
 - For long or background operations, communicate progress with a native
   `progress` element or `role="progressbar"` with `aria-valuenow`/min/max so the
   state is conveyed rather than implied by a spinner.

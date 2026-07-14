@@ -219,6 +219,73 @@ OKLCH is a modern alternative to HSB/HSL that is "perceptually uniform" - equal 
 
 **Tip:** When moving toward white or black, reduce chroma. High chroma at extreme lightness looks garish.
 
+### Preserve Chroma in Tonal Gradients
+
+Do not create a darker gradient stop by blindly reducing HSL lightness or HSV
+value; those operations often reduce perceptual chroma as well. Convert the
+source colour to OKLCH, choose the target lightness, keep hue fixed initially,
+and preserve as much chroma as the target gamut permits. Gamut-map and verify
+the resulting endpoints instead of relying on raw component arithmetic.
+
+Use hue rotation only as intentional, palette-specific art direction or as a
+gamut strategy. Some hue and lightness combinations permit more in-gamut
+chroma than others, but no universal degree offset generalises across palettes.
+When a product wants a hue trajectory, encode curated semantic endpoints such
+as `--brand` and `--brand-deep` instead of calculating offsets in components.
+
+```css
+:root {
+  --brand: oklch(76.6% 0.151 229);
+  --brand-deep: oklch(63% 0.125 229); /* Fixed hue, gamut-mapped chroma */
+}
+
+.brand-gradient {
+  background: linear-gradient(in oklch, var(--brand), var(--brand-deep));
+}
+```
+
+Verify foreground contrast across every part of the gradient, not only at its
+endpoints.
+
+### Layer sRGB and Wide-Gamut Tokens
+
+Treat syntax support and output gamut as separate capabilities. Declare an
+intentional sRGB colour first; use `@supports` only to detect whether a colour
+notation parses, and use `@media (color-gamut: p3)` to detect whether the user
+agent and output device can approximately render Display P3. Override semantic
+tokens at their owning scope rather than scattering P3 values through
+components.
+
+```css
+:root {
+  /* Legacy and controlled sRGB fallback. */
+  --brand-accent: #0a9cce;
+}
+
+@supports (color: oklch(0% 0 0)) {
+  :root {
+    /* Perceptual authoring, deliberately kept inside sRGB. */
+    --brand-accent: oklch(65% 0.128 230);
+  }
+}
+
+@supports (color: color(display-p3 0 0 0)) {
+  @media (color-gamut: p3) {
+    :root {
+      /* Same role, lightness, and hue; higher P3-only chroma. */
+      --brand-accent: color(display-p3 0.011 0.611 0.861);
+    }
+  }
+}
+```
+
+Keep the variants visually related, but derive and gamut-map each one for its
+target gamut; no fixed chroma increase works across all lightness and hue
+combinations. Do not rely on automatic gamut mapping when brand identity,
+state distinction, or contrast matters. Verify foreground/background pairs,
+gradients, interaction states, light and dark themes, and forced-colors behavior
+with both the sRGB fallback and P3 override active.
+
 ### Derive Colour Variations with Relative Color Syntax
 
 Relative color syntax (Baseline 2024) lets you derive new colours from existing ones — no manual calculations or preprocessors needed. Create hover states, tints, and shades programmatically:

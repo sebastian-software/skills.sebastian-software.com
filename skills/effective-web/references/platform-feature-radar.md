@@ -22,6 +22,11 @@ path when the project supports older devices, WebViews, or enterprise browsers.
 - **Container style and name-only queries:** let components respond to inherited
   custom-property context or named containment without variant prop plumbing.
   Keep a normal cascade/default style outside the query.
+- **`contrast-color()`:** choose the higher-contrast black or white foreground
+  from a dynamic background without duplicating color-selection logic. It became
+  Baseline Newly available in April 2026, but it is not a perceptual-accessibility
+  guarantee: keep a declared fallback for older targets and verify the resulting
+  pair, especially on mid-tone backgrounds.
 - **`field-sizing: content`:** allow text inputs and textareas to grow with
   content without JavaScript measurement. Bound inline/block size, test empty
   values and placeholders, and preserve manual resizing where users need it.
@@ -59,9 +64,23 @@ Release notes are discovery feeds, not support policy. As of this snapshot:
 - Customizable `select` remains Limited availability despite active Chrome and
   WebKit work. Use it as an enhancement over complete text options, not as the
   only usable control.
+- `sizes="auto"` can let a lazy-loaded responsive image use its computed layout
+  size when selecting from `srcset`. Use `sizes="auto, <legacy sizes>"` so an
+  older browser can continue with the descriptive fallback, retain explicit
+  dimensions/aspect ratio, and never lazy-load an LCP or above-the-fold image.
+- Anchor Positioning level 2 anchored container queries (`container-type:
+  anchored`, `@container anchored(...)`) and `border-shape` remain distinct,
+  limited subfeatures. Do not infer their support from base Anchor Positioning
+  or from the Baseline status of `shape()`; prefer interoperable position
+  fallbacks such as `flip-block` where they meet the design.
+- `ariaNotify()` remains Limited availability. Prefer native semantics, state,
+  and live content first; feature-detect it only for announcements not already
+  conveyed by the DOM, coalesce messages, localize them, and retain a tested
+  live-region fallback where announcements are essential.
 - `command`/`commandfor`, `closedby`, CSS `random()`, `text-fit`, gap
-  decorations, and other newly shipped primitives require a fresh feature-level
-  support check; do not inherit the Baseline badge of their containing element.
+  decorations, Grid Lanes, `corner-shape`, and other newly shipped primitives
+  require a fresh feature-level support check; do not inherit the Baseline badge
+  of their containing element or related feature family.
 - Beta, flag-only, single-engine, and specification proposals may inspire an
   architecture, demo, or test. They must not become an unconditional shared
   component default.
