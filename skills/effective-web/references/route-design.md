@@ -39,11 +39,28 @@ Do not use this skill as a source archive. Article-derived input has already bee
 
 ## Review Workflow
 
-1. Identify the job-to-be-done, primary user, primary action, and failure modes.
-2. Check whether the current UI has one clear information hierarchy and one clear next action per state.
-3. Remove visual or interaction elements that do not clarify, accelerate, reassure, or prevent mistakes.
-4. Route narrow issues to the focused routes above instead of expanding this route.
-5. Verify the result against the quality gates before considering the UI done.
+1. Read accepted ADRs and existing design, content, brand, and component-system
+   evidence before proposing a direction.
+2. For an existing experience, classify the work as greenfield, preserve, or
+   overhaul and read [Redesign preservation](redesign-preservation.md) before
+   changing visual or behavioral contracts.
+3. Identify the job-to-be-done, primary user, primary action, and failure modes;
+   select the surface register from [Design registers](design-registers.md).
+4. Choose a primary direction and compatible axes from
+   [Design directions](design-directions.md). Ask one discriminating question
+   only when the missing answer would materially change the result.
+5. Check whether the UI has one clear information hierarchy and one clear next
+   action per state. Remove elements that do not clarify, accelerate, reassure,
+   express the intended relationship, or prevent mistakes.
+6. For generic or agent-generated output, classify findings with
+   [UI anti-patterns](ui-antipatterns.md). Fix objective defects first and treat
+   stylistic tells as context-dependent advisories or clusters, not taste laws.
+7. Route narrow issues to the focused routes above instead of expanding this
+   route. Record new durable direction or communication decisions through
+   `decision-records` rather than a tool-specific memory file.
+8. Verify the rendered result and implementation against the accepted direction,
+   redesign baseline when applicable, and quality gates before considering the
+   UI done.
 
 ## Baseline Rules
 
@@ -58,7 +75,14 @@ Do not use this skill as a source archive. Article-derived input has already bee
 - [fundamentals.md](fundamentals.md) - broad UI design principles and quality heuristics.
 - [less-is-more.md](less-is-more.md) - reduction, clarity, and restraint.
 - [design-registers.md](design-registers.md) - registers for design intent and decisions.
+- [design-directions.md](design-directions.md) - combinable directions, axes,
+  ambiguity questions, conflict resolution, and decision persistence.
+- [redesign-preservation.md](redesign-preservation.md) - greenfield, preserve,
+  and overhaul modes plus protected brand, IA, copy, analytics, and accessibility
+  contracts.
 - [design-planning.md](design-planning.md) - planning workflow before implementation.
+- [ui-antipatterns.md](ui-antipatterns.md) - defect, advisory, cluster, and
+  accepted-exception review for generated UI and copy.
 - [ai-interface-design.md](ai-interface-design.md) - match AI capabilities to
   tasks, modalities, uncertainty, control, and environmental constraints.
 - [ui-quality-gates.md](ui-quality-gates.md) - final review gates before shipping.

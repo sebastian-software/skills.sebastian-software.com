@@ -53,6 +53,11 @@ system rather than independent growth hacks.
 
 ## Operating Rules
 
+- Read accepted ADRs and existing brand or editorial guidance before defining
+  audience relationship, form of address, voice, tone, vocabulary, or claims.
+  When the work establishes or changes a durable cross-channel communication
+  direction, use `decision-records` to preserve the rationale and channel
+  exceptions instead of creating a LinkedIn-specific memory file.
 - Start with real customer evidence. Use interviews, sales notes, case studies,
   offers, objections, content responses, and pipeline data before persona
   stereotypes or generic best practices.
@@ -92,6 +97,8 @@ For an end-to-end request, return:
 
 ## Related Skills
 
+- Use `decision-records` to record or supersede durable positioning, audience,
+  voice, tone, terminology, evidence, and cross-channel communication choices.
 - Use `linkedin-posts` for a post-only brief, idea list, draft, or content
   calendar after this skill has established audience, role, and commercial
   intent.

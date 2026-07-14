@@ -36,9 +36,9 @@ jobs:
           dalo --json status > "$RUNNER_TEMP/status.json"
 
           jq -e '
-            (.sources[] | select(.id == "sebastian") | .skill_count) == 11 and
+            (.sources[] | select(.id == "sebastian") | .skill_count) == 14 and
             (.inventory_warnings | length) == 0 and
-            (.resolution.active_skills | length) == 11 and
+            (.resolution.active_skills | length) == 14 and
             (.resolution.pending_approval_skills | length) == 0 and
             (.resolution.blocked_skills | length) == 0 and
             (.resolution.diagnostics | length) == 0 and
@@ -47,13 +47,16 @@ jobs:
           ' "$RUNNER_TEMP/status.json"
 
           dalo sync
-          test "$(find "$DALO_TARGET" -mindepth 1 -maxdepth 1 -type l | wc -l | tr -d ' ')" = 11
+          test "$(find "$DALO_TARGET" -mindepth 1 -maxdepth 1 -type l | wc -l | tr -d ' ')" = 14
+          test -L "$DALO_TARGET/codebase-improvement"
+          test -L "$DALO_TARGET/decision-records"
           test -L "$DALO_TARGET/effective-web"
           test -L "$DALO_TARGET/product-management"
           test -L "$DALO_TARGET/product-naming"
           test -L "$DALO_TARGET/linkedin-social-selling"
           test -L "$DALO_TARGET/locale-typography"
           test -L "$DALO_TARGET/linkedin-posts"
+          test -L "$DALO_TARGET/port-codebases"
           test -L "$DALO_TARGET/web-legal-compliance"
           test ! -e "$DALO_TARGET/german-typography"
           test ! -e "$DALO_TARGET/s7n-print-design"

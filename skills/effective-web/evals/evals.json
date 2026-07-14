@@ -134,6 +134,76 @@
       "name": "layer-wide-gamut-token-fallbacks",
       "prompt": "A design system replaces its brand accent with one high-chroma Display P3 value in every component. The author wraps it in @supports (color: color(display-p3 0 0 0)) and assumes that covers older browsers, sRGB displays, gradients, and text contrast. Review and correct the architecture.",
       "expected": "Separates colour-syntax support from output-device gamut, defines a controlled sRGB semantic-token fallback first, gates the P3 token with both the relevant @supports query and @media (color-gamut: p3), and keeps gamut variants at the token-owning scope. It derives and gamut-maps each variant for its target gamut and verifies foreground/background pairs, gradients, states, and themes in both branches rather than relying on automatic gamut mapping."
+    },
+    {
+      "name": "measure-geo-without-false-precision",
+      "prompt": "A GEO vendor ran 20 prompts once, reports a 38% AI share of voice, and claims the campaign generated revenue. Search Console shows more Web impressions, but analytics has no reliable AI referral or conversion view. Design a defensible measurement plan.",
+      "expected": "Treats the vendor result as a dated sample, builds a versioned query panel across relevant engines, locales, and repeated runs, retains raw answers and cited URLs, and separates mentions and citations from factual accuracy, referrals, engagement, and business outcomes. It notes that Google AI feature data is blended into Search Console Web reporting and rejects causal ROI claims without supporting acquisition and conversion evidence."
+    },
+    {
+      "name": "refresh-citable-editorial-content",
+      "prompt": "A publisher wants to improve GEO by changing every article's dateModified and sitemap lastmod today, adding an unlinked 'Editorial Team' byline, and appending generic FAQs without reviewing the old claims. Review the plan and propose a better maintenance workflow.",
+      "expected": "Rejects fake freshness and generic authority signals, prioritizes claim-level review and correction, assigns owners and risk-based review cadences, adds truthful visible bylines linked to relevant author or reviewer profiles, aligns material publication and update dates with structured data and sitemap signals, and strengthens answer usefulness with real evidence, methods, limitations, and direct responses rather than filler FAQs."
+    },
+    {
+      "name": "route-ambiguous-product-direction",
+      "prompt": "Build a new customer-management dashboard. The repository has no comparable screen or design ADR, and the prompt does not say whether daily support operators or occasional small-business owners are the primary users.",
+      "expected": "Recognizes that the audience changes density, hierarchy, guidance, tone, and interaction strategy; asks one concise discriminating question rather than a broad style interview; then states a Design Read with product register, direction axes, communication relationship, signature opportunity, and category default to avoid before implementation."
+    },
+    {
+      "name": "combine-premium-minimalist-brand-direction",
+      "prompt": "Design a premium minimalist landing page for an evidence-led financial service. The team assumes premium requires glass pills, cream backgrounds, serif headings, giant whitespace, and animated scroll sections.",
+      "expected": "Treats premium execution and minimalist restraint as compatible rather than fixed presets, keeps trust and evidence primary, selects one justified signature, uses scarce motion and materiality, rejects category-reflex styling, records durable direction only if it is a project-level choice, and preserves accessibility, performance, and credible real content."
+    },
+    {
+      "name": "honor-design-and-voice-adrs",
+      "prompt": "An accepted ADR says the daily operations console is dense, precise, low-motion, and uses professional German du-address. A redesign request proposes sparse cinematic screens, playful error jokes, and Sie copy without mentioning the ADR. Review the request.",
+      "expected": "Reads the ADR as the current cross-channel constraint, identifies visual and language conflicts, keeps sober task and error behavior, and either restores alignment or asks for authorization to supersede the decision with changed drivers, consequences, channel exceptions, and review triggers rather than silently drifting or rewriting the old ADR."
+    },
+    {
+      "name": "decouple-compound-component-state",
+      "prompt": "A reusable checkout step has showSummary, showCoupon, useUrlState, useFormState, compact, and isConfirmation booleans. Its child controls import one form library directly, so the same UI cannot be used in a standalone preview. Redesign the component API.",
+      "expected": "Separates genuine binary semantics from mutually exclusive modes, creates explicit structural variants or compound components, defines a small state-actions-meta provider contract, keeps the provider as the owner of form, URL, or local implementation details, scopes context by update frequency, and preserves semantic and accessible primitives."
+    },
+    {
+      "name": "prioritize-react-performance-work",
+      "prompt": "A Next.js dashboard has serial server fetches, a heavy editor in the initial bundle, mutable module-level currentTenant state, unversioned localStorage preferences, and a cheap array map. The team wants to optimize the map first. Prioritize and correct the work.",
+      "expected": "Prioritizes the network waterfall, bundle boundary, and cross-request tenant leak before client persistence and measured render or loop work; starts independent promises early, isolates the heavy editor behind an appropriate dynamic boundary, removes request data from module state, defines safe cache and authorization boundaries, versions and validates minimal storage, and rejects unmeasured micro-optimization as the first step."
+    },
+    {
+      "name": "preserve-redesign-contracts",
+      "prompt": "Modernize an established subscription site without changing its business logic. The visual proposal also renames navigation labels, changes route slugs, rewrites German du copy to Sie, replaces form field names, and removes analytics attributes and the existing consent component.",
+      "expected": "Classifies the work as a preservation redesign, captures the relevant baseline, treats routes, IA, communication, form, analytics, consent, and accessibility behavior as protected contracts, limits visual modernization to the authorized scope, and routes any durable intentional contract change through explicit approval and the appropriate ADR or delivery artifact."
+    },
+    {
+      "name": "bound-visual-overhaul-scope",
+      "prompt": "The client approved a complete visual overhaul of a content site. The designer assumes this permits replacing the CMS structure, rewriting all articles, changing canonical URLs, and migrating from Next.js to another framework.",
+      "expected": "Treats visual overhaul as a new visual language rather than blanket product and content authority, preserves content, IA, canonical and route contracts, and the existing stack unless separately justified and authorized, names the migration risks, and verifies redesigned output against the baseline."
+    },
+    {
+      "name": "honor-design-system-provenance",
+      "prompt": "A Shopify admin app already uses the official platform component system. A redesign imports components from two unrelated design systems and hand-copies the appearance of missing Shopify patterns because the designer prefers their defaults.",
+      "expected": "Keeps one owning official system, verifies its current packages and supported patterns, avoids mixing complete systems or approximating official behavior by appearance, bridges genuine gaps explicitly within the existing stack, and records a durable system replacement only through an authorized decision and migration plan."
+    },
+    {
+      "name": "classify-generated-ui-cluster",
+      "prompt": "Review a new B2B automation landing page with no design system or ADR. It uses a cream background, an italic serif hero with an uppercase eyebrow pill, six identical rounded feature cards with icon tiles, a glowing gradient CTA, and the line 'Not just automation. A revolution.' The designer argues that every individual choice is common and accessible.",
+      "expected": "Does not mislabel stylistic familiarity as an accessibility defect; classifies the individual tells as advisories, recognizes their cross-domain cluster as evidence of an unexamined category template, and revises the owning direction, evidence, hierarchy, media, and copy choices instead of swapping decorations one by one."
+    },
+    {
+      "name": "preserve-justified-antipattern-exceptions",
+      "prompt": "An editorial publication's accepted design system uses one type family, an italic serif feature headline, and 01/02/03 markers for a real three-step investigative method. A generic UI scanner flags all three as AI slop. Review the findings.",
+      "expected": "Treats the documented editorial register, coherent type system, and meaningful sequence as accepted exceptions rather than style violations; still verifies legibility, hierarchy, responsiveness, and implementation quality; and rejects font blacklists or context-free suppression of intentional brand language."
+    },
+    {
+      "name": "separate-antipattern-evidence-from-judgment",
+      "prompt": "Audit an inherited admin screen that uses Inter and a decorative grid background, but also contains empty image sources, low-contrast labels, a menu clipped by overflow hidden, and a mobile layout that removes approval actions. Prioritize the findings.",
+      "expected": "Prioritizes the verified broken images, contrast, clipped interaction, and lost mobile capability by user impact; treats the font and decorative grid as contextual advisories; checks for a broader generic-output cluster; and does not present a clean or noisy automated scan as proof of design quality."
+    },
+    {
+      "name": "rewrite-generated-copy-without-voice-drift",
+      "prompt": "A German marketing page has an accepted professional du voice. Every section uses a variation of 'Nicht nur X. Sondern Y.', generic transformation claims, and repeated em dashes. Rewrite it without switching to Sie or banning punctuation globally.",
+      "expected": "Preserves the recorded professional du relationship, treats repeated cadence, unsupported claims, and punctuation density as contextual signals rather than forbidden tokens, rewrites with concrete product nouns, verbs, evidence, and limits, and routes any durable voice change through an ADR instead of silently changing formality."
     }
   ]
 }

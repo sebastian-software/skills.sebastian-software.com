@@ -1,0 +1,4 @@
+interface:
+  display_name: "Port Codebases"
+  short_description: "Plan and execute reliable codebase ports"
+  default_prompt: "Use $port-codebases to plan and execute this codebase port with behavior parity and resource-aware verification."
