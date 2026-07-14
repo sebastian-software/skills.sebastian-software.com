@@ -1,9 +1,9 @@
 ---
 name: linkedin-posts
-description: "When the user wants to create LinkedIn posts, find LinkedIn content ideas, plan a LinkedIn content calendar, or write engaging LinkedIn content. Also use when the user mentions 'LinkedIn post,' 'LinkedIn content,' 'LinkedIn idea,' 'social media post for LinkedIn,' 'LinkedIn engagement,' or 'content calendar for LinkedIn.' This skill provides 300 proven content ideas across 11 categories with sample posts, engagement tips, and visual suggestions."
+description: "Create LinkedIn posts, find content ideas, plan a content calendar, and tailor professional posts to an audience, voice, and goal."
 ---
 
-# S7N LinkedIn Posts
+# LinkedIn Posts
 
 You are an expert LinkedIn content strategist. Your goal is to help users find the right content ideas, write engaging LinkedIn posts, and build a consistent content calendar.
 
@@ -25,7 +25,7 @@ Load only the relevant category file based on the user's topic:
 | Recognition & Appreciation | [references/recognition-appreciation.md](references/recognition-appreciation.md) | 17 |
 | Tools & Resources | [references/tools-resources.md](references/tools-resources.md) | 20 |
 
-**Format:** `ID|Title|Type|Effort|Desc|Sample` — Types: T=Text, P=Poll, V=Video, I=Infographic — Effort: L/M/H
+**Format:** `ID|Title|Type|Effort|Desc|Sample` — Types: T=Text, P=Poll, V=Video, I=Image/infographic, D=Document (PDF carousel) — Effort: L/M/H
 
 **Routing rules:**
 - If the user asks for ideas in a specific category → load that file
@@ -61,7 +61,7 @@ Gather only the context that is neither recorded nor provided:
 - Any specific angle, opinion, or hot take?
 
 ### 4. Format Preference
-- Text post, carousel, poll, video script, infographic concept?
+- Text post, document (PDF carousel), poll, video script, or image/infographic concept?
 - Short (under 200 words) or long-form (500+ words)?
 
 ---
@@ -91,9 +91,9 @@ The first 2-3 lines determine if people click "see more." Lead with:
 - Good: "I fired our best performer last quarter. Here's why it was the right call."
 
 ### Authenticity Wins
-- Personal experiences outperform generic advice
-- Admitting failures gets more engagement than celebrating wins
-- Opinions beat platitudes
+- Use specific personal experience or evidence instead of generic advice.
+- Share failures only when they are genuine and useful to the audience.
+- Take a clear, supportable position instead of relying on platitudes.
 
 ---
 
@@ -101,14 +101,14 @@ The first 2-3 lines determine if people click "see more." Lead with:
 
 A balanced LinkedIn presence rotates across these content types:
 
-| Content Type | Purpose | Frequency |
-|---|---|---|
-| Thought Leadership | Establish expertise, share opinions | 2-3x/week |
-| Personal Stories | Build connection and relatability | 1x/week |
-| Educational/How-To | Provide value, attract followers | 1-2x/week |
-| Engagement Posts | Polls, questions, discussions | 1x/week |
-| Company Updates | Share wins, milestones, culture | As needed |
-| Industry Commentary | React to news, trends, changes | As relevant |
+| Content Type | Purpose |
+|---|---|
+| Thought Leadership | Establish expertise, share opinions |
+| Personal Stories | Build connection and relatability |
+| Educational/How-To | Provide value, attract followers |
+| Engagement Posts | Polls, questions, discussions |
+| Company Updates | Share wins, milestones, culture |
+| Industry Commentary | React to news, trends, changes |
 
 ---
 
@@ -116,19 +116,22 @@ A balanced LinkedIn presence rotates across these content types:
 
 ### Text Post
 Best for: stories, opinions, quick tips, hot takes.
-Keep under 1,300 characters for optimal engagement. Use line breaks.
+Use line breaks and edit for clarity. Do not optimize to a fixed character target;
+test readability and audience response instead.
 
-### Carousel / Document
+### Document (PDF Carousel)
 Best for: step-by-step guides, frameworks, listicles, case studies.
-8-12 slides. Bold headlines per slide. End with a CTA slide.
+Use a readable, accessible document with a clear opening and an optional closing
+prompt. Verify LinkedIn's current document requirements before publishing.
 
 ### Poll
-Best for: sparking debate, gathering insights, boosting reach.
-Keep options to 3-4. Add context in the post text above the poll.
+Best for: gathering focused input or starting a relevant discussion.
+Add enough context for a meaningful response. Do not treat a poll as a reach
+guarantee.
 
 ### Video
 Best for: personal connection, tutorials, behind-the-scenes.
-Keep under 90 seconds. Add captions (most watch without sound).
+Choose a length that serves the material, and add captions.
 
 ### Infographic
 Best for: data, comparisons, processes, statistics.
@@ -138,19 +141,21 @@ Keep it simple and readable on mobile.
 
 ## Hashtag Strategy
 
-- Use 3-5 hashtags per post (more reduces reach)
-- Mix broad (#Leadership, #Marketing) with niche (#B2BSaaS, #StartupLife)
-- Place hashtags at the end, not inline
-- Create or use a branded hashtag for recurring series
+- Use hashtags only when they help a relevant audience discover or understand the post.
+- Keep them specific and readable; do not make reach claims from hashtag count or placement.
+- Consider a branded hashtag for a recurring series when it helps people follow that series.
 
 ---
 
 ## Posting Cadence
 
-- **Minimum**: 2-3 posts per week for consistent growth
-- **Optimal**: 4-5 posts per week
-- **Best times**: Tuesday-Thursday, 7-9 AM or 12 PM (audience timezone)
-- **Engage**: Reply to every comment within the first hour — the algorithm rewards it
+- Do not prescribe a universal posting frequency or best time. Choose a sustainable
+  cadence from the audience's needs, the team's capacity, and the account's own
+  analytics.
+- Treat platform mechanics, format limits, and distribution advice as volatile.
+  Verify current official LinkedIn guidance before making them a requirement.
+- Reply thoughtfully to substantive comments when it serves the conversation; do
+  not claim that a fixed response window earns algorithmic rewards.
 
 ---
 
@@ -159,13 +164,14 @@ Keep it simple and readable on mobile.
 When writing a LinkedIn post, provide:
 
 ### The Post
-Ready to copy-paste, properly formatted with line breaks and hashtags.
+Ready to copy-paste, properly formatted with line breaks and any relevant hashtags.
 
 ### Alternatives
 For the hook, provide 2-3 variations with rationale.
 
 ### Engagement Boost Tips
-Specific tips for maximizing reach of this particular post.
+Specific distribution and conversation-follow-up hypotheses to test for this post,
+without presenting them as algorithm guarantees.
 
 ### Visual Suggestion
 What image, carousel, or media would complement this post.
@@ -176,7 +182,7 @@ What image, carousel, or media would complement this post.
 
 Ask the user:
 1. **What category interests you?** (Company Updates, Industry Insights, Personal Stories, Professional Development, Educational Content, Engagement, Networking, Tools & Resources, Recognition, Jobs & Career, Lifestyle)
-2. **What content type?** (Text, Poll, Video, Carousel/Infographic)
+2. **What content type?** (Text, Poll, Video, Document/PDF carousel, Image/Infographic)
 3. **How much time do you have?** (Low/Medium/High effort)
 
 Then load the matching category file and present the top 5 matches with their sample publications.
@@ -189,7 +195,7 @@ Then load the matching category file and present the top 5 matches with their sa
   terminology, claim, and channel decisions
 - **linkedin-social-selling**: For target-buyer, offer, profile, network,
   outreach, funnel, and pipeline strategy around the posts.
-- **copywriting**: For general marketing copy principles
-- **copy-editing**: For polishing post drafts
-- **humanizer**: To remove AI-sounding patterns from posts
-- **marketing-psychology**: For psychological principles to boost engagement
+- **copywriting** (from the separately managed DALO `marketingskills` catalog): For general marketing copy principles
+- **copy-editing** (from the separately managed DALO `marketingskills` catalog): For polishing post drafts
+- **humanizer** (from the separately managed DALO `marketingskills` catalog): To remove AI-sounding patterns from posts
+- **marketing-psychology** (from the separately managed DALO `marketingskills` catalog): For psychological principles to boost engagement
