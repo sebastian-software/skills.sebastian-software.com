@@ -32,6 +32,10 @@ Read these references before making substantive changes:
    - Distinguish between project staffing, direct client acquisition, recruiter screening, partnership, and public website profile.
    - Identify the channel: PDF/CV, website, LinkedIn, XING, marketplace profile, proposal bio, or internal supplier profile.
    - Identify the region and language: DACH/German, EU/international English, US/global English, or bilingual.
+   - Read accepted ADRs and brand or editorial guidance for audience
+     relationship, form of address, voice, tone, terminology, and channel
+     exceptions. Use `decision-records` when this work establishes or changes a
+     durable cross-channel communication direction.
    - If the target is unclear, infer the most likely one from the prompt and state the assumption briefly.
 
 2. Extract the consultant's positioning thesis.

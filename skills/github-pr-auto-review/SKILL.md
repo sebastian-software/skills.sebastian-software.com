@@ -198,6 +198,23 @@ and worth genuine praise — but it does **not** block an approval.
 You don't need to touch every rung — comment where it helps. A clean PR deserves
 a short, genuine approval, not a manufactured list of nits.
 
+### Finding quality
+
+For every actionable inline comment, make four things recoverable without a
+separate essay:
+
+1. the exact anchored location or symbol;
+2. the concrete defect, risk, or maintainability problem;
+3. the consequence when it is not obvious;
+4. the smallest credible correction or question that resolves the uncertainty.
+
+Do not restate the diff, add throat-clearing, or force a comment merely to fill
+a review. Keep straightforward findings compact. Expand security boundaries,
+data-loss risks, architectural disagreements, irreversible actions, and
+onboarding-sensitive explanations enough that compression cannot make the
+advice ambiguous. This is a content contract, not a mandatory one-line format or
+severity-label system; keep the natural human voice below.
+
 ## Mode B — Maintaining your own PRs
 
 Target near-full autonomy here. Most of the work is small: corrections,

@@ -71,7 +71,9 @@ wrong, return to the Design Readiness Check and revise the brief.
 ## Generic Output Gate
 
 Use this gate to catch templated AI output without turning design into a
-polishing loop.
+polishing loop. Classify suspected patterns with
+[UI anti-patterns](ui-antipatterns.md): objective defects can block, individual
+style tells are advisory, and clusters indicate a likely direction problem.
 
 Ask:
 
@@ -135,6 +137,10 @@ Verify:
 - Screenshots or browser inspection when a dev server or static preview is
   available.
 
+For a code audit, group findings by file and report the actionable issue at a
+clickable `file:line` location. Explain only the non-obvious tradeoff or fix;
+do not bury concrete defects under a generic score or long preamble.
+
 ## Code-Level Web Checks
 
 Run these checks when reviewing implementation code, especially React, Next.js,
@@ -146,6 +152,9 @@ Vue, Svelte, or plain HTML/CSS:
   assistive technology.
 - Form inputs have `label`, meaningful `name`, appropriate `type`,
   `autocomplete`, and `inputmode`. Do not block paste.
+- Disable spellcheck for email addresses, usernames, invitation codes, and
+  machine identifiers when spelling suggestions would corrupt or distract from
+  the value. Do not disable it for normal prose fields.
 - Async validation, save status, background work, and toast messages use local
   feedback and `aria-live` when screen reader users need the update.
 - Text containers handle long content with wrapping, `min-width: 0` in flex/grid
@@ -156,8 +165,15 @@ Vue, Svelte, or plain HTML/CSS:
   animation, and non-interruptible effects.
 - URL state reflects tabs, filters, pagination, selected records, and expanded
   panels when users need shareable or restorable UI state.
+- Warn before route change, reload, or close only when users would lose genuine
+  unsaved work; remove the guard immediately after save or discard.
 - Dark themes set `color-scheme`; browser UI such as form controls and
   scrollbars should not fight the theme.
+- Keep browser chrome coherent by updating `theme-color` when the top-level
+  surface changes materially, including supported light and dark modes.
+- Mark stable brand names, code tokens, product identifiers, and commands with
+  `translate="no"` when automatic translation would corrupt them; keep surrounding
+  explanatory prose translatable.
 
 Do not treat a clean automated check as proof of visual quality. Automated
 checks catch measurable defects; rendered inspection catches whether the UI

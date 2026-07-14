@@ -1,0 +1,4 @@
+interface:
+  display_name: "Decision Records"
+  short_description: "Create and maintain durable project ADRs"
+  default_prompt: "Use $decision-records to document this durable project decision as an ADR."

@@ -37,7 +37,13 @@ Load only the relevant category file based on the user's topic:
 
 ## Before Writing
 
-Gather this context (ask if not provided):
+Read accepted ADRs and existing brand or editorial guidance first. Reuse recorded
+audience, form of address, voice, tone range, vocabulary, and claim boundaries
+instead of asking for them again. If the request establishes a durable
+cross-channel direction, use `decision-records`; do not create a LinkedIn-specific
+voice-memory file.
+
+Gather only the context that is neither recorded nor provided:
 
 ### 1. Topic & Goal
 - What do you want to post about?
@@ -48,7 +54,9 @@ Gather this context (ask if not provided):
 - What level? (C-suite, mid-level, entry-level, mixed)
 
 ### 3. Voice & Brand
-- Professional tone or conversational?
+- Which recorded voice applies, and does this post need a justified tonal shift?
+- Professional, conversational, approachable, distant, restrained, or playful?
+- Which form of address and locale convention applies?
 - Personal story or company perspective?
 - Any specific angle, opinion, or hot take?
 
@@ -177,6 +185,8 @@ Then load the matching category file and present the top 5 matches with their sa
 
 ## Related Skills
 
+- **decision-records**: For durable audience, voice, tone, form-of-address,
+  terminology, claim, and channel decisions
 - **linkedin-social-selling**: For target-buyer, offer, profile, network,
   outreach, funnel, and pipeline strategy around the posts.
 - **copywriting**: For general marketing copy principles

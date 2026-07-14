@@ -1,0 +1,34 @@
+{
+  "evals": [
+    {
+      "name": "audit-with-evidence-and-decisions",
+      "prompt": "Audit this repository for its five biggest problems. An accepted ADR deliberately keeps synchronous disk writes because the CLI prioritizes crash-safe simplicity, while one audit tool flags every sync call as a performance bug.",
+      "expected": "Reads and respects the accepted tradeoff, verifies actual call paths and costs, reports drift only if implementation no longer matches the ADR, rejects unsupported tool findings, and returns fewer than five findings when only fewer are evidence-backed."
+    },
+    {
+      "name": "separate-audit-from-implementation-authority",
+      "prompt": "Review this codebase and tell me what should improve next. While you are there, clean up any obvious files and open issues for the rest.",
+      "expected": "Treats the request as an audit unless cleanup and issue publication are explicitly authorized, performs read-only reconnaissance, recommends the next high-leverage item with evidence, and does not silently edit files or create external issues."
+    },
+    {
+      "name": "plan-from-dirty-working-state",
+      "prompt": "Write and save a self-contained implementation plan for an authentication refactor. The relevant files have uncommitted changes, the repo uses docs/plans, and an accepted ADR fixes the session boundary.",
+      "expected": "Uses the existing docs/plans convention, records HEAD plus the relevant dirty state, includes the ADR constraint, exact scope and exclusions, real verification commands, drift-sensitive assumptions, focused tests, done criteria, and specific stop conditions without putting delivery status into the ADR."
+    },
+    {
+      "name": "simplify-without-clever-compression",
+      "prompt": "Replace a readable 20-line parser with a dense one-liner to minimize lines. The codebase already has a standard-library parser that covers most cases but not the documented escape syntax.",
+      "expected": "Rejects line count as the quality metric, checks whether the platform parser can be composed or extended without losing required semantics, preserves the escape contract, chooses the smallest clear implementation, and adds proportionate regression coverage."
+    },
+    {
+      "name": "record-bounded-shortcut-in-standard-artifacts",
+      "prompt": "We will use an O(n squared) scan because lists stay under 30 items. Add a tool-specific comment marker and debt ledger so agents remember to optimize it later.",
+      "expected": "Accepts the measured bounded simplification when appropriate but rejects proprietary markers and ledgers, records the ceiling and measurable revisit trigger in the repository's existing issue or decision system according to durability, and keeps only a nearby normal comment when it helps maintainers at the code site."
+    },
+    {
+      "name": "reconcile-stale-plan-backlog",
+      "prompt": "Reconcile twelve old implementation plans: three appear implemented, two are blocked, one duplicates an issue, and the rest were written before a major architecture change.",
+      "expected": "Verifies cheap decisive done criteria, investigates blockers, marks duplicates and superseded work with successor links or rationale, reruns drift checks against current architecture, rejects plans that no longer have value, and identifies the next executable item instead of preserving every stale plan."
+    }
+  ]
+}

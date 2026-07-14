@@ -23,6 +23,18 @@ This skill borrows the humanizer stance: remove obvious AI writing patterns, the
 add human rhythm and judgment. The point is not to make the text fancy. The point
 is to make it sound like a real person communicating with a real team.
 
+## Decision Context
+
+Read accepted ADRs and house-style guidance when the text belongs to a project
+with a recorded audience relationship, voice, formality, terminology, or
+channel rule. Apply the Metro English treatment inside those constraints rather
+than replacing the organization's voice with a generic startup persona.
+
+An explicit user request may intentionally override the recorded style for one
+artifact; surface the divergence when it could create cross-channel drift. Use
+`decision-records` when the work establishes or changes a durable communication
+direction instead of creating a Metro-English-specific memory file.
+
 ## What this skill does
 
 Use this for:
