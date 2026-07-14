@@ -168,8 +168,9 @@ Read only the references needed for the selected route.
   and verification work.
 - Route locale-specific punctuation, quotation, spacing, and language-level
   typographic rules to `locale-typography`.
-- Route general marketing copy and campaigns to external DALO catalog skills;
-  use Interface Copy only for language embedded in a web experience.
+- Route general marketing copy and campaigns to the separately managed skills
+  selected from the DALO `marketingskills` catalog; use Interface Copy only for
+  language embedded in a web experience.
 - Keep backend-only architecture, infrastructure, deployment, load testing, and
   security audits, and non-web desktop publishing outside this skill unless
   they directly constrain the browser-facing result.

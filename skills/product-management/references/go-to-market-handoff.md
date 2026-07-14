@@ -47,10 +47,13 @@ by itself.
 
 ## Route specialized work
 
-- Use external `customer-research` for a dedicated research program.
-- Use external `product-marketing` for positioning and messaging artifacts.
-- Use external `pricing` for pricing research and packaging decisions.
-- Use external `marketing-plan` and `launch` for channel and launch execution.
+The following marketing specialists come from the separately managed DALO
+`marketingskills` catalog, not this repository:
+
+- Use `customer-research` for a dedicated research program.
+- Use `product-marketing` for positioning and messaging artifacts.
+- Use `pricing` for pricing research and packaging decisions.
+- Use `marketing-plan` and `launch` for channel and launch execution.
 - Use `linkedin-social-selling` only when LinkedIn fits the target buyer and
   touch model.
 - Use `effective-web` for the implemented web journey and measurement surfaces.
