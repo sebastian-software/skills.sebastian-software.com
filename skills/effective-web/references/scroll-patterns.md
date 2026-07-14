@@ -757,11 +757,11 @@ Anchor links scroll targets under the sticky header, making them invisible.
 |---------|--------|---------|--------|------|----------------|
 | `scroll-snap-type` | 69+ | 68+ | 11+ | 79+ | Widely available (Apr 2022) |
 | `scroll-snap-align` | 69+ | 68+ | 11+ | 79+ | Widely available (Apr 2022) |
-| `scroll-snap-stop` | 75+ | 103+ | 15+ | 79+ | Widely available (Jan 2025) |
+| `scroll-snap-stop` | 75+ | 103+ | 15+ | 79+ | Widely available (Jul 2022) |
 | `scroll-padding` | 69+ | 68+ | 14.1+ | 79+ | Widely available (Apr 2022) |
 | `scroll-margin` | 69+ | 68+ | 14.1+ | 79+ | Widely available (Apr 2022) |
-| `scroll-behavior` | 61+ | 36+ | 15.4+ | 79+ | Widely available (Sep 2024) |
-| `overscroll-behavior` | 63+ | 59+ | 16+ | 18+ | Widely available (Mar 2025) |
+| `scroll-behavior` | 61+ | 36+ | 15.4+ | 79+ | Widely available (Mar 2022) |
+| `overscroll-behavior` | 63+ | 59+ | 16+ | 18+ | Limited availability |
 | `scrollbar-color` | 121+ | 64+ | 26.2+ | 121+ | Newly available (Dec 2025) |
 | `scrollbar-width` | 121+ | 64+ | 18.2+ | 121+ | Newly available (Dec 2024) |
 | `scrollbar-gutter` | 94+ | 97+ | 18.2+ | 94+ | Newly available (Dec 2024) |
@@ -770,6 +770,7 @@ Anchor links scroll targets under the sticky header, making them invisible.
 
 **Notes:**
 - Scroll snap is safe to use everywhere without fallbacks
+- `overscroll-behavior` support is incomplete in some engines — treat scroll-chaining control as an enhancement, not a guarantee
 - Verify current browser data before relying on scrollbar styling details; older Safari versions need a fallback
 - Scroll-driven animations (`animation-timeline`) require `@supports` fallback -- treat as progressive enhancement only
 - Scroll-driven animation support varies by browser version; test the fallback in supported browsers

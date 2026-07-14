@@ -62,7 +62,7 @@ dialog.addEventListener("close", () => {
 | Focus trapping | Yes (native) | No | No |
 | Light dismiss | Only with `closedby="any"` | No | Yes (default for `popover="auto"`) |
 | Escape to close | Yes (default) | No | Yes (for `popover="auto"`) |
-| Focus restoration | Yes | Yes | Partial (browser restores on hide only if focus is inside; initial focus placement must be implemented) |
+| Focus restoration | Yes | Yes | Partial (`auto`/`hint` restore on hide if focus is inside; `manual` popovers must implement it; initial focus placement is always on the author) |
 | Semantic role | `dialog` | `dialog` | None (inherits from element) |
 
 ### Use `<dialog>` (Modal) When
@@ -564,7 +564,7 @@ function showToast(message, duration = 5000) {
 }
 ```
 
-When a toast carries an action, auto-dismissal works against keyboard and screen-reader users — extend the duration substantially and offer the same action through a persistent surface (for example an undo entry in a menu or activity list).
+When a toast carries an action, auto-dismissal works against keyboard and screen-reader users — extend the duration substantially and offer the same action through a persistent surface (for example an undo entry in a menu or activity list). Because this is a `manual` popover, the browser never restores focus on dismissal: if focus is inside the toast when it hides, move it back to a sensible target yourself.
 
 ```css
 #toast {

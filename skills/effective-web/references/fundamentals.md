@@ -799,7 +799,7 @@ The Popover API provides native behaviour for non-modal floating UI elements —
 - **Dismisses on outside click** or Escape key
 
 **What you must still handle:**
-- Initial focus placement and focus trapping when the interaction requires them (the browser restores focus on hide only when focus was inside the popover)
+- Initial focus placement and focus trapping when the interaction requires them (`auto`/`hint` popovers restore focus on hide when focus is inside; `manual` popovers never restore focus automatically)
 - Scroll locking or making background content inert; popovers leave the page interactive
 
 **When to use popover:**
@@ -933,7 +933,7 @@ Give matching elements the same `view-transition-name` on both pages (or both st
 .product-hero { view-transition-name: product-image; }
 ```
 
-Each name must be unique across all rendered elements at the same time. Use `view-transition-name: match-element` (Chrome 137+ only, not yet Baseline) for lists where items reorder but don't change identity. Use `view-transition-class` to apply shared animation styles to groups of named elements.
+Each name must be unique across all rendered elements at the same time. Use `view-transition-name: match-element` (Baseline 2025) for lists where items reorder but don't change identity. Use `view-transition-class` to apply shared animation styles to groups of named elements.
 
 #### Custom Animations
 
