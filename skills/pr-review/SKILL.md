@@ -87,14 +87,15 @@ unless the user names specific PRs.
 1. Confirm tooling: `gh auth status` and the current repo (`gh repo view --json
    nameWithOwner`). The active GitHub login is "you" for review attribution.
 2. If the user gave PR numbers, operate on exactly those. Otherwise discover the
-   relevant PRs (Mode A and Mode B sets) per `references/gh-recipes.md`.
+   relevant PRs (Mode A and Mode B sets) with [GitHub recipes](references/gh-recipes.md).
 3. The writing voice depends on the `metro-english` and `humanizer` skills. Use
    them for any non-trivial prose you post (see "Voice"). If they're unavailable,
    fall back to the inline voice rules here.
 
 For every concrete `gh`/`git` command — PR discovery, building the per-PR
 picture, posting inline reviews, the worktree flow, rebasing, CI recovery —
-read **`references/gh-recipes.md`**. Keep that file open while you work.
+read [GitHub recipes](references/gh-recipes.md). Keep that file open while you
+work.
 
 ## Dry-run mode (preview, don't apply)
 
@@ -128,8 +129,8 @@ end to execute specific items if they tell you to, but default to just listing.
 
 ## Per-PR picture (do this first, every PR)
 
-Before deciding anything, build the state. Recipes are in
-`references/gh-recipes.md`.
+Before deciding anything, build the state. Follow
+[GitHub recipes](references/gh-recipes.md).
 
 - What changed **since your last action** on this PR (new commits? new comments?
   new pushes?). If nothing changed since your last review and there are no new

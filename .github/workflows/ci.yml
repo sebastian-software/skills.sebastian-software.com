@@ -49,6 +49,7 @@ jobs:
           dalo sync
           test "$(find "$DALO_TARGET" -mindepth 1 -maxdepth 1 -type l | wc -l | tr -d ' ')" = 14
           test -L "$DALO_TARGET/codebase-improvement"
+          test -L "$DALO_TARGET/consultant-profile"
           test -L "$DALO_TARGET/decision-records"
           test -L "$DALO_TARGET/effective-web"
           test -L "$DALO_TARGET/product-management"
@@ -56,8 +57,10 @@ jobs:
           test -L "$DALO_TARGET/linkedin-social-selling"
           test -L "$DALO_TARGET/locale-typography"
           test -L "$DALO_TARGET/linkedin-posts"
+          test -L "$DALO_TARGET/metro-english"
           test -L "$DALO_TARGET/port-codebases"
           test -L "$DALO_TARGET/pr-review"
+          test -L "$DALO_TARGET/smart-dependency-updater"
           test -L "$DALO_TARGET/web-legal-compliance"
           test ! -e "$DALO_TARGET/github-pr-auto-review"
           test ! -e "$DALO_TARGET/german-typography"

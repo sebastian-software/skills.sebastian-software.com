@@ -1,7 +1,6 @@
 ---
 name: smart-dependency-updater
 description: This skill should be used when the user asks to "update dependencies", "upgrade packages", "replace Dependabot", "make Renovate smarter", "group dependency updates", "create dependency update PRs", "create multiple dependency PRs", "run dependency updates in worktrees", "bump packages with changelog impact", "modernize dependencies and code", or wants dependency PRs that explain upstream changes, validate behavior, and adopt useful new APIs in the local codebase. Default to producing pushed, ready-for-review pull requests for all viable dependency groups unless the user explicitly asks for planning only, draft PRs, local-only branches, or a single group.
-version: 0.1.0
 ---
 
 # Smart Dependency Updater
@@ -27,7 +26,8 @@ Final chat responses should be operational: list PR links, validation status, de
 
 1. **Load repository context first.**
    - Read local instructions such as `AGENTS.md`, `CLAUDE.md`, contribution docs, PR templates, CI workflows, package manifests, lockfiles, and release notes.
-   - Run `scripts/discover_dependency_context.py` from this skill when a quick dependency map is useful.
+   - Run [the dependency-context helper](scripts/discover_dependency_context.py)
+     when a quick dependency map is useful.
    - Identify package managers, workspaces, generated lockfiles, supported runtime versions, and test/build commands before changing versions.
 2. **Build an update inventory.**
    - List currently used dependency versions from manifests and lockfiles.
@@ -88,7 +88,8 @@ Use the smallest group that preserves meaning and compatibility.
 | Types and runtime | `foo` plus `@types/foo` | Same PR unless types update is independent |
 | Security patch | vulnerable package, required direct parents, or a scoped override | Separate PR when urgency or blast radius differs |
 
-Read `references/workflow.md` for a deeper grouping, research, and impact-analysis procedure.
+Read [the detailed workflow](references/workflow.md) for a deeper grouping,
+research, and impact-analysis procedure.
 
 ## PR and Commit Shaping
 
@@ -126,7 +127,8 @@ For each grouped update, collect enough evidence to answer these questions:
 - Which new fixes or features make an existing local workaround unnecessary?
 - Where are the gaps in upstream documentation or changelogs?
 
-Use `references/ecosystem-notes.md` for package-manager commands and ecosystem-specific checks.
+Use [ecosystem notes](references/ecosystem-notes.md) for package-manager
+commands and ecosystem-specific checks.
 
 ## Local Code Adoption
 
@@ -186,7 +188,7 @@ Make PRs accessible and concrete. Apply the same discipline used for good produc
 
 ## Additional Resources
 
-- **`scripts/discover_dependency_context.py`** - Inspect common manifests, lockfiles, package-manager hints, and JS test/build scripts.
-- **`references/workflow.md`** - Detailed end-to-end workflow for inventory, grouping, research, impact classification, implementation, and PR writing.
-- **`references/ecosystem-notes.md`** - Ecosystem-specific commands and checks for JavaScript, Rust, Python, Go, Ruby, Java, and .NET projects.
-- **`evals/evals.json`** - Draft prompts for testing whether this skill produces better dependency-update plans and PR descriptions than a baseline.
+- **[Dependency-context helper](scripts/discover_dependency_context.py)** - Inspect common manifests, lockfiles, package-manager hints, and JS test/build scripts.
+- **[Detailed workflow](references/workflow.md)** - End-to-end workflow for inventory, grouping, research, impact classification, implementation, and PR writing.
+- **[Ecosystem notes](references/ecosystem-notes.md)** - Commands and checks for JavaScript, Rust, Python, Go, Ruby, Java, and .NET projects.
+- **[Evaluation prompts](evals/evals.json)** - Test whether this skill produces better dependency-update plans and PR descriptions than a baseline.
