@@ -70,8 +70,9 @@ and post-release behavior as one system rather than separate handoffs.
 - Define “good enough” by audience, risk, promise, reversibility, and business
   stage. Do not use perfectionism to avoid learning or speed to excuse broken
   trust, accessibility, privacy, reliability, or core usability.
-- Treat details in aggregate. Prioritize clarity, behavior, responsiveness,
-  recovery, and consistency before ornamental novelty.
+- Quality is perceived as the aggregate of details. Prioritize clarity,
+  behavior, responsiveness, recovery, and consistency before ornamental
+  novelty.
 - Treat product quality as a condition for retention and recommendation, not as
   a substitute for distribution. A good launch cannot rescue an irrelevant
   product, and a good product does not guarantee discovery.
@@ -110,3 +111,5 @@ For a broad product decision, return:
   after product outcomes, scope, and quality bar are decided.
 - Use `web-legal-compliance` for privacy, consent, tracking, testimonials,
   direct marketing, and jurisdiction-specific legal requirements.
+- Use `decision-records` to preserve durable product decisions, their
+  tradeoffs, and the conditions that should reopen them.

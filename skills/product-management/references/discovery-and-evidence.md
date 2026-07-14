@@ -51,13 +51,16 @@ and after the decision instead of asking what someone might do in the future.
 
 Treat evidence roughly from stronger to weaker for a product decision:
 
-1. repeated use, renewal, payment, switching, or an operational commitment
-2. observed behavior and documented outcomes in the target situation
-3. specific accounts of recent past behavior from strong-fit participants
-4. repeated support, sales, search, or community patterns with known context
-5. prototype use or a commitment that has a real cost
-6. wait-list sign-ups, survey preferences, compliments, and stated intent
-7. stakeholder opinion, analogy, market-size claims, and AI-generated personas
+1. repeated use, renewal, payment, switching, or operational adoption of the
+   actual product
+2. a meaningful pre-product commitment, such as a paid pilot, deposit,
+   pre-order, letter of intent, or migration effort
+3. observed behavior and documented outcomes in the target situation
+4. specific accounts of recent past behavior from strong-fit participants
+5. repeated support, sales, search, or community patterns with known context
+6. prototype use without a meaningful commitment
+7. wait-list sign-ups, survey preferences, compliments, and stated intent
+8. stakeholder opinion, analogy, market-size claims, and AI-generated personas
 
 The ladder is not a substitute for judgment. Check sample bias, segment fit,
 incentives, and whether the evidence addresses the actual decision.
