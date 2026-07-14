@@ -26,7 +26,8 @@ Contrast = difference in perceived brightness between two colours (ratio 1:1 to 
 
 ### APCA (Accessible Perceptual Contrast Algorithm)
 
-Improved method in WCAG 3 draft - solves WCAG 2 limitations.
+Perceptual contrast method being developed for WCAG 3. It is not a WCAG 2.x
+conformance method.
 
 **APCA Contrast Values:**
 - 90 - Preferred for body text (14px regular+)
@@ -42,11 +43,9 @@ Improved method in WCAG 3 draft - solves WCAG 2 limitations.
 - Swapping text/background colours affects contrast
 - Works better for dark interfaces
 
-**Default:** Use APCA as the primary design and review standard for all
-projects. It is the acceptance metric for perceived contrast, including dark
-interfaces and text-size/weight decisions. When a project must make a formal
-WCAG 2.x conformance claim or satisfy a contract/audit based on WCAG 2, also
-pass the applicable WCAG 2 ratios as a separate compliance gate.
+**Default:** Meet applicable WCAG 2.2 AA contrast requirements first. Use APCA
+as a supplementary perceptual check, especially for dark interfaces and
+text-size/weight decisions; do not substitute it for WCAG 2.x conformance.
 
 ## Don't Rely on Colour Alone to Convey Meaning
 
