@@ -30,7 +30,7 @@ results without pretending that browsers provide every DTP capability.
 | Layout | [print-layout.md](print-layout.md) — layers, reset, @page, simulation, grid, fragmentation |
 | Web Print CSS | [print-web-styles.md](print-web-styles.md) — print styles for ordinary web pages |
 | Page Features | [print-page-features.md](print-page-features.md) — headers/footers, counters, bleed, links, element styles |
-| Locale | [print-locale.md](print-locale.md) — quotation marks, dashes, numbers, spacing per locale, preprocessing tools |
+| Locale | [print-locale.md](print-locale.md) — integrate reviewed locale rules into print CSS; route language-level rules to `locale-typography` |
 
 ## Print vs. Screen
 
