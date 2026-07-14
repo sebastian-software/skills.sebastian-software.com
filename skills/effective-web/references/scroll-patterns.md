@@ -762,17 +762,17 @@ Anchor links scroll targets under the sticky header, making them invisible.
 | `scroll-margin` | 69+ | 68+ | 14.1+ | 79+ | Widely available (Apr 2022) |
 | `scroll-behavior` | 61+ | 36+ | 15.4+ | 79+ | Widely available (Mar 2022) |
 | `overscroll-behavior` | 63+ | 59+ | 16+ | 18+ | Widely available (Mar 2023) |
-| `scrollbar-color` | 121+ | 64+ | -- | 121+ | Partial (no Safari) |
-| `scrollbar-width` | 121+ | 64+ | -- | 121+ | Partial (no Safari) |
-| `scrollbar-gutter` | 94+ | 97+ | -- | 94+ | Partial (no Safari) |
-| `animation-timeline` | 115+ | -- | -- | 115+ | Limited (Chrome/Edge only) |
+| `scrollbar-color` | 121+ | 64+ | 18.2+ | 121+ | Newly available |
+| `scrollbar-width` | 121+ | 64+ | 18.2+ | 121+ | Newly available |
+| `scrollbar-gutter` | 94+ | 97+ | 18.2+ | 94+ | Newly available |
+| `animation-timeline` | 115+ | -- | 26+ | 115+ | Progressive enhancement |
 | `view()` / `scroll()` | 115+ | -- | -- | 115+ | Limited (Chrome/Edge only) |
 
 **Notes:**
 - Scroll snap is safe to use everywhere without fallbacks
-- `scrollbar-color` and `scrollbar-width` require a WebKit fallback for Safari
+- Verify current browser data before relying on scrollbar styling details; older Safari versions need a fallback
 - Scroll-driven animations (`animation-timeline`) require `@supports` fallback -- treat as progressive enhancement only
-- Firefox has `animation-timeline` behind a flag; Safari has no implementation yet
+- Scroll-driven animation support varies by browser version; test the fallback in supported browsers
 
 ## Chapter Summary
 
