@@ -246,7 +246,7 @@ Pair with structured data (see below) to display breadcrumbs directly in search 
 
 ## Structured Data (JSON-LD)
 
-Structured data helps search engines understand *what* content is, not just *what it says*. It enables rich results — star ratings, FAQ accordions, breadcrumb paths, product prices in search results.
+Structured data helps search engines understand *what* content is, not just *what it says*. It can enable eligible rich results such as star ratings, breadcrumb paths, and product prices in search results. Google FAQ rich results have separate eligibility limits.
 
 ### Implementation
 
@@ -276,12 +276,12 @@ Use JSON-LD (JavaScript Object Notation for Linked Data) embedded in a `<script>
 | `Article` | Blog posts, news articles | Headline, image, date in results |
 | `Product` | Product pages | Price, availability, ratings |
 | `BreadcrumbList` | Breadcrumb navigation | Breadcrumb trail in results |
-| `FAQPage` | FAQ sections | Expandable Q&A in results |
+| `FAQPage` | FAQ sections | Google FAQ rich results only for well-known, authoritative government and health sites |
 | `Organization` | Company info | Knowledge panel, logo |
 | `LocalBusiness` | Physical business or location pages | Local panels, business facts |
 | `Service` | Service pages | Entity clarity for offered services |
 | `WebSite` | Homepage | Sitelinks search box |
-| `HowTo` | Step-by-step guides | Step-by-step rich result |
+| `HowTo` | Step-by-step guides | No Google rich result (retired) |
 
 ### BreadcrumbList Example
 
@@ -524,7 +524,7 @@ Many performance optimisations are covered across other chapters. This is a cros
 3. Use self-referencing `<link rel="canonical">` on every page
 4. Set `<html lang="...">` and use `hreflang` for multilingual sites
 5. Maintain exactly one `<h1>` per page with a logical heading hierarchy — no level skipping
-6. Add JSON-LD structured data for rich results (Article, Product, BreadcrumbList, FAQPage)
+6. Add only supported, relevant JSON-LD structured data for rich results (for example, Article, Product, and BreadcrumbList); Google FAQ rich results are limited to well-known, authoritative government and health sites
 7. Use descriptive, hyphenated file names and natural alt text for images
 8. Meet Core Web Vitals targets: LCP < 2.5s, INP < 200ms, CLS < 0.1
 9. Link important pages within 3 clicks of the homepage with descriptive anchor text

@@ -48,7 +48,7 @@
     {
       "name": "migrate-color-representation",
       "prompt": "Convert an existing tokenized theme from hex and rgb to OKLCH without redesigning it, including gradients, alpha colors, third-party chart configuration, light/dark states, and contrast checks.",
-      "expected": "Preserves token semantics and CSS structure, leaves formats required by third parties alone, uses tested conversion and gamut handling, treats APCA as the design metric, and adds WCAG 2 checks only when formal conformance is required."
+      "expected": "Preserves token semantics and CSS structure, leaves formats required by third parties alone, uses tested conversion and gamut handling, meets applicable WCAG 2.2 AA contrast requirements, and uses APCA as a supplementary perceptual check."
     },
     {
       "name": "defer-expensive-subtree",

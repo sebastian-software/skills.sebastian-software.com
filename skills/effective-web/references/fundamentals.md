@@ -779,14 +779,14 @@ This is particularly useful for elements that toggle visibility: dialogs, popove
 }
 ```
 
-### Use the Popover API for Tooltips, Dropdowns, and Menus
+### Use the Popover API for Non-Modal Tooltips, Dropdowns, and Menus
 
-The Popover API (Baseline 2025) provides native behaviour for floating UI elements — no JavaScript libraries needed for the basics:
+The Popover API provides native behaviour for non-modal floating UI elements — no JavaScript libraries needed for the basics:
 
 ```html
 <button popovertarget="actions-menu">Actions</button>
 <div id="actions-menu" popover>
-  <ul role="menu">
+  <ul>
     <li><button>Edit</button></li>
     <li><button>Duplicate</button></li>
     <li><button>Delete</button></li>
@@ -797,8 +797,10 @@ The Popover API (Baseline 2025) provides native behaviour for floating UI elemen
 **What the browser handles automatically:**
 - Renders in the **top layer** (no z-index wars)
 - **Dismisses on outside click** or Escape key
-- **Manages focus** — moves focus to the popover, returns it on close
-- Prevents background scrolling
+
+**What you must still handle:**
+- Focus movement, focus trapping, and focus restoration when the interaction requires them
+- Scroll locking or making background content inert; popovers leave the page interactive
 
 **When to use popover:**
 - Dropdown menus and action menus
@@ -806,8 +808,8 @@ The Popover API (Baseline 2025) provides native behaviour for floating UI elemen
 - Notification toasts (combine with `popover="manual"` for persistent display)
 
 **When to use `<dialog>` instead:**
-- Modal dialogs that require user action before continuing
-- Confirmation prompts, form overlays
+- Modal dialogs that require focus trapping and background inertness
+- Confirmation prompts and form overlays that require user action before continuing
 
 Combine with `@starting-style` for animated entry/exit — the Popover API and `@starting-style` were designed to work together.
 
@@ -832,7 +834,9 @@ The `inert` attribute (Baseline 2023) makes an element and all its descendants n
 
 **You do NOT need `inert` when using:**
 - `<dialog>.showModal()` — the browser automatically makes everything outside the dialog inert
-- Popover API — the browser manages focus and dismissal
+
+Popover API surfaces remain non-modal: automatic popovers provide light dismissal,
+but do not manage focus or make the page inert.
 
 **Use `inert` when:**
 - Building a custom drawer/sidebar that overlays the page

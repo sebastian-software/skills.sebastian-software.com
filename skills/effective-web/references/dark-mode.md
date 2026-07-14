@@ -244,7 +244,9 @@ WCAG Success Criterion 1.4.3 does not include exceptions for dark mode. The same
 
 Every colour combination must be verified independently in each theme. Colours that pass on white may fail on dark grey and vice versa.
 
-APCA (the algorithm behind WCAG 3 draft) handles dark backgrounds more accurately than WCAG 2. See `colour.md` for APCA contrast values.
+APCA is a supplementary perceptual check for dark backgrounds. It does not
+replace applicable WCAG 2.2 AA contrast requirements; see `colour.md` for its
+guidance.
 
 ## Implement a User Preference Toggle
 
