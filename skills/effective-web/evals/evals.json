@@ -109,6 +109,26 @@
       "name": "enhance-customizable-select",
       "prompt": "Replace a custom color picker combobox with customizable select. The design removes all option text in favor of swatches and assumes the new select styling is Baseline because select itself is widely available.",
       "expected": "Separates the subfeature's Limited availability from the select element's status, keeps real option text and native semantics, makes swatches additive, support-gates the visual enhancement, and tests the classic fallback, accessible value, mobile picker, hydration, and form submission."
+    },
+    {
+      "name": "optimize-lazy-responsive-images",
+      "prompt": "A card grid has complex container-driven widths. Every below-the-fold image is lazy-loaded and has a srcset, but the team maintains brittle hand-calculated sizes strings. The hero image is also lazy-loaded. Modernize the markup without regressing older browsers or LCP.",
+      "expected": "Uses sizes=\"auto, <descriptive fallback>\" with explicit dimensions for the lazy-loaded card images, preserves a fallback for unsupported browsers, and removes lazy loading from the hero/LCP image while giving it an accurate descriptive sizes value and early discovery."
+    },
+    {
+      "name": "stabilize-streaming-output",
+      "prompt": "An AI transcript app appends every token directly to the DOM, always snaps to the bottom, leaves buffered text after Stop, and announces every token. Redesign the streaming behavior.",
+      "expected": "Batches DOM writes to animation frames, follows only while the reader remains near the end, preserves manual scrolling, fully clears and marks canceled partial output, keeps retry context and keyboard controls, and uses a tested polite transcript announcement strategy without token-level speech."
+    },
+    {
+      "name": "build-clickable-card-controls",
+      "prompt": "Make an entire article card clickable while retaining its bookmark button and overflow menu. The proposed markup nests both buttons inside the article link.",
+      "expected": "Rejects nested interactive content, keeps the primary link and secondary buttons as semantic siblings, optionally expands the primary link with a positioned pseudo-element below raised secondary controls, and verifies hit-area separation, focus order, visible focus, selection, and accessible names."
+    },
+    {
+      "name": "preserve-tonal-gradient-chroma",
+      "prompt": "A theme generator creates the darker stop of every brand gradient by reducing HSL lightness by 20%. A designer proposes always rotating the darker stop's hue by 14 degrees instead because one blue example looks more vibrant. Define a general approach that can work across arbitrary brand colours.",
+      "expected": "Converts to OKLCH, chooses target lightness, keeps hue fixed initially, preserves and gamut-maps as much chroma as the target gamut permits, and treats any hue trajectory as curated palette-specific art direction rather than a universal offset. It also chooses gradient interpolation deliberately and verifies foreground contrast across the full gradient."
     }
   ]
 }

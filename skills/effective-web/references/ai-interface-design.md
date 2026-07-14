@@ -56,6 +56,26 @@ Choose the smallest fitting surface:
 - Keep high-impact actions explicit and attributable. Log what changed and make
   recovery proportional to the possible harm.
 
+## Streaming and partial output
+
+- Treat streaming as an explicit state machine: queued, streaming, stopped with
+  partial output, failed, and complete. Do not present a canceled or interrupted
+  response as complete, and preserve the prompt/context so retry does not make
+  the user reconstruct their work.
+- Auto-follow only while the reader is already near the end. Stop moving the
+  viewport when they scroll up, resume only when they return to the end, and
+  keep Stop, Retry, and adjacent controls from shifting under pointer or focus.
+- Decouple network arrival from rendering. Buffer incremental chunks and batch
+  DOM writes to animation frames; extend stable nodes instead of rebuilding the
+  whole response for every token. Cancellation must abort the source, clear
+  pending buffers, remove transient cursors, and expose the incomplete state.
+- Make concurrent streams independent; never let two operations append into the
+  same output surface or reuse stale buffers and listeners.
+- Use a suitable persistent transcript such as `role="log"` with carefully
+  tested polite, non-atomic announcements when updates must be spoken. Avoid
+  announcing every token, keep Stop keyboard-reachable, focus newly relevant
+  recovery actions intentionally, and respect reduced motion.
+
 ## Review checklist
 
 - Would a familiar non-chat pattern serve the task better?

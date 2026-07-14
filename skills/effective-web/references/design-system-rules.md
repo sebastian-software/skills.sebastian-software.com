@@ -27,7 +27,12 @@ Use this reference for reusable design-system decisions that cut across colour, 
   Where a formal WCAG 2.x conformance claim, contract, or audit is in scope,
   also pass the applicable WCAG 2 ratios; those ratios are a separate
   compliance gate, not the design target.
-- Treat `contrast-color()` as a convenience for picking black or white foregrounds, not an accessibility guarantee; it has minimal browser support, so provide an explicit fallback. Plan `prefers-contrast` and light/dark alternatives rather than relying on automatic foreground selection.
+- Treat `contrast-color()` as a Baseline-2026 convenience for picking black or
+  white foregrounds, not an accessibility guarantee. Declare an explicit color
+  before it when older targets matter, and verify the selected pair because
+  mathematical preference between black and white can still leave mid-tone
+  backgrounds perceptually weak. Plan `prefers-contrast` and light/dark
+  alternatives rather than relying on automatic foreground selection.
 
 ### Theming architecture
 

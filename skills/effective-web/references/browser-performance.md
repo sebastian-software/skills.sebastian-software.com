@@ -123,6 +123,13 @@ measurement reveals, not the technique that is easiest to apply.
   `srcset` (width descriptors) and an accurate `sizes` attribute. A `sizes` value
   that does not match the real layout across breakpoints makes the browser pick
   the wrong candidate and waste bytes.
+- For below-the-fold images that already use `loading="lazy"`, consider
+  `sizes="auto, <descriptive fallback>"`: supporting browsers can select from
+  `srcset` using the computed layout size, while older browsers skip `auto` and
+  use the remaining sizes list. Keep explicit `width` and `height` (or a stable
+  aspect ratio) so deferred layout has reliable dimensions. Do not use this as
+  a reason to lazy-load a hero or likely LCP image; those still need an accurate
+  descriptive `sizes` value and early discovery.
 - Use `<picture>` with media-conditioned `<source>` only for genuine art
   direction (different crop or aspect ratio per viewport). For pure
   resolution-switching, `srcset` + `sizes` on a single `<img>` is sufficient and
