@@ -460,6 +460,20 @@ Express your spacing scale as CSS custom properties derived from a single ratio.
 
 Use these everywhere: `padding: var(--s1)`, `gap: var(--s0)`, `margin-block-start: var(--s3)`. Change `--ratio` and the entire design scales harmoniously. The ratio of 1.5 mirrors a common `line-height` value, creating natural vertical rhythm.
 
+### Fluid Space Pairs
+
+When a page region needs a much larger change than ordinary component spacing,
+interpolate between two different steps rather than scaling one fixed token.
+For example, a section gap may move from the small scale's `--space-l` to the
+large scale's `--space-3xl` while remaining bounded between them. Reserve these
+paired tokens for intentional regional transitions; component padding and gaps
+should normally use a single stable step.
+
+Keep fluid spacing tied to a root-relative rhythm and expose the result as a
+semantic custom property. Test short landscape viewports, mobile browser chrome,
+zoom, and content expansion whenever viewport-relative block sizing contributes
+to the formula.
+
 ## Set a Global Measure Axiom
 
 Cap line length globally using an exception-based approach:
@@ -558,6 +572,14 @@ Auto-filling grid that adapts column count to available space:
 }
 ```
 The `min(250px, 100%)` prevents overflow on narrow screens.
+
+Expose the minimum track size, gap, and placement behavior as semantic custom
+properties with useful fallbacks when this is a shared composition. Use
+`auto-fit` when empty tracks should collapse and existing items should stretch;
+use `auto-fill` when preserving the implicit track structure is intentional.
+Do not turn a simple grid into a universal primitive: if one consumer requires
+multiple mode-specific queries and undo rules, give that pattern a focused
+layout instead.
 
 ### The Frame Pattern
 Crop any content to an aspect ratio:

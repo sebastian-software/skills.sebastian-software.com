@@ -40,6 +40,21 @@ Build components as durable interface primitives: semantic DOM first, clear stat
   look unbalanced. Correct the source SVG `viewBox` or path when possible;
   otherwise use a small, documented local adjustment and verify it across icon
   variants, writing directions, and zoom levels.
+- Inventory every observed use before extracting a visual primitive. Confirm
+  size, color, placement, states, content, and context independence; one repeated
+  shape in a design file is not yet proof of one reusable contract.
+- Treat repeated authored CSS inside a component as an ownership diagnostic.
+  Shared behavior should normally remain in globals, compositions, utilities,
+  or tokens, while the component owns its distinctive internal relationship.
+  Do not optimize for a low line count, but investigate unexplained restatement.
+- Give fixed geometry around text — circular badges, clipped labels, fixed-height
+  headings — only when content length and localization are contractually bounded.
+  Otherwise let content size the element or provide explicit wrapping and
+  overflow behavior.
+- When a component clips or masks media, verify that focus indicators and
+  meaningful content are not clipped with it. Keep overlay layers inside a local
+  stacking context and derive coupled offsets from one exposed value instead of
+  repeating matching constants.
 
 ## Component Pattern Rules
 

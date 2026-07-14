@@ -27,6 +27,10 @@ delay or obscure the user's task.
 ## Transitions vs Animations
 
 - Prefer CSS `transition` for simple, reversible state changes driven by a class, attribute, or pseudo-class (`:hover`, `[data-open]`, `[aria-expanded]`). Transitions are naturally interruptible — the browser retargets smoothly when the state flips mid-flight.
+- If entry and exit intentionally behave differently — for example, a brief
+  eased entrance with an immediate reset — name that interaction contract and
+  keep the asymmetric transition at the state that owns it. Mirror the meaningful
+  cue for keyboard activation and keep the static result under reduced motion.
 - Use CSS `@keyframes` animations for multi-step, looping, or self-starting motion (loaders, attention pulses, entry sequences). Omit intermediate keyframes you do not need — partial keyframes (only `from`/`to`, or a single `50%`) keep motion bounded and let the browser interpolate the rest.
 - Make every animation interruptible. User input must be able to cancel, reverse, or retarget an in-progress animation; never block interaction while motion plays. For JS-driven motion, hold the `Animation` object so it can be `cancel()`ed or reversed.
 

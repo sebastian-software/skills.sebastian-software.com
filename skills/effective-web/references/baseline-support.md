@@ -14,6 +14,10 @@ Use current browser-support evidence before turning modern web-platform features
   product's actual browser distribution, and the harm if an unsupported user
   cannot complete the task. A global support percentage is not a release rule.
 - Gate newer APIs behind `@supports`, with a defined fallback for the unsupported path, whenever absent support would break layout or function rather than degrade gracefully. Remember that a feature query proves that syntax parses, not that a browser's implementation is complete, interoperable, accessible, or bug-free.
+- Do not add a feature query reflexively. When CSS can ignore one enhanced
+  declaration and retain the preceding usable value, prefer that natural
+  cascade fallback. Use `@supports` for coordinated branches, fallback removal,
+  or cases where unsupported parsing would otherwise leave an inconsistent UI.
 - Encode the support target once in Browserslist and let Stylelint, autoprefixing, and CI read from it, so support policy is enforced mechanically instead of by memory.
 - Wire the same support target into design-system defaults, so shared components ship only features the target browsers honor.
 - Prefer logical properties (`margin-block`, `inset-inline`, `padding-block`) over physical ones so layouts adapt to writing mode and direction.
@@ -24,7 +28,10 @@ Use current browser-support evidence before turning modern web-platform features
 - Use cascade layers (`@layer`) to control source-order precedence instead of reaching for `!important`.
 - Guard motion behind `@media (prefers-reduced-motion: reduce)`; ship animation and View Transitions as an enhancement that a reduced-motion preference disables.
 - Improve text with `text-wrap: balance` for headings and `text-wrap: pretty` for body copy where Baseline support allows, treating both as progressive enhancements.
-- Size root and fluid type with `clamp()` and viewport-relative units so typography scales without per-breakpoint overrides.
+- Size root and fluid type with bounded `clamp()` formulas that retain a
+  root-relative contribution alongside any viewport term, so typography scales
+  without per-breakpoint overrides while browser zoom still changes it
+  materially.
 - Start from a modern reset (`box-sizing: border-box`, sensible `line-height`, removed default margins, accessible form and media defaults) rather than copying a dated reset verbatim.
 - Treat Baseline as compatibility evidence only, not as proof of accessibility, usability, performance, security, assistive-technology behavior, or framework support; verify those separately.
 - When sources disagree, trust current Baseline/MDN/Web Platform Dashboard data over older articles, release notes, social posts, or single-browser demos.
@@ -35,6 +42,10 @@ Use current browser-support evidence before turning modern web-platform features
 - Treat the feature-erasure result as a core-to-enhancement gate: do not add
   decorative overlap, sticky behavior, advanced type effects, or motion until
   the remaining semantic experience is readable, operable, and verified.
+- Judge an unsupported path by task completion, reading and interaction friction,
+  and content integrity rather than visual parity. A less elegant border or
+  alignment can be an acceptable fallback; missing content, focus, or action is
+  not.
 
 ## Adoption Policy
 

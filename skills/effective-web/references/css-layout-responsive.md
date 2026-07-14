@@ -25,7 +25,26 @@ Use CSS layout algorithms deliberately. Grid, Flexbox, Subgrid, container querie
 - Use full-bleed/grid wrapper patterns when readable text and breakout media must coexist without wrapper sprawl.
 - Drive content-aware sections from the content itself — `:has()`, quantity queries (`:nth-child` / `:nth-last-child` of-type counts), container query units, and `clamp()` — with `@supports` fallbacks, so layouts adapt to variable item counts and text lengths instead of relying on brittle breakpoint-only rules.
 - Use `min-width: 0`, intrinsic sizing constraints, and explicit `aspect-ratio` defensively in cards, grids, media, and overflow-prone components to prevent blowouts and reserve space against layout shift (CLS).
+- Prevent icons, markers, and fixed control affordances from becoming squishy in
+  flex layouts with `flex: none` or an intentional `flex-shrink: 0`; do not apply
+  it to text-bearing regions that need to yield and wrap.
 - Express local layout math through clearly named semantic custom properties; avoid clever cascading custom properties that hide which element owns a value.
+- Treat shared compositions as small CSS APIs: give every configurable custom
+  property a sensible fallback, keep the primitive useful with no local setup,
+  and let components configure the relationship instead of duplicating its
+  implementation.
+- Distinguish `auto-fit` from `auto-fill` in responsive grids. Collapse empty
+  tracks with `auto-fit` when present items should consume the available row;
+  preserve the track scaffold with `auto-fill` only when empty tracks are part
+  of the intended placement behavior.
+- Stop generalizing a layout primitive when one consumer needs compound
+  viewport/container conditions, repeated resets, or markup inserted only to
+  make a query possible. Find a stable behavioral invariant or move the
+  exceptional layout into the owning pattern.
+- Bound viewport-relative block spacing and sizing with root-relative minima and
+  maxima. Prefer logical viewport units (`vi`/`vb`, or the appropriate dynamic
+  viewport unit) when the relationship follows writing-mode axes, and test
+  shallow landscape viewports, browser chrome, and zoom.
 - Treat new primitives such as `round()`, multi-column wrapping features, `@scope`, and style queries as support-gated enhancements until the target browser baseline is verified.
 
 ## Layout Selection Guide

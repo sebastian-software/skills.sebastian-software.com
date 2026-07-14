@@ -49,6 +49,13 @@ Use this reference for reusable design-system decisions that cut across colour, 
 
 ### Agent-readable system contracts
 
+- Map measurements from design artifacts to the nearest approved token first.
+  Record and review meaningful deviations instead of importing raw pixels as new
+  component values; preserve the intended hierarchy, not accidental measurement
+  noise from one frame.
+- When coupled geometry depends on part of a composite token, expose that stable
+  sub-value once and derive the dependent offset from it. Do not duplicate a
+  border width, inset, or radius as a second magic constant that can drift.
 - Treat design decisions as maintained infrastructure. Record component purpose,
   allowed variants, token roles, states, accessibility constraints, examples,
   and anti-examples in versioned text next to the implementation.
@@ -76,6 +83,9 @@ Use this reference for reusable design-system decisions that cut across colour, 
 - Preserve room for documented product-specific components. A closed token set
   should prevent accidental drift, not force every legitimate exception into a
   generic primitive.
+- Document supported component-plus-utility and composition combinations. A
+  flexible API whose valid recipes live only in contributor memory is not a
+  reusable system contract.
 
 ### SVG, icons, and visual effects
 

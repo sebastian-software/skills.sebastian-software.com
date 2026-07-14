@@ -36,6 +36,21 @@ Use this reference for typography decisions: readable measure, wrapping, fluid s
 - Use `font-size-adjust` to hold perceived text size constant across a webfont swap or a serif/sans mix by pinning the x-height ratio, which removes the size jump and reflow when the fallback is replaced.
 - Treat text-box trimming (`text-box-trim` / `text-box-edge`, formerly proposed as `leading-trim`) as the precise way to remove the half-leading above cap height and below the baseline so headings and buttons align to their glyphs rather than their line box. Support is still limited and Chromium-led; gate it behind `@supports` and keep manual optical padding as the fallback.
 - For editorial or CMS content, define vertical rhythm from semantic structure rather than arbitrary spacing after every element. Express rhythm with low-specificity selectors — e.g. `:where(h2, h3, p, ul, ol, blockquote, figure)` for the base step and `:has()` for context-sensitive gaps (a heading immediately followed by a paragraph, or a figure between paragraphs) — and reset the first/last child edges so sections do not accumulate stray margins.
+- Set measure by content role: paragraphs, lists, captions, and quotations often
+  need a narrower readable measure than display headings, tables, code, or media.
+  Do not apply one `max-inline-size` indiscriminately to every prose child.
+- For user-authored, translated, or CMS text, combine the correct document
+  language with `hyphens: auto` where appropriate and an emergency
+  `overflow-wrap` strategy for URLs, identifiers, and long unbroken words. Test
+  the longest supported locales; hyphenation without the correct `lang` is not a
+  reliable overflow solution.
+- Stress-test unusually tight display leading with real ascenders, descenders,
+  multiple lines, fallback fonts, zoom, and narrow containers. A visually flat
+  line-height is acceptable only when glyphs never collide or clip.
+- When inline code, highlights, or badges can wrap, use
+  `box-decoration-break: clone` where each line fragment needs its own padding,
+  background, and border. Keep a readable no-clone fallback and test copied text
+  and selection rather than forcing the inline content onto one line.
 
 ## Typography Review Checklist
 
@@ -50,4 +65,8 @@ Use this reference for typography decisions: readable measure, wrapping, fluid s
 - Do link underlines follow the font metrics without cutting through glyphs or
   weakening the link affordance?
 - Does long-form content keep rhythm across headings, paragraphs, lists, quotes, figures, and first/last child edges?
+- Do prose measures reflect content roles, and do long localized words, URLs,
+  and identifiers wrap without breaking the layout?
+- Does tight display leading survive glyph, fallback-font, zoom, and multiline
+  stress cases?
 - Are newer text metrics features guarded or treated as progressive enhancement?

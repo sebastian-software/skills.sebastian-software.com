@@ -229,6 +229,36 @@
       "name": "evolve-documented-css-abstractions",
       "prompt": "A component needs one unusual spacing value. The proposal adds a global token, five utility variants and a public custom property, while the repository already contains several undocumented versions of similar components and an unused prototype kept for reference.",
       "expected": "Keeps the one-off need local unless repeated use or an established system decision proves a stable abstraction, audits existing ownership and discoverability, removes the unused prototype because Git preserves history, avoids speculative utilities, and updates purpose, defaults, inputs, limits, examples and source-adjacent guidance in the same task when a reusable API genuinely changes."
+    },
+    {
+      "name": "build-coherent-fluid-type-and-space-scales",
+      "prompt": "A marketing site defines every heading with an unrelated px-based clamp formula and every large section gap with another viewport-only value. Browser zoom barely changes the display type, and components import values directly from the scale generator. Redesign the system.",
+      "expected": "Defines small- and large-context type scales with deliberate endpoint ratios, interpolates corresponding steps with bounded formulas that retain a root-relative term, allows explicit outliers without corrupting the scale, and verifies the whole scale at continuous widths and browser zoom. It creates paired fluid spacing only for justified regional transitions and exposes stable semantic custom properties so components do not depend on the generator."
+    },
+    {
+      "name": "keep-layout-compositions-intrinsic-and-bounded",
+      "prompt": "A shared responsive grid has eight viewport and container queries, several undo rules, and a required empty wrapper used only so the parent can be queried. Another developer suggests adding more options so every gallery, footer and card list can use it.",
+      "expected": "Treats the compound conditions, query-only markup and undo chain as evidence that the primitive no longer has one stable job; restates the intended behavior, keeps the common composition intrinsic and configurable through semantic custom properties with useful fallbacks, distinguishes auto-fit from auto-fill deliberately, and moves genuinely mode-specific behavior into the owning pattern instead of expanding a universal grid."
+    },
+    {
+      "name": "choose-natural-css-fallback-before-support-branch",
+      "prompt": "A team wraps every modern declaration in an @supports block, including a decorative property that unsupported browsers can simply ignore. The resulting stylesheet duplicates whole component rules across support branches. Review the strategy.",
+      "expected": "Declares a usable fallback first and lets the cascade ignore the single unsupported enhancement when that leaves coherent content and interaction. It reserves @supports for coordinated declaration changes, fallback removal or parsing-sensitive behavior, keeps any branch next to the feature, and judges the fallback by task completion and friction rather than pixel parity."
+    },
+    {
+      "name": "harden-global-css-and-authored-content",
+      "prompt": "Global CSS covers headings and paragraphs only. A CMS page introduces a long German compound word, a URL, wrapped checkbox labels, hidden generated fields, a code block, a details element and a hash link beneath a sticky header. Define the missing implementation and verification contract.",
+      "expected": "Extends the semantic baseline and resizable kitchen-sink fixture to prose, code, forms, selection, disclosures and fragment navigation; requires the correct lang for hyphenation plus emergency wrapping, horizontal code overflow, native labelled controls with accent-color where suitable, generated-markup-safe form rhythm, visible disabled communication, selection contrast and scroll clearance for the real hash target under persistent UI."
+    },
+    {
+      "name": "design-durable-css-component-contracts",
+      "prompt": "A card variant uses fixed-size text badges, duplicates border width in an overlay offset, clips the focus ring with overflow hidden, changes only on descendant hover, and creates a second modifier class whenever an optional decorative child appears. Review the component CSS.",
+      "expected": "Requires a content and localization contract before fixed text geometry, derives coupled overlay geometry from one exposed value, keeps layers in a local stacking context without clipping focus, mirrors hover feedback for keyboard and touch, and uses real child presence or semantic state rather than redundant variants when no other behavior changes. It keeps selectable text, distinct destinations and parent-owned external layout intact."
+    },
+    {
+      "name": "challenge-opaque-container-filling-type",
+      "prompt": "To make a heading fill its container, a prototype duplicates the heading as aria-hidden reference text and uses @property plus trigonometric CSS math. It overflows at intermediate widths, but the team wants to ship it because the effect is impressive. Decide what to do.",
+      "expected": "Confirms the visual intent and compares the effect with a simple token-based responsive heading in the real container across continuous widths. It treats duplicated content, opaque math, support, semantics, developer comprehension and failure behavior as architecture risks; keeps a readable wrapping fallback inside the enhancement; and ships the complex version only if it prevents a meaningful user-facing failure, otherwise deleting it and recording any bounded follow-up debt."
     }
   ]
 }

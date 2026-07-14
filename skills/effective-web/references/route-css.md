@@ -27,3 +27,11 @@ Use this skill for making CSS maintainable, predictable, and compatible with the
 - [platform-feature-radar.md](platform-feature-radar.md) - dated leads for recent
   Baseline features that older model knowledge may miss.
 - [css-build-tooling.md](css-build-tooling.md) - CSS build tooling and generated output rules.
+- [css-layout-responsive.md](css-layout-responsive.md) - intrinsic layout,
+  configurable compositions, container behavior, and responsive CSS algorithms.
+- [typography-rules.md](typography-rules.md) - fluid type, text metrics, wrapping,
+  and authored-content resilience.
+- [component-development.md](component-development.md) - semantic component
+  state, custom-property contracts, focus, clipping, and local layout ownership.
+- [ui-quality-gates.md](ui-quality-gates.md) - semantic fixtures, feature erasure,
+  continuous resize, and core-to-enhancement verification.

@@ -192,6 +192,10 @@ Vue, Svelte, or plain HTML/CSS:
   assistive technology.
 - Form inputs have `label`, meaningful `name`, appropriate `type`,
   `autocomplete`, and `inputmode`. Do not block paste.
+- Global form and prose fixtures include wrapped labels, disabled explanations,
+  hidden or generated fields, long localized words, URLs, code overflow,
+  selection contrast, disclosure widgets, and real fragment navigation beneath
+  persistent UI.
 - Disable spellcheck for email addresses, usernames, invitation codes, and
   machine identifiers when spelling suggestions would corrupt or distract from
   the value. Do not disable it for normal prose fields.
