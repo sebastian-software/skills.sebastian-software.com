@@ -25,16 +25,18 @@ Load only the relevant category file based on the user's topic:
 | Recognition & Appreciation | [references/recognition-appreciation.md](references/recognition-appreciation.md) | 17 |
 | Tools & Resources | [references/tools-resources.md](references/tools-resources.md) | 20 |
 
-**Format:** `ID|Title|Type|Effort|Desc|Sample` — Types: T=Text, P=Poll, V=Video, I=Image/infographic — Effort: L/M/H
+**Format:** `ID|Topic prompt`. Prompts are discovery cues, not model posts:
+do not reuse their emoji-heavy wording, calls to action, or hashtags. Choose the
+post format and effort from the user's goal and available capacity instead of
+treating them as database metadata.
 
 **Routing rules:**
 - If the user asks for ideas in a specific category → load that file
 - If the user wants a content calendar → load 2-3 relevant categories
 - If the user wants to browse all → ask which category first, don't load all at once
 - For writing a specific post → ask for context (see below), use the matching category file for inspiration
-- For a document/PDF carousel request → prefer suitable `I` ideas as the visual
-  concept. If the requested category has none, adapt another suitable idea from
-  that category into an accessible document post.
+- For a document/PDF carousel request → adapt a relevant prompt into an
+  accessible document-post concept.
 
 ---
 
@@ -185,10 +187,14 @@ What image, carousel, or media would complement this post.
 
 Ask the user:
 1. **What category interests you?** (Company Updates, Industry Insights, Personal Stories, Professional Development, Educational Content, Engagement, Networking, Tools & Resources, Recognition, Jobs & Career, Lifestyle)
-2. **What content type?** (Text, Poll, Video, Image/Infographic, Document/PDF carousel — prefers suitable image/infographic ideas, otherwise adapts another category idea)
+2. **What content type?** (Text, Poll, Video, Image/Infographic, or
+   Document/PDF carousel — choose it after assessing the selected topic and
+   available capacity)
 3. **How much time do you have?** (Low/Medium/High effort)
 
-Then load the matching category file and present the top 5 matches with their sample publications.
+Then load the matching category file and present concise summaries of the top 5
+topic prompts without quoting their database wording. Explain why each fits,
+then develop selected prompts into original, evidence-led post concepts.
 
 ---
 
