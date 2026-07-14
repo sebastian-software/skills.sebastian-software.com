@@ -247,6 +247,45 @@ as `--brand` and `--brand-deep` instead of calculating offsets in components.
 Verify foreground contrast across every part of the gradient, not only at its
 endpoints.
 
+### Layer sRGB and Wide-Gamut Tokens
+
+Treat syntax support and output gamut as separate capabilities. Declare an
+intentional sRGB colour first; use `@supports` only to detect whether a colour
+notation parses, and use `@media (color-gamut: p3)` to detect whether the user
+agent and output device can approximately render Display P3. Override semantic
+tokens at their owning scope rather than scattering P3 values through
+components.
+
+```css
+:root {
+  /* Legacy and controlled sRGB fallback. */
+  --brand-accent: #0a9cce;
+}
+
+@supports (color: oklch(0% 0 0)) {
+  :root {
+    /* Perceptual authoring, deliberately kept inside sRGB. */
+    --brand-accent: oklch(65% 0.128 230);
+  }
+}
+
+@supports (color: color(display-p3 0 0 0)) {
+  @media (color-gamut: p3) {
+    :root {
+      /* Same role, lightness, and hue; higher P3-only chroma. */
+      --brand-accent: color(display-p3 0.011 0.611 0.861);
+    }
+  }
+}
+```
+
+Keep the variants visually related, but derive and gamut-map each one for its
+target gamut; no fixed chroma increase works across all lightness and hue
+combinations. Do not rely on automatic gamut mapping when brand identity,
+state distinction, or contrast matters. Verify foreground/background pairs,
+gradients, interaction states, light and dark themes, and forced-colors behavior
+with both the sRGB fallback and P3 override active.
+
 ### Derive Colour Variations with Relative Color Syntax
 
 Relative color syntax (Baseline 2024) lets you derive new colours from existing ones — no manual calculations or preprocessors needed. Create hover states, tints, and shades programmatically:

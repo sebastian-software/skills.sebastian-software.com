@@ -129,6 +129,11 @@
       "name": "preserve-tonal-gradient-chroma",
       "prompt": "A theme generator creates the darker stop of every brand gradient by reducing HSL lightness by 20%. A designer proposes always rotating the darker stop's hue by 14 degrees instead because one blue example looks more vibrant. Define a general approach that can work across arbitrary brand colours.",
       "expected": "Converts to OKLCH, chooses target lightness, keeps hue fixed initially, preserves and gamut-maps as much chroma as the target gamut permits, and treats any hue trajectory as curated palette-specific art direction rather than a universal offset. It also chooses gradient interpolation deliberately and verifies foreground contrast across the full gradient."
+    },
+    {
+      "name": "layer-wide-gamut-token-fallbacks",
+      "prompt": "A design system replaces its brand accent with one high-chroma Display P3 value in every component. The author wraps it in @supports (color: color(display-p3 0 0 0)) and assumes that covers older browsers, sRGB displays, gradients, and text contrast. Review and correct the architecture.",
+      "expected": "Separates colour-syntax support from output-device gamut, defines a controlled sRGB semantic-token fallback first, gates the P3 token with both the relevant @supports query and @media (color-gamut: p3), and keeps gamut variants at the token-owning scope. It derives and gamut-maps each variant for its target gamut and verifies foreground/background pairs, gradients, states, and themes in both branches rather than relying on automatic gamut mapping."
     }
   ]
 }
