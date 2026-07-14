@@ -22,16 +22,25 @@ loads form guidance without exposing a long menu of overlapping skill names.
 
 ## Skills
 
+### Product management
+
+| Skill | Focus |
+| --- | --- |
+| `product-management` | Evidence-led discovery, product strategy, outcomes, scope, prioritization, product quality, release decisions, and learning loops. |
+| `product-naming` | Strategic name generation, multilingual spoken-name testing, live conflict research, and evidence-backed shortlists. |
+
 ### Web design and engineering
 
 | Skill | Focus |
 | --- | --- |
 | `effective-web` | Routed web design and engineering guidance: UI/UX, CSS, React, accessibility, SEO, performance, testing, SVG textures, and web-to-print. |
 
-### Engineering workflows
+### Engineering and project decisions
 
 | Skill | Focus |
 | --- | --- |
+| `codebase-improvement` | Evidence-backed repository audits, leverage-based prioritization, complexity review, executable implementation plans, and stale-plan reconciliation. |
+| `decision-records` | Repository-native ADR creation, supersession, review, and drift control for durable technical, product, design, content, marketing, and communication decisions. |
 | `port-codebases` | Resource-aware, behavior-preserving ports across languages, runtimes, frameworks, platforms, and major APIs. |
 
 ### Marketing and sales
@@ -62,6 +71,7 @@ Every public skill lives directly below `skills/`:
 ```text
 skills/<name>/
 ├── SKILL.md
+├── agents/       # optional product-facing skill metadata
 ├── references/   # optional progressive-disclosure material
 ├── scripts/      # optional deterministic helpers
 ├── assets/       # optional output resources

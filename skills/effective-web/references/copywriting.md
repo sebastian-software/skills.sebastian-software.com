@@ -2,6 +2,19 @@
 
 Practical guidelines on how to write interface text that clearly communicates with people.
 
+## Follow Recorded Communication Decisions
+
+Before choosing pronouns, form of address, formality, humor, technical depth, or
+brand language, read accepted ADRs and existing editorial guidance. Treat the
+stable voice and audience relationship as cross-channel decisions; adapt tone to
+the current state without changing the underlying voice accidentally.
+
+When interface work establishes or changes a durable choice such as `du` versus
+`Sie`, approachable versus distant, professional versus casual, claim strength,
+or terminology across product, marketing, support, and social surfaces, use
+`decision-records`. Keep complete copy examples in editorial artifacts rather
+than turning the ADR into a phrase library.
+
 ## Be Concise
 
 Every word should earn its place.

@@ -10,8 +10,10 @@ change it). Mixing them produces props that contradict each other.
 
 ### Prop surface
 
-- Model the smallest prop set that expresses the contract. Resist a boolean per
-  visual variant; collapse mutually exclusive states into one union prop
+- Model the smallest prop set that expresses the contract. Keep semantic
+  booleans such as `disabled`, `required`, and `loading` when the state is truly
+  binary, but resist a boolean per visual mode. Collapse mutually exclusive
+  modes into one union prop
   (`variant="primary" | "secondary" | "ghost"`) so impossible combinations
   cannot be typed.
 - Name props for intent, not implementation: `tone`, `size`, `loading`,
@@ -38,6 +40,27 @@ change it). Mixing them produces props that contradict each other.
 - Give callbacks verb-noun names tied to the event (`onSelectionChange`,
   `onOpenChange`), pass the new value as the first argument, and call them after
   internal state updates so consumers read consistent state.
+
+### State provider contracts
+
+- For a composed component whose controls, content, and external siblings share
+  behavior, define a small provider contract around `state`, `actions`, and
+  optional `meta`. Let UI components consume that contract rather than importing
+  one store, form library, router, or data-fetching implementation directly.
+- Keep the provider as the only layer that knows whether state is local,
+  controlled, URL-owned, form-owned, or backed by an external store. Different
+  providers may implement the same contract while the compound UI remains
+  unchanged.
+- Lift state far enough that sibling controls and custom composition can access
+  it, but no farther. Do not use a wide context for high-frequency values merely
+  to avoid passing a focused prop.
+- Split state and dispatch contexts when consumers that only invoke actions
+  should not re-render for every value change. Keep context values referentially
+  stable and measure before adding abstraction.
+- Use explicit variant components when modes have materially different structure
+  or contracts (`CompactDialog`, `ConfirmationDialog`) instead of accumulating
+  flags on one monolith. Share internal primitives so variants do not fork
+  behavior or accessibility.
 
 ### Polymorphism and semantic safety
 
@@ -107,6 +130,10 @@ change it). Mixing them produces props that contradict each other.
   unions rather than parallel booleans?
 - Is controlled vs uncontrolled mode fixed for the component's lifetime, with the
   change callback firing in both modes?
+- Is shared state exposed through the smallest stable provider contract without
+  coupling UI to one state implementation or broadcasting hot state too widely?
+- Are materially different modes explicit variants rather than contradictory
+  boolean combinations, while genuine binary semantics remain booleans?
 - Is `as`/`asChild` restricted to genuine semantic variation, with a typed
   element allowlist that excludes interactive `div`s and a per-element contract?
 - Does the polymorphic `ref` type match the rendered element?

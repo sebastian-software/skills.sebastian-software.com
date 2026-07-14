@@ -4,6 +4,20 @@ Use this reference when public content must be discoverable, understandable, cit
 
 The durable base is the same as classic SEO: crawlable, useful, accurate, well-linked content with clear entities and trustworthy sources. AI/GEO adds entity clarity, source consistency, extractable passages, and intentional crawler policy on top of that base — it does not replace it. Weight official guidance from search and AI providers over vendor or agency claims; treat evolving AI-search tactics as hypotheses to measure, not settled ranking rules.
 
+## Contents
+
+- [Working Rules](#working-rules)
+- [Google AI Features](#google-ai-features)
+- [Entity Authority](#entity-authority)
+- [Editorial Provenance and Freshness](#editorial-provenance-and-freshness)
+- [Business Data Distribution](#business-data-distribution)
+- [Crawling, Recrawling, and Push](#crawling-recrawling-and-push)
+- [LLM and Agent Access](#llm-and-agent-access)
+- [Agent-Readable Content](#agent-readable-content)
+- [GEO Measurement](#geo-measurement)
+- [Tactics Worth Testing](#tactics-worth-testing)
+- [AI/GEO Review Checklist](#aigeo-review-checklist)
+
 ## Working Rules
 
 - Treat classic SEO and AI/GEO as overlapping disciplines built on the same crawlable, useful, accurate, well-linked content.
@@ -12,8 +26,10 @@ The durable base is the same as classic SEO: crawlable, useful, accurate, well-l
 - Keep important facts in visible text, not only in images, PDFs, JavaScript state, JSON-LD, or third-party widgets.
 - Make the page's primary entity explicit: organization, local business, product, service, person, article, event, place, or dataset.
 - Align facts across the visible page, JSON-LD, canonical URL, sitemap, Google Business Profile, Merchant Center, social profiles, review platforms, partner directories, and feeds.
+- Make authorship, evidence, publication history, and material updates visible where readers would expect them. Do not simulate freshness by changing dates without changing the content.
 - Separate crawler access for search, training, and user-triggered retrieval. Different AI providers expose different user agents and opt-out semantics.
-- Favor entity clarity, citation consistency, original information gain, and answer usefulness over manipulative AI recommendation tactics. Measure GEO claims before trusting them.
+- Favor entity clarity, citation consistency, original information gain, and answer usefulness over manipulative AI recommendation tactics.
+- Measure mentions, citations, referrals, outcomes, and factual accuracy separately. Treat vendor visibility scores and share-of-voice reports as sampled observations, not ground truth.
 
 ## Google AI Features
 
@@ -50,6 +66,19 @@ For organizations and local businesses:
 - Keep entity facts consistent across citations. Mismatched names, addresses, phone numbers, service lists, categories, and opening hours reduce confidence.
 
 Think in entities and passages, not only keywords. Pages should make it easy to extract the answer, the source entity, the supporting evidence, and the next action.
+
+## Editorial Provenance and Freshness
+
+Make trust cues useful to readers first and machine-readable second:
+
+- Show an accurate byline on editorial content where authorship matters. Link it to a durable author or reviewer profile that explains relevant experience and responsibility.
+- Show the original publication date and a last-updated date only when they are useful and true. Record what changed when the update is material or the topic is high-risk.
+- Keep visible bylines and dates aligned with `Article` or `BlogPosting` structured data, including `author`, `datePublished`, and `dateModified` where applicable.
+- Explain how consequential reviews, comparisons, tests, or recommendations were produced. Include selection criteria, sample size, test conditions, screenshots, data, citations, and limitations as appropriate.
+- Disclose substantial automation or AI assistance when a reader would reasonably want to know how the content was produced. Do not use a disclosure as a substitute for accountable review.
+- Assign an owner and review cadence to time-sensitive pages such as prices, policies, technical recommendations, availability, and local-business facts. Correct or retire stale pages instead of bulk-bumping dates.
+
+Freshness is claim-specific, not a site-wide ranking trick. Update `dateModified`, sitemap `lastmod`, feeds, and visible copy only after a material change, and keep the content itself consistent across those signals.
 
 ## Business Data Distribution
 
@@ -102,6 +131,8 @@ Decide crawler policy intentionally:
 | Support user-directed agents | Avoid blocking user-triggered agents when users need them to retrieve docs, product details, booking flows, or support content |
 | Protect private or paid content | Use authentication, `noindex` where appropriate, and server-side access control; do not rely on `robots.txt` as security |
 
+Monitor crawler traffic, response cost, error rates, and cache effectiveness in server or CDN logs. A claimed user-agent string is not proof of identity; use provider-published IP ranges or verification procedures where available, and rate-limit or block abusive traffic without accidentally closing the intended search path.
+
 ## Agent-Readable Content
 
 Agents may inspect rendered pages, DOM structure, the accessibility tree, screenshots, structured data, feeds, and APIs. The most reliable way to make content agent-readable is to make it user-readable.
@@ -115,6 +146,21 @@ Agents may inspect rendered pages, DOM structure, the accessibility tree, screen
 - Provide Markdown mirrors only when real documentation or API consumers use them. Treat `llms.txt` as optional discovery, not a settled search standard.
 
 Answer engines often need concise passages with enough context to cite. Write sections that can stand alone: claim, scope, evidence, date, entity, and action.
+
+## GEO Measurement
+
+Define success before choosing a monitoring tool. Keep four layers separate:
+
+| Layer | What to observe | Typical evidence |
+| --- | --- | --- |
+| Visibility | Whether the entity is mentioned and whether the site is cited for the target task | Mention rate, citation rate, cited URL, competitor share of voice |
+| Accuracy | Whether the answer names the right entity and states current facts without harmful omissions | Fact checks against the source of truth, citation-to-claim review, brand and product accuracy |
+| Acquisition | Whether people or agents reach the owned surface | Referral sessions, server logs, landing pages, engaged visits |
+| Outcome | Whether the exposure advances the real goal | Qualified leads, bookings, sales, sign-ups, assisted conversions |
+
+Use a versioned query panel based on real audience tasks, not only brand-name prompts. Record engine or product, locale, account or personalization state where controllable, device, date, query wording, answer, mentions, citations, and cited URLs. Repeat samples over time because model, retrieval, and ranking changes make any single run unstable.
+
+Compare like with like and retain raw snapshots. A vendor score can support trend analysis, but it cannot prove complete market visibility or causal ROI. Google AI feature traffic is blended into the Search Console Web search type, so do not claim precise AI Overview attribution from Search Console alone. Pair visibility monitoring with analytics, logs, conversions, and periodic manual accuracy review.
 
 ## Tactics Worth Testing
 
@@ -143,10 +189,12 @@ Avoid tactics that create short-lived AI visibility but increase brand, legal, a
 - Is the page indexable, canonical, snippet-eligible, and internally linked?
 - Is the primary entity obvious in visible content and structured data?
 - Are important facts visible in text and consistent with JSON-LD?
+- Are expected authors, reviewers, sources, methods, publication dates, and material-update dates visible and accurate?
 - Are Google Business Profile, Merchant Center, Search Console, and local citations up to date where relevant?
 - Does each page answer a real user task better than competing generic pages?
 - Does the page include original facts or evidence worth citing?
 - Are sitemaps, `lastmod`, feeds, and push mechanisms aligned with real content changes?
 - Are search, training, and user-agent crawler policies intentional?
+- Are crawler identity, traffic volume, cost, and abuse controls observable without relying on the user-agent string alone?
 - Is `llms.txt` or a Markdown mirror included only because a real audience or tool uses it?
-- Are measurement expectations honest across classic rankings, impressions, Search Console traffic, AI citations and mentions, referral logs, and brand accuracy checks?
+- Does the measurement plan use a repeatable query panel and separate visibility, accuracy, acquisition, and outcomes without claiming false attribution precision?

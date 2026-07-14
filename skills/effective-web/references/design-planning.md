@@ -9,6 +9,30 @@ Use this planning pass when the request is net-new, ambiguous, high-stakes, or
 visually important. Skip it when the task is a small change inside an existing,
 well-understood component.
 
+## Decision Sources and Design Read
+
+Before asking preference questions, read accepted ADRs, the existing design
+system, representative screens, content, and brand or editorial guidance. An
+accepted decision is a constraint until it is explicitly superseded; do not
+silently redesign around it.
+
+For net-new or materially changed surfaces, use the compact Design Read from
+[Design directions](design-directions.md): surface register, audience, primary
+job, primary direction, expression, density, motion, depth, communication,
+signature, and category default to avoid.
+
+For an existing experience, first classify the work as greenfield, preserve, or
+overhaul and read [Redesign preservation](redesign-preservation.md). Capture the
+smallest baseline that protects routes, information architecture, behavior,
+brand, communication, analytics, accessibility, SEO, and operational contracts
+affected by the work. Visual modernization does not silently authorize a content
+rewrite, framework migration, or contract change.
+
+If a missing answer would materially change the layout, interaction, or
+communication direction, ask one concise discriminating question. Otherwise
+state a responsible assumption and proceed. Do not ask users to choose between
+vague adjectives or re-answer decisions already preserved in the project.
+
 ## Pre-Code Questions
 
 Answer these from the prompt, product context, existing code, or a short user
@@ -48,8 +72,11 @@ Before choosing colours, spacing, shadows, or typography, decide:
   control, preview-and-approve flow, batch action, conversation, voice, or a
   combination. Do not choose chat merely because the capability uses an LLM.
 - The surface density: sparse, normal, dense, or data-heavy.
+- The primary and optional secondary direction, using
+  [Design directions](design-directions.md) rather than a fixed style preset.
 - The tone: quiet utility, confident product, instructional, editorial,
-  promotional, or immersive.
+  promotional, or immersive, aligned with recorded audience relationship,
+  form of address, voice, and channel exceptions.
 
 These decisions make the visual layer follow from the job. Do not start with
 card grids, hero templates, gradients, or animation before the surface has a
@@ -176,26 +203,15 @@ Do not apply this lens to dense operational tools that need stronger scanning
 affordances, brand pages that need a bolder point of view, or consumer products
 where warmth, illustration, or expressiveness is part of the value.
 
-## Generic UI Failure Modes
+## UI Anti-Pattern Check
 
-Check these before choosing a visual direction. They are not timeless taste
-laws; they are current generated-UI failure modes that often indicate the design
-was chosen by category reflex instead of product intent.
-
-- Generic hero plus metrics row plus identical card grid.
-- Decorative gradient text, glass panels, or soft shadows with no information
-  role.
-- Over-rounded cards, nested cards, or every section framed as a card.
-- Tiny labels or numbered markers repeated as section scaffolding.
-- Warm neutral backgrounds or dark dashboards chosen by category default rather
-  than context.
-- Placeholder imagery where the subject requires real product, place, person,
-  object, or state evidence.
-- Dense product surfaces decorated like brand pages.
-- Brand surfaces made invisible by excessive product restraint.
-
-If a failure mode appears, do not "polish" around it. Change the brief decision:
-register, hierarchy, media strategy, density, or interaction model.
+For generic or agent-generated output, read
+[UI anti-patterns](ui-antipatterns.md). Separate objective defects from
+context-dependent advisories, look for clusters across independent choices, and
+preserve patterns justified by the task, register, design system, or accepted
+decision. If a cluster appears, do not polish around it. Change the owning brief
+decision: register, hierarchy, media strategy, density, communication, or
+interaction model.
 
 ## Specificity Check
 
@@ -254,6 +270,7 @@ Use this structure:
 
 - Surface: [what is being built]
 - Register: [product / brand / content-heavy]
+- Direction: [primary direction, optional secondary influence, and why]
 - Primary user and context: [who, where, frequency, state of mind]
 - Primary action: [the one thing the design must make easiest]
 - Brand point of view: [audience, voice, category reflex to avoid, memorable signal; omit when not relevant]
@@ -263,6 +280,7 @@ Use this structure:
 - Required states: [default, empty, loading, error, success, permissions]
 - Content and media: [real data, copy, images, diagrams, examples]
 - Context adaptation: [devices, inputs, orientation, connection, platform expectations]
+- Communication: [audience relationship, form of address, stable voice, and state/channel tone constraints]
 - Constraints: [design system, framework, accessibility, i18n, performance]
 - Anti-goals: [wrong directions to avoid]
 ```
@@ -271,6 +289,12 @@ Write the brief in concrete nouns and decisions. "Modern and clean dashboard"
 is not a brief. "Dense product table for finance admins comparing 200 invoices;
 primary action is approving selected invoices; errors appear inline per row" is
 specific enough to shape UI.
+
+When the brief establishes or changes a durable register, audience relationship,
+direction, density, motion, depth, or cross-channel communication choice, use
+`decision-records` to record its rationale, alternatives, consequences, and
+review triggers. Keep exact token values and copy libraries in their owning
+artifacts. Do not create an `effective-web` or design-specific dot folder.
 
 ## Brief Quality Check
 

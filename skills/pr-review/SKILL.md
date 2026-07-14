@@ -214,6 +214,23 @@ query, or a failure mode that silently loses data is a real merge risk.
 You don't need to touch every rung — comment where it helps. A clean PR deserves
 a short, genuine approval, not a manufactured list of nits.
 
+### Finding quality
+
+For every actionable inline comment, make four things recoverable without a
+separate essay:
+
+1. the exact anchored location or symbol;
+2. the concrete defect, risk, or maintainability problem;
+3. the consequence when it is not obvious;
+4. the smallest credible correction or question that resolves the uncertainty.
+
+Do not restate the diff, add throat-clearing, or force a comment merely to fill
+a review. Keep straightforward findings compact. Expand security boundaries,
+data-loss risks, architectural disagreements, irreversible actions, and
+onboarding-sensitive explanations enough that compression cannot make the
+advice ambiguous. This is a content contract, not a mandatory one-line format or
+severity-label system; keep the natural human voice below.
+
 ### Shape the review for a human
 
 1. Open with one or two specific strengths when they exist.
