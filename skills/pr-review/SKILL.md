@@ -115,11 +115,12 @@ it, so the user can decide and apply it themselves:
 - for Mode B fixes, the concrete change — the diff you'd commit and the commit
   message. You may prepare the fix in a throwaway worktree to show a real
   `git diff`, but never push or touch PR state;
-- any CI action you'd take (rebase + `--force-with-lease`, Supabase
-  close/reopen).
+- any CI action you'd take (bounded GitHub Actions retry, rebase +
+  `--force-with-lease`, or Supabase close/reopen).
 
-Read-only verification still runs (preview deployment + `agent-browser`, local
-lint/typecheck/unit) — it observes, it changes nothing.
+Read-only verification still runs (preview deployment + the optional external
+`agent-browser` skill when configured, or local lint/typecheck/unit) — it
+observes, it changes nothing.
 
 Group the output by PR so it's easy to scan, and make plainly clear that nothing
 was applied — the responsibility to act stays with the user. You may offer at the
@@ -267,12 +268,13 @@ PR's scope, and you can do it without further input, **do it**.
      than growing the PR.
    - Wrong or based on a misunderstanding → reply with the clarification,
      respectfully.
-4. **CI:** check status. If the branch is behind its base, bring it current first
-   (rebase-before-merge, then `git push --force-with-lease`; regenerate lockfiles
-   on conflict — see recipes). For a stuck/failed Supabase check, close+reopen the
-   PR to re-trigger — **but only after** confirming the branch is genuinely
-   up to date, and at most once or twice. Never loop on reopen; if it's still
-   stuck, report it.
+4. **CI:** check status. For a completed GitHub Actions run that appears
+   transiently flaky, rerun failed jobs once before changing PR state. If the
+   branch is behind its base, bring it current first (rebase-before-merge, then
+   `git push --force-with-lease`; regenerate lockfiles on conflict — see recipes).
+   For a stuck/failed Supabase check, close+reopen the PR only after that bounded
+   retry and after confirming the branch is genuinely up to date; do this at most
+   once or twice. Never loop on reopen; if it is still stuck, report it.
 5. **Escalate** the same two cases as Mode A: architecture-level decisions, or
    conflict with a reviewer.
 
@@ -341,7 +343,7 @@ You usually review by reading. When you do need to see behavior:
 
 - **Never start a dev server.** Use the PR's **preview deployment** if one exists
   (Vercel and friends post the URL in checks/comments) and drive it with the
-  `agent-browser` skill.
+  optional external `agent-browser` skill when configured.
 - Otherwise stay static: in the worktree, run only what works without a server
   (lint, typecheck, unit tests). Don't expect everything to pass locally — treat
   green as a bonus signal, not a gate.
