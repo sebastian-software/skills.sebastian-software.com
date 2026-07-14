@@ -10,6 +10,7 @@ First-party skills live directly under `skills/`:
 
 ```text
 skills/skill-name/
+  README.md
   SKILL.md
   agents/
   references/
@@ -18,8 +19,36 @@ skills/skill-name/
   examples/
 ```
 
-Only `SKILL.md` is required. Add the other directories when they serve a clear
-purpose. Do not add external snapshots or generated copies.
+Every public skill requires both `README.md` and `SKILL.md`. Add the other
+directories when they serve a clear purpose. Do not add external snapshots or
+generated copies.
+
+## Human-Facing `README.md`
+
+Treat every independently installable skill as a small product. Its README is
+for people deciding whether the skill fits their work; do not duplicate the
+agent instructions from `SKILL.md`.
+
+Each skill README must include:
+
+- a link back to the collection README
+- a specific, outcome-led value proposition
+- representative capabilities, use cases, and example prompts
+- a link to the local `SKILL.md` agent interface
+- selective installation commands for the skills CLI and DALO
+- an honest scope or boundary section
+- relative links to the most relevant first-party skills
+- the canonical Sebastian Software open-source and English consulting links
+
+Use `https://oss.sebastian-software.com/` for Sebastian Software open source and
+`https://sebastian-consulting.com/en` for consulting. Keep related-skill links
+purposeful: explain where the workflow hands work to the other skill instead of
+building a generic cross-promotion list.
+
+Run `python3 scripts/validate-readmes.py` after adding or changing a README. CI
+requires one README per public skill and verifies collection links, agent
+interface links, selective install commands, Sebastian Software links, local
+Markdown paths, and Markdown anchors.
 
 ## `SKILL.md` Frontmatter
 

@@ -1,24 +1,111 @@
 # Sebastian Software Skills
 
-Practice-built skills for agents that need to produce better frontend, product,
-engineering, and content work.
+[![Maintained by Sebastian Software](https://img.shields.io/badge/Maintained%20by-Sebastian%20Software-0f172a.svg)](https://oss.sebastian-software.com/)
 
-This repository is the first-party source for Sebastian Software agent skills.
-It contains the skills themselves and no installer, vendored third-party
-snapshots, generated distribution tree, or dependency lockfiles. Installation
-is handled by an Agent Skills-compatible manager such as
-[DALO](https://dalo.sh) or Vercel's [skills CLI](https://skills.sh/docs).
+**Give your AI agent the practical judgment to take product and software work
+from an ambiguous brief to a review-ready result.**
 
-## Why This Exists
+14 practice-built skills and 155 focused references for product decisions, web
+experiences, codebase improvement, delivery, go-to-market work, professional
+communication, and web compliance.
 
-General models know a lot, but they often need firmer operating rules to ship
-consistently good work. These skills turn practical judgment from engineering,
-design review, product work, and repeated agent sessions into focused workflows
-and checks.
+This is not a loose prompt dump. It is a maintained, first-party operating
+layer for agents that work on real products and repositories. Each skill turns
+repeated professional practice into explicit workflows, boundaries, evidence
+requirements, and verification checks that an agent can apply when the task
+calls for them.
 
-The collection is deliberately routed. Cohesive domains can expose one memorable
-skill while keeping specialized workflows in `references/`, so a form problem
-loads form guidance without exposing a long menu of overlapping skill names.
+## Quick Start
+
+Install one skill to try the collection:
+
+```sh
+npx skills add sebastian-software/skills.sebastian-software.com --skill effective-web
+```
+
+Or install all 14 skills:
+
+```sh
+npx skills add sebastian-software/skills.sebastian-software.com --all
+```
+
+Selective installation works with both the skills CLI and DALO. You do not
+need to adopt the whole collection to use `effective-web` or any other single
+skill. With DALO, register this repository as a catalog instead of a complete
+team source; the [selective DALO setup](#selective-setup-with-dalo) below shows
+the difference.
+
+Then ask for the work in normal language. A compatible agent selects the
+relevant skill from its description and loads the detailed guidance it needs.
+
+```text
+Audit this dashboard for accessibility, responsive behavior, and loading cost.
+
+Turn these interview notes into an evidence-led MVP recommendation.
+
+Review this codebase, rank the highest-leverage improvements, and implement the
+agreed scope.
+
+Build a LinkedIn positioning and content system that leads to qualified B2B
+conversations.
+```
+
+For reproducible setups, pinned selections, multiple agent targets, and managed
+external catalogs, use [DALO](#installation).
+
+## What This Collection Enables
+
+The collection covers connected parts of the product lifecycle, so the same
+agent can carry context and quality standards across disciplines instead of
+treating every task as an isolated prompt.
+
+| From | To | Skills that help |
+| --- | --- | --- |
+| Unclear opportunity | Evidence-led product direction, scope, priorities, and release criteria | [`product-management`](skills/product-management/), [`decision-records`](skills/decision-records/) |
+| Product thesis | Distinctive, researched, multilingual name shortlist | [`product-naming`](skills/product-naming/) |
+| Brief or existing interface | Designed, implemented, accessible, performant, and tested web experience | [`effective-web`](skills/effective-web/), [`locale-typography`](skills/locale-typography/) |
+| Website or digital service | Jurisdiction-aware disclosure, privacy, and consent work product | [`web-legal-compliance`](skills/web-legal-compliance/) |
+| Repository uncertainty | Evidence-backed audit, executable plan, or focused improvement | [`codebase-improvement`](skills/codebase-improvement/) |
+| Aging or changing system | Researched dependency updates or a behavior-preserving codebase port | [`smart-dependency-updater`](skills/smart-dependency-updater/), [`port-codebases`](skills/port-codebases/) |
+| Pull request | Impact-led review, feedback resolution, CI recovery, and delivery follow-through | [`pr-review`](skills/pr-review/) |
+| Expertise or offer | Credible consultant positioning and B2B LinkedIn acquisition system | [`consultant-profile`](skills/consultant-profile/), [`linkedin-social-selling`](skills/linkedin-social-selling/) |
+| Raw idea or stiff draft | LinkedIn content and natural professional team communication | [`linkedin-posts`](skills/linkedin-posts/), [`metro-english`](skills/metro-english/) |
+
+The broadest skill, `effective-web`, routes work across UI/UX, CSS, React,
+components, forms, tables, accessibility, internationalization, interface copy,
+auth and error states, frontend SEO and AI search, performance, testing, SVG,
+motion, textures, print stylesheets, and web-to-print. Other skills apply the
+same depth to product, engineering, delivery, positioning, language, and legal
+surfaces.
+
+## Why Use These Skills
+
+General models can generate plausible answers. Shipping good work requires more:
+knowing what evidence is missing, which tradeoff matters, what not to invent,
+how far the user's authority extends, and what must be verified before calling
+the work done.
+
+These skills are designed around that gap:
+
+- **Practice-built:** guidance is distilled from engineering, design review,
+  product work, consulting, and repeated agent sessions.
+- **Outcome-oriented:** skills cover discovery, implementation, review, and
+  follow-through rather than stopping at generic advice.
+- **Evidence-led:** research, repository state, user data, and observed behavior
+  outrank confident assumptions.
+- **Progressively disclosed:** agents load the relevant route and references,
+  not the entire library for every request.
+- **Explicit about boundaries:** each skill states when it applies, what it must
+  not invent, and when a specialist or narrower workflow is needed.
+- **Portable and inspectable:** the public interface is plain `SKILL.md`, with
+  focused Markdown references and deterministic helpers where useful.
+- **First-party maintained:** external collections are not silently vendored or
+  renamed into this repository.
+
+This is a focused collection for digital product, web, software-delivery, and
+go-to-market work, not an attempt to cover every agent task. It does not replace
+qualified legal advice, dedicated security review, infrastructure expertise, or
+the external tools and credentials required to act on third-party systems.
 
 ## Skills
 
@@ -26,64 +113,91 @@ loads form guidance without exposing a long menu of overlapping skill names.
 
 | Skill | Focus |
 | --- | --- |
-| `product-management` | Evidence-led discovery, product strategy, outcomes, scope, prioritization, product quality, release decisions, and learning loops. |
-| `product-naming` | Strategic name generation, multilingual spoken-name testing, live conflict research, and evidence-backed shortlists. |
+| [`product-management`](skills/product-management/) | Evidence-led discovery, product strategy, outcomes, scope, prioritization, product quality, release decisions, and learning loops. |
+| [`product-naming`](skills/product-naming/) | Strategic name generation, multilingual spoken-name testing, live conflict research, and evidence-backed shortlists. |
 
 ### Web design and engineering
 
 | Skill | Focus |
 | --- | --- |
-| `effective-web` | Routed web design and engineering guidance: UI/UX, CSS, React, accessibility, SEO, performance, testing, SVG textures, and web-to-print. |
+| [`effective-web`](skills/effective-web/) | Routed web design and engineering guidance across UI/UX, CSS, React, accessibility, SEO, performance, testing, SVG, motion, and web-to-print. |
+| [`locale-typography`](skills/locale-typography/) | Locale-aware punctuation, spacing, quotes, dashes, numbers, dates, currency, and formatting for 26 European and North American locales. |
+| [`web-legal-compliance`](skills/web-legal-compliance/) | Evidence-backed website disclosures, privacy, and consent surfaces across the EU/EEA, UK, Canada, and the United States. |
 
-### Engineering and project decisions
-
-| Skill | Focus |
-| --- | --- |
-| `codebase-improvement` | Evidence-backed repository audits, leverage-based prioritization, complexity review, executable implementation plans, and stale-plan reconciliation. |
-| `decision-records` | Repository-native ADR creation, supersession, review, and drift control for durable technical, product, design, content, marketing, and communication decisions. |
-| `port-codebases` | Resource-aware, behavior-preserving ports across languages, runtimes, frameworks, platforms, and major APIs. |
-
-### Marketing and sales
+### Engineering and delivery
 
 | Skill | Focus |
 | --- | --- |
-| `linkedin-social-selling` | Evidence-led B2B LinkedIn positioning, profile, network, content, conversations, lead magnets, funnels, and measurement. |
-| `linkedin-posts` | LinkedIn ideas, formats, calendars, and post writing. |
+| [`codebase-improvement`](skills/codebase-improvement/) | Repository audits, leverage-based prioritization, complexity review, executable implementation plans, and focused improvements. |
+| [`decision-records`](skills/decision-records/) | Repository-native ADR creation, supersession, review, and drift control for durable cross-functional decisions. |
+| [`port-codebases`](skills/port-codebases/) | Resource-aware, behavior-preserving ports across languages, runtimes, frameworks, platforms, and major APIs. |
+| [`pr-review`](skills/pr-review/) | Human, impact-led PR review, maintenance, feedback resolution, and CI recovery. |
+| [`smart-dependency-updater`](skills/smart-dependency-updater/) | Researched dependency-update portfolios with upstream context, local adaptation, validation, and PR delivery. |
 
-### Content and specialist work
+### Positioning, marketing, and communication
 
 | Skill | Focus |
 | --- | --- |
-| `consultant-profile` | Consultant profiles, CVs, case studies, and positioning. |
-| `pr-review` | Human, impact-led PR review, maintenance, feedback, and CI recovery. |
-| `metro-english` | Natural metropolitan US team English for professional writing. |
-| `smart-dependency-updater` | Researched dependency-update portfolios and PR delivery. |
-| `locale-typography` | Locale-aware punctuation, spacing, quotes, dashes, and formatting guidance for 26 European and North American locales. |
-| `web-legal-compliance` | Evidence-backed website legal disclosures and consent surfaces across the EU/EEA, UK, Canada, and the United States. |
+| [`consultant-profile`](skills/consultant-profile/) | Consultant profiles, CVs, case studies, project selection, career narratives, and positioning. |
+| [`linkedin-social-selling`](skills/linkedin-social-selling/) | Evidence-led B2B LinkedIn positioning, profile, network, content, conversations, lead magnets, funnels, and measurement. |
+| [`linkedin-posts`](skills/linkedin-posts/) | LinkedIn ideas, formats, calendars, and post writing for a defined audience, voice, and goal. |
+| [`metro-english`](skills/metro-english/) | Natural metropolitan US team English for Slack, GitHub, Linear, PR notes, and other professional communication. |
 
 The broad web domain uses the memorable `effective-web` identity. Specialist
 skills use descriptive, portable names without a repository-specific prefix.
 
-## Repository Interface
+## How the Collection Is Built
 
 Every public skill lives directly below `skills/`:
 
 ```text
 skills/<name>/
-├── SKILL.md
+├── README.md     # human-facing overview, use cases, and installation
+├── SKILL.md      # agent-facing trigger, workflow, and routes
 ├── agents/       # optional product-facing skill metadata
-├── references/   # optional progressive-disclosure material
+├── references/   # focused guidance loaded only when needed
 ├── scripts/      # optional deterministic helpers
 ├── assets/       # optional output resources
 └── examples/     # optional complete examples
 ```
 
-`SKILL.md` is the public interface. Its YAML frontmatter must contain a unique,
-portable `name` and a useful `description`.
+`README.md` explains the value, use cases, scope, installation, and related
+skills for people evaluating the skill on its own. `SKILL.md` is the agent-facing
+interface: its YAML frontmatter gives the skill a portable name and tells
+compatible agents when to load it. The body defines the core workflow and routes
+specialized concerns into `references/` so a form problem loads form guidance
+without filling the context window with unrelated material.
+
+The repository contains the skills themselves: no installer, vendored
+third-party snapshots, generated distribution tree, or dependency lockfiles.
+Installation is handled by an Agent Skills-compatible manager such as
+[DALO](https://dalo.sh) or Vercel's [skills CLI](https://skills.sh/docs).
 
 ## Installation
 
-### Managed setup with DALO
+### Selective setup with DALO
+
+DALO can install one reviewed skill without activating the other 13. Register
+the repository as a catalog, select `effective-web`, approve that exact skill,
+and sync it into the linked agent target:
+
+```sh
+dalo init
+dalo target link codex
+dalo source add-catalog sebastian https://github.com/sebastian-software/skills.sebastian-software.com.git
+dalo source inspect sebastian
+dalo source select sebastian effective-web
+dalo approve skill sebastian:effective-web
+dalo sync
+dalo doctor
+```
+
+Replace `effective-web` with another skill name, or pass several names to
+`dalo source select`. Catalog selections are pinned, and newly added repository
+skills do not become active automatically. Review selected skills before
+granting the source-qualified approval.
+
+### Complete team setup with DALO
 
 [DALO](https://dalo.sh) manages skill sources, reviewed selections, versions,
 approvals, and installation targets. It is the recommended option for teams,
@@ -102,10 +216,11 @@ dalo sync
 dalo doctor
 ```
 
-DALO treats this repository as a trusted team source, so all first-party skills
-are active together. External repositories are configured separately as DALO
-catalogs; they are never copied or renamed here. See [docs/dalo.md](docs/dalo.md)
-for the complete setup and the curated external selection.
+Unlike `source add-catalog`, `source add` treats this repository as a trusted
+team source, so all 14 first-party skills are active together. External
+repositories are configured separately as DALO catalogs; they are never copied
+or renamed here. See [docs/dalo.md](docs/dalo.md) for the complete setup and the
+curated external selection.
 
 ### Quick install with skills.sh
 
@@ -135,6 +250,14 @@ explanation.
 - Do not vendor external skills; manage them through DALO.
 
 Read [docs/authoring-skills.md](docs/authoring-skills.md) before changing a skill.
+
+## About Sebastian Software
+
+This collection is maintained by
+[Sebastian Software](https://oss.sebastian-software.com/), where we build and
+support open-source software. We also help teams design, modernize, and ship
+ambitious software products through
+[our consulting practice](https://sebastian-consulting.com/en).
 
 ## License
 

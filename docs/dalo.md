@@ -1,10 +1,35 @@
 # DALO Setup
 
-DALO is the only source manager and installer for this repository. The
-first-party collection is one trusted team source; public repositories are
+DALO is the only source manager and installer used by this repository. The
+Sebastian Software team activates the complete first-party collection as one
+trusted team source. Other users can register the same repository as a catalog
+and select only the skills they want. Other public repositories remain
 separate, selectively pinned catalogs.
 
-## First-Party Source and Targets
+## Install Selected Sebastian Software Skills
+
+Register this repository as a catalog when only part of the collection should
+be installed:
+
+```sh
+dalo init
+dalo target link codex
+dalo source add-catalog sebastian https://github.com/sebastian-software/skills.sebastian-software.com.git
+dalo source inspect sebastian
+dalo source select sebastian effective-web
+dalo approve skill sebastian:effective-web
+dalo sync
+dalo doctor
+```
+
+Replace `effective-web` with another skill name, or select several names in one
+command. Catalog selections are pinned. New skills in the repository remain
+inactive until explicitly selected and approved. Review selected skills before
+granting the source-qualified approval.
+
+## Complete First-Party Source and Targets
+
+Use a trusted team source when all first-party skills should be active together:
 
 ```sh
 dalo init
