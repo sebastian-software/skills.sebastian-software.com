@@ -28,6 +28,13 @@ loads form guidance without exposing a long menu of overlapping skill names.
 | --- | --- |
 | `effective-web` | Routed web design and engineering guidance: UI/UX, CSS, React, accessibility, SEO, performance, testing, SVG textures, and web-to-print. |
 
+### Marketing and sales
+
+| Skill | Focus |
+| --- | --- |
+| `linkedin-social-selling` | Evidence-led B2B LinkedIn positioning, profile, network, content, conversations, lead magnets, funnels, and measurement. |
+| `linkedin-posts` | LinkedIn ideas, formats, calendars, and post writing. |
+
 ### Content and specialist work
 
 | Skill | Focus |
@@ -37,7 +44,6 @@ loads form guidance without exposing a long menu of overlapping skill names.
 | `metro-english` | Natural metropolitan US team English for professional writing. |
 | `smart-dependency-updater` | Researched dependency-update portfolios and PR delivery. |
 | `locale-typography` | Locale-aware punctuation, spacing, quotes, dashes, and formatting guidance for 26 European and North American locales. |
-| `linkedin-posts` | LinkedIn ideas, formats, calendars, and post writing. |
 | `web-legal-compliance` | Evidence-backed website legal disclosures and consent surfaces across the EU/EEA, UK, Canada, and the United States. |
 
 The broad web domain uses the memorable `effective-web` identity. Specialist
