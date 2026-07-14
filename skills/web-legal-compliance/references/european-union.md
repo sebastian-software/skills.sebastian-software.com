@@ -79,9 +79,10 @@ reasons, and any size-dependent obligations.
 
 ### Accessibility and other overlays
 
-Check the European Accessibility Act, the Web Accessibility Directive for
-public-sector bodies, their national implementations, and applicable sector or
-service scope. Keep the legal applicability analysis here and route technical
+The European Accessibility Act has applied to covered products and services
+since 2025-06-28. Check its national implementation (such as Germany's BFSG),
+the Web Accessibility Directive for public-sector bodies, and applicable sector
+or service scope. Keep the legal applicability analysis here and route technical
 accessibility implementation to `effective-web`.
 
 Also investigate when relevant:
