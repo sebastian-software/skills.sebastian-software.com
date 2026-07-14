@@ -7,9 +7,10 @@ rule set.
 ## Quotation marks
 
 Use `„Przykład”` for an outer quotation. Use inward guillemets for a nested
-quotation: `«przykład»`.
-Keep punctuation inside only when it belongs to the quoted material, subject to
-the sentence's Polish punctuation.
+quotation: `»przykład«`.
+Put a sentence-final period after the closing quotation mark, including when a
+complete sentence is quoted: `„Przykład”.` Keep a question mark or exclamation
+mark belonging to the quotation before the closing mark: `„Naprawdę?”.`
 
 ## Dashes and line breaking
 

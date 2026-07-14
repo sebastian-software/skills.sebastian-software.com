@@ -6,6 +6,9 @@ Support `da-DK`.
 
 - Preserve an established quote style. When none exists, use curly double outer
   quotes and curly single nested quotes: `“Eksempel ‘i eksempel’”`.
+- Traditional Danish typography also commonly uses `»Eksempel«` or
+  `„Eksempel“`; choose a documented house style instead of treating English
+  curly quotes as the only valid form.
 - Put no space before `, . : ; ? !`.
 - Place a comma or period relative to quotation marks according to the Danish
   sentence structure, not US mechanical-inside punctuation.

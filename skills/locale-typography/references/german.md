@@ -11,6 +11,8 @@ Support `de-DE`, `de-AT`, `de-CH`, `de-BE`, and `de-LU`.
 
 Place a punctuation mark inside the quotation marks when it belongs to the
 quoted text and outside when it belongs to the surrounding sentence.
+For speech followed by a reporting clause, keep the surrounding comma outside:
+`„Kommst du?“, fragte er.`
 
 ## Punctuation and characters
 
@@ -25,6 +27,8 @@ quoted text and outside when it belongs to the surrounding sentence.
   when whole words are omitted and no space when a word is interrupted.
 - Keep number-unit, number-currency, percent, and section-sign combinations
   together with a non-breaking space where the output format permits it.
+- Keep the parts of multi-part abbreviations together with non-breaking spaces
+  where supported: `z. B.`, `d. h.`, `u. a.`
 
 ## Regional differences
 
