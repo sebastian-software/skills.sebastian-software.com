@@ -177,6 +177,8 @@ Then load the matching category file and present the top 5 matches with their sa
 
 ## Related Skills
 
+- **linkedin-social-selling**: For target-buyer, offer, profile, network,
+  outreach, funnel, and pipeline strategy around the posts.
 - **copywriting**: For general marketing copy principles
 - **copy-editing**: For polishing post drafts
 - **humanizer**: To remove AI-sounding patterns from posts
