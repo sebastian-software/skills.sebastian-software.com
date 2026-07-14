@@ -32,6 +32,9 @@ Final chat responses should be operational: list PR links, validation status, de
 2. **Build an update inventory.**
    - List currently used dependency versions from manifests and lockfiles.
    - Find candidate latest versions using the project's package manager commands, registry metadata, or official release sources.
+   - Run the repository's available security audit or a source scan such as
+     `osv-scanner scan source -r .`; record advisory IDs, severity, affected and
+     fixed ranges, and dependency paths before grouping security work.
    - Separate runtime, dev/tooling, test, type, lint, framework, adapter/plugin, and transitive-only updates.
 3. **Group dependencies by real coupling.**
    - Group packages that should be reviewed and validated together: framework core plus adapters, type packages plus runtime packages, plugin ecosystems, compiler/linter/parser families, test runner plus coverage adapters, SDK modules from the same vendor, and packages that share peer dependency constraints.
@@ -66,6 +69,9 @@ Final chat responses should be operational: list PR links, validation status, de
    - Use copywriting and humanizer principles when drafting PR titles and bodies: write for a busy reviewer, lead with the review question, and remove stiff AI phrasing.
    - Avoid raw changelog dumps. Summarize only the changes that matter to this project and link to sources.
    - Keep the chat summary short; the PR body is the review artifact.
+   - For advisory-motivated changes, include the advisory ID, severity, affected
+     dependency path, fixed range, and verification that the selected version is
+     outside the affected range.
 
 ## Update Grouping Heuristics
 
@@ -80,7 +86,7 @@ Use the smallest group that preserves meaning and compatibility.
 | UI primitive family | `@radix-ui/*`, `cmdk`, `react-day-picker`, related shadcn primitives | One PR when components share the same app/UI validation surface |
 | SDK/vendor modules | `@aws-sdk/*`, `@sentry/*`, `firebase` packages | One PR per vendor feature area when large |
 | Types and runtime | `foo` plus `@types/foo` | Same PR unless types update is independent |
-| Security patch | vulnerable package and required direct parents | Separate PR when urgency or blast radius differs |
+| Security patch | vulnerable package, required direct parents, or a scoped override | Separate PR when urgency or blast radius differs |
 
 Read `references/workflow.md` for a deeper grouping, research, and impact-analysis procedure.
 

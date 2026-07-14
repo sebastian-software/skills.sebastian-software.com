@@ -15,7 +15,8 @@ Useful commands:
 
 - `npm outdated`, `npm install <pkg>@<version>`
 - `pnpm outdated`, `pnpm update <pkg>@<version>`, `pnpm why <pkg>`
-- `yarn npm info <pkg>`, `yarn up <pkg>@<version>`, `yarn why <pkg>`
+- `yarn outdated` (Yarn 1), the non-interactive outdated plugin (Yarn 2+),
+  `yarn npm info <pkg>`, `yarn up <pkg>@<version>`, `yarn why <pkg>`
 - `npm view <pkg> versions --json`, `npm view <pkg> peerDependencies --json`
 
 Checks:

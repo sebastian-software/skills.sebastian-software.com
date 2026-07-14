@@ -28,7 +28,9 @@ Suggested inventory output:
 
 Use official package-manager commands where possible, then registry or upstream sources for extra context.
 
-- JavaScript: `npm outdated`, `pnpm outdated`, `yarn outdated`, package-manager-specific lockfile updates.
+- JavaScript: `npm outdated`, `pnpm outdated`, `yarn outdated` (Yarn 1), or
+  the non-interactive outdated plugin (Yarn 2+), plus
+  package-manager-specific lockfile updates.
 - Rust: `cargo update --dry-run` where available, `cargo tree`, `cargo outdated` if installed.
 - Python: inspect `pyproject.toml`, lockfiles, `pip list --outdated`, `uv lock --upgrade-package`, `poetry show --outdated`.
 - Go: `go list -m -u all`.
@@ -37,6 +39,28 @@ Use official package-manager commands where possible, then registry or upstream 
 - .NET: `dotnet list package --outdated`.
 
 When tools are unavailable, read manifests and lockfiles directly, then use registry metadata or upstream release pages. Record tool gaps in the plan.
+
+## 2a. Security Advisory Discovery and Triage
+
+Run the repository's available ecosystem audit during discovery, not only after
+an update was already selected. Examples include `npm audit --json`, `pnpm audit
+--json`, `cargo audit`, `pip-audit`, `govulncheck`, or `osv-scanner scan source
+-r .`. Prefer the project's existing scanner and lockfile owner; do not install
+or run a remediation tool merely to manufacture a result.
+
+For every finding that motivates an update, record the advisory ID (GHSA, CVE,
+or OSV ID), source, severity, affected package and dependency path, affected
+range, and fixed range. Verify from the advisory that the proposed direct or
+transitive version is outside the affected range before grouping or publishing.
+An audit result is evidence to investigate, not permission to apply a broad
+upgrade or a forced major version.
+
+For a transitive-only finding, prefer updating the direct parent that brings in
+a fixed transitive version. When no safe parent update exists, use a narrowly
+scoped `overrides` entry for npm or pnpm, or `resolutions` for Yarn, and explain
+the compatibility tradeoff, advisory, affected path, and removal condition in
+the PR. Regenerate the lockfile with its owning package manager, rescan, and do
+not leave a broad or unverified override behind.
 
 ## 3. Grouping Decision
 
@@ -112,7 +136,7 @@ Worktree workflow:
 5. Validate, commit, push, and open a ready-for-review PR for that worktree before moving to an unrelated group. Use draft PRs or keep worktrees local only when the user explicitly asks for planning only, draft PRs, local-only branches, or analysis without PRs.
 6. Rebase or regenerate later worktrees after earlier dependency PRs land if they share a lockfile.
 
-Shared lockfiles do not justify a mixed PR by themselves. A pnpm workspace may produce one root lockfile, but each PR still needs a coherent dependency story. If regenerating a lockfile for one group also updates unrelated packages, either narrow the package-manager command, manually inspect and remove unrelated churn, or explicitly split out the unavoidable churn as its own lockfile/tooling PR.
+Shared lockfiles do not justify a mixed PR by themselves. A pnpm workspace may produce one root lockfile, but each PR still needs a coherent dependency story. If regenerating a lockfile for one group also updates unrelated packages, narrow the package-manager command and regenerate; if the churn remains unavoidable, split it into its own lockfile/tooling PR. Do not hand-delete lockfile entries.
 
 Parallel worktrees are useful for independent groups such as Radix primitives, Cloudflare Worker tooling, and Stripe SDK updates. Prefer serial worktrees for groups that are likely to conflict in the same lockfile or source files, such as Next/React and Testing Library.
 
@@ -196,7 +220,8 @@ Run checks proportional to the dependency surface:
 - Unit tests for runtime libraries.
 - Integration or browser tests for framework/build/runtime changes.
 - Snapshot review when generated output changes.
-- Security audit when a security update motivated the change.
+- Security audit or source scan when a security update motivated the change;
+  verify the selected version satisfies the advisory's fixed range.
 
 If a full suite is too expensive, run narrow checks first and name the unrun broader checks in the PR. Do not claim safety from a single install command.
 
@@ -211,6 +236,8 @@ Prepare reviewers to evaluate the update quickly:
 - Call out changelog gaps and substitute evidence.
 - Explain required migrations and beneficial adoptions.
 - Include validation commands and results.
+- For advisory-motivated changes, include the advisory ID, severity, dependency
+  path, fixed range, and post-update scan result.
 - State risk and remaining uncertainty.
 
 Avoid dumping the full changelog. The PR should answer "what does this change for this repository?"
