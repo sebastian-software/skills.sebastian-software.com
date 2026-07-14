@@ -34,6 +34,7 @@ loads form guidance without exposing a long menu of overlapping skill names.
 | --- | --- |
 | `codebase-improvement` | Evidence-backed repository audits, leverage-based prioritization, complexity review, executable implementation plans, and stale-plan reconciliation. |
 | `decision-records` | Repository-native ADR creation, supersession, review, and drift control for durable technical, product, design, content, marketing, and communication decisions. |
+| `port-codebases` | Resource-aware, behavior-preserving ports across languages, runtimes, frameworks, platforms, and major APIs. |
 
 ### Marketing and sales
 
