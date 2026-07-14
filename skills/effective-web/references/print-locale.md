@@ -51,12 +51,20 @@ locale, limit it to rendered prose, and review the output before publishing.
 Keep transformations such as quote direction, dash style, and spacing in the
 `locale-typography` profile or an explicit project house-style rule.
 
-## Locale Profiles Not Yet Covered
+## Temporary Portuguese Rules
 
-`locale-typography` does not yet contain profiles for `pt-PT`, `pt-BR`, or
-`es-ES`. For those locales, obtain a reviewed locale or house-style decision
-before encoding quotation, dash, number, or spacing rules; add the durable rule
-to `locale-typography` rather than creating another table here.
+`locale-typography` has a reviewed `es-ES` profile. It does not yet contain
+profiles for `pt-PT` or `pt-BR`, so keep the following existing print rules as
+explicit, temporary exceptions until equivalent profiles are added there:
+
+| Locale | Quotations | Parenthetical dash | Numbers and currency |
+| --- | --- | --- | --- |
+| `pt-PT` | `«…»`, then `“…”` | Spaced em dash | `1.234,56`; currency after a space |
+| `pt-BR` | `“…”`, then `‘…’` | Spaced em dash | `1.234,56`; `R$` before with no space |
+
+For a new Portuguese requirement, obtain a reviewed locale or house-style
+decision and add the durable rule to `locale-typography` rather than extending
+this temporary table.
 
 ## Print Verification
 

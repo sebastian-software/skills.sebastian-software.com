@@ -30,7 +30,7 @@ results without pretending that browsers provide every DTP capability.
 | Layout | [print-layout.md](print-layout.md) — layers, reset, @page, simulation, grid, fragmentation |
 | Web Print CSS | [print-web-styles.md](print-web-styles.md) — print styles for ordinary web pages |
 | Page Features | [print-page-features.md](print-page-features.md) — headers/footers, counters, bleed, links, element styles |
-| Locale | [print-locale.md](print-locale.md) — integrate reviewed locale rules into print CSS; route language-level rules to `locale-typography` |
+| Locale | [print-locale.md](print-locale.md) — integrate reviewed locale rules into print CSS; route language-level rules to `locale-typography` and follow its verification and safe-preprocessing requirements |
 
 ## Print vs. Screen
 
@@ -73,7 +73,7 @@ results without pretending that browsers provide every DTP capability.
 - Books: use `text-indent: 1em` on `p + p` (not `margin-bottom`) for paragraph separation
 - Choose body faces with low-to-medium stroke contrast and open apertures — high contrast (Bodoni) for display only
 - Avoid Times New Roman; prefer Georgia, Charter, Palatino
-- Quotation marks, dashes, number formatting, and spacing rules vary by locale — set `quotes` per `lang` or use `quotes: auto`; use a typographic preprocessor (SmartyPants, richtypo.js) for automated character substitution at build time
+- Quotation marks, dashes, number formatting, and spacing rules vary by locale — route them to `locale-typography`; use `quotes: auto` only after verifying the rendered locale result, and preprocess only rendered prose with an explicit locale
 
 ## Colors
 

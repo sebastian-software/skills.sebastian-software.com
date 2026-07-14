@@ -494,7 +494,7 @@ Figure styles split into two groups:
 Use the correct typographic marks:
 - **Hyphen** (-) connects words: "five-dollar"
 - **En dash** (\u2013) replaces "to": "6\u20135 p.m."
-- **Em dash** (\u2014) can indicate a break in thought; its use and spacing depend on the locale and established house style
+- **Em dash** (\u2014) can indicate a break in thought; route its use and spacing to `locale-typography` for the target locale while preserving an established house style
 - **Curly quotation marks** (\u201c \u201d \u2018 \u2019) for prose - straight marks (' ") are for code only
 
 **Additional typographic marks:**
@@ -502,7 +502,7 @@ Use the correct typographic marks:
 - **Proper ellipsis** (`&hellip;` / …) — one character, not three dots
 - **Multiplication** (`&times;` / ×) — not the letter x
 - **Non-breaking space** (`&nbsp;`) — between values and units (100 km), initials (J. K. Rowling), and between last two words of headings (prevents widows)
-- **Dash and quotation spacing** — follow the locale and established house style; do not add breaking thin spaces for visual effect
+- **Dash and quotation spacing** — use `locale-typography` for the target locale, preserve an established house style, and do not add breaking thin spaces for visual effect
 
 ## Prevent Faux Bold and Italic
 
