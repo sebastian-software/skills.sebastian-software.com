@@ -97,6 +97,24 @@ dot folder, memory file, or private schema.
   them to match current implementation.
 - Route ADR creation, review, and lifecycle details through `decision-records`.
 
+## Keep Findings, Plans, and Decisions Distinct
+
+Use the repository's shared artifacts according to what they own:
+
+- An audit finding owns verified evidence, impact, confidence, and a possible
+  correction.
+- An implementation plan or issue owns delivery scope, sequencing,
+  dependencies, verification, owners, and temporary status.
+- An ADR owns a durable choice, rationale, tradeoffs, consequences, and review
+  triggers.
+
+Discover existing issue trackers and plan directories before writing. Do not
+make every skill create `plans/`, a private dot folder, or a custom debt ledger.
+When no convention exists and the user explicitly asks to save a plan, use plain
+Markdown under `docs/plans/`; create an index only when several plans require
+ordering. Route repository audits, plan creation, complexity review, and backlog
+reconciliation through `codebase-improvement`.
+
 ## Behavioral Evals
 
 For consequential workflow or judgment changes, add an eval that tests the

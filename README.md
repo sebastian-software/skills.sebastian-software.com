@@ -32,6 +32,7 @@ loads form guidance without exposing a long menu of overlapping skill names.
 
 | Skill | Focus |
 | --- | --- |
+| `codebase-improvement` | Evidence-backed repository audits, leverage-based prioritization, complexity review, executable implementation plans, and stale-plan reconciliation. |
 | `decision-records` | Repository-native ADR creation, supersession, review, and drift control for durable technical, product, design, content, marketing, and communication decisions. |
 
 ### Marketing and sales
