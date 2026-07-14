@@ -9,8 +9,10 @@ Set the language on the document and override it on mixed-language passages:
 
 ```html
 <html lang="fr-CA">
-  <p>Elle a répondu <q>Oui</q>.</p>
-  <p lang="pl-PL">To jest tekst po polsku.</p>
+  <body>
+    <p>Elle a répondu <q>Oui</q>.</p>
+    <p lang="pl-PL">To jest tekst po polsku.</p>
+  </body>
 </html>
 ```
 
