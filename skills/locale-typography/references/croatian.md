@@ -15,8 +15,9 @@ Follow the Croatian source convention for adjacent punctuation:
 ## Dash and range rules
 
 - Distinguish the hyphen (`spojnica`) from the dash (`crtica`).
-- Use a spaced dash for a numeric range in the official Croatian convention:
-  `18 – 20 godina`.
+- Use a spaced dash for a numeric range in prose in the official Croatian
+  convention: `18 – 20 godina`. Preserve an established compact style for
+  references such as page ranges.
 - Do not combine the range dash with an explicit `od … do` construction. Choose
   either `2009. – 2011.` or the corresponding words, not both.
 - Preserve an established editorial dash style for parenthetical interruptions
