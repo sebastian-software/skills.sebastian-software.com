@@ -1,0 +1,4 @@
+interface:
+  display_name: "LinkedIn Social Selling"
+  short_description: "Plan ethical B2B growth on LinkedIn"
+  default_prompt: "Use $linkedin-social-selling to plan an end-to-end LinkedIn customer acquisition workflow for my B2B offer."
