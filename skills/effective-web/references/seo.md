@@ -194,7 +194,7 @@ Search engines use HTML structure to understand content hierarchy and relevance.
 The `<h1>` signals the primary topic of the page to search engines.
 
 **Guidelines:**
-- Exactly one `<h1>` per page containing the primary keyword
+- Exactly one `<h1>` per page containing the primary keyword (a content convention for clear topic signaling — neither Google nor WCAG requires a single `<h1>`; see [accessibility testing](accessibility-testing.md) before reporting extra `<h1>` elements as failures)
 - It should match (or closely reflect) the `<title>` tag content
 - Place it early in the `<main>` content area
 - Do not use `<h1>` for site names or logos in the header — use styled `<a>` or `<p>` elements instead
@@ -393,7 +393,7 @@ Measures responsiveness — how quickly the page reacts to user input.
 
 **Frontend actions:**
 - Keep event handlers fast — avoid synchronous layout calculations in click/input handlers
-- Break long tasks (> 50ms) with `requestAnimationFrame` or `scheduler.yield()`
+- Break long tasks (> 50ms) with `scheduler.yield()`, `setTimeout`, or `postMessage` — not `requestAnimationFrame`, which queues work at the head of the next frame (see [browser performance](browser-performance.md))
 - Provide immediate visual feedback on interaction (see the 8 interaction states in [Design and Review route](route-design.md))
 - Avoid layout thrashing — batch DOM reads before DOM writes
 - Use CSS transitions for state changes rather than JavaScript-driven animation
@@ -523,7 +523,7 @@ Many performance optimisations are covered across other chapters. This is a cros
 2. Add Open Graph tags for social sharing — especially `og:image` at 1200 x 630px
 3. Use self-referencing `<link rel="canonical">` on every page
 4. Set `<html lang="...">` and use `hreflang` for multilingual sites
-5. Maintain exactly one `<h1>` per page with a logical heading hierarchy — no level skipping
+5. Maintain exactly one `<h1>` per page with a logical heading hierarchy — no level skipping (a content convention, not a WCAG or Google requirement)
 6. Add only supported, relevant JSON-LD structured data for rich results (for example, Article, Product, and BreadcrumbList); Google FAQ rich results are limited to well-known, authoritative government and health sites
 7. Use descriptive, hyphenated file names and natural alt text for images
 8. Meet Core Web Vitals targets: LCP < 2.5s, INP < 200ms, CLS < 0.1

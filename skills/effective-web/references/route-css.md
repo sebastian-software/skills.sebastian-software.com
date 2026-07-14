@@ -33,5 +33,8 @@ Use this skill for making CSS maintainable, predictable, and compatible with the
   and authored-content resilience.
 - [component-development.md](component-development.md) - semantic component
   state, custom-property contracts, focus, clipping, and local layout ownership.
+- [visibility-and-notifications.md](visibility-and-notifications.md) - hiding
+  techniques (`display: none`, `visibility`, `inert`, `hidden="until-found"`)
+  and their accessibility semantics.
 - [ui-quality-gates.md](ui-quality-gates.md) - semantic fixtures, feature erasure,
   continuous resize, and core-to-enhancement verification.

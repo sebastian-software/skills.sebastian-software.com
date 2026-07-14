@@ -35,7 +35,7 @@ component boundary.
 | `aria-disabled="true"` | No inherent visual change | Announces disabled but does not prevent focus or activation | Use when a discoverable, focusable unavailable control is intentional. Suppress its action and style it consistently. |
 | `tabindex="-1"` | No visual change | Removes an element from sequential focus but still permits programmatic focus | Use for focus destinations, not as a general hiding tool. It does not remove semantics or pointer operation. |
 | `aria-hidden="true"` | No visual change | Removes a subtree from the accessibility tree | Use only for redundant or decorative content with no focusable descendants. Never place it on an ancestor of the focused element. |
-| `role="none"` / `presentation` | No visual change | Removes an element's semantic role, not its content or descendants | Use only when the wrapper's native semantics are genuinely unwanted. It does not hide content. |
+| `role="none"` / `presentation` | No visual change | Removes an element's semantic role, not its content; required owned elements (table rows/cells, list items) also become presentational | Use only when the wrapper's native semantics are genuinely unwanted. It does not hide content. |
 | `hidden="until-found"` | Hidden until browser search or fragment navigation reveals it | Support and accessibility exposure vary by platform | Consider for searchable collapsed content only after support and fallback testing; synchronize the component's visible and ARIA state when `beforematch` fires. |
 
 CSS clipping recipes for visually hidden text must remain robust at zoom and in

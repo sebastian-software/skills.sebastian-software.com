@@ -224,17 +224,17 @@ browser zoom, not only at its two configured endpoints.
 Use `clamp()` for font sizes that scale smoothly:
 
 ```css
-/* clamp(minimum, preferred, maximum) */
+/* clamp(minimum, preferred, maximum) — matches the 320px → 1500px scale above */
 h1 {
-  font-size: clamp(35px, 5vw + 1rem, 63px);
+  font-size: clamp(2.1875rem, 2.4vw + 1.7rem, 3.9375rem); /* 35px → 63px */
 }
 
 h2 {
-  font-size: clamp(29px, 4vw + 0.5rem, 47px);
+  font-size: clamp(1.8125rem, 1.5vw + 1.5rem, 2.9375rem); /* 29px → 47px */
 }
 
 .prose {
-  font-size: clamp(17px, 1.5vw + 0.5rem, 20px);
+  font-size: clamp(1.0625rem, 0.25vw + 1rem, 1.25rem); /* 17px → 20px */
 }
 ```
 

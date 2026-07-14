@@ -288,7 +288,7 @@
     {
       "name": "keep-site-navigation-out-of-aria-menu",
       "prompt": "A responsive marketing-site navigation assigns menu, menuitem, and menubar roles to its ordinary destination links so it sounds more like a menu. Specify the correct semantics and keyboard behavior.",
-      "expected": "Uses a labelled nav landmark, list, native links, and disclosure buttons with aria-expanded and aria-controls; preserves Tab navigation and Enter activation; reserves application-style menu roles and arrow-key models for desktop-software-like commands; and verifies closed content is neither invisible nor focusable."
+      "expected": "Uses a labelled nav landmark, list, native links, and disclosure buttons with aria-expanded and aria-controls; preserves Tab navigation and Enter activation; reserves application-style menu roles and arrow-key models for desktop-software-like commands; and verifies closed content is neither visible nor focusable."
     },
     {
       "name": "keep-submit-available-for-recovery",

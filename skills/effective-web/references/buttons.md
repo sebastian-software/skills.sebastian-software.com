@@ -168,13 +168,12 @@ Order buttons left to right, most important to least important.
 Both left and right alignment can work if visual hierarchy is clear.
 
 **Left alignment reasons:**
-- Familiar pattern (Windows OS)
-- Consistent with other forms
+- Consistent with left-aligned form fields above
 - Avoids confusion from mixed alignment
 
 **Right alignment reasons:**
 - Indicates direction/momentum (forward = right, back = left)
-- Familiar pattern (Mac OS)
+- Familiar dialog pattern on desktop platforms (both Windows and macOS place the commit-button group at the bottom right)
 
 ### Multi-Step Forms
 **Problem with right-aligned primary button:**

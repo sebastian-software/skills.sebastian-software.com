@@ -341,7 +341,7 @@ Navigation for multi-page content (search results, article lists).
     <li><a href="?page=1" aria-label="Page 1">1</a></li>
     <li><a href="?page=2" aria-current="page" aria-label="Page 2">2</a></li>
     <li><a href="?page=3" aria-label="Page 3">3</a></li>
-    <li><a href="?page=4" aria-label="Next page" rel="next">Next</a></li>
+    <li><a href="?page=3" aria-label="Next page" rel="next">Next</a></li>
   </ul>
 </nav>
 ```
@@ -667,7 +667,7 @@ When tabs overflow on small screens, use CSS scroll-snap for a swipeable tab str
 }
 ```
 
-**Emerging CSS features (Chrome 128+):**
+**Emerging CSS features (Chrome 135+):**
 - `::scroll-button()` pseudo-element generates accessible previous/next buttons with automatic ARIA roles
 - `::scroll-marker` and `::scroll-marker-group` associate navigation markers with scroll items, handling tablist keyboard behaviour automatically
 - `scroll-state(snapped)` container queries enable styling based on snap position

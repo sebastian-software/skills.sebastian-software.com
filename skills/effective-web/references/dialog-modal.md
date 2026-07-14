@@ -62,7 +62,7 @@ dialog.addEventListener("close", () => {
 | Focus trapping | Yes (native) | No | No |
 | Light dismiss | Only with `closedby="any"` | No | Yes (default for `popover="auto"`) |
 | Escape to close | Yes (default) | No | Yes (for `popover="auto"`) |
-| Focus restoration | Yes | Yes | No (must implement) |
+| Focus restoration | Yes | Yes | Partial (browser restores on hide only if focus is inside; initial focus placement must be implemented) |
 | Semantic role | `dialog` | `dialog` | None (inherits from element) |
 
 ### Use `<dialog>` (Modal) When
@@ -543,9 +543,11 @@ Do not show pop-ups right after a user enters a screen. Modals should be user-in
 
 Use the Popover API for toast notifications. Toasts are non-modal, non-blocking messages that appear temporarily and dismiss automatically.
 
+Keep interactive controls outside the live region: announce only the message text, and place actions such as Undo next to it in the normal focus order (see [visibility and notifications](visibility-and-notifications.md)).
+
 ```html
-<div id="toast" popover="manual" role="status" aria-live="polite">
-  Message deleted.
+<div id="toast" popover="manual">
+  <p id="toast-message" role="status" aria-live="polite">Message deleted.</p>
   <button onclick="undoDelete()">Undo</button>
 </div>
 ```
@@ -553,7 +555,7 @@ Use the Popover API for toast notifications. Toasts are non-modal, non-blocking 
 ```javascript
 function showToast(message, duration = 5000) {
   const toast = document.getElementById("toast");
-  toast.textContent = message;
+  document.getElementById("toast-message").textContent = message;
   toast.showPopover();
 
   setTimeout(() => {
@@ -561,6 +563,8 @@ function showToast(message, duration = 5000) {
   }, duration);
 }
 ```
+
+When a toast carries an action, auto-dismissal works against keyboard and screen-reader users — extend the duration substantially and offer the same action through a persistent surface (for example an undo entry in a menu or activity list).
 
 ```css
 #toast {

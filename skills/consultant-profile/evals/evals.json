@@ -2,70 +2,59 @@
   "skill_name": "consultant-profile",
   "evals": [
     {
-      "id": 1,
+      "name": "audit-prominence-over-chronology",
       "prompt": "Audit my consultant profile. It is currently a reverse-chronological project list, and I worry that older enterprise clients like Deutsche Bank and Deutsche Telekom are buried under newer but less relevant projects.",
-      "expected_output": "A profile thesis, prominence map, proposed structure, rewrite samples, and factual gaps. The answer should recommend selected highlights based on signal strength rather than chronology alone.",
-      "files": []
+      "expected": "A profile thesis, prominence map, proposed structure, rewrite samples, and factual gaps. The answer should recommend selected highlights based on signal strength rather than chronology alone."
     },
     {
-      "id": 2,
+      "name": "rewrite-website-bio-for-buyers",
       "prompt": "Rewrite this senior frontend/product engineering consultant bio for my website. I want buyers to understand my industries, client types, and what I am good at within 30 seconds.",
-      "expected_output": "A website-suitable consultant profile with headline, executive summary, capability pillars, selected highlights, additional projects, and concise skills/tooling.",
-      "files": []
+      "expected": "A website-suitable consultant profile with headline, executive summary, capability pillars, selected highlights, additional projects, and concise skills/tooling."
     },
     {
-      "id": 3,
+      "name": "compress-projects-to-one-page-cv",
       "prompt": "Turn these 18 project entries into a strong one-page consultant CV. Keep it truthful, do not invent metrics, but make the strongest client and impact signals visible.",
-      "expected_output": "A compact one-page structure that preserves chronology where useful, adds a selected-impact or selected-client signal area, and rewrites bullets with action, scope, and qualified impact.",
-      "files": []
+      "expected": "A compact one-page structure that preserves chronology where useful, adds a selected-impact or selected-client signal area, and rewrites bullets with action, scope, and qualified impact."
     },
     {
-      "id": 4,
+      "name": "localize-profile-for-dach-and-linkedin",
       "prompt": "I need German and English versions of my consultant profile for DACH clients, international EU leads, and LinkedIn. Do not just translate it literally; adapt tone and structure.",
-      "expected_output": "A localization plan with DACH/German, EU/international English, and LinkedIn variants, including headline/About examples, terminology choices, and notes on what facts must stay aligned.",
-      "files": []
+      "expected": "A localization plan with DACH/German, EU/international English, and LinkedIn variants, including headline/About examples, terminology choices, and notes on what facts must stay aligned."
     },
     {
-      "id": 5,
+      "name": "sync-linkedin-with-pdf-profile",
       "prompt": "Review my LinkedIn profile against my PDF consultant profile. I want LinkedIn to stay updated from the same project data, but I am not sure what should be copied, shortened, or posted separately.",
-      "expected_output": "A channel comparison and sync plan covering LinkedIn headline, About, Featured, Experience, skills, recommendations, activity, source-of-truth data, and API/platform caution.",
-      "files": []
+      "expected": "A channel comparison and sync plan covering LinkedIn headline, About, Featured, Experience, skills, recommendations, activity, source-of-truth data, and API/platform caution."
     },
     {
-      "id": 6,
+      "name": "strengthen-tone-without-invention",
       "prompt": "This profile is factually right but feels too flat. Make it more positive in the Dan Berlin sense: the strengths should actually read as strengths, but do not invent anything or turn it into hollow US marketing copy.",
-      "expected_output": "A language strategy plus rewrites that use positive-but-earned framing, proof-backed claims, DACH and English tone variants, and a checklist of unsupported claims to avoid.",
-      "files": []
+      "expected": "A language strategy plus rewrites that use positive-but-earned framing, proof-backed claims, DACH and English tone variants, and a checklist of unsupported claims to avoid."
     },
     {
-      "id": 7,
+      "name": "translate-german-profile-idiomatically",
       "prompt": "Translate my German Beraterprofil into natural English for LinkedIn and an international PDF. Keep the facts aligned, but make the English sound like a real person wrote it, not like a German CV was translated sentence by sentence.",
-      "expected_output": "Localized English variants for LinkedIn and PDF, with idiomatic phrasing, first-person LinkedIn tone where appropriate, proof-backed positive claims, and notes on German concepts that should not be translated literally.",
-      "files": []
+      "expected": "Localized English variants for LinkedIn and PDF, with idiomatic phrasing, first-person LinkedIn tone where appropriate, proof-backed positive claims, and notes on German concepts that should not be translated literally."
     },
     {
-      "id": 8,
+      "name": "find-professional-through-line",
       "prompt": "My project list reads like disconnected events. Please find the professional story across the projects: early frontend work, later enterprise clients, internationalization, and product engineering. Keep it concise and factual, not like a biography.",
-      "expected_output": "A profile audit that identifies a professional through-line, connects earlier and later projects, proposes where to place the narrative in the profile, and rewrites selected project entries so they support the arc without becoming dramatic or invented.",
-      "files": []
+      "expected": "A profile audit that identifies a professional through-line, connects earlier and later projects, proposes where to place the narrative in the profile, and rewrites selected project entries so they support the arc without becoming dramatic or invented."
     },
     {
-      "id": 9,
+      "name": "run-completeness-interview-pass",
       "prompt": "Run an interview/completeness pass before rewriting my consultant profile. The current homepage misses older projects that exist on the old homepage and LinkedIn, and I also have LinkedIn recommendations that may contain useful signals but should not be pasted into the profile.",
-      "expected_output": "A source inventory, project completeness table, prioritized interview questions, reference-signal map, and a recommendation for what can be safely improved now versus what needs answers or permission.",
-      "files": []
+      "expected": "A source inventory, project completeness table, prioritized interview questions, reference-signal map, and a recommendation for what can be safely improved now versus what needs answers or permission."
     },
     {
-      "id": 10,
+      "name": "translate-personality-into-professional-language",
       "prompt": "I want my consultant profile to show more personality without becoming unprofessional. Earlier I used phrases like 'Nein-Sager' because I value clear boundaries, saying what I can and cannot do, design judgment, working well with designers, and being a self-taught engineer from a webdesign background.",
-      "expected_output": "A personality and boundaries strategy that translates raw labels into professional language, identifies where personality belongs by channel, proposes a working-principles block, keeps the design/autodidact story tied to proof, and warns against wording that sounds combative or unsupported.",
-      "files": []
+      "expected": "A personality and boundaries strategy that translates raw labels into professional language, identifies where personality belongs by channel, proposes a working-principles block, keeps the design/autodidact story tied to proof, and warns against wording that sounds combative or unsupported."
     },
     {
-      "id": 11,
+      "name": "write-from-buyer-interviewer-perspective",
       "prompt": "My coach says people buy from people. I do not want anonymous consultant profiles anymore. Rewrite my profile direction from the perspective of an interviewer who wants to understand what kind of person I am, what I enjoy, and what I want to achieve, while still keeping it professional and evidence-based.",
-      "expected_output": "A buyer/interviewer perspective pass that treats personality as part of trust and fit, adds a concise human-fit or motivation section, keeps proof and capability prominent, and avoids drifting into private biography or unsupported personal branding.",
-      "files": []
+      "expected": "A buyer/interviewer perspective pass that treats personality as part of trust and fit, adds a concise human-fit or motivation section, keeps proof and capability prominent, and avoids drifting into private biography or unsupported personal branding."
     }
   ]
 }
