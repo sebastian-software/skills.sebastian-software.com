@@ -10,6 +10,12 @@ Design forms around user recovery: clear labels, browser-supported input attribu
 - Preserve paste, autofill, password managers, native validation, and submitter semantics unless there is a specific risk.
 - Do not apply global `novalidate` or wrap fields in custom validation layers that hide input purpose, mobile keyboards, password managers, or autofill.
 - Associate each error message with its field programmatically (for example `aria-describedby`) so assistive tech announces it.
+- Keep submit available until a submission is in progress. Do not disable it
+  because client-side state says the form is incomplete; submission is the
+  reliable opportunity to expose validation and recovery.
+- After a failed submission, preserve entered values and move focus to a labelled
+  error summary when several fields fail. Link each summary item to its field,
+  keep the inline error associated with that field, and explain how to recover.
 - Pair custom widgets with precise keyboard, focus, error, and fallback behavior.
 
 ### Autocomplete and Autofill

@@ -259,6 +259,51 @@
       "name": "challenge-opaque-container-filling-type",
       "prompt": "To make a heading fill its container, a prototype duplicates the heading as aria-hidden reference text and uses @property plus trigonometric CSS math. It overflows at intermediate widths, but the team wants to ship it because the effect is impressive. Decide what to do.",
       "expected": "Confirms the visual intent and compares the effect with a simple token-based responsive heading in the real container across continuous widths. It treats duplicated content, opaque math, support, semantics, developer comprehension and failure behavior as architecture risks; keeps a readable wrapping fallback inside the enhancement; and ships the complex version only if it prevents a meaningful user-facing failure, otherwise deleting it and recording any bounded follow-up debt."
+    },
+    {
+      "name": "align-hidden-drawer-state",
+      "prompt": "A mobile account drawer slides off-screen with transform and opacity when closed. Its links remain tabbable, the page stays interactive behind it when open, and aria-hidden is toggled on the drawer. Repair the interaction model.",
+      "expected": "Chooses either a coherent non-modal disclosure or modal drawer model; aligns visual, accessibility-tree, focus, and pointer state; never leaves focusable descendants under aria-hidden; and, for a modal drawer, moves and contains focus, makes the background inert, supports a visible close action and Escape, returns focus, and clears stale state at responsive breakpoints."
+    },
+    {
+      "name": "preserve-visible-label-in-name",
+      "prompt": "Every product card has a visible Add to cart button. The implementation replaces that phrase with aria-label='Purchase blue medium trail shoe SKU 418 now' so screen-reader users can distinguish the buttons. Review the naming strategy.",
+      "expected": "Keeps the visible Add to cart phrase within the computed accessible name, adds only useful product context through aria-labelledby or visually hidden content, avoids an aria-label that overrides visible and localized text, and verifies repeated controls plus speech-input activation in the accessibility tree."
+    },
+    {
+      "name": "name-icon-control-robustly",
+      "prompt": "A dialog close button contains only an SVG with a title element. It sounds correct in one screen reader, so the team assumes the button is named everywhere. Make the component robust.",
+      "expected": "Keeps a native button, supplies durable localized text through visually hidden content or an aria-label fallback, treats the child SVG as decorative and hidden, avoids relying on SVG title propagation, and verifies the parent's computed role and name in representative pairings."
+    },
+    {
+      "name": "keep-interaction-out-of-live-region",
+      "prompt": "A payment error panel is role=alert and contains a heading, explanation, Retry button, support link, and a countdown that updates every second. Screen readers repeatedly interrupt the user. Redesign it.",
+      "expected": "Keeps interactive recovery content in normal document structure, announces one concise actionable failure only when needed, moves focus to an appropriate error heading or summary, avoids per-second assertive updates, uses state or progress semantics where applicable, and prevents duplicate narration from focus plus overlapping live regions."
+    },
+    {
+      "name": "preserve-collapsed-content-search",
+      "prompt": "A documentation FAQ uses display:none for every closed answer. Browser find-in-page cannot locate terms inside closed sections, but searchable answers are a product requirement. Choose a resilient approach.",
+      "expected": "Treats find-in-page as an explicit state dimension, considers native details or support-gated hidden=until-found with beforematch state synchronization, provides a coherent fallback such as expanded reference content or page search, and tests keyboard, accessibility tree, fragments, browser find, printing, and restored history state."
+    },
+    {
+      "name": "keep-site-navigation-out-of-aria-menu",
+      "prompt": "A responsive marketing-site navigation assigns menu, menuitem, and menubar roles to its ordinary destination links so it sounds more like a menu. Specify the correct semantics and keyboard behavior.",
+      "expected": "Uses a labelled nav landmark, list, native links, and disclosure buttons with aria-expanded and aria-controls; preserves Tab navigation and Enter activation; reserves application-style menu roles and arrow-key models for desktop-software-like commands; and verifies closed content is neither invisible nor focusable."
+    },
+    {
+      "name": "keep-submit-available-for-recovery",
+      "prompt": "A registration form disables Create account until client-side state considers every field valid. Keyboard and screen-reader users cannot discover what remains wrong, and server errors clear the password fields and focus. Redesign validation and recovery.",
+      "expected": "Keeps submit available until submission is in progress, validates after useful interaction or submit, preserves values where safe, focuses a labelled error summary with links to invalid fields, associates concrete inline errors programmatically, marks invalid state, and retains native form, autofill, paste, and submitter behavior."
+    },
+    {
+      "name": "separate-wcag-from-usability-evidence",
+      "prompt": "A bank says its transfer flow is accessible because an automated WCAG scan is green and the markup resembles a WAI-ARIA Authoring Practices example. Define the evidence needed before release.",
+      "expected": "Treats WCAG conformance as a necessary baseline rather than usability proof, treats APG examples as educational rather than production-ready, adds task-based keyboard, accessibility-tree, zoom and preference-mode checks, uses representative assistive-technology pairings, includes disabled-user usability for the consequential flow, and records environments, limitations, severity, and ownership."
+    },
+    {
+      "name": "judge-heading-structure-accurately",
+      "prompt": "An audit automatically fails a page under WCAG because it contains two h1 elements, even though the headings form a coherent outline. Another page passes because it has exactly one h1, but its visual headings are divs and its levels jump from h1 to h4. Correct the review rule.",
+      "expected": "Does not invent an exactly-one-h1 WCAG requirement; treats one primary h1 as a useful project convention when appropriate; prioritizes a meaningful semantic outline, consistent visual and semantic hierarchy, and navigation utility; and flags the div headings and unexplained level jump based on actual structure and user impact."
     }
   ]
 }

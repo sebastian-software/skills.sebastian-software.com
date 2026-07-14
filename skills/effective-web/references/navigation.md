@@ -82,9 +82,9 @@ A toggle button that reveals hidden navigation. On mobile, this is the standard 
 <nav aria-label="Main">
   <button type="button"
           aria-expanded="false"
-          aria-controls="nav-list"
-          aria-label="Menu">
+          aria-controls="nav-list">
     <svg aria-hidden="true" width="24" height="24"><!-- hamburger icon --></svg>
+    <span class="visually-hidden">Menu</span>
   </button>
   <ul id="nav-list">
     <li><a href="/">Home</a></li>
@@ -99,6 +99,14 @@ A toggle button that reveals hidden navigation. On mobile, this is the standard 
 - Use `visibility: hidden` or `display: none` to hide (never just `opacity` or `transform` -- invisible links remain keyboard-focusable)
 - Close when focus leaves the navigation container
 - Close when clicking outside the menu
+
+These behaviors describe a non-modal disclosure. If the mobile design instead
+uses a modal drawer that covers the page, apply the dialog behavior as a whole:
+move focus into the drawer, keep it there while modal, provide a visible close
+button, close on Escape, make the background inert, prevent background scroll,
+and return focus to the opener. Do not mix a modal visual treatment with a
+non-modal focus model. When a breakpoint turns the drawer into persistent
+desktop navigation, clear stale hidden, inert, scroll-lock, and expanded state.
 
 **Why disclosure over ARIA menu roles:**
 The WAI-ARIA APG explicitly recommends the disclosure pattern for site navigation. The `menu`, `menubar`, and `menuitem` roles shift screen readers into forms/application mode with keyboard commands (arrow keys, a-z shortcuts) that confuse users navigating a website. Reserve ARIA menu roles for application-style interfaces that mimic desktop software menus.
@@ -578,8 +586,9 @@ Insert the toggle button via JavaScript (or `<template>`) so the navigation rema
 <nav aria-label="Main">
   <template id="burger-template">
     <button type="button" aria-expanded="false"
-            aria-label="Menu" aria-controls="nav-list">
+            aria-controls="nav-list">
       <svg aria-hidden="true">...</svg>
+      <span class="visually-hidden">Menu</span>
     </button>
   </template>
   <ul id="nav-list">

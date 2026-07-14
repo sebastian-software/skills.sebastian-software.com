@@ -342,8 +342,11 @@ Simplest, easiest to implement.
 **Guidelines:**
 - Display error message ABOVE invalid fields (below can be covered by keyboards/autofill)
 - Use red border + background shade + icon (not colour alone)
-- List multiple errors at top with links to invalid fields
-- DON'T disable submit button
+- List multiple errors in a programmatically labelled summary at the top, move
+  focus to it after failed submission, and link each item to its invalid field
+- Keep the submit button available until submission is in progress; do not
+  disable it merely because the form appears incomplete
+- Preserve entered values and associate each inline error with its field
 
 **Advantages:**
 - Simple to implement
