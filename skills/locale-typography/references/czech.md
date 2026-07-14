@@ -26,6 +26,9 @@ whether it belongs to the quotation or the surrounding Czech sentence.
 ## Other conventions
 
 - Put no space before `, . : ; ? !`.
+- Preserve the meaning-bearing percent spacing: `50 %` means "fifty percent",
+  while closed `50%` is used for an adjectival form such as
+  `padesátiprocentní`. Do not normalize one into the other.
 - Preserve Czech diacritics and capitalization.
 - Use `cs-CZ` locale APIs for numbers, Czech koruna, percentages, dates, times,
   units, lists, collation, and plurals.
