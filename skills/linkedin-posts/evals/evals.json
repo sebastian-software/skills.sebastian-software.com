@@ -1,0 +1,20 @@
+{
+  "skill_name": "linkedin-posts",
+  "evals": [
+    {
+      "name": "route-ideas-to-one-category",
+      "prompt": "I want LinkedIn post ideas about lessons from a product launch. Give me options without loading the entire 300-idea database.",
+      "expected": "Selects the relevant category or asks one focused clarification, then gives tailored ideas without treating the whole database as required context."
+    },
+    {
+      "name": "write-evidence-led-client-post",
+      "prompt": "Draft a LinkedIn post about a difficult migration we completed for a client. The work reduced manual steps, but I do not have permission to name the client or claim a percentage improvement.",
+      "expected": "Produces a readable post with a concrete hook and takeaway, preserves confidentiality, avoids invented metrics, and asks only for context needed to make the claim accurate."
+    },
+    {
+      "name": "plan-sustainable-calendar",
+      "prompt": "Build a four-week LinkedIn content plan for a small B2B consultancy that can publish once a week and wants to learn which messages start useful conversations.",
+      "expected": "Creates a realistic mixed-format calendar with audience, goal, and learning criteria for each post; it avoids universal timing, frequency, and engagement claims."
+    }
+  ]
+}

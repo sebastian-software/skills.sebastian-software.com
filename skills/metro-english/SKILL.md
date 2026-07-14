@@ -1,6 +1,5 @@
 ---
 name: metro-english
-version: 1.0.0
 description: |
   Rewrite text into relaxed US metropolitan team English: the kind of natural,
   direct, human voice used in Slack threads, GitHub or Linear issue comments, PR

@@ -1,0 +1,20 @@
+{
+  "skill_name": "locale-typography",
+  "evals": [
+    {
+      "name": "preserve-code-while-localizing-german-prose",
+      "prompt": "Fix the quotation marks and number-unit spacing in this German UI copy, but do not alter JSX attributes, code examples, URLs, or product identifiers.",
+      "expected": "Uses the German profile and changes only visible prose, preserving code, attributes, URLs, identifiers, and existing intentional house-style choices."
+    },
+    {
+      "name": "distinguish-french-canadian-spacing",
+      "prompt": "Normalize punctuation spacing in a fr-CA checkout message that contains a colon, semicolon, question mark, and exclamation mark.",
+      "expected": "Uses the French profile's regional guidance and does not apply fr-FR spacing rules universally to Canadian French."
+    },
+    {
+      "name": "delegate-dynamic-values-to-intl",
+      "prompt": "Format prices, dates, and measurements for a mixed German and English dashboard by manually choosing separators and currency position in templates.",
+      "expected": "Recommends locale-aware APIs for dynamic values, keeps display formatting separate from business data, and asks for exact locales where regional choices matter."
+    }
+  ]
+}

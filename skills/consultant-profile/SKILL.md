@@ -1,7 +1,11 @@
 ---
 name: consultant-profile
-description: This skill should be used when the user asks to create, rewrite, audit, localize, translate, complete, interview for, or improve a consultant profile, consultant CV, freelancer profile, LinkedIn profile, XING profile, project list, case-study list, expert bio, or senior technology-consulting resume. Use it especially when the user mentions missing projects, project gaps, old homepage, LinkedIn recommendations, references, testimonials, interview mode, completeness mode, DACH, EU, German vs English, LinkedIn, profile synchronization, tone, voice, positive framing, marketing psychology, storytelling, professional arc, career narrative, self-presentation, personality, working style, values, boundaries, what they can and cannot do, being opinionated, "Nein-Sager", "people buy from people", "Menschen kaufen von Menschen", anonymous profiles, buyer perspective, interviewer perspective, motivation, what they enjoy, what they want to achieve, design background, visual sense, autodidact, self-learner, On Writing Well, Dan Berlin, project prominence, client logos, achievements, industries, "weitere Projekte", Lebenslauf, Profil, CV, or wants to decide which projects deserve highlight placement.
-version: 0.1.0
+description: >-
+  Create, audit, rewrite, localize, and improve consultant CVs, LinkedIn/XING
+  profiles, case studies, project lists, bios, and senior technology-consulting
+  resumes. Use for positioning, profile completeness, career narratives,
+  evidence-led project selection, cross-channel synchronization, and
+  interview-driven discovery.
 ---
 
 # Consultant Profile
@@ -20,11 +24,11 @@ The profile's job is to help a buyer, recruiter, partner, or staffing lead quick
 
 Read these references before making substantive changes:
 
-- `references/profile-principles.md` - research synthesis, project-prominence model, regional/channel strategy, writing formulas, and audit checklist
-- `references/language-and-persuasion.md` - tone calibration, positive-but-earned framing, plain-language editing, human voice, and ethical marketing psychology
-- `references/narrative-arc.md` - professional storyline, recurring themes, project connections, and "no loose pile of projects" structure
-- `references/interview-and-completion.md` - source inventory, gap analysis, interview questions, project completeness, and reference/testimonial mining
-- `references/personality-and-boundaries.md` - professional personality, opinionated positioning, limits, working style, design background, and self-learner signals
+- [Profile principles](references/profile-principles.md) - research synthesis, project-prominence model, regional/channel strategy, writing formulas, and audit checklist
+- [Language and persuasion](references/language-and-persuasion.md) - tone calibration, positive-but-earned framing, plain-language editing, human voice, and ethical marketing psychology
+- [Narrative arc](references/narrative-arc.md) - professional storyline, recurring themes, project connections, and "no loose pile of projects" structure
+- [Interview and completion](references/interview-and-completion.md) - source inventory, gap analysis, interview questions, project completeness, and reference/testimonial mining
+- [Personality and boundaries](references/personality-and-boundaries.md) - professional personality, opinionated positioning, limits, working style, design background, and self-learner signals
 
 ## Core Workflow
 
@@ -134,3 +138,9 @@ For a full rewrite, return a complete profile with:
 ## Quality Bar
 
 Prefer concrete, commercially legible language over career-history narration. A strong output should make the reader think, within 30 seconds: "I understand what this person does, where they have done it, and why they are credible for this kind of work."
+
+## Related Skills
+
+- Use [linkedin-social-selling](../linkedin-social-selling/SKILL.md) when the
+  profile is part of a client-acquisition, network, conversation, or content
+  strategy.

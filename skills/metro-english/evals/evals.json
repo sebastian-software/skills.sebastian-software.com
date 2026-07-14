@@ -1,0 +1,20 @@
+{
+  "skill_name": "metro-english",
+  "evals": [
+    {
+      "name": "rewrite-german-engineering-update",
+      "prompt": "Turn this German update into natural US team English for a GitHub issue: 'Der Fix ist fertig, aber wir warten noch auf den CI-Lauf. Danach merge ich den PR.'",
+      "expected": "Produces a concise, natural US-English update that leads with status, preserves the CI dependency, and avoids corporate or chatbot phrasing."
+    },
+    {
+      "name": "keep-critical-feedback-clear",
+      "prompt": "Rewrite this review note so it is direct but not harsh: 'This is wrong. It will delete customer data if the retry happens twice.'",
+      "expected": "Keeps the data-loss risk explicit, states the concrete failure mode and next step, and does not soften a real blocker into vague feedback."
+    },
+    {
+      "name": "respect-existing-house-style",
+      "prompt": "Make this release note more casual, but the project's accepted style guide requires formal language for security notices and exact terminology for irreversible actions.",
+      "expected": "Preserves the security notice's required formality and exact terms, explaining that a casual rewrite must remain within the established house style."
+    }
+  ]
+}
