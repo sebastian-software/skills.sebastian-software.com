@@ -14,10 +14,12 @@ path when the project supports older devices, WebViews, or enterprise browsers.
 - **CSS Anchor Positioning:** the core subset (`anchor-name`, `position-area`,
   `anchor()`, `anchor-size()`, `anchor-scope`, `@position-try`) became
   interoperable in January 2026 and can replace JavaScript geometry for many
-  anchored overlays. The feature family is still Limited availability overall —
-  `position-anchor` remains partial outside Firefox — so verify current support
-  per property. Keep trigger semantics, top-layer behavior, dismissal, focus,
-  and collision testing as separate responsibilities.
+  anchored overlays. The feature family is still Limited availability overall:
+  BCD marks `position-anchor` partial in Chrome and Safari (initial value is
+  `none`/`auto` instead of the spec's `normal`) and complete only in Firefox
+  151+ — so verify current support per property, not per family. Keep trigger
+  semantics, top-layer behavior, dismissal, focus, and collision testing as
+  separate responsibilities.
 - **`:open`:** style the open state of `details`, `dialog`, picker-bearing
   `select`, and supported `input` controls without mirrored classes. A missing
   style must not hide the actual open/closed state.
