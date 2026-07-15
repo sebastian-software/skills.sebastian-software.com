@@ -2,6 +2,8 @@
 
 [![Maintained by Sebastian Software](https://img.shields.io/badge/Maintained%20by-Sebastian%20Software-0f172a.svg)](https://oss.sebastian-software.com/)
 
+**Website:** [skills.sebastian-software.com](https://skills.sebastian-software.com/)
+
 **Give your AI agent the practical judgment to take product and software work
 from an ambiguous brief to a review-ready result.**
 
