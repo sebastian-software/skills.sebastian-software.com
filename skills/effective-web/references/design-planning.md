@@ -72,9 +72,13 @@ question when the information cannot be inferred.
 9. **Constraints:** Which design system, components, framework, performance,
    accessibility, i18n, or browser constraints already exist?
 10. **Context:** Which devices, inputs, orientation, connection, and physical
-   usage conditions matter?
-11. **Anti-goals:** What would be a wrong direction for this audience or product?
-12. **Modality:** Can users provide input and consume output through the proposed
+    usage conditions matter?
+11. **Attention:** What may already distract, fatigue, interrupt, or reduce the
+    user's ability to interpret this surface?
+12. **Mental model:** Which system concepts and interaction expectations do users
+    bring, and which unfamiliar gap must the design bridge?
+13. **Anti-goals:** What would be a wrong direction for this audience or product?
+14. **Modality:** Can users provide input and consume output through the proposed
     interface in their real physical, social, and cognitive context?
 
 ## Visual Decomposition and Oversight Audit

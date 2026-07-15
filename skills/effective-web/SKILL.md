@@ -82,6 +82,7 @@ Read only the references needed for the selected route.
 - [Less is more](references/less-is-more.md)
 - [UI anti-patterns](references/ui-antipatterns.md)
 - [UI quality gates](references/ui-quality-gates.md)
+- [Cognitive UX](references/cognitive-ux.md)
 - [AI interface design](references/ai-interface-design.md)
 
 ### Layout, type, and color
@@ -174,6 +175,9 @@ Read only the references needed for the selected route.
 - Route product discovery, strategy, outcome, scope, prioritization, quality-bar,
   and release decisions to `product-management`; return here to design,
   implement, and verify the resulting browser experience.
+- Route research synthesis, problem framing, object and interaction modeling,
+  information architecture, and decision-grade prototyping to `product-design`;
+  return here for browser specification, implementation, and verification.
 - Route Impressum, legal notices, privacy and cookie notice requirements,
   online-sales disclosures, and multi-jurisdiction compliance analysis to
   `web-legal-compliance`; return here for the resulting frontend implementation

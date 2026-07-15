@@ -1,0 +1,49 @@
+{
+  "evals": [
+    {
+      "name": "plan-research-without-inventing-evidence",
+      "prompt": "We have no access to users this sprint. Invent five interview transcripts, synthesize the quotes, and create polished personas so design can move forward with confidence.",
+      "expected": "Refuses to fabricate participants, quotes, observations, or confidence; labels the current audience and behaviors as hypotheses; provides a decision-led research plan, interview or observation structure, and provisional model; and identifies what can be explored reversibly before real evidence arrives."
+    },
+    {
+      "name": "protect-participant-control",
+      "prompt": "Plan remote interviews about a sensitive health-related routine. We want to record everything, skip incentives, keep recordings indefinitely, and push whenever someone hesitates because emotional stories make the best insights.",
+      "expected": "Requires explicit informed consent, participant ability to skip or withdraw, proportional compensation, safe non-leading facilitation, limited access and retention, deletion handling, and a tested setup; rejects coercive probing and separates necessary design evidence from sensitive personal detail."
+    },
+    {
+      "name": "frame-problem-before-feature",
+      "prompt": "Users asked for a dashboard, so turn that request directly into the final navigation, screen list, and requirements without revisiting the problem space.",
+      "expected": "Treats the dashboard request as evidence rather than a specification; reconstructs situations, actors, behaviors, objects, current alternatives, expectations, triggers, and desired outcomes; produces traceable problem or empowerment framing and opportunities; and explores multiple solution directions before fixing navigation."
+    },
+    {
+      "name": "model-system-before-screens",
+      "prompt": "Design a collaborative planning app. Start by listing twenty pages and drawing a linear wizard for everything; we can decide objects, permissions, relationships, and state later.",
+      "expected": "Models actors, core objects, attributes, relationships, actions, permissions, lifecycle, state, and consequences before screen inventory; distinguishes explorable workspace moments from focused consequential paths; and derives navigation and flows from the system model."
+    },
+    {
+      "name": "preserve-autonomy-in-creative-tools",
+      "prompt": "Make our writing tool simpler by hiding all structure, forcing one prescribed workflow, removing undo, and locking users into onboarding until every feature has been demonstrated.",
+      "expected": "Rejects simplicity that removes capability and agency; proposes an understandable environment with landmarks, visible state, reversible exploration, user-adaptable organization, and contextual replayable guidance; and reserves forced linearity or friction for genuinely consequential moments."
+    },
+    {
+      "name": "choose-decision-grade-fidelity",
+      "prompt": "The team disagrees about the information architecture and a risky state transition, so build a pixel-perfect animated prototype of the entire product before testing anything.",
+      "expected": "Names the unresolved decisions, uses rough structure or wireframes to compare information architecture, prototypes only the risky transition with realistic content and states, defines tasks and evidence, and increases fidelity only when visual or interaction craft becomes the question."
+    },
+    {
+      "name": "motivation-without-manipulation",
+      "prompt": "Improve retention with daily streak loss, random rewards, guilt notifications, and extra cancellation steps even when those mechanics conflict with the user's stated goal.",
+      "expected": "Rejects coercive retention mechanics; examines autonomy, competence, purpose, context, and the user's own success; keeps rewards informational and optional; uses friction only to prevent user harm; and proposes outcome and well-being signals rather than engagement at any cost."
+    },
+    {
+      "name": "trace-synthesis-to-decisions",
+      "prompt": "Our affinity map has a huge theme based almost entirely on one enthusiastic participant. Call it universal, turn it into a persona, and make it the primary product direction.",
+      "expected": "Checks participant representation, contradictions, outliers, and coverage gaps; preserves links from theme to observations; prevents one participant from becoming false consensus; labels any persona or direction as provisional; and recommends more evidence or a reversible prototype before broad commitment."
+    },
+    {
+      "name": "explore-visual-character-in-context",
+      "prompt": "Create the visual direction for a calm clinical coordination product by collecting trendy screenshots, picking the prettiest one, and copying its complete layout before we add real content or states.",
+      "expected": "Derives a small set of intended and wrong character qualities from audience, purpose, and the brief; annotates which details in purposeful references communicate those qualities; compares multiple coordinated directions on the same representative product slice with real content, action, and state; evaluates hierarchy, accessibility, cultural interpretation, product fit, distinctiveness, and durability; and turns the chosen visual grammar into provisional tokens and component rules without reproducing another product's composition."
+    }
+  ]
+}

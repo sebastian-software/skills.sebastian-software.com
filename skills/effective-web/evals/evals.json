@@ -344,6 +344,31 @@
       "name": "judge-heading-structure-accurately",
       "prompt": "An audit automatically fails a page under WCAG because it contains two h1 elements, even though the headings form a coherent outline. Another page passes because it has exactly one h1, but its visual headings are divs and its levels jump from h1 to h4. Correct the review rule.",
       "expected": "Does not invent an exactly-one-h1 WCAG requirement; treats one primary h1 as a useful project convention when appropriate; prioritizes a meaningful semantic outline, consistent visual and semantic hierarchy, and navigation utility; and flags the div headings and unexplained level jump based on actual structure and user impact."
+    },
+    {
+      "name": "preserve-autonomy-under-attention-pressure",
+      "prompt": "A subscription cancellation flow highlights Keep plan as a large high-contrast button, renders Continue cancellation as a faint text link, opens two surprise retention dialogs, and sends a live-region announcement after every choice. The growth team says the hierarchy reduces cognitive load by making the recommended path obvious.",
+      "expected": "Rejects cognitive-load language as cover for manipulation; treats attention as a user resource, keeps both legitimate outcomes recognizable and accessible, removes unjustified interruptions and repetitive announcements, preserves clear state and recovery, and increases deliberation only for real consequences rather than to obstruct cancellation."
+    },
+    {
+      "name": "bridge-complex-product-mental-models",
+      "prompt": "A data pipeline product hides retries, partial failures, and dependency state behind one friendly Run button because the team wants the system to feel intuitive. New users cannot explain what happened, while experts ask for a raw configuration editor. Design the interaction model.",
+      "expected": "Separates the pipeline's system model, the current designed model, and users' resulting mental models; identifies where oversimplification hides consequential capability; preserves a recognizable safe path while exposing inspectable state, recovery, and a compatible expert path; documents the expectation-to-gap-to-benefit transition; and teaches unfamiliar concepts in context instead of requiring an upfront tour."
+    },
+    {
+      "name": "make-exploration-safe-and-reversible",
+      "prompt": "A creative editor permanently applies every transformation. The team added an Are you sure dialog before common edits, but users still avoid experimenting and often lose their place when inspecting an item opens a separate page. Redesign the learning and recovery loop.",
+      "expected": "Replaces routine confirmation friction with undo, history, drafts, or reversible state; communicates the action, current state, result, and recovery immediately; keeps inspection anchored to the originating context where appropriate; reserves stronger friction for genuinely irreversible user harm; and evaluates whether people can explore, observe outcomes, recover, and update their mental model without defensive behavior."
+    },
+    {
+      "name": "teach-capability-at-the-moment-of-intent",
+      "prompt": "A project-management app presents a twelve-step mandatory tour immediately after signup, explains every advanced feature, and never shows the guidance again. Completion is high, but users cannot perform those tasks a week later. Redesign onboarding.",
+      "expected": "Uses first-run onboarding primarily to set concise expectations and reveal valuable capabilities, avoids detailed teaching without interface or user-intent context, moves advanced help into small contextual and replayable guides triggered by relevant intent, keeps conventional actions self-explanatory, and measures later independent task success rather than tour completion."
+    },
+    {
+      "name": "use-surprise-without-breaking-trust",
+      "prompt": "A finance app wants more delight. The proposed redesign replaces the familiar transfer action with a gesture, reveals fees only after submission, fires confetti for every payment, and randomizes success messages so returning users never know what to expect. Review it.",
+      "expected": "Treats surprise as an attention-consuming prediction mismatch rather than automatic delight; keeps action identity, fees, consequences, processing, result, and recovery predictable; preserves a conventional transfer path; limits optional novelty to low-risk expression after the state is understood; and evaluates magnitude, repetition, context, accessibility, and audience preference instead of escalating novelty for engagement."
     }
   ]
 }
