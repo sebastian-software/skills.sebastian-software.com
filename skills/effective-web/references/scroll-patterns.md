@@ -554,7 +554,7 @@ The CSS Scrollbars Styling Module Level 1 provides two standard properties:
 
 ### WebKit Fallback
 
-Safari and older Chromium versions need the `::-webkit-scrollbar` pseudo-elements. Use `@supports` to separate the two approaches:
+Safari before 26.2 and older Chromium versions need the `::-webkit-scrollbar` pseudo-elements. Use `@supports` to separate the two approaches:
 
 ```css
 /* Standards-based (Firefox, Chrome 121+) */
@@ -563,7 +563,7 @@ Safari and older Chromium versions need the `::-webkit-scrollbar` pseudo-element
   scrollbar-width: thin;
 }
 
-/* WebKit fallback (Safari, older Chrome) */
+/* WebKit fallback (older Safari/Chrome) */
 @supports not (scrollbar-color: auto) {
   .scroll-container::-webkit-scrollbar {
     width: 8px;
@@ -584,8 +584,8 @@ Safari and older Chromium versions need the `::-webkit-scrollbar` pseudo-element
 ### Migration Strategy
 
 1. Start with the standard properties (`scrollbar-color`, `scrollbar-width`)
-2. Add `::-webkit-scrollbar` inside `@supports not (scrollbar-color: auto)` for Safari
-3. Remove the WebKit fallback once Safari ships standard support
+2. Add `::-webkit-scrollbar` inside `@supports not (scrollbar-color: auto)` for older Safari
+3. Remove the WebKit fallback once pre-26.2 Safari no longer matters for the project
 
 ### scrollbar-gutter: stable
 
@@ -756,10 +756,10 @@ Anchor links scroll targets under the sticky header, making them invisible.
 | Feature | Chrome | Firefox | Safari | Edge | Baseline Status |
 |---------|--------|---------|--------|------|----------------|
 | `scroll-snap-type` | 69+ | 68+ | 11+ | 79+ | Widely available (Apr 2022) |
-| `scroll-snap-align` | 69+ | 68+ | 11+ | 79+ | Widely available (Apr 2022) |
+| `scroll-snap-align` | 69+ | 68+ | 11+ | 79+ | Widely available (Jan 2020) |
 | `scroll-snap-stop` | 75+ | 103+ | 15+ | 79+ | Widely available (Jul 2022) |
-| `scroll-padding` | 69+ | 68+ | 14.1+ | 79+ | Widely available (Apr 2022) |
-| `scroll-margin` | 69+ | 68+ | 14.1+ | 79+ | Widely available (Apr 2022) |
+| `scroll-padding` | 69+ | 68+ | 14.1+ | 79+ | Widely available (Apr 2021) |
+| `scroll-margin` | 69+ | 68+ | 14.1+ | 79+ | Widely available (Jul 2021) |
 | `scroll-behavior` | 61+ | 36+ | 15.4+ | 79+ | Widely available (Mar 2022) |
 | `overscroll-behavior` | 63+ | 59+ | 16+ | 18+ | Limited availability |
 | `scrollbar-color` | 121+ | 64+ | 26.2+ | 121+ | Newly available (Dec 2025) |

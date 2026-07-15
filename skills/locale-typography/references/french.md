@@ -38,6 +38,6 @@ mark that requires preceding space.
 
 ## Sources
 
-- [Government of Canada: English and French punctuation spacing](https://www.noslangues-ourlanguages.gc.ca/writing-tips-plus/spacing)
+- [Government of Canada: English and French punctuation spacing](https://our-languages.canada.ca/en/writing-tips-plus/spacing)
 - [Office québécois de la langue française: Banque de dépannage linguistique](https://vitrinelinguistique.oqlf.gouv.qc.ca/)
 - [Unicode CLDR: delimiters](https://cldr.unicode.org/translation/core-data/characters)

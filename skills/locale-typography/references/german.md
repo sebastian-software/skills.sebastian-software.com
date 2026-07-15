@@ -52,5 +52,7 @@ force a line break.
 
 - [Official German orthography: punctuation](https://grammis.ids-mannheim.de/rechtschreibung/6198)
 - [Official German orthography: quotation marks](https://grammis.ids-mannheim.de/rechtschreibung/6211)
-- [Official German orthography: dash](https://grammis.ids-mannheim.de/rechtschreibung/6209)
+- [Official German orthography: dash — grammatical functions only](https://grammis.ids-mannheim.de/rechtschreibung/6209) (dash spacing and range-dash conventions follow Duden/GfdS practice, not the official orthography rules)
 - [Official German orthography: word division](https://grammis.ids-mannheim.de/rechtschreibung/6214)
+- [GfdS: spaces and fixed spacing (multipart abbreviations)](https://gfds.de/leerzeichen-und-festabstaende/)
+- [Swiss Federal Chancellery "Schreibweisungen" (de-CH guillemets)](https://www.bk.admin.ch/de/schreibweisungen)

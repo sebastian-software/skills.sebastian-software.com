@@ -15,7 +15,8 @@ Useful commands:
 
 - `npm outdated`, `npm install <pkg>@<version>`
 - `pnpm outdated`, `pnpm update <pkg>@<version>`, `pnpm why <pkg>`
-- `yarn outdated` (Yarn 1), the non-interactive outdated plugin (Yarn 2+),
+- `yarn outdated` (Yarn 1), a third-party outdated plugin such as
+  `yarn-plugin-outdated` (Yarn 2+ ships none built in),
   `yarn npm info <pkg>`, `yarn up <pkg>@<version>`, `yarn why <pkg>`
 - `npm view <pkg> versions --json`, `npm view <pkg> peerDependencies --json`
 
@@ -43,7 +44,7 @@ Detection:
 Useful commands:
 
 - `cargo tree -i <crate>`
-- `cargo update -p <crate>`
+- `cargo update <crate>` (positional form; `-p` is a legacy alias no longer documented)
 - `cargo check`, `cargo test`
 - `cargo metadata --format-version 1`
 

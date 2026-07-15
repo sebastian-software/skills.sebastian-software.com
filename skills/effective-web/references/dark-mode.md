@@ -238,9 +238,9 @@ Fully saturated colours "vibrate" on dark backgrounds, causing visual discomfort
 
 ### WCAG still applies in full
 
-WCAG Success Criterion 1.4.3 does not include exceptions for dark mode. The same minimums apply to both themes:
-- 4.5:1 for normal text
-- 3:1 for large text and UI elements
+WCAG does not include exceptions for dark mode. The same minimums apply to both themes:
+- 4.5:1 for normal text and 3:1 for large text (SC 1.4.3 Contrast (Minimum))
+- 3:1 for UI components and graphical objects (SC 1.4.11 Non-text Contrast)
 
 Every colour combination must be verified independently in each theme. Colours that pass on white may fail on dark grey and vice versa.
 

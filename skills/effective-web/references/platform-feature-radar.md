@@ -11,11 +11,15 @@ Propose these when they remove brittle workarounds or improve the result. State
 that they target current browser versions and preserve a coherent older-browser
 path when the project supports older devices, WebViews, or enterprise browsers.
 
-- **CSS Anchor Positioning:** `anchor-name`, `position-anchor`,
-  `position-area`, `anchor()`, `anchor-size()`, `anchor-scope`, and
-  `@position-try` can replace JavaScript geometry for many anchored overlays.
-  Keep trigger semantics, top-layer behavior, dismissal, focus, and collision
-  testing as separate responsibilities.
+- **CSS Anchor Positioning:** the core subset (`anchor-name`, `position-area`,
+  `anchor()`, `anchor-size()`, `anchor-scope`, `@position-try`) became
+  interoperable in January 2026 and can replace JavaScript geometry for many
+  anchored overlays. The feature family is still Limited availability overall:
+  BCD marks `position-anchor` partial in Chrome and Safari (initial value is
+  `none`/`auto` instead of the spec's `normal`) and complete only in Firefox
+  151+ — so verify current support per property, not per family. Keep trigger
+  semantics, top-layer behavior, dismissal, focus, and collision testing as
+  separate responsibilities.
 - **`:open`:** style the open state of `details`, `dialog`, picker-bearing
   `select`, and supported `input` controls without mirrored classes. A missing
   style must not hide the actual open/closed state.
@@ -36,6 +40,8 @@ path when the project supports older devices, WebViews, or enterprise browsers.
 - **Typed/active View Transitions and `animation-composition`:** distinguish
   transition classes and combine effects without ad hoc animation bookkeeping.
   Treat motion as optional and keep navigation/state correct without it.
+  (`animation-composition` itself is older — Baseline 2023, widely available
+  since January 2026.)
 - **Custom Highlights:** style ranges such as search matches or diagnostics
   without wrapping and mutating document text nodes. Do not rely on highlight
   color alone to convey state.

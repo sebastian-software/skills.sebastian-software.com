@@ -405,7 +405,7 @@ Headers that remain visible during scrolling, keeping navigation accessible with
 
 **Critical WCAG 2.2 requirement -- Focus Not Obscured (2.4.11):**
 
-Sticky headers can obscure focused elements when keyboard users Tab backwards up the page. This fails WCAG 2.2 Level AA.
+Sticky headers can obscure focused elements when keyboard users Tab backwards up the page. This fails WCAG 2.2 Level AA (SC 2.4.11 Focus Not Obscured (Minimum)) when the focused element is entirely hidden — and even partial obscuring is poor keyboard UX.
 
 **CSS fix using `scroll-padding-top`:**
 ```css
@@ -667,10 +667,10 @@ When tabs overflow on small screens, use CSS scroll-snap for a swipeable tab str
 }
 ```
 
-**Emerging CSS features (Chrome 135+):**
-- `::scroll-button()` pseudo-element generates accessible previous/next buttons with automatic ARIA roles
-- `::scroll-marker` and `::scroll-marker-group` associate navigation markers with scroll items, handling tablist keyboard behaviour automatically
-- `scroll-state(snapped)` container queries enable styling based on snap position
+**Emerging CSS features (Chromium-only):**
+- `::scroll-button()` pseudo-element generates accessible previous/next buttons with automatic ARIA roles (Chrome 135+)
+- `::scroll-marker` and `::scroll-marker-group` associate navigation markers with scroll items, handling tablist keyboard behaviour automatically (Chrome 135+)
+- `scroll-state(snapped)` container queries enable styling based on snap position (Chrome 133+)
 
 Use these as progressive enhancements with fallbacks for browsers that do not yet support them.
 
@@ -760,7 +760,7 @@ Removing outlines without providing alternatives makes navigation unusable for k
 
 ### Mistake 7: Sticky headers that obscure focused elements
 
-Fails WCAG 2.2 criterion 2.4.11 (Focus Not Obscured). Fix with `scroll-padding-top` on `<html>` matching the header height.
+Fails WCAG 2.2 criterion 2.4.11 (Focus Not Obscured (Minimum)) when the focused element is entirely hidden. Fix with `scroll-padding-top` on `<html>` matching the header height.
 
 ### Mistake 8: Cascading multi-level fly-out menus
 

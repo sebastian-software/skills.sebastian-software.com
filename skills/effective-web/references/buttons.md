@@ -81,7 +81,7 @@ Secondary button fill contrast < 3:1 is too low to clearly indicate button shape
 2. Button shape contrast: minimum 3:1
 3. Button text contrast: minimum 4.5:1
 4. If identical button styles, contrast between them: minimum 3:1
-5. Target area: meet the WCAG 2.2 AA minimum of 24 x 24 CSS px (with the spacing, inline, and equivalent-control exceptions), and prefer 44-48 CSS px for primary and touch controls
+5. Target area: meet the WCAG 2.2 AA minimum of 24 x 24 CSS px (subject to its five exceptions: spacing, equivalent, inline, user-agent, essential), and prefer 44-48 CSS px for primary and touch controls
 
 ## Use a Single Primary Button for the Most Important Action
 

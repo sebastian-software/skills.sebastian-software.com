@@ -262,8 +262,9 @@ collapsed content.
   the visual boundaries of UI components and meaningful graphics. Verify focus and
   state indicators against every background they appear on.
 - Make interactive targets large enough for touch and imprecise pointers; treat
-  24x24 CSS pixels as the floor (the spacing, inline, and essential exceptions
-  aside) and prefer 44-48 CSS pixels for frequently used touch controls, with
+  24x24 CSS pixels as the floor (subject to its five exceptions: spacing,
+  equivalent, inline, user-agent, essential) and prefer 44-48 CSS pixels for
+  frequently used touch controls, with
   adequate spacing between adjacent hit areas.
 - Do not infer input capability from viewport width. Use pointer media queries
   (`@media (pointer: coarse)` / `(hover: none)`) to adapt target sizes and hover
