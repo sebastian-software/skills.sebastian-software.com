@@ -68,6 +68,8 @@ dalo sync
 
 - [Product Naming](../product-naming/README.md) turns a stable product thesis
   into researched name candidates.
+- [Product Design](../product-design/README.md) turns product evidence and scope
+  into a problem model, interaction system, and prototype plan.
 - [Effective Web](../effective-web/README.md) designs and implements the browser
   experience after outcomes and scope are clear.
 - [Decision Records](../decision-records/README.md) preserves durable product

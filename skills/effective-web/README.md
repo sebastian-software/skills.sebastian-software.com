@@ -19,7 +19,7 @@ Frontend quality rarely fails in only one discipline. A visually polished page
 can still have weak semantics, broken focus order, expensive loading, unclear
 states, fragile responsive behavior, or an API that makes future changes harder.
 
-Effective Web treats those concerns as one system. Its 25 intent routes and 90
+Effective Web treats those concerns as one system. Its 25 intent routes and 91
 focused references let an agent load the smallest useful guidance set, then
 check the result across the boundaries that matter before calling it done.
 
@@ -27,7 +27,7 @@ check the result across the boundaries that matter before calling it done.
 
 | Area | Capabilities |
 | --- | --- |
-| Product experience | UI/UX direction, design critique, redesign preservation, hierarchy, responsive layout, typography, color, and theming |
+| Product experience | UI/UX direction, design critique, redesign preservation, attention, mental models, learnability, hierarchy, responsive layout, typography, color, and theming |
 | Components and flows | Buttons, navigation, dialogs, forms, tables, reusable primitives, loading states, errors, empty states, and auth UX |
 | Inclusive design | Semantic HTML, accessible names, keyboard and focus behavior, screen-reader support, reduced motion, internationalization, RTL, and text expansion |
 | Frontend engineering | CSS architecture, browser support, React architecture, component APIs, rendering boundaries, interoperability, and frontend testing |
@@ -37,6 +37,8 @@ check the result across the boundaries that matter before calling it done.
 ## Use It For
 
 - shaping a new interface before implementation
+- reducing distraction and bridging unfamiliar product concepts without hiding
+  useful capability
 - auditing or modernizing an existing site without losing its important
   contracts
 - building accessible, responsive components and flows
@@ -99,6 +101,8 @@ complete setup and the difference between selective catalogs and team sources.
 
 - [Product Management](../product-management/README.md) establishes the product
   outcome, scope, and quality bar before interface implementation.
+- [Product Design](../product-design/README.md) shapes evidence into a problem
+  model, interaction system, structure, and prototype before implementation.
 - [Locale Typography](../locale-typography/README.md) handles locale-specific
   punctuation, spacing, quotations, numbers, dates, and visible prose.
 - [Web Legal Compliance](../web-legal-compliance/README.md) establishes legal,

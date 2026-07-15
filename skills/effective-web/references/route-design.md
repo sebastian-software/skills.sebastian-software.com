@@ -49,9 +49,12 @@ Do not use this skill as a source archive. Article-derived input has already bee
 4. Choose a primary direction and compatible axes from
    [Design directions](design-directions.md). Ask one discriminating question
    only when the missing answer would materially change the result.
-5. Check whether the UI has one clear information hierarchy and one clear next
-   action per state. Remove elements that do not clarify, accelerate, reassure,
-   express the intended relationship, or prevent mistakes.
+5. Read [Cognitive UX](cognitive-ux.md) when the task involves attention,
+   learnability, complex modes, unfamiliar concepts, or a mismatch between the
+   system and what users expect. Check whether the UI has one clear information
+   hierarchy and one clear next action per state. Remove elements that do not
+   clarify, accelerate, reassure, express the intended relationship, or prevent
+   mistakes.
 6. For generic or agent-generated output, classify findings with
    [UI anti-patterns](ui-antipatterns.md). Fix objective defects first and treat
    stylistic tells as context-dependent advisories or clusters, not taste laws.
@@ -67,6 +70,10 @@ Do not use this skill as a source archive. Article-derived input has already bee
 - Every visible element needs a job. Decoration is acceptable only when it improves recognition, trust, orientation, or comprehension.
 - Optimize for scanning first, then reading. Users should understand state, next action, and risk without decoding the layout.
 - Keep interaction cost low: related controls belong near the content they affect, destructive actions need recoverability, and repeated workflows need density.
+- Treat attention as a user resource. Interrupt only when urgency or otherwise
+  missed consequential state justifies taking focus.
+- Preserve autonomy when emphasizing a likely action, and prefer recognition
+  over recall for routine, infrequent, or high-stress work.
 - Do not make accessibility, responsive behavior, localization, or loading/error states late-stage patches.
 - Prefer fewer stronger patterns over many local exceptions.
 
@@ -86,3 +93,5 @@ Do not use this skill as a source archive. Article-derived input has already bee
 - [ai-interface-design.md](ai-interface-design.md) - match AI capabilities to
   tasks, modalities, uncertainty, control, and environmental constraints.
 - [ui-quality-gates.md](ui-quality-gates.md) - final review gates before shipping.
+- [cognitive-ux.md](cognitive-ux.md) - attention budgets, satisficing, task-based
+  grouping, perceptual hierarchy, conventions, mental models, and learnability.

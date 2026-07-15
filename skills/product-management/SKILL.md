@@ -107,8 +107,10 @@ For a broad product decision, return:
   catalog for their dedicated deliverables after the product brief is stable.
 - Use `linkedin-social-selling` when LinkedIn is an evidence-backed acquisition
   or conversation channel, and `linkedin-posts` for post-only work.
-- Use `effective-web` to design, implement, and verify the browser experience
-  after product outcomes, scope, and quality bar are decided.
+- Use `product-design` to research, frame, model, structure, and prototype the
+  experience after product direction is stable enough to explore.
+- Use `effective-web` to specify, implement, and verify the browser experience
+  once the design direction and interaction model are ready.
 - Use `web-legal-compliance` for privacy, consent, tracking, testimonials,
   direct marketing, and jurisdiction-specific legal requirements.
 - Use `decision-records` to preserve durable product decisions, their

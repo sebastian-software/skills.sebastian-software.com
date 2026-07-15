@@ -7,7 +7,7 @@
 **Give your AI agent the practical judgment to take product and software work
 from an ambiguous brief to a review-ready result.**
 
-15 practice-built skills and 157 focused references for product decisions, web
+16 practice-built skills and 166 focused references for product decisions, web
 experiences, codebase improvement, delivery, go-to-market work, professional
 communication, and web compliance.
 
@@ -25,7 +25,7 @@ Install one skill to try the collection:
 npx skills add sebastian-software/skills.sebastian-software.com --skill effective-web
 ```
 
-Or install all 15 skills:
+Or install all 16 skills:
 
 ```sh
 npx skills add sebastian-software/skills.sebastian-software.com --all
@@ -44,6 +44,9 @@ relevant skill from its description and loads the detailed guidance it needs.
 Audit this dashboard for accessibility, responsive behavior, and loading cost.
 
 Turn these interview notes into an evidence-led MVP recommendation.
+
+Turn this design brief and research into a problem model, interaction system,
+and decision-grade prototype plan.
 
 Review this codebase, rank the highest-leverage improvements, and implement the
 agreed scope.
@@ -64,6 +67,7 @@ treating every task as an isolated prompt.
 | From | To | Skills that help |
 | --- | --- | --- |
 | Unclear opportunity | Evidence-led product direction, scope, priorities, and release criteria | [`product-management`](skills/product-management/), [`decision-records`](skills/decision-records/) |
+| Product direction and research | Traceable problem framing, interaction model, structure, and prototype plan | [`product-design`](skills/product-design/), [`effective-web`](skills/effective-web/) |
 | Product thesis | Distinctive, researched, multilingual name shortlist | [`product-naming`](skills/product-naming/) |
 | Brief or existing interface | Designed, implemented, accessible, performant, and tested web experience | [`effective-web`](skills/effective-web/), [`locale-typography`](skills/locale-typography/) |
 | Website or digital service | Jurisdiction-aware disclosure, privacy, and consent work product | [`web-legal-compliance`](skills/web-legal-compliance/) |
@@ -112,11 +116,12 @@ the external tools and credentials required to act on third-party systems.
 
 ## Skills
 
-### Product management
+### Product and design
 
 | Skill | Focus |
 | --- | --- |
 | [`product-management`](skills/product-management/) | Evidence-led discovery, product strategy, outcomes, scope, prioritization, product quality, release decisions, and learning loops. |
+| [`product-design`](skills/product-design/) | Evidence-led research synthesis, problem framing, interaction and object modeling, information architecture, prototyping, autonomy, and design delivery. |
 | [`product-naming`](skills/product-naming/) | Strategic name generation, multilingual spoken-name testing, live conflict research, and evidence-backed shortlists. |
 
 ### Web design and engineering
@@ -181,7 +186,7 @@ Installation is handled by an Agent Skills-compatible manager such as
 
 ### Selective setup with DALO
 
-DALO can install one reviewed skill without activating the other 13. Register
+DALO can install one reviewed skill without activating the other 15. Register
 the repository as a catalog, select `effective-web`, approve that exact skill,
 and sync it into the linked agent target:
 
@@ -221,7 +226,7 @@ dalo doctor
 ```
 
 Unlike `source add-catalog`, `source add` treats this repository as a trusted
-team source, so all 15 first-party skills are active together. External
+team source, so all 16 first-party skills are active together. External
 repositories are configured separately as DALO catalogs; they are never copied
 or renamed here. See [docs/dalo.md](docs/dalo.md) for the complete setup and the
 curated external selection.

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Product Design"
+  short_description: "Shape evidence into testable experiences"
+  default_prompt: "Use $product-design to turn product evidence into a clear interaction model, design direction, and prototype plan."
