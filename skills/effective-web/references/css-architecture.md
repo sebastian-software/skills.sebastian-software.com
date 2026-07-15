@@ -113,7 +113,7 @@ Other global keywords for reference:
 
 ## CSS Nesting
 
-Native CSS nesting groups related rules inside a parent selector. Supported in Chrome 113+, Firefox 117+, Safari 16.6+.
+Native CSS nesting groups related rules inside a parent selector. Supported in all engines (initial support in Chrome 112, Safari 16.5, Firefox 117; full support without the `&` requirement for type selectors in Chrome 120+ and Safari 17.2+).
 
 ### Syntax
 

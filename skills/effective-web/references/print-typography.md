@@ -164,7 +164,7 @@ Fonts with good optical sizing: **Roboto Flex**, **Source Serif 4**, **Fraunces*
 
 ## `font-size-adjust`
 
-Normalizes x-height across fallback fonts. If Charter is missing and Georgia loads, the browser adjusts Georgia's size to match Charter's x-height ratio. Now in Baseline (Chrome 127+, Firefox 3+, Safari 17.4+).
+Normalizes x-height across fallback fonts. If Charter is missing and Georgia loads, the browser adjusts Georgia's size to match Charter's x-height ratio. Now in Baseline (full two-value syntax: Chrome 127+, Firefox 118+, Safari 17+; basic number values work much earlier in Firefox and Safari).
 
 ```css
 body {

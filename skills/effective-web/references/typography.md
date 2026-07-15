@@ -131,7 +131,7 @@ body {
 1. Measure your primary font's x-height ratio
 2. Apply it - fallback fonts will scale to match visually
 
-**Browser support:** ~90% (Chrome 127+, Firefox 118+, Safari 17+)
+**Browser support:** ~85% (Chrome 127+, Firefox 118+, Safari 17+)
 
 ## Limit Font Weights and Ensure Clear Distinction
 
@@ -609,7 +609,7 @@ blockquote.display {
 
 ### Drop Caps
 
-Use `initial-letter` for drop caps (~91% support, no Firefox). Provide a fallback for unsupported browsers:
+Use `initial-letter` for drop caps (~89% support, no Firefox; Safari only via the `-webkit-` prefix, which an unprefixed `@supports` check misses). Provide a fallback for unsupported browsers:
 
 ```css
 .article > p:first-of-type::first-letter {

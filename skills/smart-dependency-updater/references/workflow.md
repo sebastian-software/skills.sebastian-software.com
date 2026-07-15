@@ -29,7 +29,7 @@ Suggested inventory output:
 Use official package-manager commands where possible, then registry or upstream sources for extra context.
 
 - JavaScript: `npm outdated`, `pnpm outdated`, `yarn outdated` (Yarn 1), or
-  the non-interactive outdated plugin (Yarn 2+), plus
+  a third-party outdated plugin such as `yarn-plugin-outdated` (Yarn 2+), plus
   package-manager-specific lockfile updates.
 - Rust: `cargo update --dry-run` where available, `cargo tree`, `cargo outdated` if installed.
 - Python: inspect `pyproject.toml`, lockfiles, `pip list --outdated`, `uv lock --upgrade-package`, `poetry show --outdated`.

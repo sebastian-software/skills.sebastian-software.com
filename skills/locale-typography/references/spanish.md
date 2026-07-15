@@ -33,5 +33,5 @@ and lists. Do not translate an English numeric format mechanically.
 ## Sources
 
 - [RAE: Orthography reference](https://www.rae.es/ortograf%C3%ADa/)
-- [RAE: punctuation after greetings](https://www.rae.es/espanol-al-dia/despues-del-saludo-en-un-correo-se-escribe-coma-o-dos-puntos)
+- [RAE: punctuation after greetings](https://www.rae.es/noticia/preguntas-frecuentes-despues-del-saludo-en-un-correo-se-escribe-coma-o-dos-puntos)
 - [RAE student orthography appendix](https://www.rae.es/diccionario-estudiante/docs/ortografia.pdf)

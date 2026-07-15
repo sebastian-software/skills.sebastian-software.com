@@ -41,7 +41,7 @@ Interaction cost = sum of physical and mental effort required to achieve a task.
 **1. Keep related actions close (Fitts's Law)**
 - The closer and larger a target, the faster it is to click
 - Keep actions close to the element they relate to
-- Ensure sufficient target area: treat 24x24 CSS px as the WCAG 2.2 AA floor (spacing/inline/essential exceptions aside) and prefer 44-48 CSS px for frequently used touch controls
+- Ensure sufficient target area: treat 24x24 CSS px as the WCAG 2.2 AA floor (subject to its five exceptions: spacing, equivalent, inline, user-agent, essential) and prefer 44-48 CSS px for frequently used touch controls
 
 **2. Reduce distractions**
 - Avoid animated banners, pop-ups, unnecessary visuals
@@ -255,7 +255,7 @@ It provides a semantic landmark that screen readers expose as a "search" role, l
 
 ### Provide Skip Links
 
-Skip links let keyboard users bypass repeated navigation and jump directly to the main content. This is a WCAG 2.4.1 Level A requirement (Bypass Blocks).
+Skip links let keyboard users bypass repeated navigation and jump directly to the main content. They are the most common way to satisfy WCAG 2.4.1 Bypass Blocks (Level A), which requires some mechanism to skip repeated blocks (landmarks or a heading structure can also satisfy it).
 
 ```html
 <body>

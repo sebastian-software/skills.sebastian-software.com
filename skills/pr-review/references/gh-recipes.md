@@ -47,8 +47,10 @@ Read it like this:
 - **mergeStateStatus**: `BEHIND` = branch is behind base (needs rebase);
   `DIRTY`/`mergeable == CONFLICTING` = merge conflict; `BLOCKED` = checks/review
   gating; `CLEAN` = good.
-- **statusCheckRollup**: per-check `state`/`conclusion` (`SUCCESS`, `FAILURE`,
-  `PENDING`). This is your CI view; the Supabase check shows up here.
+- **statusCheckRollup**: mixed objects — status contexts carry `state`
+  (`SUCCESS`, `FAILURE`, `PENDING`); check runs carry `status` plus
+  `conclusion` (`conclusion` is null while running, never `PENDING`). This is
+  your CI view; the Supabase check shows up here.
 - **closingIssuesReferences**: the linked issue(s) — the intent gate and your
   scope yardstick. If empty, also scan `body` for `Closes #` / `Fixes #` and the
   branch name. To actually read the ticket content, see section 2b.
@@ -257,7 +259,8 @@ Pull the preview URL from checks/deployments (no local server, ever):
 
 ```bash
 gh pr view <N> --repo "$REPO" --json statusCheckRollup \
-  --jq '.statusCheckRollup[] | select(.targetUrl != null) | {name, targetUrl}'
+  --jq '.statusCheckRollup[] | select(.targetUrl != null) | {context, targetUrl}'
+# status contexts (e.g. Vercel) use context/targetUrl; check runs use name/detailsUrl
 gh api repos/"$REPO"/deployments --jq '.[0].statuses_url'   # fallback
 ```
 
