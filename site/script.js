@@ -34,13 +34,16 @@ const copyText = async (text) => {
 const copyStatus = document.querySelector("[data-copy-status]")
 
 for (const button of document.querySelectorAll("[data-copy-target]")) {
+  const target = document.getElementById(button.dataset.copyTarget)
+  const label = button.querySelector("[data-copy-label]")
+
+  if (!target || !label) continue
+
+  const originalLabel = label.textContent
+  let resetTimer
+
   button.addEventListener("click", async () => {
-    const target = document.getElementById(button.dataset.copyTarget)
-    const label = button.querySelector("[data-copy-label]")
-
-    if (!target || !label) return
-
-    const originalLabel = label.textContent
+    window.clearTimeout(resetTimer)
 
     try {
       await copyText(target.textContent.trim())
@@ -52,7 +55,7 @@ for (const button of document.querySelectorAll("[data-copy-target]")) {
       if (copyStatus) copyStatus.textContent = "Copy was unavailable. Command selected."
     }
 
-    window.setTimeout(() => {
+    resetTimer = window.setTimeout(() => {
       label.textContent = originalLabel
     }, 1800)
   })
@@ -79,7 +82,10 @@ for (const button of filterButtons) {
 
     if (filterStatus) {
       const category = button.firstChild?.textContent?.trim() || "selected"
-      filterStatus.textContent = `${visibleCount} ${category.toLowerCase()} skills shown.`
+      filterStatus.textContent =
+        filter === "all"
+          ? `${visibleCount} skills shown.`
+          : `${visibleCount} ${category.toLowerCase()} skills shown.`
     }
   })
 }

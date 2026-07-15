@@ -78,7 +78,7 @@ def local_path(reference: str) -> Path | None:
     parsed = urlparse(reference)
     if parsed.scheme or parsed.netloc or reference.startswith(("#", "mailto:", "tel:")):
         return None
-    return SITE / parsed.path
+    return SITE / parsed.path.lstrip("/")
 
 
 def main() -> int:
@@ -112,6 +112,11 @@ def main() -> int:
         path.name for path in (ROOT / "skills").iterdir() if path.is_dir()
     )
 
+    require(
+        local_path("/styles.css") == SITE / "styles.css",
+        "root-relative site paths must stay below the site directory",
+        failures,
+    )
     require(parser.lang == "en", "document language must be English", failures)
     require(parser.h1_count == 1, "site must contain exactly one h1", failures)
     require(parser.main_count == 1, "site must contain exactly one main element", failures)
