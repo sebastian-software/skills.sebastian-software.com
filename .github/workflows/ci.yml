@@ -41,10 +41,12 @@ jobs:
           dalo source add sebastian "$GITHUB_WORKSPACE"
           dalo --json status > "$RUNNER_TEMP/status.json"
 
-          jq -e '
-            (.sources[] | select(.id == "sebastian") | .skill_count) == 14 and
+          expected_skill_count="$(find skills -mindepth 2 -maxdepth 2 -type f -name SKILL.md | wc -l | tr -d ' ')"
+
+          jq -e --argjson expected_skill_count "$expected_skill_count" '
+            (.sources[] | select(.id == "sebastian") | .skill_count) == $expected_skill_count and
             (.inventory_warnings | length) == 0 and
-            (.resolution.active_skills | length) == 14 and
+            (.resolution.active_skills | length) == $expected_skill_count and
             (.resolution.pending_approval_skills | length) == 0 and
             (.resolution.blocked_skills | length) == 0 and
             (.resolution.diagnostics | length) == 0 and
@@ -53,21 +55,10 @@ jobs:
           ' "$RUNNER_TEMP/status.json"
 
           dalo sync
-          test "$(find "$DALO_TARGET" -mindepth 1 -maxdepth 1 -type l | wc -l | tr -d ' ')" = 14
-          test -L "$DALO_TARGET/codebase-improvement"
-          test -L "$DALO_TARGET/consultant-profile"
-          test -L "$DALO_TARGET/decision-records"
-          test -L "$DALO_TARGET/effective-web"
-          test -L "$DALO_TARGET/product-management"
-          test -L "$DALO_TARGET/product-naming"
-          test -L "$DALO_TARGET/linkedin-social-selling"
-          test -L "$DALO_TARGET/locale-typography"
-          test -L "$DALO_TARGET/linkedin-posts"
-          test -L "$DALO_TARGET/metro-english"
-          test -L "$DALO_TARGET/port-codebases"
-          test -L "$DALO_TARGET/pr-review"
-          test -L "$DALO_TARGET/smart-dependency-updater"
-          test -L "$DALO_TARGET/web-legal-compliance"
+          test "$(find "$DALO_TARGET" -mindepth 1 -maxdepth 1 -type l | wc -l | tr -d ' ')" = "$expected_skill_count"
+          for skill_file in skills/*/SKILL.md; do
+            test -L "$DALO_TARGET/$(basename "$(dirname "$skill_file")")"
+          done
           test ! -e "$DALO_TARGET/github-pr-auto-review"
           test ! -e "$DALO_TARGET/german-typography"
           test ! -e "$DALO_TARGET/s7n-print-design"
