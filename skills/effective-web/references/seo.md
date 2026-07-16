@@ -74,17 +74,19 @@ Tells search engines which URL is the "official" version when content is accessi
 
 ## Favicons
 
-Modern browsers need far fewer favicon files than older guides suggest. Instead of serving dozens of icons, all you need is five icons and one JSON file.
+Do not ship a public site without a favicon, but do not generate every legacy
+size from an icon generator. Start with the three core assets below; add a
+manifest and its three additional PNGs only when the site is installable as a
+PWA. Keep `favicon.ico` available at the site root — some clients request that
+path directly.
 
-### The Five Icons
+### Core Assets
 
 | File | Size | Purpose |
 |------|------|---------|
 | `favicon.ico` | 32×32 | Fallback for older browsers |
 | `icon.svg` | scalable | Modern browsers — supports dark mode |
 | `apple-touch-icon.png` | 180×180 | iOS home screen bookmark |
-| `icon-192.png` | 192×192 | PWA install icon |
-| `icon-512.png` | 512×512 | PWA splash screen |
 
 ### HTML Markup
 
@@ -116,16 +118,14 @@ SVG favicons can adapt to the user's colour scheme using an embedded media query
 </svg>
 ```
 
-**Browser notes:**
-- Safari does not render SVG favicons — it falls back to `.ico`
-- Chrome requires a tab reload to reflect colour scheme changes
-- Firefox handles dark mode switching correctly without reload
-
 Serve SVG favicons with the correct MIME type: `image/svg+xml`.
+Test icon selection and colour-scheme changes in the project's target
+browsers; an already-open tab can retain a cached favicon until it reloads.
 
 ### Web Manifest for PWAs
 
-Use `.webmanifest` as the file extension. The manifest includes three icons: a 192×192 install icon, a 512×512 maskable icon, and a 512×512 standard icon.
+Use `.webmanifest` only for an installable PWA. Its three extra icons are a
+192×192 install icon, a 512×512 maskable icon, and a 512×512 standard icon.
 
 ```json
 {
@@ -157,8 +157,8 @@ Start from a single SVG source file:
 1. **SVG favicon** — use the source SVG directly (add dark mode styles if needed)
 2. **ICO file** — export at 32×32 from the SVG (tools: sharp + sharp-ico, ImageMagick, or Inkscape)
 3. **Apple touch icon** — export PNG at 180×180 with appropriate padding
-4. **PWA icons** — export PNGs at 192×192 and 512×512
-5. **Maskable icon** — export PNG at 512×512 with extra padding so content fits within 409×409 safe zone
+4. **PWA only:** export PNGs at 192×192 and 512×512
+5. **PWA only:** export the maskable PNG at 512×512 with extra padding so content fits within the 409×409 safe zone
 
 ## Open Graph and Social Metadata
 

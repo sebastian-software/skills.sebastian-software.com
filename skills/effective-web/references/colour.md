@@ -246,6 +246,42 @@ as `--brand` and `--brand-deep` instead of calculating offsets in components.
 Verify foreground contrast across every part of the gradient, not only at its
 endpoints.
 
+### Control Gradient Interpolation and Fallbacks
+
+Two distant sRGB endpoints can create a washed-out or gray midpoint. Choose
+the interpolation space deliberately when the gradient itself carries brand or
+hierarchy. Prefer a perceptual space such as OKLCH where the support policy
+allows it, but ship and inspect a meaningful fallback rather than assuming that
+every browser gets the same color path.
+
+```css
+.brand-gradient {
+  /* Reviewed sRGB fallback with curated midpoint stops. */
+  background: linear-gradient(
+    90deg,
+    #f8dc40,
+    #e5b870 42%,
+    #a86cc7 72%,
+    #5267ed
+  );
+}
+
+@supports (background: linear-gradient(in oklch, red, blue)) {
+  .brand-gradient {
+    background: linear-gradient(
+      90deg in oklch,
+      oklch(89% 0.16 95),
+      oklch(59% 0.2 285)
+    );
+  }
+}
+```
+
+For non-supporting browsers, use curated intermediate stops when the ordinary
+sRGB gradient looks muddy; do not generate a huge stop list by default. Review
+the middle of the rendered gradient, color-gamut fallback, and foreground
+contrast at several points, not only at the endpoints.
+
 ### Layer sRGB and Wide-Gamut Tokens
 
 Treat syntax support and output gamut as separate capabilities. Declare an
@@ -451,6 +487,10 @@ Elements with higher elevation appear closer and more prominent.
 - Light comes from top (mimics real world)
 - Define one light direction for the system and preserve the ratio between the
   horizontal and vertical offsets at every elevation.
+- Define a small semantic elevation scale (`raised`, `overlay`, and only any
+  necessary higher level) rather than tuning unrelated shadow literals inside
+  components. As elevation rises, increase offset and blur together while
+  reducing opacity.
 - Use a darker relative of the surrounding surface or a tinted semantic shadow
   token instead of transparent black, which can desaturate coloured backgrounds.
 - Small/sharp/opaque = slightly raised. As elevation increases, increase offset
@@ -459,6 +499,10 @@ Elements with higher elevation appear closer and more prominent.
   benefits visibly. Layering multiplies paint cost; do not animate layered
   shadows, repeat them across dense lists, or adopt them without low-end-device
   testing.
+- Use `box-shadow` for an element's box; use `filter: drop-shadow()` when the
+  shadow must follow a transparent silhouette or a composed shape such as a
+  tooltip arrow. Treat `drop-shadow()` as a different rendering tool, not a
+  blanket performance optimization, and test the relevant target browsers.
 
 ### Colour Indicates Depth
 - Light colours look more elevated than dark

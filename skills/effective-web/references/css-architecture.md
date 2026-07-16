@@ -2,6 +2,66 @@
 
 Structure stylesheets with cascade layers, native nesting, scoped styles, and a custom properties architecture that scales from small projects to large design systems.
 
+## Baseline Styles
+
+Start a new interface with a small, functional baseline in the `reset` layer;
+preserve useful native semantics instead of stripping every browser default.
+Do not retrofit it into an established product as a mechanical cleanup: verify a
+semantic fixture and the affected real pages, because global defaults can create
+subtle regressions.
+
+```css
+@layer reset {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  *:not(dialog) {
+    margin: 0;
+  }
+
+  body {
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  img,
+  picture,
+  video,
+  canvas,
+  svg {
+    display: block;
+    max-inline-size: 100%;
+  }
+
+  input,
+  button,
+  textarea,
+  select {
+    font: inherit;
+  }
+
+  p,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    overflow-wrap: break-word;
+  }
+}
+```
+
+Apply `text-wrap: pretty` to reading text and `text-wrap: balance` to short
+headings as progressive enhancements; keep their detailed selection rules in
+[Typography rules](typography-rules.md). Enable `interpolate-size:
+allow-keywords` only for users without a reduced-motion preference. In a
+framework app, add `isolation: isolate` only to the actual application root
+when its overlay stacking contract needs it; do not add a global `z-index`.
+
 ## Cascade Layers (`@layer`)
 
 Cascade layers give CSS authors explicit control over cascade priority. Layer order determines precedence -- specificity and source order within a layer become irrelevant across layer boundaries.
