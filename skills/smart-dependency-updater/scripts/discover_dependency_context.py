@@ -56,9 +56,17 @@ REQUIREMENTS_FILENAME = re.compile(
     re.IGNORECASE,
 )
 REQUIREMENT_ENTRY = re.compile(
-    r"^(?:-[-A-Za-z][^\s]*(?:\s+.+)?|[A-Za-z0-9][A-Za-z0-9_.-]*(?:\[[^]]+])?"
-    r"(?:\s*(?:===|==|!=|<=|>=|<|>|~=|@)\s*.+)?)$"
+    r"^(?:"
+    r"-[-A-Za-z][^\s]*(?:\s+.+)?|"
+    r"[A-Za-z0-9][A-Za-z0-9_.-]*(?:\[[^]]+])?"
+    r"(?:\s*(?:===|==|!=|<=|>=|<|>|~=|@)\s*[^;]+)?(?:\s*;\s*.+)?|"
+    r"(?:git|hg|svn|bzr)\+\S+(?:\s*;\s*.+)?|"
+    r"(?:https?|file)://\S+(?:\s*;\s*.+)?|"
+    r"(?:\.{1,2}/|/|~/)\S+(?:\s*;\s*.+)?"
+    r")$"
 )
+GO_MODULE_VERSION = re.compile(r"^[^\s()]+\s+v[\w.\-+]+$")
+GO_REQUIRE_LINE = re.compile(r"^require\s+[^\s()]+\s+v[\w.\-+]+$")
 
 
 def read_json(path: Path) -> dict[str, Any]:
@@ -240,13 +248,25 @@ def parse_go_mod(path: Path) -> dict[str, Any]:
         return {"path": str(path), "_error": str(exc)}
     module = re.search(r"^module\s+(.+)$", text, re.MULTILINE)
     go_version = re.search(r"^go\s+(.+)$", text, re.MULTILINE)
-    requires = re.findall(r"^\s*require\s+(?:\(|([^\s]+)\s+)", text, re.MULTILINE)
-    block_requires = re.findall(r"^\s*([^\s()]+)\s+v[\w.\-+]+", text, re.MULTILINE)
+    require_entries = 0
+    in_require_block = False
+    for raw_line in text.splitlines():
+        line = raw_line.split("//", 1)[0].strip()
+        if line == "require (":
+            in_require_block = True
+            continue
+        if in_require_block and line == ")":
+            in_require_block = False
+            continue
+        if in_require_block and GO_MODULE_VERSION.fullmatch(line):
+            require_entries += 1
+        elif GO_REQUIRE_LINE.fullmatch(line):
+            require_entries += 1
     return {
         "path": str(path),
         "module": module.group(1) if module else None,
         "go": go_version.group(1) if go_version else None,
-        "require_entries_estimate": len([r for r in requires if r]) + len(block_requires),
+        "require_entries_estimate": require_entries,
     }
 
 
@@ -259,10 +279,12 @@ def parse_requirements(path: Path) -> dict[str, Any]:
         ]
     except OSError as exc:
         return {"path": str(path), "_error": str(exc)}
+    parsed_entries = sum(bool(REQUIREMENT_ENTRY.fullmatch(line)) for line in lines)
     return {
         "path": str(path),
         "entries": len(lines),
-        "is_requirements_file": all(REQUIREMENT_ENTRY.fullmatch(line) for line in lines),
+        "parsed_entries": parsed_entries,
+        "unparsed_entries": len(lines) - parsed_entries,
     }
 
 
@@ -286,9 +308,7 @@ def main() -> int:
         requirements = None
         if is_requirements_candidate(name):
             requirements = parse_requirements(path)
-        is_requirements = requirements is not None and (
-            "_error" in requirements or requirements["is_requirements_file"]
-        )
+        is_requirements = requirements is not None
         if name in LOCKFILES:
             result["lockfiles"].append({"path": str(rel), "manager": LOCKFILES[name]})
         if name in MANIFESTS or is_requirements or name.endswith(".csproj") or name.endswith(".fsproj"):
