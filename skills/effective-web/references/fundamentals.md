@@ -907,7 +907,7 @@ function navigate(item) {
 }
 ```
 
-The browser snapshots the old state, runs the callback, then cross-fades between old snapshot and live new DOM over 250ms by default. The old state is a static bitmap; the new state is live (videos continue, content is interactive).
+The browser snapshots the old state, runs the callback, then cross-fades between the old snapshot and a live projection of the new DOM over 250ms by default. The old state is static and the new projection can keep media playing, but a document-scoped transition overlay sits above the page and can prevent normal pointer interaction until the transition finishes.
 
 #### Cross-Document Transitions (MPA)
 
@@ -961,9 +961,12 @@ Use `:active-view-transition-type()` for directional animations (forward vs back
 
 #### Performance and Accessibility
 
-- Keep transitions under 500ms — interaction is blocked during the animation
+- Keep transitions under 500ms and verify pointer, keyboard, focus, popover, and dialog behavior while the overlay exists; do not rely on choreography that blocks the next task
 - Use `view-transition-name` sparingly — each named element creates a bitmap snapshot
-- Do not lazy-load images that participate in transitions
+- Profile automatically generated group animations when snapshot dimensions change; `width` and `height` interpolation can run on the main thread, so do not assume View Transitions are compositor-only
+- Keep the returned `ViewTransition` when cleanup or custom playback matters; use its lifecycle promises and test rapid repeated input because starting another transition on the same root skips the active one
+- Make critical destination content and shared images ready before an MPA transition where practical. An expected element being parsed does not prove its image has loaded; prefer bounded preload or prerender work, and use render blocking only with measured Core Web Vitals evidence
+- Prefer a feature-detected element-scoped transition when only one component should pause or overlay and the rest of the page must remain interactive; retain a document-scoped or instant fallback for other engines
 
 **Always respect `prefers-reduced-motion`.** For MPA transitions, only enable when motion is acceptable:
 

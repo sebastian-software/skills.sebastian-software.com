@@ -71,6 +71,11 @@
       "expected": "Uses native CSS for basic state transitions, considers WAAPI or a capable library only for the morph and gesture requirement, distinguishes browser-engine animation from main-thread per-frame loops, and measures the actual properties and rendering cost."
     },
     {
+      "name": "harden-view-transition",
+      "prompt": "A product grid wraps every filter update in document.startViewTransition(), names every card, and assumes snapshot animations are compositor-only. On slower phones, resizing cards stutters; rapid filter clicks jump between positions; the filter controls stop responding during the transition; and the detail-page hero sometimes cross-fades to an image that is still loading. Review the implementation.",
+      "expected": "Keeps the state change and reduced-motion or unsupported path fully functional; profiles generated group width and height animation under main-thread load instead of assuming compositor execution; reduces unnecessary snapshots and uses transform-based FLIP only when measurement justifies it; accounts for the document overlay or feature-detects an element-scoped enhancement; defines lifecycle cleanup and correct interruption behavior under repeated input; and makes shared-image readiness explicit through bounded preload or prerender work without blindly render-blocking the page."
+    },
+    {
       "name": "build-accessible-svg",
       "prompt": "Turn an exported SVG illustration into a responsive themed React component with a small decorative path animation. The export has fixed dimensions, no viewBox, generated IDs, and an interactive click handler on the svg element itself.",
       "expected": "Repairs the real artwork bounds and viewBox, chooses inline delivery for theming, moves interaction to a native button or link, defines decorative or informative naming explicitly, makes motion keyboard-equivalent and reduced-motion-safe, and audits generated IDs and optimization."

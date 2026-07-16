@@ -83,6 +83,12 @@ Release notes are discovery feeds, not support policy. As of this snapshot:
   and live content first; feature-detect it only for announcements not already
   conveyed by the DOM, coalesce messages, localize them, and retain a tested
   live-region fallback where announcements are essential.
+- Element-scoped View Transitions (`Element.startViewTransition()`) ship in
+  Chrome 147 at this snapshot and remain single-engine. Use them only as a
+  feature-detected enhancement when a subtree transition should leave the rest
+  of the page interactive, preserve external top-layer ordering, or allow
+  concurrent or nested transitions. Do not infer support from
+  `Document.startViewTransition()`; retain a document-scoped or instant path.
 - `command`/`commandfor`, `closedby`, CSS `random()`, `text-fit`, gap
   decorations, Grid Lanes, `corner-shape`, and other newly shipped primitives
   require a fresh feature-level support check; do not inherit the Baseline badge
