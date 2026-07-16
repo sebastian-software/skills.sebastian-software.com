@@ -1340,6 +1340,10 @@
       scrollbar-width: none;
     }
 
+    .primary-nav::-webkit-scrollbar {
+      display: none;
+    }
+
     .primary-nav a {
       flex: none;
     }
