@@ -26,13 +26,12 @@ def github_anchor(heading: str) -> str:
     return heading.replace(" ", "-")
 
 
-@lru_cache
-def anchors(markdown: Path) -> set[str]:
-    found: set[str] = set()
-    occurrences: dict[str, int] = {}
+def without_fenced_code(text: str) -> str:
+    """Return Markdown content outside fenced code blocks."""
+    lines: list[str] = []
     fence: tuple[str, int] | None = None
 
-    for line in markdown.read_text(encoding="utf-8").splitlines():
+    for line in text.splitlines():
         fence_match = MARKDOWN_FENCE.match(line)
         if fence_match:
             marker = fence_match.group(1)
@@ -46,9 +45,18 @@ def anchors(markdown: Path) -> set[str]:
             ):
                 fence = None
                 continue
-        if fence is not None:
-            continue
+        if fence is None:
+            lines.append(line)
 
+    return "\n".join(lines)
+
+
+@lru_cache
+def anchors(markdown: Path) -> set[str]:
+    found: set[str] = set()
+    occurrences: dict[str, int] = {}
+
+    for line in without_fenced_code(markdown.read_text(encoding="utf-8")).splitlines():
         heading_match = MARKDOWN_HEADING.match(line)
         if not heading_match:
             continue
@@ -61,7 +69,7 @@ def anchors(markdown: Path) -> set[str]:
 
 
 def validate_local_links(markdown: Path, errors: list[str]) -> None:
-    text = markdown.read_text(encoding="utf-8")
+    text = without_fenced_code(markdown.read_text(encoding="utf-8"))
     for raw_target in MARKDOWN_LINK.findall(text):
         target = raw_target.strip().split(maxsplit=1)[0].strip("<>")
         if not target or target.startswith(("http://", "https://", "mailto:")):
@@ -99,7 +107,9 @@ def main() -> int:
             continue
 
         markdown_files.extend((readme, skill_directory / "SKILL.md"))
-        markdown_files.extend(sorted((skill_directory / "references").rglob("*.md")))
+        references_directory = skill_directory / "references"
+        if references_directory.is_dir():
+            markdown_files.extend(sorted(references_directory.rglob("*.md")))
         text = readme.read_text(encoding="utf-8")
         required_fragments = {
             "collection backlink": "../../README.md",
