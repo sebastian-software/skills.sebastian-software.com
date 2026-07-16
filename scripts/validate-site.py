@@ -126,6 +126,29 @@ def proof_row_values(html: str) -> list[int]:
     return [int(value) for value in re.findall(r"<dt>(\d+)</dt>", match.group())] if match else []
 
 
+def validate_json_ld_inventory(
+    json_ld: dict[str, object] | None,
+    expected_count: int,
+    failures: list[str],
+) -> None:
+    require(json_ld is not None, "site must include JSON-LD metadata", failures)
+    if json_ld is None:
+        return
+
+    item_list = json_ld.get("mainEntity", {})
+    require(
+        isinstance(item_list, dict) and item_list.get("numberOfItems") == expected_count,
+        "JSON-LD skill count must match the repository inventory",
+        failures,
+    )
+    require(
+        isinstance(item_list, dict)
+        and len(item_list.get("itemListElement", [])) == expected_count,
+        "JSON-LD items must match the repository inventory",
+        failures,
+    )
+
+
 def main() -> int:
     failures: list[str] = []
     required_files = (
@@ -225,14 +248,7 @@ def main() -> int:
         "Open Graph description must match the repository inventory",
         failures,
     )
-    require(json_ld is not None, "site must include JSON-LD metadata", failures)
-    if json_ld is not None:
-        item_list = json_ld.get("mainEntity", {})
-        require(
-            isinstance(item_list, dict) and item_list.get("numberOfItems") == len(expected_skills),
-            "JSON-LD skill count must match the repository inventory",
-            failures,
-        )
+    validate_json_ld_inventory(json_ld, len(expected_skills), failures)
 
     require(bool(journey_html), "site must contain the connected workflow", failures)
     for skill in expected_skills:
@@ -265,12 +281,6 @@ def main() -> int:
             )
             is not None,
             f"named {class_name} div must expose a group role",
-            failures,
-        )
-        require(
-            isinstance(item_list, dict)
-            and len(item_list.get("itemListElement", [])) == len(expected_skills),
-            "JSON-LD items must match the repository inventory",
             failures,
         )
 
