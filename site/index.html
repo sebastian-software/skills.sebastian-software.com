@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" class="no-js">
+<html lang="en">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -21,9 +21,6 @@
     <link rel="canonical" href="https://skills.sebastian-software.com/">
     <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
     <link rel="stylesheet" href="styles.css">
-    <script>
-      document.documentElement.classList.replace("no-js", "js")
-    </script>
     <script src="script.js" defer></script>
     <title>Sebastian Software Skills — Better judgment for AI agents</title>
     <script type="application/ld+json">
@@ -156,14 +153,13 @@
           </figure>
         </div>
 
-        <div class="shell command-dock reveal" aria-label="Quick install">
+        <div class="shell command-dock reveal" role="group" aria-label="Quick install">
           <div>
             <span class="command-label">Try one skill</span>
             <code id="hero-command">npx skills add sebastian-software/skills.sebastian-software.com --skill effective-web</code>
           </div>
-          <button class="copy-button" type="button" data-copy-target="hero-command">
+          <button class="copy-button" type="button" data-copy-target="hero-command" aria-label="Copy Effective Web skills CLI command">
             <span data-copy-label>Copy</span>
-            <span aria-hidden="true">⌘</span>
           </button>
         </div>
       </section>
@@ -226,13 +222,14 @@
             <li class="journey-step reveal">
               <span class="step-number">03</span>
               <div>
-                <p class="step-label">Improve</p>
+                <p class="step-label">Improve &amp; deliver</p>
                 <h3>Move repositories forward with evidence.</h3>
-                <p>Audit, modernize, port, review, and deliver without losing correctness or context.</p>
+                <p>Audit, modernize, port, update dependencies, review, and deliver without losing correctness or context.</p>
                 <div class="step-skills">
                   <a href="https://github.com/sebastian-software/skills.sebastian-software.com/tree/main/skills/codebase-improvement">Codebase Improvement</a>
                   <a href="https://github.com/sebastian-software/skills.sebastian-software.com/tree/main/skills/pr-review">PR Review</a>
                   <a href="https://github.com/sebastian-software/skills.sebastian-software.com/tree/main/skills/port-codebases">Port Codebases</a>
+                  <a href="https://github.com/sebastian-software/skills.sebastian-software.com/tree/main/skills/smart-dependency-updater">Smart Dependency Updater</a>
                 </div>
               </div>
             </li>
@@ -245,6 +242,7 @@
                 <div class="step-skills">
                   <a href="https://github.com/sebastian-software/skills.sebastian-software.com/tree/main/skills/consultant-profile">Consultant Profile</a>
                   <a href="https://github.com/sebastian-software/skills.sebastian-software.com/tree/main/skills/linkedin-social-selling">LinkedIn Social Selling</a>
+                  <a href="https://github.com/sebastian-software/skills.sebastian-software.com/tree/main/skills/linkedin-posts">LinkedIn Posts</a>
                   <a href="https://github.com/sebastian-software/skills.sebastian-software.com/tree/main/skills/metro-english">Metro English</a>
                 </div>
               </div>
@@ -273,7 +271,7 @@
             </a>
           </div>
 
-          <div class="route-cloud reveal" aria-label="Effective Web coverage">
+          <div class="route-cloud reveal" role="group" aria-label="Effective Web coverage">
             <span class="route route-large">Design &amp; review</span>
             <span class="route">Accessibility</span>
             <span class="route">React architecture</span>
@@ -306,7 +304,7 @@
             </p>
           </div>
 
-          <div class="filter-bar reveal" aria-label="Filter skills">
+          <div class="filter-bar reveal" role="group" aria-label="Filter skills">
             <button type="button" aria-pressed="true" data-filter="all">All <span>16</span></button>
             <button type="button" aria-pressed="false" data-filter="product">Product <span>4</span></button>
             <button type="button" aria-pressed="false" data-filter="web">Web <span>3</span></button>
@@ -492,7 +490,7 @@
               <p>Try one skill immediately with any compatible agent environment.</p>
               <div class="code-block">
                 <code id="skills-command">npx skills add sebastian-software/skills.sebastian-software.com --skill effective-web</code>
-                <button class="copy-button" type="button" data-copy-target="skills-command"><span data-copy-label>Copy</span></button>
+                <button class="copy-button" type="button" data-copy-target="skills-command" aria-label="Copy skills CLI command"><span data-copy-label>Copy</span></button>
               </div>
               <p class="method-note">Replace <code>effective-web</code> with any skill name, or pass <code>--all</code>.</p>
             </article>
@@ -511,7 +509,7 @@ dalo source add-catalog sebastian https://github.com/sebastian-software/skills.s
 dalo source select sebastian effective-web
 dalo approve skill sebastian:effective-web
 dalo sync</code>
-                <button class="copy-button" type="button" data-copy-target="dalo-command"><span data-copy-label>Copy</span></button>
+                <button class="copy-button" type="button" data-copy-target="dalo-command" aria-label="Copy DALO setup commands"><span data-copy-label>Copy</span></button>
               </div>
               <p class="method-note">Catalog selections stay pinned; new repository skills never activate silently.</p>
             </article>

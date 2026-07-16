@@ -38,6 +38,7 @@ class SiteParser(HTMLParser):
         self.assets: list[str] = []
         self.skill_cards: list[tuple[str, str]] = []
         self.filter_counts: dict[str, int] = {}
+        self.copy_buttons: list[tuple[str, str]] = []
         self.current_filter: str | None = None
         self.current_filter_text: list[str] = []
         self.h1_count = 0
@@ -80,6 +81,8 @@ class SiteParser(HTMLParser):
         if tag == "button" and (filter_name := values.get("data-filter")):
             self.current_filter = filter_name
             self.current_filter_text = []
+        if tag == "button" and (copy_target := values.get("data-copy-target")):
+            self.copy_buttons.append((copy_target, values.get("aria-label", "") or ""))
 
     def handle_data(self, data: str) -> None:
         if self.current_filter is not None:
@@ -159,6 +162,8 @@ def main() -> int:
     )
     json_ld = extract_json_ld(html)
     proof_values = proof_row_values(html)
+    journey_match = re.search(r'<ol\s+class="journey".*?</ol>', html, re.DOTALL)
+    journey_html = journey_match.group() if journey_match else ""
 
     require(
         local_path("/styles.css") == SITE / "styles.css",
@@ -176,6 +181,8 @@ def main() -> int:
         failures,
     )
     require(len(parser.ids) == len(set(parser.ids)), "site contains duplicate IDs", failures)
+    require("no-js" not in html, "site must not ship an unused no-js hook", failures)
+    require("⌘" not in html, "copy buttons must not imply a keyboard shortcut", failures)
     require(
         sorted(skill for skill, _ in parser.skill_cards) == expected_skills,
         "site skill cards must match every SKILL.md exactly",
@@ -226,6 +233,40 @@ def main() -> int:
             "JSON-LD skill count must match the repository inventory",
             failures,
         )
+
+    require(bool(journey_html), "site must contain the connected workflow", failures)
+    for skill in expected_skills:
+        require(
+            f"/skills/{skill}\"" in journey_html,
+            f"connected workflow must link skill: {skill}",
+            failures,
+        )
+    require(
+        "Improve &amp; deliver" in journey_html,
+        "connected workflow must resolve the Delivery node",
+        failures,
+    )
+
+    expected_copy_buttons = {
+        ("hero-command", "Copy Effective Web skills CLI command"),
+        ("skills-command", "Copy skills CLI command"),
+        ("dalo-command", "Copy DALO setup commands"),
+    }
+    require(
+        set(parser.copy_buttons) == expected_copy_buttons,
+        "copy buttons must have unique contextual accessible names",
+        failures,
+    )
+    for class_name in ("command-dock", "route-cloud", "filter-bar"):
+        require(
+            re.search(
+                rf'<div\s+class="[^"]*\b{class_name}\b[^"]*"[^>]*\brole="group"[^>]*\baria-label=',
+                html,
+            )
+            is not None,
+            f"named {class_name} div must expose a group role",
+            failures,
+        )
         require(
             isinstance(item_list, dict)
             and len(item_list.get("itemListElement", [])) == len(expected_skills),
@@ -255,6 +296,11 @@ def main() -> int:
         require(url in html, f"required external link is missing: {url}", failures)
 
     require(":focus-visible" in css, "CSS must provide visible keyboard focus", failures)
+    require(
+        re.search(r"\.primary-nav\s*\{\s*display:\s*none", css) is None,
+        "primary navigation must remain available at responsive widths",
+        failures,
+    )
     require(
         "prefers-reduced-motion: reduce" in css,
         "CSS must provide a reduced-motion experience",

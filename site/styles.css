@@ -1324,15 +1324,29 @@
 
     .header-inner {
       grid-template-columns: 1fr auto;
+      gap: 0.65rem 1rem;
+      padding-block: 0.65rem;
     }
 
     .primary-nav {
-      display: none;
+      display: flex;
+      grid-column: 1 / -1;
+      grid-row: 2;
+      width: 100%;
+      justify-content: space-between;
+      gap: 1rem;
+      padding-bottom: 0.2rem;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+
+    .primary-nav a {
+      flex: none;
     }
 
     .hero {
       min-height: auto;
-      padding-top: 8rem;
+      padding-top: 10rem;
     }
 
     .hero-grid,
