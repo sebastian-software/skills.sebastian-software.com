@@ -18,9 +18,10 @@ clear, direct, warm enough, and a little loose. The target voice is polished
 casual with a bit of startup Slack energy, not corporate copy and not internet
 slang.
 
-This skill borrows the humanizer stance: remove obvious AI writing patterns, then
-add human rhythm and judgment. The point is not to make the text fancy. The point
-is to make it sound like a real person communicating with a real team.
+This skill borrows the stance of `humanizer` from the separately managed DALO
+`marketingskills` catalog: remove obvious AI writing patterns, then add human
+rhythm and judgment. The point is not to make the text fancy. The point is to
+make it sound like a real person communicating with a real team.
 
 ## Decision Context
 
