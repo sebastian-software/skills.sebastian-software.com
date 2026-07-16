@@ -406,6 +406,70 @@ The `* + *` selector (the "owl") only applies margin where an element is precede
 }
 ```
 
+## Use an Explicit Spacer Only for an Owned, One-Off Gap
+
+The parent should normally own repeated sibling spacing: use `gap` in a flex or
+grid layout, or a Stack/flow relationship for document rhythm. Let a component
+own its internal padding and its own internal `gap`; do not put a default outer
+margin on a reusable component.
+
+Use a small `Spacer` primitive only when one particular gap is itself part of
+the composition: neither adjacent child should own it, it must survive reuse
+without leaking a margin to a neighbour, or a local optical adjustment needs a
+named home. Treat it as a special-case layout primitive, not as a substitute
+for every `gap` or a way to make an arbitrary pair of elements configurable.
+
+For a shared React primitive, expose a token-backed `size` and a logical
+`axis` (`"inline"` or `"block"`). A direct child of a horizontal row uses the
+inline axis; a direct child of a vertical stack uses the block axis. Use a
+neutral `span`, hide it from the accessibility tree, keep it non-focusable, and
+do not add wrappers merely to create space. Protect its intended dimension in
+flex layouts so constrained labels wrap or truncate before the deliberate gap
+silently collapses.
+
+```tsx
+type SpacerProps = {
+  size: "xs" | "sm" | "md";
+  axis: "inline" | "block";
+};
+
+function Spacer({ size, axis }: SpacerProps) {
+  return (
+    <span
+      aria-hidden="true"
+      className={`spacer spacer--${axis} spacer--${size}`}
+    />
+  );
+}
+```
+
+```css
+.spacer { flex: none; pointer-events: none; }
+.spacer--xs { --spacer-size: var(--space-xs); }
+.spacer--sm { --spacer-size: var(--space-sm); }
+.spacer--md { --spacer-size: var(--space-md); }
+
+.spacer--inline {
+  display: inline-block;
+  inline-size: var(--spacer-size);
+  min-inline-size: var(--spacer-size);
+  block-size: 1px;
+}
+
+.spacer--block {
+  display: block;
+  block-size: var(--spacer-size);
+  min-block-size: var(--spacer-size);
+  inline-size: 1px;
+}
+```
+
+Keep the API narrow. Use design tokens by default; permit a documented optical
+value only when the token scale cannot produce the intended alignment. Prefer a
+parent `gap` again as soon as the relationship becomes repeated or the parent
+can express it without extra markup. Check the resulting DOM in a button,
+paragraph, list, flex row, and RTL/zoom view before standardizing the pattern.
+
 ## Layout Rhythm and Density
 
 Layout problems are usually structure problems, not decoration problems. Before

@@ -19,7 +19,7 @@ Use CSS layout algorithms deliberately. Grid, Flexbox, Subgrid, container querie
   available space after margins and constraints; `100%` copies the containing
   block's width and can overflow once margins are added. Keep `auto` unless an
   explicit percentage is part of the intended sizing relationship.
-- Use `gap` for component and layout rhythm when the parent owns spacing; use margin intentionally for document/content flow and optically special cases. Reach for `margin-trim` (support-gated) to drop unwanted first/last-child edge margins instead of override hacks, keeping it subordinate to parent-owned `gap` spacing.
+- Use `gap` for component and layout rhythm when the parent owns spacing; use margin intentionally for document/content flow and optically special cases. Use an explicit, token-backed spacer only for a one-off gap that neither adjacent child should own; give it a logical axis and preserve that axis with a minimum size or `flex: none`. Reach for `margin-trim` (support-gated) to drop unwanted first/last-child edge margins instead of override hacks, keeping it subordinate to parent-owned `gap` spacing.
 - Prefer logical properties (`inline-size`, `block-size`, `margin-inline`, `padding-block`, `inset-inline`) over physical ones so layouts adapt to writing mode and RTL without rework.
 - Size fluidly with `min()`, `max()`, and `clamp()` for content width, gutters, type, and gaps so layout flexes between sensible bounds without a breakpoint for every step; cap line length (for example `min(100%, 65ch)`) so fluid widths never break readable measure.
 - Use full-bleed/grid wrapper patterns when readable text and breakout media must coexist without wrapper sprawl.
