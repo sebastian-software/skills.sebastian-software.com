@@ -88,9 +88,10 @@ unless the user names specific PRs.
    nameWithOwner`). The active GitHub login is "you" for review attribution.
 2. If the user gave PR numbers, operate on exactly those. Otherwise discover the
    relevant PRs (Mode A and Mode B sets) with [GitHub recipes](references/gh-recipes.md).
-3. The writing voice depends on the `metro-english` and `humanizer` skills. Use
-   them for any non-trivial prose you post (see "Voice"). If they're unavailable,
-   fall back to the inline voice rules here.
+3. The writing voice depends on the local `metro-english` skill and `humanizer`
+   from the separately managed DALO `marketingskills` catalog. Use them for any
+   non-trivial prose you post (see "Voice"). If they're unavailable, fall back
+   to the inline voice rules here.
 
 For every concrete `gh`/`git` command — PR discovery, building the per-PR
 picture, posting inline reviews, the worktree flow, rebasing, CI recovery —
@@ -283,9 +284,10 @@ PR's scope, and you can do it without further input, **do it**.
 
 Sound like a real person on the team wrote it quickly but carefully. Lean on the
 `metro-english` skill (it has presets for PR review comments, issue comments, and
-async updates) and `humanizer` (to strip AI tells). The project language is US
-English, Silicon Valley team register — a faint German directness is welcome in
-*style*, never as language errors.
+async updates) and `humanizer` from the separately managed DALO
+`marketingskills` catalog (to strip AI tells). The project language is US English,
+Silicon Valley team register — a faint German directness is welcome in *style*,
+never as language errors.
 
 Core rules:
 
@@ -304,9 +306,10 @@ Core rules:
 - **Optional means optional.** Taste, naming alternatives, formatting, and
   speculative refactors must be explicitly skippable and must not appear in a
   request-changes review as required work.
-- Avoid the AI/corporate tells the `humanizer` skill targets (no "crucial",
-  "seamless", "I hope this helps", forced rule-of-three, em-dash soup, bolded
-  `**Label:**` bullets, emoji decoration).
+- Avoid the AI/corporate tells targeted by `humanizer` from the separately
+  managed DALO `marketingskills` catalog (no "crucial", "seamless", "I hope this
+  helps", forced rule-of-three, em-dash soup, bolded `**Label:**` bullets, emoji
+  decoration).
 
 **Asking for a second look (the grey-zone approve):**
 Input intent: PR is fine but big/tricky, want another human on it.

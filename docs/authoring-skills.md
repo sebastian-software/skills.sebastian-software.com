@@ -186,6 +186,11 @@ External skills must be configured as DALO catalog sources. Do not copy them,
 rename their frontmatter, add `SOURCE.md` snapshots, or maintain repository-local
 source and lock manifests.
 
+Label an external dependency at every mention site as "`<name>` from the
+separately managed DALO `<catalog>` catalog." Reference files can be loaded
+without their parent `SKILL.md`, so do not rely on provenance stated elsewhere
+and never describe a catalog skill as local.
+
 ## Review
 
 Before merging a change:
