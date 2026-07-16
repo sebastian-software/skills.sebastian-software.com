@@ -5,6 +5,12 @@ the interface's job; the direction describes how it should feel and behave.
 Do not treat product, landing page, minimalist, playful, and premium as competing
 values at one level.
 
+If no direction has been accepted yet and the task needs competing experience
+concepts rather than a compact implementation brief, use Product Design's
+[visual-character exploration](../../product-design/references/structure-and-prototyping.md#explore-visual-character-in-context)
+first. Translate the chosen evidence and qualities into the Design Read below;
+do not invent a separate browser-only direction.
+
 ## Contents
 
 - [Design Read](#design-read)

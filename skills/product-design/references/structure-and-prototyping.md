@@ -94,6 +94,13 @@ Prototype the uncertain part and enough surrounding context for it to be
 credible. Avoid building every screen at high fidelity when the decision
 depends on one model, transition, or state change.
 
+Product Design owns the decision-grade question, fidelity choice, realistic
+task, and evaluation plan. When the uncertainty is specifically browser layout,
+responsive behavior, input, or implementation under already accepted intent,
+use Effective Web's [bounded browser prototype protocol](../../effective-web/references/design-planning.md#bounded-browser-prototypes).
+Carry its `Discard`, `Rebuild`, or `Productionize` conclusion back into the
+design brief and prototype findings; do not leave a parallel browser artifact.
+
 Start in the environment and viewport most representative of the intended use;
 add other sizes when they answer a real layout or behavior question. Move into
 the browser or target runtime when responsiveness, drag and drop, input,
@@ -133,6 +140,15 @@ to the audience, purpose, and design brief. Avoid generic mood words that cannot
 help distinguish a decision. Also name qualities that would send the wrong
 signal.
 
+This exploration precedes or feeds Effective Web's compact
+[Design Read](../../effective-web/references/design-directions.md#design-read)
+and [Decide Before Styling](../../effective-web/references/design-planning.md#decide-before-styling)
+contract. Product Design compares materially different experience directions;
+Effective Web carries the accepted direction into browser structure,
+implementation constraints, and its
+[persistence and drift](../../effective-web/references/design-directions.md#persistence-and-drift)
+rules.
+
 Gather references purposefully. Annotate the exact typography, color behavior,
 shape language, spacing, imagery, icon treatment, depth, motion, or content tone
 that communicates the intended quality. A folder of attractive screenshots is
@@ -153,8 +169,13 @@ different functionality. For each direction:
   decide between the directions
 
 Turn the chosen qualities into provisional tokens, component rules, and clear
-anti-examples. Keep the reference as study evidence; the delivered direction
-must fit this product rather than reproduce another product's composition.
+anti-examples. Keep them as study evidence until Effective Web reconciles them
+with accepted design-system, accessibility, responsive, and implementation
+contracts. Persist durable choices through the repository's decision convention
+or [`decision-records`](../../decision-records/SKILL.md) rather than allowing a
+prototype token set to become an undocumented parallel system. The delivered
+direction must fit this product rather than reproduce another product's
+composition.
 
 ## Increase craft deliberately
 

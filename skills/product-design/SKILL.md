@@ -80,6 +80,12 @@ do not produce workshops, personas, flows, or polished screens as ceremony.
   evidence. When evidence is absent, deliver a plan, hypothesis, or clearly
   labeled provisional model.
 
+An **evidence register** is the compact trace from a consequential claim to its
+source, date, participant or operating context, evidence type, confidence, and
+affected decision. Keep observed behavior, measured outcomes, interpretations,
+stakeholder claims, and assumptions visibly distinct. Link to raw evidence when
+access and consent allow; never turn the register into invented research.
+
 ## Default Deliverable
 
 For a broad product-design request, return:
@@ -87,7 +93,8 @@ For a broad product-design request, return:
 1. Design decision, scope, constraints, and evidence register
 2. Target situation, actors, environment, behaviors, and current alternatives
 3. System model and important user or team mental-model gaps
-4. Problem and empowerment framing with prioritized opportunities
+4. Problem and empowerment framing with opportunities ordered for design
+   exploration
 5. Two or more solution directions with tradeoffs and non-goals
 6. Chosen object, interaction, navigation, and state model
 7. Prototype scope, fidelity, realistic tasks, and evaluation plan
@@ -100,8 +107,9 @@ For a broad product-design request, return:
   shape the experience.
 - Use `effective-web` to specify and implement browser UI, visual systems,
   accessibility, responsive behavior, performance, and frontend verification.
-- Use dedicated customer-research capability when the request is to recruit,
-  conduct, or operate a full research program; use this skill to frame design
-  questions and synthesize supplied evidence.
+- Use `customer-research` from the separately managed DALO `marketingskills`
+  catalog when the request is to recruit, conduct, or operate a full research
+  program; use this skill to frame design questions and synthesize supplied
+  evidence.
 - Use `decision-records` when a durable design-system or interaction decision
   needs repository-level rationale and reopening conditions.

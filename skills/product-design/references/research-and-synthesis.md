@@ -50,6 +50,13 @@ Structure a behavioral interview around a few learning areas rather than an
 exhaustive questionnaire. For each area, know why the answer could change a
 decision.
 
+Use [Product Management's discovery guidance](../../product-management/references/discovery-and-evidence.md)
+when the interview must support market, commitment, viability, or product-scope
+decisions. This reference owns design-context inquiry and synthesis: behavior,
+environment, artifacts, expectations, mental models, and implications for the
+experience. Share the recent-event and neutral-probing baseline rather than
+maintaining two competing interview doctrines.
+
 - Start with ordinary context and recent routines.
 - Ask for specific past events: “Tell me about the last time…”
 - Explore triggers, sequence, tools, environment, interruptions, adaptations,
@@ -85,7 +92,7 @@ evidence rather than a substitute for observing the target situation.
 
 ## Synthesize without laundering assumptions
 
-Use this evidence ladder:
+Use this synthesis chain:
 
 ```text
 raw material -> observations -> patterns -> interpretation
@@ -114,6 +121,25 @@ Label provisional personas and supplied marketing segments as hypotheses. Keep
 the supporting observations and counterexamples accessible, state which
 decisions the persona should inform, and retire it when new evidence no longer
 supports the pattern.
+
+## Use empathy maps as a situated evidence view
+
+Use an empathy map when the team needs one compact view of what a person says,
+does, thinks, feels, notices, or hears in a specific evidenced situation. It is
+a lens over observations and cautious interpretation, not a substitute for a
+persona, journey, mental model, or research session.
+
+For every entry, retain the source and distinguish observed speech or action
+from inferred thought or feeling. Capture contradictions between quadrants
+instead of forcing consistency: what someone says can differ from what they do,
+and an apparent emotion can have several explanations. Add environment,
+accessibility, power, social, and time constraints when they shape the moment.
+
+Name the actor, situation, trigger, and decision the map should inform. Do not
+create a generic empathy map for an invented "typical user," decorate it with
+unsupported feelings, or treat a full quadrant as evidence of importance. Use
+the scenario-map protocol below when sequence and changing context matter more
+than a single situated view.
 
 ## Rehearse evidence-based scenarios
 
