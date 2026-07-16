@@ -2,5 +2,12 @@
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
     "local>sebastian-software/renovate-config"
+  ],
+  "packageRules": [
+    {
+      "description": "Renovate owns GitHub Actions version updates",
+      "matchManagers": ["github-actions"],
+      "enabled": true
+    }
   ]
 }
