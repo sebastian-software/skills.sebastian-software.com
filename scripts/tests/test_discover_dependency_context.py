@@ -72,7 +72,7 @@ class DiscoverDependencyContextTests(unittest.TestCase):
 
 go 1.24
 
-require (
+require  (
     example.com/first v1.2.3
     example.com/second v2.0.0 // indirect
 ) // require block
