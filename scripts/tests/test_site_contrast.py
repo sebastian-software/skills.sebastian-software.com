@@ -68,7 +68,7 @@ class SiteContrastTests(unittest.TestCase):
         ink = color("ink")
         white = color("white")
         self.assertGreaterEqual(contrast(ink, white), 3)
-        for surface in ("paper", "signal", "sky", "blue"):
+        for surface in ("paper", "signal", "sky", "blue", "coral-deep"):
             background = color(surface)
             self.assertGreaterEqual(max(contrast(ink, background), contrast(white, background)), 3)
 
