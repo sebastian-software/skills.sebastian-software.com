@@ -1,0 +1,4 @@
+interface:
+  display_name: "PR Review"
+  short_description: "Review and maintain pull requests end to end"
+  default_prompt: "Use $pr-review to review the relevant pull requests, handle valid findings, and report the final status."

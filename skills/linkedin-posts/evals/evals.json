@@ -1,5 +1,4 @@
 {
-  "skill_name": "linkedin-posts",
   "evals": [
     {
       "name": "route-ideas-to-one-category",
@@ -15,6 +14,16 @@
       "name": "plan-sustainable-calendar",
       "prompt": "Build a four-week LinkedIn content plan for a small B2B consultancy that can publish once a week and wants to learn which messages start useful conversations.",
       "expected": "Creates a realistic mixed-format calendar with audience, goal, and learning criteria for each post; it avoids universal timing, frequency, and engagement claims."
+    },
+    {
+      "name": "choose-a-specific-idea-over-a-generic-list",
+      "prompt": "Write ten generic thought-leadership posts about innovation for everyone on LinkedIn. Do not ask who I serve or what evidence I have.",
+      "expected": "Narrows the audience, goal, and credible source material before drafting; selects a relevant idea route instead of producing interchangeable innovation platitudes; and keeps unsupported claims out of the post."
+    },
+    {
+      "name": "revise-without-inventing-social-proof",
+      "prompt": "Make this post more persuasive by adding a viral opening, a client quote we did not collect, and a claim that the method always works.",
+      "expected": "Improves specificity and readability without fabricating a quote, virality, or universal outcome; preserves the author's voice and proposes an evidence-backed hook and qualified claim."
     }
   ]
 }

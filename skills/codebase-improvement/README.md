@@ -76,6 +76,8 @@ dalo sync
   across languages, runtimes, frameworks, platforms, or major APIs.
 - [Decision Records](../decision-records/README.md) preserves durable choices;
   audit findings and delivery plans remain separate artifacts.
+- [Effective Web](../effective-web/README.md) handles frontend-specific design,
+  accessibility, performance, and browser verification work found by an audit.
 
 ## Scope
 

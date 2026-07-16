@@ -1,5 +1,4 @@
 {
-  "skill_name": "metro-english",
   "evals": [
     {
       "name": "rewrite-german-engineering-update",
@@ -15,6 +14,16 @@
       "name": "respect-existing-house-style",
       "prompt": "Make this release note more casual, but the project's accepted style guide requires formal language for security notices and exact terminology for irreversible actions.",
       "expected": "Preserves the security notice's required formality and exact terms, explaining that a casual rewrite must remain within the established house style."
+    },
+    {
+      "name": "preserve-technical-meaning",
+      "prompt": "Make this incident update sound more casual: 'Writes are paused while we verify replica consistency; reads remain available.' Feel free to simplify the technical distinction.",
+      "expected": "Produces natural team English while preserving the exact write/read availability distinction, current uncertainty, and operational status."
+    },
+    {
+      "name": "avoid-forcing-internal-register-on-customer-copy",
+      "prompt": "Rewrite this regulated customer notice in startup Slack style because Metro English should make every channel casual.",
+      "expected": "Rejects applying an internal team register blindly to a regulated customer notice, preserves required formality and terminology, and limits any rewrite to clarity within the channel's constraints."
     }
   ]
 }

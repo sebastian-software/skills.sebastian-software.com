@@ -1,5 +1,4 @@
 {
-  "skill_name": "smart-dependency-updater",
   "evals": [
     {
       "name": "group-coupled-framework-updates",

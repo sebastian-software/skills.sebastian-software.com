@@ -1,0 +1,4 @@
+interface:
+  display_name: "Metro English"
+  short_description: "Write natural US team English"
+  default_prompt: "Use $metro-english to rewrite this in natural, direct US team English."

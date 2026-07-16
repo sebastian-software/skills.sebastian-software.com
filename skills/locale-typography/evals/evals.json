@@ -1,5 +1,4 @@
 {
-  "skill_name": "locale-typography",
   "evals": [
     {
       "name": "preserve-code-while-localizing-german-prose",
@@ -15,6 +14,21 @@
       "name": "delegate-dynamic-values-to-intl",
       "prompt": "Format prices, dates, and measurements for a mixed German and English dashboard by manually choosing separators and currency position in templates.",
       "expected": "Recommends locale-aware APIs for dynamic values, keeps display formatting separate from business data, and asks for exact locales where regional choices matter."
+    },
+    {
+      "name": "apply-spanish-dialogue-and-question-marks",
+      "prompt": "Localize a Spanish interview transcript that contains dialogue, nested quotations, and questions while preserving product names and timestamps.",
+      "expected": "Uses the Spanish profile for inverted question marks, dialogue punctuation, and quotation hierarchy while preserving identifiers, timestamps, meaning, and supplied regional house style."
+    },
+    {
+      "name": "distinguish-polish-and-czech-quotation-rules",
+      "prompt": "Apply one generic Central European quotation and dash style to both Polish and Czech release notes.",
+      "expected": "Rejects a shared generic profile, loads the Polish and Czech guidance separately, applies their quotation and dash conventions only to visible prose, and preserves code and version identifiers."
+    },
+    {
+      "name": "ask-for-the-scandinavian-locale",
+      "prompt": "Polish this Scandinavian checkout copy. The language and region are not specified, so choose Swedish, Danish, or Norwegian rules interchangeably.",
+      "expected": "Asks for the exact language and region or keeps the text unchanged where the choice matters; does not collapse Swedish, Danish, and Norwegian typography into one profile."
     }
   ]
 }

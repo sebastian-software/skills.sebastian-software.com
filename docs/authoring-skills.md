@@ -14,14 +14,15 @@ skills/skill-name/
   SKILL.md
   evals/
     evals.json
-  agents/      # optional product-facing metadata
+  agents/
+    openai.yaml
   references/  # optional focused guidance
   scripts/     # optional deterministic helpers
 ```
 
-Every public skill requires `README.md`, `SKILL.md`, and `evals/evals.json`.
-Add the other directories when they serve a clear purpose. Do not add external
-snapshots or generated copies.
+Every public skill requires `README.md`, `SKILL.md`, `evals/evals.json`, and
+`agents/openai.yaml`. Add the other directories when they serve a clear purpose.
+Do not add external snapshots or generated copies.
 
 ## Human-Facing `README.md`
 
@@ -83,8 +84,9 @@ The description is what an agent sees before deciding whether to load a skill.
 
 ## Resource Directories
 
-- Use `agents/` for optional product-facing skill metadata such as
-  `openai.yaml`; never store project decisions or agent memory there.
+- Use `agents/openai.yaml` for the required product-facing display name, short
+  description, and `$skill-name` invocation prompt; never store project
+  decisions or agent memory there.
 - Use `references/` for detailed guidance loaded only when needed.
 - Use `scripts/` for deterministic helpers agents can run.
 - Use `assets/` or `examples/` only when a skill genuinely needs reusable output
@@ -197,8 +199,8 @@ Before merging a change:
 
 1. Confirm the trigger description still selects the skill for the right tasks.
 2. Confirm links to bundled references, scripts, and any optional resources resolve.
-3. When adding a skill, create `evals/evals.json`; add or update behavioral cases
-   for consequential changes.
+3. When adding a skill, create `agents/openai.yaml` and `evals/evals.json`; add
+   or update behavioral cases for consequential changes.
 4. When adding a skill, add its `site/index.html` card and inventory metadata.
 5. Run `python3 scripts/validate-readmes.py`,
    `python3 scripts/validate-site.py`, and
