@@ -36,6 +36,51 @@ Use this reference for reusable design-system decisions that cut across colour, 
   backgrounds perceptually weak. Plan `prefers-contrast` and light/dark
   alternatives rather than relying on automatic foreground selection.
 
+### Token architecture and ownership
+
+- Treat the token set as a versioned API for the visual language, not as a bag
+  of variables or an unreviewed export from a design tool. Co-own naming,
+  semantics, lifecycle, and release decisions across design and engineering;
+  include product, accessibility, QA, and platform owners when their contracts
+  depend on the tokens.
+- Keep component and token responsibilities separate. Components own markup,
+  semantics, behavior, state transitions, accessibility, and structural layout
+  relationships. Tokens own stable named design decisions such as color roles,
+  type roles, spacing choices, radii, borders, and elevation. A token may
+  configure a component, but it must not substitute for the component contract.
+- Use three consumption levels with explicit boundaries:
+  - **Reference or primitive tokens** store direct values and scales. Keep them
+    internal to system authors by default so product code cannot couple itself
+    to a palette step or raw measurement accidentally.
+  - **Semantic tokens** name jobs such as text, surface, border, action, focus,
+    and status roles. Make these the normal public contract for components and
+    product code, and alias them to reference tokens per theme.
+  - **Component tokens** expose a narrow hook only when a component genuinely
+    needs to diverge from the shared semantic role across brands, products, or
+    modes. Alias a semantic token by default and reject a token-per-property
+    mirror of every component stylesheet.
+- Publish reference tokens only for an intentional system-authoring or escape-
+  hatch use case with documented stability and migration expectations. Do not
+  expose every internal value merely because the build tool can emit it.
+- Define a theme as a complete, coherent mapping of one shared semantic contract
+  for a brand, product, mode, or supported combination. Override only the token
+  domains that actually vary, retain explicit defaults for the rest, and test
+  every supported theme for missing aliases, interaction states, contrast pairs,
+  typography, density, and platform-specific representation.
+- Choose one canonical, reviewable token source and make the direction of sync
+  explicit. Treat design libraries, documentation, generated CSS, and native
+  artifacts as synchronized consumers unless the project deliberately assigns
+  one of them canonical ownership; never let independent edits create several
+  competing sources of truth.
+- Roll the architecture out through a representative product pilot, then feed
+  proven needs back into the token and component systems. Avoid a year-long
+  big-bang retrofit and speculative token inventory; version releases, provide
+  migration mappings, deprecate before removal, and expand only after real
+  products validate the abstraction.
+- Treat accessibility as a system-wide verification responsibility. Tokens can
+  encode reviewed pairs and constraints, but they cannot guarantee semantic
+  markup, focus behavior, readable states, or assistive-technology support.
+
 ### Theming architecture
 
 - Use semantic tokens with explicit cascade ownership: define theme values at a single owning scope and let local overrides flow through custom properties, so component code never hard-codes a theme.
@@ -96,7 +141,15 @@ Use this reference for reusable design-system decisions that cut across colour, 
 
 ## Token Review Checklist
 
+- Are reference, semantic, and component tokens separated by a documented
+  consumer boundary, with semantic roles as the normal product-facing API?
+- Does each component token represent a necessary cross-theme exception rather
+  than duplicating one CSS property mechanically?
 - Does every semantic token have a role, not just a visual name?
+- Is there one canonical, versioned source with a defined sync direction, or can
+  design files and generated platform artifacts drift independently?
+- Does every supported brand, product, and mode implement the same semantic
+  contract without missing aliases, states, or unreviewed fallbacks?
 - Does a format-only color migration preserve token meaning, CSS structure,
   third-party format contracts, and foreground/background relationships?
 - Are derived colors checked in light mode, dark mode, hover/focus/active states, disabled states, and forced-colors mode?
@@ -115,3 +168,5 @@ Use this reference for reusable design-system decisions that cut across colour, 
   examples, and stories in the same task?
 - Do deterministic checks catch raw values, undefined tokens, duplicates, and
   stale system guidance before generated code can amplify them?
+- Is adoption grounded in representative pilots, with explicit versioning,
+  migration, deprecation, and removal rules instead of a speculative big bang?

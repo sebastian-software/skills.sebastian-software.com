@@ -20,6 +20,19 @@ Use this reference when CSS tooling, utility frameworks, CSS-in-TypeScript, gene
 - Keep components independent of token calculators and CSS generators. Generated
   output should terminate in stable semantic custom properties or documented
   utility contracts that authored CSS can consume without knowing the tool.
+- When tokens cross design tools, repositories, or runtime platforms, prefer a
+  current DTCG-compatible interchange source with explicit `$value`, `$type`,
+  aliases, descriptions, and deprecation metadata over an undocumented
+  tool-specific JSON dump. Pin the schema and transformation tool versions, and
+  do not mix incompatible legacy and DTCG conventions inside one token graph.
+- Generate CSS, Swift, Android, React Native, and other targets from the same
+  canonical semantic graph with isolated name, value, unit, and format
+  transforms per platform. Preserve semantic identity while allowing necessary
+  target representation differences; never hand-edit generated artifacts.
+- Validate unresolved or circular aliases, invalid types, name collisions,
+  missing theme roles, deprecated-token use, and reproducible output in CI.
+  Rebuild every supported target and fail when checked-in artifacts differ from
+  a clean generation run.
 - Before accepting a framework's promised speed, prototype a representative hard
   requirement and inspect override volume, generated CSS, team comprehension,
   debugging, and the likely upgrade path. Familiarity alone is not evidence of
@@ -38,6 +51,8 @@ Before adopting or expanding a styling tool, inspect:
 - critical CSS and code-splitting behavior,
 - runtime style injection or hydration requirements,
 - token consistency,
+- token alias resolution, type validity, collisions, and generated-file drift,
+- parity across every supported theme and platform target,
 - source maps and debug output,
 - dark mode and forced-colors behavior,
 - upgrade and migration path.

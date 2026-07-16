@@ -51,6 +51,11 @@
       "expected": "Preserves token semantics and CSS structure, leaves formats required by third parties alone, uses tested conversion and gamut handling, meets applicable WCAG 2.2 AA contrast requirements, and uses APCA as a supplementary perceptual check."
     },
     {
+      "name": "architect-multibrand-tokens",
+      "prompt": "A company wants one token system for four brands, light and dark modes, web, iOS, and Android. Figma variables are treated as the source of truth, product components consume raw palette values, every component property gets its own token, and the generated CSS, Swift, and Android files are edited independently. The team plans to tokenize the entire product estate before shipping anything. Redesign the architecture and rollout.",
+      "expected": "Separates component semantics, behavior, accessibility, and structural contracts from tokenized design decisions; establishes a co-owned canonical versioned source using a DTCG-compatible format when interoperability matters; keeps reference tokens internal by default, semantic tokens as the normal public API, and component tokens as sparse justified exceptions; models each brand and mode as a complete alias mapping of the same semantic contract; generates deterministic platform-specific representations without hand-editing outputs; validates aliases, types, collisions, theme completeness, states, and contrast; and grows the system through representative pilots with migration, deprecation, and release rules instead of a speculative big-bang retrofit."
+    },
+    {
       "name": "defer-expensive-subtree",
       "prompt": "A controlled search input still lags after the developer passes its query through useDeferredValue, but the expensive results component is not memoized and receives a new options object on every render. Diagnose and fix the design.",
       "expected": "Explains that deferral needs a skippable memoized boundary for CPU-heavy child rendering, stabilizes the props consumed by that boundary, keeps the input synchronous, and distinguishes rendering prioritization from request debouncing."

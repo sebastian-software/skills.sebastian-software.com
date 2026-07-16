@@ -6,7 +6,9 @@ Use this skill for making CSS maintainable, predictable, and compatible with the
 
 1. Identify styling ownership: global reset, tokens, layout primitives, components, utilities, overrides.
 2. Define cascade order explicitly with layers or local conventions.
-3. Use custom properties for semantic tokens and runtime theming.
+3. Identify the canonical token source and the reference, semantic, and narrow
+   component-token boundaries; use custom properties for the web-facing
+   semantic contract and runtime theming.
 4. Choose progressive enhancement boundaries based on the supported baseline.
    Check the dated feature radar when the model may not know the current
    platform, and promote useful Newly available features with an honest fallback.
@@ -27,6 +29,8 @@ Use this skill for making CSS maintainable, predictable, and compatible with the
 - [platform-feature-radar.md](platform-feature-radar.md) - dated leads for recent
   Baseline features that older model knowledge may miss.
 - [css-build-tooling.md](css-build-tooling.md) - CSS build tooling and generated output rules.
+- [design-system-rules.md](design-system-rules.md) - token architecture,
+  consumer boundaries, theming, governance, and system-wide review checks.
 - [css-layout-responsive.md](css-layout-responsive.md) - intrinsic layout,
   configurable compositions, container behavior, and responsive CSS algorithms.
 - [typography-rules.md](typography-rules.md) - fluid type, text metrics, wrapping,
