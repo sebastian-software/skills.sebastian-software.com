@@ -192,7 +192,8 @@ Before merging a change:
 
 1. Confirm the trigger description still selects the skill for the right tasks.
 2. Confirm links to bundled references, scripts, and any optional resources resolve.
-3. Add or update behavioral cases in `evals/evals.json` for consequential changes.
+3. When adding a skill, create `evals/evals.json`; add or update behavioral cases
+   for consequential changes.
 4. When adding a skill, add its `site/index.html` card and inventory metadata.
 5. Run `python3 scripts/validate-readmes.py`,
    `python3 scripts/validate-site.py`, and
