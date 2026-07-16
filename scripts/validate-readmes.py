@@ -3,6 +3,7 @@
 
 from __future__ import annotations
 
+import json
 import re
 import sys
 from functools import lru_cache
@@ -92,6 +93,42 @@ def validate_local_links(markdown: Path, errors: list[str]) -> None:
                 )
 
 
+def validate_evals(skill_directory: Path, errors: list[str]) -> None:
+    """Validate the required behavioral-eval file and its public entry shape."""
+    relative = skill_directory.relative_to(REPOSITORY_ROOT)
+    evals_file = skill_directory / "evals" / "evals.json"
+    if not evals_file.is_file():
+        errors.append(f"{relative}: missing evals/evals.json")
+        return
+
+    try:
+        payload = json.loads(evals_file.read_text(encoding="utf-8"))
+    except json.JSONDecodeError as error:
+        errors.append(f"{relative}/evals/evals.json: invalid JSON: {error.msg}")
+        return
+
+    evals = payload.get("evals") if isinstance(payload, dict) else None
+    if not isinstance(evals, list) or not evals:
+        errors.append(f"{relative}/evals/evals.json: evals must be a non-empty array")
+        return
+
+    names: set[str] = set()
+    for index, evaluation in enumerate(evals):
+        location = f"{relative}/evals/evals.json: evals[{index}]"
+        if not isinstance(evaluation, dict):
+            errors.append(f"{location} must be an object")
+            continue
+        for field in ("name", "prompt", "expected"):
+            value = evaluation.get(field)
+            if not isinstance(value, str) or not value.strip():
+                errors.append(f"{location}.{field} must be a non-empty string")
+        name = evaluation.get("name")
+        if isinstance(name, str) and name.strip():
+            if name in names:
+                errors.append(f"{location}.name duplicates {name!r}")
+            names.add(name)
+
+
 def main() -> int:
     errors: list[str] = []
     root_readme = REPOSITORY_ROOT / "README.md"
@@ -111,6 +148,7 @@ def main() -> int:
         if references_directory.is_dir():
             markdown_files.extend(sorted(references_directory.rglob("*.md")))
         text = readme.read_text(encoding="utf-8")
+        validate_evals(skill_directory, errors)
         required_fragments = {
             "collection backlink": "../../README.md",
             "agent interface": "[SKILL.md](SKILL.md)",
