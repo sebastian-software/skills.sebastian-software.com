@@ -1,10 +1,12 @@
 # DALO Setup
 
-DALO is the only source manager and installer used by this repository. The
-Sebastian Software team activates the complete first-party collection as one
-trusted team source. Other users can register the same repository as a catalog
-and select only the skills they want. Other public repositories remain
-separate, selectively pinned catalogs.
+DALO is the recommended source manager for reviewed team setups in this
+repository. One-off selective installs can also use an Agent Skills-compatible
+manager such as Vercel's [skills CLI](https://skills.sh/docs). The Sebastian
+Software team activates the complete first-party collection as one trusted team
+source. Other users can register the same repository as a catalog and select
+only the skills they want.
+Other public repositories remain separate, selectively pinned catalogs.
 
 ## Install Selected Sebastian Software Skills
 
