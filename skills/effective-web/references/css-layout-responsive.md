@@ -38,6 +38,13 @@ Use CSS layout algorithms deliberately. Grid, Flexbox, Subgrid, container querie
   the initial containing block. Use a stable page-width query container and
   logical `cqi` breakout math, then audit nested query containers.
 - Drive content-aware sections from the content itself — `:has()`, quantity queries (`:nth-child` / `:nth-last-child` of-type counts), container query units, and `clamp()` — with `@supports` fallbacks, so layouts adapt to variable item counts and text lengths instead of relying on brittle breakpoint-only rules.
+- Scope `:has()` to the smallest stable component or region that owns the
+  derived state. Prefer a specific relative selector over a broad descendant
+  search, avoid root-wide and deeply chained conditions, and profile selector
+  cost on large or frequently mutating trees. Do not mirror the same DOM state
+  into a JavaScript class merely to style it, but keep business and product
+  state explicit in the component model instead of inferring it from incidental
+  markup.
 - Use `min-width: 0`, intrinsic sizing constraints, and explicit `aspect-ratio` defensively in cards, grids, media, and overflow-prone components to prevent blowouts and reserve space against layout shift (CLS).
 - Prevent icons, markers, and fixed control affordances from becoming squishy in
   flex layouts with `flex: none` or an intentional `flex-shrink: 0`; do not apply
@@ -55,11 +62,40 @@ Use CSS layout algorithms deliberately. Grid, Flexbox, Subgrid, container querie
   viewport/container conditions, repeated resets, or markup inserted only to
   make a query possible. Find a stable behavioral invariant or move the
   exceptional layout into the owning pattern.
+- Prefer Subgrid or semantic markup changes over `display: contents` when the
+  only goal is to flatten a wrapper into an ancestor Grid. If flattening is
+  still justified, verify the element's semantics in representative
+  accessibility trees because some implementations can omit the element itself.
 - Bound viewport-relative block spacing and sizing with root-relative minima and
   maxima. Prefer logical viewport units (`vi`/`vb`, or the appropriate dynamic
   viewport unit) when the relationship follows writing-mode axes, and test
   shallow landscape viewports, browser chrome, and zoom.
 - Treat new primitives such as `round()`, multi-column wrapping features, `@scope`, and style queries as support-gated enhancements until the target browser baseline is verified.
+
+## Route Responsive Signals by Owner
+
+Choose the query from the condition's owner, not from the visual result it
+happens to produce:
+
+| Condition | Owner and mechanism |
+| --- | --- |
+| Page shell, navigation, or other viewport-owned structure | Viewport or device environment; use a media query. |
+| A reusable component's available inline or block space | Nearest intentional query container; use a size container query. |
+| Real descendant presence, count, checked state, or another local DOM fact | Owning component or region; use `:has()` or a quantity selector. |
+| Theme, density, feature treatment, or presentation intent supplied by an ancestor | Cascade context; use a semantic custom property and, when verified, a style query. |
+| Browser capability or user preference | User agent or user setting; use `@supports` or the relevant preference media query. |
+| Business state, authorization, fetched data, or application workflow | Component/application model; expose it explicitly rather than asking CSS to infer it. |
+
+Start with intrinsic behavior and add a query only for a meaningful mode change.
+Keep every condition local and explainable. If a layout requires the cross
+product of media, size, style, and relational queries to select one mode,
+restate the zones and ownership, simplify the composition, or move explicit
+product state back into the component model. Preserve a coherent baseline when
+any enhancement query is erased.
+
+Sources: [Chrome selector-cost guidance](https://developer.chrome.com/docs/performance/insights/slow-css-selector),
+[Chrome `:has()` guidance](https://developer.chrome.com/blog/has-m105), and
+[MDN `display: contents` accessibility note](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/display#display_contents).
 
 ## Layout Selection Guide
 
