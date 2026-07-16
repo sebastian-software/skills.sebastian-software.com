@@ -112,6 +112,7 @@ def validate_evals(skill_directory: Path, errors: list[str]) -> None:
         errors.append(
             f"{relative}/evals/evals.json: top-level keys must be exactly ['evals']"
         )
+        return
     if not isinstance(evals, list) or not evals:
         errors.append(f"{relative}/evals/evals.json: evals must be a non-empty array")
         return
@@ -152,7 +153,8 @@ def validate_skill_metadata(skill_directory: Path, errors: list[str]) -> None:
     for field in ("display_name", "short_description", "default_prompt"):
         if re.search(rf'^  {field}: "[^"\n]+"$', metadata, re.MULTILINE) is None:
             errors.append(f"{relative}/agents/openai.yaml: missing quoted {field}")
-    if f"${name}" not in metadata:
+    invocation = re.compile(rf"\${re.escape(name)}(?![A-Za-z0-9._-])")
+    if invocation.search(metadata) is None:
         errors.append(
             f"{relative}/agents/openai.yaml: default_prompt must invoke ${name}"
         )

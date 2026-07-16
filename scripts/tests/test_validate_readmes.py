@@ -151,6 +151,46 @@ class SkillMetadataValidationTests(unittest.TestCase):
             ],
         )
 
+    def test_rejects_missing_or_unquoted_metadata_fields(self) -> None:
+        self.write_skill()
+        (self.skill / "agents" / "openai.yaml").write_text(
+            'interface:\n'
+            '  display_name: Example\n'
+            '  default_prompt: "Use $example for this task."\n',
+            encoding="utf-8",
+        )
+        errors: list[str] = []
+
+        VALIDATOR.validate_skill_metadata(self.skill, errors)
+
+        self.assertEqual(
+            errors,
+            [
+                "skills/example/agents/openai.yaml: missing quoted display_name",
+                "skills/example/agents/openai.yaml: missing quoted short_description",
+            ],
+        )
+
+    def test_rejects_a_longer_invocation_token_with_the_skill_prefix(self) -> None:
+        self.write_skill()
+        metadata_file = self.skill / "agents" / "openai.yaml"
+        metadata_file.write_text(
+            metadata_file.read_text(encoding="utf-8").replace(
+                "$example for", "$example-extended for"
+            ),
+            encoding="utf-8",
+        )
+        errors: list[str] = []
+
+        VALIDATOR.validate_skill_metadata(self.skill, errors)
+
+        self.assertEqual(
+            errors,
+            [
+                "skills/example/agents/openai.yaml: default_prompt must invoke $example"
+            ],
+        )
+
 
 if __name__ == "__main__":
     unittest.main()
