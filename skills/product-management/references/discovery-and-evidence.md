@@ -47,6 +47,13 @@ Capture:
 Ask about a recent concrete event. Reconstruct what happened before, during,
 and after the decision instead of asking what someone might do in the future.
 
+Use [Product Design's research and synthesis guidance](../../product-design/references/research-and-synthesis.md)
+when the decision requires a research plan, situated observation, empathy maps,
+personas, design-context synthesis, or an experience-model handoff. This
+reference owns product-decision strength, market and commitment evidence, and
+the evidence hierarchy below; share the behavioral-interview baseline rather
+than duplicating it.
+
 ## Use an evidence ladder
 
 Treat evidence roughly from stronger to weaker for a product decision:

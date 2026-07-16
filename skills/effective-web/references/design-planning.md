@@ -39,6 +39,13 @@ For net-new or materially changed surfaces, use the compact Design Read from
 job, primary direction, expression, density, motion, depth, communication,
 signature, and category default to avoid.
 
+When the visual direction, object model, or interaction concept is still open
+and the work needs materially different experience alternatives, route that
+decision-grade exploration to Product Design's
+[structure and prototyping guidance](../../product-design/references/structure-and-prototyping.md).
+Bring the chosen qualities, rejected directions, and evidence back into the
+Design Read before implementation.
+
 For an existing experience, first classify the work as greenfield, preserve, or
 overhaul and read [Redesign preservation](redesign-preservation.md). Capture the
 smallest baseline that protects routes, information architecture, behavior,
@@ -106,6 +113,12 @@ Use a prototype to answer one named layout or interaction question. State its
 hypothesis, focus, non-goals, fidelity, and exit condition before building it.
 Use realistic semantics and enough representative content to test the behavior,
 but keep the artifact reversible and intentionally cheaper than production.
+
+Product Design owns prototype strategy when the team is still choosing the
+experience model, direction, or fidelity. This browser protocol owns a bounded
+implementation probe under accepted intent. If the probe changes the product
+or interaction concept, return to Product Design instead of silently expanding
+the implementation experiment.
 
 Create a small local prototype autonomously when it stays within the accepted
 intent and can be discarded safely. Ask before continuing when its result would

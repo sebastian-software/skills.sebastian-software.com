@@ -124,6 +124,12 @@ both weak and expensive. Select a coherent first exploration rather than a
 complete roadmap, and preserve the remaining ideas for later reconsideration.
 Frequency alone must not erase rare but severe cases.
 
+This comparison chooses what design should explore next; it does not set product
+priority, roadmap order, release scope, or investment. Route those decisions to
+[`product-management`](../../product-management/SKILL.md) with the exploration
+evidence and tradeoffs attached. Describe the output here as an exploration
+order unless product management has already supplied an accepted priority.
+
 ## Problem-space deliverable
 
 Provide:
@@ -134,7 +140,7 @@ Provide:
 - mental model with external triggers and effects
 - user/designed/system-model gaps
 - problem and empowerment statements
-- prioritized opportunity questions and non-goals
+- opportunity questions ordered for design exploration, plus non-goals
 - assumptions, contradictions, risks, and next evidence needed
 
 Stop before a final screen list. The next step is to use these materials to

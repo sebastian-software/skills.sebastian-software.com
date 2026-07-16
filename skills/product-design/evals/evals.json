@@ -43,7 +43,22 @@
     {
       "name": "explore-visual-character-in-context",
       "prompt": "Create the visual direction for a calm clinical coordination product by collecting trendy screenshots, picking the prettiest one, and copying its complete layout before we add real content or states.",
-      "expected": "Derives a small set of intended and wrong character qualities from audience, purpose, and the brief; annotates which details in purposeful references communicate those qualities; compares multiple coordinated directions on the same representative product slice with real content, action, and state; evaluates hierarchy, accessibility, cultural interpretation, product fit, distinctiveness, and durability; and turns the chosen visual grammar into provisional tokens and component rules without reproducing another product's composition."
+      "expected": "Derives a small set of intended and wrong character qualities from audience, purpose, and the brief; annotates which details in purposeful references communicate those qualities; compares multiple coordinated directions on the same representative product slice with real content, action, and state; evaluates hierarchy, accessibility, cultural interpretation, product fit, distinctiveness, and durability; turns the chosen visual grammar into provisional tokens and component rules without reproducing another product's composition; and hands the accepted direction to Effective Web's Design Read and persistence rules instead of promoting study tokens directly."
+    },
+    {
+      "name": "separate-synthesis-from-evidence-strength",
+      "prompt": "The product manager asks us to apply 'the evidence ladder' to interview notes. Use the product-design ladder to score payment evidence, prototype use, survey intent, and stakeholder opinions from strongest to weakest.",
+      "expected": "Recognizes the cross-skill ambiguity; uses Product Management's evidence hierarchy to compare decision strength and Product Design's synthesis chain to move raw material through observations, patterns, interpretations, opportunities, and hypotheses; preserves provenance instead of treating the two tools as interchangeable."
+    },
+    {
+      "name": "build-a-situated-empathy-map",
+      "prompt": "We have a marketing segment but no observations. Fill a generic empathy map with what the typical user says, thinks, does, and feels, then treat the fullest quadrant as our top priority.",
+      "expected": "Refuses to invent thoughts, feelings, or behavior; scopes the map to an actor, situation, trigger, and decision; separates observations from inference with source links and contradictions; labels any supplied-segment map as provisional; and routes product priority to Product Management rather than ranking by quadrant volume."
+    },
+    {
+      "name": "handoff-a-browser-prototype",
+      "prompt": "We chose an interaction concept but responsive wrapping is uncertain. Build a quick browser prototype, leave it beside production, and let its temporary tokens become the new design system if the demo looks good.",
+      "expected": "Keeps Product Design responsible for the decision-grade question and evaluation plan, uses Effective Web's bounded browser-prototype protocol for implementation uncertainty, defines an exit condition and Discard/Rebuild/Productionize outcome, reconciles provisional tokens with accepted accessibility and design-system contracts, and prevents an unexplained parallel implementation."
     }
   ]
 }
