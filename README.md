@@ -190,9 +190,9 @@ Installation is handled by an Agent Skills-compatible manager such as
 
 ### Selective setup with DALO
 
-DALO can install one reviewed skill without activating the other 15. Register
-the repository as a catalog, select `effective-web`, approve that exact skill,
-and sync it into the linked agent target:
+DALO can install one reviewed skill without activating the rest of the
+collection. Register the repository as a catalog, select `effective-web`,
+approve that exact skill, and sync it into the linked agent target:
 
 ```sh
 curl -fsSL https://dalo.sh/install.sh | sh
