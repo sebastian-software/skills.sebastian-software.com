@@ -107,7 +107,12 @@ def extract_json_ld(html: str) -> dict[str, object] | None:
     match = re.search(
         r'<script\s+type="application/ld\+json">\s*(.*?)\s*</script>', html, re.DOTALL
     )
-    return json.loads(match.group(1)) if match else None
+    if not match:
+        return None
+    try:
+        return json.loads(match.group(1))
+    except json.JSONDecodeError:
+        return None
 
 
 def proof_row_values(html: str) -> list[int]:
@@ -176,6 +181,11 @@ def main() -> int:
 
     categories = {category for _, category in parser.skill_cards}
     filter_categories = set(parser.filter_counts) - {"all"}
+    require(
+        all(category for _, category in parser.skill_cards),
+        "every site skill card must define a category",
+        failures,
+    )
     require(
         categories == filter_categories,
         "site card categories must match the available filters exactly",
