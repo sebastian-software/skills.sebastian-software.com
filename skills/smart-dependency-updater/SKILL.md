@@ -66,7 +66,10 @@ Final chat responses should be operational: list PR links, validation status, de
    - Commit, push, and open a ready-for-review PR before moving to the next unrelated group, unless the user explicitly asked for draft or local-only work.
 9. **Write the reviewer-grade explanation into the PR.**
    - Explain the dependency group, old and new versions, upstream behavior changes, local impact, code changes made to benefit from the update, validation results, and known gaps.
-   - Use copywriting and humanizer principles when drafting PR titles and bodies: write for a busy reviewer, lead with the review question, and remove stiff AI phrasing.
+   - Use principles from `copywriting` and `humanizer`, both from the separately
+     managed DALO `marketingskills` catalog, when drafting PR titles and bodies:
+     write for a busy reviewer, lead with the review question, and remove stiff
+     AI phrasing.
    - Avoid raw changelog dumps. Summarize only the changes that matter to this project and link to sources.
    - Keep the chat summary short; the PR body is the review artifact.
    - For advisory-motivated changes, include the advisory ID, severity, affected

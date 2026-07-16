@@ -225,8 +225,8 @@ Sources and internal skills used for this reference:
 - Harvard FAS Mignone Center for Career Success, "Create a Strong Resume" - https://careerservices.fas.harvard.edu/resources/create-a-strong-resume/
 - Robert Cialdini / principles of persuasion context - https://en.wikipedia.org/wiki/Robert_Cialdini
 - Guardian, "How to persuade people (hint: not by telling them they're stupid)" - https://www.theguardian.com/business-to-business/2018/mar/09/how-to-persuade-people-hint-not-by-telling-them-theyre-stupid
-- External skill from the DALO `marketingskills` catalog: `copywriting`
-- External skill from the DALO `marketingskills` catalog: `copy-editing`
-- External skill from the DALO `marketingskills` catalog: `humanizer`
+- `copywriting` from the separately managed DALO `marketingskills` catalog
+- `copy-editing` from the separately managed DALO `marketingskills` catalog
+- `humanizer` from the separately managed DALO `marketingskills` catalog
 - Local skill: `metro-english`
-- External skill from the DALO `marketingskills` catalog: `marketing-psychology`
+- `marketing-psychology` from the separately managed DALO `marketingskills` catalog
