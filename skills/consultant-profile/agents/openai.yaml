@@ -1,0 +1,4 @@
+interface:
+  display_name: "Consultant Profile"
+  short_description: "Shape evidence-led consulting profiles"
+  default_prompt: "Use $consultant-profile to turn my experience into a focused, credible consulting profile."

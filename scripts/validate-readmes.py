@@ -108,6 +108,10 @@ def validate_evals(skill_directory: Path, errors: list[str]) -> None:
         return
 
     evals = payload.get("evals") if isinstance(payload, dict) else None
+    if isinstance(payload, dict) and set(payload) != {"evals"}:
+        errors.append(
+            f"{relative}/evals/evals.json: top-level keys must be exactly ['evals']"
+        )
     if not isinstance(evals, list) or not evals:
         errors.append(f"{relative}/evals/evals.json: evals must be a non-empty array")
         return
@@ -127,6 +131,31 @@ def validate_evals(skill_directory: Path, errors: list[str]) -> None:
             if name in names:
                 errors.append(f"{location}.name duplicates {name!r}")
             names.add(name)
+
+
+def validate_skill_metadata(skill_directory: Path, errors: list[str]) -> None:
+    """Validate canonical frontmatter and OpenAI-facing skill metadata."""
+    name = skill_directory.name
+    relative = skill_directory.relative_to(REPOSITORY_ROOT)
+    skill_file = skill_directory / "SKILL.md"
+    skill_text = skill_file.read_text(encoding="utf-8")
+    expected_prefix = f"---\nname: {name}\ndescription: >-\n"
+    if not skill_text.startswith(expected_prefix):
+        errors.append(f"{relative}/SKILL.md: frontmatter must use description: >-")
+
+    metadata_file = skill_directory / "agents" / "openai.yaml"
+    if not metadata_file.is_file():
+        errors.append(f"{relative}: missing agents/openai.yaml")
+        return
+
+    metadata = metadata_file.read_text(encoding="utf-8")
+    for field in ("display_name", "short_description", "default_prompt"):
+        if re.search(rf'^  {field}: "[^"\n]+"$', metadata, re.MULTILINE) is None:
+            errors.append(f"{relative}/agents/openai.yaml: missing quoted {field}")
+    if f"${name}" not in metadata:
+        errors.append(
+            f"{relative}/agents/openai.yaml: default_prompt must invoke ${name}"
+        )
 
 
 def main() -> int:
@@ -149,6 +178,7 @@ def main() -> int:
             markdown_files.extend(sorted(references_directory.rglob("*.md")))
         text = readme.read_text(encoding="utf-8")
         validate_evals(skill_directory, errors)
+        validate_skill_metadata(skill_directory, errors)
         required_fragments = {
             "collection backlink": "../../README.md",
             "agent interface": "[SKILL.md](SKILL.md)",

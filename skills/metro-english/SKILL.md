@@ -1,6 +1,6 @@
 ---
 name: metro-english
-description: |
+description: >-
   Rewrite text into relaxed US metropolitan team English: the kind of natural,
   direct, human voice used in Slack threads, GitHub or Linear issue comments, PR
   notes, async updates, and internal team communication. Use this skill whenever

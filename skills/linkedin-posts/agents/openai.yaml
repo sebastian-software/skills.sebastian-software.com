@@ -1,0 +1,4 @@
+interface:
+  display_name: "LinkedIn Posts"
+  short_description: "Plan and write credible LinkedIn content"
+  default_prompt: "Use $linkedin-posts to find a worthwhile angle and write a specific LinkedIn post for my audience."

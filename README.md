@@ -165,7 +165,8 @@ skills/<name>/
 ├── SKILL.md      # agent-facing trigger, workflow, and routes
 ├── evals/
 │   └── evals.json # behavioral cases for consequential decisions
-├── agents/       # optional product-facing skill metadata
+├── agents/
+│   └── openai.yaml # product-facing display and invocation metadata
 ├── references/   # optional focused guidance loaded only when needed
 └── scripts/      # optional deterministic helpers
 ```

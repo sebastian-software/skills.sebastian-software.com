@@ -1,6 +1,14 @@
 ---
 name: smart-dependency-updater
-description: This skill should be used when the user asks to "update dependencies", "upgrade packages", "replace Dependabot", "make Renovate smarter", "group dependency updates", "create dependency update PRs", "create multiple dependency PRs", "run dependency updates in worktrees", "bump packages with changelog impact", "modernize dependencies and code", or wants dependency PRs that explain upstream changes, validate behavior, and adopt useful new APIs in the local codebase. Default to producing pushed, ready-for-review pull requests for all viable dependency groups unless the user explicitly asks for planning only, draft PRs, local-only branches, or a single group.
+description: >-
+  Update dependencies as researched engineering work. Use when the user asks to
+  update or upgrade packages, replace Dependabot, make Renovate smarter, group
+  dependency updates, create one or more dependency PRs, run updates in
+  worktrees, assess changelog impact, modernize dependencies and code, or adopt
+  useful new APIs while validating local behavior. Default to pushed,
+  ready-for-review pull requests for all viable dependency groups unless the
+  user explicitly requests planning only, drafts, local-only branches, or one
+  group.
 ---
 
 # Smart Dependency Updater

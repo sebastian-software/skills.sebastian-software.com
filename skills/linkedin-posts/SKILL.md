@@ -1,6 +1,11 @@
 ---
 name: linkedin-posts
-description: "Create LinkedIn posts, find LinkedIn content ideas, plan a LinkedIn content calendar, and tailor professional posts to an audience, voice, and goal. Use when the user mentions a LinkedIn post, LinkedIn content, LinkedIn idea, social media post for LinkedIn, LinkedIn engagement, or content calendar for LinkedIn."
+description: >-
+  Create LinkedIn posts, find LinkedIn content ideas, plan a LinkedIn content
+  calendar, and tailor professional posts to an audience, voice, and goal. Use
+  when the user mentions a LinkedIn post, LinkedIn content, LinkedIn idea,
+  social media post for LinkedIn, LinkedIn engagement, or content calendar for
+  LinkedIn.
 ---
 
 # LinkedIn Posts

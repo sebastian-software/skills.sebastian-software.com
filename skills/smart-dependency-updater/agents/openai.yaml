@@ -1,0 +1,4 @@
+interface:
+  display_name: "Smart Dependency Updater"
+  short_description: "Deliver researched dependency update PRs"
+  default_prompt: "Use $smart-dependency-updater to research, group, validate, and publish the viable dependency updates for this repository."
