@@ -14,9 +14,9 @@ skills/skill-name/
   SKILL.md
   evals/
     evals.json
-  agents/
-  references/
-  scripts/
+  agents/      # optional product-facing metadata
+  references/  # optional focused guidance
+  scripts/     # optional deterministic helpers
 ```
 
 Every public skill requires `README.md`, `SKILL.md`, and `evals/evals.json`.
