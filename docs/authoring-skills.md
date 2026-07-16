@@ -12,16 +12,16 @@ First-party skills live directly under `skills/`:
 skills/skill-name/
   README.md
   SKILL.md
+  evals/
+    evals.json
   agents/
   references/
   scripts/
-  assets/
-  examples/
 ```
 
-Every public skill requires both `README.md` and `SKILL.md`. Add the other
-directories when they serve a clear purpose. Do not add external snapshots or
-generated copies.
+Every public skill requires `README.md`, `SKILL.md`, and `evals/evals.json`.
+Add the other directories when they serve a clear purpose. Do not add external
+snapshots or generated copies.
 
 ## Human-Facing `README.md`
 
@@ -48,7 +48,10 @@ building a generic cross-promotion list.
 Run `python3 scripts/validate-readmes.py` after adding or changing a README. CI
 requires one README per public skill and verifies collection links, agent
 interface links, selective install commands, Sebastian Software links, local
-Markdown paths, and Markdown anchors.
+Markdown paths, and Markdown anchors. When adding a skill, also add its card and
+inventory metadata to `site/index.html`, then run
+`python3 scripts/validate-site.py`. That validator requires the site inventory,
+filter counts, structured data, and public skill directory to agree.
 
 ## `SKILL.md` Frontmatter
 
@@ -84,8 +87,9 @@ The description is what an agent sees before deciding whether to load a skill.
   `openai.yaml`; never store project decisions or agent memory there.
 - Use `references/` for detailed guidance loaded only when needed.
 - Use `scripts/` for deterministic helpers agents can run.
-- Use `assets/` for templates, images, fonts, or output resources.
-- Use `examples/` for complete examples that clarify expected usage.
+- Use `assets/` or `examples/` only when a skill genuinely needs reusable output
+  resources or complete examples; neither directory is part of the default
+  first-party anatomy.
 
 Keep `SKILL.md` lean. For a routed skill, link every route directly from
 `SKILL.md` and keep references one level deep. Move long tables, examples,
@@ -149,6 +153,24 @@ reconciliation through `codebase-improvement`.
 For consequential workflow or judgment changes, add an eval that tests the
 failure mode the new rule is meant to prevent.
 
+Store evals in `skills/<name>/evals/evals.json`. New files use a top-level
+`evals` array whose entries contain `name`, `prompt`, and `expected`:
+
+```json
+{
+  "evals": [
+    {
+      "name": "reject-shortcut",
+      "prompt": "A realistic request containing the tempting shortcut.",
+      "expected": "The decision, evidence, and tradeoff a strong response must surface."
+    }
+  ]
+}
+```
+
+Keep `name` stable and descriptive. Treat `prompt` as the user input and
+`expected` as behavioral acceptance criteria, not a golden response string.
+
 - Use a realistic prompt containing a plausible misconception, incomplete fix,
   or tempting shortcut; do not merely ask the agent to repeat the rule.
 - State the expected decision and the evidence or tradeoff it must surface,
@@ -169,8 +191,13 @@ source and lock manifests.
 Before merging a change:
 
 1. Confirm the trigger description still selects the skill for the right tasks.
-2. Confirm links to bundled references, scripts, assets, and examples resolve.
-3. Run the repository's DALO CI smoke test.
-4. Check that `dalo status` reports no inventory warnings or duplicate slots.
-5. For routed skills, confirm every reference is linked directly from `SKILL.md`
+2. Confirm links to bundled references, scripts, and any optional resources resolve.
+3. Add or update behavioral cases in `evals/evals.json` for consequential changes.
+4. When adding a skill, add its `site/index.html` card and inventory metadata.
+5. Run `python3 scripts/validate-readmes.py`,
+   `python3 scripts/validate-site.py`, and
+   `python3 -m unittest discover -s scripts/tests -p 'test_*.py'`.
+6. Run the repository's DALO CI smoke test.
+7. Check that `dalo status` reports no inventory warnings or duplicate slots.
+8. For routed skills, confirm every reference is linked directly from `SKILL.md`
    and that old public skill names no longer appear in internal links.
