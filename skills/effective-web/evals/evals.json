@@ -236,9 +236,49 @@
       "expected": "Defines small- and large-context type scales with deliberate endpoint ratios, interpolates corresponding steps with bounded formulas that retain a root-relative term, allows explicit outliers without corrupting the scale, and verifies the whole scale at continuous widths and browser zoom. It creates paired fluid spacing only for justified regional transitions and exposes stable semantic custom properties so components do not depend on the generator."
     },
     {
+      "name": "couple-line-height-to-real-measure",
+      "prompt": "A prose component sets container-type:inline-size and line-height:clamp(1.35,1.2 + .6cqi,1.6) on the same element. The author expects a unitless ratio that grows smoothly with that element's own width and applies the same formula to headings.",
+      "expected": "Identifies the formula as invalid because its math mixes numbers and lengths, explains that cqi resolves against an eligible ancestor rather than the element establishing containment for descendants, and does not reuse the body formula for headings. It prefers reviewable unitless steps in container queries; if smooth interpolation is justified, it uses compatible length arms on prose descendants, documents computed-length inheritance, caps actual measure, and verifies real/fallback fonts, zoom, localization, and spacing overrides."
+    },
+    {
+      "name": "interpret-wcag-line-height-correctly",
+      "prompt": "A design-system audit fails every text style below line-height 1.5 under WCAG 2.2 AA and requires paragraph margin 1.5em because it believes both values are mandatory authored defaults. Correct the policy without weakening accessibility.",
+      "expected": "Explains that SC 1.4.12 AA requires content to survive user overrides to line-height 1.5, paragraph spacing 2 times font size, letter spacing .12em, and word spacing .16em without loss, rather than mandating authored defaults. It distinguishes the SC 1.4.8 AAA mechanism, retains a robust body starting value where appropriate, allows tighter role- and font-tested headings/UI, derives paragraph rhythm correctly, and tests override, clipping, overlap, reflow, and supported writing systems."
+    },
+    {
+      "name": "make-full-bleed-scrollbar-and-container-safe",
+      "prompt": "A centered article uses width:100vw and margin-left:calc(50% - 50vw) for breakout figures, plus overflow-x:hidden on body to suppress the few pixels clipped by classic scrollbars. Some figures also sit inside components that establish inline-size query containers. Make the pattern robust.",
+      "expected": "Prefers explicit full/content Grid tracks when the wrapper is owned. For a utility breakout, it replaces viewport math with logical 100cqi math against a stable full-width ancestor, explains why classic scrollbars can make 100vw exceed the usable layout width, and does not use global clipping to hide overflow. It catches nearest-ancestor retargeting inside nested query containers; restructures first, or deliberately captures a typed computed page length through a registered inherited custom property on a stable boundary only with verified support and documentation. It tests always-visible scrollbars, RTL, nested containers, zoom, borders or shadows, and edge focus."
+    },
+    {
+      "name": "distinguish-missing-from-unreachable-robots",
+      "prompt": "Traffic dropped and an article says Google removes any site that has no robots.txt. The site returns a clean 404 for /robots.txt, while another environment intermittently returns 503 for the same path. Turn this into an accurate audit rule.",
+      "expected": "Rejects the blanket claim and checks Google Search Console plus server or CDN logs before attributing the traffic loss. It distinguishes a missing robots.txt response from an unavailable endpoint: Google treats most 4xx responses except 429 as no restrictions, while 5xx, DNS, and network failures trigger temporary crawl suspension and cached-policy fallback behavior. It recommends an explicit monitored file when crawler policy clarity matters without treating it as an indexing guarantee or security boundary."
+    },
+    {
       "name": "keep-layout-compositions-intrinsic-and-bounded",
       "prompt": "A shared responsive grid has eight viewport and container queries, several undo rules, and a required empty wrapper used only so the parent can be queried. Another developer suggests adding more options so every gallery, footer and card list can use it.",
       "expected": "Treats the compound conditions, query-only markup and undo chain as evidence that the primitive no longer has one stable job; restates the intended behavior, keeps the common composition intrinsic and configurable through semantic custom properties with useful fallbacks, distinguishes auto-fit from auto-fill deliberately, and moves genuinely mode-specific behavior into the owning pattern instead of expanding a universal grid."
+    },
+    {
+      "name": "compose-intrinsic-layout-primitives",
+      "prompt": "Build a product-card collection whose cards need a framed image, vertically spaced content, a price beside wrapping actions, and as many equal-width columns as fit. The team proposes one ProductCardGrid component with fixed widths and three viewport breakpoints.",
+      "expected": "Composes a Grid for repeated minimum-size cells, a Frame for media ratio, a Stack for internal block rhythm, and a Cluster for wrapping price/actions; keeps card semantics separate from layout class names; exposes only stable measure, gap, ratio, and minimum-track variables; uses minmax(min(var(--item-min), 100%), 1fr) or an equivalent overflow-safe intrinsic track; and verifies continuous widths, long localized content, child-count extremes, zoom, focus, and missing media before adding any query."
+    },
+    {
+      "name": "choose-gap-or-owl-by-formatting-context",
+      "prompt": "A documentation renderer contains headings, paragraphs, lists, figures, and nested prose in normal block flow. A refactor bans the Owl selector and turns every vertical Stack into display:flex with gap because margin is considered legacy. Review the decision.",
+      "expected": "Rejects the blanket ban, keeps reusable children free of default outer margins, and lets the parent own rhythm. It selects a direct-child Owl Stack when heterogeneous content should preserve normal block formatting, selects gap when Flex/Grid behavior is already required, scopes recursive Owl spacing only to deliberately uniform nested rhythm, uses nested Stacks for different relationships, and verifies lists, forms, prose defaults, zoom, localization, and edge spacing."
+    },
+    {
+      "name": "choose-sidebar-versus-switcher",
+      "prompt": "A checkout summary contains a compact price block beside a flexible form, while a three-plan comparison should switch directly between one equal row and one equal column. A developer wants to solve both with the same two-column media query.",
+      "expected": "Uses a Sidebar contract for the narrow price region plus dominant flexible form, with an intrinsic or preferred sidebar basis and a minimum main-content share; uses a Switcher for equal plan peers with a container-based threshold and documented quantity cap; rejects a shared viewport breakpoint because the relationships differ; and tests both compositions inside different parent widths with long content and zoom."
+    },
+    {
+      "name": "keep-reel-and-imposter-accessible",
+      "prompt": "Replace a product carousel and modal plugin with CSS. The proposal makes a flex row overflow horizontally with no cue or keyboard plan, then centers a div with position fixed and calls both tasks complete.",
+      "expected": "Keeps native one-dimensional Reel scrolling as the baseline, preserves a visible or otherwise clear overflow affordance, ensures every item is reachable by touch, wheel/trackpad and keyboard, and treats optional controls as enhancement. It treats Imposter as positioning only, prefers native dialog/top-layer behavior for the modal, bounds and scrolls oversized content, and adds naming, focus entry and containment, Escape and close behavior, background inertness, and focus return."
     },
     {
       "name": "choose-natural-css-fallback-before-support-branch",

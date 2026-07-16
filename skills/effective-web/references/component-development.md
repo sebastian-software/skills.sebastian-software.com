@@ -5,7 +5,13 @@ Build components as durable interface primitives: semantic DOM first, clear stat
 ## Working Rules
 
 - Preserve native controls and semantics whenever possible.
-- Separate component internals from parent layout; component internals may use `gap`, while outer layout owns spacing between components. Make the narrow exception explicit: a token-backed, inert spacer may own one deliberate gap in a composition when neither sibling should own it. Do not use it to replace repeated parent-owned `gap`.
+- Do not put default outer margins on reusable components. Separate component
+  internals from parent layout: the parent owns spacing between components,
+  using `gap` in Flex/Grid compositions or a parent-scoped flow rule such as
+  the Owl (`> * + *`) when normal block flow should remain intact. Components
+  own their internal rhythm. Make the narrow exception explicit: a
+  token-backed, inert spacer may own one deliberate discontinuity when neither
+  sibling should own it; do not use it to replace a repeated parent-owned rule.
 - Expose state through real DOM state, attributes, data attributes, and custom properties instead of hidden implementation details.
 - Define disabled, loading, empty, error, success, hover, focus, active, reduced-motion, high-contrast, and translated-text behavior.
 - Keep component APIs portable across plain HTML/CSS, React, and Web Components unless framework specifics are required.
@@ -74,6 +80,9 @@ Build components as durable interface primitives: semantic DOM first, clear stat
 - Are visual states connected to real semantic state rather than duplicate hidden state?
 - Can the component be translated, zoomed, used with touch, used with keyboard, and used in forced-colors mode?
 - Does the parent layout control external spacing while the component controls only its internal rhythm?
+- Are default outer margins absent from reusable components, with each remaining
+  margin owned by a parent-scoped flow relationship, prose context, `auto`
+  alignment, or a documented optical correction?
 - If an explicit spacer is present, is it a one-off composition concern with a logical axis, stable flex dimension, token-backed size, and no semantic or focus impact?
 - Do tightly nested radii remain concentric where the surfaces form one shell,
   and are asymmetric surfaces allowed to use independent geometry?

@@ -39,6 +39,12 @@ Use this reference for typography decisions: readable measure, wrapping, fluid s
 - Set measure by content role: paragraphs, lists, captions, and quotations often
   need a narrower readable measure than display headings, tables, code, or media.
   Do not apply one `max-inline-size` indiscriminately to every prose child.
+- Treat typeface, text role, font size, actual measure, and line height as one
+  system. Longer reading lines often need more leading, while larger display
+  sizes usually need a smaller unitless ratio. Prefer role-specific unitless
+  values or measure-aware unitless steps; use a smooth length-based formula only
+  with its container-unit and inheritance tradeoffs understood. Read
+  [line-height-and-measure.md](line-height-and-measure.md).
 - For user-authored, translated, or CMS text, combine the correct document
   language with `hyphens: auto` where appropriate and an emergency
   `overflow-wrap` strategy for URLs, identifiers, and long unbroken words. Test
@@ -67,6 +73,9 @@ Use this reference for typography decisions: readable measure, wrapping, fluid s
 - Does long-form content keep rhythm across headings, paragraphs, lists, quotes, figures, and first/last child edges?
 - Do prose measures reflect content roles, and do long localized words, URLs,
   and identifiers wrap without breaking the layout?
+- Was line height tuned after the real typeface, role, font size, and measure,
+  and does any dynamic formula use valid CSS types plus the intended ancestor
+  query container?
 - Does tight display leading survive glyph, fallback-font, zoom, and multiline
   stress cases?
 - Are newer text metrics features guarded or treated as progressive enhancement?

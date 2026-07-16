@@ -86,11 +86,13 @@ Read only the references needed for the selected route.
 
 ### Layout, type, and color
 
+- [Intrinsic layout algorithms](references/intrinsic-layouts.md)
 - [Layout and spacing](references/layout-spacing.md)
 - [Responsive design](references/responsive-design.md)
 - [Responsive CSS layout](references/css-layout-responsive.md)
 - [Typography](references/typography.md)
 - [Typography rules](references/typography-rules.md)
+- [Line height and measure](references/line-height-and-measure.md)
 - [Webfonts](references/webfonts.md)
 - [Color](references/colour.md)
 - [Dark mode](references/dark-mode.md)

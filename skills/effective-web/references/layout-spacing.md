@@ -373,26 +373,50 @@ Makes calculating box dimensions predictable - padding and border are included i
 
 Without this, a `300px` wide element with `20px` padding becomes `340px`. With `border-box`, the content area shrinks to accommodate padding within the `300px`.
 
-## Use Contextual Spacing (The Stack Pattern)
+## Choose Parent-Owned Gap or the Owl (The Stack Pattern)
 
-Margin is a property of the *relationship* between two elements, not of an element itself. Style the context, not the individual element.
+Treat spacing as a property of the relationship between siblings. Never give a
+reusable component a default outer margin or choose one child to own a
+relationship with an unknown neighbour. Make the parent context own the rule.
+
+Use `gap` when the parent is already a Flexbox or Grid context, or when the
+layout needs Flex/Grid alignment, wrapping, or splitting:
 
 ```css
-/* Don't: margin on individual elements */
-p { margin-bottom: 1.5rem; }  /* Creates orphan margin on last element */
-
-/* Do: margin between adjacent siblings via parent */
-.stack > * + * {
-  margin-block-start: 1.5rem;
+.stack {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
 }
 ```
 
-The `* + *` selector (the "owl") only applies margin where an element is preceded by a sibling - no orphan margins.
+Do not force `display: flex` solely to obtain spacing when the content should
+retain normal block formatting. In that case, use the adjacent-sibling
+selector known as the Owl. The margin is declared by the parent-scoped layout
+rule, not by the child component:
+
+```css
+.flow-stack > * {
+  margin-block: 0;
+}
+
+.flow-stack > * + * {
+  margin-block-start: var(--space-md);
+}
+```
+
+The direct-child combinator keeps the Stack from changing every nested list,
+form, or prose run. Use recursive `.flow-stack * + *` spacing only when one
+uniform rhythm across all nesting levels is intentional and verified. Prefer
+nested Stacks for distinct relationships.
 
 **Nested stacks for varied spacing:**
 ```css
-.stack-lg > * + * { margin-block-start: 3rem; }
-.stack-sm > * + * { margin-block-start: 0.5rem; }
+.stack-lg { display: flex; flex-direction: column; gap: var(--space-lg); }
+.stack-sm { display: flex; flex-direction: column; gap: var(--space-sm); }
+
+.flow-stack-lg > * + * { margin-block-start: var(--space-lg); }
+.flow-stack-sm > * + * { margin-block-start: var(--space-sm); }
 ```
 
 **Split a stack** to push elements apart (e.g. card footer to bottom):
@@ -406,12 +430,17 @@ The `* + *` selector (the "owl") only applies margin where an element is precede
 }
 ```
 
+`gap` and the Owl are complementary. Prefer `gap` for Flex/Grid compositions;
+prefer the Owl for heterogeneous document flow or when preserving block layout
+behavior matters. `margin: auto` remains an alignment tool rather than sibling
+rhythm. Keep prose margin in the reading context and optical correction local;
+never bake either into a reusable component by default.
+
 ## Use an Explicit Spacer Only for an Owned, One-Off Gap
 
-The parent should normally own repeated sibling spacing: use `gap` in a flex or
-grid layout, or a Stack/flow relationship for document rhythm. Let a component
-own its internal padding and its own internal `gap`; do not put a default outer
-margin on a reusable component.
+The parent owns layout spacing: use `gap` in Flex/Grid or an Owl-based Stack for
+document flow. Let a component own its internal rhythm; do not put a default
+outer margin on a reusable component.
 
 Use a small `Spacer` primitive only when one particular gap is itself part of
 the composition: neither adjacent child should own it, it must survive reuse
@@ -553,112 +582,20 @@ html, body, div, header, nav, main, footer, section, aside {
 
 Container elements are excepted; text-bearing elements automatically get reasonable line lengths. Use a custom property for easy adjustment: `--measure: 60ch`.
 
-## Prefer Intrinsic Responsiveness Over Breakpoints
+## Choose Intrinsic Algorithms Before Breakpoints
 
-Layouts that respond to their own content are more robust than layouts controlled by viewport breakpoints. Use CSS that *suggests* rather than *dictates* layout.
+Layouts that respond to their content and container are usually more reusable
+than layouts controlled by viewport breakpoints. Choose among Stack, Box,
+Center, Cluster, Sidebar, Switcher, Cover, Grid, Frame, Reel, Imposter, and Icon;
+compose them by responsibility, and establish a Container only when the
+component truly needs an explicit size-dependent mode.
 
-### The Sidebar Pattern
-A sidebar that automatically stacks when space is tight:
-```css
-.with-sidebar {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--s1);
-}
-.with-sidebar > :first-child {
-  flex-basis: 15rem;     /* sidebar width */
-  flex-grow: 1;
-}
-.with-sidebar > :last-child {
-  flex-basis: 0;
-  flex-grow: 999;        /* takes remaining space */
-  min-inline-size: 50%;  /* forces wrap when too narrow */
-}
-```
-
-### The Switcher Pattern
-Switches between horizontal and vertical layout based on available space:
-```css
-.switcher {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--s1);
-}
-.switcher > * {
-  flex-grow: 1;
-  flex-basis: calc((30rem - 100%) * 999);
-  /* 30rem = threshold: above it → horizontal, below → vertical */
-}
-```
-
-### The Cluster Pattern
-Wrapping horizontal groups (tags, buttons, navigation):
-```css
-.cluster {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--s1);
-  align-items: center;
-}
-```
-
-### The Center Pattern
-Horizontally centered content with a max-width for readability:
-```css
-.center {
-  box-sizing: content-box;
-  max-inline-size: var(--measure);
-  margin-inline: auto;
-  padding-inline: var(--s1);
-}
-```
-
-### The Cover Pattern
-A vertically centered element within a minimum height container (hero sections):
-```css
-.cover {
-  display: flex;
-  flex-direction: column;
-  min-block-size: 100vh;
-  padding: var(--s1);
-}
-.cover > * { margin-block: var(--s1); }
-.cover > .centered { margin-block: auto; }  /* Vertically centers this child */
-```
-
-### The Grid Pattern
-Auto-filling grid that adapts column count to available space:
-```css
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(250px, 100%), 1fr));
-  gap: var(--s1);
-}
-```
-The `min(250px, 100%)` prevents overflow on narrow screens.
-
-Expose the minimum track size, gap, and placement behavior as semantic custom
-properties with useful fallbacks when this is a shared composition. Use
-`auto-fit` when empty tracks should collapse and existing items should stretch;
-use `auto-fill` when preserving the implicit track structure is intentional.
-Do not turn a simple grid into a universal primitive: if one consumer requires
-multiple mode-specific queries and undo rules, give that pattern a focused
-layout instead.
-
-### The Frame Pattern
-Crop any content to an aspect ratio:
-```css
-.frame {
-  aspect-ratio: 16 / 9;
-  overflow: hidden;
-}
-.frame > img,
-.frame > video {
-  inline-size: 100%;
-  block-size: 100%;
-  object-fit: cover;
-}
-```
+Read [intrinsic-layouts.md](intrinsic-layouts.md) for the selection table,
+implementation contracts, missing-content and child-count behavior,
+accessibility constraints, and continuous-resize verification. Keep this file
+as the source for spacing scales, measure, responsive media, safe areas,
+subgrid, and general layout mechanics rather than duplicating the primitive
+implementations here.
 
 ## Responsive Images
 
@@ -1000,8 +937,11 @@ All `rem`-based values scale automatically.
 4. Create predefined spacing options in 8pt increments; space based on relationship
 5. Align to 12-column grid; avoid multiple different alignments
 6. Use logical properties (`margin-inline-start`) instead of physical properties (`margin-left`)
-7. Use contextual spacing (Stack pattern with `* + *`) - style relationships, not individual elements
-8. Prefer intrinsic responsive patterns (flex-wrap, minmax) over @media breakpoints
+7. Make the parent own sibling rhythm: use `gap` for Flex/Grid and the Owl for
+   normal block flow; nest Stack/group contexts for different relationships
+   instead of assigning default outer margins to reusable children
+8. Choose and compose intrinsic layout algorithms before adding container or
+   viewport breakpoints
 9. Use responsive images (`srcset`, `sizes`, `loading="lazy"`) and prevent layout shift with `aspect-ratio`
 10. Use container queries for component-level responsiveness; media queries for page-level layout
 11. Use subgrid to align nested content across sibling elements

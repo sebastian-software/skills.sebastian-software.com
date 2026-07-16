@@ -22,6 +22,10 @@ Use this skill for the frontend details that make public pages understandable to
 - Performance, accessibility, and content clarity are SEO inputs.
 - Google generative search does not require `llms.txt`, AI text files, special Markdown, or special schema.org markup; do not prescribe them as Google ranking requirements.
 - AI/GEO work should improve extractable facts, entity clarity, and crawler access policy, not chase prompt-injection or keyword-stuffing tactics.
+- Distinguish an absent `robots.txt` from an unreachable one. For Google, most
+  `4xx` responses mean no crawl restrictions, while `5xx`, DNS, and network
+  failures can pause crawling temporarily; do not claim that a missing file by
+  itself removes a site from the index.
 - Keep business facts consistent across the visible page, JSON-LD, Search Console, Google Business Profile, Merchant Center, social profiles, review sites, and local citations.
 - Do not manufacture authority or freshness with generic bylines, unsupported biographies, fake citations, or unchanged `dateModified` and sitemap `lastmod` values.
 - Keep mentions, citations, referrals, conversions, and answer accuracy as separate measurements; no single GEO visibility score proves traffic or ROI.

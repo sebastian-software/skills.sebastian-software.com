@@ -288,88 +288,29 @@ iOS Safari auto-zooms inputs below 16px. See Forms chapter for details.
 
 The key insight: avoid *both* tiny text that strains eyes *and* oversized text that wastes mobile screen space.
 
-## Use at Least 1.5 Line Height for Long Body Text
+## Couple Line Height to Role, Size, and Measure
 
-**Line height** = vertical distance between two lines of text.
+Choose the typeface, text role, font size, and actual line length before tuning
+line height. Longer reading lines often benefit from more leading; larger
+display sizes usually need a smaller unitless ratio. A body value near `1.5` is
+a useful fallback when only one value is available, not a universal optimum or
+an authored WCAG AA minimum.
 
-**For accessibility and readability:**
-- Minimum 1.5 (150%) for body text
-- Keep between 1.5 and 2
+Prefer unitless values for inherited defaults and role tokens. Use stepped
+container-query changes when line height should follow measure. Smooth `cqi`
+interpolation returns a length and therefore inherits differently; it needs a
+real ancestor query container and role-level redeclaration wherever font size
+changes.
 
-**Benefits:**
-- Prevents rereading same line
-- More comfortable to read
+Bound prose by role, commonly somewhere around `45–80ch`, but treat `ch` as an
+approximation based on the zero glyph rather than a literal character counter.
+Narrow an excessive reading measure before using very loose leading to rescue
+it. Set paragraph spacing from the semantic rhythm system rather than an
+incorrect conversion from unitless `line-height` to `em`.
 
-**Tips:**
-- Longer lines = taller line height
-- Darker/heavier typefaces = taller line height
-- Typefaces that look larger = taller line height
-
-### Always Use Unitless line-height Values
-
-Use unitless values (e.g. `1.5`) instead of units (e.g. `24px` or `1.5em`):
-
-```css
-/* Good - child elements compute their own line-height */
-body { line-height: 1.5; }
-
-/* Bad - computed value (e.g. 24px) is inherited, not the ratio */
-body { line-height: 1.5em; }
-```
-
-With unitless values, a child element with `font-size: 32px` will compute `line-height: 48px` (32 × 1.5). With `1.5em`, it inherits the parent's computed `24px`, causing lines to overlap.
-
-## Set Paragraph Spacing to 1.5x Line Height
-
-The gap between paragraphs should be noticeably larger than the gap between lines within a paragraph. A reliable rule: set paragraph spacing (margin) to 1.5 times the line spacing.
-
-```css
-p {
-  line-height: 1.5;          /* 24px at 16px font-size */
-  margin-block-start: 0;
-  margin-block-end: 1.5em;   /* ~36px = 1.5 × 24px */
-}
-```
-
-This creates a clear visual break between paragraphs while keeping the text block cohesive. Keep paragraphs to roughly 5 lines max for comfortable reading.
-
-## Decrease Line Height as Font Size Increases
-
-Large text doesn't need 1.5 line height.
-
-**Reason:** Line height is relative to font size - same percentage creates larger actual gap on bigger text.
-
-**Example:**
-- Heading at 24px with 1.6 line height = large gap
-- Change to 1.3 line height for consistent gap
-
-## Ensure Ideal Line Length
-
-**Optimal:** 40-80 characters per line (including spaces)
-
-**Too long:**
-- Hard to gauge where line starts/ends
-- Eyes get lost tracking back
-
-**Too short:**
-- Eyes stressed from frequent travel back
-
-**Guidelines:**
-- Don't use full page width for text
-- Align text block to left or centre of page
-- Especially important for long body text
-
-### Use ch Units for Line Length
-
-The `ch` unit equals the width of the "0" character in the current font. This makes the 40-80 character guideline directly implementable:
-
-```css
-.prose {
-  max-width: 65ch;  /* ~65 characters per line */
-}
-```
-
-This automatically adapts to different font sizes and typefaces.
+Read [line-height-and-measure.md](line-height-and-measure.md) for starting
+ranges, valid dynamic CSS patterns, font-metric formulas, WCAG distinctions,
+and verification.
 
 ## Left Align Text
 

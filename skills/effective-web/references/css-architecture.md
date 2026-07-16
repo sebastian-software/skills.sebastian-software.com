@@ -463,32 +463,17 @@ Exceptions use `data-*` attributes instead of BEM modifiers, providing a hook fo
 
 ### Every Layout Primitives
 
-12 composable layout primitives by Heydon Pickering and Andy Bell: Stack, Box, Center, Cluster, Sidebar, Switcher, Cover, Grid, Frame, Reel, Imposter, Icon.
+Keep the 12 composable primitives by Heydon Pickering and Andy Bell in the
+layout layer: Stack, Box, Center, Cluster, Sidebar, Switcher, Cover, Grid,
+Frame, Reel, Imposter, and Icon. Treat Container as a thirteenth meta-layout
+utility for establishing query contexts, not as another visual composition.
 
-Each primitive has a single responsibility and is intrinsically responsive -- no media queries, no magic numbers. Primitives compose as parents, children, or siblings.
-
-```css
-/* The Stack: vertical spacing between siblings */
-.stack > * + * {
-  margin-block-start: var(--space-s, 1rem);
-}
-
-/* The Sidebar: content alongside a sidebar */
-.with-sidebar {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--space-l, 2rem);
-}
-.with-sidebar > :first-child {
-  flex-basis: 20rem;
-  flex-grow: 1;
-}
-.with-sidebar > :last-child {
-  flex-basis: 0;
-  flex-grow: 999;
-  min-inline-size: 50%;
-}
-```
+Each primitive has one responsibility and composes as a parent, child, or
+sibling. Read [intrinsic-layouts.md](intrinsic-layouts.md) for selection,
+implementation contracts, container-query boundaries, and verification. Do not
+duplicate the primitive algorithms inside component namespaces. A Stack may use
+Flexbox `gap` or preserve normal block flow with the Owl; choose from the needed
+formatting behavior rather than treating either implementation as universal.
 
 ### Recommended Combination
 

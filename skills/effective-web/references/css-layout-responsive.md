@@ -19,10 +19,24 @@ Use CSS layout algorithms deliberately. Grid, Flexbox, Subgrid, container querie
   available space after margins and constraints; `100%` copies the containing
   block's width and can overflow once margins are added. Keep `auto` unless an
   explicit percentage is part of the intended sizing relationship.
-- Use `gap` for component and layout rhythm when the parent owns spacing; use margin intentionally for document/content flow and optically special cases. Use an explicit, token-backed spacer only for a one-off gap that neither adjacent child should own; give it a logical axis and preserve that axis with a minimum size or `flex: none`. Reach for `margin-trim` (support-gated) to drop unwanted first/last-child edge margins instead of override hacks, keeping it subordinate to parent-owned `gap` spacing.
+- Make the parent context own ordinary layout spacing. Use `gap` when the
+  parent is already Flex/Grid or wrapping/alignment behavior needs that
+  formatting context. Use a direct-child adjacent-sibling rule (`> * + *`, the
+  Owl) for parent-owned vertical rhythm when normal block flow should remain
+  intact; scope recursion deliberately. Use nested groups for different regular
+  rhythms and an explicit, token-backed spacer only for a one-off discontinuity
+  that neither adjacent child should own. Reserve component-authored margin for
+  `auto` alignment or documented optical correction; keep prose margins owned
+  by the reading context and use `margin-trim` only as a support-gated edge
+  refinement.
 - Prefer logical properties (`inline-size`, `block-size`, `margin-inline`, `padding-block`, `inset-inline`) over physical ones so layouts adapt to writing mode and RTL without rework.
 - Size fluidly with `min()`, `max()`, and `clamp()` for content width, gutters, type, and gaps so layout flexes between sensible bounds without a breakpoint for every step; cap line length (for example `min(100%, 65ch)`) so fluid widths never break readable measure.
-- Use full-bleed/grid wrapper patterns when readable text and breakout media must coexist without wrapper sprawl.
+- Prefer a page Grid or Subgrid full-bleed pattern when readable text and
+  breakout media must coexist and the page wrapper is under your control. When
+  a bounded-column utility must escape instead, do not assume `100vw` equals
+  the usable page width: classic scrollbars can make viewport units wider than
+  the initial containing block. Use a stable page-width query container and
+  logical `cqi` breakout math, then audit nested query containers.
 - Drive content-aware sections from the content itself — `:has()`, quantity queries (`:nth-child` / `:nth-last-child` of-type counts), container query units, and `clamp()` — with `@supports` fallbacks, so layouts adapt to variable item counts and text lengths instead of relying on brittle breakpoint-only rules.
 - Use `min-width: 0`, intrinsic sizing constraints, and explicit `aspect-ratio` defensively in cards, grids, media, and overflow-prone components to prevent blowouts and reserve space against layout shift (CLS).
 - Prevent icons, markers, and fixed control affordances from becoming squishy in
@@ -67,3 +81,103 @@ Use CSS layout algorithms deliberately. Grid, Flexbox, Subgrid, container querie
    imposing a fixed height merely to make a percentage resolve.
 5. Test text zoom, translated content, loading states, and overflow after adding
    any definite block size.
+
+## Build Full-Bleed Breakouts Without Hiding Overflow
+
+Prefer explicit Grid tracks when you own the wrapper. This keeps the content
+measure and breakout relationship in one layout algorithm and does not depend
+on viewport units:
+
+```css
+.page {
+  --gutter: clamp(1rem, 4vi, 3rem);
+  --measure: 70ch;
+  display: grid;
+  grid-template-columns:
+    [full-start] minmax(var(--gutter), 1fr)
+    [content-start] minmax(0, var(--measure))
+    [content-end] minmax(var(--gutter), 1fr)
+    [full-end];
+}
+
+.page > * { grid-column: content; }
+.page > .full-bleed { grid-column: full; }
+```
+
+When you cannot make the wrapper a Grid, establish a full-width inline-size
+query container and let a descendant utility escape from its bounded column:
+
+```css
+body {
+  /* Use the project's normal full-width body margin reset. */
+  margin: 0;
+  container: page / inline-size;
+}
+
+.full-bleed {
+  inline-size: 100cqi;
+  margin-inline: calc(50% - 50cqi);
+}
+```
+
+This avoids the classic `100vw` mismatch because `cqi` uses the query
+container's content-box inline size. Do not make `overflow-x: hidden` or
+`overflow-inline: clip` the primary fix: clipping can conceal unrelated layout
+bugs, focus indicators, shadows, and positioned content. Reserve
+`scrollbar-gutter: stable` for a deliberate root-level scrollbar policy rather
+than adding permanent gutter space only to rescue one utility.
+
+Container units always select the nearest eligible ancestor for their axis;
+the name in `container: page / inline-size` cannot target `100cqi` at that named
+container. A nested inline-size container can therefore retarget the utility.
+Prefer one of these responses, in order:
+
+1. Keep the full-bleed element outside local query containers.
+2. Use the page Grid pattern instead of a breakout utility.
+3. For a verified browser baseline, capture the page size as the computed value
+   of a registered inherited custom property at a stable boundary:
+
+```css
+@property --page-inline-size {
+  syntax: "<length> | <percentage>";
+  inherits: true;
+  initial-value: 100%;
+}
+
+@property --page-half-inline-size {
+  syntax: "<length> | <percentage>";
+  inherits: true;
+  initial-value: 50%;
+}
+
+body {
+  container: page / inline-size;
+}
+
+.page-shell {
+  /* Resolves against body here, before nested query containers intervene. */
+  --page-inline-size: 100cqi;
+  --page-half-inline-size: 50cqi;
+}
+
+.full-bleed {
+  inline-size: var(--page-inline-size);
+  margin-inline-start: calc(50% - var(--page-half-inline-size));
+}
+```
+
+Registration matters: an unregistered custom property preserves the `100cqi`
+token and resolves it where `var()` is used, while a typed registered property
+substitutes its computed length. Do not treat this as invisible magic: document
+where the page width is captured, verify `@property` support, and prefer the
+Grid version when the ownership is hard to explain.
+
+Test full-bleed layouts with always-visible classic scrollbars, RTL and another
+supported writing direction, nested query containers, browser zoom, long
+content, borders/shadows that reveal one-pixel clipping, and keyboard focus at
+both edges.
+
+Sources: [David Bushell's full-bleed analysis](https://dbushell.com/2026/07/03/fixing-full-bleed-css/),
+[CSS Values viewport and scrollbar behavior](https://www.w3.org/TR/css-values-4/#viewport-relative-lengths),
+[CSS container-relative units](https://www.w3.org/TR/css-contain-3/#container-lengths),
+and the [CSS Properties and Values API](https://drafts.css-houdini.org/css-properties-values-api-1/#computed-value-time).

@@ -106,12 +106,23 @@ Source-of-truth model:
 
 ## Crawling, Recrawling, and Push
 
+- Treat `robots.txt` as an explicit crawler policy and operational endpoint,
+  not as an indexing requirement or security control. For Google, `2xx` applies
+  the returned policy; redirects are followed within limits; all `4xx` except
+  `429` are treated as no `robots.txt` and therefore no crawl restrictions;
+  `5xx`, DNS, timeout, and network failures are treated as unavailability. An
+  unavailable file pauses Google crawling for the first 12 hours, then Google
+  uses the last good cached policy for up to 30 days when one exists before its
+  longer-term fallback. Serve and monitor an explicit file when policy clarity
+  matters, but do not diagnose deindexing from a missing-file `404` alone.
 - Use XML sitemaps for canonical URLs with meaningful `lastmod` values. Do not bump `lastmod` when the visible content did not materially change.
 - Use Search Console URL Inspection for a few important Google recrawl requests. It is not a bulk indexing API and does not guarantee instant indexing.
 - Use IndexNow for participating engines such as Bing when URLs are added, updated, or deleted. IndexNow accepts single-URL submissions and JSON POST batches.
 - Use RSS, Atom, or changelog feeds when humans, agents, or downstream systems need to monitor new content.
 - For high-change data, provide APIs or feeds rather than expecting crawlers to infer every update from rendered pages.
 - Set `Last-Modified`, `ETag`, and cache headers coherently so crawlers and agents can avoid unnecessary fetches.
+
+Google-specific status handling source: [How Google interprets the robots.txt specification](https://developers.google.com/crawling/docs/robots-txt/robots-txt-spec#http-status-codes).
 
 ## LLM and Agent Access
 
