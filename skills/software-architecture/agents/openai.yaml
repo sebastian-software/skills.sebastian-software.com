@@ -1,0 +1,4 @@
+interface:
+  display_name: "Software Architecture"
+  short_description: "Design and evolve operable software systems"
+  default_prompt: "Use $software-architecture to assess the system boundaries, operations, and migration path for this software change."

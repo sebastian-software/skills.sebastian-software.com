@@ -1,0 +1,29 @@
+{
+  "evals": [
+    {
+      "name": "prefer-modular-monolith-without-extraction-driver",
+      "prompt": "Our 12-person team has a TypeScript monolith with clear modules and one deploy pipeline. A new report page is slow because its SQL query needs an index. Should we split reporting into microservices to scale?",
+      "expected": "Requests or inspects load and ownership evidence, identifies the query as the demonstrated bottleneck, and recommends the smallest relevant remediation rather than a microservice extraction. It explains what evidence would justify an independent service boundary and preserves an extraction path only if needed later."
+    },
+    {
+      "name": "design-retry-safe-cross-service-contract",
+      "prompt": "The checkout API calls a shipping service. Network timeouts sometimes occur after the shipping label is created, so users retry and receive two labels. Design the architecture direction.",
+      "expected": "Defines ownership and the integration contract, including idempotency, request identity, timeout and retry behavior, reconciliation or compensation, observability, and user-visible state. It does not prescribe a queue or a database without comparing the relevant tradeoffs."
+    },
+    {
+      "name": "apply-factors-as-operational-prompts",
+      "prompt": "Our API reads credentials from a file baked into the image, writes logs to local files, starts before configuration is checked, and loses jobs when Kubernetes sends SIGTERM. Audit it using Twelve-Factor ideas.",
+      "expected": "Identifies configuration and secret handling, event-stream logging, startup validation, and graceful shutdown or durable-job handling as concrete risks. It proposes proportionate evidence and changes, and does not claim that Kubernetes or a microservice rewrite alone makes the service Twelve-Factor compliant."
+    },
+    {
+      "name": "evolve-with-removal-gate",
+      "prompt": "Move customers from the legacy profile API to a new service while clients update over several months. Give us an architecture migration plan.",
+      "expected": "Establishes a versioned or compatible contract, baseline observability, staged consumer migration, comparison and rollback conditions, data ownership and consistency rules, and a named removal gate for the legacy path. It avoids permanent dual writes and adapters without ownership and expiry."
+    },
+    {
+      "name": "route-an-accepted-decision-to-adrs",
+      "prompt": "We have compared options and accepted PostgreSQL as the primary transactional store. Document that decision for the repository.",
+      "expected": "Routes the durable decision to decision-records, preserves the repository's ADR convention, and keeps exact configuration and implementation details in their owning artifacts rather than inventing an architecture-memory folder."
+    }
+  ]
+}
