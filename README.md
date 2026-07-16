@@ -163,11 +163,11 @@ Every public skill lives directly below `skills/`:
 skills/<name>/
 ├── README.md     # human-facing overview, use cases, and installation
 ├── SKILL.md      # agent-facing trigger, workflow, and routes
+├── evals/
+│   └── evals.json # behavioral cases for consequential decisions
 ├── agents/       # optional product-facing skill metadata
-├── references/   # focused guidance loaded only when needed
-├── scripts/      # optional deterministic helpers
-├── assets/       # optional output resources
-└── examples/     # optional complete examples
+├── references/   # optional focused guidance loaded only when needed
+└── scripts/      # optional deterministic helpers
 ```
 
 `README.md` explains the value, use cases, scope, installation, and related
@@ -176,6 +176,10 @@ interface: its YAML frontmatter gives the skill a portable name and tells
 compatible agents when to load it. The body defines the core workflow and routes
 specialized concerns into `references/` so a form problem loads form guidance
 without filling the context window with unrelated material.
+
+The hand-maintained catalog website lives in `site/`. Adding a skill also means
+adding its site card and inventory metadata, then running both repository
+validators documented in [`docs/authoring-skills.md`](docs/authoring-skills.md).
 
 The repository contains the skills themselves: no installer, vendored
 third-party snapshots, generated distribution tree, or dependency lockfiles.
