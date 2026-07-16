@@ -138,8 +138,8 @@ accessibility, power, social, and time constraints when they shape the moment.
 Name the actor, situation, trigger, and decision the map should inform. Do not
 create a generic empathy map for an invented "typical user," decorate it with
 unsupported feelings, or treat a full quadrant as evidence of importance. Use
-the scenario-map protocol below when sequence and changing context matter more
-than a single situated view.
+the [evidence-based scenario guidance](#rehearse-evidence-based-scenarios) when
+sequence and changing context matter more than a single situated view.
 
 ## Rehearse evidence-based scenarios
 
