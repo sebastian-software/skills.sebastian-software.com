@@ -56,9 +56,11 @@ jobs:
 
           dalo sync
           test "$(find "$DALO_TARGET" -mindepth 1 -maxdepth 1 -type l | wc -l | tr -d ' ')" = "$expected_skill_count"
+          shopt -s nullglob
           for skill_file in skills/*/SKILL.md; do
             test -L "$DALO_TARGET/$(basename "$(dirname "$skill_file")")"
           done
+          shopt -u nullglob
           test ! -e "$DALO_TARGET/github-pr-auto-review"
           test ! -e "$DALO_TARGET/german-typography"
           test ! -e "$DALO_TARGET/s7n-print-design"
