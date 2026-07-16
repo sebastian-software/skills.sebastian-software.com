@@ -502,9 +502,12 @@
                 <div><span class="method-number">02</span><h3>Managed setup</h3></div>
                 <span class="method-badge">DALO</span>
               </div>
-              <p>Pin reviewed selections and materialize them into one or more agent targets.</p>
+              <p>Install DALO, initialize its configuration, link an agent target, and pin the reviewed selection.</p>
               <div class="code-block code-block-multiline">
-                <code id="dalo-command">dalo source add-catalog sebastian https://github.com/sebastian-software/skills.sebastian-software.com.git
+                <code id="dalo-command">curl -fsSL https://dalo.sh/install.sh | sh
+dalo init
+dalo target link codex
+dalo source add-catalog sebastian https://github.com/sebastian-software/skills.sebastian-software.com.git
 dalo source select sebastian effective-web
 dalo approve skill sebastian:effective-web
 dalo sync</code>

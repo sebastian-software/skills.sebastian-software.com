@@ -19,6 +19,9 @@ EXPECTED_SKILLS_COMMAND = (
     "--skill effective-web"
 )
 EXPECTED_DALO_COMMANDS = (
+    "curl -fsSL https://dalo.sh/install.sh | sh",
+    "dalo init",
+    "dalo target link codex",
     "dalo source add-catalog sebastian "
     "https://github.com/sebastian-software/skills.sebastian-software.com.git",
     "dalo source select sebastian effective-web",

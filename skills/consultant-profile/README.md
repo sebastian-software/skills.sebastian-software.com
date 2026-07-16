@@ -55,9 +55,11 @@ interview process, persuasion boundaries, and quality bar.
 npx skills add sebastian-software/skills.sebastian-software.com --skill consultant-profile
 ```
 
-Or select it with DALO:
+Or follow the [DALO setup guide](../../docs/dalo.md) and select it explicitly:
 
 ```sh
+dalo init
+dalo target link codex
 dalo source add-catalog sebastian https://github.com/sebastian-software/skills.sebastian-software.com.git
 dalo source select sebastian consultant-profile
 dalo approve skill sebastian:consultant-profile

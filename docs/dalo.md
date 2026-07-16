@@ -12,6 +12,7 @@ Register this repository as a catalog when only part of the collection should
 be installed:
 
 ```sh
+curl -fsSL https://dalo.sh/install.sh | sh
 dalo init
 dalo target link codex
 dalo source add-catalog sebastian https://github.com/sebastian-software/skills.sebastian-software.com.git
@@ -32,6 +33,7 @@ granting the source-qualified approval.
 Use a trusted team source when all first-party skills should be active together:
 
 ```sh
+curl -fsSL https://dalo.sh/install.sh | sh
 dalo init
 dalo target link codex
 dalo target link generic ~/.agents/skills

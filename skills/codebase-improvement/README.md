@@ -55,9 +55,11 @@ rules, and detailed workflow.
 npx skills add sebastian-software/skills.sebastian-software.com --skill codebase-improvement
 ```
 
-Or select it with DALO:
+Or follow the [DALO setup guide](../../docs/dalo.md) and select it explicitly:
 
 ```sh
+dalo init
+dalo target link codex
 dalo source add-catalog sebastian https://github.com/sebastian-software/skills.sebastian-software.com.git
 dalo source select sebastian codebase-improvement
 dalo approve skill sebastian:codebase-improvement

@@ -57,9 +57,11 @@ rules, CI verification, voice, and safety rails.
 npx skills add sebastian-software/skills.sebastian-software.com --skill pr-review
 ```
 
-Or select it with DALO:
+Or follow the [DALO setup guide](../../docs/dalo.md) and select it explicitly:
 
 ```sh
+dalo init
+dalo target link codex
 dalo source add-catalog sebastian https://github.com/sebastian-software/skills.sebastian-software.com.git
 dalo source select sebastian pr-review
 dalo approve skill sebastian:pr-review
