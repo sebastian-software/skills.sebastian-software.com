@@ -63,6 +63,7 @@ class SiteContrastTests(unittest.TestCase):
     def test_focus_indicator_has_a_contrasting_ring_on_every_surface(self) -> None:
         focus_rule = rule(":focus-visible")
         self.assertIn("outline: 3px solid var(--ink)", focus_rule)
+        self.assertIn("outline-offset: 4px", focus_rule)
         self.assertIn("box-shadow: 0 0 0 7px var(--white)", focus_rule)
 
         ink = color("ink")
