@@ -252,7 +252,7 @@ def parse_go_mod(path: Path) -> dict[str, Any]:
     in_require_block = False
     for raw_line in text.splitlines():
         line = raw_line.split("//", 1)[0].strip()
-        if line == "require (":
+        if re.fullmatch(r"require\s*\(", line):
             in_require_block = True
             continue
         if in_require_block and line == ")":
