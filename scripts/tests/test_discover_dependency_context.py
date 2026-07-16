@@ -72,6 +72,8 @@ class DiscoverDependencyContextTests(unittest.TestCase):
 
 go 1.24
 
+require example.com/direct v3.1.4
+
 require  (
     example.com/first v1.2.3
     example.com/second v2.0.0 // indirect
@@ -94,7 +96,7 @@ retract (
 
             result = discover(project)
 
-            self.assertEqual(result["go"][0]["require_entries_estimate"], 2)
+            self.assertEqual(result["go"][0]["require_entries_estimate"], 3)
 
 
 if __name__ == "__main__":
