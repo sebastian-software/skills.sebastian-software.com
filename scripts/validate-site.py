@@ -5,6 +5,8 @@ from __future__ import annotations
 
 import json
 import re
+import struct
+from datetime import date
 from html.parser import HTMLParser
 from pathlib import Path
 from urllib.parse import urlparse
@@ -14,6 +16,11 @@ ROOT = Path(__file__).resolve().parents[1]
 SITE = ROOT / "site"
 INDEX = SITE / "index.html"
 EXPECTED_DOMAIN = "skills.sebastian-software.com"
+EXPECTED_OG_IMAGE_URL = f"https://{EXPECTED_DOMAIN}/assets/og-card.png"
+SKILL_URL_PREFIX = (
+    "https://github.com/sebastian-software/"
+    "skills.sebastian-software.com/tree/main/skills/"
+)
 EXPECTED_SKILLS_COMMAND = (
     "npx skills add sebastian-software/skills.sebastian-software.com "
     "--skill effective-web"
@@ -48,6 +55,8 @@ class SiteParser(HTMLParser):
         self.has_description = False
         self.og_description = ""
         self.canonical = ""
+        self.meta_names: dict[str, str] = {}
+        self.meta_properties: dict[str, str] = {}
 
     def handle_starttag(self, tag: str, attrs: list[tuple[str, str | None]]) -> None:
         values = dict(attrs)
@@ -63,13 +72,21 @@ class SiteParser(HTMLParser):
         if tag == "a" and (value := values.get("href")):
             self.links.append(value)
         if tag == "link":
-            if values.get("rel") in {"stylesheet", "icon"} and (value := values.get("href")):
+            rel = set((values.get("rel", "") or "").split())
+            if rel.intersection({"stylesheet", "icon", "apple-touch-icon"}) and (
+                value := values.get("href")
+            ):
                 self.assets.append(value)
-            if values.get("rel") == "canonical":
+            if "canonical" in rel:
                 self.canonical = values.get("href", "") or ""
         if tag == "script" and (value := values.get("src")):
             self.assets.append(value)
         if tag == "meta":
+            content = values.get("content", "") or ""
+            if name := values.get("name"):
+                self.meta_names[name] = content
+            if property_name := values.get("property"):
+                self.meta_properties[property_name] = content
             if values.get("name") == "viewport":
                 self.has_viewport = True
             if values.get("name") == "description" and values.get("content"):
@@ -126,25 +143,58 @@ def proof_row_values(html: str) -> list[int]:
     return [int(value) for value in re.findall(r"<dt>(\d+)</dt>", match.group())] if match else []
 
 
+def png_dimensions(path: Path) -> tuple[int, int] | None:
+    header = path.read_bytes()[:24]
+    if len(header) != 24 or header[:8] != b"\x89PNG\r\n\x1a\n":
+        return None
+    return struct.unpack(">II", header[16:24])
+
+
+def ico_dimensions(path: Path) -> set[tuple[int, int]]:
+    data = path.read_bytes()
+    if len(data) < 6 or data[:4] != b"\x00\x00\x01\x00":
+        return set()
+
+    count = int.from_bytes(data[4:6], "little")
+    dimensions: set[tuple[int, int]] = set()
+    for index in range(count):
+        entry = data[6 + index * 16 : 22 + index * 16]
+        if len(entry) != 16:
+            return set()
+        dimensions.add((entry[0] or 256, entry[1] or 256))
+    return dimensions
+
+
 def validate_json_ld_inventory(
     json_ld: dict[str, object] | None,
-    expected_count: int,
+    expected_skills: list[str],
     failures: list[str],
 ) -> None:
     require(json_ld is not None, "site must include JSON-LD metadata", failures)
     if json_ld is None:
         return
 
+    expected_count = len(expected_skills)
     item_list = json_ld.get("mainEntity", {})
+    items = item_list.get("itemListElement", []) if isinstance(item_list, dict) else []
     require(
         isinstance(item_list, dict) and item_list.get("numberOfItems") == expected_count,
         "JSON-LD skill count must match the repository inventory",
         failures,
     )
     require(
-        isinstance(item_list, dict)
-        and len(item_list.get("itemListElement", [])) == expected_count,
+        isinstance(items, list) and len(items) == expected_count,
         "JSON-LD items must match the repository inventory",
+        failures,
+    )
+    urls = [
+        item.get("url")
+        for item in items
+        if isinstance(item, dict) and isinstance(item.get("url"), str)
+    ]
+    require(
+        sorted(urls) == sorted(f"{SKILL_URL_PREFIX}{skill}" for skill in expected_skills),
+        "JSON-LD skill items must link every repository skill exactly once",
         failures,
     )
 
@@ -156,6 +206,10 @@ def main() -> int:
         SITE / "styles.css",
         SITE / "script.js",
         SITE / "assets" / "favicon.svg",
+        SITE / "assets" / "favicon-32.png",
+        SITE / "assets" / "apple-touch-icon.png",
+        SITE / "assets" / "og-card.png",
+        SITE / "favicon.ico",
         SITE / "CNAME",
         SITE / ".nojekyll",
         SITE / "robots.txt",
@@ -248,7 +302,60 @@ def main() -> int:
         "Open Graph description must match the repository inventory",
         failures,
     )
-    validate_json_ld_inventory(json_ld, len(expected_skills), failures)
+    require(
+        parser.meta_properties.get("og:image") == EXPECTED_OG_IMAGE_URL,
+        "Open Graph image must use the canonical 1200x630 asset URL",
+        failures,
+    )
+    require(
+        parser.meta_properties.get("og:image:width") == "1200"
+        and parser.meta_properties.get("og:image:height") == "630",
+        "Open Graph image metadata must declare 1200x630 dimensions",
+        failures,
+    )
+    require(
+        bool(parser.meta_properties.get("og:image:alt")),
+        "Open Graph image must include alternative text",
+        failures,
+    )
+    require(
+        parser.meta_names.get("twitter:card") == "summary_large_image",
+        "Twitter card must use summary_large_image",
+        failures,
+    )
+    require(
+        parser.meta_names.get("twitter:image") == EXPECTED_OG_IMAGE_URL,
+        "Twitter image must match the Open Graph image",
+        failures,
+    )
+    require(
+        parser.meta_names.get("twitter:image:alt")
+        == parser.meta_properties.get("og:image:alt"),
+        "Twitter and Open Graph image alternative text must match",
+        failures,
+    )
+    validate_json_ld_inventory(json_ld, expected_skills, failures)
+
+    require(
+        png_dimensions(SITE / "assets" / "og-card.png") == (1200, 630),
+        "Open Graph image file must be exactly 1200x630",
+        failures,
+    )
+    require(
+        png_dimensions(SITE / "assets" / "favicon-32.png") == (32, 32),
+        "PNG favicon must be exactly 32x32",
+        failures,
+    )
+    require(
+        png_dimensions(SITE / "assets" / "apple-touch-icon.png") == (180, 180),
+        "Apple touch icon must be exactly 180x180",
+        failures,
+    )
+    require(
+        {(16, 16), (32, 32), (48, 48)}.issubset(ico_dimensions(SITE / "favicon.ico")),
+        "favicon.ico must contain 16x16, 32x32, and 48x48 images",
+        failures,
+    )
 
     require(bool(journey_html), "site must contain the connected workflow", failures)
     for skill in expected_skills:
@@ -332,11 +439,19 @@ def main() -> int:
         "robots.txt must reference the canonical sitemap",
         failures,
     )
+    sitemap = (SITE / "sitemap.xml").read_text(encoding="utf-8")
     require(
-        f"<loc>https://{EXPECTED_DOMAIN}/</loc>" in (SITE / "sitemap.xml").read_text(encoding="utf-8"),
+        f"<loc>https://{EXPECTED_DOMAIN}/</loc>" in sitemap,
         "sitemap must reference the canonical URL",
         failures,
     )
+    lastmod_match = re.search(r"<lastmod>(\d{4}-\d{2}-\d{2})</lastmod>", sitemap)
+    require(lastmod_match is not None, "sitemap must include an ISO lastmod date", failures)
+    if lastmod_match is not None:
+        try:
+            date.fromisoformat(lastmod_match.group(1))
+        except ValueError:
+            failures.append("sitemap lastmod must be a valid calendar date")
 
     if failures:
         for failure in failures:
