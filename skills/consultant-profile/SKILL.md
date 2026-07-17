@@ -66,7 +66,8 @@ Read these references before making substantive changes:
    - Feature 3-5 "signature projects" or "selected highlights" near the top.
    - Promote older but high-signal work when it proves the desired positioning.
    - Keep a secondary "additional selected projects" list for breadth, not for important work that merely happens to be older.
-   - Treat recognizable enterprise names as signal when they support the profile. Examples in this user's context include Heidelberg Materials, Otto Group/Witt, Deutsche Bank, Deutsche Telekom, and 1&1.
+   - Treat recognizable client names as signal only when the supplied evidence,
+     target audience, and publication permissions support using them.
 
 7. Rewrite projects as proof points.
    - Prefer Outcome -> Action -> Scope when impact is known.
@@ -97,7 +98,8 @@ Read these references before making substantive changes:
 11. Run a language and persuasion pass.
    - Make claims clear, concise, active, and specific.
    - Add positive framing where the evidence supports it; do not leave strong work sounding neutral or accidental.
-   - Treat Dan Berlin's coaching heuristic as a useful default: self-presentation is often discounted by readers, so credible strengths may need to be stated more warmly and explicitly than feels natural to the writer.
+   - Assume readers discount cautious self-presentation: state credible
+     strengths warmly and explicitly while keeping every claim anchored.
    - Remove empty hype, generic AI-ish phrasing, and unsupported superlatives.
 
 12. Preserve truthfulness.

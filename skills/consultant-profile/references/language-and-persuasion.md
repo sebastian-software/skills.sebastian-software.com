@@ -77,11 +77,12 @@ Use natural English for LinkedIn, About sections, and international variants:
 - avoid stiff translated German
 - keep rhythm varied and conversational without becoming casual or slangy
 
-## Dan Berlin Positive-Framing Heuristic
+## Positive-Framing Heuristic
 
-Treat the user's Dan Berlin coaching note as a useful tone heuristic:
-
-Readers discount self-presentation. If a profile states a strong thing too cautiously, the reader may perceive it as merely average. Especially in competitive or US-influenced contexts, credible strengths often need to be stated with more warmth and confidence than the writer would naturally choose.
+Readers discount self-presentation. If a profile states a strong thing too
+cautiously, the reader may perceive it as merely average. Especially in
+competitive contexts, credible strengths often need to be stated with more
+warmth and confidence than the writer would naturally choose.
 
 Apply this carefully:
 
@@ -97,7 +98,7 @@ Do not use this as permission to invent. The positive frame must be anchored.
 
 Use this ladder to keep positivity grounded:
 
-1. **Raw fact** - "Worked with Deutsche Bank on an internal platform."
+1. **Raw fact** - "Worked with a regulated bank on an internal platform."
 2. **Contextual fact** - "Worked in a regulated banking environment with enterprise stakeholders."
 3. **Capability claim** - "Brings experience from regulated, high-trust enterprise environments."
 4. **Positioning claim** - "Helps enterprise teams modernize product and platform work without losing delivery discipline."
@@ -181,8 +182,9 @@ Use these transformations when profiles understate strong work:
 - Neutral: "Worked on frontend development for a retail client."
   Stronger: "Designed and implemented frontend architecture patterns for a multi-brand retail environment."
 
-- Neutral: "Additional projects include Deutsche Bank and Telekom."
-  Stronger: "Selected enterprise experience includes regulated banking and telecommunications environments, including Deutsche Bank and Deutsche Telekom."
+- Neutral: "Additional projects include work for a bank and a telecom provider."
+  Stronger: "Selected enterprise experience includes regulated banking and
+  telecommunications environments."
 
 - Neutral: "I built components and pages."
   Stronger: "I turn complex product requirements into usable, maintainable frontend systems."

@@ -34,6 +34,11 @@
       "name": "expand-high-risk-review-context",
       "prompt": "Review a PR that moves authorization for invoice downloads from the server route into a hidden client button. The author is new to the service. Write the actionable feedback.",
       "expected": "Explains the server-side authorization boundary and cross-tenant exposure clearly enough for a new author, anchors the issue, requires authorization before object access, names an appropriate regression test, and does not compress the security finding into an ambiguous one-liner or severity emoji."
+    },
+    {
+      "name": "follow-repository-and-user-language",
+      "prompt": "Review a pull request in a repository whose contributing guide and existing reviews are in Spanish. I am also speaking Spanish to you. Write the public review and the private final status summary.",
+      "expected": "Uses the repository's established Spanish for the public GitHub review and the user's Spanish for the private summary, without forcing German or an unrelated US-English house style."
     }
   ]
 }
