@@ -93,3 +93,7 @@ This skill is maintained by [Sebastian Software](https://oss.sebastian-software.
 where we build and support open-source software. We also help teams design,
 modernize, and ship ambitious software products through
 [our consulting practice](https://sebastian-consulting.com/en).
+
+## License
+
+MIT — see the collection [LICENSE](../../LICENSE).

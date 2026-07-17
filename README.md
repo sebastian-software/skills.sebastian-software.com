@@ -276,4 +276,4 @@ ambitious software products through
 
 ## License
 
-See [LICENSE](LICENSE).
+MIT — see [LICENSE](LICENSE).

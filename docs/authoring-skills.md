@@ -40,6 +40,7 @@ Each skill README must include:
 - an honest scope or boundary section
 - relative links to the most relevant first-party skills
 - the canonical Sebastian Software open-source and English consulting links
+- the portable license notice `MIT — see the collection [LICENSE](../../LICENSE).`
 
 Use `https://oss.sebastian-software.com/` for Sebastian Software open source and
 `https://sebastian-consulting.com/en` for consulting. Keep related-skill links
