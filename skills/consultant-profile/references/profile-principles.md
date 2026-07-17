@@ -101,7 +101,10 @@ Recommended LinkedIn structure:
 
 1. **Headline** - combine role, specialization, and buyer-relevant outcomes. Avoid only listing a job title.
 2. **About** - one or two short paragraphs, optionally with bullets. State what the consultant helps with, for whom, and what proof exists.
-3. **Featured** - link to website, selected case studies, articles, talks, PDFs, or project writeups where confidentiality allows it.
+3. **Featured** - prioritize one or two high-value proof or conversion paths for
+   the intended buyer. Add another item only for a deliberate campaign; keep
+   supporting case studies, articles, talks, PDFs, or project writeups
+   discoverable without turning Featured into a link directory.
 4. **Experience** - treat current independent consulting as the container role. Add selected project evidence inside it rather than duplicating every CV entry.
 5. **Skills** - prioritize searchable, current skills that reinforce the positioning.
 6. **Recommendations** - request targeted recommendations from clients or senior collaborators that prove trust, delivery, and advisory quality.

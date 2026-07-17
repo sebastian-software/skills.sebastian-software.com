@@ -69,7 +69,9 @@ dalo sync
 ## Related Skills
 
 - [LinkedIn Social Selling](../linkedin-social-selling/README.md) connects the
-  profile to target accounts, content, conversations, and qualified meetings.
+  profile to target accounts, content, conversations, and qualified meetings
+  after Consultant Profile owns the professional evidence and field-level
+  profile content.
 - [Product Naming](../product-naming/README.md) handles a consultant business,
   productized-service, or company name once the positioning is clear.
 - [Metro English](../metro-english/README.md) adapts supporting communication to

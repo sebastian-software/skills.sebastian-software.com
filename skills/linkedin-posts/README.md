@@ -68,7 +68,8 @@ dalo sync
 ## Related Skills
 
 - [LinkedIn Social Selling](../linkedin-social-selling/README.md) establishes
-  the target buyer, offer, profile, network, funnel, and commercial context.
+  the target buyer, offer, profile, network, funnel, and commercial context;
+  LinkedIn Posts consumes that brief without duplicating the strategy.
 - [Consultant Profile](../consultant-profile/README.md) supplies credible
   positioning, project evidence, and professional narrative.
 - [Metro English](../metro-english/README.md) adapts drafts to a more natural,

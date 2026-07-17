@@ -8,7 +8,7 @@ virality as an isolated result.
 
 - [Build the content flywheel](#build-the-content-flywheel)
 - [Use four content roles](#use-four-content-roles)
-- [Draft substantive posts](#draft-substantive-posts)
+- [Hand off post creation](#hand-off-post-creation)
 - [Use AI as an editor and sparring partner](#use-ai-as-an-editor-and-sparring-partner)
 - [Plan a sustainable production loop](#plan-a-sustainable-production-loop)
 - [Measure by stage](#measure-by-stage)
@@ -46,23 +46,25 @@ team moments, and business evidence.
 Keep role and format independent: any role may use text, an image, a document,
 or video when that medium carries the idea well.
 
-## Draft substantive posts
+## Hand off post creation
 
-Build each post from:
+This reference owns content-system strategy: roles, source evidence, the
+production loop, distribution, and measurement. [LinkedIn
+Posts](../../linkedin-posts/SKILL.md) owns post ideas, calendars, format choice,
+hooks, structure, hashtags, and copy.
 
-1. one clear reader and purpose
-2. a specific hook or opening situation
-3. a useful claim, lesson, or story
-4. concrete evidence, example, steps, or tradeoff
-5. a proportionate call to think, reply, inspect proof, or take the next step
+When the system needs an actual post, pass `linkedin-posts` a concise brief:
 
-Reject generic authority language, invented vulnerability, unsupported numbers,
-and engagement bait. Optimize readability without turning every sentence into a
-one-line formula.
+- target audience and buyer situation
+- content role and purpose
+- source evidence, approved proof, and confidentiality constraints
+- useful claim, story, lesson, or question
+- connection to the offer or next step, if any
+- voice, language, capacity, and review owner
 
-Choose text, image, document, or video because it serves the idea and production
-capacity. Verify current platform limits and accessibility needs. Add captions,
-alt text, legible mobile layouts, and source attribution where applicable.
+Return here after drafting to check alignment with the acquisition path,
+production capacity, and learning goal. Do not create or maintain a competing
+post-writing formula in this file.
 
 ## Use AI as an editor and sparring partner
 
