@@ -110,7 +110,9 @@ meaning before editing; do not normalize a repository's terms merely to match
 this reference. Otherwise:
 
 - `proposed`: under discussion; semantic edits are allowed.
-- `accepted`: current project decision; preserve its historical text.
+- `accepted`: current project decision; preserve its historical text in the
+  immutable default, or keep the current decision accurate in a living
+  lifecycle.
 - `rejected`: considered but not adopted.
 - `deprecated`: no longer applicable and has no direct successor.
 - `superseded`: replaced by another ADR; link the successor.

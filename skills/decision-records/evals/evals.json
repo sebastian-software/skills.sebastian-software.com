@@ -46,6 +46,11 @@
       "expected": "Refuses to infer living mode from Git history, treats the corpus as the immutable default, preserves ADR-0012, creates and links a successor with the changed drivers and consequences when authorized, and only offers a living lifecycle as an explicit repository convention with the cheaper-read versus weaker-audit-history tradeoff."
     },
     {
+      "name": "authorize-new-living-convention",
+      "prompt": "This new repository has no ADR convention. Set up living decision records so every accepted ADR can be edited in place.",
+      "expected": "Does not introduce living records immediately, explains that one current file reduces lookup and context cost while moving earlier states primarily into Git history and weakening the in-document audit trail, asks for explicit authorization, uses the immutable portable default if authorization is declined or absent, and only after approval declares the lifecycle, identity, status vocabulary, update metadata, and any narrow configuration-value carve-out."
+    },
+    {
       "name": "introduce-numberless-living-records-with-backcompat",
       "prompt": "Our docs/adr folder has numbered historical ADRs. For new operational decisions we approved a living convention with stable slug filenames. Migrate the repository without renaming everything.",
       "expected": "Keeps existing numbered ADRs readable, documents that new living records use stable numberless slugs, updates the index or discovery guidance to cover both forms, avoids a bulk rename and fabricated supersession chains, and records the living lifecycle, status vocabulary, update metadata, and any configuration-value carve-out explicitly."
