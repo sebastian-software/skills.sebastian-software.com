@@ -3,6 +3,24 @@
 Treat the profile as a buyer-facing trust path, not a duplicated CV or a crowded
 link directory.
 
+## Keep profile ownership explicit
+
+Use [Consultant Profile](../../consultant-profile/SKILL.md) as the owner of
+field-level profile doctrine: professional evidence, headline, About,
+Experience, skills, recommendations, localization, and cross-channel
+consistency. This route owns only the acquisition overlay: the target-buyer
+path, campaign proof, Featured choices, primary action, and downstream
+measurement.
+
+For end-to-end social-selling work:
+
+1. Establish the target buyer, problem, promise, proof, and useful next step.
+2. Pass that context and the consultant's evidence to `consultant-profile` for
+   any profile audit or rewrite.
+3. Return here to prioritize proof and action for the active acquisition path.
+
+Do not maintain a second field-by-field profile formula in this reference.
+
 ## Define the visitor path
 
 Design each visible section to answer one question:
@@ -18,28 +36,21 @@ Design each visible section to answer one question:
 Choose one primary action. Use secondary links only when they support a distinct
 visitor intent.
 
-## Audit the profile
+## Apply the acquisition overlay
 
-Review the current platform surface before prescribing fields or dimensions.
-Then assess:
+Review the current platform surface before prescribing campaign changes. Then
+assess:
 
-- **Photo and identity:** recognizable, current, appropriately framed, and
-  consistent with the relationship the buyer will enter.
-- **Banner or visual header:** reinforces the positioning or proof without
-  repeating the headline or filling the space with slogans.
-- **Headline:** leads with buyer relevance and value rather than a job title or
-  a list of services.
-- **About:** uses the buyer's language, establishes perspective and proof, and
-  stays scannable. Prefer a few strong points over a catalog.
-- **Featured work:** prioritizes one or two high-value proof or conversion paths;
-  temporarily add another item only for a deliberate campaign.
-- **Experience:** tells the relevant professional story and connects work to
-  outcomes without copying a complete CV.
-- **Skills and recommendations:** foregrounds the capabilities most relevant to
-  the offer and requests specific, truthful recommendations from strong-fit
-  customers. Prefer quality over count.
-- **Contact and link path:** makes the next step clear, works on mobile, and
-  preserves campaign attribution.
+- **Positioning handoff:** the profile content from `consultant-profile` matches
+  the target buyer, promise, vocabulary, and proof established here.
+- **Featured path:** one or two high-value proof or conversion items support the
+  primary visitor path; add another only for a deliberate campaign.
+- **Primary action:** a qualified visitor can identify the useful next step
+  without choosing among competing calls to action.
+- **Campaign continuity:** profile, posts, messages, lead magnet, landing page,
+  and meeting use compatible promises, proof, and language.
+- **Operational path:** links work on mobile, preserve useful attribution, and
+  do not remove durable proof merely to make a campaign item dominant.
 
 ## Align profile and campaign
 
@@ -68,6 +79,7 @@ quality when the data allows it.
 - Can the intended buyer identify themselves and the likely value quickly?
 - Does the profile sound like the person behind the account?
 - Is each claim supported or clearly framed as an approach?
+- Did `consultant-profile` own any field-level audit or rewrite?
 - Is there a single obvious next step for a qualified visitor?
 - Are volatile LinkedIn features and dimensions verified from current official
   guidance?

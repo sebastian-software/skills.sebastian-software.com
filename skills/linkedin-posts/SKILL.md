@@ -55,6 +55,12 @@ voice-memory file.
 
 Gather only the context that is neither recorded nor provided:
 
+If `linkedin-social-selling` already established the audience, content role,
+source evidence, offer connection, language, and review owner, treat that as the
+strategy handoff. Do not reopen settled acquisition strategy before drafting.
+If those inputs are missing and the request depends on pipeline strategy rather
+than a standalone post, route that discovery to `linkedin-social-selling`.
+
 ### 1. Topic & Goal
 - What do you want to post about?
 - What's the goal? (thought leadership, engagement, lead gen, brand awareness, hiring)
@@ -208,7 +214,8 @@ then develop selected prompts into original, evidence-led post concepts.
 - **decision-records**: For durable audience, voice, tone, form-of-address,
   terminology, claim, and channel decisions
 - **linkedin-social-selling**: For target-buyer, offer, profile, network,
-  outreach, funnel, and pipeline strategy around the posts.
+  outreach, funnel, and pipeline strategy around the posts; consume its
+  grounded brief when drafting posts inside a larger engagement.
 - **copywriting** (from the separately managed DALO `marketingskills` catalog): For general marketing copy principles
 - **copy-editing** (from the separately managed DALO `marketingskills` catalog): For polishing post drafts
 - **humanizer** (from the separately managed DALO `marketingskills` catalog): To remove AI-sounding patterns from posts

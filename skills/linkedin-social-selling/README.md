@@ -74,9 +74,11 @@ dalo sync
 ## Related Skills
 
 - [LinkedIn Posts](../linkedin-posts/README.md) creates individual posts, ideas,
-  and calendars after audience and commercial intent are clear.
+  and calendars from the audience, evidence, role, and commercial intent
+  established here.
 - [Consultant Profile](../consultant-profile/README.md) develops the underlying
-  CV, biography, case studies, and consultant positioning.
+  CV, biography, case studies, consultant positioning, and field-level profile
+  content before this skill applies the acquisition overlay.
 - [Product Management](../product-management/README.md) stabilizes the customer
   problem, promise, evidence, and scope behind the offer.
 - [Effective Web](../effective-web/README.md) builds and verifies landing pages,
@@ -88,7 +90,8 @@ dalo sync
 
 This skill is not a spam system. It does not invent proof, impersonate genuine
 relationships, optimize for vanity metrics, or treat every contact as a lead.
-Post-only requests should use the narrower LinkedIn Posts skill.
+Actual post ideation and drafting use the narrower LinkedIn Posts skill,
+including posts created inside an end-to-end social-selling engagement.
 
 ## About Sebastian Software
 

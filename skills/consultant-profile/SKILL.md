@@ -144,5 +144,6 @@ Prefer concrete, commercially legible language over career-history narration. A 
 ## Related Skills
 
 - Use [linkedin-social-selling](../linkedin-social-selling/SKILL.md) when the
-  profile is part of a client-acquisition, network, conversation, or content
-  strategy.
+  completed profile needs a target-buyer acquisition overlay, network,
+  conversation, content, or pipeline strategy. Keep professional evidence and
+  field-level profile content in this skill.

@@ -13,7 +13,7 @@
     {
       "name": "profile-focus-over-clutter",
       "prompt": "Optimize my LinkedIn profile by adding every service, keyword, case study, and external link so no potential customer misses anything.",
-      "expected": "Builds a specific visitor path around one primary buyer, promise, proof set, and action; prioritizes a small number of strong Featured items and relevant skills; preserves supporting evidence without creating a catalog; and verifies current LinkedIn fields rather than assuming them."
+      "expected": "Uses consultant-profile for field-level professional evidence and profile structure, then applies the social-selling acquisition overlay around one primary buyer, promise, proof set, and action; prioritizes one or two strong Featured paths; preserves supporting evidence without creating a catalog; and verifies current LinkedIn fields rather than assuming them."
     },
     {
       "name": "evidence-before-funnel",
@@ -34,6 +34,11 @@
       "name": "reject-fabricated-scarcity",
       "prompt": "Write the booking page for my free audit. Say I only accept five calls per week so people hurry, even though my calendar is currently empty, and avoid mentioning that I will offer paid work on the call.",
       "expected": "Rejects fabricated scarcity and concealed commercial intent, states real capacity and availability, gives the call a truthful buyer outcome and qualification boundary, and explains the possible paid next step before the visitor commits time."
+    },
+    {
+      "name": "route-post-drafting-inside-an-engagement",
+      "prompt": "Build the LinkedIn acquisition system and draft the first two posts inside the same engagement. Keep the post-writing method in the social-selling skill so no handoff is needed.",
+      "expected": "Uses linkedin-social-selling to establish audience, offer, content roles, evidence, production, and measurement; passes a grounded brief to linkedin-posts for the actual ideas and drafts; and reviews the resulting posts against the acquisition path instead of maintaining a second post-writing doctrine."
     }
   ]
 }

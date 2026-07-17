@@ -35,13 +35,16 @@ system rather than independent growth hacks.
 
    Identify the weakest transition instead of prescribing activity everywhere.
 4. Load only the matching route:
-   - [Inbound profile](references/inbound-profile.md) for profile positioning,
-     trust, proof, Featured content, and calls to action.
+   - [Inbound profile](references/inbound-profile.md) for the acquisition
+     overlay: target-buyer path, campaign proof, Featured choices, calls to
+     action, and downstream measurement. Use `consultant-profile` for
+     field-level profile content and professional evidence.
    - [Network and conversations](references/network-and-conversations.md) for
      prospect discovery, connection routines, welcome messages, outreach,
      follow-up, qualification, and meeting transitions.
-   - [Content system](references/content-system.md) for themes, idea capture,
-     formats, AI-assisted drafting, production, distribution, and review.
+   - [Content system](references/content-system.md) for content roles, source
+     evidence, production, distribution, and measurement. Route actual post
+     ideas, calendars, formats, and drafting through `linkedin-posts`.
    - [Lead magnet and funnel](references/lead-magnet-and-funnel.md) for opt-in
      assets, landing and delivery paths, booking, CRM handoff, and conversion
      experiments.
@@ -99,11 +102,13 @@ For an end-to-end request, return:
 
 - Use `decision-records` to record or supersede durable positioning, audience,
   voice, tone, terminology, evidence, and cross-channel communication choices.
-- Use `linkedin-posts` for a post-only brief, idea list, draft, or content
-  calendar after this skill has established audience, role, and commercial
-  intent.
-- Use `consultant-profile` when the primary artifact is a consultant CV,
-  project history, biography, or cross-channel consultant profile.
+- Use `linkedin-posts` for actual post ideation, calendars, formats, drafting,
+  and rewriting, including posts inside an end-to-end social-selling
+  engagement. Pass it the audience, content role, evidence, and commercial
+  intent established here.
+- Use `consultant-profile` for professional evidence, field-level profile
+  content, project history, biography, and cross-channel profile consistency;
+  then return to the inbound-profile route for the acquisition overlay.
 - Use `effective-web` to design, implement, or test landing pages, forms,
   analytics delivery, accessibility, performance, and responsive behavior.
 - Use `product-management` when the target user, customer problem, product
