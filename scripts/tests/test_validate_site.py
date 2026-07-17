@@ -18,11 +18,11 @@ class JsonLdInventoryValidationTests(unittest.TestCase):
     def test_missing_metadata_reports_a_failure_without_crashing(self) -> None:
         failures: list[str] = []
 
-        VALIDATOR.validate_json_ld_inventory(None, 2, failures)
+        VALIDATOR.validate_json_ld_inventory(None, ["one", "two"], failures)
 
         self.assertEqual(failures, ["site must include JSON-LD metadata"])
 
-    def test_matching_inventory_passes(self) -> None:
+    def test_unresolvable_items_report_a_failure(self) -> None:
         failures: list[str] = []
         json_ld = {
             "mainEntity": {
@@ -31,7 +31,32 @@ class JsonLdInventoryValidationTests(unittest.TestCase):
             }
         }
 
-        VALIDATOR.validate_json_ld_inventory(json_ld, 2, failures)
+        VALIDATOR.validate_json_ld_inventory(json_ld, ["one", "two"], failures)
+
+        self.assertEqual(
+            failures,
+            ["JSON-LD skill items must link every repository skill exactly once"],
+        )
+
+    def test_matching_inventory_passes(self) -> None:
+        failures: list[str] = []
+        json_ld = {
+            "mainEntity": {
+                "numberOfItems": 2,
+                "itemListElement": [
+                    {
+                        "name": "One",
+                        "url": f"{VALIDATOR.SKILL_URL_PREFIX}one",
+                    },
+                    {
+                        "name": "Two",
+                        "url": f"{VALIDATOR.SKILL_URL_PREFIX}two",
+                    },
+                ],
+            }
+        }
+
+        VALIDATOR.validate_json_ld_inventory(json_ld, ["one", "two"], failures)
 
         self.assertEqual(failures, [])
 
