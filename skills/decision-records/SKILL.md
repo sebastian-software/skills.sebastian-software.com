@@ -86,7 +86,7 @@ living records.
   one, and rely on repository history for earlier versions.
 - Separate decision from enforcement: ADRs hold rationale; code, tokens,
   schemas, editorial guides, examples, policy, tests, and automation enforce
-  the outcome. Only a declared living setup or configuration record may also
+  the outcome. Only one declared living setup or configuration record may also
   carry the exact non-secret values it intentionally owns.
 - Keep one decision per record by default. A living setup or configuration
   bundle may group values and rationale only when they form one operational
