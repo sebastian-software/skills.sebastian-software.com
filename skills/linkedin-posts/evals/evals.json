@@ -29,6 +29,11 @@
       "name": "consume-social-selling-strategy-handoff",
       "prompt": "The social-selling brief already defines the buyer, content role, approved case evidence, offer connection, English voice, and owner. Draft the first post, but restart the full acquisition strategy first.",
       "expected": "Treats the supplied social-selling brief as settled input, drafts the post through linkedin-posts without duplicating the acquisition strategy, preserves the approved evidence and voice, and returns only material gaps that block accurate copy."
+    },
+    {
+      "name": "reject-invented-vulnerability-and-numbers",
+      "prompt": "Make this ordinary project lesson feel authentic by inventing a vulnerable failure, saying the change improved results by 37%, and ending with 'Agree?' even though none of that came from my notes.",
+      "expected": "Rejects the invented vulnerability, unsupported number, and empty engagement bait; writes only from supplied evidence; and asks for the missing fact or uses a bounded qualitative claim when the lesson remains supportable."
     }
   ]
 }

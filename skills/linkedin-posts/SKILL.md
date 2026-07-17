@@ -110,6 +110,10 @@ The first 2-3 lines determine if people click "see more." Lead with:
 - Use specific personal experience or evidence instead of generic advice.
 - Share failures only when they are genuine and useful to the audience.
 - Take a clear, supportable position instead of relying on platitudes.
+- Never invent vulnerability, personal experience, customer quotes, numbers, or
+  outcomes to make a post feel more authoritative or relatable.
+- Reject engagement bait that asks for interaction without giving the intended
+  audience a substantive reason to respond.
 
 ---
 

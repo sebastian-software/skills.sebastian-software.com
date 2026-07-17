@@ -99,16 +99,21 @@ Use LinkedIn for:
 
 Recommended LinkedIn structure:
 
-1. **Headline** - combine role, specialization, and buyer-relevant outcomes. Avoid only listing a job title.
-2. **About** - one or two short paragraphs, optionally with bullets. State what the consultant helps with, for whom, and what proof exists.
-3. **Featured** - prioritize one or two high-value proof or conversion paths for
+1. **Photo and identity** - use a current, recognizable, appropriately framed
+   image that fits the professional relationship the profile is meant to
+   establish.
+2. **Banner or visual header** - reinforce positioning or credible proof without
+   repeating the headline, crowding the space, or relying on slogans.
+3. **Headline** - combine role, specialization, and buyer-relevant outcomes. Avoid only listing a job title.
+4. **About** - one or two short paragraphs, optionally with bullets. State what the consultant helps with, for whom, and what proof exists.
+5. **Featured** - prioritize one or two high-value proof or conversion paths for
    the intended buyer. Add another item only for a deliberate campaign; keep
    supporting case studies, articles, talks, PDFs, or project writeups
    discoverable without turning Featured into a link directory.
-4. **Experience** - treat current independent consulting as the container role. Add selected project evidence inside it rather than duplicating every CV entry.
-5. **Skills** - prioritize searchable, current skills that reinforce the positioning.
-6. **Recommendations** - request targeted recommendations from clients or senior collaborators that prove trust, delivery, and advisory quality.
-7. **Activity** - post selectively when there is a real perspective, learning, case pattern, or artifact to share.
+6. **Experience** - treat current independent consulting as the container role. Add selected project evidence inside it rather than duplicating every CV entry.
+7. **Skills** - prioritize searchable, current skills that reinforce the positioning.
+8. **Recommendations** - request targeted recommendations from clients or senior collaborators that prove trust, delivery, and advisory quality.
+9. **Activity** - post selectively when there is a real perspective, learning, case pattern, or artifact to share.
 
 Do not copy the full PDF profile into LinkedIn. LinkedIn should be more human, more searchable, and more connected to proof and activity. A PDF or website can be denser and more structured.
 
