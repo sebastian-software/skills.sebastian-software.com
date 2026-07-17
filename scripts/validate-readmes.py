@@ -15,6 +15,7 @@ REPOSITORY_ROOT = Path(__file__).resolve().parent.parent
 SKILLS_ROOT = REPOSITORY_ROOT / "skills"
 OSS_URL = "https://oss.sebastian-software.com/"
 CONSULTING_URL = "https://sebastian-consulting.com/en"
+LICENSE_NOTICE = "MIT — see the collection [LICENSE](../../LICENSE)."
 MARKDOWN_LINK = re.compile(r"\[[^\]]*\]\(([^)]+)\)")
 MARKDOWN_HEADING = re.compile(r"^#{1,6}\s+(.+?)\s*$")
 MARKDOWN_FENCE = re.compile(r"^\s{0,3}(`{3,}|~{3,})(.*)$")
@@ -160,6 +161,32 @@ def validate_skill_metadata(skill_directory: Path, errors: list[str]) -> None:
         )
 
 
+def required_readme_fragments(name: str) -> dict[str, str]:
+    """Return the public contract every independently installable skill exposes."""
+    return {
+        "collection backlink": "../../README.md",
+        "agent interface": "[SKILL.md](SKILL.md)",
+        "skills CLI install": f"--skill {name}",
+        "DALO setup guide": "../../docs/dalo.md",
+        "DALO initialization": "dalo init",
+        "DALO target link": "dalo target link codex",
+        "DALO selection": f"source select sebastian {name}",
+        "DALO approval": f"approve skill sebastian:{name}",
+        "Sebastian Software OSS link": OSS_URL,
+        "Sebastian Software consulting link": CONSULTING_URL,
+        "MIT license notice": LICENSE_NOTICE,
+    }
+
+
+def validate_required_readme_fragments(
+    name: str, text: str, errors: list[str]
+) -> None:
+    """Validate the human-facing contract for one skill README."""
+    for label, fragment in required_readme_fragments(name).items():
+        if fragment not in text:
+            errors.append(f"skills/{name}/README.md: missing {label}")
+
+
 def main() -> int:
     errors: list[str] = []
     root_readme = REPOSITORY_ROOT / "README.md"
@@ -181,21 +208,7 @@ def main() -> int:
         text = readme.read_text(encoding="utf-8")
         validate_evals(skill_directory, errors)
         validate_skill_metadata(skill_directory, errors)
-        required_fragments = {
-            "collection backlink": "../../README.md",
-            "agent interface": "[SKILL.md](SKILL.md)",
-            "skills CLI install": f"--skill {name}",
-            "DALO setup guide": "../../docs/dalo.md",
-            "DALO initialization": "dalo init",
-            "DALO target link": "dalo target link codex",
-            "DALO selection": f"source select sebastian {name}",
-            "DALO approval": f"approve skill sebastian:{name}",
-            "Sebastian Software OSS link": OSS_URL,
-            "Sebastian Software consulting link": CONSULTING_URL,
-        }
-        for label, fragment in required_fragments.items():
-            if fragment not in text:
-                errors.append(f"skills/{name}/README.md: missing {label}")
+        validate_required_readme_fragments(name, text, errors)
 
         if f"skills/{name}/" not in root_text:
             errors.append(f"README.md: skill {name} is not linked")

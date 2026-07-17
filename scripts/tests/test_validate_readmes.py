@@ -192,5 +192,31 @@ class SkillMetadataValidationTests(unittest.TestCase):
         )
 
 
+class SkillReadmeRequirementsTests(unittest.TestCase):
+    def test_accepts_all_required_fragments(self) -> None:
+        text = "\n".join(VALIDATOR.required_readme_fragments("example").values())
+        errors: list[str] = []
+
+        VALIDATOR.validate_required_readme_fragments("example", text, errors)
+
+        self.assertEqual(errors, [])
+
+    def test_requires_the_portable_mit_license_notice(self) -> None:
+        fragments = VALIDATOR.required_readme_fragments("example")
+        text = "\n".join(
+            fragment
+            for label, fragment in fragments.items()
+            if label != "MIT license notice"
+        )
+        errors: list[str] = []
+
+        VALIDATOR.validate_required_readme_fragments("example", text, errors)
+
+        self.assertEqual(
+            errors,
+            ["skills/example/README.md: missing MIT license notice"],
+        )
+
+
 if __name__ == "__main__":
     unittest.main()
