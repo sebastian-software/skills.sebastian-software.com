@@ -17,6 +17,8 @@ marketing, security, operational, and communication choices.
 - proposed or accepted ADRs that follow the repository's convention
 - clear context, decision drivers, considered options, and consequences
 - supersession that preserves accepted history
+- an opt-in living-record lifecycle for repositories where one mutable file is
+  intentionally the current decision
 - reviews for stale rationale or implementation drift
 - decision indexes and a minimal default convention when none exists
 - explicit review triggers for choices that may need to change later
@@ -38,6 +40,9 @@ Review our accepted ADRs against the current code and identify meaningful
 decision drift.
 
 Supersede this branding decision without rewriting the historical record.
+
+Update our living project-setup ADR in place, preserving its localized status
+vocabulary and its intentionally owned configuration table.
 
 Decide whether this local refactor deserves an ADR or should remain in the pull
 request explanation.
@@ -76,10 +81,11 @@ dalo sync
 
 ## Scope
 
-An ADR is not a task log, implementation plan, audit finding, changelog, or home
-for exact configuration values. The skill preserves established conventions and
-accepted history instead of silently rewriting old decisions to match current
-code.
+An ADR is not a task log, implementation plan, audit finding, or changelog.
+Exact configuration values stay in their owning artifacts unless the repository
+explicitly declares a narrowly scoped living setup record as their source of
+truth. The skill preserves established conventions and keeps immutable records
+as the conservative default instead of silently rewriting old decisions.
 
 ## About Sebastian Software
 

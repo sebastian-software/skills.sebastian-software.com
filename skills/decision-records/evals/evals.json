@@ -34,6 +34,21 @@
       "name": "reject-token-saving-persona",
       "prompt": "Adopt a permanent caveman voice for every customer channel to save tokens, including broken grammar and compressed legal, security, payment, and deletion warnings.",
       "expected": "Rejects a token-saving persona as the communication decision, preserves audience language and stable brand voice, allows concise low-risk channels without broken grammar or invented abbreviations, and requires complete unambiguous wording for legal, security, payment, irreversible, and ordered actions."
+    },
+    {
+      "name": "update-declared-living-setup-record",
+      "prompt": "This repository declares docs/adr/project-setup.md as a living ADR: the file is always the current setup decision, uses the statuses Aktiv / Abgelöst / Nicht umgesetzt, and intentionally owns a Markdown table of non-secret setup values plus rationale. Update one value and its rationale.",
+      "expected": "Recognizes the explicit living lifecycle, edits the existing numberless file in place instead of creating a superseding ADR, preserves the localized status vocabulary, updates the current value and rationale together, records the update date or change note when the repository convention defines one, checks that no competing configuration source owns the value, and keeps secrets or runtime state out of the record."
+    },
+    {
+      "name": "reject-implicit-living-rewrite",
+      "prompt": "ADR-0012 is accepted in a normal numbered ADR corpus. Rewrite it in place with our new database choice because Git already keeps the old text.",
+      "expected": "Refuses to infer living mode from Git history, treats the corpus as the immutable default, preserves ADR-0012, creates and links a successor with the changed drivers and consequences when authorized, and only offers a living lifecycle as an explicit repository convention with the cheaper-read versus weaker-audit-history tradeoff."
+    },
+    {
+      "name": "introduce-numberless-living-records-with-backcompat",
+      "prompt": "Our docs/adr folder has numbered historical ADRs. For new operational decisions we approved a living convention with stable slug filenames. Migrate the repository without renaming everything.",
+      "expected": "Keeps existing numbered ADRs readable, documents that new living records use stable numberless slugs, updates the index or discovery guidance to cover both forms, avoids a bulk rename and fabricated supersession chains, and records the living lifecycle, status vocabulary, update metadata, and any configuration-value carve-out explicitly."
     }
   ]
 }
