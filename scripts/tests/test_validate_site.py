@@ -61,5 +61,32 @@ class JsonLdInventoryValidationTests(unittest.TestCase):
         self.assertEqual(failures, [])
 
 
+class SitemapLastmodValidationTests(unittest.TestCase):
+    def test_matching_lastmod_passes(self) -> None:
+        failures: list[str] = []
+
+        VALIDATOR.validate_sitemap_lastmod(
+            "<lastmod>2026-07-17</lastmod>",
+            "2026-07-17",
+            failures,
+        )
+
+        self.assertEqual(failures, [])
+
+    def test_stale_lastmod_reports_latest_site_date(self) -> None:
+        failures: list[str] = []
+
+        VALIDATOR.validate_sitemap_lastmod(
+            "<lastmod>2026-07-16</lastmod>",
+            "2026-07-17",
+            failures,
+        )
+
+        self.assertEqual(
+            failures,
+            ["sitemap lastmod must match the latest site change: 2026-07-17"],
+        )
+
+
 if __name__ == "__main__":
     unittest.main()

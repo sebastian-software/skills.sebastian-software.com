@@ -6,6 +6,7 @@ from __future__ import annotations
 import json
 import re
 import struct
+import subprocess
 from datetime import date
 from html.parser import HTMLParser
 from pathlib import Path
@@ -144,7 +145,8 @@ def proof_row_values(html: str) -> list[int]:
 
 
 def png_dimensions(path: Path) -> tuple[int, int] | None:
-    header = path.read_bytes()[:24]
+    with path.open("rb") as file:
+        header = file.read(24)
     if len(header) != 24 or header[:8] != b"\x89PNG\r\n\x1a\n":
         return None
     return struct.unpack(">II", header[16:24])
@@ -163,6 +165,56 @@ def ico_dimensions(path: Path) -> set[tuple[int, int]]:
             return set()
         dimensions.add((entry[0] or 256, entry[1] or 256))
     return dimensions
+
+
+def expected_site_lastmod() -> str | None:
+    status = subprocess.run(
+        ["git", "status", "--porcelain", "--", "site"],
+        cwd=ROOT,
+        check=False,
+        capture_output=True,
+        text=True,
+    )
+    if status.returncode != 0:
+        return None
+    if status.stdout.strip():
+        return date.today().isoformat()
+
+    latest_commit = subprocess.run(
+        ["git", "log", "-1", "--format=%cs", "--", "site"],
+        cwd=ROOT,
+        check=False,
+        capture_output=True,
+        text=True,
+    )
+    if latest_commit.returncode != 0:
+        return None
+    return latest_commit.stdout.strip() or None
+
+
+def validate_sitemap_lastmod(
+    sitemap: str,
+    expected_lastmod: str | None,
+    failures: list[str],
+) -> None:
+    match = re.search(r"<lastmod>(\d{4}-\d{2}-\d{2})</lastmod>", sitemap)
+    require(match is not None, "sitemap must include an ISO lastmod date", failures)
+    if match is None:
+        return
+
+    lastmod = match.group(1)
+    try:
+        date.fromisoformat(lastmod)
+    except ValueError:
+        failures.append("sitemap lastmod must be a valid calendar date")
+        return
+
+    if expected_lastmod is not None:
+        require(
+            lastmod == expected_lastmod,
+            f"sitemap lastmod must match the latest site change: {expected_lastmod}",
+            failures,
+        )
 
 
 def validate_json_ld_inventory(
@@ -324,6 +376,17 @@ def main() -> int:
         failures,
     )
     require(
+        parser.meta_names.get("twitter:title") == parser.meta_properties.get("og:title"),
+        "Twitter title must match the Open Graph title",
+        failures,
+    )
+    require(
+        parser.meta_names.get("twitter:description")
+        == parser.meta_properties.get("og:description"),
+        "Twitter description must match the Open Graph description",
+        failures,
+    )
+    require(
         parser.meta_names.get("twitter:image") == EXPECTED_OG_IMAGE_URL,
         "Twitter image must match the Open Graph image",
         failures,
@@ -445,13 +508,7 @@ def main() -> int:
         "sitemap must reference the canonical URL",
         failures,
     )
-    lastmod_match = re.search(r"<lastmod>(\d{4}-\d{2}-\d{2})</lastmod>", sitemap)
-    require(lastmod_match is not None, "sitemap must include an ISO lastmod date", failures)
-    if lastmod_match is not None:
-        try:
-            date.fromisoformat(lastmod_match.group(1))
-        except ValueError:
-            failures.append("sitemap lastmod must be a valid calendar date")
+    validate_sitemap_lastmod(sitemap, expected_site_lastmod(), failures)
 
     if failures:
         for failure in failures:
