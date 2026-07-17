@@ -3,14 +3,9 @@ name: pr-review
 description: >-
   Review and maintain GitHub pull requests end to end: inspect assigned or
   previously reviewed PRs, approve or request changes, handle author feedback,
-  fix valid findings, recover CI, and keep branches current. Use when the user
-  asks to review PRs, catch up on PR work, handle feedback, maintain their own
-  PRs, names a PR number, or asks for a dry run or preview. Work in isolated git
-  worktrees, never start a dev server, post natural human GitHub replies, and
-  finish with a short German status summary. Keep reviews warm, specific, and
-  impact-led: praise what works, never block on taste or nits, and stay firm on
-  real security, privacy, data, billing, reliability, accessibility, or product
-  risk. Prefer this skill over ad-hoc `gh` commands for PR review or upkeep.
+  fix valid findings, recover CI, and keep branches current. Use when a user
+  asks to review PRs, catch up on PR work, handle review feedback, maintain
+  their own PRs, names a PR number, or asks for a dry run or preview.
 ---
 
 # PR Review
@@ -90,8 +85,9 @@ unless the user names specific PRs.
    relevant PRs (Mode A and Mode B sets) with [GitHub recipes](references/gh-recipes.md).
 3. The writing voice depends on the local `metro-english` skill and `humanizer`
    from the separately managed DALO `marketingskills` catalog. Use them for any
-   non-trivial prose you post (see "Voice"). If they're unavailable, fall back
-   to the inline voice rules here.
+   non-trivial prose you post when they fit the repository's established
+   language and voice (see "Voice"). If they're unavailable or do not fit,
+   fall back to the inline voice rules here.
 
 For every concrete `gh`/`git` command — PR discovery, building the per-PR
 picture, posting inline reviews, the worktree flow, rebasing, CI recovery —
@@ -285,9 +281,10 @@ PR's scope, and you can do it without further input, **do it**.
 Sound like a real person on the team wrote it quickly but carefully. Lean on the
 `metro-english` skill (it has presets for PR review comments, issue comments, and
 async updates) and `humanizer` from the separately managed DALO
-`marketingskills` catalog (to strip AI tells). The project language is US English,
-Silicon Valley team register — a faint German directness is welcome in *style*,
-never as language errors.
+`marketingskills` catalog (to strip AI tells) when they match the repository.
+Follow the repository's established language and communication conventions.
+When none exist, use concise professional English for GitHub and match the
+user's language in the private status summary.
 
 Core rules:
 
@@ -352,11 +349,11 @@ You usually review by reading. When you do need to see behavior:
   (lint, typecheck, unit tests). Don't expect everything to pass locally — treat
   green as a bonus signal, not a gate.
 
-## Final summary (to the user, in German)
+## Final summary (to the user)
 
-Close every run with a compact German summary — the way a well-organized
-colleague briefs their boss in passing. Lead with status, sorted by what matters.
-Keep it short and spoken, not a report.
+Close every run with a compact summary in the user's language unless they ask
+for another language. Lead with status, sorted by what matters. Keep it short
+and spoken, not a report.
 
 Cover, roughly:
 - what you approved / what's merge-ready,
@@ -365,7 +362,8 @@ Cover, roughly:
 - anything you're escalating (architecture call, author conflict) and the
   decision you need from them.
 
-Write this part in German. Everything posted to GitHub stays in English.
+Keep GitHub communication in the repository's established language. The private
+summary may use the user's language without changing the public PR conversation.
 
 ## Hard limits (safety rails)
 

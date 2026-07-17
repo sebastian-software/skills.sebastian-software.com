@@ -151,7 +151,10 @@ Score each project qualitatively across these dimensions:
 
 Promote projects that score strongly on two or more dimensions. A project does not need to be recent to be a signature project if it carries strong brand, industry, or complexity signal.
 
-For this user's known examples, do not automatically bury companies such as Heidelberg Materials, Otto Group/Witt, Deutsche Bank, Deutsche Telekom, or 1&1 in "additional projects" solely because they are older. Evaluate whether they demonstrate enterprise trust, regulated environments, retail/ecommerce breadth, telecommunications scale, or strategic technology work.
+Do not automatically bury an older recognizable client in "additional
+projects" solely because of chronology. Evaluate whether the supplied project
+demonstrates trust, regulated work, industry breadth, scale, or strategic
+technology responsibility, and confirm that naming the client is permitted.
 
 ## Recommended Structure
 

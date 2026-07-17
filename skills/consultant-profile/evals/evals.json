@@ -2,7 +2,7 @@
   "evals": [
     {
       "name": "audit-prominence-over-chronology",
-      "prompt": "Audit my consultant profile. It is currently a reverse-chronological project list, and I worry that older enterprise clients like Deutsche Bank and Deutsche Telekom are buried under newer but less relevant projects.",
+      "prompt": "Audit my consultant profile. It is currently a reverse-chronological project list, and I worry that older recognizable clients in regulated banking and telecommunications are buried under newer but less relevant projects.",
       "expected": "A profile thesis, prominence map, proposed structure, rewrite samples, and factual gaps. The answer should recommend selected highlights based on signal strength rather than chronology alone."
     },
     {
@@ -27,7 +27,7 @@
     },
     {
       "name": "strengthen-tone-without-invention",
-      "prompt": "This profile is factually right but feels too flat. Make it more positive in the Dan Berlin sense: the strengths should actually read as strengths, but do not invent anything or turn it into hollow US marketing copy.",
+      "prompt": "This profile is factually right but feels too flat. Make the strengths actually read as strengths, but do not invent anything or turn it into hollow marketing copy.",
       "expected": "A language strategy plus rewrites that use positive-but-earned framing, proof-backed claims, DACH and English tone variants, and a checklist of unsupported claims to avoid."
     },
     {
@@ -54,6 +54,11 @@
       "name": "write-from-buyer-interviewer-perspective",
       "prompt": "My coach says people buy from people. I do not want anonymous consultant profiles anymore. Rewrite my profile direction from the perspective of an interviewer who wants to understand what kind of person I am, what I enjoy, and what I want to achieve, while still keeping it professional and evidence-based.",
       "expected": "A buyer/interviewer perspective pass that treats personality as part of trust and fit, adds a concise human-fit or motivation section, keeps proof and capability prominent, and avoids drifting into private biography or unsupported personal branding."
+    },
+    {
+      "name": "do-not-inject-maintainer-client-history",
+      "prompt": "Rewrite my independent consultant profile from the project evidence I supplied. I have worked with regional healthcare and logistics companies, but no globally recognizable enterprise brands.",
+      "expected": "Uses only the supplied healthcare and logistics evidence, does not introduce example clients from the skill author or another consultant, and treats unnamed-client confidentiality as a normal constraint rather than a credibility gap."
     }
   ]
 }
