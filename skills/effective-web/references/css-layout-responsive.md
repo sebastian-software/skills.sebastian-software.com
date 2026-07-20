@@ -107,6 +107,46 @@ Sources: [Chrome selector-cost guidance](https://developer.chrome.com/docs/perfo
 - **Anchor positioning:** best for tooltips, callouts, popovers, onboarding highlights, and floating UI that should be tied to a trigger without custom JS geometry; keep it support-gated for critical behavior.
 - **Multi-column:** best for continuous editorial content, not interactive card grids; verify fragmentation, reading order, and support before using newer wrapping controls.
 
+## Debug Flex and Grid From Their Defaults
+
+Diagnose the algorithm before adding a breakpoint or hiding overflow:
+
+1. Identify the formatting context and the item's containing block.
+2. For Flexbox, start from `flex: 0 1 auto`, no wrapping, cross-axis stretch,
+   and the often content-based automatic minimum size. Determine whether the
+   container has positive or negative free space and which items are allowed to
+   grow, shrink, wrap, or remain fixed.
+3. For Grid, inspect explicit and implicit tracks plus each track's minimum.
+   Remember that `1fr` keeps an automatic minimum; use `minmax(0, 1fr)` only
+   when that track must yield below its content-based minimum and the content
+   has an intentional wrapping or overflow policy.
+4. Use fixed tracks only when the content contract has a fixed capacity.
+   Otherwise prefer intrinsic tracks, bounded `minmax()`, wrapping, or a
+   meaningful component mode.
+5. Retest with long localized text, unbreakable identifiers, optional media,
+   one and many items, and the exact width where free space changes sign.
+
+Do not use `overflow: hidden` as proof that the layout is fixed. It can conceal
+the algorithmic failure, clipped focus, and unreachable content.
+
+## Container Query Failure Modes
+
+- Put size containment on a stable outer region and query its descendants. An
+  element cannot select itself from its own size query; add or reuse an owning
+  wrapper instead of duplicating the viewport breakpoint.
+- Check whether the proposed container depended on its contents for inline
+  sizing. Inline-size containment removes that contribution and can collapse or
+  distort a shrink-to-fit region. Move containment outward or give the owning
+  region an intentional size contract.
+- Audit the nearest eligible container for every query and container unit,
+  especially inside nested components. Do not assume a distant named container
+  retargets container units.
+- Choose thresholds in a resizable component fixture with representative
+  content. Resize until the relationship becomes cramped or changes meaning,
+  then name that component mode and verify both sides continuously.
+- Erase the query during review. The baseline must retain semantic content,
+  source order, core actions, and a usable small-container composition.
+
 ## Percentage-Size Diagnostic
 
 1. Identify the element's layout algorithm and containing block.

@@ -384,6 +384,26 @@
       "name": "use-surprise-without-breaking-trust",
       "prompt": "A finance app wants more delight. The proposed redesign replaces the familiar transfer action with a gesture, reveals fees only after submission, fires confetti for every payment, and randomizes success messages so returning users never know what to expect. Review it.",
       "expected": "Treats surprise as an attention-consuming prediction mismatch rather than automatic delight; keeps action identity, fees, consequences, processing, result, and recovery predictable; preserves a conventional transfer path; limits optional novelty to low-risk expression after the state is understood; and evaluates magnitude, repetition, context, accessibility, and audience preference instead of escalating novelty for engagement."
+    },
+    {
+      "name": "prototype-outer-grid-before-component-detail",
+      "prompt": "Rebuild a news landing page from one desktop frame and one mobile frame. The team starts by perfecting card internals, gives every section fixed widths, and plans to add breakpoints whenever the composition stops matching either screenshot. Optional sections, article counts, and image ratios vary in production. Define a better implementation workflow.",
+      "expected": "Outlines meaningful boxes and separates the outer page and section grids from component internals; defines each layout zone or slot with content, sizing, placement, order, and overflow contracts; builds a quick semantic structural prototype before decorative detail; assigns viewport, container, content-presence, and application conditions to their owners; and verifies absent, minimum, excessive, localized, and ratio-varying content across continuous intermediate widths."
+    },
+    {
+      "name": "keep-card-markup-stable-across-layout-slots",
+      "prompt": "The same article appears as a featured hero, a grid tile, and a compact rail item. The proposal creates three card components with reordered markup and separate viewport breakpoints, even though all three represent the same article and have the same actions. Redesign the composition.",
+      "expected": "Keeps one semantic article component and stable source and focus order; lets each host layout slot own external placement; lets the card handle its internal available space intrinsically or with a local container query; models optional media and metadata without empty wrappers; keeps purely positional featured or compact intent on the host through a semantic context hook instead of a component prop; reserves explicit component variants for real content, interaction, or product-meaning changes; and tests the component in each host with absent media, long text, multiple ratios, zoom, and query erasure."
+    },
+    {
+      "name": "diagnose-flex-and-grid-free-space",
+      "prompt": "A toolbar label overflows beside two icons, while a two-column content grid clips a long identifier even though the main track is 1fr. The proposed fix adds a viewport breakpoint and overflow:hidden to both. Diagnose and repair the layouts.",
+      "expected": "Starts from each formatting algorithm instead of the viewport; identifies Flexbox wrapping, shrink, automatic minimum size, and negative free-space ownership for the toolbar; inspects Grid's automatic track minimum and uses minmax(0, 1fr) only with an intentional wrapping or overflow policy for the content track; keeps fixed affordances from shrinking without freezing text; rejects clipping as the fix; and tests localized labels, unbreakable identifiers, focus, zoom, and the exact width where free space changes sign."
+    },
+    {
+      "name": "repair-container-query-containment",
+      "prompt": "A shrink-to-fit breadcrumb sets container-type:inline-size on itself and uses @container to restyle that same element. It collapses in one sidebar, so the team wants to copy the old media query and add a fixed width. Explain the failure and design a reusable solution.",
+      "expected": "Explains that a size container queries descendants rather than itself and that inline-size containment removes the content contribution the shrink-to-fit breadcrumb relied on; moves containment to a stable owning region with an intentional size contract; queries the breadcrumb as a descendant; keeps a usable no-query baseline; verifies the nearest eligible container in nested hosts; and chooses the threshold in a resizable fixture with realistic labels rather than copying a viewport breakpoint."
     }
   ]
 }
