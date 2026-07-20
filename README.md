@@ -181,6 +181,8 @@ without filling the context window with unrelated material.
 The hand-maintained catalog website lives in `site/`. Adding a skill also means
 adding its site card and inventory metadata, then running both repository
 validators documented in [`docs/authoring-skills.md`](docs/authoring-skills.md).
+Durable collection-level choices are recorded in the
+[ADR index](docs/adr/README.md).
 
 The repository contains the skills themselves: no installer, vendored
 third-party snapshots, generated distribution tree, or dependency lockfiles.
