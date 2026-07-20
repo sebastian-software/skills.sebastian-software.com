@@ -8,6 +8,7 @@ component CSS.
 
 - [Operating Model](#operating-model)
 - [Choose the Smallest Primitive](#choose-the-smallest-primitive)
+- [Outer Grids and Layout Slots](#outer-grids-and-layout-slots)
 - [Core Implementations](#core-implementations)
 - [Composition and API Rules](#composition-and-api-rules)
 - [Container Queries](#container-queries)
@@ -61,6 +62,38 @@ component CSS.
 Do not force a named primitive when normal document flow or one declaration is
 already sufficient. Likewise, split a primitive when options give it multiple
 unrelated jobs or consumers require chains of undo rules.
+
+## Outer Grids and Layout Slots
+
+Build the outer grid before polishing inner components. Outline the page or
+section's meaningful boxes, preserve their semantic source order, and make a
+small structural prototype that proves the main tracks, wrapping, reordering,
+and overlap at continuous widths.
+
+Treat a layout slot as a structural region, not necessarily a framework slot or
+Web Component `<slot>`. Give each region a small contract:
+
+- required and optional content;
+- minimum, preferred, and maximum useful size;
+- placement and mode conditions;
+- source, reading, and focus order;
+- overflow, absence, and excessive-content behavior.
+
+Keep reusable component markup stable when the same object appears in a hero,
+rail, grid, or compact list. Let the host Grid, Flex, or Flow composition own
+external placement. Let the component respond internally to its available
+space with intrinsic behavior and, when necessary, a container query. When
+presentation intent belongs to the host but cannot be inferred from space or
+content, expose it on that host through a semantic context hook such as an
+inherited custom property or scoped data attribute. Do not pass `featured`,
+`compact`, or `hero` props merely to mirror placement. Expose component state
+only when the content, interaction, or product meaning actually changes.
+
+Test the structural prototype with representative semantics before adding
+decorative details. Include absent optional content, one and many items, long
+labels, different media ratios, and a deliberately awkward intermediate width.
+If the skeleton already needs repeated resets or DOM duplication, revise the
+slot contract or source structure before building the finished component.
 
 ## Core Implementations
 
@@ -324,21 +357,25 @@ Establish the smallest useful query boundary:
 
 ## Verification
 
-1. Resize the owning container continuously, including just above and below any
-   threshold; do not test only named device widths.
-2. Test zero, one, expected, and excessive child counts plus short and long
-   content. Include dynamic insertion and removal when the UI supports it.
-3. Test browser zoom and larger default text. Confirm readable measure and that
-   no fixed dimension clips content.
-4. Test translated text, RTL, and the supported writing modes. Confirm logical
+1. Resize the owning container continuously, including exactly at and one pixel
+   to either side of each threshold; do not test only named device widths.
+2. Test absent, minimum, expected, and excessive content plus short, long, and
+   unbreakable values. Include dynamic insertion and removal when the UI
+   supports it.
+3. Remove optional media and vary its aspect ratio, intrinsic size, crop, and
+   loading state without changing the component's meaning or reachability.
+4. Test narrow, wide, short, and tall containers plus browser zoom and larger
+   default text. Confirm readable measure and that no fixed dimension clips
+   content.
+5. Test translated text, RTL, and the supported writing modes. Confirm logical
    spacing, ordering, scrolling, and centering.
-5. Test keyboard focus, visible focus, source order, selection, hash targets,
+6. Test keyboard focus, visible focus, source order, selection, hash targets,
    and scroll reachability wherever overlap or overflow is involved.
-6. Test forced colors and missing images/media. Confirm Box boundaries, Icon
+7. Test forced colors and missing images/media. Confirm Box boundaries, Icon
    meaning, and Frame fallbacks remain understandable.
-7. Remove JavaScript and optional support-gated enhancements. The intrinsic core
+8. Remove JavaScript and optional support-gated enhancements. The intrinsic core
    must still expose all content and core actions.
-8. Inspect the API after real use. Split a primitive that accumulates unrelated
+9. Inspect the API after real use. Split a primitive that accumulates unrelated
    modes, consumer-specific selectors, or repeated undo rules.
 
 This reference selectively distills *Every Layout*, version 3.1.7.14, by
