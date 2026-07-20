@@ -39,6 +39,21 @@
       "name": "follow-repository-and-user-language",
       "prompt": "Review a pull request in a repository whose contributing guide and existing reviews are in Spanish. I am also speaking Spanish to you. Write the public review and the private final status summary.",
       "expected": "Uses the repository's established Spanish for the public GitHub review and the user's Spanish for the private summary, without forcing German or an unrelated US-English house style."
+    },
+    {
+      "name": "handoff-preserves-no-history-rewrite",
+      "prompt": "Use the caller-owned analysis handoff for item REV-17. Supplied context: a reviewer correctly identifies that the migration omits the rollback guard, which is required by the linked issue. I retain approval and delivery. Allowed action: analyze supplied context. Prohibited actions: Git or forge mutations, rebase, force push, and all history rewriting. Delivery requirement: if accepted, I will create one new commit without amending existing commits. Return the handoff result.",
+      "expected": "Returns exactly one valid JSON object using schema pr-review-handoff/v1, preserves REV-17, classifies it as valid_in_scope with a caller-owned recommendation, confirms the no-history-rewrite and new-commit constraints, and performs or proposes no rebase, amend, force push, commit, push, approval, or delivery action itself."
+    },
+    {
+      "name": "handoff-caller-retains-approval-and-delivery",
+      "prompt": "Analyze supplied review item BOT-4 in caller-owned handoff mode. The bot notes a reachable null dereference in changed code, and the supplied function contract confirms null is possible. The fix belongs to this change. I own approval, implementation, replies, commits, pushes, and thread resolution; you may only analyze and recommend. Return the handoff result.",
+      "expected": "Returns exactly one valid JSON object, preserves BOT-4, records the caller as approval and delivery owner, classifies the item as valid_in_scope, recommends caller_fix with an evidence-backed rationale and optional proposed reply, and does not inspect live state or claim to implement, approve, reply, commit, push, or resolve anything."
+    },
+    {
+      "name": "handoff-incomplete-context-requests-evidence",
+      "prompt": "Use caller-owned handoff mode for item SEC-9. Supplied review text says 'this bypasses tenant authorization', but no changed code, surrounding code, authorization policy, linked intent, or test result is provided. I retain all action and delivery authority. Return the handoff result without looking anything up.",
+      "expected": "Returns exactly one valid JSON object, preserves SEC-9, uses needs_evidence rather than valid or unsupported, recommends caller_request_evidence, lists the specific missing authorization and code evidence, reports missing global scope input where applicable, invents no repository facts or proposed fix, and performs no repository, provider, CI, thread, or delivery action."
     }
   ]
 }
