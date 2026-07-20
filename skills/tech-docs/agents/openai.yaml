@@ -1,0 +1,4 @@
+interface:
+  display_name: "Tech Docs"
+  short_description: "Design and verify software documentation"
+  default_prompt: "Use $tech-docs to design, write, and verify documentation that fits this repository and its readers."
