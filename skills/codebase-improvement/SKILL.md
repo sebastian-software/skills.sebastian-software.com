@@ -90,6 +90,7 @@ only when multiple plans need ordering.
   `smart-dependency-updater`.
 - Route browser-facing design and frontend implementation detail to
   `effective-web`.
+- Route selected technical-documentation craft and verification to `tech-docs`.
 - Route durable technical, product, design, and communication choices to
   `decision-records`.
 - Route website legal and consent obligations to `web-legal-compliance`.
