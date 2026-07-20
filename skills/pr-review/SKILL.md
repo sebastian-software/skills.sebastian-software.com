@@ -119,33 +119,32 @@ CI, deployment, or thread state. Do not modify the working tree, commit, push,
 rebase, rewrite history, post or resolve feedback, recover CI, or deliver work.
 Caller constraints override every autonomous Mode B default.
 
-Return exactly one JSON object without Markdown or surrounding prose:
+Return exactly one JSON object without Markdown fences or surrounding prose. Use
+this unfenced shape and replace the example values with the caller's values:
 
-```json
-{
-  "schema_version": "pr-review-handoff/v1",
-  "mode": "caller_owned_analysis",
-  "caller_constraints": {
-    "authority_owner": "caller",
-    "approval_owner": "caller",
-    "delivery_owner": "caller",
-    "allowed_actions": ["analyze_supplied_context"],
-    "prohibited_actions": [],
-    "delivery_requirements": []
-  },
-  "missing_inputs": [],
-  "items": [
     {
-      "id": "preserve-the-caller-id",
-      "classification": "valid_in_scope",
-      "recommended_action": "caller_fix",
-      "rationale": "Evidence-backed reason",
-      "proposed_reply": null,
-      "missing_evidence": []
+      "schema_version": "pr-review-handoff/v1",
+      "mode": "caller_owned_analysis",
+      "caller_constraints": {
+        "authority_owner": "caller",
+        "approval_owner": "caller",
+        "delivery_owner": "caller",
+        "allowed_actions": ["analyze_supplied_context"],
+        "prohibited_actions": ["rebase", "force push"],
+        "delivery_requirements": ["one new commit if accepted"]
+      },
+      "missing_inputs": [],
+      "items": [
+        {
+          "id": "preserve-the-caller-id",
+          "classification": "valid_in_scope",
+          "recommended_action": "caller_fix",
+          "rationale": "Evidence-backed reason",
+          "proposed_reply": null,
+          "missing_evidence": []
+        }
+      ]
     }
-  ]
-}
-```
 
 Preserve every item ID exactly. Preserve supplied constraints without silently
 broadening authority; use `null` or an empty array for absent constraint values
@@ -172,6 +171,7 @@ caller decides whether and how to act on every recommendation.
 Triggered when the user asks for a dry run or preview — e.g. a `--dry-run`
 argument, "dry run", "trockenlauf", "just show me what you'd do", "don't post
 anything". If it's genuinely unclear whether they want it live, ask once.
+
 Unlike Mode C, dry-run resolves and reads the real repository and provider state,
 then previews the direct user actions this skill would otherwise perform.
 
