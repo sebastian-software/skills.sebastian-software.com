@@ -1,0 +1,29 @@
+{
+  "evals": [
+    {
+      "name": "document-cli-from-implemented-contract",
+      "prompt": "Document the new `acme cache warm` command. Inspect this repository's command implementation, generated help, configuration loader, and tests. Add the documentation in the established CLI guide and verify it.",
+      "expected": "Discovers the repository's existing documentation and validation conventions, derives arguments, flags, defaults, configuration precedence, output, exit behavior, and failure recovery from implementation and tests, adds a realistic copyable example, and runs the repository-native help, docs, link, or example checks without inventing unsupported behavior."
+    },
+    {
+      "name": "write-tsdoc-for-semantics-not-types",
+      "prompt": "Add TSDoc to a public TypeScript `fetchInvoice(id: string, signal?: AbortSignal): Promise<Invoice>` function. The implementation may reject with `InvoiceNotFoundError`, `InvoiceAccessError`, or an abort error. This repository uses API Extractor and already has a TSDoc style nearby.",
+      "expected": "Follows the nearby TSDoc convention, documents purpose, authorization and abort semantics, meaningful rejection behavior, and any non-obvious guarantees without redundantly restating the signature's types. It keeps parameter names synchronized and verifies the result with the repository's TypeScript and API documentation tooling."
+    },
+    {
+      "name": "write-rustdoc-with-tested-contract-sections",
+      "prompt": "Document a public Rust parser that returns `Result<Config, ParseError>`, panics only when an internal invariant documented in the implementation is violated, and has an existing happy-path test that can become a doc example. Follow this crate's conventions.",
+      "expected": "Writes a concise semantic summary, a useful executable example, an Errors section grounded in ParseError behavior, and a Panics section only for the demonstrated invariant. It uses the crate's rustdoc conventions and runs or identifies cargo doc and doctest verification rather than paraphrasing the type signature."
+    },
+    {
+      "name": "preserve-repository-docs-convention",
+      "prompt": "Improve onboarding documentation in a repository whose root README is intentionally a short German overview and whose contributor guides live under a German-language MkDocs site. A generic template suggests replacing the README with a long English installation manual.",
+      "expected": "Preserves the German language, short root README, MkDocs information architecture, terminology, navigation, and nearby heading conventions. It improves or adds the contributor task in the established guide location, links from the README only when useful, and rejects the generic English README rewrite unless repository evidence or the user explicitly changes the convention."
+    },
+    {
+      "name": "document-migration-with-real-recovery",
+      "prompt": "Write migration documentation for renaming a required configuration key. The code accepts both keys for one release, warns on the old key, and then removes it. There is no automatic rollback after the old key is removed. Use the repository's release-doc convention.",
+      "expected": "States affected users and versions, the compatibility window, exact before-and-after configuration, warning and removal behavior, checkpoints, validation, and the supported recovery path. It does not promise rollback after removal, invent dates, or create a new documentation hierarchy outside the existing release convention."
+    }
+  ]
+}

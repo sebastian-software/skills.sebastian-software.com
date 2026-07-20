@@ -7,7 +7,7 @@
 **Give your AI agent the practical judgment to take product and software work
 from an ambiguous brief to a review-ready result.**
 
-16 practice-built skills and 166 focused references for product decisions, web
+17 practice-built skills and 170 focused references for product decisions, web
 experiences, codebase improvement, delivery, go-to-market work, professional
 communication, and web compliance.
 
@@ -25,7 +25,7 @@ Install one skill to try the collection:
 npx skills add sebastian-software/skills.sebastian-software.com --skill effective-web
 ```
 
-Or install all 16 skills:
+Or install all 17 skills:
 
 ```sh
 npx skills add sebastian-software/skills.sebastian-software.com --all
@@ -73,6 +73,7 @@ treating every task as an isolated prompt.
 | Website or digital service | Jurisdiction-aware disclosure, privacy, and consent work product | [`web-legal-compliance`](skills/web-legal-compliance/) |
 | Repository uncertainty | Evidence-backed audit, executable plan, or focused improvement | [`codebase-improvement`](skills/codebase-improvement/) |
 | Architecture question | Evidence-led system direction, operability, and evolution path | [`software-architecture`](skills/software-architecture/), [`decision-records`](skills/decision-records/) |
+| Software interface or contributor workflow | Repository-native, verified technical documentation | [`tech-docs`](skills/tech-docs/) |
 | Aging or changing system | Researched dependency updates or a behavior-preserving codebase port | [`smart-dependency-updater`](skills/smart-dependency-updater/), [`port-codebases`](skills/port-codebases/) |
 | Pull request | Impact-led review, feedback resolution, CI recovery, and delivery follow-through | [`pr-review`](skills/pr-review/) |
 | Expertise or offer | Credible consultant positioning and B2B LinkedIn acquisition system | [`consultant-profile`](skills/consultant-profile/), [`linkedin-social-selling`](skills/linkedin-social-selling/) |
@@ -142,6 +143,7 @@ the external tools and credentials required to act on third-party systems.
 | [`pr-review`](skills/pr-review/) | Human, impact-led PR review, maintenance, feedback resolution, and CI recovery. |
 | [`smart-dependency-updater`](skills/smart-dependency-updater/) | Researched dependency-update portfolios with upstream context, local adaptation, validation, and PR delivery. |
 | [`software-architecture`](skills/software-architecture/) | Evidence-led system boundaries, operability, architecture tradeoffs, and evolutionary migration paths. |
+| [`tech-docs`](skills/tech-docs/) | Repository-native READMEs, guides, API and CLI references, migration notes, code documentation, examples, and verification. |
 
 ### Positioning, marketing, and communication
 
@@ -232,7 +234,7 @@ dalo doctor
 ```
 
 Unlike `source add-catalog`, `source add` treats this repository as a trusted
-team source, so all 16 first-party skills are active together. External
+team source, so all 17 first-party skills are active together. External
 repositories are configured separately as DALO catalogs; they are never copied
 or renamed here. See [docs/dalo.md](docs/dalo.md) for the complete setup and the
 curated external selection.
