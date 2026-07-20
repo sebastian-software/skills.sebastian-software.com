@@ -73,6 +73,8 @@ dalo sync
 
 - [Codebase Improvement](../codebase-improvement/README.md) audits and
   prioritizes repository-wide documentation opportunities.
+- [Decision Records](../decision-records/README.md) preserves durable accepted
+  choices before this skill documents their consequences.
 - [Effective Web](../effective-web/README.md) owns browser-interface copy and
   frontend implementation concerns.
 - [Locale Typography](../locale-typography/README.md) applies locale-specific

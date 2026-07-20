@@ -74,6 +74,8 @@ dalo sync
   dependency-update portfolio end to end.
 - [Port Codebases](../port-codebases/README.md) manages deliberate migrations
   across languages, runtimes, frameworks, platforms, or major APIs.
+- [Tech Docs](../tech-docs/README.md) handles selected technical-documentation
+  craft and verification after an audit prioritizes the gap.
 - [Decision Records](../decision-records/README.md) preserves durable choices;
   audit findings and delivery plans remain separate artifacts.
 - [Effective Web](../effective-web/README.md) handles frontend-specific design,

@@ -7,8 +7,8 @@ description: >-
   comments, and executable examples. Use when asked to create or improve
   technical docs, document a public interface or migration, align documentation
   with implementation, or validate docs against repository conventions. Do not
-  use for general marketing copy or repository-wide documentation audits when a
-  narrower owner applies.
+  use for general marketing copy; route repository-wide documentation audits
+  and prioritization to codebase-improvement.
 ---
 
 # Tech Docs
@@ -31,11 +31,11 @@ likely failures without inventing behavior or imposing a foreign docs system.
    - README, setup, task, conceptual, or contributor guide: read
      [Guides and READMEs](references/guides-and-readmes.md).
    - API, CLI, configuration, or migration documentation: read
-     [Interfaces and migrations](references/interfaces-and-migrations.md).
+     [Interfaces and Migrations](references/interfaces-and-migrations.md).
    - JSDoc, TSDoc, rustdoc, docstrings, or explanatory comments: read
-     [Code documentation](references/code-documentation.md).
+     [Code Documentation](references/code-documentation.md).
    - Any task with commands, code samples, generated references, links, or docs
-     tooling: read [Examples and verification](references/examples-and-verification.md).
+     tooling: read [Examples and Verification](references/examples-and-verification.md).
 4. Write at the closest stable source of truth. Update connected navigation,
    indexes, examples, and references only when the changed contract requires it.
    Link to an existing owner instead of duplicating material that will drift.
