@@ -3,9 +3,11 @@ name: pr-review
 description: >-
   Review and maintain GitHub pull requests end to end: inspect assigned or
   previously reviewed PRs, approve or request changes, handle author feedback,
-  fix valid findings, recover CI, and keep branches current. Use when a user
-  asks to review PRs, catch up on PR work, handle review feedback, maintain
-  their own PRs, names a PR number, or asks for a dry run or preview.
+  fix valid findings, recover CI, keep branches current, or classify
+  caller-supplied review context without taking action. Use when a user asks to
+  review PRs, catch up on PR work, handle review feedback, maintain their own
+  PRs, names a PR number, requests a dry run, or delegates review-item analysis
+  while retaining approval and delivery authority.
 ---
 
 # PR Review
@@ -16,13 +18,16 @@ matters, and pragmatic everywhere else. Help the author move forward with
 clarity and confidence. Do not manufacture friction to prove that a review
 happened.
 
-Two modes, often run together in one pass:
+Three workflows:
 
 - **Mode A — Reviewing others' PRs**: PRs assigned to you for review, or that you
   reviewed before. Confirm earlier feedback got addressed, judge the change,
   approve or request changes.
 - **Mode B — Maintaining your own PRs**: PRs you authored. Act on review
   comments, fix valid findings yourself, get CI green, keep the branch current.
+- **Mode C — Caller-owned analysis handoff**: Classify review items from context
+  supplied by another workflow. Return structured decisions without reading or
+  changing repository, provider, CI, or review state.
 
 ## Operating stance
 
@@ -77,7 +82,8 @@ this stance seem to conflict, lean on the stance.
 ## Scope and setup
 
 Work on the **current repository** only (the repo of the working directory),
-unless the user names specific PRs.
+unless the user names specific PRs. Skip this entire setup in Mode C; its caller
+has already resolved the context and retains all action authority.
 
 1. Confirm tooling: `gh auth status` and the current repo (`gh repo view --json
    nameWithOwner`). The active GitHub login is "you" for review attribution.
@@ -94,11 +100,80 @@ picture, posting inline reviews, the worktree flow, rebasing, CI recovery —
 read [GitHub recipes](references/gh-recipes.md). Keep that file open while you
 work.
 
+## Mode C — Caller-owned analysis handoff
+
+Use Mode C only when a caller explicitly supplies review context and asks for
+analysis while retaining approval, implementation, and delivery. It is
+provider-neutral: do not assume GitHub or any other forge.
+
+The caller supplies:
+
+- resolved repository or change context and the linked intent or scope;
+- review items with stable IDs and the available author, location, thread, and
+  surrounding-code evidence;
+- authority, approval, and delivery ownership;
+- allowed and prohibited actions plus delivery requirements.
+
+Analyze only that material. Do not discover or inspect repository, Git, forge,
+CI, deployment, or thread state. Do not modify the working tree, commit, push,
+rebase, rewrite history, post or resolve feedback, recover CI, or deliver work.
+Caller constraints override every autonomous Mode B default.
+
+Return exactly one JSON object without Markdown or surrounding prose:
+
+```json
+{
+  "schema_version": "pr-review-handoff/v1",
+  "mode": "caller_owned_analysis",
+  "caller_constraints": {
+    "authority_owner": "caller",
+    "approval_owner": "caller",
+    "delivery_owner": "caller",
+    "allowed_actions": ["analyze_supplied_context"],
+    "prohibited_actions": [],
+    "delivery_requirements": []
+  },
+  "missing_inputs": [],
+  "items": [
+    {
+      "id": "preserve-the-caller-id",
+      "classification": "valid_in_scope",
+      "recommended_action": "caller_fix",
+      "rationale": "Evidence-backed reason",
+      "proposed_reply": null,
+      "missing_evidence": []
+    }
+  ]
+}
+```
+
+Preserve every item ID exactly. Preserve supplied constraints without silently
+broadening authority; use `null` or an empty array for absent constraint values
+and name the gap in `missing_inputs`. Use only these classifications:
+`valid_in_scope`, `valid_out_of_scope`, `unsupported`,
+`question_or_information`, and `needs_evidence`. Use only these recommended
+actions: `caller_fix`, `caller_follow_up`, `caller_reply`, `caller_decline`,
+`caller_request_evidence`, and `no_action`.
+
+Match them consistently: `valid_in_scope` normally uses `caller_fix`;
+`valid_out_of_scope` uses `caller_follow_up` or `no_action`; `unsupported` uses
+`caller_decline` or `caller_reply`; `question_or_information` uses
+`caller_reply` or `no_action`; and `needs_evidence` uses
+`caller_request_evidence`.
+
+Use `unsupported` only when supplied evidence supports rejecting a finding,
+including a demonstrated misunderstanding of the code or intended behavior.
+When context is insufficient, use `needs_evidence`, list the exact missing proof
+in `missing_evidence`, and do not invent a decision, code fact, or reply. The
+caller decides whether and how to act on every recommendation.
+
 ## Dry-run mode (preview, don't apply)
 
 Triggered when the user asks for a dry run or preview — e.g. a `--dry-run`
 argument, "dry run", "trockenlauf", "just show me what you'd do", "don't post
 anything". If it's genuinely unclear whether they want it live, ask once.
+Unlike Mode C, dry-run resolves and reads the real repository and provider state,
+then previews the direct user actions this skill would otherwise perform.
 
 In dry-run, do all the reading, analysis, and judging **exactly** as normal —
 walk the same ladder, reach the same decisions — but take **no outward action**.

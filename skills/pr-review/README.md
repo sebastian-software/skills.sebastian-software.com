@@ -12,15 +12,25 @@ pull requests and maintaining their own. It combines branch-aware inspection,
 impact-led findings, human feedback, CI diagnosis, author follow-up, and
 delivery hygiene without manufacturing friction over taste or nits.
 
-## Two Operating Modes
+## Operating Modes
 
 - **Reviewing others:** understand the change, inspect earlier feedback, find
   consequential issues, and approve or request changes.
 - **Maintaining your own PRs:** act on valid review comments, fix the branch,
   recover CI, keep it current, and close the feedback loop.
+- **Caller-owned analysis:** classify review items from context supplied by
+  another workflow and return versioned JSON while that caller retains approval,
+  implementation, and delivery.
 
-The modes can run together when a review round reveals work the agent is
-authorized to implement.
+The autonomous modes can run together when a review round reveals work the agent
+is authorized to implement. Caller-owned analysis is deliberately read-only and
+provider-neutral, so orchestration systems can reuse the review judgment without
+adopting this skill's GitHub or delivery policies.
+
+Caller-owned analysis is not a dry run. A dry run reads the real repository and
+GitHub state, then previews the actions a direct user could apply. The handoff
+uses only supplied context, performs no discovery or mutations, and leaves every
+action with the caller.
 
 ## What Good Review Looks Like
 
@@ -43,6 +53,9 @@ Catch up on my open pull requests, fix valid review findings, and get the
 branches ready to merge.
 
 Run a dry review of this PR: show what you would post without changing GitHub.
+
+Classify these supplied review items as a caller-owned handoff. Return the
+versioned JSON contract only; I retain approval and delivery.
 
 Diagnose the failing checks on this PR and determine whether the branch caused
 them before making changes.
@@ -81,10 +94,11 @@ dalo sync
 
 ## Scope
 
-This skill is designed around GitHub pull requests and assumes the required
-repository and GitHub access exists. It does not turn stylistic preferences into
-blockers, overwrite unmanaged work, or publish feedback during a requested dry
-run.
+Its autonomous workflows are designed around GitHub pull requests and assume
+the required repository and GitHub access exists. Its caller-owned analysis
+handoff is provider-neutral and cannot read or mutate repository, forge, CI, or
+review state. The skill does not turn stylistic preferences into blockers,
+overwrite unmanaged work, or publish feedback during a requested dry run.
 
 ## About Sebastian Software
 
