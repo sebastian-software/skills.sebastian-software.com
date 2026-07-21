@@ -64,7 +64,7 @@ Use this ladder for the remaining outer boundary:
 
 1. **Direct mechanism:** real inputs and outputs after modularization.
 2. **Real local boundary:** a local database, filesystem, transport fixture,
-   fixture, replay, or focused integration environment when it is sensibly
+   replay, or focused integration environment when it is sensibly
    executable.
 3. **Contract-faithful fake:** only when that boundary cannot sensibly run. A
    fake provides the same relevant contract, contains no invented convenience
