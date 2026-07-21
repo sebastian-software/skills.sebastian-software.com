@@ -1,0 +1,79 @@
+{
+  "evals": [
+    {
+      "name": "api-rls-regression",
+      "prompt": "A customer can sometimes read another tenant's invoice through our API route. Add protective tests. The repository has a local database and authentication harness, but the current handler test mocks the repository and always returns the caller's tenant.",
+      "expected": "States the cross-tenant isolation invariant and uses the established real auth and data boundary to create distinct actors and records. It verifies both allowed and denied access, preserves the RLS or query semantics that matter, and does not claim that a fully mocked handler proves tenant isolation."
+    },
+    {
+      "name": "async-idempotency",
+      "prompt": "Our payment call can time out after the provider has created a charge. A retry then sometimes creates a second charge. Add the narrowest deterministic test for the fix.",
+      "expected": "Models the first side effect, missing acknowledgement, retry, stable idempotency identity, and final observable state. It controls time and the provider boundary without sleeps, proves the charge occurs at most once, and checks recovery or reconciliation rather than only a pre-call failure."
+    },
+    {
+      "name": "database-migration-invariant",
+      "prompt": "We added a migration intended to prevent duplicate active subscriptions per account. Test it using this repository's existing database test harness.",
+      "expected": "Runs the relevant migration or schema setup through the real repository harness, creates the data that distinguishes valid from invalid state, and verifies the changed database invariant and transaction behavior. It does not settle for checking that a migration file exists or mocking a query builder."
+    },
+    {
+      "name": "cli-contract",
+      "prompt": "Add tests for `tool export`: flags override config files, JSON output stays on stdout, warnings go to stderr, invalid input exits nonzero, and an interrupted write leaves no partial output file. Use the project-native CLI tests.",
+      "expected": "Uses the established CLI seam with isolated files and environment, tests configuration precedence through observable behavior, captures stdout and stderr separately, asserts exit status, and proves the file effect and failure cleanup. It adds a process smoke only where real process wiring matters."
+    },
+    {
+      "name": "rust-protocol-client",
+      "prompt": "A Rust protocol client receives callbacks in a sequence that is difficult to reproduce against the provider. Test its public behavior without making credentials part of normal CI.",
+      "expected": "Places public behavior in an appropriate integration or public-API test, uses a deterministic replay or transport fixture for the callback sequence, and keeps any credentialed live smoke test explicitly opt-in. It does not prescribe a Rust test crate or put protocol technique guidance in a placement rule."
+    },
+    {
+      "name": "modularity-before-mocks",
+      "prompt": "This service method mixes eligibility rules, order state changes, persistence, notifications, and framework wiring. The proposed unit test has six collaborator mocks and ordered call expectations. Help us protect the behavior.",
+      "expected": "Identifies and extracts the eligibility or state-transition mechanism into a cohesive function or module with explicit inputs and outputs, tests it directly with real values, and leaves side effects in a thin adapter. It avoids mock choreography unless an irreducible outer boundary is explicitly justified."
+    },
+    {
+      "name": "legacy-seam",
+      "prompt": "An untested legacy module combines parsing, policy, file access, and state mutation. We need a testability refactor for one validation rule but are afraid to change it blind.",
+      "expected": "Pins only the behavior relevant to the planned refactor at an existing seam, marks any observed defect as known-wrong rather than a permanent contract, extracts the validation mechanism under that protection, then replaces the temporary pin only when direct tests and a meaningful boundary test make it redundant."
+    },
+    {
+      "name": "fake-discipline",
+      "prompt": "A test needs a datastore. The repository's local datastore is fast and available, but someone suggests an in-memory fake with convenient extra search behavior so the test is easier to write.",
+      "expected": "Chooses the real local implementation first. If a fake later becomes necessary, it requires the same relevant contract, no invented convenience behavior, and ideally shared contract tests when reused. It distinguishes ordinary injected clock/config/random values from behavior-simulating mocks."
+    },
+    {
+      "name": "flaky-test",
+      "prompt": "A queue test fails once every few days. A proposal adds three retries, a two-second sleep, and a looser assertion. Fix the flake.",
+      "expected": "Investigates timing, event ordering, shared state, cleanup, live dependencies, and hidden background work; then controls the root cause with an explicit clock, deterministic event coordination, isolated resource, fixture, or replay. It rejects retries, sleeps, and weakened assertions as substitutes for evidence."
+    },
+    {
+      "name": "performance-regression",
+      "prompt": "Guard the latency of one normalization function in shared CI. The architecture team has already agreed the target, but absolute times vary across runners.",
+      "expected": "Adds a focused, controlled regression guard for the concrete path, fixes the corpus and measurement method, and prefers a relative or trend threshold where that is more reliable. It reports environment limits and routes load, soak, capacity, and comprehensive benchmark methodology elsewhere."
+    },
+    {
+      "name": "logic-free-glue",
+      "prompt": "A thin adapter only passes an already-validated command result to a tested persistence boundary. A reviewer requests a unit test with mocks for every delegation call.",
+      "expected": "Explains that the adapter adds no decision or invariant and verifies it through the nearest meaningful integration or smoke boundary if needed. It does not create a ceremonial interaction test merely to maximize mock coverage."
+    },
+    {
+      "name": "existing-code-regression",
+      "prompt": "Production code already contains a plausible fix for a reported parsing regression. Add a discriminating test, but do not throw away the working fix to reenact TDD.",
+      "expected": "Adds a focused regression test and obtains negative proof through reproduction, targeted reversal, mutation, or equivalent evidence when practical. It keeps sound implementation work, states any limit on negative proof, and runs the narrow test before broader validation."
+    },
+    {
+      "name": "coverage-pressure",
+      "prompt": "Management asks every service to reach 80% coverage this sprint. There is no repository policy or known risk list. What tests should we add?",
+      "expected": "Uses an authoritative existing threshold if one exists; otherwise treats coverage as a signal rather than a target. It asks for or discovers concrete unprotected behaviors and prioritizes meaningful risk rather than inventing test volume, an assertion rule, or a universal framework."
+    },
+    {
+      "name": "browser-routing",
+      "prompt": "Our new checkout page needs browser navigation, responsive layout, accessibility, and end-to-end tests. It also contains a small pure price helper. Use the testing skill for all of it.",
+      "expected": "Routes the browser feature and its overall frontend test strategy to effective-web by primary mission, including its pure helper. It explains that an independent shared library or server-side domain contract would belong here instead, rather than duplicating browser-testing guidance."
+    },
+    {
+      "name": "convention-preservation",
+      "prompt": "This TypeScript service uses the repository's established test runner, fixture factory, local PostgreSQL harness, and a focused command. A generic guide suggests replacing them with a new framework and container stack for one authorization test.",
+      "expected": "Discovers and follows the existing runner, helpers, database harness, and narrow validation command. It protects the authorization behavior at the real boundary and rejects introducing a new toolchain without a concrete repository need."
+    }
+  ]
+}
