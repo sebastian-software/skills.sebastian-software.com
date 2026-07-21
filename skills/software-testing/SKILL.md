@@ -117,10 +117,12 @@ to the claim.
   improvement planning to `codebase-improvement`.
 - Route PR-scoped adequacy and merge judgment to `pr-review`.
 - Route contract design, system quality scenarios, performance targets,
-  capacity planning, load or soak methodology, and broader architectural
-  redesign to `software-architecture`. This skill implements contract tests
-  against an agreed contract, including consumer-driven contract tests, and
-  produces focused evidence against a given or locally agreed target.
+  capacity planning, and broader architectural redesign to
+  `software-architecture`. This skill implements contract tests against an
+  agreed contract, including consumer-driven contract tests, and produces
+  focused evidence against a given or locally agreed target. Load, soak, and
+  comprehensive benchmark methodology are not claimed by a skill yet; their
+  ownership is under evaluation in #112.
 - Route migration parity, differential evidence, and compatibility work to
   `port-codebases`.
 - Route substantive runtime or service implementation decisions to the

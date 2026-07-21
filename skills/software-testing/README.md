@@ -38,10 +38,6 @@ from machine-readable output; a Rust client must replay protocol messages
 deterministically; or a mock graph suggests that the code's decision mechanism
 is inaccessible.
 
-It gives TypeScript and Rust particular attention because those are the primary
-ecosystems in active use. Other languages receive generic, convention-following
-guidance rather than a prescribed framework or toolchain.
-
 ## Example Prompts
 
 ```text
@@ -97,11 +93,13 @@ dalo sync
 
 This skill owns non-frontend test design, implementation, focused verification,
 and the smallest production-code restructuring needed to expose a cohesive
-mechanism. It does not prescribe Jest, Vitest, pytest, cargo-nextest, rstest,
-proptest, mockall, Playwright, an assertion count, a coverage percentage, or a
-strict TDD ritual. It does not own browser testing, repository-wide audits,
-contract design, load and capacity methodology, broad architectural change, or
-commits and delivery orchestration.
+mechanism. TypeScript and Rust are the primary ecosystems in active use; other
+languages receive generic, convention-following guidance rather than a
+prescribed framework or toolchain. It does not prescribe Jest, Vitest, pytest,
+cargo-nextest, rstest, proptest, mockall, Playwright, an assertion count, a
+coverage percentage, or a strict TDD ritual. It does not own browser testing,
+repository-wide audits, contract design, load and capacity methodology, broad
+architectural change, or commits and delivery orchestration.
 
 ## About Sebastian Software
 
