@@ -1,0 +1,12 @@
+schema_version = 1
+
+[source]
+id = "sebastian"
+name = "Sebastian Software Skills"
+kind = "team"
+
+[[catalog]]
+id = "effective-flow"
+url = "https://github.com/sebastian-software/effective-flow.git"
+version = "5e43ddb387cd1915e59835546fe9480056afdd84"
+skills = []
