@@ -75,8 +75,10 @@ useful. Fix the input corpus, setup, warm-up policy, operation, and reported
 metric. On shared CI, a relative or historical-trend threshold is often more
 honest than one brittle absolute latency number.
 
-Measure the path that matters and report environment limits. Route performance
-targets and capacity planning that need architecture tradeoffs to
-`software-architecture`; route browser performance to `effective-web`. Load,
-soak, and comprehensive benchmark methodology are not claimed by a skill yet;
-their ownership is under evaluation in #112.
+Measure the path that matters and report environment limits. Read
+[Benchmark methodology](benchmark-methodology.md) when the outcome is a wider
+microbenchmark, comparison, bounded workflow benchmark, or publishable claim.
+Route performance targets and capacity planning that need architecture
+tradeoffs to `software-architecture`; route browser performance to
+`effective-web`. No first-party skill currently claims new load, soak, or
+stress methodology.

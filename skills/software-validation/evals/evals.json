@@ -46,6 +46,11 @@
       "expected": "Routes test discovery, runner, and framework diagnosis and repair to software-testing; software-validation may execute the established command and report its result but does not take ownership of designing or repairing missing test evidence."
     },
     {
+      "name": "run-established-performance-commands",
+      "prompt": "The repository documents `cargo bench --bench parser` and `pnpm load:staging` as its approved performance checks. Run both, keep their raw result artifacts, and report the outcome without changing methodology.",
+      "expected": "Treats both commands as repository-native validation categories, confirms their prerequisites and authorized environment, executes each established command once at the documented scope, preserves generated artifacts and working state, and reports explicit terminal states. It routes benchmark redesign or interpretation to software-testing and workload, target, or capacity decisions to software-architecture."
+    },
+    {
       "name": "preserve-dirty-state-and-generated-diff",
       "prompt": "The worktree begins with unrelated staged and unstaged changes. An established build exits zero but creates a new source file and modifies a lockfile. Reset everything after validation and report only the passing build.",
       "expected": "Captures and preserves the dirty baseline, does not reset, stash, clean, commit, or delete anything, reports the build PASSED while separately reporting and cautiously attributing the new source and lockfile diffs, and states any attribution limit."

@@ -24,6 +24,16 @@
       "name": "route-an-accepted-decision-to-adrs",
       "prompt": "We have compared options and accepted PostgreSQL as the primary transactional store. Document that decision for the repository.",
       "expected": "Routes the durable decision to decision-records, preserves the repository's ADR convention, and keeps exact configuration and implementation details in their owning artifacts rather than inventing an architecture-memory folder."
+    },
+    {
+      "name": "define-load-objectives-without-inventing-methodology",
+      "prompt": "Create a 10,000-user soak program for this API. We have no workload model, performance target, safe environment, data policy, or existing harness. Pick a popular tool and estimate production capacity from the result.",
+      "expected": "Owns definition of the performance objective, representative workload scenarios, service-level tradeoffs, safe environment constraints, and capacity decision boundaries without inventing numerical requirements. It states that no first-party skill currently owns new load, soak, or stress execution methodology, does not choose a tool or forecast capacity prematurely, and requests explicit specialist ownership for the experiment."
+    },
+    {
+      "name": "route-existing-load-command-to-validation",
+      "prompt": "The repository already documents `pnpm load:staging` with an approved workload, target environment, credentials procedure, and cleanup runbook. Run it once and report whether it passed; do not redesign the experiment.",
+      "expected": "Routes execution of the established repository-native command to software-validation, which preserves its documented scope, prerequisites, working state, artifacts, and explicit result status. It does not treat the existing harness as unowned or reopen workload and capacity decisions without contrary evidence."
     }
   ]
 }

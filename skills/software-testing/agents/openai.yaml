@@ -1,4 +1,4 @@
 interface:
   display_name: "Software Testing"
-  short_description: "Design focused, reliable non-frontend test evidence"
-  default_prompt: "Use $software-testing to add the smallest reliable test evidence for this software behavior or regression."
+  short_description: "Design reliable tests and repository-native benchmarks"
+  default_prompt: "Use $software-testing to add the smallest reliable test or benchmark evidence for this software behavior, regression, or performance question."

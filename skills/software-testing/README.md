@@ -28,6 +28,8 @@ logic directly testable before reaching for a mock.
   directly testable without disguising a broad architectural rewrite
 - focused performance-regression guards for a concrete function or service
   path against an explicit target
+- reproducible microbenchmarks, semantically fair implementation comparisons,
+  bounded end-to-end workflow benchmarks, and reviewable performance claims
 
 ## Use It When
 
@@ -52,6 +54,9 @@ status, and filesystem behavior using the project-native test seam.
 
 This Rust client test is flaky because callback ordering changes. Diagnose the
 cause and make a deterministic replay-based test without requiring a live key.
+
+Repair this comparative benchmark so both parsers perform the same semantics,
+then retain enough repeated evidence and environment provenance for review.
 ```
 
 See [SKILL.md](SKILL.md) for the workflow, evidence routes, double discipline,
@@ -90,8 +95,9 @@ dalo sync
 - [PR Review](../pr-review/README.md) judges whether a pull request has enough
   evidence to merge; this skill designs and implements the test evidence.
 - [Software Architecture](../software-architecture/README.md) owns system
-  contracts, quality scenarios, performance targets, capacity, and broader
-  redesign; this skill tests an agreed contract or focused risk.
+  contracts, quality scenarios, workload scenarios, performance targets,
+  capacity, and broader redesign; this skill tests an agreed contract or owns
+  repository-native benchmark methodology for a named question.
 - [Port Codebases](../port-codebases/README.md) owns behavior parity and
   compatibility evidence across a port.
 
@@ -104,8 +110,10 @@ languages receive generic, convention-following guidance rather than a
 prescribed framework or toolchain. It does not prescribe Jest, Vitest, pytest,
 cargo-nextest, rstest, proptest, mockall, Playwright, an assertion count, a
 coverage percentage, or a strict TDD ritual. It does not own browser testing,
-repository-wide audits, contract design, load and capacity methodology, broad
-architectural change, or commits and delivery orchestration.
+repository-wide audits, contract design, load, soak, stress, and capacity
+methodology, broad architectural change, or commits and delivery orchestration.
+The evidence-led ownership split is recorded in
+[ADR 0001](../../docs/adr/0001-performance-testing-ownership.md).
 
 ## About Sebastian Software
 
