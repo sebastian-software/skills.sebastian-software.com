@@ -77,6 +77,9 @@ Load only the owners needed for the current stage; do not preload the catalog.
 - Match evidence to the claim: reproduce and guard a bug, compare a refactor
   baseline, exercise a feature's acceptance path, validate documentation
   examples and links, or check dependency and port compatibility.
+- Use `software-validation` when available to discover, deduplicate, execute,
+  and report the repository's established check surface; keep specialist owners
+  responsible for designing any new evidence the change requires.
 - Run the narrow check first, then the relevant established repository checks.
   Review the changed surface in proportion to user impact, reversibility,
   security, data, concurrency, and release risk.

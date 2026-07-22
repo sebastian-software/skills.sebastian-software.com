@@ -74,6 +74,9 @@ likely failures without inventing behavior or imposing a foreign docs system.
 - Route repository-wide documentation audits, gap prioritization, and broader
   improvement planning to `codebase-improvement`; return here for the selected
   documentation work.
+- Route execution-only requests for existing docs builds, doctests, link checks,
+  generated-reference checks, examples, or combined repository gates to
+  `software-validation`. Keep documentation authoring and evidence design here.
 - Route browser-interface copy and frontend implementation concerns to
   `effective-web` when the browser experience is primary.
 - Route locale-specific punctuation and formatting to `locale-typography`.

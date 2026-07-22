@@ -1,0 +1,4 @@
+interface:
+  display_name: "Software Validation"
+  short_description: "Run and report repository-native software checks"
+  default_prompt: "Use $software-validation to discover and run the applicable existing checks for this change, then report passes, failures, skips, timeouts, and evidence gaps."

@@ -116,6 +116,10 @@ to the claim.
   domain rule and service contract.
 - Route repository-wide coverage audits, risk prioritization, and broad test
   improvement planning to `codebase-improvement`.
+- Route discovery and execution of an existing repository's established test,
+  typecheck, lint, build, documentation, or combined quality commands to
+  `software-validation`. Return here when new or repaired test evidence is the
+  requested outcome.
 - Route PR-scoped adequacy and merge judgment to `pr-review`.
 - Route contract design, system quality scenarios, performance targets,
   capacity planning, and broader architectural redesign to

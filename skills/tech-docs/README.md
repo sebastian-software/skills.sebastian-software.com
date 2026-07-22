@@ -74,6 +74,9 @@ dalo sync
 - [Codebase Improvement](../codebase-improvement/README.md) diagnoses
   documentation or expectation drift and prioritizes repository-wide
   documentation opportunities; this skill owns the correction and verification.
+- [Software Validation](../software-validation/README.md) executes existing docs
+  builds, doctests, link checks, examples, and combined repository gates without
+  taking ownership of documentation craft.
 - [Decision Records](../decision-records/README.md) preserves durable accepted
   choices before this skill documents their consequences.
 - [Effective Web](../effective-web/README.md) owns browser-interface copy and

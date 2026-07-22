@@ -191,3 +191,6 @@ Read only the references needed for the selected route.
 - Keep backend-only architecture, infrastructure, deployment, load testing, and
   security audits, and non-web desktop publishing outside this skill unless
   they directly constrain the browser-facing result.
+- Route execution-only requests for existing repository typecheck, lint, test,
+  build, documentation, or combined quality gates to `software-validation`.
+  Keep frontend and browser test design, diagnosis, and evidence selection here.

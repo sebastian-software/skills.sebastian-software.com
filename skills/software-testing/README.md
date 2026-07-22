@@ -81,6 +81,9 @@ dalo sync
   this skill.
 - [Effective Web](../effective-web/README.md) owns browser, component, visual,
   accessibility, and browser E2E test depth, as well as frontend test strategy.
+- [Software Validation](../software-validation/README.md) runs existing
+  repository-native test and quality commands; this skill designs or repairs
+  the test evidence itself.
 - [Codebase Improvement](../codebase-improvement/README.md) investigates
   cross-cutting behavior and audits broad test risk; this skill owns focused
   test-suite diagnosis, test design, and implementation.
