@@ -54,14 +54,25 @@ Use only when the dependency graph exposes independent ownership boundaries.
 - Allocate one shard per crate, package, directory, platform, or test group.
 - Give every shard exclusive file ownership or an isolated worktree. Maintain a
   single integration owner and queue.
+- For every worktree shard, follow [Port shard worktree
+  safety](worktree-safety.md): detect repository, branch, and path collisions;
+  preserve dirty or staged foreign state; use explicit per-command roots; and
+  re-verify the run-local receipt after resume or handoff.
 - Prevent workers from using destructive shared-state commands, broad repository
   rewrites, or uncoordinated dependency changes.
 - Bound CPU, memory, disk, process, and network-heavy tests. Do not let agent
   concurrency overwhelm the validation environment.
-- Commit or checkpoint coherent batches with source-slice identity and exact
-  validation evidence.
+- Stage only shard-owned files, inspect staged names and diff, then commit or
+  checkpoint coherent batches with source-slice identity and exact validation
+  evidence. Advance the shard receipt only across a proven run-owned checkpoint
+  whose parent is the previously expected commit; pass the latest expected
+  commit to every handoff. Give shared lockfiles and generated indexes one
+  integration owner.
 - Integrate in dependency order. Regenerate compiler and test failure queues
   after integration rather than distributing stale failures.
+- Remove only a clean matching worktree created by the current port run. Never
+  force-remove a user-created, harness-managed, dirty, moved, or mismatched
+  worktree.
 
 Parallelize review and test classification as well as writing. If review or CI
 becomes the bottleneck, adding implementers decreases confidence and increases

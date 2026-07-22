@@ -114,14 +114,30 @@ For dependency-update requests, continue the grouping through the full delivery 
 
 Use worktrees when the user asks for multiple dependency PRs, when several groups can proceed independently, when the default dependency portfolio contains more than one viable group, or when the repo has a branch guard that blocks edits on the main branch.
 
-1. Start from a clean base branch and fetch the current default branch.
-2. Create one worktree per proposed PR group, named by the group and branch, for example `codex/deps-radix-primitives` or `codex/deps-vite-build`.
-3. Apply only that group's manifest, lockfile, generated output, migrations, and local adoption changes in that worktree.
-4. Run validation matching that group's surface. Prefer narrow checks first, then the repo's broad quality gate when the group affects shared tooling or lockfiles.
-5. Commit, push, and open a ready-for-review PR for that group before starting the next unrelated group, unless the user explicitly wants draft PRs or only local branches.
-6. Record deferred groups and reasons, especially major upgrades split out because they need migration research or human decisions.
+1. Read [dependency worktree safety](references/worktree-safety.md). Inspect the
+   canonical repository, registered worktrees, refs, proposed absolute paths,
+   and dirty and staged state before choosing a location.
+2. Reuse a clean suitable harness-managed worktree without cleanup ownership,
+   or start from a clean refreshed base and create one collision-free worktree
+   per proposed PR group.
+3. Record the repository, absolute root, expected branch/commit, base, group,
+   checkout class, and cleanup ownership in run context. Re-verify it before the
+   first write and after resume or handoff; use an explicit working directory
+   for every command.
+4. Apply only that group's manifest, lockfile, generated output, migrations, and
+   local adoption changes in that worktree.
+5. Run validation matching that group's surface. Prefer narrow checks first,
+   then the repo's broad quality gate when the group affects shared tooling or
+   lockfiles.
+6. Stage explicit group files, inspect staged names and diff, then commit, push,
+   and open a ready-for-review PR before starting the next unrelated group,
+   unless the user explicitly wants draft PRs or only local branches.
+7. Automatically clean up only a matching clean worktree created by this run.
+   Leave foreign, harness-managed, dirty, moved, or mismatched worktrees intact.
+8. Record deferred groups and reasons, especially major upgrades split out
+   because they need migration research or human decisions.
 
-When a shared lockfile makes multiple worktrees conflict, keep the PR group boundaries anyway. Rebase each worktree on the latest default branch after the prior dependency PR lands, or regenerate the lockfile in the active PR group and document that it intentionally contains only that group's dependency story.
+When a shared lockfile makes multiple worktrees conflict, keep the PR group boundaries anyway. Rebase each worktree on the latest default branch after the prior dependency PR lands, or regenerate the lockfile in the active PR group and document that it intentionally contains only that group's dependency story. Own the lockfile only when the current group's package-manager command produced a coherent diff; never absorb foreign staged changes or hand-delete unrelated entries.
 
 ## Source Research Requirements
 

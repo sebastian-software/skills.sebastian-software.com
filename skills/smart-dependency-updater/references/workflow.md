@@ -129,12 +129,25 @@ Use this table as the execution contract. Each row is normally one branch, one w
 
 Worktree workflow:
 
-1. Refresh the default branch before creating worktrees.
-2. Create one worktree per PR group from the same refreshed base unless repository policy requires serial rebases.
-3. Name branches by the group, for example `codex/deps-next-runtime`, `codex/deps-radix-primitives`, or `codex/deps-vite-build`.
-4. Apply only the group's manifests, lockfile changes, generated output, local migrations, and directly-caused code changes inside that worktree.
-5. Validate, commit, push, and open a ready-for-review PR for that worktree before moving to an unrelated group. Use draft PRs or keep worktrees local only when the user explicitly asks for planning only, draft PRs, local-only branches, or analysis without PRs.
-6. Rebase or regenerate later worktrees after earlier dependency PRs land if they share a lockfile.
+1. Follow [dependency worktree safety](worktree-safety.md): inspect Git identity,
+   registrations, refs, absolute paths, and dirty and staged state before
+   creating or adopting a worktree.
+2. Reuse a suitable harness-managed worktree rather than nesting, or create one
+   collision-free worktree per PR group from the same refreshed base unless
+   repository policy requires serial rebases.
+3. Name branches by the group, for example `codex/deps-next-runtime`,
+   `codex/deps-radix-primitives`, or `codex/deps-vite-build`.
+4. Re-verify the run-local location receipt before the first write and after a
+   resume or handoff. Use `git -C` or an explicit tool working directory.
+5. Apply only the group's manifests, lockfile changes, generated output, local
+   migrations, and directly-caused code changes inside that worktree.
+6. Validate, stage explicit files, inspect staged names and diff, commit, push,
+   and open a ready-for-review PR before moving to an unrelated group. Use draft
+   PRs or keep worktrees local only when the user explicitly asks for that.
+7. Rebase or regenerate later worktrees after earlier dependency PRs land if
+   they share a lockfile.
+8. Remove only a matching clean worktree created by this run; never force-remove
+   a foreign, harness-managed, dirty, moved, or mismatched worktree.
 
 Shared lockfiles do not justify a mixed PR by themselves. A pnpm workspace may produce one root lockfile, but each PR still needs a coherent dependency story. If regenerating a lockfile for one group also updates unrelated packages, narrow the package-manager command and regenerate; if the churn remains unavoidable, split it into its own lockfile/tooling PR. Do not hand-delete lockfile entries.
 

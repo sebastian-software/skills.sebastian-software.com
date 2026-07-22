@@ -56,6 +56,14 @@ State the chosen profile and why. Never imply that correctness requires massive
 parallelism. More agents reduce wall-clock time only when the work can be
 partitioned and verification keeps pace.
 
+When any profile creates, adopts, writes in, stages from, integrates from, or
+removes a worktree, read [Port shard worktree
+safety](references/worktree-safety.md). Record its repository, absolute root,
+branch or commit, base, shard ownership, checkout class, and cleanup ownership
+in run context; re-verify before the first write and after every resume or
+handoff. Reuse a suitable harness-managed worktree without nesting or claiming
+cleanup ownership.
+
 Treat concurrency and model capability as separate controls. Read [Model-tiered
 orchestration](references/model-tiering.md) when multiple model tiers are
 available. Default to a strong architect at planning and milestone boundaries,

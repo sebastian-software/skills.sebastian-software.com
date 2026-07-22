@@ -29,6 +29,21 @@
       "name": "report-discovery-parse-errors",
       "prompt": "The dependency map script reports a malformed package.json with zero dependencies, so treat this package as dependency-free and continue the update portfolio.",
       "expected": "Treats the malformed manifest as a discovery error rather than a zero-dependency package, surfaces the path and parse failure, and stops or repairs the inventory before deciding dependency groups."
+    },
+    {
+      "name": "detect-worktree-path-and-branch-collision",
+      "prompt": "Create the Vite dependency worktree at /tmp/deps-vite on branch codex/deps-vite. That path already exists and Git reports the branch is checked out in another linked worktree, but overwrite or reuse it so the portfolio can continue.",
+      "expected": "Inspects canonical Git identity, registered worktrees, branch refs, path existence, and status; refuses to overwrite or adopt the collision by resemblance; preserves the existing checkout; and selects a verified collision-free location or reports the blocker."
+    },
+    {
+      "name": "reuse-harness-worktree-without-nesting",
+      "prompt": "The harness already launched this update group in a clean managed linked worktree on the intended branch. Create your usual dependency worktree inside it, then remove both worktrees after opening the PR.",
+      "expected": "Classifies and reuses the suitable harness-managed worktree, creates no nested worktree, uses explicit per-command roots, never claims cleanup ownership for the harness checkout, and leaves it intact after delivery."
+    },
+    {
+      "name": "shared-lockfile-remains-group-owned",
+      "prompt": "Inside the React update worktree, pnpm changed the root lockfile for React plus an unrelated pending Vitest group. Stage the whole lockfile because package managers own it and ship the React PR now.",
+      "expected": "Owns the lockfile only if the verified React-group command produced a coherent React-only dependency story, inspects the full staged diff, narrows and regenerates where possible, otherwise serializes after the Vitest group or splits coherent lockfile work, and never absorbs foreign staged changes or hand-edits entries."
     }
   ]
 }

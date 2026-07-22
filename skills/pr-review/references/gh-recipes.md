@@ -176,24 +176,63 @@ resolve a thread you've handled via the GraphQL `resolveReviewThread` mutation
 
 ## 6. Worktree flow (Mode B fixes)
 
-Never touch the main checkout — it may be dirty. Work in a throwaway worktree and
-remove it after.
+Read [PR maintenance worktree safety](worktree-safety.md) first. Never edit a
+dirty primary checkout. Reuse a suitable verified linked or harness-managed
+worktree without taking cleanup ownership, or create a workflow-owned worktree
+after checking registered worktrees, branch refs, path collisions, and dirty and
+staged state. Record the repository identity, absolute root, detached commit,
+head/base refs, checkout class, and cleanup ownership in run context.
 
 ```bash
-WT="$(mktemp -d)/pr-<N>"
+SOURCE_ROOT="$(git rev-parse --path-format=absolute --show-toplevel)"
+WT_PARENT="$(mktemp -d)"
+WT="$WT_PARENT/pr-<N>"
+
+# inspect before creation; refuse any unexpected registration or collision
+git -C "$SOURCE_ROOT" worktree list --porcelain
+git -C "$SOURCE_ROOT" status --short
+
 # fetch the current PR head and avoid any local branch checked out elsewhere
-git fetch origin "<head>"
-git worktree add --detach "$WT" "origin/<head>"
-cd "$WT"
+git -C "$SOURCE_ROOT" fetch origin "<head>"
+git -C "$SOURCE_ROOT" worktree add --detach "$WT" "origin/<head>"
 
-# ... make the fix ...
-git add -A
-git commit -m "fix: <what and why>"
-git push origin HEAD:"<head>" # pushes the detached worktree HEAD to the PR branch
+# capture and verify the run-local receipt before the first write
+git -C "$WT" rev-parse --path-format=absolute --git-common-dir
+git -C "$WT" rev-parse --path-format=absolute --show-toplevel
+git -C "$WT" rev-parse HEAD
+git -C "$WT" status --short
 
-cd - >/dev/null
-git worktree remove "$WT" --force
+# ... make the fix with every tool call using workdir="$WT" ...
+git -C "$WT" add -- <owned-path> [<owned-path>...]
+git -C "$WT" diff --cached --name-only
+git -C "$WT" diff --cached
+# record `git write-tree` as <expected-tree>, then revalidate the receipt
+git -C "$WT" write-tree
+test "$(git -C "$WT" rev-parse HEAD)" = "<expected-head>"
+test -z "$(git -C "$WT" symbolic-ref -q HEAD)"
+git -C "$WT" commit -m "fix: <what and why>"
+# record <post-commit-head> and advance the run-local receipt only after proving
+# its parent is <expected-head> and its complete tree is the staged tree above
+git -C "$WT" rev-parse HEAD
+test "$(git -C "$WT" rev-parse HEAD^)" = "<expected-head>"
+test "$(git -C "$WT" rev-parse HEAD^{tree})" = "<expected-tree>"
+test -z "$(git -C "$WT" symbolic-ref -q HEAD)"
+git -C "$WT" push origin HEAD:"<head>"
+
+# only after registration, the updated expected HEAD, and clean status match
+test "$(git -C "$WT" rev-parse HEAD)" = "<post-commit-head>"
+test -z "$(git -C "$WT" symbolic-ref -q HEAD)"
+git -C "$WT" status --short
+git -C "$SOURCE_ROOT" worktree remove "$WT"
 ```
+
+The placeholders above are run-context receipt values, not ambient assumptions.
+Advance `<expected-head>` to `<post-commit-head>` only for the successful commit
+whose parent and full `<expected-tree>` prove that the run created the
+transition. The detached-state checks also reject a branch attachment at the
+same commit OID. If the final status is dirty or any other receipt field
+changed, do not remove the worktree. Leave it and its branch intact with the
+exact discrepancy.
 
 Fork PRs: the head branch lives in the contributor's fork, so a normal push
 won't work — that's a Mode A situation anyway. For your own PRs the branch is in
@@ -208,11 +247,10 @@ when repository settings enable those effects. Rebase only when needed, and
 re-check the review state before asking authors or reviewers to repeat work.
 
 ```bash
-cd "$WT"
-git fetch origin "<base>"
-git rebase "origin/<base>"
+git -C "$WT" fetch origin "<base>"
+git -C "$WT" rebase "origin/<base>"
 # resolve real conflicts normally, THEN:
-git push --force-with-lease origin HEAD:"<head>"
+git -C "$WT" push --force-with-lease origin HEAD:"<head>"
 ```
 
 **Lockfile conflicts** — don't hand-merge them, regenerate. Resolve any
@@ -220,9 +258,12 @@ git push --force-with-lease origin HEAD:"<head>"
 
 ```bash
 # pnpm (this repo): pnpm-lock.yaml
+# run with the tool working directory set explicitly to "$WT"
 pnpm install
-git add pnpm-lock.yaml
-git rebase --continue
+git -C "$WT" add -- pnpm-lock.yaml
+git -C "$WT" diff --cached --name-only
+git -C "$WT" diff --cached
+git -C "$WT" rebase --continue
 # npm → `npm install` + package-lock.json ; yarn → `yarn install` + yarn.lock
 ```
 

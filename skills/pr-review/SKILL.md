@@ -337,6 +337,9 @@ PR's scope, and you can do it without further input, **do it**.
 3. **Act:**
    - Valid and in scope → fix it in a worktree, commit, push, and reply. (Worktree
      flow + rebase rules in the recipes — never work in a dirty main checkout.)
+     Before adopting or creating the worktree, read [PR maintenance worktree
+     safety](references/worktree-safety.md). Re-verify its run-local receipt
+     before the first write and after every resume or handoff.
    - Valid but out of scope → reply kindly, point to a follow-up or issue rather
      than growing the PR.
    - Wrong or based on a misunderstanding → reply with the clarification,
@@ -445,8 +448,10 @@ summary may use the user's language without changing the public PR conversation.
 These exist because the cost of getting them wrong is high and hard to undo:
 
 - Never start a dev server or long-running process.
-- Never work in a dirty main checkout — always an isolated git worktree, cleaned
-  up afterwards.
+- Never edit a dirty primary checkout. Reuse a verified suitable linked or
+  harness-managed worktree, or create an isolated workflow-owned worktree under
+  the worktree-safety contract. Never nest worktrees reflexively, and clean up
+  only a matching clean worktree created by this run.
 - Force-push only with `--force-with-lease`, and only on your own PR branches.
 - Never loop on PR close/reopen — one or two attempts, then report.
 - Never approve with an unresolved material risk merely to keep the queue moving.
