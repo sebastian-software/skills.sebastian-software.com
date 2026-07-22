@@ -1,15 +1,16 @@
 ---
 name: effective-web
 description: >-
-  Design, build, review, and improve user-facing web experiences including
-  marketing sites, content pages, landing pages, web apps, dashboards, and
-  React components. Use for UI/UX direction, layout, typography, color,
+  Diagnose, design, build, review, and improve user-facing web experiences
+  including marketing sites, content pages, landing pages, web apps,
+  dashboards, and React components. Use for UI/UX direction, layout,
+  typography, color,
   components, forms, tables, accessibility, motion, internationalization
   implementation (not locale-specific punctuation, quotation, spacing, or
   language-level typographic rules),
   interface copy, loading and error states, auth UX, CSS architecture,
   frontend SEO and AI search, AI-assisted interface design, browser
-  performance, frontend testing, React
+  performance, frontend-only surprising behavior, frontend testing, React
   architecture, React component APIs, SVG graphics, icons, paths, animation,
   and textures, print stylesheets, paged media, or web-to-print output. Do not
   use for backend-only work,

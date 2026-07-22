@@ -4,19 +4,21 @@
 
 [![Maintained by Sebastian Software](https://img.shields.io/badge/Maintained%20by-Sebastian%20Software-0f172a.svg)](https://oss.sebastian-software.com/)
 
-**Turn repository uncertainty into a small set of well-supported improvements
-and an executable next move.**
+**Turn repository uncertainty into a supported explanation, a small set of
+well-supported improvements, and one executable next move.**
 
 Codebase Improvement helps agents audit, prioritize, plan, reconcile, simplify,
-and improve software repositories. It favors repository evidence and leverage
-over generic best-practice inventories, producing fewer findings that a team
-can actually act on.
+diagnose, and improve software repositories. It favors repository evidence and
+leverage over generic best-practice inventories, producing fewer findings that
+a team can actually act on.
 
 ## Operating Modes
 
 - **Audit:** inspect read-only and return vetted findings.
 - **Focused audit:** investigate one risk category, package, flow, or branch
   delta.
+- **Investigation:** explain a defect or surprising behavior with competing
+  hypotheses and a strict no-implementation boundary.
 - **Plan:** make a requested improvement executable.
 - **Review plan:** test an existing plan against current code and conventions.
 - **Reconcile:** classify recorded work as done, stale, blocked, superseded, or
@@ -44,6 +46,9 @@ justifies.
 
 Reconcile these old improvement issues: which are complete, obsolete,
 duplicated, blocked, or still worth doing?
+
+Investigate why token refresh intermittently returns 401. Compare plausible
+causes, report what the evidence rules out, and stop before implementing.
 ```
 
 See [SKILL.md](SKILL.md) for the evidence model, artifact boundaries, safety
@@ -70,25 +75,32 @@ dalo sync
 
 - [Effective Workflow](../effective-workflow/README.md) coordinates an unclear
   software request through implementation, verification, and handoff; this
-  skill owns its repository investigation, prioritization, and planning depth.
+  skill owns its read-only repository diagnosis, prioritization, and planning
+  depth.
 - [PR Review](../pr-review/README.md) handles review and maintenance of specific
-  GitHub pull requests.
+  GitHub pull requests, including PR-scoped diagnosis.
 - [Smart Dependency Updater](../smart-dependency-updater/README.md) handles a
   dependency-update portfolio end to end.
 - [Port Codebases](../port-codebases/README.md) manages deliberate migrations
   across languages, runtimes, frameworks, platforms, or major APIs.
 - [Tech Docs](../tech-docs/README.md) handles selected technical-documentation
-  craft and verification after an audit prioritizes the gap.
+  craft and verification after an audit or diagnosis identifies a mismatch.
 - [Decision Records](../decision-records/README.md) preserves durable choices;
   audit findings and delivery plans remain separate artifacts.
 - [Effective Web](../effective-web/README.md) handles frontend-specific design,
-  accessibility, performance, and browser verification work found by an audit.
+  accessibility, performance, browser verification, and frontend-only diagnosis.
+- [Software Testing](../software-testing/README.md) owns focused non-frontend
+  test design, implementation, and test-suite diagnosis.
+- [Software Architecture](../software-architecture/README.md) owns unresolved
+  system direction exposed by an investigation.
 
 ## Scope
 
 This is not a license to edit a repository during an audit-only request, publish
-issues without authority, or produce a long speculative backlog. PR-only review
-and dependency-update-only work should use the narrower skills above.
+issues without authority, implement during diagnosis-only work, or produce a
+long speculative backlog. PR-only review, focused test diagnosis,
+frontend-only diagnosis, architecture-only decisions, and
+dependency-update-only work should use the narrower skills above.
 
 ## About Sebastian Software
 
