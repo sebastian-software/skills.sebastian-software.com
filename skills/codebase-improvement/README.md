@@ -91,6 +91,9 @@ dalo sync
   accessibility, performance, browser verification, and frontend-only diagnosis.
 - [Software Testing](../software-testing/README.md) owns focused non-frontend
   test design, implementation, and test-suite diagnosis.
+- [Software Validation](../software-validation/README.md) discovers and runs
+  established repository checks after this skill selects an improvement or
+  needs a current health baseline.
 - [Software Architecture](../software-architecture/README.md) owns unresolved
   system direction exposed by an investigation.
 

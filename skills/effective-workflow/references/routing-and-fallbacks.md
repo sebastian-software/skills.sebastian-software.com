@@ -10,6 +10,7 @@ owners, or the preferred owner may not be installed.
 | Repository investigation, audit, prioritization, or implementation plan | `codebase-improvement` | Evidence, leverage, scope, and executable next move |
 | Browser-facing product work | `effective-web` | UX, implementation, accessibility, performance, and browser evidence |
 | Non-frontend test design or regression evidence | `software-testing` | Observable risk, suitable test boundary, and discrimination |
+| Existing repository-native check execution | `software-validation` | Exact commands, scope, states, generated changes, and evidence gaps |
 | Technical documentation | `tech-docs` | Audience, repository-native surface, examples, and verification |
 | Dependency update | `smart-dependency-updater` | Ecosystem context, upstream research, compatibility, and validation |
 | Pull-request review or review follow-through | `pr-review` | Impact-led findings, thread state, CI, and merge judgment |

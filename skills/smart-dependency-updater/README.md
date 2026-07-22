@@ -78,6 +78,9 @@ dalo sync
   becomes a deliberate language, runtime, framework, or platform migration.
 - [Decision Records](../decision-records/README.md) captures durable dependency
   or platform choices when the rationale must survive the update.
+- [Software Validation](../software-validation/README.md) executes established
+  repository gates; this skill owns dependency-specific compatibility research
+  and validation scope.
 
 ## Scope
 

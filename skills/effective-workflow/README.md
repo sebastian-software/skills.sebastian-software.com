@@ -131,6 +131,8 @@ dalo sync
   implementation, accessibility, performance, and frontend verification.
 - [Software Testing](../software-testing/README.md) owns focused non-frontend
   test design and regression evidence.
+- [Software Validation](../software-validation/README.md) discovers and executes
+  established repository checks and reports explicit evidence gaps.
 - [Tech Docs](../tech-docs/README.md) owns documentation craft and verification.
 - [Smart Dependency Updater](../smart-dependency-updater/README.md) owns
   dependency research, adaptation, grouping, and validation.

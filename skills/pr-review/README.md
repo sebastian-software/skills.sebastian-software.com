@@ -89,6 +89,9 @@ dalo sync
 - [Codebase Improvement](../codebase-improvement/README.md) handles repository
   diagnosis, audits, and improvement plans broader than one pull request; this
   skill owns PR-scoped causal analysis and upkeep.
+- [Software Validation](../software-validation/README.md) supplies local
+  repository-native check execution; this skill owns PR CI interpretation and
+  merge judgment.
 - [Smart Dependency Updater](../smart-dependency-updater/README.md) creates and
   delivers coherent dependency-update pull requests.
 - [Metro English](../metro-english/README.md) helps with natural team-facing

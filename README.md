@@ -7,7 +7,7 @@
 **Give your AI agent the practical judgment to take product and software work
 from an ambiguous brief to a review-ready result.**
 
-19 practice-built skills and 181 focused references for product decisions, web
+20 practice-built skills and 183 focused references for product decisions, web
 experiences, codebase improvement, delivery, go-to-market work, professional
 communication, and web compliance.
 
@@ -78,6 +78,7 @@ treating every task as an isolated prompt.
 | Repository uncertainty | Read-only diagnosis, evidence-backed audit, executable plan, or focused improvement | [`codebase-improvement`](skills/codebase-improvement/) |
 | Architecture question | Evidence-led system direction, operability, and evolution path | [`software-architecture`](skills/software-architecture/), [`decision-records`](skills/decision-records/) |
 | Software behavior risk | Focused, reliable evidence for a non-frontend regression, invariant, async path, data boundary, or CLI contract | [`software-testing`](skills/software-testing/) |
+| Changed software | Repository-native checks with explicit pass, fail, skip, timeout, and evidence-gap reporting | [`software-validation`](skills/software-validation/) |
 | Software interface or contributor workflow | Repository-native, verified technical documentation | [`tech-docs`](skills/tech-docs/) |
 | Aging or changing system | Researched dependency updates or a behavior-preserving codebase port | [`smart-dependency-updater`](skills/smart-dependency-updater/), [`port-codebases`](skills/port-codebases/) |
 | Pull request | Impact-led review, feedback resolution, CI recovery, and delivery follow-through | [`pr-review`](skills/pr-review/) |
@@ -150,6 +151,7 @@ the external tools and credentials required to act on third-party systems.
 | [`smart-dependency-updater`](skills/smart-dependency-updater/) | Researched dependency-update portfolios with upstream context, local adaptation, validation, and PR delivery. |
 | [`software-architecture`](skills/software-architecture/) | Evidence-led system boundaries, operability, architecture tradeoffs, and evolutionary migration paths. |
 | [`software-testing`](skills/software-testing/) | Focused non-frontend test design, implementation, and verification for real software behavior and regressions. |
+| [`software-validation`](skills/software-validation/) | Repository-native discovery and execution of existing typecheck, lint, test, build, package, and documentation gates with explicit evidence gaps. |
 | [`tech-docs`](skills/tech-docs/) | Repository-native READMEs, guides, API and CLI references, migration notes, code documentation, examples, and verification. |
 
 ### Positioning, marketing, and communication

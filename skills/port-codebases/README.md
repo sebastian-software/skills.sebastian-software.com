@@ -78,6 +78,9 @@ dalo sync
   requests during delivery.
 - [Smart Dependency Updater](../smart-dependency-updater/README.md) handles
   ordinary package and API upgrades that do not justify a full port.
+- [Software Validation](../software-validation/README.md) can execute established
+  repository gates; this skill still owns migration-specific parity and
+  differential evidence.
 
 ## Scope
 

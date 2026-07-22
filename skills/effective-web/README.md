@@ -114,6 +114,9 @@ complete setup and the difference between selective catalogs and team sources.
   privacy, disclosure, and consent requirements before frontend implementation.
 - [Decision Records](../decision-records/README.md) preserves durable design and
   architecture choices that should survive future sessions and contributors.
+- [Software Validation](../software-validation/README.md) runs existing
+  repository-native quality gates when execution and reporting, rather than
+  frontend evidence design, is the requested outcome.
 
 ## Scope
 
