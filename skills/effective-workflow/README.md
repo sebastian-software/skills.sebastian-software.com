@@ -50,24 +50,17 @@ skills that are installed and disclose any reduced-depth fallback.
 
 See [SKILL.md](SKILL.md) for the four-stage workflow and its authority model.
 
-## Distillation Contract
+## Design Contract
 
-The pinned external `effective-flow` from the separately managed DALO
-`effective-flow` catalog exposes 17 public workflow tools and 15 internal worker
-contracts. This first-party skill keeps the portable coordination ideas without
-copying that product's command system, state, setup, or specialist manuals.
-
-| Current capability surface | Decision | First-party treatment |
-| --- | --- | --- |
-| `investigate` and clarification gates | Keep as orchestration | Preserve read-only diagnosis and resolve only implementation-blocking ambiguity. |
-| `apply`, `build`, `fix`, `refactor`, `docs`, and `iterate` | Keep as orchestration | Select a natural-language change route and sequence understand, change, verify, and deliver. |
-| `commit` and `pr` completion | Keep as orchestration | Use host-native delivery only within explicit authority. |
-| `maintain` dependency mechanics | Delegate to an existing owner | Let `smart-dependency-updater` own research, adaptation, grouping, and validation. |
-| Code, UI, Node.js, Rust, test, docs, and review workers | Delegate to existing owners | Route to the matching first-party skill instead of maintaining parallel worker manuals. |
-| Standalone `review` and plan review | Delegate to existing owners | Use `pr-review`, `codebase-improvement`, `software-testing`, and other domain owners by scope. |
-| `plan`, `open-plans`, and `plan-issue` stores and tracker conventions | Evaluate separately | Reuse repository-native issues and plans; add no mandatory plan directory or labels. |
-| Fixed worker registry, automatic worktrees, and completion modes | Evaluate separately | Use host capabilities situationally when available and authorized. |
-| `setup`, `cleanup`, `version`, configuration ADR, hidden memory, counters, locks, and migrations | Leave external | Require no special project setup or private operating system. |
+| Concern | First-party treatment |
+| --- | --- |
+| Diagnosis and clarification | Preserve read-only diagnosis and resolve only choices that block a safe next step. |
+| Implementation intent | Use natural-language routes and sequence understand, change, verify, and deliver only as far as the task needs. |
+| Specialist judgment | Delegate frontend, testing, validation, documentation, dependency, review, architecture, decision, and port depth to their owners. Use a disclosed repository-led fallback where no language specialist exists. |
+| Mixed repositories | Route each affected domain independently; distinguish product code, tooling, documentation, generated output, and vendored content before delegating. |
+| Plans and progress | Reuse repository-native issues, plans, branches, commits, CI, and pull requests instead of creating a parallel workflow store. |
+| Delivery | Use host-native Git and forge capabilities only within explicit authority. |
+| Runtime footprint | Add no fixed command vocabulary, worker registry, setup wizard, private state, counters, locks, migrations, or automatic tracker mutations. |
 
 ## Size and Duplication Budget
 
@@ -95,15 +88,6 @@ replacement handbook or installs another skill without authority.
 
 The complete fallback contract is in
 [routing and selective installation](references/routing-and-fallbacks.md).
-
-## Relationship to the Richer Workflow Product
-
-The external `effective-flow` from the separately managed DALO `effective-flow`
-catalog remains the feature-rich choice for teams that want its command catalog,
-configuration, internal workers, tracker conventions, worktree automation, and
-project state. Effective Workflow is the portable first-party choice for teams
-that want repository-native orchestration with no setup. The catalog sources use
-different skill slots and are not interchangeable implementations.
 
 ## Install This Skill
 
@@ -135,7 +119,8 @@ dalo sync
   established repository checks and reports explicit evidence gaps.
 - [Tech Docs](../tech-docs/README.md) owns documentation craft and verification.
 - [Smart Dependency Updater](../smart-dependency-updater/README.md) owns
-  dependency research, adaptation, grouping, and validation.
+  dependency selection, introduction, update research, adaptation, grouping,
+  and validation.
 - [PR Review](../pr-review/README.md) owns impact-led PR review, feedback
   resolution, CI recovery, and merge judgment.
 - [Software Architecture](../software-architecture/README.md), [Decision

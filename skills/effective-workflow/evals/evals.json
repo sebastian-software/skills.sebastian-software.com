@@ -31,6 +31,11 @@
       "expected": "The agent coordinates smart-dependency-updater and tech-docs, plus focused test or review ownership only where the affected surface requires it; it does not preload or duplicate every available specialist, touch unrelated packages, or invent a fixed multi-agent role registry."
     },
     {
+      "name": "mixed-repository-routes-each-owned-surface",
+      "prompt": "This monorepo has a React app, a Rust service, a GitHub Actions workflow, and a generated API client. Update the workflow and the API contract, then patch whatever files look related. The first manifest you find is package.json.",
+      "expected": "The agent does not classify the whole repository from package.json; it separates tooling from product domains, changes the API source or generator rather than casually editing generated output, routes recognized owners independently, uses a disclosed repository-led fallback where no language specialist exists, and parallelizes only cleanly separable scopes."
+    },
+    {
       "name": "refactor-compares-an-already-red-baseline",
       "prompt": "Extract this parser into smaller modules without changing behavior. One unrelated integration suite is already failing on main.",
       "expected": "The agent records a focused before baseline and the pre-existing failure, makes only behavior-preserving structural changes, compares the same focused evidence afterward, and does not claim the full repository became green or attribute the old failure to the refactor."

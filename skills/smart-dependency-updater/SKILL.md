@@ -1,10 +1,12 @@
 ---
 name: smart-dependency-updater
 description: >-
-  Research, group, implement, validate, and publish dependency updates. Use when
-  a user asks to update or upgrade packages, replace Dependabot, make Renovate
-  smarter, group dependency updates, create dependency PRs, assess changelog
-  impact, modernize dependencies and related code, or adopt useful new APIs.
+  Research, select, introduce, group, implement, validate, and publish external
+  dependency changes. Use when a user asks to add or choose a package, crate,
+  action, image, SDK, or other versioned dependency; update or upgrade packages;
+  replace Dependabot; make Renovate smarter; group dependency updates; create
+  dependency PRs; assess changelog impact; modernize dependencies and related
+  code; or adopt useful new APIs.
 ---
 
 # Smart Dependency Updater
@@ -12,6 +14,30 @@ description: >-
 Use this skill to perform dependency updates as engineering work, not as mechanical version bumps. The default outcome is a portfolio of focused, pushed, ready-for-review pull requests. Each PR groups related packages, explains what changed upstream, assesses local impact, runs the repository's validation suite, and adopts newly useful dependency capabilities when they improve the local code.
 
 Treat every update as a small migration and delivery unit. Do not stop after creating a local branch, updating one easy package, or writing a chat summary unless the user explicitly asked for that narrower outcome. A good outcome is a set of ready-for-review PRs where reviewers and automation can see why the versions belong together, what changed in those dependencies, what local risk was checked, which tests were run, and whether the project now benefits from new APIs, fixed limitations, or changed defaults.
+
+## New Dependency Introduction
+
+Treat a new external dependency as a focused compatibility decision, not as a
+repository-wide update portfolio:
+
+1. Establish the missing capability and check whether the repository, platform,
+   or an existing direct dependency already provides it adequately.
+2. Identify the owning ecosystem, package manager, runtime and framework
+   constraints, peer requirements, supported toolchain, and lockfile boundary.
+3. Verify the current stable release through registry metadata or an official
+   upstream source. Avoid prereleases, release candidates, canaries, and
+   nightlies unless the task or existing project explicitly requires them.
+4. If compatibility requires an older release, select the highest supported
+   stable version and record the concrete constraint rather than guessing from
+   remembered version numbers.
+5. Add the dependency with the repository's native package tool so the manifest
+   and lockfile remain consistent. Do not hand-edit generated lock state.
+6. Inspect the complete dependency diff, adapt only the agreed call sites, and
+   run checks that exercise installation, types, build, tests, packaging, and
+   runtime behavior as applicable.
+
+Do not inventory or update unrelated dependencies unless the user requested
+broader maintenance.
 
 ## Default Delivery Contract
 

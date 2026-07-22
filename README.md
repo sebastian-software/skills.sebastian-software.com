@@ -148,7 +148,7 @@ the external tools and credentials required to act on third-party systems.
 | [`decision-records`](skills/decision-records/) | Repository-native ADR creation, supersession, review, and drift control for durable cross-functional decisions. |
 | [`port-codebases`](skills/port-codebases/) | Resource-aware, behavior-preserving ports across languages, runtimes, frameworks, platforms, and major APIs. |
 | [`pr-review`](skills/pr-review/) | Human, impact-led PR review, maintenance, feedback resolution, and CI recovery. |
-| [`smart-dependency-updater`](skills/smart-dependency-updater/) | Researched dependency-update portfolios with upstream context, local adaptation, validation, and PR delivery. |
+| [`smart-dependency-updater`](skills/smart-dependency-updater/) | Evidence-backed dependency selection, introduction, update portfolios, local adaptation, validation, and PR delivery. |
 | [`software-architecture`](skills/software-architecture/) | Evidence-led system boundaries, operability, architecture tradeoffs, and evolutionary migration paths. |
 | [`software-testing`](skills/software-testing/) | Focused non-frontend test and repository-native benchmark design, implementation, and verification. |
 | [`software-validation`](skills/software-validation/) | Repository-native discovery and execution of existing typecheck, lint, test, benchmark, load, build, package, and documentation gates with explicit evidence gaps. |
