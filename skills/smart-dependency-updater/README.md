@@ -4,12 +4,13 @@
 
 [![Maintained by Sebastian Software](https://img.shields.io/badge/Maintained%20by-Sebastian%20Software-0f172a.svg)](https://oss.sebastian-software.com/)
 
-**Turn dependency maintenance into a portfolio of researched, validated, and
+**Turn dependency selection and maintenance into researched, validated, and
 review-ready engineering changes.**
 
 Smart Dependency Updater goes beyond mechanical version bumps. It researches
-what changed upstream, groups related packages into coherent delivery units,
-assesses the local impact, adopts useful new APIs when justified, validates the
+new dependency choices and upstream changes, respects local compatibility and
+lockfile ownership, groups related updates into coherent delivery units,
+assesses the local impact, adopts useful APIs when justified, validates the
 result, and explains the work where reviewers need it: in the pull request.
 
 ## Default Outcome
@@ -26,6 +27,7 @@ documents:
 
 ## Use It When
 
+- selecting or introducing a new external package, crate, action, image, or SDK
 - updating direct dependencies across a repository or workspace
 - replacing noisy bot-generated update streams with intentional groups
 - handling major-version migrations with local adaptations
@@ -36,6 +38,9 @@ documents:
 ## Example Prompts
 
 ```text
+Choose and add a stable HTTP client that fits this repository's runtime and
+package-manager constraints. Keep the manifest and lockfile consistent.
+
 Update this repository's dependencies and open one ready PR per coherent group.
 
 Replace the current Dependabot backlog with a researched update portfolio and
@@ -85,8 +90,10 @@ dalo sync
 ## Scope
 
 The skill does not force unsafe upgrades through failing checks or hide blocked
-groups behind a green summary. Planning-only, draft, local-only, or single-group
-outcomes remain available when the user asks for that narrower scope.
+groups behind a green summary. A focused dependency introduction does not trigger
+a repository-wide update inventory. Planning-only, draft, local-only, or
+single-group outcomes remain available when the user asks for that narrower
+scope.
 
 ## About Sebastian Software
 

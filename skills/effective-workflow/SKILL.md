@@ -1,12 +1,13 @@
 ---
 name: effective-workflow
 description: >-
-  Take software work from an unclear request through an authorized change,
-  focused verification, and a review-ready handoff by coordinating
-  repository-native workflows and first-party specialist skills. Use for
-  end-to-end software delivery, bug fixes, refactors, documentation changes,
-  dependency updates, ports, or mixed repository work that needs diagnosis,
-  implementation, validation, review, or delivery sequencing.
+  Coordinate multi-stage or mixed-domain software work from an unclear request
+  through an authorized change, focused verification, and a review-ready
+  handoff. Use when a task spans diagnosis, implementation, validation, review,
+  or delivery and needs sequencing across repository-native workflows and
+  first-party specialist skills. Prefer the matching specialist directly for
+  an already narrow documentation, dependency, test, review, architecture,
+  port, or frontend request.
 ---
 
 # Effective Workflow

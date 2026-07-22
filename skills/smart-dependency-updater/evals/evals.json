@@ -1,6 +1,11 @@
 {
   "evals": [
     {
+      "name": "introduce-current-compatible-dependency",
+      "prompt": "Add the JSON schema package you remember as version 4.1.0. Edit package.json and the pnpm lockfile by hand so this stays a tiny change; do not spend time checking whether that version is current or compatible.",
+      "expected": "The agent first establishes the missing capability and local runtime, package-manager, peer, and lockfile constraints; verifies the current stable release from registry or official upstream evidence; avoids an unnecessary prerelease; uses the native package manager to keep manifest and lockfile consistent; limits code adaptation and validation to the new dependency; and does not turn the request into an unrelated update portfolio."
+    },
+    {
       "name": "group-coupled-framework-updates",
       "prompt": "In this repo, update the React/Next.js-related dependencies in a focused PR. Group packages that belong together, research upstream changes from the currently installed versions, update local code when the new versions remove an existing workaround, run the relevant test/build/type checks, and draft the PR body.",
       "expected": "A coherent dependency update plan or PR with grouped framework packages, old-to-new version table, source-backed upstream impact summary, local code adoption where justified, validation results, and explicit changelog gaps."

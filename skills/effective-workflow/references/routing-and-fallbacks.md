@@ -12,7 +12,7 @@ owners, or the preferred owner may not be installed.
 | Non-frontend test design or regression evidence | `software-testing` | Observable risk, suitable test boundary, and discrimination |
 | Existing repository-native check execution | `software-validation` | Exact commands, scope, states, generated changes, and evidence gaps |
 | Technical documentation | `tech-docs` | Audience, repository-native surface, examples, and verification |
-| Dependency update | `smart-dependency-updater` | Ecosystem context, upstream research, compatibility, and validation |
+| Dependency selection, introduction, or update | `smart-dependency-updater` | Current upstream evidence, compatibility, native package-manager changes, and validation |
 | Pull-request review or review follow-through | `pr-review` | Impact-led findings, thread state, CI, and merge judgment |
 | System boundary or evolutionary architecture | `software-architecture` | Drivers, quality scenarios, tradeoffs, operability, and migration |
 | Durable cross-functional decision | `decision-records` | Repository-native ADR lifecycle and drift control |
@@ -21,6 +21,22 @@ owners, or the preferred owner may not be installed.
 
 The orchestrator selects and sequences owners. Each owner controls its own
 analysis, implementation guidance, evidence standard, and domain boundaries.
+
+## Route Mixed Repositories by Owned Surface
+
+1. Classify each affected file or coherent domain independently. Do not infer
+   one route for the repository from its first manifest or language.
+2. Exclude generated, vendored, cached, and build output from direct editing by
+   default. Change the owning source, generator, or documented update mechanism.
+3. Treat CI, release, container, manifest, lockfile, formatter, and repository
+   metadata as tooling even when they use a product language. Do not treat
+   unmatched product code as tooling merely because no specialist is installed.
+4. Partition a mixed change across its real owners. Preserve recognized web,
+   documentation, dependency, test, architecture, port, and review boundaries;
+   use a repository-led fallback for clearly identified unsupported product
+   code and disclose materially reduced language-specific depth.
+5. Parallelize only owner scopes with cleanly separable files, state, and
+   validation surfaces. Otherwise sequence them explicitly.
 
 ## Combine Owners Deliberately
 
