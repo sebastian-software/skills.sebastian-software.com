@@ -34,9 +34,10 @@ jobs:
         run: |
           curl -fsSL https://dalo.sh/install.sh | sh
           echo "$DALO_INSTALL_DIR" >> "$GITHUB_PATH"
-          installed_version="$("$DALO_INSTALL_DIR/dalo" --version)"
-          if [ "$installed_version" != "$DALO_VERSION" ]; then
-            echo "ERROR: installed DALO version '$installed_version' does not match pinned '$DALO_VERSION'" >&2
+          installed_version="$("$DALO_INSTALL_DIR/dalo" --version | awk '{print $NF}')"
+          pinned_version="${DALO_VERSION#dalo-v}"
+          if [ "$installed_version" != "$pinned_version" ]; then
+            echo "ERROR: installed DALO version '$installed_version' does not match pinned '$pinned_version' (from '$DALO_VERSION')" >&2
             exit 1
           fi
 
