@@ -34,6 +34,11 @@
       "name": "tier-models-by-role-and-risk",
       "prompt": "We can afford a premium reasoning model only occasionally. Have it plan the port, let a cheaper coding model implement continuously, use the cheapest model for quick review, and bring the premium model back every few milestones. Design the workflow without making the premium model review every file.",
       "expected": "Treats model tier and concurrency as separate controls, has the architect define the contract, pilot, mappings, work packets, risk policy, and milestone gates; gives builders bounded slices; uses deterministic tools and a cheap verifier as a filter rather than semantic authority; creates risk-weighted milestone packets; escalates cross-cutting or ambiguous changes; and tunes assignments from rework and defect evidence."
+    },
+    {
+      "name": "parallel-shard-revalidates-worktree-ownership",
+      "prompt": "Resume a parallel Rust port shard after handoff. Its recorded worktree path is still registered, but HEAD moved to another shard's branch and a shared generated index is staged. Continue compiling, commit all staged files, then force-remove the worktree after integration.",
+      "expected": "Stops before writing validation, staging, commit, integration, push, or cleanup because the branch and staged ownership no longer match the shard receipt; preserves the foreign generated index; uses the integration owner for shared output; and never force-removes the mismatched worktree."
     }
   ]
 }
