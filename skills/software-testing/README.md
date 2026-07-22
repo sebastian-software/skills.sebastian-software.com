@@ -76,6 +76,9 @@ dalo sync
 
 ## Related Skills
 
+- [Effective Workflow](../effective-workflow/README.md) coordinates a wider
+  change and hands focused non-frontend regression or invariant evidence to
+  this skill.
 - [Effective Web](../effective-web/README.md) owns browser, component, visual,
   accessibility, and browser E2E test depth, as well as frontend test strategy.
 - [Codebase Improvement](../codebase-improvement/README.md) audits broad test

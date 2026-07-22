@@ -83,6 +83,9 @@ dalo sync
 
 ## Related Skills
 
+- [Effective Workflow](../effective-workflow/README.md) coordinates the wider
+  path from request to verified handoff and invokes this skill for PR-scoped
+  review, feedback follow-through, CI recovery, and merge judgment.
 - [Codebase Improvement](../codebase-improvement/README.md) handles repository
   audits and improvement plans broader than one pull request.
 - [Smart Dependency Updater](../smart-dependency-updater/README.md) creates and

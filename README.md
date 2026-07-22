@@ -7,7 +7,7 @@
 **Give your AI agent the practical judgment to take product and software work
 from an ambiguous brief to a review-ready result.**
 
-18 practice-built skills and 175 focused references for product decisions, web
+19 practice-built skills and 177 focused references for product decisions, web
 experiences, codebase improvement, delivery, go-to-market work, professional
 communication, and web compliance.
 
@@ -25,7 +25,7 @@ Install one skill to try the collection:
 npx skills add sebastian-software/skills.sebastian-software.com --skill effective-web
 ```
 
-Or install all 18 skills:
+Or install all 19 skills:
 
 ```sh
 npx skills add sebastian-software/skills.sebastian-software.com --all
@@ -51,6 +51,9 @@ and decision-grade prototype plan.
 Review this codebase, rank the highest-leverage improvements, and implement the
 agreed scope.
 
+Take this software task from an unclear request through an authorized change,
+focused verification, and a review-ready handoff.
+
 Build a LinkedIn positioning and content system that leads to qualified B2B
 conversations.
 ```
@@ -71,6 +74,7 @@ treating every task as an isolated prompt.
 | Product thesis | Distinctive, researched, multilingual name shortlist | [`product-naming`](skills/product-naming/) |
 | Brief or existing interface | Designed, implemented, accessible, performant, and tested web experience | [`effective-web`](skills/effective-web/), [`locale-typography`](skills/locale-typography/) |
 | Website or digital service | Jurisdiction-aware disclosure, privacy, and consent work product | [`web-legal-compliance`](skills/web-legal-compliance/) |
+| Unclear software task | Authorized, verified, review-ready implementation and handoff | [`effective-workflow`](skills/effective-workflow/) with the relevant specialist skills |
 | Repository uncertainty | Evidence-backed audit, executable plan, or focused improvement | [`codebase-improvement`](skills/codebase-improvement/) |
 | Architecture question | Evidence-led system direction, operability, and evolution path | [`software-architecture`](skills/software-architecture/), [`decision-records`](skills/decision-records/) |
 | Software behavior risk | Focused, reliable evidence for a non-frontend regression, invariant, async path, data boundary, or CLI contract | [`software-testing`](skills/software-testing/) |
@@ -80,12 +84,12 @@ treating every task as an isolated prompt.
 | Expertise or offer | Credible consultant positioning and B2B LinkedIn acquisition system | [`consultant-profile`](skills/consultant-profile/), [`linkedin-social-selling`](skills/linkedin-social-selling/) |
 | Raw idea or stiff draft | LinkedIn content and natural professional team communication | [`linkedin-posts`](skills/linkedin-posts/), [`metro-english`](skills/metro-english/) |
 
-The broadest skill, `effective-web`, routes work across UI/UX, CSS, React,
-components, forms, tables, accessibility, internationalization, interface copy,
-auth and error states, frontend SEO and AI search, performance, testing, SVG,
-motion, textures, print stylesheets, and web-to-print. Other skills apply the
-same depth to product, engineering, delivery, positioning, language, and legal
-surfaces.
+`effective-workflow` coordinates the path from an unclear software request to a
+verified handoff while leaving specialist depth with its first-party owners.
+The broadest specialist skill, `effective-web`, routes work across UI/UX, CSS,
+React, components, forms, tables, accessibility, internationalization,
+interface copy, auth and error states, frontend SEO and AI search, performance,
+testing, SVG, motion, textures, print stylesheets, and web-to-print.
 
 ## Why Use These Skills
 
@@ -138,6 +142,7 @@ the external tools and credentials required to act on third-party systems.
 
 | Skill | Focus |
 | --- | --- |
+| [`effective-workflow`](skills/effective-workflow/) | Lean, repository-native orchestration from understanding through authorized change and focused verification to a review-ready handoff. |
 | [`codebase-improvement`](skills/codebase-improvement/) | Repository audits, leverage-based prioritization, complexity review, executable implementation plans, and focused improvements. |
 | [`decision-records`](skills/decision-records/) | Repository-native ADR creation, supersession, review, and drift control for durable cross-functional decisions. |
 | [`port-codebases`](skills/port-codebases/) | Resource-aware, behavior-preserving ports across languages, runtimes, frameworks, platforms, and major APIs. |
@@ -236,7 +241,7 @@ dalo doctor
 ```
 
 Unlike `source add-catalog`, `source add` treats this repository as a trusted
-team source, so all 18 first-party skills are active together. External
+team source, so all 19 first-party skills are active together. External
 repositories are configured separately as DALO catalogs; they are never copied
 or renamed here. See [docs/dalo.md](docs/dalo.md) for the complete setup and the
 curated external selection.
