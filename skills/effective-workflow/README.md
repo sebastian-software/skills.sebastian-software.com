@@ -125,7 +125,8 @@ dalo sync
 ## Related Skills
 
 - [Codebase Improvement](../codebase-improvement/README.md) owns repository
-  investigation, audit quality, prioritization, and executable plans.
+  investigation with a read-only diagnosis boundary, audit quality,
+  prioritization, and executable plans.
 - [Effective Web](../effective-web/README.md) owns browser-facing design,
   implementation, accessibility, performance, and frontend verification.
 - [Software Testing](../software-testing/README.md) owns focused non-frontend

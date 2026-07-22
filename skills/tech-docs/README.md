@@ -71,8 +71,9 @@ dalo sync
 
 ## Related Skills
 
-- [Codebase Improvement](../codebase-improvement/README.md) audits and
-  prioritizes repository-wide documentation opportunities.
+- [Codebase Improvement](../codebase-improvement/README.md) diagnoses
+  documentation or expectation drift and prioritizes repository-wide
+  documentation opportunities; this skill owns the correction and verification.
 - [Decision Records](../decision-records/README.md) preserves durable accepted
   choices before this skill documents their consequences.
 - [Effective Web](../effective-web/README.md) owns browser-interface copy and
