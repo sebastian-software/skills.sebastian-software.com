@@ -25,7 +25,7 @@ Install one skill to try the collection:
 npx skills add sebastian-software/skills.sebastian-software.com --skill effective-web
 ```
 
-Or install all 19 skills:
+Or install all 20 skills:
 
 ```sh
 npx skills add sebastian-software/skills.sebastian-software.com --all
@@ -243,7 +243,7 @@ dalo doctor
 ```
 
 Unlike `source add-catalog`, `source add` treats this repository as a trusted
-team source, so all 19 first-party skills are active together. External
+team source, so all 20 first-party skills are active together. External
 repositories are configured separately as DALO catalogs; they are never copied
 or renamed here. See [docs/dalo.md](docs/dalo.md) for the complete setup and the
 curated external selection.
