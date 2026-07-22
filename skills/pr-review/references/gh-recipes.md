@@ -206,16 +206,33 @@ git -C "$WT" status --short
 git -C "$WT" add -- <owned-path> [<owned-path>...]
 git -C "$WT" diff --cached --name-only
 git -C "$WT" diff --cached
+# record `git write-tree` as <expected-tree>, then revalidate the receipt
+git -C "$WT" write-tree
+test "$(git -C "$WT" rev-parse HEAD)" = "<expected-head>"
+test -z "$(git -C "$WT" symbolic-ref -q HEAD)"
 git -C "$WT" commit -m "fix: <what and why>"
+# record <post-commit-head> and advance the run-local receipt only after proving
+# its parent is <expected-head> and its complete tree is the staged tree above
+git -C "$WT" rev-parse HEAD
+test "$(git -C "$WT" rev-parse HEAD^)" = "<expected-head>"
+test "$(git -C "$WT" rev-parse HEAD^{tree})" = "<expected-tree>"
+test -z "$(git -C "$WT" symbolic-ref -q HEAD)"
 git -C "$WT" push origin HEAD:"<head>"
 
-# only after receipt, registration, expected HEAD, and clean status still match
+# only after registration, the updated expected HEAD, and clean status match
+test "$(git -C "$WT" rev-parse HEAD)" = "<post-commit-head>"
+test -z "$(git -C "$WT" symbolic-ref -q HEAD)"
 git -C "$WT" status --short
 git -C "$SOURCE_ROOT" worktree remove "$WT"
 ```
 
-If the final status is dirty or any receipt field changed, do not remove the
-worktree. Leave it and its branch intact with the exact discrepancy.
+The placeholders above are run-context receipt values, not ambient assumptions.
+Advance `<expected-head>` to `<post-commit-head>` only for the successful commit
+whose parent and full `<expected-tree>` prove that the run created the
+transition. The detached-state checks also reject a branch attachment at the
+same commit OID. If the final status is dirty or any other receipt field
+changed, do not remove the worktree. Leave it and its branch intact with the
+exact discrepancy.
 
 Fork PRs: the head branch lives in the contributor's fork, so a normal push
 won't work — that's a Mode A situation anyway. For your own PRs the branch is in

@@ -64,7 +64,10 @@ Use only when the dependency graph exposes independent ownership boundaries.
   concurrency overwhelm the validation environment.
 - Stage only shard-owned files, inspect staged names and diff, then commit or
   checkpoint coherent batches with source-slice identity and exact validation
-  evidence. Give shared lockfiles and generated indexes one integration owner.
+  evidence. Advance the shard receipt only across a proven run-owned checkpoint
+  whose parent is the previously expected commit; pass the latest expected
+  commit to every handoff. Give shared lockfiles and generated indexes one
+  integration owner.
 - Integrate in dependency order. Regenerate compiler and test failure queues
   after integration rather than distributing stale failures.
 - Remove only a clean matching worktree created by the current port run. Never

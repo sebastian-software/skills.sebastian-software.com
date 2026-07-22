@@ -49,6 +49,14 @@ a private ledger or hidden runtime directory.
 - Treat a shared lockfile or generated file as owned only when the current PR's
   repository-native command produced it and the complete diff belongs to the
   PR's declared purpose.
+- Immediately before a run-owned commit, revalidate that `HEAD` still equals
+  the receipt's expected commit and that detached-versus-branch state still
+  matches. Record the full staged tree ID after inspecting the staged diff.
+  After the commit succeeds, advance the receipt to the new commit only when its
+  parent is that expected commit and its complete tree equals the recorded
+  staged tree. This explicit transition is the only way the workflow may change
+  the receipt's expected commit; an arbitrary HEAD move remains foreign and
+  blocks push or cleanup.
 - Do not rewrite remote history except for the skill's explicitly allowed,
   user-authorized rebase flow on the user's own PR branch. Revalidate review and
   branch state after the push.
@@ -57,7 +65,9 @@ a private ledger or hidden runtime directory.
 
 Remove a worktree automatically only when the receipt says this run created it
 for this PR. Immediately before removal, verify the same repository, registered
-absolute path, expected branch or detached commit, and a clean status.
+absolute path, latest run-owned expected branch or detached commit, and a clean
+status. For a detached receipt, also prove that `HEAD` has not become attached
+to a branch even when the commit OID is unchanged.
 
 Never use force removal for automatic cleanup. Leave a dirty, moved,
 mismatched, user-created, or harness-managed worktree and its branch intact;

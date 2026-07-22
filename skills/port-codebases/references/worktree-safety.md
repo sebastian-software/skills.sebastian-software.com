@@ -41,6 +41,12 @@ the current shard.
   `git commit -a` around shared state.
 - Inspect staged filenames and the full staged diff before every checkpoint or
   commit. Foreign staged work blocks delivery until isolated.
+- Immediately before a checkpoint, require the current commit to equal the
+  shard receipt. After a successful run-owned checkpoint, advance the receipt
+  only when the new commit's parent is the previous expected commit and its diff
+  is exactly the already-inspected shard-owned unit. Propagate that latest
+  expected commit through handoff and integration; never bless an arbitrary
+  observed HEAD as a checkpoint.
 - Assign shared manifests, lockfiles, generated indexes, or build metadata to
   one integration owner. Own their diff only when the repository-native command
   for the current integration unit produced a coherent result.
@@ -51,7 +57,7 @@ the current shard.
 
 Immediately before automatic removal, prove that this port run created the
 worktree for the recorded shard and that repository identity, registered path,
-branch or commit, and clean status still match.
+latest run-owned branch or checkpoint commit, and clean status still match.
 
 Never force-remove a dirty, moved, mismatched, user-created, or harness-managed
 worktree. Leave the worktree and branch intact and report the exact discrepancy
