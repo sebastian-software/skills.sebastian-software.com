@@ -61,6 +61,68 @@ class JsonLdInventoryValidationTests(unittest.TestCase):
         self.assertEqual(failures, [])
 
 
+class ProofRowValuesTests(unittest.TestCase):
+    def test_reads_values_from_dd_elements(self) -> None:
+        html = (
+            '<dl class="proof-row" aria-label="Collection facts">'
+            "<div><dt>practice-built skills</dt><dd>20</dd></div>"
+            "<div><dt>focused references</dt><dd>184</dd></div>"
+            "<div><dt>connected quality system</dt><dd>1</dd></div>"
+            "</dl>"
+        )
+
+        self.assertEqual(VALIDATOR.proof_row_values(html), [20, 184, 1])
+
+
+class EffectiveWebStatsValidationTests(unittest.TestCase):
+    @staticmethod
+    def page(routes: int, references: int, chip: int) -> str:
+        return (
+            '<div class="flagship-stats">'
+            f"<div><strong>{routes}</strong><span>intent routes</span></div>"
+            f"<div><strong>{references}</strong><span>focused references</span></div>"
+            "<div><strong>1</strong><span>coherent quality bar</span></div>"
+            "</div>"
+            '<a class="text-link" href="https://example.com/">Explore</a>'
+            f"<ul><li>{chip} routed workflows</li></ul>"
+        )
+
+    def test_matching_stats_pass(self) -> None:
+        failures: list[str] = []
+
+        VALIDATOR.validate_effective_web_stats(self.page(25, 93, 25), 25, 93, failures)
+
+        self.assertEqual(failures, [])
+
+    def test_stale_stats_report_each_mismatch(self) -> None:
+        failures: list[str] = []
+
+        VALIDATOR.validate_effective_web_stats(self.page(24, 90, 23), 25, 93, failures)
+
+        self.assertEqual(
+            failures,
+            [
+                "flagship intent-route stat must match the SKILL.md routing table: 25",
+                "flagship reference stat must match skills/effective-web/references: 93",
+                "effective-web card chip must match the SKILL.md routing table: 25",
+            ],
+        )
+
+    def test_missing_stats_block_reports_a_failure(self) -> None:
+        failures: list[str] = []
+
+        VALIDATOR.validate_effective_web_stats("<main></main>", 25, 93, failures)
+
+        self.assertIn("site must contain the flagship stats block", failures)
+
+    def test_inventory_counts_agree_with_the_repository(self) -> None:
+        routes, references = VALIDATOR.effective_web_inventory()
+
+        self.assertGreater(routes, 0)
+        self.assertGreater(references, 0)
+        self.assertGreaterEqual(references, routes)
+
+
 class SitemapLastmodValidationTests(unittest.TestCase):
     def test_matching_lastmod_passes(self) -> None:
         failures: list[str] = []

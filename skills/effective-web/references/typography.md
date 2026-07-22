@@ -131,7 +131,7 @@ body {
 1. Measure your primary font's x-height ratio
 2. Apply it - fallback fonts will scale to match visually
 
-**Browser support:** ~85% (Chrome 127+, Firefox 118+, Safari 17+)
+**Browser support:** Baseline Newly available (Chrome 127+, Firefox 118+, Safari 17+) — treat as a progressive enhancement
 
 ## Limit Font Weights and Ensure Clear Distinction
 
@@ -540,7 +540,7 @@ At small sizes: increased x-height, wider spacing, thicker strokes for legibilit
 
 ### Hanging Punctuation for Display Text
 
-For large quoted text, pull punctuation into the margin so the text edge aligns visually. The CSS `hanging-punctuation` property exists but only Safari supports it (~14%). Use a negative `text-indent` instead:
+For large quoted text, pull punctuation into the margin so the text edge aligns visually. The CSS `hanging-punctuation` property exists but is Baseline Limited availability (Safari only). Use a negative `text-indent` instead:
 
 ```css
 blockquote.display {
@@ -550,7 +550,7 @@ blockquote.display {
 
 ### Drop Caps
 
-Use `initial-letter` for drop caps (~89% support, no Firefox; Safari only via the `-webkit-` prefix, which an unprefixed `@supports` check misses). Provide a fallback for unsupported browsers:
+Use `initial-letter` for drop caps (Baseline Limited availability: Chrome 110+, no Firefox; Safari only via the `-webkit-` prefix, which an unprefixed `@supports` check misses). Provide a fallback for unsupported browsers:
 
 ```css
 .article > p:first-of-type::first-letter {
@@ -574,7 +574,7 @@ Use `initial-letter` for drop caps (~89% support, no Firefox; Safari only via th
 
 ### Prevent Widows in Headings
 
-A single word on the last line of a heading looks orphaned. Use CSS `text-wrap: balance` (~87% support) for headings and `text-wrap: pretty` (~78% support) for paragraphs:
+A single word on the last line of a heading looks orphaned. Use CSS `text-wrap: balance` (Baseline Newly available: Chrome 114+, Firefox 121+, Safari 17.5+) for headings and `text-wrap: pretty` (Newly available: Chrome 117+, Firefox 139+, Safari 26+) for paragraphs — both are safe progressive enhancements:
 
 ```css
 h1, h2, h3, h4, h5, h6 {
@@ -640,16 +640,3 @@ Common mistake: placing text directly on photos.
 - Black: 0% brightness, White: 100%
 - Large difference makes eyes work harder
 - Use accessible dark grey instead
-
-## Chapter Summary
-
-1. Limit font weights: typically 2, max 3 (e.g. Regular 400, Medium 500, Bold 700) in a single sans serif typeface
-2. Use type scale to create predefined font sizes that work together
-3. Use 1.5+ line height (unitless values) for long body text; decrease line height as font size increases
-4. Ensure 40-80 characters per line for readability
-5. Left align text for optimal readability (F-pattern); only justify with hyphenation
-6. Enable kerning; tighten large text, open up ALL CAPS; turn off ligatures when letterspacing
-7. Use OpenType features: real small caps, tabular figures for data, common ligatures, proper typographic marks
-8. Prevent faux bold/italic — load all needed font weights and styles; use `font-synthesis: none`
-9. Apply vertical rhythm — use body line-height as base spacing unit
-10. Combine typefaces with purpose: match structure, contrast expression, limit to 2-3 families

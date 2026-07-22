@@ -54,7 +54,7 @@ Use only when the dependency graph exposes independent ownership boundaries.
 - Allocate one shard per crate, package, directory, platform, or test group.
 - Give every shard exclusive file ownership or an isolated worktree. Maintain a
   single integration owner and queue.
-- For every worktree shard, follow [Port shard worktree
+- For every worktree shard, follow [worktree
   safety](worktree-safety.md): detect repository, branch, and path collisions;
   preserve dirty or staged foreign state; use explicit per-command roots; and
   re-verify the run-local receipt after resume or handoff.

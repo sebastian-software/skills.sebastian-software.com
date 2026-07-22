@@ -2,6 +2,8 @@
 
 Use this reference when a consultant profile should communicate personality, values, taste, working style, personal motivation, professional ambition, buyer fit, professional boundaries, or a non-linear background without becoming unprofessional or self-indulgent.
 
+Note: examples in this file (the design/webdesign origin, autodidact path, "Nein-Sager" stance, and named industries) come from one specific consultant's history and are illustrative only — never transfer them into another user's profile.
+
 ## Core Principle
 
 Personality belongs in a consultant profile when it helps the buyer understand fit.

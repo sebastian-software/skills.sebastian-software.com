@@ -8,8 +8,8 @@
 right client understand why they should hire this consultant next.**
 
 Consultant Profile helps agents create, audit, rewrite, localize, and improve
-consultant CVs, LinkedIn and XING profiles, case studies, project lists, bios,
-and senior technology-consulting resumes. It replaces reverse-chronological
+consultant CVs, LinkedIn profiles, case studies, project lists, bios, and
+senior technology-consulting resumes. It replaces reverse-chronological
 inventory with evidence-led positioning and a coherent career narrative.
 
 ## What It Can Deliver
@@ -20,7 +20,7 @@ inventory with evidence-led positioning and a coherent career narrative.
 - complete case studies with context, responsibility, decisions, and outcomes
 - a connected professional narrative instead of a loose project list
 - gap analysis and interview questions for missing evidence
-- synchronized CV, website, LinkedIn, XING, bio, and project-list content
+- synchronized CV, website, LinkedIn, bio, and project-list content
 - localized versions that preserve meaning and professional credibility
 
 ## Use It When

@@ -15,9 +15,11 @@ result, and explains the work where reviewers need it: in the pull request.
 
 ## Default Outcome
 
-Unless the user narrows the request, the skill aims to deliver every viable
-dependency group as a focused, pushed, ready-for-review pull request. Each group
-documents:
+The skill prepares every viable dependency group as a focused, review-ready
+delivery unit. When the request includes publishing or an orchestrating caller
+grants delivery authority, each group becomes a pushed, ready-for-review pull
+request; otherwise the run stops at local branches plus a delivery proposal.
+Each group documents:
 
 - why the versions belong together
 - which upstream changes matter to this codebase
@@ -93,7 +95,8 @@ The skill does not force unsafe upgrades through failing checks or hide blocked
 groups behind a green summary. A focused dependency introduction does not trigger
 a repository-wide update inventory. Planning-only, draft, local-only, or
 single-group outcomes remain available when the user asks for that narrower
-scope.
+scope, and a caller's narrower delivery authority always overrides the default
+delivery contract.
 
 ## About Sebastian Software
 

@@ -1,6 +1,6 @@
 # Smart Dependency Update Workflow
 
-Use this reference when executing the full dependency-update process or when the package graph is large enough that the grouping decision needs explicit reasoning.
+Use this reference when executing the full dependency-update process or when the package graph is large enough that the grouping decision needs explicit reasoning. This file is the authoritative copy of the grouping table, the publishing and delivery rules, and the PR-body guidance; SKILL.md carries only the rules of thumb.
 
 ## 1. Repository Orientation
 
@@ -96,7 +96,9 @@ Default multi-PR portfolio groups:
 | Lint/format/type tooling | `typescript`, `eslint`, `typescript-eslint`, `biome`, `ultracite`, formatters | Shared static-analysis config and rule fallout | lint, typecheck, formatter check, generated cleanup review |
 | Test stack | `vitest`, `jest`, `jsdom`, Testing Library, coverage adapters | Shared runner/environment/snapshot behavior | affected package tests, coverage/snapshot review |
 | UI primitives | `@radix-ui/*`, `cmdk`, `react-day-picker`, shadcn-adjacent primitives | Shared component interaction/accessibility surface | UI package tests, app typecheck, browser spot checks when visible |
-| Vendor SDK | `@ai-sdk/*`, Supabase, Stripe, PostHog, Sentry, AWS SDK | Shared vendor API surface, auth, telemetry, or billing semantics | focused service tests plus integration checks for touched paths |
+| Vendor SDK | `@ai-sdk/*`, Supabase, Stripe, PostHog, Sentry, AWS SDK | Shared vendor API surface, auth, telemetry, or billing semantics; one PR per vendor feature area when large | focused service tests plus integration checks for touched paths |
+| Types and runtime | `foo` plus `@types/foo` | Type package tracks the runtime package; same PR unless the types update is independent | typecheck plus the runtime package's tests |
+| Security patch | vulnerable package, required direct parents, or a scoped override | Advisory urgency and blast radius differ from routine maintenance; separate PR when they do | affected-path tests plus audit rescan against the fixed range |
 | App/runtime island | Cloudflare Worker, docs app, mobile app, separate package manager island | Separate lockfile/deploy target/CI job | that island's install, typecheck, test, deploy dry-run when available |
 
 Do not let the word "tooling" collapse unrelated review questions. For example, Next.js, Vite, ESLint, and TypeScript may all look like tooling in an outdated report, but they often affect different contracts: runtime rendering, bundle output, lint rules, and type analysis. Combine them only when a migration guide or peer dependency constraint makes the coupling real.
@@ -129,7 +131,7 @@ Use this table as the execution contract. Each row is normally one branch, one w
 
 Worktree workflow:
 
-1. Follow [dependency worktree safety](worktree-safety.md): inspect Git identity,
+1. Follow [worktree safety](worktree-safety.md): inspect Git identity,
    registrations, refs, absolute paths, and dirty and staged state before
    creating or adopting a worktree.
 2. Reuse a suitable harness-managed worktree rather than nesting, or create one
@@ -141,9 +143,10 @@ Worktree workflow:
    resume or handoff. Use `git -C` or an explicit tool working directory.
 5. Apply only the group's manifests, lockfile changes, generated output, local
    migrations, and directly-caused code changes inside that worktree.
-6. Validate, stage explicit files, inspect staged names and diff, commit, push,
-   and open a ready-for-review PR before moving to an unrelated group. Use draft
-   PRs or keep worktrees local only when the user explicitly asks for that.
+6. Validate, stage explicit files, inspect staged names and diff, and complete
+   the group to the authorized delivery point — commit, push, and open a
+   ready-for-review PR when full delivery is granted, otherwise a committed
+   local branch — before moving to an unrelated group.
 7. Rebase or regenerate later worktrees after earlier dependency PRs land if
    they share a lockfile.
 8. Remove only a matching clean worktree created by this run; never force-remove
@@ -209,18 +212,18 @@ Use the package manager's normal update path. Avoid hand-editing lockfiles unles
 
 Commit strategy:
 
-- Use one Conventional Commit for small coherent updates.
-- Use separate commits for "dependency versions" and "local adoption" when it improves review.
-- Keep the commit scope aligned with the PR group, for example `chore(deps): update docs framework stack` or `refactor(docs): adapt ardo ui imports`.
-- Avoid mixing unrelated groups in one commit. If the commit message needs "and", split it.
-- Use Conventional Commit style when the repository has no stronger convention, for example `chore(deps): update eslint toolchain`.
+- Use Conventional Commits unless the repository has its own convention, for example `chore(deps): update eslint toolchain`. One commit is enough for small coherent updates.
+- Use separate commits for "dependency versions" and "local adoption" when it improves review, for example `chore(deps): update docs framework stack` plus `refactor(docs): adapt ardo ui imports`. Keep both commits in the same PR only when the migration is caused by that dependency group.
+- Keep the commit scope aligned with the PR group. Avoid mixing unrelated groups in one commit; if the commit message needs "and", split it.
 
 Publishing strategy:
 
+- Push and open ready-for-review PRs only within the granted delivery authority (see the Default Delivery Contract in SKILL.md). Without publishing authority, complete each group as a local branch and report the delivery proposal instead.
 - Create one branch per proposed PR group by default, usually `codex/update-<group-name>` unless the repository has its own branch convention.
 - Prefer separate worktrees for independent PR groups. Check existing worktrees first to avoid branch/path collisions.
 - Stage only files that belong to that group. A lockfile can be shared across workspace packages, but the PR should still have a coherent dependency story.
-- Push and open a ready-for-review PR for one group before moving to the next unrelated group. Put the researched dependency explanation, validation, risk, and deferred work in the PR body.
+- Complete one group to the authorized delivery point — for full delivery, push and open a ready-for-review PR — before moving to the next unrelated group. Put the researched dependency explanation, validation, risk, and deferred work in the PR body.
+- Use draft PRs or keep branches local when the user asks for that narrower mode.
 - If a repository already has a mixed local diff, either split it into commits/branches carefully or ask before publishing a broad PR.
 
 ## 8. Validation
@@ -239,6 +242,36 @@ Run checks proportional to the dependency surface:
 If a full suite is too expensive, run narrow checks first and name the unrun broader checks in the PR. Do not claim safety from a single install command.
 
 ## 9. PR Review Package
+
+Use this body structure unless the repository has its own PR template:
+
+```markdown
+## Dependency group
+- Packages: `name` old -> new, `name` old -> new
+- Why grouped: shared peer constraints / same framework family / same toolchain surface
+
+## Upstream changes that matter here
+- [Package]: concise local-impact summary with source link
+- [Package]: note relevant breaking changes, changed defaults, fixes, or new APIs
+- Gaps: release notes missing for X; checked tags/commits/package diff instead
+
+## Local impact and code changes
+- Existing usage checked: imports/config/CLI/tests affected
+- Required migrations:
+- Beneficial adoption:
+- Deferred follow-ups:
+
+## Validation
+- `command`: result
+- `command`: result
+
+## Risk
+- Runtime/build/test/config risk and remaining uncertainty
+```
+
+Write this full review package into the pull request body. Do not substitute a
+long chat response for the PR body. In chat, report the PR URL, validation
+result, and any deferred groups or blockers.
 
 Prepare reviewers to evaluate the update quickly:
 

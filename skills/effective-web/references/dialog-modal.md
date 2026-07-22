@@ -57,7 +57,7 @@ dialog.addEventListener("close", () => {
 | Feature | `<dialog>` + `.showModal()` | `<dialog>` + `.show()` | Popover API |
 |---|---|---|---|
 | Top layer | Yes | No | Yes |
-| Backdrop | Yes (`::backdrop`) | No | No |
+| Backdrop | Yes (`::backdrop`) | No | Yes (`::backdrop`, non-blocking) |
 | Page inert | Yes | No | No |
 | Focus trapping | Yes (native) | No | No |
 | Light dismiss | Only with `closedby="any"` | No | Yes (default for `popover="auto"`) |

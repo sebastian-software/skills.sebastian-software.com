@@ -2,7 +2,8 @@
 name: software-validation
 description: >-
   Discover, execute, and report existing repository-native software checks.
-  Use when asked to validate a change, verify repository or package health, run
+  Use when asked to validate a change, run the repository's established checks
+  against a change or package, run
   the applicable typecheck, static analysis, lint, format, test, benchmark,
   load, soak, stress, build, package, documentation, doctest, link,
   generated-reference, or example checks, or
@@ -79,7 +80,7 @@ changes; report both. When termination is unconfirmed, report the interim marker
 `TERMINATION_UNCONFIRMED`, keep monitoring or escalate process control, and do
 not finalize the affected category or dependent checks.
 
-## Safety and Boundaries
+## Safety
 
 - Use explicit working directories for every command. In monorepos, preserve
   package or workspace scope and do not launch competing top-level orchestrators.
@@ -90,16 +91,19 @@ not finalize the affected category or dependent checks.
   delete generated output merely to make the post-validation diff clean.
 - Do not claim timeout cleanup while descendants may still be running. Stop the
   affected validation flow when process-tree state is uncertain.
+
+## Routing Boundaries
+
 - Route new, missing, or restructured non-frontend test evidence and test
   discovery, collection, runner, or framework diagnosis and repair to
   `software-testing`; route benchmark design, comparison methodology,
   interpretation, and performance claims there as well. Route browser test
   design to `effective-web`.
-- Route system quality targets and broader verification strategy to
-  `software-architecture`; repository audit prioritization to
-  `codebase-improvement`; documentation authoring to `tech-docs`; and
-  orchestration, commits, pull requests, approvals, and merge judgment to the
-  calling delivery skill or `pr-review`.
+- Route system quality targets, testing-strategy design, and broader
+  verification strategy to `software-architecture`; repository audit
+  prioritization to `codebase-improvement`; documentation authoring to
+  `tech-docs`; and orchestration, commits, pull requests, approvals, and merge
+  judgment to the calling delivery skill or `pr-review`.
 
 This skill owns discovery and execution of checks the repository already has.
 It does not become the build system, CI service, package manager, test designer,

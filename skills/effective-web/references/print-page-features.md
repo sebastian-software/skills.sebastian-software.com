@@ -1,6 +1,6 @@
 # Page Features Reference
 
-Print-specific page features and element styles. See SKILL.md for principles.
+Print-specific page features and element styles. See [route-print.md](route-print.md) for principles.
 
 ## Page Headers, Footers, and Page Numbers
 

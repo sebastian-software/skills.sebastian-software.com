@@ -6,10 +6,11 @@ Do not treat product, landing page, minimalist, playful, and premium as competin
 values at one level.
 
 If no direction has been accepted yet and the task needs competing experience
-concepts rather than a compact implementation brief, use Product Design's
-[visual-character exploration](../../product-design/references/structure-and-prototyping.md#explore-visual-character-in-context)
-first. Translate the chosen evidence and qualities into the Design Read below;
-do not invent a separate browser-only direction.
+concepts rather than a compact implementation brief, use the visual-character
+exploration in the `product-design` skill's structure-and-prototyping reference
+(when that skill is installed) first. Translate the chosen evidence and
+qualities into the Design Read below; do not invent a separate browser-only
+direction.
 
 ## Contents
 

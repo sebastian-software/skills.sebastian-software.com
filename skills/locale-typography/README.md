@@ -24,8 +24,8 @@ North American locale profiles.
 - mixed-language content and intentional house-style exceptions
 
 Supported language families include German, English, French, Dutch,
-Luxembourgish, Spanish, Italian, Danish, Norwegian, Swedish, Polish, Czech, and
-Croatian, with regional distinctions where they matter.
+Luxembourgish, European Spanish (es-ES), Italian, Danish, Norwegian, Swedish,
+Polish, Czech, and Croatian, with regional distinctions where they matter.
 
 ## Example Prompts
 
@@ -44,7 +44,7 @@ places where locale correctness still breaks.
 ```
 
 See [SKILL.md](SKILL.md) for locale detection, shared rules, language profiles,
-implementation guidance, and editing boundaries.
+implementation guidance, and routing boundaries.
 
 ## Install This Skill
 

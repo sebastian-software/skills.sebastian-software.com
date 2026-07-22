@@ -755,13 +755,13 @@ Anchor links scroll targets under the sticky header, making them invisible.
 
 | Feature | Chrome | Firefox | Safari | Edge | Baseline Status |
 |---------|--------|---------|--------|------|----------------|
-| `scroll-snap-type` | 69+ | 68+ | 11+ | 79+ | Widely available (Apr 2022) |
-| `scroll-snap-align` | 69+ | 68+ | 11+ | 79+ | Widely available (Jan 2020) |
+| `scroll-snap-type` | 69+ | 68+ | 11+ | 79+ | Widely available (since ~2022) |
+| `scroll-snap-align` | 69+ | 68+ | 11+ | 79+ | Widely available (since ~2022) |
 | `scroll-snap-stop` | 75+ | 103+ | 15+ | 79+ | Widely available (Jul 2022) |
 | `scroll-padding` | 69+ | 68+ | 14.1+ | 79+ | Widely available (Apr 2021) |
 | `scroll-margin` | 69+ | 68+ | 14.1+ | 79+ | Widely available (Jul 2021) |
 | `scroll-behavior` | 61+ | 36+ | 15.4+ | 79+ | Widely available (Mar 2022) |
-| `overscroll-behavior` | 63+ | 59+ | 16+ | 18+ | Limited availability |
+| `overscroll-behavior` | 63+ | 59+ | 16+ | 18+ | Widely available (≈Mar 2025) |
 | `scrollbar-color` | 121+ | 64+ | 26.2+ | 121+ | Newly available (Dec 2025) |
 | `scrollbar-width` | 121+ | 64+ | 18.2+ | 121+ | Newly available (Dec 2024) |
 | `scrollbar-gutter` | 94+ | 97+ | 18.2+ | 94+ | Newly available (Dec 2024) |
@@ -770,21 +770,6 @@ Anchor links scroll targets under the sticky header, making them invisible.
 
 **Notes:**
 - Scroll snap is safe to use everywhere without fallbacks
-- `overscroll-behavior` support is incomplete in some engines — treat scroll-chaining control as an enhancement, not a guarantee
 - Verify current browser data before relying on scrollbar styling details; older Safari versions need a fallback
 - Scroll-driven animations (`animation-timeline`) require `@supports` fallback -- treat as progressive enhancement only
 - Scroll-driven animation support varies by browser version; test the fallback in supported browsers
-
-## Chapter Summary
-
-1. Use `scroll-snap-type: mandatory` only when every child fits within the viewport; prefer `proximity` for mixed-height content
-2. Set `scroll-padding-top` on the scroll container to match sticky header height -- prevents anchor links and snap targets from hiding behind fixed elements
-3. Tie animations to scroll position with `animation-timeline: scroll()` or `view()`, but always wrap in `@supports (animation-timeline: view())` and `prefers-reduced-motion: no-preference`
-4. Never set `scroll-behavior: smooth` without a `prefers-reduced-motion: no-preference` media query
-5. Default to pagination for most interfaces; use infinite scroll only for homogeneous feed-style content where SEO and orientation are not priorities
-6. Use `overscroll-behavior: contain` on modals, drawers, and embedded scroll regions to prevent scroll chaining to the body
-7. Style scrollbars with the standard `scrollbar-color` and `scrollbar-width` properties first, adding `::-webkit-scrollbar` inside `@supports not (scrollbar-color: auto)` for Safari
-8. Use `scrollbar-gutter: stable` on containers where content loads asynchronously to prevent layout shift when the scrollbar appears
-9. Reserve virtual scrolling for lists exceeding ~500 items, and provide search/filter as an accessible alternative to scrolling thousands of rows
-10. Never override native scroll speed or direction (scroll hijacking) -- enhance with scroll snap and scroll-driven animations instead
-11. Always provide visual affordance (peek, indicators, faded edges) when hiding scrollbars on scrollable content

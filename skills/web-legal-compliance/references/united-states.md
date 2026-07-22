@@ -87,11 +87,15 @@ Open and verify current statutes, regulations, and linked guidance:
 - [FTC privacy and security guidance](https://www.ftc.gov/business-guidance/privacy-security)
 - [FTC CAN-SPAM compliance guide](https://www.ftc.gov/business-guidance/resources/can-spam-act-compliance-guide-business)
 - [FTC Children's Online Privacy Protection Rule](https://www.ftc.gov/legal-library/browse/rules/childrens-online-privacy-protection-rule-coppa)
+- [California Privacy Protection Agency](https://cppa.ca.gov/)
 - [Colorado Attorney General: Colorado Privacy Act](https://coag.gov/resources/colorado-privacy-act/)
+- [Connecticut Attorney General: Connecticut Data Privacy Act](https://portal.ct.gov/ag/sections/privacy/the-connecticut-data-privacy-act)
+- [Texas Attorney General: Data Privacy and Security Act](https://www.texasattorneygeneral.gov/consumer-protection/file-consumer-complaint/consumer-privacy-rights/data-privacy-and-security-act)
 - [Congress.gov](https://www.congress.gov/)
 - [GovInfo](https://www.govinfo.gov/)
 - [USA.gov state and territory governments](https://www.usa.gov/state-governments)
 
-Use state legislature, Attorney General, and specialist regulator sites for
-each state. A tracker or law-firm summary may help discover changes but is not
-the final authority.
+The state regulator links are examples of primary enforcement authorities, not
+an applicability list. Use state legislature, Attorney General, and specialist
+regulator sites for every connected state. A tracker or law-firm summary may
+help discover changes but is not the final authority.

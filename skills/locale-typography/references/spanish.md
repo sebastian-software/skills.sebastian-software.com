@@ -1,6 +1,9 @@
 # Spanish
 
-Support `es-ES`.
+Support `es-ES`. Coverage is European Spanish. For `es-MX`, `es-419`, or
+another Latin American locale, verify the regional conventions instead of
+assuming `es-ES` rules; dialogue-dash use and quotation-mark preferences
+differ by region and publisher.
 
 ## Quotation marks and dialogue
 

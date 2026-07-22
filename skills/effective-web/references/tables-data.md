@@ -322,7 +322,7 @@ Transform each row into a card-like block on narrow screens. Column headers beco
 }
 ```
 
-**Critical accessibility note:** Changing `display` properties on table elements removes table semantics from the accessibility tree. When using this pattern, add ARIA roles via JavaScript to restore semantics, or accept that on mobile the content is read as a flat list (which can be acceptable if the stacked layout is genuinely easier to read).
+**Critical accessibility note:** Changing `display` properties on table elements destroys table semantics for screen readers — rows, headers, and cells disappear from the accessibility tree. When using this pattern, restore semantics with explicit ARIA roles (`role="table"`, `role="row"`, `role="columnheader"`/`role="rowheader"`, `role="cell"`), or prefer keeping table `display` values; only accept the flat-list reading when the stacked layout is genuinely easier to consume that way. See [HTML accessibility](html-accessibility.md).
 
 ### Pattern 3: Priority Columns
 
@@ -356,6 +356,8 @@ Container queries let the table respond to the width of its parent container rat
   /* full table layout */
 }
 ```
+
+**Warning:** the stacked branch's `display: block` destroys table semantics for screen readers exactly as in Pattern 2 — restore roles (`role="table"`/`"row"`/`"cell"`) or prefer keeping table `display` (see [HTML accessibility](html-accessibility.md)).
 
 **Browser support:** Chrome 105+, Firefox 110+, Safari 16+. As of 2025, container queries have broad production readiness.
 

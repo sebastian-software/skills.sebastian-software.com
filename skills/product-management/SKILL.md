@@ -2,8 +2,8 @@
 name: product-management
 description: >-
   Plan, review, and improve evidence-led product decisions for software and
-  digital products. Use for product discovery, customer problems and Jobs to
-  be Done, product strategy, outcomes, MVP or initial scope, prioritization,
+  digital products. Use for product discovery and research to decide what or
+  whether to build, customer problems and Jobs to be Done, product strategy, outcomes, MVP or initial scope, prioritization,
   roadmaps, feature requests, quality bars, product delight, release decisions,
   product experiments, adoption and retention learning, or transitions from
   consulting and services to repeatable products. Use when deciding what to
@@ -96,7 +96,7 @@ For a broad product decision, return:
 7. Go-to-market and operational handoffs
 8. Experiment, instrumentation, decision window, and stop or keep criteria
 
-## Related Skills
+## Routing Boundaries
 
 - Use `product-naming` after the product thesis, target user, and differentiation
   are stable enough to support a naming brief.

@@ -4,42 +4,43 @@ description: >-
   Create LinkedIn posts, find LinkedIn content ideas, plan a LinkedIn content
   calendar, and tailor professional posts to an audience, voice, and goal. Use
   when the user mentions a LinkedIn post, LinkedIn content, LinkedIn idea,
-  social media post for LinkedIn, LinkedIn engagement, or content calendar for
-  LinkedIn.
+  social media post for LinkedIn, post engagement, or content calendar for
+  LinkedIn. Route engagement-to-pipeline diagnosis and acquisition strategy to
+  linkedin-social-selling.
 ---
 
 # LinkedIn Posts
 
-You are an expert LinkedIn content strategist. Your goal is to help users find the right content ideas, write engaging LinkedIn posts, and build a consistent content calendar.
+Find worthwhile content ideas, write engaging LinkedIn posts, and build a
+consistent, sustainable content calendar for the user's audience, voice, and
+goal.
 
-## Idea Database (300 ideas, 11 categories)
+## Idea Database (86 ideas, 10 categories)
 
 Load only the relevant category file based on the user's topic:
 
 | Category | File | Count |
 |---|---|---|
-| Company & Project Updates | [references/company-project-updates.md](references/company-project-updates.md) | 33 |
-| Educational Content | [references/educational-content.md](references/educational-content.md) | 27 |
-| Engagement & Interaction | [references/engagement-interaction.md](references/engagement-interaction.md) | 43 |
-| Industry Insights | [references/industry-insights.md](references/industry-insights.md) | 39 |
-| Job & Career Opportunities | [references/job-career-opportunities.md](references/job-career-opportunities.md) | 13 |
-| Lifestyle | [references/lifestyle.md](references/lifestyle.md) | 12 |
-| Networking & Community | [references/networking-community.md](references/networking-community.md) | 22 |
-| Personal Stories & Reflections | [references/personal-stories-reflections.md](references/personal-stories-reflections.md) | 32 |
-| Professional Development | [references/professional-development.md](references/professional-development.md) | 42 |
-| Recognition & Appreciation | [references/recognition-appreciation.md](references/recognition-appreciation.md) | 17 |
-| Tools & Resources | [references/tools-resources.md](references/tools-resources.md) | 20 |
+| Company & Project Updates | [references/company-project-updates.md](references/company-project-updates.md) | 10 |
+| Educational Content | [references/educational-content.md](references/educational-content.md) | 8 |
+| Engagement & Interaction | [references/engagement-interaction.md](references/engagement-interaction.md) | 10 |
+| Industry Insights | [references/industry-insights.md](references/industry-insights.md) | 10 |
+| Job & Career Opportunities | [references/job-career-opportunities.md](references/job-career-opportunities.md) | 6 |
+| Networking & Community | [references/networking-community.md](references/networking-community.md) | 8 |
+| Personal Stories & Reflections | [references/personal-stories-reflections.md](references/personal-stories-reflections.md) | 10 |
+| Professional Development | [references/professional-development.md](references/professional-development.md) | 10 |
+| Recognition & Appreciation | [references/recognition-appreciation.md](references/recognition-appreciation.md) | 6 |
+| Tools & Resources | [references/tools-resources.md](references/tools-resources.md) | 8 |
 
-**Format:** `ID|Topic prompt`. Prompts are discovery cues, not model posts:
-do not reuse their emoji-heavy wording, calls to action, or hashtags. Choose the
-post format and effort from the user's goal and available capacity instead of
-treating them as database metadata.
+**Format:** `ID|Topic prompt`. Entries are neutral topic cues; develop them
+into original, evidence-led posts, choosing format and scope from the user's
+goal and available capacity.
 
 **Routing rules:**
 - If the user asks for ideas in a specific category → load that file
 - If the user wants a content calendar → load 2-3 relevant categories
 - If the user wants to browse all → ask which category first, don't load all at once
-- For writing a specific post → ask for context (see below), use the matching category file for inspiration
+- For writing a specific post → gather context (see below), use the matching category file for inspiration
 - For a document/PDF carousel request → adapt a relevant prompt into an
   accessible document-post concept.
 
@@ -53,7 +54,10 @@ instead of asking for them again. If the request establishes a durable
 cross-channel direction, use `decision-records`; do not create a LinkedIn-specific
 voice-memory file.
 
-Gather only the context that is neither recorded nor provided:
+Gather only the context that is neither recorded nor provided. Default to
+inferring the audience, voice, and goal from the available context and stating
+those assumptions briefly; ask only when a missing choice would materially
+change the post:
 
 If `linkedin-social-selling` already established the audience, content role,
 source evidence, offer connection, language, and review owner, treat that as the
@@ -85,22 +89,15 @@ than a standalone post, route that discovery to `linkedin-social-selling`.
 ## LinkedIn Post Writing Principles
 
 ### Hook First
-The first 2-3 lines determine if people click "see more." Lead with:
-- A bold statement or contrarian opinion
-- A surprising number or statistic
-- A relatable problem or question
-- A personal story opening
+The first 2-3 lines decide whether people click "see more." Lead with a bold
+statement, surprising number, relatable problem, or story opening.
 
 ### Structure for Readability
-- Short paragraphs (1-3 sentences max)
-- Line breaks between every thought
-- Use white space aggressively — walls of text get skipped
+Short paragraphs, line breaks between thoughts, generous white space — walls of
+text get skipped.
 
 ### Drive Engagement
-- End with a question or call to conversation
-- Ask for opinions, not just likes
-- Tag relevant people when genuinely appropriate
-- Share something others want to reshare
+End with a question or position worth answering; ask for opinions, not likes.
 
 ### Be Specific Over Generic
 - Bad: "Leadership is important"
@@ -119,16 +116,9 @@ The first 2-3 lines determine if people click "see more." Lead with:
 
 ## Content Mix Strategy
 
-A balanced LinkedIn presence rotates across these content types:
-
-| Content Type | Purpose |
-|---|---|
-| Thought Leadership | Establish expertise, share opinions |
-| Personal Stories | Build connection and relatability |
-| Educational/How-To | Provide value, attract followers |
-| Engagement Posts | Polls, questions, discussions |
-| Company Updates | Share wins, milestones, culture |
-| Industry Commentary | React to news, trends, changes |
+Rotate across thought leadership, personal stories, educational content,
+engagement prompts, company updates, and industry commentary so the presence
+stays balanced rather than promotional.
 
 ---
 
@@ -201,26 +191,30 @@ What image, carousel, or media would complement this post.
 ## Quick Idea Finder
 
 Ask the user:
-1. **What category interests you?** (Company Updates, Industry Insights, Personal Stories, Professional Development, Educational Content, Engagement, Networking, Tools & Resources, Recognition, Jobs & Career, Lifestyle)
+1. **What category interests you?** (Company Updates, Industry Insights, Personal Stories, Professional Development, Educational Content, Engagement, Networking, Tools & Resources, Recognition, Jobs & Career)
 2. **What content type?** (Text, Poll, Video, Image/Infographic, or
    Document/PDF carousel — choose it after assessing the selected topic and
    available capacity)
-3. **How much time do you have?** (Low/Medium/High effort)
+3. **How much time do you have?** Map the answer to scope: Low effort → a
+   short text post built from a single insight; Medium → a structured list or
+   story post; High → a document/carousel or a multi-post series.
 
-Then load the matching category file and present concise summaries of the top 5
-topic prompts without quoting their database wording. Explain why each fits,
-then develop selected prompts into original, evidence-led post concepts.
+Then load the matching category file and present the 5 best-fitting topic cues.
+Explain why each fits, then develop selected cues into original, evidence-led
+post concepts.
 
 ---
 
-## Related Skills
+## Routing Boundaries
 
-- **decision-records**: For durable audience, voice, tone, form-of-address,
-  terminology, claim, and channel decisions
-- **linkedin-social-selling**: For target-buyer, offer, profile, network,
-  outreach, funnel, and pipeline strategy around the posts; consume its
-  grounded brief when drafting posts inside a larger engagement.
-- **copywriting** (from the separately managed DALO `marketingskills` catalog): For general marketing copy principles
-- **copy-editing** (from the separately managed DALO `marketingskills` catalog): For polishing post drafts
-- **humanizer** (from the separately managed DALO `marketingskills` catalog): To remove AI-sounding patterns from posts
-- **marketing-psychology** (from the separately managed DALO `marketingskills` catalog): For psychological principles to boost engagement
+- Route durable audience, voice, tone, form-of-address, terminology, claim, and
+  channel decisions to `decision-records`.
+- Route target-buyer, offer, profile, network, outreach, funnel, and pipeline
+  strategy around the posts — including engagement-to-pipeline diagnosis — to
+  `linkedin-social-selling`; consume its grounded brief when drafting posts
+  inside a larger engagement.
+- Use `copywriting` for general marketing copy principles, `copy-editing` for
+  polishing post drafts, `humanizer` to remove AI-sounding patterns, and
+  `marketing-psychology` for psychological principles (all from the separately
+  managed DALO `marketingskills` catalog). If an external catalog skill is
+  unavailable, apply the equivalent principles directly.

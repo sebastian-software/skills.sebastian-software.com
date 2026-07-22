@@ -121,16 +121,11 @@ verification.
   (`search`, `send`, `go`, `next`, `done`). Use these to refine the on-screen
   keyboard; never use them as a replacement for the correct `type`, which also
   governs validation and parsing.
-- Delay validation until the user has had a fair chance to answer. Prefer the
-  `:user-valid` / `:user-invalid` pseudo-classes (which apply only after
-  interaction) over `:valid` / `:invalid`, and prefer validating on blur or
-  submit over flashing errors on every keystroke. On failure, keep the entered
-  values, move focus to the first invalid field or an error summary, and give
-  concrete recovery copy that states how to fix the problem.
-- Keep the submit action available until submission is actually in progress.
-  Do not disable it merely because the form appears incomplete: let users invoke
-  validation, then focus an error summary whose entries link to the associated
-  fields and keep inline errors available at each field.
+- Follow the validation-timing and error-recovery rules in
+  [Forms UX](forms-ux.md); prefer the `:user-valid` / `:user-invalid`
+  pseudo-classes (which apply only after interaction) over
+  `:valid` / `:invalid` so errors are never flashed before the user has had a
+  fair chance to answer.
 - Never convey a field's state by color alone; pair color with an icon, text, or
   border change so it survives low vision and color-vision differences.
 

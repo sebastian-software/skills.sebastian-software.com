@@ -2,7 +2,7 @@
   "evals": [
     {
       "name": "route-ideas-to-one-category",
-      "prompt": "I want LinkedIn post ideas about lessons from a product launch. Give me options without loading the entire 300-idea database.",
+      "prompt": "I want LinkedIn post ideas about lessons from a product launch. Give me options without loading the entire idea database.",
       "expected": "Selects the relevant category or asks one focused clarification, then gives tailored ideas without treating the whole database as required context."
     },
     {

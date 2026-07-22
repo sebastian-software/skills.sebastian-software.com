@@ -59,8 +59,8 @@ the user typed.
 - Forward the field `ref` to the real DOM input so the library can focus the
   first invalid field on a failed submit and report uncontrolled values.
 - Validate with a schema (Zod) resolved by the form library so a single source
-  defines types and validation. Validate on submit (and re-validate on change
-  only after the first error) to avoid yelling at users mid-typing.
+  defines types and validation; for when to validate, follow the
+  validation-timing rules in [Forms UX](forms-ux.md).
 - Drive conditional fields from watched values, and unregister/unmount fields
   that no longer apply (or exclude them from the schema branch) so hidden fields
   do not submit stale data or block validation. Keep what the user sees, what is

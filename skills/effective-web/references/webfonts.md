@@ -12,7 +12,7 @@ Link to font files using `@font-face`, specifying weight and style for each file
   src: url('myfont-regular.woff2') format('woff2');
   font-weight: 400;
   font-style: normal;
-  font-display: fallback;
+  font-display: swap;
 }
 
 @font-face {
@@ -20,7 +20,7 @@ Link to font files using `@font-face`, specifying weight and style for each file
   src: url('myfont-bold.woff2') format('woff2');
   font-weight: 700;
   font-style: normal;
-  font-display: fallback;
+  font-display: swap;
 }
 ```
 
@@ -32,7 +32,7 @@ Fonts are only downloaded when needed — if no element on the page uses a decla
 
 When a web font hasn't loaded yet, browsers face a dilemma:
 
-- **FOIT** (Flash of Invisible Text) — hide text until the font loads. This is the default in most browsers. Users see blank space where text should be.
+- **FOIT** (Flash of Invisible Text) — hide text while the font loads. Most browsers default to a short block period (~3 s) and then swap to a fallback — not indefinitely invisible text, but still seconds of blank space where text should be.
 - **FOUT** (Flash of Unstyled Text) — show text in a fallback font immediately, swap when the web font loads. Text reflows but content is accessible immediately.
 
 **FOUT is the lesser evil.** Content should be readable as soon as it loads. A usable page within one second is the goal.
@@ -45,11 +45,11 @@ Add `font-display` to each `@font-face` rule:
 |-------|-----------|----------|
 | `auto` | Browser decides (usually FOIT) | Avoid using |
 | `block` | FOIT — invisible text until font loads | Icon fonts only |
-| `swap` | FOUT — immediate fallback, swap when ready | Small amounts of text (brand headings) |
-| `fallback` | Brief FOIT (~100ms), then FOUT, but gives up if too slow | **Body text (recommended default)** |
-| `optional` | Uses font only if already cached, never blocks | Low-priority fonts on slow connections |
+| `swap` | FOUT — immediate fallback, swap when ready | **Most fonts (recommended default)** |
+| `fallback` | Brief FOIT (~100ms), then FOUT, but gives up if too slow | When font swap causes measured CLS |
+| `optional` | Uses font only if already cached, never blocks | Low-priority fonts; slow connections; measured CLS |
 
-**Use `fallback` for most fonts.** It shows content quickly while giving the font a chance to load. If the font takes too long, the fallback persists for the rest of the page visit (avoiding late, disorienting reflows).
+**Default to `swap` plus a metric-matched fallback font (`size-adjust`/`ascent-override`/`descent-override`); use `fallback` or `optional` when CLS is the measured problem.** `swap` shows content immediately, and the metric overrides (see below) make the swap nearly invisible. Only when layout shift from the swap remains a measured problem should you trade font fidelity for stability with `fallback` or `optional`.
 
 ## Preload the Most Critical Font
 
@@ -173,36 +173,27 @@ h2 {
 - Responsive typography — smoothly adjust weight/width based on viewport
 - Optical sizing — automatic adjustment for rendered size
 
-## Font Loading with JavaScript
+## Metric-Matched Fallback Fonts
 
-For fine-grained control beyond `font-display`, use the Font Loading API or FontFaceObserver library:
+Instead of JavaScript class-swapping, use `@font-face` metric overrides to make the fallback font occupy nearly the same space as the web font — the swap becomes almost invisible:
 
 ```css
-/* Default: fallback font */
-body { font-family: "Calibri", "Roboto", sans-serif; }
+@font-face {
+  font-family: "MyWebFont-fallback";
+  src: local("Arial");
+  size-adjust: 104%;        /* scale glyphs to match the web font's widths */
+  ascent-override: 92%;     /* match vertical metrics */
+  descent-override: 24%;
+}
 
-/* When fonts are loaded, JavaScript adds this class */
-.wf-active body {
-  font-family: "MyWebFont", "Calibri", "Roboto", sans-serif;
+body {
+  font-family: "MyWebFont", "MyWebFont-fallback", sans-serif;
 }
 ```
 
-**Benefits:**
-- Enables matching fallback font sizes to reduce reflow
-- Can use session storage to skip FOUT on subsequent page loads
-- Gives precise control over the timing of font swaps
+The adjusted local font renders immediately; when the web font arrives, text barely reflows. Tools like Fontaine or Capsize compute the override values for a given font pairing — don't hand-tune them.
 
-### Session Storage for Repeat Visits
-
-After fonts load on the first page view, set a flag in session storage. On subsequent pages, apply the web font class immediately — the font will be in the browser cache:
-
-```js
-if (sessionStorage.getItem('fontsLoaded')) {
-  document.documentElement.classList.add('wf-active');
-}
-```
-
-This eliminates FOUT entirely on second and subsequent page views within a session.
+**Edge case:** the Font Loading API (`document.fonts.load()`, `document.fonts.ready`) remains useful when you genuinely need to know *when* a font is available — e.g. before measuring text in `<canvas>` or SVG. It is no longer needed for FOUT control.
 
 ## Webfonts as Progressive Enhancement
 
@@ -213,13 +204,3 @@ Treat web fonts as an enhancement, not a requirement:
 3. **Respect connectivity** — use `font-display: optional` for non-critical fonts on slow connections
 
 The content is always more important than the typeface rendering it.
-
-## Chapter Summary
-
-1. Use WOFF2 only — no need for WOFF or older format fallbacks
-2. Use `font-display: fallback` to avoid invisible text during font loading
-3. Preload only your single most critical font file
-4. Choose fallback fonts that closely match your web font's metrics
-5. Subset fonts and use `unicode-range` for efficient loading
-6. Consider variable fonts for bandwidth savings and typographic flexibility
-7. Treat web fonts as progressive enhancement — content first, custom fonts second

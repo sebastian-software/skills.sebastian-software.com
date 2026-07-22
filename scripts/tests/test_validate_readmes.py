@@ -218,5 +218,256 @@ class SkillReadmeRequirementsTests(unittest.TestCase):
         )
 
 
+class FrontmatterValidationTests(unittest.TestCase):
+    def setUp(self) -> None:
+        self.temporary_directory = tempfile.TemporaryDirectory()
+        self.root = Path(self.temporary_directory.name)
+        self.skill = self.root / "skills" / "example"
+        self.skill.mkdir(parents=True)
+        self.original_root = VALIDATOR.REPOSITORY_ROOT
+        VALIDATOR.REPOSITORY_ROOT = self.root
+
+    def tearDown(self) -> None:
+        VALIDATOR.REPOSITORY_ROOT = self.original_root
+        self.temporary_directory.cleanup()
+
+    def write_skill(self, frontmatter: str) -> None:
+        (self.skill / "SKILL.md").write_text(
+            f"{frontmatter}\n# Example\n", encoding="utf-8"
+        )
+
+    def test_accepts_canonical_folded_frontmatter(self) -> None:
+        self.write_skill(
+            "---\nname: example\ndescription: >-\n  Example skill.\n  More detail.\n---"
+        )
+        errors: list[str] = []
+
+        VALIDATOR.validate_frontmatter(self.skill, errors)
+
+        self.assertEqual(errors, [])
+
+    def test_folds_the_description_across_lines(self) -> None:
+        parsed = VALIDATOR.parse_skill_frontmatter(
+            "---\nname: example\ndescription: >-\n  One line.\n  Two lines.\n---\n"
+        )
+
+        self.assertEqual(
+            parsed, {"name": "example", "description": "One line. Two lines."}
+        )
+
+    def test_rejects_extra_frontmatter_keys(self) -> None:
+        self.write_skill(
+            "---\nname: example\ndescription: >-\n  Example.\nlicense: MIT\n---"
+        )
+        errors: list[str] = []
+
+        VALIDATOR.validate_frontmatter(self.skill, errors)
+
+        self.assertEqual(
+            errors,
+            [
+                "skills/example/SKILL.md: frontmatter keys must be exactly "
+                "['description', 'name']"
+            ],
+        )
+
+    def test_rejects_a_name_that_does_not_match_the_directory(self) -> None:
+        self.write_skill("---\nname: other\ndescription: >-\n  Example.\n---")
+        errors: list[str] = []
+
+        VALIDATOR.validate_frontmatter(self.skill, errors)
+
+        self.assertEqual(
+            errors,
+            [
+                "skills/example/SKILL.md: frontmatter name 'other' "
+                "must match the directory name 'example'"
+            ],
+        )
+
+    def test_rejects_a_description_beyond_the_limit(self) -> None:
+        long_line = "x" * 200
+        folded_lines = "\n".join(f"  {long_line}" for _ in range(6))
+        self.write_skill(f"---\nname: example\ndescription: >-\n{folded_lines}\n---")
+        errors: list[str] = []
+
+        VALIDATOR.validate_frontmatter(self.skill, errors)
+
+        self.assertEqual(len(errors), 1)
+        self.assertIn("description is 1205 characters", errors[0])
+
+    def test_rejects_missing_frontmatter(self) -> None:
+        self.write_skill("# No frontmatter")
+        errors: list[str] = []
+
+        VALIDATOR.validate_frontmatter(self.skill, errors)
+
+        self.assertEqual(
+            errors,
+            ["skills/example/SKILL.md: missing or malformed YAML frontmatter"],
+        )
+
+
+class InlineCodeLinkExtractionTests(unittest.TestCase):
+    def setUp(self) -> None:
+        self.temporary_directory = tempfile.TemporaryDirectory()
+        self.root = Path(self.temporary_directory.name)
+        self.root.joinpath("skills").mkdir()
+        self.original_root = VALIDATOR.REPOSITORY_ROOT
+        VALIDATOR.REPOSITORY_ROOT = self.root
+
+    def tearDown(self) -> None:
+        VALIDATOR.REPOSITORY_ROOT = self.original_root
+        self.temporary_directory.cleanup()
+
+    def test_ignores_markdown_links_inside_inline_code_spans(self) -> None:
+        markdown = self.root / "README.md"
+        markdown.write_text(
+            "Use `[text](missing-inline.md)` literally and "
+            "``[other](also-missing.md)`` too.\n",
+            encoding="utf-8",
+        )
+        errors: list[str] = []
+
+        VALIDATOR.validate_local_links(markdown, errors)
+
+        self.assertEqual(errors, [])
+
+    def test_still_reports_real_missing_links(self) -> None:
+        markdown = self.root / "README.md"
+        markdown.write_text("A real [link](missing.md).\n", encoding="utf-8")
+        errors: list[str] = []
+
+        VALIDATOR.validate_local_links(markdown, errors)
+
+        self.assertEqual(errors, ["README.md: missing missing.md"])
+
+
+class ReferenceOrphanTests(unittest.TestCase):
+    def setUp(self) -> None:
+        self.temporary_directory = tempfile.TemporaryDirectory()
+        self.root = Path(self.temporary_directory.name)
+        self.skill = self.root / "skills" / "example"
+        (self.skill / "references").mkdir(parents=True)
+        self.original_root = VALIDATOR.REPOSITORY_ROOT
+        VALIDATOR.REPOSITORY_ROOT = self.root
+
+    def tearDown(self) -> None:
+        VALIDATOR.REPOSITORY_ROOT = self.original_root
+        self.temporary_directory.cleanup()
+
+    def test_accepts_references_linked_from_the_skill(self) -> None:
+        (self.skill / "references" / "guide.md").write_text("# Guide\n", encoding="utf-8")
+        (self.skill / "SKILL.md").write_text(
+            "See [Guide](references/guide.md).\n", encoding="utf-8"
+        )
+        errors: list[str] = []
+
+        VALIDATOR.validate_reference_orphans(self.skill, errors)
+
+        self.assertEqual(errors, [])
+
+    def test_reports_an_unlinked_reference(self) -> None:
+        (self.skill / "references" / "orphan.md").write_text("# Orphan\n", encoding="utf-8")
+        (self.skill / "SKILL.md").write_text("No links here.\n", encoding="utf-8")
+        errors: list[str] = []
+
+        VALIDATOR.validate_reference_orphans(self.skill, errors)
+
+        self.assertEqual(len(errors), 1)
+        self.assertIn("skills/example/references/orphan.md: orphaned reference", errors[0])
+
+    def test_a_self_link_does_not_satisfy_reachability(self) -> None:
+        (self.skill / "references" / "loop.md").write_text(
+            "See [myself](loop.md).\n", encoding="utf-8"
+        )
+        errors: list[str] = []
+
+        VALIDATOR.validate_reference_orphans(self.skill, errors)
+
+        self.assertEqual(len(errors), 1)
+        self.assertIn("skills/example/references/loop.md: orphaned reference", errors[0])
+
+
+class WorktreeSafetySyncTests(unittest.TestCase):
+    def setUp(self) -> None:
+        self.temporary_directory = tempfile.TemporaryDirectory()
+        self.skills_root = Path(self.temporary_directory.name) / "skills"
+        self.skills_root.mkdir()
+
+    def tearDown(self) -> None:
+        self.temporary_directory.cleanup()
+
+    def write_contract(self, skill: str, content: str) -> None:
+        references = self.skills_root / skill / "references"
+        references.mkdir(parents=True)
+        (references / "worktree-safety.md").write_text(content, encoding="utf-8")
+
+    def test_accepts_byte_identical_contracts(self) -> None:
+        for skill in VALIDATOR.WORKTREE_SAFETY_SKILLS:
+            self.write_contract(skill, "# Worktree Safety\n\nShared contract.\n")
+        errors: list[str] = []
+
+        VALIDATOR.validate_worktree_safety_sync(self.skills_root, errors)
+
+        self.assertEqual(errors, [])
+
+    def test_reports_divergent_contracts(self) -> None:
+        self.write_contract("pr-review", "# Worktree Safety\n")
+        self.write_contract("smart-dependency-updater", "# Worktree Safety\n")
+        self.write_contract("port-codebases", "# Worktree Safety, but different\n")
+        errors: list[str] = []
+
+        VALIDATOR.validate_worktree_safety_sync(self.skills_root, errors)
+
+        self.assertEqual(
+            errors,
+            [
+                "skills/port-codebases/references/worktree-safety.md: "
+                "must be byte-identical to "
+                "skills/pr-review/references/worktree-safety.md"
+            ],
+        )
+
+    def test_skips_when_fewer_than_two_contracts_exist(self) -> None:
+        self.write_contract("pr-review", "# Worktree Safety\n")
+        errors: list[str] = []
+
+        VALIDATOR.validate_worktree_safety_sync(self.skills_root, errors)
+
+        self.assertEqual(errors, [])
+
+
+class SkillLengthWarningTests(unittest.TestCase):
+    def setUp(self) -> None:
+        self.temporary_directory = tempfile.TemporaryDirectory()
+        self.root = Path(self.temporary_directory.name)
+        self.skill = self.root / "skills" / "example"
+        self.skill.mkdir(parents=True)
+        self.original_root = VALIDATOR.REPOSITORY_ROOT
+        VALIDATOR.REPOSITORY_ROOT = self.root
+
+    def tearDown(self) -> None:
+        VALIDATOR.REPOSITORY_ROOT = self.original_root
+        self.temporary_directory.cleanup()
+
+    def test_no_warning_at_or_below_the_target(self) -> None:
+        (self.skill / "SKILL.md").write_text(
+            "\n".join(["line"] * VALIDATOR.SKILL_LINE_TARGET), encoding="utf-8"
+        )
+
+        self.assertIsNone(VALIDATOR.skill_length_warning(self.skill))
+
+    def test_warns_above_the_target(self) -> None:
+        (self.skill / "SKILL.md").write_text(
+            "\n".join(["line"] * (VALIDATOR.SKILL_LINE_TARGET + 1)), encoding="utf-8"
+        )
+
+        warning = VALIDATOR.skill_length_warning(self.skill)
+
+        self.assertIsNotNone(warning)
+        self.assertIn("301 lines exceeds the 300-line target", warning)
+
+
 if __name__ == "__main__":
     unittest.main()

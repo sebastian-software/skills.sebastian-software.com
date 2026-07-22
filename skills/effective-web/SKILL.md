@@ -1,21 +1,19 @@
 ---
 name: effective-web
 description: >-
-  Diagnose, design, build, review, and improve user-facing web experiences
-  including marketing sites, content pages, landing pages, web apps,
-  dashboards, and React components. Use for UI/UX direction, layout,
-  typography, color,
+  Diagnose, design, build, review, and improve user-facing web experiences:
+  marketing sites, content pages, landing pages, web apps, dashboards, and
+  React components. Covers UI/UX direction, layout, typography, color,
   components, forms, tables, accessibility, motion, internationalization
-  implementation (not locale-specific punctuation, quotation, spacing, or
-  language-level typographic rules),
-  interface copy, loading and error states, auth UX, CSS architecture,
-  frontend SEO and AI search, AI-assisted interface design, browser
-  performance, frontend-only surprising behavior, frontend testing, React
-  architecture, React component APIs, SVG graphics, icons, paths, animation,
-  and textures, print stylesheets, paged media, or web-to-print output. Do not
-  use for backend-only work,
-  infrastructure or deployment, general-purpose writing, or print production
-  that is unrelated to HTML and CSS.
+  (i18n) implementation, interface copy, loading and error states, auth UX,
+  CSS architecture, frontend SEO and AI search, AI-assisted interface design,
+  browser performance, frontend-only surprising behavior, frontend testing,
+  React architecture and component APIs, SVG graphics (icons, paths,
+  animation, textures), print stylesheets, paged media, and web-to-print
+  output. Not for: backend-only work, infrastructure or deployment,
+  general-purpose writing, print production unrelated to HTML and CSS, or
+  locale-specific punctuation, quotation, spacing, and language-level
+  typographic rules (locale-typography skill).
 ---
 
 # Effective Web
@@ -69,109 +67,7 @@ broad design route and load the matching focused route directly.
 | Create SVG noise, grain, paper, clouds, organic surfaces, or filter effects | [SVG Textures](references/route-textures.md) |
 | Build print stylesheets, paged media, printable documents, or web-to-print output | [Print Design](references/route-print.md) |
 
-## Detailed Reference Index
-
-Read only the references needed for the selected route.
-
-### Design and foundations
-
-- [Design planning](references/design-planning.md)
-- [Design registers](references/design-registers.md)
-- [Design directions](references/design-directions.md)
-- [Redesign preservation](references/redesign-preservation.md)
-- [UI fundamentals](references/fundamentals.md)
-- [Less is more](references/less-is-more.md)
-- [UI anti-patterns](references/ui-antipatterns.md)
-- [UI quality gates](references/ui-quality-gates.md)
-- [Cognitive UX](references/cognitive-ux.md)
-- [AI interface design](references/ai-interface-design.md)
-
-### Layout, type, and color
-
-- [Intrinsic layout algorithms](references/intrinsic-layouts.md)
-- [Layout and spacing](references/layout-spacing.md)
-- [Responsive design](references/responsive-design.md)
-- [Responsive CSS layout](references/css-layout-responsive.md)
-- [Typography](references/typography.md)
-- [Typography rules](references/typography-rules.md)
-- [Line height and measure](references/line-height-and-measure.md)
-- [Webfonts](references/webfonts.md)
-- [Color](references/colour.md)
-- [Dark mode](references/dark-mode.md)
-- [Design-system rules](references/design-system-rules.md)
-
-### Components and interaction
-
-- [Buttons](references/buttons.md)
-- [Navigation](references/navigation.md)
-- [Dialogs and modals](references/dialog-modal.md)
-- [Component development](references/component-development.md)
-- [UX patterns](references/ux-patterns.md)
-- [Forms](references/forms.md)
-- [Forms UX](references/forms-ux.md)
-- [Data tables](references/tables-data.md)
-- [Motion and interaction](references/motion-interaction.md)
-- [Scroll patterns](references/scroll-patterns.md)
-
-### Inclusive and resilient UX
-
-- [HTML accessibility](references/html-accessibility.md)
-- [Accessible names and descriptions](references/accessible-names.md)
-- [Visibility, discoverability, and notifications](references/visibility-and-notifications.md)
-- [Accessibility testing and evidence](references/accessibility-testing.md)
-- [Internationalization and RTL](references/i18n-rtl.md)
-- [Internationalization UX](references/i18n-ux.md)
-- [Copywriting](references/copywriting.md)
-- [Editorial UX](references/editorial-ux.md)
-- [Loading states](references/loading-states.md)
-- [Error pages](references/error-pages.md)
-- [Auth and web security](references/auth-web-security.md)
-
-### Frontend engineering
-
-- [CSS architecture](references/css-architecture.md)
-- [Browser baseline support](references/baseline-support.md)
-- [Web-platform feature radar](references/platform-feature-radar.md)
-- [CSS build tooling](references/css-build-tooling.md)
-- [SEO](references/seo.md)
-- [AI search and entity distribution](references/ai-geo-distribution.md)
-- [Browser performance](references/browser-performance.md)
-
-### Testing
-
-- [Testing-layer decisions](references/testing-layer-decision.md)
-- [Storybook component testing](references/storybook-component-testing.md)
-- [Visual-regression stability](references/visual-regression-stability.md)
-- [Playwright E2E workflows](references/playwright-e2e-workflows.md)
-- [CI and baseline review](references/ci-and-baseline-review.md)
-- [Vendor tool notes](references/vendor-tool-notes.md)
-
-### React
-
-- [React performance priorities](references/react-performance-priorities.md)
-- [Server Components](references/server-components.md)
-- [Rendering performance](references/rendering-performance.md)
-- [Framework boundaries](references/framework-boundaries.md)
-- [Component API design](references/component-api-design.md)
-- [Forms and state](references/forms-and-state.md)
-- [Interop and accessibility](references/interop-and-accessibility.md)
-
-### SVG
-
-- [SVG graphics](references/svg-graphics.md)
-- [Texture recipes](references/texture-recipes.md)
-- [Filter primitives](references/filter-primitives.md)
-- [CSS integration](references/css-integration.md)
-
-### Print design
-
-- [Print layout](references/print-layout.md)
-- [Print typography](references/print-typography.md)
-- [Web print styles](references/print-web-styles.md)
-- [Paged-media features](references/print-page-features.md)
-- [Print locale rules](references/print-locale.md)
-
-## Boundaries
+## Routing Boundaries
 
 - Route product discovery, strategy, outcome, scope, prioritization, quality-bar,
   and release decisions to `product-management`; return here to design,

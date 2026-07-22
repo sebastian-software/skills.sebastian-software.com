@@ -9,10 +9,29 @@ ROOT = Path(__file__).resolve().parents[2]
 CSS = (ROOT / "site" / "styles.css").read_text(encoding="utf-8")
 
 
-def color(name: str) -> tuple[float, float, float]:
-    match = re.search(rf"--{re.escape(name)}:\s*(#[0-9a-fA-F]{{6}})", CSS)
+def palette_block(palette: str) -> str:
+    if palette == "light":
+        match = re.search(r":root\s*\{(.*?)\}", CSS, re.DOTALL)
+    else:
+        match = re.search(
+            r"@media \(prefers-color-scheme: dark\)\s*\{\s*:root\s*\{(.*?)\}",
+            CSS,
+            re.DOTALL,
+        )
     if match is None:
-        raise AssertionError(f"Missing CSS color token: {name}")
+        raise AssertionError(f"Missing {palette} palette token block")
+    return match.group(1)
+
+
+PALETTES = ("light", "dark")
+
+
+def color(name: str, palette: str = "light") -> tuple[float, float, float]:
+    match = re.search(
+        rf"--{re.escape(name)}:\s*(#[0-9a-fA-F]{{6}})", palette_block(palette)
+    )
+    if match is None:
+        raise AssertionError(f"Missing CSS color token in {palette} palette: {name}")
     value = match.group(1)
     return tuple(int(value[index : index + 2], 16) / 255 for index in (1, 3, 5))
 
@@ -60,32 +79,83 @@ def white_alpha(selector: str) -> float:
 
 
 class SiteContrastTests(unittest.TestCase):
+    def test_dark_palette_overrides_every_color_token(self) -> None:
+        light_tokens = re.findall(r"--([\w-]+):\s*#[0-9a-fA-F]{6}", palette_block("light"))
+        dark_tokens = re.findall(r"--([\w-]+):\s*#[0-9a-fA-F]{6}", palette_block("dark"))
+        self.assertTrue(light_tokens)
+        self.assertEqual(sorted(light_tokens), sorted(dark_tokens))
+
     def test_focus_indicator_has_a_contrasting_ring_on_every_surface(self) -> None:
         focus_rule = rule(":focus-visible")
         self.assertIn("outline: 3px solid var(--ink)", focus_rule)
         self.assertIn("outline-offset: 4px", focus_rule)
         self.assertIn("box-shadow: 0 0 0 7px var(--white)", focus_rule)
 
-        ink = color("ink")
-        white = color("white")
-        self.assertGreaterEqual(contrast(ink, white), 3)
-        for surface in ("paper", "signal", "sky", "blue", "coral-deep"):
-            background = color(surface)
-            self.assertGreaterEqual(max(contrast(ink, background), contrast(white, background)), 3)
+        for palette in PALETTES:
+            with self.subTest(palette=palette):
+                ink = color("ink", palette)
+                white = color("white", palette)
+                self.assertGreaterEqual(contrast(ink, white), 3)
+                for surface in ("paper", "signal", "sky", "blue-surface", "coral-deep"):
+                    background = color(surface, palette)
+                    self.assertGreaterEqual(
+                        max(contrast(ink, background), contrast(white, background)), 3
+                    )
+
+    def test_body_and_muted_text_meet_contrast_on_light_surfaces(self) -> None:
+        for palette in PALETTES:
+            with self.subTest(palette=palette):
+                ink = color("ink", palette)
+                muted = color("muted", palette)
+                for surface in ("paper", "paper-soft", "white"):
+                    background = color(surface, palette)
+                    self.assertGreaterEqual(contrast(ink, background), 4.5)
+                    self.assertGreaterEqual(contrast(muted, background), 4.5)
+
+    def test_accent_text_tokens_meet_contrast(self) -> None:
+        for palette in PALETTES:
+            with self.subTest(palette=palette):
+                blue = color("blue", palette)
+                for surface in ("paper", "paper-soft", "white"):
+                    self.assertGreaterEqual(contrast(blue, color(surface, palette)), 4.5)
+                self.assertGreaterEqual(
+                    contrast(color("accent-ink", palette), color("signal", palette)), 4.5
+                )
+                self.assertGreaterEqual(
+                    contrast(color("signal", palette), color("blue-surface", palette)), 4.5
+                )
+                self.assertGreaterEqual(
+                    contrast(color("ink", palette), color("sky", palette)), 4.5
+                )
+
+    def test_panel_surfaces_keep_readable_white_text(self) -> None:
+        white = (1.0, 1.0, 1.0)
+        for palette in PALETTES:
+            with self.subTest(palette=palette):
+                panel = color("panel", palette)
+                self.assertGreaterEqual(contrast(white, panel), 4.5)
+                copyright_text = blend(white, panel, white_alpha(".copyright"))
+                self.assertGreaterEqual(contrast(copyright_text, panel), 4.5)
 
     def test_flagship_copy_and_labels_meet_text_contrast(self) -> None:
         white = (1.0, 1.0, 1.0)
-        blue = color("blue")
-        for selector in (
-            ".flagship-copy > p:not(.eyebrow)",
-            ".flagship-stats span",
-        ):
-            foreground = blend(white, blue, white_alpha(selector))
-            self.assertGreaterEqual(contrast(foreground, blue), 4.5)
+        for palette in PALETTES:
+            with self.subTest(palette=palette):
+                blue_surface = color("blue-surface", palette)
+                for selector in (
+                    ".flagship-copy > p:not(.eyebrow)",
+                    ".flagship-stats span",
+                ):
+                    foreground = blend(white, blue_surface, white_alpha(selector))
+                    self.assertGreaterEqual(contrast(foreground, blue_surface), 4.5)
 
     def test_flagship_accent_chip_meets_text_contrast(self) -> None:
         self.assertIn("background: var(--coral-deep)", rule(".route-accent"))
-        self.assertGreaterEqual(contrast((1.0, 1.0, 1.0), color("coral-deep")), 4.5)
+        for palette in PALETTES:
+            with self.subTest(palette=palette):
+                self.assertGreaterEqual(
+                    contrast((1.0, 1.0, 1.0), color("coral-deep", palette)), 4.5
+                )
 
 
 if __name__ == "__main__":

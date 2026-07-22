@@ -141,7 +141,55 @@ def extract_json_ld(html: str) -> dict[str, object] | None:
 
 def proof_row_values(html: str) -> list[int]:
     match = re.search(r'<dl\s+class="proof-row".*?</dl>', html, re.DOTALL)
-    return [int(value) for value in re.findall(r"<dt>(\d+)</dt>", match.group())] if match else []
+    return [int(value) for value in re.findall(r"<dd>(\d+)</dd>", match.group())] if match else []
+
+
+def effective_web_inventory() -> tuple[int, int]:
+    """Derive the flagship intent-route and reference counts from the repository."""
+    skill_file = ROOT / "skills" / "effective-web" / "SKILL.md"
+    intent_row = re.compile(r"\|.*\|\s*\[[^\]]+\]\(references/[^)]+\)\s*\|\s*$")
+    routes = sum(
+        1
+        for line in skill_file.read_text(encoding="utf-8").splitlines()
+        if intent_row.match(line)
+    )
+    references = len(
+        list((ROOT / "skills" / "effective-web" / "references").glob("*.md"))
+    )
+    return routes, references
+
+
+def validate_effective_web_stats(
+    html: str,
+    routes: int,
+    references: int,
+    failures: list[str],
+) -> None:
+    """Validate every effective-web number on the page against the repository."""
+    stats_match = re.search(r'<div\s+class="flagship-stats">.*?</a>', html, re.DOTALL)
+    require(stats_match is not None, "site must contain the flagship stats block", failures)
+    stats_html = stats_match.group() if stats_match else ""
+
+    routes_stat = re.search(r"<strong>(\d+)</strong><span>intent routes</span>", stats_html)
+    require(
+        routes_stat is not None and int(routes_stat.group(1)) == routes,
+        f"flagship intent-route stat must match the SKILL.md routing table: {routes}",
+        failures,
+    )
+    references_stat = re.search(
+        r"<strong>(\d+)</strong><span>focused references</span>", stats_html
+    )
+    require(
+        references_stat is not None and int(references_stat.group(1)) == references,
+        f"flagship reference stat must match skills/effective-web/references: {references}",
+        failures,
+    )
+    card_chip = re.search(r"<li>(\d+) routed workflows</li>", html)
+    require(
+        card_chip is not None and int(card_chip.group(1)) == routes,
+        f"effective-web card chip must match the SKILL.md routing table: {routes}",
+        failures,
+    )
 
 
 def png_dimensions(path: Path) -> tuple[int, int] | None:
@@ -168,6 +216,19 @@ def ico_dimensions(path: Path) -> set[tuple[int, int]]:
 
 
 def expected_site_lastmod() -> str | None:
+    shallow = subprocess.run(
+        ["git", "rev-parse", "--is-shallow-repository"],
+        cwd=ROOT,
+        check=False,
+        capture_output=True,
+        text=True,
+    )
+    if shallow.returncode == 0 and shallow.stdout.strip() == "true":
+        raise RuntimeError(
+            "shallow git clone detected; full history required "
+            "(fetch-depth: 0) to derive the expected sitemap lastmod"
+        )
+
     status = subprocess.run(
         ["git", "status", "--porcelain", "--", "site"],
         cwd=ROOT,
@@ -348,6 +409,8 @@ def main() -> int:
         "hero skill and reference counts must match the repository inventory",
         failures,
     )
+    routes, effective_web_references = effective_web_inventory()
+    validate_effective_web_stats(html, routes, effective_web_references, failures)
     require(
         f"{len(expected_skills)} practice-built skills and {reference_count} focused references"
         in parser.og_description,
@@ -508,7 +571,12 @@ def main() -> int:
         "sitemap must reference the canonical URL",
         failures,
     )
-    validate_sitemap_lastmod(sitemap, expected_site_lastmod(), failures)
+    try:
+        expected_lastmod = expected_site_lastmod()
+    except RuntimeError as error:
+        failures.append(str(error))
+        expected_lastmod = None
+    validate_sitemap_lastmod(sitemap, expected_lastmod, failures)
 
     if failures:
         for failure in failures:

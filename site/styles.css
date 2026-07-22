@@ -45,7 +45,7 @@
 
 @layer base {
   :root {
-    color-scheme: light;
+    color-scheme: light dark;
     --paper: #f7f6f0;
     --paper-soft: #efeee7;
     --white: #fffef9;
@@ -55,15 +55,40 @@
     --line-strong: #1c1e26;
     --blue: #3448f0;
     --blue-dark: #2636c4;
+    --blue-surface: #3448f0;
     --signal: #dfff64;
     --coral: #ff6a47;
     --coral-deep: #a72f18;
     --sky: #9bdbff;
+    --panel: #11131a;
+    --accent-ink: #11131a;
     --display: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
     --sans: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
     --mono: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
     --shell: min(1200px, calc(100vw - 48px));
     --shadow: 0 24px 70px rgb(29 35 70 / 10%);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --paper: #14161d;
+      --paper-soft: #1a1d26;
+      --white: #1e222c;
+      --ink: #e8eaf1;
+      --muted: #a6aab6;
+      --line: #363a46;
+      --line-strong: #c9ccd6;
+      --blue: #91a0ff;
+      --blue-dark: #aab5ff;
+      --blue-surface: #3448f0;
+      --signal: #dfff64;
+      --coral: #ff6a47;
+      --coral-deep: #a72f18;
+      --sky: #223a4d;
+      --panel: #0b0e14;
+      --accent-ink: #11131a;
+      --shadow: 0 24px 70px rgb(0 0 0 / 45%);
+    }
   }
 
   body {
@@ -101,7 +126,7 @@
 
   ::selection {
     background: var(--signal);
-    color: var(--ink);
+    color: var(--accent-ink);
   }
 
   [hidden] {
@@ -229,6 +254,7 @@
     place-items: center;
     border: 1px solid var(--ink);
     background: var(--signal);
+    color: var(--accent-ink);
     font-size: 0.8rem;
     font-weight: 900;
     letter-spacing: -0.08em;
@@ -381,6 +407,8 @@
   }
 
   .proof-row > div {
+    display: flex;
+    flex-direction: column-reverse;
     padding: 1rem 1rem 0 0;
   }
 
@@ -389,13 +417,13 @@
     border-left: 1px solid var(--line);
   }
 
-  .proof-row dt {
+  .proof-row dd {
     font-family: var(--display);
     font-size: 2.3rem;
     line-height: 1;
   }
 
-  .proof-row dd {
+  .proof-row dt {
     margin-top: 0.35rem;
     color: var(--muted);
     font-size: 0.72rem;
@@ -461,7 +489,7 @@
     aspect-ratio: 1;
     place-content: center;
     border-radius: 50%;
-    background: var(--blue);
+    background: var(--blue-surface);
     color: white;
     text-align: center;
     transform: translate(-50%, -50%);
@@ -508,10 +536,10 @@
   }
 
   .node-product { top: 12%; left: 9%; }
-  .node-web { top: 8%; right: 7%; background: var(--signal); }
+  .node-web { top: 8%; right: 7%; background: var(--signal); color: var(--accent-ink); }
   .node-engineering { bottom: 16%; left: 5%; background: var(--sky); }
   .node-delivery { bottom: 9%; right: 10%; }
-  .node-growth { top: 47%; right: -2%; background: #ffd2c8; }
+  .node-growth { top: 47%; right: -2%; background: #ffd2c8; color: var(--accent-ink); }
   .node-language { bottom: -1%; left: 39%; }
 
   .orbit-note {
@@ -534,7 +562,7 @@
     bottom: 15%;
     left: 20%;
     color: var(--muted);
-    font-size: 0.63rem;
+    font-size: 0.72rem;
     line-height: 1.35;
     text-align: center;
   }
@@ -547,7 +575,7 @@
     margin-top: clamp(3rem, 7vh, 5.5rem);
     padding: 1rem 1rem 1rem 1.4rem;
     border: 1px solid var(--ink);
-    background: var(--ink);
+    background: var(--panel);
     box-shadow: 7px 7px 0 var(--signal);
     color: white;
   }
@@ -590,7 +618,7 @@
     justify-content: space-around;
     gap: 2.5rem;
     padding-inline: 2rem;
-    color: var(--ink);
+    color: var(--accent-ink);
     font-size: 0.78rem;
     font-weight: 850;
     letter-spacing: 0.11em;
@@ -601,7 +629,7 @@
     width: 0.5rem;
     aspect-ratio: 1;
     border-radius: 50%;
-    background: var(--blue);
+    background: var(--blue-surface);
   }
 
   .section-heading {
@@ -696,7 +724,7 @@
   .flagship {
     position: relative;
     overflow: hidden;
-    background: var(--blue);
+    background: var(--blue-surface);
     color: white;
   }
 
@@ -754,7 +782,7 @@
 
   .flagship-stats span {
     color: rgb(255 255 255 / 88%);
-    font-size: 0.65rem;
+    font-size: 0.72rem;
     font-weight: 700;
     text-transform: uppercase;
   }
@@ -793,7 +821,7 @@
   .route-large {
     padding: 1rem 1.4rem;
     background: var(--signal);
-    color: var(--ink);
+    color: var(--accent-ink);
     font-family: var(--display);
     font-size: 1.25rem;
   }
@@ -850,13 +878,13 @@
   }
 
   .filter-bar button[aria-pressed="true"] {
-    background: var(--ink);
+    background: var(--panel);
     color: white;
   }
 
   .filter-bar button[aria-pressed="true"] span {
     background: var(--signal);
-    color: var(--ink);
+    color: var(--accent-ink);
   }
 
   .skill-grid {
@@ -891,13 +919,14 @@
   .skill-card-feature {
     grid-column: span 2;
     background: var(--signal);
+    color: var(--accent-ink);
   }
 
   .card-topline {
     display: flex;
     justify-content: space-between;
     color: var(--muted);
-    font-size: 0.65rem;
+    font-size: 0.72rem;
     font-weight: 800;
     letter-spacing: 0.1em;
     text-transform: uppercase;
@@ -1040,6 +1069,7 @@
     padding: 0.35rem 0.55rem;
     border-radius: 999px;
     background: var(--signal);
+    color: var(--accent-ink);
     font-size: 0.63rem;
     font-weight: 850;
   }
@@ -1058,7 +1088,7 @@
     margin-top: 2rem;
     padding: 1.35rem 4.5rem 1.35rem 1.35rem;
     overflow: auto;
-    background: var(--ink);
+    background: var(--panel);
     color: white;
   }
 
@@ -1116,6 +1146,7 @@
     border: 1px solid var(--ink);
     background: var(--signal);
     box-shadow: 12px 12px 0 var(--ink);
+    color: var(--accent-ink);
     font-family: var(--display);
     font-size: clamp(4rem, 12vw, 9rem);
     letter-spacing: -0.12em;
@@ -1132,7 +1163,7 @@
   .site-footer {
     padding-block: 3.5rem;
     border-top: 1px solid var(--ink);
-    background: var(--ink);
+    background: var(--panel);
     color: white;
   }
 
@@ -1144,7 +1175,7 @@
 
   .footer-brand .brand-mark {
     border-color: white;
-    color: var(--ink);
+    color: var(--accent-ink);
   }
 
   .footer-brand .brand-copy span {
@@ -1174,8 +1205,8 @@
     grid-column: 1 / -1;
     padding-top: 2rem;
     border-top: 1px solid rgb(255 255 255 / 18%);
-    color: rgb(255 255 255 / 48%);
-    font-size: 0.67rem;
+    color: rgb(255 255 255 / 62%);
+    font-size: 0.72rem;
   }
 }
 
@@ -1193,7 +1224,7 @@
   }
 
   .button-primary {
-    background: var(--ink);
+    background: var(--panel);
     color: white;
     box-shadow: 5px 5px 0 var(--signal);
   }
@@ -1260,7 +1291,7 @@
   }
 
   .filter-bar button[aria-pressed="true"]:hover {
-    background: var(--ink);
+    background: var(--panel);
   }
 
   .skill-card:hover {
@@ -1445,7 +1476,7 @@
       gap: 0;
     }
 
-    .proof-row dt {
+    .proof-row dd {
       font-size: 1.8rem;
     }
 
@@ -1587,6 +1618,84 @@
     .reveal-ready .reveal {
       opacity: 1;
       transform: none;
+    }
+  }
+
+  @media (prefers-color-scheme: dark) {
+    body::before {
+      background-image: radial-gradient(rgb(232 234 241 / 9%) 0.6px, transparent 0.6px);
+    }
+
+    .site-header {
+      background: rgb(20 22 29 / 84%);
+    }
+
+    .site-header.is-scrolled {
+      border-color: rgb(255 255 255 / 14%);
+      box-shadow: 0 8px 30px rgb(0 0 0 / 35%);
+    }
+
+    .primary-nav a {
+      color: #c3c7d1;
+    }
+
+    .hero-backdrop {
+      border-color: rgb(145 160 255 / 18%);
+      background: radial-gradient(circle at center, rgb(46 84 118 / 30%), transparent 62%);
+    }
+
+    .hero-backdrop::before,
+    .hero-backdrop::after {
+      border-color: rgb(145 160 255 / 14%);
+    }
+
+    .hero h1 em::after {
+      opacity: 0.4;
+    }
+
+    .system-visual {
+      background:
+        linear-gradient(90deg, transparent 49.8%, rgb(232 234 241 / 8%) 50%, transparent 50.2%),
+        linear-gradient(transparent 49.8%, rgb(232 234 241 / 8%) 50%, transparent 50.2%),
+        var(--white);
+    }
+
+    .system-visual::before,
+    .system-visual::after {
+      border-color: rgb(232 234 241 / 24%);
+    }
+
+    .system-lines path {
+      stroke: rgb(145 160 255 / 48%);
+    }
+
+    .skill-card::after {
+      border-color: rgb(255 255 255 / 12%);
+    }
+
+    .skill-card-feature .card-topline,
+    .skill-card-feature p {
+      color: var(--accent-ink);
+    }
+
+    .filter-bar button:not([aria-pressed="true"]) span {
+      background: rgb(255 255 255 / 12%);
+    }
+
+    .install-footer {
+      border-top-color: rgb(255 255 255 / 35%);
+    }
+
+    .button-secondary:hover {
+      color: var(--accent-ink);
+    }
+
+    .skill-card-feature:hover {
+      box-shadow: inset 0 0 0 4px var(--accent-ink);
+    }
+
+    .skill-card-feature > a:hover {
+      color: var(--blue-surface);
     }
   }
 

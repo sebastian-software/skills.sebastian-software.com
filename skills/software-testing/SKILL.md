@@ -10,10 +10,10 @@ description: >-
   performance-regression guard; or to design, repair, or interpret a
   repository-native microbenchmark, comparative benchmark, or bounded
   end-to-end workflow benchmark. Prefer repository-native test conventions and
-  real behavior over mock choreography. Do not use for browser, component,
-  visual, accessibility, or browser E2E testing; repository-wide coverage
-  audits; broad system-quality design; or load, soak, stress, and capacity
-  methodology.
+  real behavior over mock choreography. For browser, component, or React tests
+  use effective-web. Do not use for visual, accessibility, or browser E2E
+  testing; repository-wide coverage audits; testing-strategy design (use
+  software-architecture); or load, soak, stress, and capacity methodology.
 ---
 
 # Software Testing
@@ -128,15 +128,17 @@ to the claim.
   `software-validation`. Return here when new or repaired test evidence is the
   requested outcome.
 - Route PR-scoped adequacy and merge judgment to `pr-review`.
-- Route contract design, system quality scenarios, performance targets,
-  workload scenarios, capacity planning, and broader architectural redesign to
-  `software-architecture`. This skill implements contract tests against an
-  agreed contract, including consumer-driven contract tests, and owns
-  repository-native benchmark methodology against a named performance
-  question. No first-party skill currently claims new load, soak, or stress
-  methodology; state that boundary instead of inventing a tool or traffic
-  model. Route execution of an established benchmark, load, soak, or stress
-  command to `software-validation`.
+- Route testing-strategy design — the test-pyramid shape, coverage goals, and
+  which risks get which test types — plus contract design, system quality
+  scenarios, performance targets, workload scenarios, capacity planning, and
+  broader architectural redesign to `software-architecture`. This skill
+  implements focused tests against an agreed strategy or contract, including
+  consumer-driven contract tests, and owns repository-native benchmark
+  methodology against a named performance question. No first-party skill
+  currently claims new load, soak, or stress execution methodology; state that
+  boundary instead of inventing a tool or traffic model. Route execution of an
+  established benchmark, load, soak, or stress command to
+  `software-validation`.
 - Route migration parity, differential evidence, and compatibility work to
   `port-codebases`.
 - Route substantive runtime or service implementation decisions to the

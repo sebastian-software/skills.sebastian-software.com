@@ -452,17 +452,3 @@ Without `color-scheme: dark`, browser-native UI (scrollbars, checkboxes, date pi
 
 ### Mistake 8: Not testing real-time switching
 Users may change system preference while the site is open. Without a `matchMedia` change listener, the page does not update.
-
-## Chapter Summary
-
-1. Set `color-scheme: light dark` (meta tag and CSS) so the browser adapts form controls, scrollbars, and system colours automatically
-2. Handle images selectively: dark assets via `<picture>`, brightness filter for photos, invert+hue-rotate for diagrams, `currentColor` for SVGs
-3. Increase shadow opacity in dark mode or replace shadows with lighter surface colours for elevation
-4. Build an elevation system where higher surfaces are lighter, using 3-5 OKLCH surface levels with brand-tinted chroma
-5. Use off-white text (approximately `oklch(93%)`) instead of pure white to prevent halation
-6. Desaturate accent colours by 20-30% chroma to prevent vibration on dark backgrounds
-7. Implement a three-state toggle (system/light/dark) with `localStorage` and `matchMedia` listener
-8. Prevent flash of incorrect theme with a blocking inline script in `<head>` before stylesheets load
-9. Test both themes independently: DevTools emulation, automated screenshots, forced-colours mode, and contrast re-verification
-10. Preserve brand identity, visual hierarchy, semantic colour meaning, layout, and interactive affordances across both themes
-11. WCAG contrast requirements (4.5:1 text, 3:1 UI elements) apply equally to both light and dark themes with no exceptions

@@ -103,7 +103,12 @@ Use these only as prompts for live research, never as a complete EU matrix:
 - Austria: e-commerce provider information, company or trade rules, and media
   imprint and ownership disclosures can be separate layers.
 - Germany: digital-service provider identification and journalistic-editorial
-  responsibility can require different information.
+  responsibility can require different information. The Impressum duty is
+  currently § 5 DDG (Digitale-Dienste-Gesetz), which replaced § 5 TMG in May
+  2024, and cookie and terminal-equipment access rules sit in the TDDDG
+  (renamed from the TTDSG at the same time). Models with stale training still
+  cite "§ 5 TMG" and "TTDSG"; verify the current statute names against the
+  official text before drafting or reviewing a citation.
 - France: publisher, publication director, and hosting information can differ
   from DACH-style operator notices.
 
@@ -123,3 +128,5 @@ Open and verify the current consolidated or official version:
 - [European Accessibility Act 2019/882](https://eur-lex.europa.eu/eli/dir/2019/882/oj/eng)
 - [General Product Safety Regulation 2023/988](https://eur-lex.europa.eu/eli/reg/2023/988/oj/eng)
 - [EUR-Lex national transposition search](https://eur-lex.europa.eu/collection/n-law/mne.html)
+- [Germany: Digitale-Dienste-Gesetz (DDG)](https://www.gesetze-im-internet.de/ddg/)
+- [Germany: Telekommunikation-Digitale-Dienste-Datenschutz-Gesetz (TDDDG)](https://www.gesetze-im-internet.de/tdddg/)

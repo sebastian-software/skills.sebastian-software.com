@@ -47,7 +47,7 @@ state transition in this workflow.
 ```
 
 See [SKILL.md](SKILL.md) for the routed workflow, operating principles,
-boundaries, and default deliverable.
+routing boundaries, and default deliverable.
 
 ## Install This Skill
 

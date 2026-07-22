@@ -15,7 +15,7 @@ jobs:
   dalo:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v7
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           fetch-depth: 0
 
@@ -25,7 +25,7 @@ jobs:
       - name: Validate static website
         run: python3 scripts/validate-site.py
 
-      - name: Test dependency discovery helper
+      - name: Run script tests
         run: python3 -m unittest discover -s scripts/tests -p 'test_*.py'
 
       - name: Install pinned DALO release
@@ -34,6 +34,11 @@ jobs:
         run: |
           curl -fsSL https://dalo.sh/install.sh | sh
           echo "$DALO_INSTALL_DIR" >> "$GITHUB_PATH"
+          installed_version="$("$DALO_INSTALL_DIR/dalo" --version)"
+          if [ "$installed_version" != "$DALO_VERSION" ]; then
+            echo "ERROR: installed DALO version '$installed_version' does not match pinned '$DALO_VERSION'" >&2
+            exit 1
+          fi
 
       - name: Validate and materialize the first-party source
         env:
@@ -71,4 +76,4 @@ jobs:
           test ! -e "$DALO_TARGET/s7n-print-design"
           test ! -e "$DALO_TARGET/s7n-german-typography"
           test ! -e "$DALO_TARGET/s7n-linkedin-posts"
-          dalo --json doctor > "$RUNNER_TEMP/doctor.json"
+          dalo doctor

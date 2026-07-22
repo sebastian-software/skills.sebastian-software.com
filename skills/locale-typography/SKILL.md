@@ -2,8 +2,8 @@
 name: locale-typography
 description: >-
   Apply and review locale-appropriate typography in visible prose for German,
-  English, French, Dutch, Luxembourgish, Spanish, Italian, Danish, Norwegian,
-  Swedish, Polish, Czech, and Croatian. Use when writing, editing, localizing,
+  English, French, Dutch, Luxembourgish, European Spanish (es-ES), Italian,
+  Danish, Norwegian, Swedish, Polish, Czech, and Croatian. Use when writing, editing, localizing,
   proofreading, or implementing text in Markdown, HTML, JSX, templates, UI
   copy, documents, or print layouts where quotation marks, punctuation spacing,
   dashes, apostrophes, non-breaking spaces, numbers, dates, currency, or
@@ -55,7 +55,7 @@ continue.
 - [Czech](references/czech.md): `cs-CZ`
 - [Croatian](references/croatian.md): `hr-HR`
 
-## Boundaries
+## Routing Boundaries
 
 - Correct typography and locale-sensitive presentation, not spelling,
   grammar, translation, tone, or general content style unless requested.
