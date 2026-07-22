@@ -1,4 +1,4 @@
 interface:
   display_name: "Codebase Improvement"
-  short_description: "Audit codebases and write executable plans"
-  default_prompt: "Use $codebase-improvement to audit this repository, prioritize verified findings, and produce an executable plan."
+  short_description: "Diagnose, audit, and plan codebase improvements"
+  default_prompt: "Use $codebase-improvement to diagnose or audit this repository, verify the evidence, and recommend one executable next action."

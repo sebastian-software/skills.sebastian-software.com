@@ -81,9 +81,9 @@ dalo sync
   this skill.
 - [Effective Web](../effective-web/README.md) owns browser, component, visual,
   accessibility, and browser E2E test depth, as well as frontend test strategy.
-- [Codebase Improvement](../codebase-improvement/README.md) audits broad test
-  risk and prioritizes repository-wide improvements before this skill executes
-  a selected testing task.
+- [Codebase Improvement](../codebase-improvement/README.md) investigates
+  cross-cutting behavior and audits broad test risk; this skill owns focused
+  test-suite diagnosis, test design, and implementation.
 - [PR Review](../pr-review/README.md) judges whether a pull request has enough
   evidence to merge; this skill designs and implements the test evidence.
 - [Software Architecture](../software-architecture/README.md) owns system

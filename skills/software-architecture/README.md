@@ -73,8 +73,9 @@ dalo sync
 
 - [Decision Records](../decision-records/README.md) records a durable accepted
   architecture direction and its rationale.
-- [Codebase Improvement](../codebase-improvement/README.md) audits repository
-  risks, prioritizes improvements, and turns approved work into delivery plans.
+- [Codebase Improvement](../codebase-improvement/README.md) investigates
+  observed repository behavior, prioritizes improvements, and turns approved
+  work into delivery plans; this skill owns unresolved system direction.
 - [Port Codebases](../port-codebases/README.md) manages behavior-preserving
   migrations across languages, runtimes, frameworks, and platforms.
 - [Effective Web](../effective-web/README.md) owns frontend and React

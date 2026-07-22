@@ -5,6 +5,7 @@ description: >-
   for services, APIs, databases, async work, CLIs, and Rust. Use when asked
   to protect a behavior, invariant, regression, failure path, retry,
   authorization rule, migration, command-line contract, or flaky test; to
+  diagnose test discovery, collection, runner, or framework configuration; to
   make a rule or state transition directly testable; or to add a focused
   performance-regression guard. Prefer repository-native test conventions and
   real behavior over mock choreography. Do not use for browser, component,

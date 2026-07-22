@@ -87,7 +87,8 @@ dalo sync
   path from request to verified handoff and invokes this skill for PR-scoped
   review, feedback follow-through, CI recovery, and merge judgment.
 - [Codebase Improvement](../codebase-improvement/README.md) handles repository
-  audits and improvement plans broader than one pull request.
+  diagnosis, audits, and improvement plans broader than one pull request; this
+  skill owns PR-scoped causal analysis and upkeep.
 - [Smart Dependency Updater](../smart-dependency-updater/README.md) creates and
   delivers coherent dependency-update pull requests.
 - [Metro English](../metro-english/README.md) helps with natural team-facing

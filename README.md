@@ -7,7 +7,7 @@
 **Give your AI agent the practical judgment to take product and software work
 from an ambiguous brief to a review-ready result.**
 
-19 practice-built skills and 180 focused references for product decisions, web
+19 practice-built skills and 181 focused references for product decisions, web
 experiences, codebase improvement, delivery, go-to-market work, professional
 communication, and web compliance.
 
@@ -75,7 +75,7 @@ treating every task as an isolated prompt.
 | Brief or existing interface | Designed, implemented, accessible, performant, and tested web experience | [`effective-web`](skills/effective-web/), [`locale-typography`](skills/locale-typography/) |
 | Website or digital service | Jurisdiction-aware disclosure, privacy, and consent work product | [`web-legal-compliance`](skills/web-legal-compliance/) |
 | Unclear software task | Authorized, verified, review-ready implementation and handoff | [`effective-workflow`](skills/effective-workflow/) with the relevant specialist skills |
-| Repository uncertainty | Evidence-backed audit, executable plan, or focused improvement | [`codebase-improvement`](skills/codebase-improvement/) |
+| Repository uncertainty | Read-only diagnosis, evidence-backed audit, executable plan, or focused improvement | [`codebase-improvement`](skills/codebase-improvement/) |
 | Architecture question | Evidence-led system direction, operability, and evolution path | [`software-architecture`](skills/software-architecture/), [`decision-records`](skills/decision-records/) |
 | Software behavior risk | Focused, reliable evidence for a non-frontend regression, invariant, async path, data boundary, or CLI contract | [`software-testing`](skills/software-testing/) |
 | Software interface or contributor workflow | Repository-native, verified technical documentation | [`tech-docs`](skills/tech-docs/) |
@@ -143,7 +143,7 @@ the external tools and credentials required to act on third-party systems.
 | Skill | Focus |
 | --- | --- |
 | [`effective-workflow`](skills/effective-workflow/) | Lean, repository-native orchestration from understanding through authorized change and focused verification to a review-ready handoff. |
-| [`codebase-improvement`](skills/codebase-improvement/) | Repository audits, leverage-based prioritization, complexity review, executable implementation plans, and focused improvements. |
+| [`codebase-improvement`](skills/codebase-improvement/) | Read-only root-cause investigation, repository audits, leverage-based prioritization, executable plans, and focused improvements. |
 | [`decision-records`](skills/decision-records/) | Repository-native ADR creation, supersession, review, and drift control for durable cross-functional decisions. |
 | [`port-codebases`](skills/port-codebases/) | Resource-aware, behavior-preserving ports across languages, runtimes, frameworks, platforms, and major APIs. |
 | [`pr-review`](skills/pr-review/) | Human, impact-led PR review, maintenance, feedback resolution, and CI recovery. |
