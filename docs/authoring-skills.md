@@ -194,6 +194,25 @@ separately managed DALO `<catalog>` catalog." Reference files can be loaded
 without their parent `SKILL.md`, so do not rely on provenance stated elsewhere
 and never describe a catalog skill as local.
 
+## Delivery Worktree Inventory
+
+Keep every independently installed owner safe without requiring a shared
+runtime or private receipt file.
+
+| Skill | Worktree behavior | Local safety owner |
+| --- | --- | --- |
+| `pr-review` | Creates or adopts a PR worktree; writes, validates, stages, commits, pushes, rebases when authorized, and removes workflow-created worktrees | [`pr-review/references/worktree-safety.md`](../skills/pr-review/references/worktree-safety.md) |
+| `smart-dependency-updater` | Creates or adopts one worktree per dependency PR group; writes manifests and lockfiles, validates, stages, commits, pushes, publishes, and cleans up owned worktrees | [`smart-dependency-updater/references/worktree-safety.md`](../skills/smart-dependency-updater/references/worktree-safety.md) |
+| `port-codebases` | Creates or adopts isolated worktrees for port shards; writes, validates, stages, checkpoints, integrates, and cleans up owned shard worktrees | [`port-codebases/references/worktree-safety.md`](../skills/port-codebases/references/worktree-safety.md) |
+| `effective-workflow` | Coordinates delivery but provides no worktree creation, staging, commit, or cleanup recipe | Requires the selected delivery owner to apply its local contract |
+| `software-testing`, `tech-docs`, `codebase-improvement` | Mention worktree or delivery state only as caller-owned context or a planning boundary | No direct Git worktree mutation |
+
+When a skill gains the ability to create, adopt, write in, stage from, commit in,
+push from, integrate from, or remove a worktree, update this inventory and give
+that skill a local contract covering Git identity, absolute execution root,
+dirty and staged state, collisions, resume revalidation, explicit per-command
+working directories, narrow staging, and cleanup ownership.
+
 ## Review
 
 Before merging a change:

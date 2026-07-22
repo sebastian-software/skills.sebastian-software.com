@@ -92,6 +92,9 @@ baseline, review depth, or completion proof.
   delivery action was authorized.
 - Before any commit or remote mutation, recheck the diff, unrelated work, target
   repository, branch, and requested completion action.
+- When a specialist creates or adopts a worktree, require that independently
+  installed owner to apply its local repository, location, staging, resume, and
+  cleanup safety contract. Do not substitute an orchestrator-owned ledger.
 - Use the host's available Git, forge, CI, and review capabilities. Do not assume
   every harness can push, comment, resolve threads, merge, or deploy.
 - Finish with a concise handoff: outcome, important files or behavior, evidence
