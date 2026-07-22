@@ -1,0 +1,4 @@
+interface:
+  display_name: "Effective Workflow"
+  short_description: "Take software work from brief to handoff"
+  default_prompt: "Use $effective-workflow to take this software task from an unclear request to a verified, review-ready handoff."

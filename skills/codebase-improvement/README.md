@@ -68,6 +68,9 @@ dalo sync
 
 ## Related Skills
 
+- [Effective Workflow](../effective-workflow/README.md) coordinates an unclear
+  software request through implementation, verification, and handoff; this
+  skill owns its repository investigation, prioritization, and planning depth.
 - [PR Review](../pr-review/README.md) handles review and maintenance of specific
   GitHub pull requests.
 - [Smart Dependency Updater](../smart-dependency-updater/README.md) handles a

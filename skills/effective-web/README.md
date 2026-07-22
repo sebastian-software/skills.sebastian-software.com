@@ -101,6 +101,9 @@ complete setup and the difference between selective catalogs and team sources.
 
 ## Related Skills
 
+- [Effective Workflow](../effective-workflow/README.md) coordinates wider
+  repository work and hands browser-facing design, implementation, and
+  verification to this skill.
 - [Product Management](../product-management/README.md) establishes the product
   outcome, scope, and quality bar before interface implementation.
 - [Product Design](../product-design/README.md) shapes evidence into a problem
