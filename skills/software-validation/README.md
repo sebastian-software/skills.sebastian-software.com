@@ -8,10 +8,10 @@
 still missing.**
 
 Software Validation discovers and executes established repository-native
-typecheck, static-analysis, lint, format, test, build, package, and documentation
-checks. It preserves package scope and working state, handles timeouts and shared
-workspace risks explicitly, and reports every applicable category as passed,
-failed, skipped, or timed out.
+typecheck, static-analysis, lint, format, test, benchmark, load, soak, stress,
+build, package, and documentation checks. It preserves package scope and
+working state, handles timeouts and shared workspace risks explicitly, and
+reports every applicable category as passed, failed, skipped, or timed out.
 
 ## What It Can Deliver
 
@@ -37,6 +37,9 @@ that still covers the changed package and its affected dependents.
 
 Run the existing docs build, doctests, link checks, and generated-reference
 verification without installing any missing tools.
+
+Run this repository's established benchmark and soak commands exactly once,
+preserve their result artifacts, and report any missing prerequisites.
 ```
 
 See [SKILL.md](SKILL.md) for command discovery, execution safety, result states,
@@ -63,8 +66,9 @@ dalo sync
 
 - [Effective Workflow](../effective-workflow/README.md) coordinates wider
   implementation and hands established-check execution to this skill.
-- [Software Testing](../software-testing/README.md) designs, authors, and repairs
-  focused non-frontend test evidence; this skill runs existing test commands.
+- [Software Testing](../software-testing/README.md) designs, authors, repairs,
+  and interprets focused non-frontend test and benchmark evidence; this skill
+  runs existing test, benchmark, load, soak, and stress commands.
 - [Effective Web](../effective-web/README.md) owns frontend and browser test
   design; this skill executes already-established repository checks.
 - [Codebase Improvement](../codebase-improvement/README.md) diagnoses and

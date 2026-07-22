@@ -7,7 +7,7 @@
 **Give your AI agent the practical judgment to take product and software work
 from an ambiguous brief to a review-ready result.**
 
-20 practice-built skills and 183 focused references for product decisions, web
+20 practice-built skills and 184 focused references for product decisions, web
 experiences, codebase improvement, delivery, go-to-market work, professional
 communication, and web compliance.
 
@@ -77,7 +77,7 @@ treating every task as an isolated prompt.
 | Unclear software task | Authorized, verified, review-ready implementation and handoff | [`effective-workflow`](skills/effective-workflow/) with the relevant specialist skills |
 | Repository uncertainty | Read-only diagnosis, evidence-backed audit, executable plan, or focused improvement | [`codebase-improvement`](skills/codebase-improvement/) |
 | Architecture question | Evidence-led system direction, operability, and evolution path | [`software-architecture`](skills/software-architecture/), [`decision-records`](skills/decision-records/) |
-| Software behavior risk | Focused, reliable evidence for a non-frontend regression, invariant, async path, data boundary, or CLI contract | [`software-testing`](skills/software-testing/) |
+| Software behavior risk | Focused, reliable evidence for a non-frontend regression, invariant, async path, data boundary, CLI contract, or repository-native benchmark | [`software-testing`](skills/software-testing/) |
 | Changed software | Repository-native checks with explicit pass, fail, skip, timeout, and evidence-gap reporting | [`software-validation`](skills/software-validation/) |
 | Software interface or contributor workflow | Repository-native, verified technical documentation | [`tech-docs`](skills/tech-docs/) |
 | Aging or changing system | Researched dependency updates or a behavior-preserving codebase port | [`smart-dependency-updater`](skills/smart-dependency-updater/), [`port-codebases`](skills/port-codebases/) |
@@ -150,8 +150,8 @@ the external tools and credentials required to act on third-party systems.
 | [`pr-review`](skills/pr-review/) | Human, impact-led PR review, maintenance, feedback resolution, and CI recovery. |
 | [`smart-dependency-updater`](skills/smart-dependency-updater/) | Researched dependency-update portfolios with upstream context, local adaptation, validation, and PR delivery. |
 | [`software-architecture`](skills/software-architecture/) | Evidence-led system boundaries, operability, architecture tradeoffs, and evolutionary migration paths. |
-| [`software-testing`](skills/software-testing/) | Focused non-frontend test design, implementation, and verification for real software behavior and regressions. |
-| [`software-validation`](skills/software-validation/) | Repository-native discovery and execution of existing typecheck, lint, test, build, package, and documentation gates with explicit evidence gaps. |
+| [`software-testing`](skills/software-testing/) | Focused non-frontend test and repository-native benchmark design, implementation, and verification. |
+| [`software-validation`](skills/software-validation/) | Repository-native discovery and execution of existing typecheck, lint, test, benchmark, load, build, package, and documentation gates with explicit evidence gaps. |
 | [`tech-docs`](skills/tech-docs/) | Repository-native READMEs, guides, API and CLI references, migration notes, code documentation, examples, and verification. |
 
 ### Positioning, marketing, and communication

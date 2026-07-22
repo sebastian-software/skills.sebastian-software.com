@@ -80,6 +80,10 @@ dalo sync
   migrations across languages, runtimes, frameworks, and platforms.
 - [Effective Web](../effective-web/README.md) owns frontend and React
   architecture detail.
+- [Software Testing](../software-testing/README.md) owns repository-native
+  microbenchmark, comparative benchmark, and bounded workflow benchmark
+  methodology after this skill establishes the performance question and
+  system-level target.
 
 ## Scope
 

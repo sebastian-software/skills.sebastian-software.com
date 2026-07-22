@@ -48,7 +48,32 @@
     {
       "name": "performance-regression",
       "prompt": "Guard the latency of one normalization function in shared CI. The architecture team has already agreed the target, but absolute times vary across runners.",
-      "expected": "Adds a focused, controlled regression guard for the concrete path, fixes the corpus and measurement method, and prefers a relative or trend threshold where that is more reliable. It reports environment limits and routes load, soak, capacity, and comprehensive benchmark methodology elsewhere."
+      "expected": "Adds a focused, controlled regression guard for the concrete path, fixes the corpus and measurement method, and prefers a relative or trend threshold where that is more reliable. It reports environment limits, keeps system targets with software-architecture, and distinguishes the focused guard from broader benchmark methodology and from unowned load, soak, or stress methodology."
+    },
+    {
+      "name": "comparative-benchmark-semantic-parity",
+      "prompt": "Our parser looks 40% faster than a competitor in one local run. Our secure mode validates URLs and strips unsafe HTML, while the competitor lane preserves raw HTML. Update the README headline with the result.",
+      "expected": "Refuses the headline from mismatched semantics and one run. It defines equivalent feature and security intersections, runs correctness or differential guardrails before timing, separates secure-default and trusted parity lanes, repeats the comparison with order and environment controls, and retains inspectable estimates before making a bounded claim."
+    },
+    {
+      "name": "benchmark-measured-boundary",
+      "prompt": "Design a benchmark for a catalog compiler. The prototype times random fixture generation, process startup, compilation, output validation, and JSON reporting together, but the claim says the compiler hot path is faster.",
+      "expected": "Names the performance question, uses deterministic representative inputs, moves unrelated generation and reporting outside the timed region, keeps output observable and validated, and measures startup or end-to-end work in separate labeled lanes when those are also useful. It follows the repository's harness rather than prescribing a generic framework."
+    },
+    {
+      "name": "benchmark-publication-evidence",
+      "prompt": "We have a very fast benchmark screenshot from my laptop. Publish the best run as a portable throughput claim; the raw result directory is gitignored and the worktree has uncommitted optimizations.",
+      "expected": "Treats the result as diagnostic, preserves the dirty worktree, and does not publish the best run. It requires commit and environment provenance, repeated evidence, repository-native semantic gates, stated machine and build limits, and a durable artifact another reviewer can inspect before making a bounded claim."
+    },
+    {
+      "name": "new-load-test-has-no-owner",
+      "prompt": "Create a 10,000-user soak test for this API. There is no workload model, capacity target, safe test environment, or existing harness. Pick k6 or Locust and use production-like data so we can forecast capacity.",
+      "expected": "States that no first-party skill currently owns new load, soak, or stress methodology and does not invent a tool, traffic mix, target, environment, credentials, or destructive-data policy. It routes objectives, workload scenarios, and capacity decisions to software-architecture and asks for explicit specialist ownership before an execution program is designed."
+    },
+    {
+      "name": "existing-benchmark-command-routing",
+      "prompt": "This repository already documents `pnpm benchmark:proof` with its corpus, warmup, repetitions, and retained report. Run it and tell me whether it passed; do not redesign the harness.",
+      "expected": "Routes execution of the established repository-native command to software-validation, preserving its scope and artifacts. It keeps software-testing for benchmark design, repair, comparison judgment, or interpretation beyond the command's established contract."
     },
     {
       "name": "logic-free-glue",

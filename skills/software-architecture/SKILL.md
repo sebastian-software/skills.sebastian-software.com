@@ -6,11 +6,12 @@ description: >-
   quality attributes, operational concerns, and migration paths. Use when a
   user asks for software or system architecture, architecture options or
   review, service or module boundaries, monolith versus service decisions,
-  scalability, reliability, deployability, operational readiness, or a
-  cross-cutting technical direction. Apply Twelve-Factor practices where they
-  fit a long-running service; do not use for frontend-only architecture,
-  codebase audit-only work, implementation plans, or recording an already-made
-  decision when a narrower skill applies.
+  scalability, reliability, deployability, operational readiness, performance
+  objectives, workload scenarios, capacity planning, or definition of a new
+  load, soak, or stress program. Apply Twelve-Factor practices where they fit a
+  long-running service; do not use for frontend-only architecture, codebase
+  audit-only work, implementation plans, execution of an existing repository
+  check, or recording an already-made decision when a narrower skill applies.
 ---
 
 # Software Architecture
@@ -114,6 +115,13 @@ place secrets or personal data in an architecture artifact.
   `port-codebases`.
 - Route frontend CSS, React, rendering, component, and interface architecture
   to `effective-web`.
+- Route repository-native microbenchmark, comparative benchmark, and bounded
+  end-to-end benchmark design or interpretation to `software-testing` after the
+  performance question, workload scenario, and target are agreed here. Keep
+  capacity planning and new load, soak, or stress objectives here; no
+  first-party skill currently claims their execution methodology. Route an
+  existing repository-native benchmark, load, soak, or stress command to
+  `software-validation`.
 - Route a specific pull request's review, feedback, or CI recovery to
   `pr-review`.
 

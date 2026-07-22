@@ -6,11 +6,14 @@ description: >-
   to protect a behavior, invariant, regression, failure path, retry,
   authorization rule, migration, command-line contract, or flaky test; to
   diagnose test discovery, collection, runner, or framework configuration; to
-  make a rule or state transition directly testable; or to add a focused
-  performance-regression guard. Prefer repository-native test conventions and
+  make a rule or state transition directly testable; to add a focused
+  performance-regression guard; or to design, repair, or interpret a
+  repository-native microbenchmark, comparative benchmark, or bounded
+  end-to-end workflow benchmark. Prefer repository-native test conventions and
   real behavior over mock choreography. Do not use for browser, component,
   visual, accessibility, or browser E2E testing; repository-wide coverage
-  audits; broad system-quality design; or load and capacity methodology.
+  audits; broad system-quality design; or load, soak, stress, and capacity
+  methodology.
 ---
 
 # Software Testing
@@ -41,8 +44,11 @@ to the claim.
    protocol choice is entangled with I/O or framework wiring.
 5. Load the focused boundary guidance when it applies:
    - API, service, database, migration, isolation, asynchronous, retry,
-     queue, callback, failure-path, or focused performance work: read
+     queue, callback, failure-path, or focused performance-regression work: read
      [Services, data, and async](references/services-data-and-async.md).
+   - Microbenchmark, comparative benchmark, bounded end-to-end performance
+     workflow, benchmark interpretation, or publishable performance claim:
+     read [Benchmark methodology](references/benchmark-methodology.md).
    - Command invocation, configuration, stdout or stderr, exit behavior, or
      filesystem side effects: read [CLI contracts](references/cli-contracts.md).
    - Rust-native test placement, public-API coverage, doctests, or opt-in live
@@ -99,8 +105,9 @@ to the claim.
 - A focused performance-regression guard for a concrete function or service
   path is in scope when the environment and target are explicit. Prefer a
   trend or relative threshold on shared CI when an absolute number would be
-  brittle. Do not claim load, soak, capacity, or comprehensive benchmark
-  methodology.
+  brittle. For broader repository-native benchmark experiments and claims,
+  load the benchmark methodology reference. Do not claim load, soak, stress,
+  or capacity methodology.
 - TypeScript and Rust are the primary ecosystems for this skill. Follow local
   conventions in other languages; do not use their presence to prescribe a
   language-specific stack.
@@ -122,12 +129,14 @@ to the claim.
   requested outcome.
 - Route PR-scoped adequacy and merge judgment to `pr-review`.
 - Route contract design, system quality scenarios, performance targets,
-  capacity planning, and broader architectural redesign to
+  workload scenarios, capacity planning, and broader architectural redesign to
   `software-architecture`. This skill implements contract tests against an
-  agreed contract, including consumer-driven contract tests, and produces
-  focused evidence against a given or locally agreed target. Load, soak, and
-  comprehensive benchmark methodology are not claimed by a skill yet; their
-  ownership is under evaluation in #112.
+  agreed contract, including consumer-driven contract tests, and owns
+  repository-native benchmark methodology against a named performance
+  question. No first-party skill currently claims new load, soak, or stress
+  methodology; state that boundary instead of inventing a tool or traffic
+  model. Route execution of an established benchmark, load, soak, or stress
+  command to `software-validation`.
 - Route migration parity, differential evidence, and compatibility work to
   `port-codebases`.
 - Route substantive runtime or service implementation decisions to the

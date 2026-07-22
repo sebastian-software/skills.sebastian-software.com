@@ -3,8 +3,9 @@ name: software-validation
 description: >-
   Discover, execute, and report existing repository-native software checks.
   Use when asked to validate a change, verify repository or package health, run
-  the applicable typecheck, static analysis, lint, format, test, build, package,
-  documentation, doctest, link, generated-reference, or example checks, or
+  the applicable typecheck, static analysis, lint, format, test, benchmark,
+  load, soak, stress, build, package, documentation, doctest, link,
+  generated-reference, or example checks, or
   explain what validation evidence is still missing. Do not use to invent or
   install tooling, design new tests, choose architecture quality targets,
   prioritize repository improvements, or orchestrate delivery.
@@ -91,7 +92,9 @@ not finalize the affected category or dependent checks.
   affected validation flow when process-tree state is uncertain.
 - Route new, missing, or restructured non-frontend test evidence and test
   discovery, collection, runner, or framework diagnosis and repair to
-  `software-testing`; route browser test design to `effective-web`.
+  `software-testing`; route benchmark design, comparison methodology,
+  interpretation, and performance claims there as well. Route browser test
+  design to `effective-web`.
 - Route system quality targets and broader verification strategy to
   `software-architecture`; repository audit prioritization to
   `codebase-improvement`; documentation authoring to `tech-docs`; and
