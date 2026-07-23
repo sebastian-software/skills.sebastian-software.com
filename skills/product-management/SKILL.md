@@ -43,6 +43,9 @@ and post-release behavior as one system rather than separate handoffs.
    - [Review modes](references/review-modes.md) after the evidence review when
      the artifact supports a product decision, go-to-market claim set, or launch
      readiness decision. Also load the domain routes named by the selected mode.
+   - [Review calibration](references/review-calibration.md) for repeated or
+     high-stakes reviews, behavioral case design, counterfactual checks, and
+     post-decision outcome learning.
    - [Discovery and evidence](references/discovery-and-evidence.md) for market
      selection, interviews, observation, Jobs to be Done, validation, and
      service-to-product opportunities.
@@ -91,6 +94,9 @@ and post-release behavior as one system rather than separate handoffs.
 - When reviewing an existing artifact, inventory its claims and supplied
   evidence before applying preferred product frameworks. Do not let a strong
   template manufacture support.
+- When learning from a later outcome, preserve the original artifact, evidence
+  cutoff, review, and expected signals. Do not turn hindsight into evidence that
+  was unavailable at decision time.
 - Keep platform tactics, channel claims, benchmark numbers, pricing formulas,
   and launch cadences testable and time-bound. Verify volatile guidance before
   making it a requirement.
