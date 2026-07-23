@@ -148,7 +148,7 @@
     {
       "name": "measure-geo-without-false-precision",
       "prompt": "A GEO vendor ran 20 prompts once, reports a 38% AI share of voice, and claims the campaign generated revenue. Search Console shows more Web impressions, but analytics has no reliable AI referral or conversion view. Design a defensible measurement plan.",
-      "expected": "Treats the vendor result as a dated sample, builds a versioned query panel across relevant engines, locales, and repeated runs, retains raw answers and cited URLs, and separates mentions and citations from factual accuracy, referrals, engagement, and business outcomes. It notes that Google AI feature data is blended into Search Console Web reporting and rejects causal ROI claims without supporting acquisition and conversion evidence."
+      "expected": "Treats the vendor result as a dated sample, builds a versioned query panel across relevant engines, locales, and repeated runs, retains raw answers and cited URLs, and separates mentions and citations from factual accuracy, referrals, engagement, and business outcomes. It checks whether the site's subset has Google's dedicated Generative AI performance report, uses it only for the visibility dimensions it exposes, retains the overall performance view, and rejects causal ROI claims without supporting acquisition and conversion evidence."
     },
     {
       "name": "refresh-citable-editorial-content",
@@ -339,6 +339,11 @@
       "name": "preserve-collapsed-content-search",
       "prompt": "A documentation FAQ uses display:none for every closed answer. Browser find-in-page cannot locate terms inside closed sections, but searchable answers are a product requirement. Choose a resilient approach.",
       "expected": "Treats find-in-page as an explicit state dimension, considers native details or support-gated hidden=until-found with beforematch state synchronization, provides a coherent fallback such as expanded reference content or page search, and tests keyboard, accessibility tree, fragments, browser find, printing, and restored history state."
+    },
+    {
+      "name": "do-not-promise-retired-faq-rich-results",
+      "prompt": "Add FAQPage JSON-LD to every support accordion and promise the client that authoritative health pages still receive Google FAQ rich results. Verify it by fetching the server HTML even though the app injects the JSON-LD after hydration.",
+      "expected": "Explains that Google retired FAQ rich results in May 2026 and does not present FAQPage markup as a display tactic; keeps any schema only when it truthfully represents visible content for a real consumer; inspects the rendered DOM rather than trusting a static fetch for client-injected JSON-LD; and uses the current Rich Results Test only for still-supported eligible result types."
     },
     {
       "name": "keep-site-navigation-out-of-aria-menu",
