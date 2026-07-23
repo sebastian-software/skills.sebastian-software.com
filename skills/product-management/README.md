@@ -19,6 +19,7 @@ handoffs.
 - decision-readiness audits for product briefs, roadmaps, and recommendations
 - claim-to-evidence reviews with explicit gates and closure conditions
 - focused product-decision, go-to-market-claim, and launch-readiness reviews
+- behavioral review calibration with counterfactual cases and outcome learning
 - customer-problem and Jobs-to-be-Done synthesis
 - product briefs, strategy, outcomes, and initial scope
 - prioritization decisions and outcome-oriented roadmaps
@@ -47,6 +48,9 @@ claim to supplied evidence and tell me what blocks approval.
 
 Review these launch claims against product behavior and customer proof, qualify
 what we cannot support, and identify the product evidence marketing still needs.
+
+Calibrate our product-review rubric against these past decisions without
+overfitting to one preferred response or judging the original choice by hindsight.
 
 Decide whether this feature is ready to ship, including its quality bar,
 distribution path, and post-release learning plan.

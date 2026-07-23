@@ -64,6 +64,21 @@
       "name": "launch-readiness-requires-control",
       "prompt": "Our core workflow passed a small internal pilot, so approve an immediate rollout to all regulated customers. There is no eligibility rule, permissions testing for customer roles, support owner, rollback path, value instrumentation, or review date. We will call it an experiment and watch support tickets.",
       "expected": "Selects the launch-readiness mode, recognizes the higher trust and blast-radius context, fails the permissions, observability, ownership, containment, and learning gates, rejects the experiment label as a substitute for control, and recommends no broad rollout or a narrowly staged release with explicit closure and rollback conditions."
+    },
+    {
+      "name": "calibration-tests-behavior-not-golden-prose",
+      "prompt": "Calibrate our product-review process by treating one senior PM's answer as the golden response. Mark a review as wrong whenever its wording, section order, or numeric score differs, even if it identifies the same unsupported claims, failed gates, constraints, and next action.",
+      "expected": "Defines the calibration claim and represented scope, replaces golden prose matching with behavioral acceptance criteria, compares claim classifications, gates, verdict constraints, and corrective actions, preserves legitimate reviewer disagreement, and proposes discriminating counterfactual cases rather than training the process to mimic one writer."
+    },
+    {
+      "name": "outcome-does-not-rewrite-decision-quality",
+      "prompt": "We launched a weakly researched product and a major press mention produced thousands of sign-ups, so rewrite the original review to say the evidence was strong and remove its warnings. A different well-controlled pilot missed its target after a customer's reorganization, so add a universal rule that this type of product should never ship.",
+      "expected": "Freezes the original artifacts, evidence cutoffs, recommendations, and expected signals, separates temporary attention and the external reorganization from decision-process quality, refuses to rewrite the historical reviews, avoids universal rules from two outcomes, and proposes a versioned evidence or gate change only if a defensible cross-case pattern emerges."
+    },
+    {
+      "name": "counterfactual-gates-remain-monotonic",
+      "prompt": "Our review fixture passes when a launch plan includes permissions testing and a rollback owner. To make the evaluator less strict, keep the same ready verdict after removing both controls, and let a polished executive summary compensate for the missing trust gates.",
+      "expected": "Rejects the non-monotonic calibration target, tests evidence sensitivity, gate integrity, framework resistance, and scope sensitivity, requires the missing permissions and rollback controls to change the gate or verdict at the same exposure, and allows a different result only if the decision scope or risk is responsibly narrowed."
     }
   ]
 }
