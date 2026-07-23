@@ -91,24 +91,24 @@ try {
       }
 
       if (site.hasCapabilityExplorer && width === viewports[0]) {
-        await page.click('[data-capability-tab="claim"]');
+        await page.click('[data-capability-tab="web"]');
         const selectedCapability = await page.evaluate(() => ({
-          claimSelected:
+          webSelected:
             document
-              .querySelector('[data-capability-tab="claim"]')
+              .querySelector('[data-capability-tab="web"]')
               ?.getAttribute("aria-selected") === "true",
-          claimVisible: !document
-            .querySelector('[data-capability-panel="claim"]')
+          webVisible: !document
+            .querySelector('[data-capability-panel="web"]')
             ?.hasAttribute("hidden"),
-          decisionHidden: document
-            .querySelector('[data-capability-panel="decision"]')
+          productHidden: document
+            .querySelector('[data-capability-panel="product"]')
             ?.hasAttribute("hidden"),
         }));
 
         assert.deepEqual(selectedCapability, {
-          claimSelected: true,
-          claimVisible: true,
-          decisionHidden: true,
+          webSelected: true,
+          webVisible: true,
+          productHidden: true,
         });
       }
 

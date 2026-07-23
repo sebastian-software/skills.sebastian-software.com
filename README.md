@@ -4,84 +4,59 @@
 
 **Website:** [skills.sebastian-software.com](https://skills.sebastian-software.com/)
 
-**Give your AI agent the practical judgment to take product and software work
-from an ambiguous brief to a review-ready result.**
+**Open-source skills for the professional judgment that capable AI agents still
+need to do dependable product and software work.**
 
 22 practice-built skills and 221 focused references for product decisions, web
 experiences, codebase improvement, delivery, go-to-market positioning,
 professional communication, and web compliance.
 
-This is not a loose prompt dump. It is a maintained, first-party operating
-layer for agents that work on real products and repositories. Each skill turns
-repeated professional practice into explicit workflows, boundaries, evidence
-requirements, and verification checks that an agent can apply when the task
-calls for them.
+Use one skill when an agent needs deeper judgment for a specific job, or combine
+several in your own downstream agent stack. Each skill turns repeated
+professional practice into an explicit workflow with evidence requirements,
+boundaries, and verification checks.
 
 ## Quick Start
 
-Install one skill to try the collection:
+Install the skill that matches the work. `effective-web` is a useful starting
+point for broad frontend tasks:
 
 ```sh
 npx skills add sebastian-software/skills.sebastian-software.com --skill effective-web
 ```
 
-Or install all 22 skills:
+Then ask for the outcome in normal language:
+
+```text
+Audit this dashboard, fix the highest-impact accessibility and responsive
+issues, and verify the result.
+```
+
+The skill tells a compatible agent what to inspect, which specialist guidance
+to load, where its authority stops, and what evidence is needed before the task
+is complete.
+
+Install all 22 skills only when you want the complete first-party collection:
 
 ```sh
 npx skills add sebastian-software/skills.sebastian-software.com --all
 ```
 
-Selective installation works with both the skills CLI and DALO. You do not
-need to adopt the whole collection to use `effective-web` or any other single
-skill.
+Selective installation also works with [DALO](#installation) when selections
+should be pinned and shared across multiple agent targets.
 
-Then ask for the work in normal language. A compatible agent selects the
-relevant skill from its description and loads the detailed guidance it needs.
+## Find the Right Skill
 
-```text
-Audit this dashboard for accessibility, responsive behavior, and loading cost.
+Start with the job you need done rather than the repository taxonomy.
 
-Turn these interview notes into an evidence-led MVP recommendation.
-
-Turn this design brief and research into a problem model, interaction system,
-and decision-grade prototype plan.
-
-Review this codebase, rank the highest-leverage improvements, and implement the
-agreed scope.
-
-Take this software task from an unclear request through an authorized change,
-focused verification, and a review-ready handoff.
-
-Build a LinkedIn positioning and content system that leads to qualified B2B
-conversations.
-```
-
-For reproducible selections and multiple agent targets, use
-[DALO](#installation).
-
-## What This Collection Enables
-
-The collection covers connected parts of the product lifecycle, so the same
-agent can carry context and quality standards across disciplines instead of
-treating every task as an isolated prompt.
-
-| From | To | Skills that help |
+| When you need to… | Start with… |
 | --- | --- | --- |
-| Unclear opportunity | Evidence-led product direction, scope, priorities, and release criteria | [`product-management`](skills/product-management/), [`decision-records`](skills/decision-records/) |
-| Product direction and research | Traceable problem framing, interaction model, structure, and prototype plan | [`product-design`](skills/product-design/), [`effective-web`](skills/effective-web/) |
-| Product thesis | Distinctive, researched, multilingual name shortlist | [`product-naming`](skills/product-naming/) |
-| Brief or existing interface | Designed, implemented, accessible, performant, and tested web experience | [`effective-web`](skills/effective-web/), [`locale-typography`](skills/locale-typography/) |
-| Website or digital service | Jurisdiction-aware disclosure, privacy, and consent work product | [`web-legal-compliance`](skills/web-legal-compliance/) |
-| Unclear software task | Authorized, verified, review-ready implementation and handoff | [`effective-workflow`](skills/effective-workflow/) with the relevant specialist skills |
-| Repository uncertainty | Read-only diagnosis, evidence-backed audit, executable plan, or focused improvement | [`codebase-improvement`](skills/codebase-improvement/) |
-| Architecture question | Evidence-led system direction, operability, and evolution path | [`software-architecture`](skills/software-architecture/), [`decision-records`](skills/decision-records/) |
-| Software behavior risk | Focused, reliable evidence for a non-frontend regression, invariant, async path, data boundary, CLI contract, or repository-native benchmark | [`software-testing`](skills/software-testing/) |
-| Changed software | Repository-native checks with explicit pass, fail, skip, timeout, and evidence-gap reporting | [`software-validation`](skills/software-validation/) |
-| Software interface or contributor workflow | Repository-native, verified technical documentation | [`tech-docs`](skills/tech-docs/) |
-| Aging or changing system | Researched dependency updates or a behavior-preserving codebase port | [`smart-dependency-updater`](skills/smart-dependency-updater/), [`port-codebases`](skills/port-codebases/) |
-| Pull request | Impact-led review, feedback resolution, CI recovery, and delivery follow-through | [`pr-review`](skills/pr-review/) |
-| Expertise or offer | Credible consultant positioning and B2B LinkedIn acquisition system | [`consultant-profile`](skills/consultant-profile/), [`linkedin-social-selling`](skills/linkedin-social-selling/) |
-| Raw idea or stiff draft | LinkedIn content and natural professional team communication | [`linkedin-posts`](skills/linkedin-posts/), [`metro-english`](skills/metro-english/) |
+| Turn incomplete evidence into product direction, scope, or a durable decision | [`product-management`](skills/product-management/), [`product-design`](skills/product-design/), [`decision-records`](skills/decision-records/) |
+| Design, build, review, or improve a production web experience | [`effective-web`](skills/effective-web/), [`locale-typography`](skills/locale-typography/), [`web-legal-compliance`](skills/web-legal-compliance/) |
+| Diagnose a repository and choose the highest-leverage next move | [`codebase-improvement`](skills/codebase-improvement/), [`software-architecture`](skills/software-architecture/) |
+| Take an authorized software change through implementation and verification | [`effective-workflow`](skills/effective-workflow/), [`software-testing`](skills/software-testing/), [`software-validation`](skills/software-validation/) |
+| Review, document, modernize, or port an existing codebase | [`pr-review`](skills/pr-review/), [`tech-docs`](skills/tech-docs/), [`smart-dependency-updater`](skills/smart-dependency-updater/), [`port-codebases`](skills/port-codebases/) |
+| Turn expertise into credible positioning, content, and professional communication | [`consultant-profile`](skills/consultant-profile/), [`linkedin-social-selling`](skills/linkedin-social-selling/), [`linkedin-posts`](skills/linkedin-posts/), [`metro-english`](skills/metro-english/) |
 
 `effective-workflow` coordinates the path from an unclear software request to a
 verified handoff while leaving specialist depth with its first-party owners.
@@ -90,14 +65,14 @@ React, components, forms, tables, accessibility, internationalization,
 interface copy, auth and error states, frontend SEO and AI search, performance,
 testing, SVG, motion, textures, print stylesheets, and web-to-print.
 
-## Why Use These Skills
+## What the Skills Add
 
 General models can generate plausible answers. Shipping good work requires more:
 knowing what evidence is missing, which tradeoff matters, what not to invent,
 how far the user's authority extends, and what must be verified before calling
 the work done.
 
-These skills are designed around that gap:
+The collection is designed around that gap:
 
 - **Practice-built:** guidance is distilled from engineering, design review,
   product work, consulting, and repeated agent sessions.
@@ -118,6 +93,18 @@ This is a focused collection for digital product, web, software-delivery, and
 go-to-market work, not an attempt to cover every agent task. It does not replace
 qualified legal advice, dedicated security review, infrastructure expertise, or
 the external tools and credentials required to act on third-party systems.
+
+## Collection Boundary
+
+This repository owns the public, first-party skills themselves. Their portable
+interface is a flat `skills/<name>/SKILL.md` layout that works with compatible
+agent environments and source managers.
+
+It intentionally does not define a universal agent setup. External catalogs,
+cross-catalog precedence, named agents, project instructions, and routing across
+first- and third-party sources belong in a separate downstream agent stack.
+That keeps each skill independently useful and prevents one public source
+repository from silently deciding how a user's complete environment behaves.
 
 ## Skills
 
