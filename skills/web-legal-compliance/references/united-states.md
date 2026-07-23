@@ -90,7 +90,7 @@ Open and verify current statutes, regulations, and linked guidance:
 - [California Privacy Protection Agency](https://cppa.ca.gov/)
 - [Colorado Attorney General: Colorado Privacy Act](https://coag.gov/resources/colorado-privacy-act/)
 - [Connecticut Attorney General: Connecticut Data Privacy Act](https://portal.ct.gov/ag/sections/privacy/the-connecticut-data-privacy-act)
-- [Texas Attorney General: Data Privacy and Security Act](https://www.texasattorneygeneral.gov/consumer-protection/file-consumer-complaint/consumer-privacy-rights/data-privacy-and-security-act)
+- [Texas Attorney General: Consumer Privacy Rights (including the Data Privacy and Security Act)](https://www.texasattorneygeneral.gov/consumer-protection/file-consumer-complaint/consumer-privacy-rights)
 - [Congress.gov](https://www.congress.gov/)
 - [GovInfo](https://www.govinfo.gov/)
 - [USA.gov state and territory governments](https://www.usa.gov/state-governments)

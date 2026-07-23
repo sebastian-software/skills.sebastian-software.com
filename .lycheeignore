@@ -1,3 +1,13 @@
 # Hosts that block or rate-limit automated link checkers.
 https?://([a-z0-9-]+\.)?linkedin\.com.*
 https?://([a-z0-9-]+\.)?xing\.com.*
+
+# These live primary sources reject or reset GitHub Actions' link-check traffic.
+https://www\.mckinsey\.com/careers/interviewing
+https://tbrown\.org/11/
+https://doi\.org/10\.1177/154193120504900514
+https://www\.congress\.gov/
+https://www\.isof\.se/download/18\.17dda5f1791cdbd2873a99/1620030264840/Mynd-skrivreg2014-1\.pdf
+https://www\.isof\.se/utforska/publikationer/publikationer/2024-01-22-snabba-skrivregler
+https://www\.gesetze-im-internet\.de/ddg/
+https://www\.gesetze-im-internet\.de/tdddg/
