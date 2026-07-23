@@ -38,10 +38,10 @@ artifact rather than the HTML element name.
 
 ```css
 @media print {
-  nav,
-  footer,
-  aside,
-  .sidebar,
+  nav:not([data-print-keep]),
+  footer:not([data-print-keep]),
+  aside:not([data-print-keep]),
+  .sidebar:not([data-print-keep]),
   .ads,
   .cookie-banner,
   .share-buttons,
@@ -308,6 +308,15 @@ footnote, printed attribution, or QR code can be clearer than a full URL.
     word-break: break-all;
   }
 }
+```
+
+Mark only links whose destination a paper reader must use. Keep the visible
+label human-readable, and use `data-print-keep` on navigation, footer, or
+sidebar elements that provide necessary document context:
+
+```html
+<a href="https://example.com/source" data-print-url>Source study</a>
+<nav data-print-keep aria-label="Document sections">…</nav>
 ```
 
 ### Filtering: Only External Links
@@ -628,9 +637,10 @@ Copy-paste this into your main stylesheet as a starting point. Adjust selectors 
   }
 
   /* ---- Hide non-print elements ---- */
-  .site-navigation,
-  .site-footer,
-  .incidental-sidebar,
+  nav:not([data-print-keep]),
+  footer:not([data-print-keep]),
+  aside:not([data-print-keep]),
+  .sidebar:not([data-print-keep]),
   .ads,
   .cookie-banner,
   .share-buttons,
