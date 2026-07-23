@@ -49,6 +49,34 @@ analysis, implementation guidance, evidence standard, and domain boundaries.
 4. Reconcile overlapping outputs at the orchestration layer. Do not let one
    owner silently broaden another owner's scope.
 
+## Give Delegation a Compact Return Contract
+
+Delegate only when a bounded owner can work independently and the returned
+evidence is worth the coordination cost. Keep a one-line lookup, a tightly
+coupled decision, or work that needs continuous shared judgment in the caller.
+
+Every delegated task should state:
+
+- the result or question, authorized scope, and important exclusions;
+- the minimum repository evidence or context needed to work safely;
+- whether the task may read, edit, validate, or only recommend;
+- the expected return shape and terminal states; and
+- what uncertainty must stop the task rather than invite improvisation.
+
+Prefer compact, task-specific receipts:
+
+- location work: `path:line`, exact symbol, and relevance;
+- implementation work: changed paths, behavior, focused verification, blocker;
+- review work: impact, location, evidence, and smallest credible correction;
+- research work: conclusion, primary source, revision or date, and uncertainty.
+
+Return the outcome, decisive evidence, and blocker rather than a diary of tool
+calls or discarded searches. Keep identifiers, commands, errors, counts, and
+paths exact; do not invent abbreviations merely to look terse. Use complete,
+unambiguous prose for security, destructive actions, ordering constraints,
+conflicting evidence, or any result a human must act on directly. The caller
+owns synthesis into a readable user-facing answer.
+
 ## Selective-Install Contract
 
 When an optional owner is unavailable:

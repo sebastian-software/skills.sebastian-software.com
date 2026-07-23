@@ -66,6 +66,11 @@ Load only the owners needed for the current stage; do not preload the catalog.
 - Invoke the appropriate first-party owner when available and treat its domain
   rules as authoritative. Pass it the outcome, scope, repository evidence,
   constraints, and expected handoff.
+- For delegated work, define a compact result contract and return boundary.
+  Prefer outcome, evidence, and blocker over process narration; keep
+  safety-critical or ambiguous information in normal explicit prose. Read
+  [Routing and selective installation](references/routing-and-fallbacks.md)
+  for the delegation contract.
 - Implement only the agreed surface. Do not expand a fix into cleanup, a docs
   task into product behavior, or a dependency update into unrelated migration.
 - Follow repository-native files, commands, branches, issues, tests, and docs.

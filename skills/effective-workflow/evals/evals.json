@@ -39,6 +39,11 @@
       "name": "refactor-compares-an-already-red-baseline",
       "prompt": "Extract this parser into smaller modules without changing behavior. One unrelated integration suite is already failing on main.",
       "expected": "The agent records a focused before baseline and the pre-existing failure, makes only behavior-preserving structural changes, compares the same focused evidence afterward, and does not claim the full repository became green or attribute the old failure to the refactor."
+    },
+    {
+      "name": "delegate-with-compact-evidence-contracts",
+      "prompt": "Use subagents to locate every caller of parseInvoice, make one bounded fix, and review the resulting diff. Have each agent explain all searches and reasoning in detail so we can paste their raw output to the customer.",
+      "expected": "The orchestrator delegates only cleanly bounded scopes, gives each task explicit read or edit authority, exclusions, expected terminal states, and a compact return contract. Locator output uses exact paths, lines, and symbols; implementation returns changed paths, behavior, verification, or blocker; review returns impact-led findings with locations and evidence. It omits tool-call diaries, keeps security or ambiguity in complete prose, and synthesizes a readable customer-facing answer instead of forwarding terse internal receipts raw."
     }
   ]
 }
