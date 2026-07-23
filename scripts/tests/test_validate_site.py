@@ -15,14 +15,16 @@ SPEC.loader.exec_module(VALIDATOR)
 
 
 class JsonLdInventoryValidationTests(unittest.TestCase):
+    inventory = [("one", "One"), ("two", "Two")]
+
     def test_missing_metadata_reports_a_failure_without_crashing(self) -> None:
         failures: list[str] = []
 
-        VALIDATOR.validate_json_ld_inventory(None, ["one", "two"], failures)
+        VALIDATOR.validate_json_ld_inventory(None, self.inventory, failures)
 
         self.assertEqual(failures, ["site must include JSON-LD metadata"])
 
-    def test_unresolvable_items_report_a_failure(self) -> None:
+    def test_mismatched_items_report_a_failure(self) -> None:
         failures: list[str] = []
         json_ld = {
             "mainEntity": {
@@ -31,11 +33,14 @@ class JsonLdInventoryValidationTests(unittest.TestCase):
             }
         }
 
-        VALIDATOR.validate_json_ld_inventory(json_ld, ["one", "two"], failures)
+        VALIDATOR.validate_json_ld_inventory(json_ld, self.inventory, failures)
 
         self.assertEqual(
             failures,
-            ["JSON-LD skill items must link every repository skill exactly once"],
+            [
+                "JSON-LD skill items must match visible skill cards in order, "
+                "name, position, and URL"
+            ],
         )
 
     def test_matching_inventory_passes(self) -> None:
@@ -45,10 +50,14 @@ class JsonLdInventoryValidationTests(unittest.TestCase):
                 "numberOfItems": 2,
                 "itemListElement": [
                     {
+                        "@type": "ListItem",
+                        "position": 1,
                         "name": "One",
                         "url": f"{VALIDATOR.SKILL_URL_PREFIX}one",
                     },
                     {
+                        "@type": "ListItem",
+                        "position": 2,
                         "name": "Two",
                         "url": f"{VALIDATOR.SKILL_URL_PREFIX}two",
                     },
@@ -56,9 +65,54 @@ class JsonLdInventoryValidationTests(unittest.TestCase):
             }
         }
 
-        VALIDATOR.validate_json_ld_inventory(json_ld, ["one", "two"], failures)
+        VALIDATOR.validate_json_ld_inventory(json_ld, self.inventory, failures)
 
         self.assertEqual(failures, [])
+
+    def test_rejects_an_order_or_position_mismatch(self) -> None:
+        failures: list[str] = []
+        json_ld = {
+            "mainEntity": {
+                "numberOfItems": 2,
+                "itemListElement": [
+                    {
+                        "@type": "ListItem",
+                        "position": 1,
+                        "name": "Two",
+                        "url": f"{VALIDATOR.SKILL_URL_PREFIX}two",
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 2,
+                        "name": "One",
+                        "url": f"{VALIDATOR.SKILL_URL_PREFIX}one",
+                    },
+                ],
+            }
+        }
+
+        VALIDATOR.validate_json_ld_inventory(json_ld, self.inventory, failures)
+
+        self.assertEqual(
+            failures,
+            [
+                "JSON-LD skill items must match visible skill cards in order, "
+                "name, position, and URL"
+            ],
+        )
+
+
+class VisibleSkillInventoryTests(unittest.TestCase):
+    def test_reads_card_order_and_display_name(self) -> None:
+        html = (
+            '<article class="skill-card" data-skill="one"><h3>One &amp; Only</h3></article>'
+            '<article data-skill="two"><h3>Two</h3></article>'
+        )
+
+        self.assertEqual(
+            VALIDATOR.visible_skill_inventory(html),
+            [("one", "One & Only"), ("two", "Two")],
+        )
 
 
 class ProofRowValuesTests(unittest.TestCase):
