@@ -17,6 +17,7 @@ from urllib.parse import urlparse
 ROOT = Path(__file__).resolve().parents[1]
 SITE = ROOT / "site"
 INDEX = SITE / "index.html"
+COMPARISONS = SITE / "comparisons.html"
 EXPECTED_DOMAIN = "skills.sebastian-software.com"
 EXPECTED_OG_IMAGE_URL = f"https://{EXPECTED_DOMAIN}/assets/og-card.png"
 SKILL_URL_PREFIX = (
@@ -36,6 +37,15 @@ EXPECTED_DALO_COMMANDS = (
     "dalo source select sebastian effective-web",
     "dalo approve skill sebastian:effective-web",
     "dalo sync",
+)
+EXPECTED_COMPARISON_URLS = (
+    "https://github.com/obra/superpowers",
+    "https://github.com/mattpocock/skills",
+    "https://github.com/anthropics/skills",
+    "https://github.com/coreyhaines31/marketingskills",
+    "https://github.com/vercel-labs/agent-browser",
+    "https://github.com/DietrichGebert/ponytail",
+    "https://github.com/juliusbrussee/caveman",
 )
 
 
@@ -346,6 +356,7 @@ def main() -> int:
     failures: list[str] = []
     required_files = (
         INDEX,
+        COMPARISONS,
         SITE / "styles.css",
         SITE / "script.js",
         SITE / "assets" / "favicon.svg",
@@ -368,10 +379,13 @@ def main() -> int:
         return 1
 
     html = INDEX.read_text(encoding="utf-8")
+    comparisons_html = COMPARISONS.read_text(encoding="utf-8")
     css = (SITE / "styles.css").read_text(encoding="utf-8")
     script = (SITE / "script.js").read_text(encoding="utf-8")
     parser = SiteParser()
     parser.feed(html)
+    comparisons_parser = SiteParser()
+    comparisons_parser.feed(comparisons_html)
 
     skill_files = sorted((ROOT / "skills").glob("*/SKILL.md"))
     expected_skills = sorted(path.parent.name for path in skill_files)
@@ -402,6 +416,88 @@ def main() -> int:
         failures,
     )
     require(len(parser.ids) == len(set(parser.ids)), "site contains duplicate IDs", failures)
+    require(
+        comparisons_parser.lang == "en",
+        "comparison page language must be English",
+        failures,
+    )
+    require(
+        comparisons_parser.h1_count == 1,
+        "comparison page must contain exactly one h1",
+        failures,
+    )
+    require(
+        comparisons_parser.main_count == 1,
+        "comparison page must contain exactly one main element",
+        failures,
+    )
+    require(
+        comparisons_parser.has_viewport,
+        "comparison page must define a viewport meta tag",
+        failures,
+    )
+    require(
+        comparisons_parser.has_description,
+        "comparison page must define a meta description",
+        failures,
+    )
+    require(
+        comparisons_parser.canonical
+        == f"https://{EXPECTED_DOMAIN}/comparisons.html",
+        "comparison canonical URL must match the Pages custom domain",
+        failures,
+    )
+    require(
+        len(comparisons_parser.ids) == len(set(comparisons_parser.ids)),
+        "comparison page contains duplicate IDs",
+        failures,
+    )
+    require(
+        comparisons_parser.meta_properties.get("og:url")
+        == comparisons_parser.canonical,
+        "comparison Open Graph URL must match its canonical URL",
+        failures,
+    )
+    require(
+        comparisons_parser.meta_properties.get("og:image")
+        == EXPECTED_OG_IMAGE_URL
+        and comparisons_parser.meta_names.get("twitter:image")
+        == EXPECTED_OG_IMAGE_URL,
+        "comparison social metadata must use the canonical image",
+        failures,
+    )
+    require(
+        len(re.findall(r'<article\s+class="comparison-card\b', comparisons_html))
+        == len(EXPECTED_COMPARISON_URLS),
+        "comparison page must contain one card per reviewed source",
+        failures,
+    )
+    comparison_json_ld = extract_json_ld(comparisons_html)
+    comparison_main_entity = (
+        comparison_json_ld.get("mainEntity", {})
+        if isinstance(comparison_json_ld, dict)
+        else {}
+    )
+    comparison_items = (
+        comparison_main_entity.get("itemListElement", [])
+        if isinstance(comparison_main_entity, dict)
+        else []
+    )
+    require(
+        isinstance(comparison_main_entity, dict)
+        and comparison_main_entity.get("numberOfItems")
+        == len(EXPECTED_COMPARISON_URLS)
+        and isinstance(comparison_items, list)
+        and len(comparison_items) == len(EXPECTED_COMPARISON_URLS),
+        "comparison JSON-LD inventory must match the visible source cards",
+        failures,
+    )
+    for source_url in EXPECTED_COMPARISON_URLS:
+        require(
+            source_url in comparisons_parser.links,
+            f"comparison source link is missing: {source_url}",
+            failures,
+        )
     require("no-js" not in html, "site must not ship an unused no-js hook", failures)
     require("⌘" not in html, "copy buttons must not imply a keyboard shortcut", failures)
     require(
@@ -563,6 +659,33 @@ def main() -> int:
         path = local_path(asset)
         require(path is not None and path.is_file(), f"local asset does not exist: {asset}", failures)
 
+    for link in comparisons_parser.links:
+        if link.startswith("#"):
+            require(
+                link[1:] in comparisons_parser.ids,
+                f"comparison fragment target does not exist: {link}",
+                failures,
+            )
+        elif path := local_path(link):
+            require(
+                path.is_file(),
+                f"comparison local link target does not exist: {link}",
+                failures,
+            )
+
+    for asset in comparisons_parser.assets:
+        path = local_path(asset)
+        require(
+            path is not None and path.is_file(),
+            f"comparison local asset does not exist: {asset}",
+            failures,
+        )
+
+    require(
+        'href="comparisons.html"' in html,
+        "home page must link to the comparison page",
+        failures,
+    )
     require(EXPECTED_SKILLS_COMMAND in html, "selective skills CLI command is missing", failures)
     for command in EXPECTED_DALO_COMMANDS:
         require(command in html, f"DALO command is missing: {command}", failures)
@@ -607,6 +730,11 @@ def main() -> int:
         "sitemap must reference the canonical URL",
         failures,
     )
+    require(
+        f"<loc>https://{EXPECTED_DOMAIN}/comparisons.html</loc>" in sitemap,
+        "sitemap must reference the comparison page",
+        failures,
+    )
     try:
         expected_lastmod = expected_site_lastmod()
     except RuntimeError as error:
@@ -621,7 +749,8 @@ def main() -> int:
 
     print(
         f"Validated dependency-free site: {len(expected_skills)} skills, "
-        f"{len(parser.ids)} unique IDs, {len(parser.links)} links."
+        f"{len(parser.ids) + len(comparisons_parser.ids)} unique IDs across 2 pages, "
+        f"{len(parser.links) + len(comparisons_parser.links)} links."
     )
     return 0
 
