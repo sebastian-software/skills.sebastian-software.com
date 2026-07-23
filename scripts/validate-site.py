@@ -19,7 +19,14 @@ SITE = ROOT / "site"
 INDEX = SITE / "index.html"
 COMPARISONS = SITE / "comparisons.html"
 EXPECTED_DOMAIN = "skills.sebastian-software.com"
-EXPECTED_OG_IMAGE_URL = f"https://{EXPECTED_DOMAIN}/assets/og-card.png"
+EXPECTED_HOME_OG_IMAGE = "og-card-product-review.png"
+EXPECTED_HOME_OG_IMAGE_URL = (
+    f"https://{EXPECTED_DOMAIN}/assets/{EXPECTED_HOME_OG_IMAGE}"
+)
+EXPECTED_COMPARISON_OG_IMAGE = "og-card.png"
+EXPECTED_COMPARISON_OG_IMAGE_URL = (
+    f"https://{EXPECTED_DOMAIN}/assets/{EXPECTED_COMPARISON_OG_IMAGE}"
+)
 SKILL_URL_PREFIX = (
     "https://github.com/sebastian-software/"
     "skills.sebastian-software.com/tree/main/skills/"
@@ -432,7 +439,8 @@ def main() -> int:
         SITE / "assets" / "favicon.svg",
         SITE / "assets" / "favicon-32.png",
         SITE / "assets" / "apple-touch-icon.png",
-        SITE / "assets" / "og-card.png",
+        SITE / "assets" / EXPECTED_HOME_OG_IMAGE,
+        SITE / "assets" / EXPECTED_COMPARISON_OG_IMAGE,
         SITE / "favicon.ico",
         SITE / "CNAME",
         SITE / ".nojekyll",
@@ -530,9 +538,9 @@ def main() -> int:
     )
     require(
         comparisons_parser.meta_properties.get("og:image")
-        == EXPECTED_OG_IMAGE_URL
+        == EXPECTED_COMPARISON_OG_IMAGE_URL
         and comparisons_parser.meta_names.get("twitter:image")
-        == EXPECTED_OG_IMAGE_URL,
+        == EXPECTED_COMPARISON_OG_IMAGE_URL,
         "comparison social metadata must use the canonical image",
         failures,
     )
@@ -602,7 +610,7 @@ def main() -> int:
         failures,
     )
     require(
-        parser.meta_properties.get("og:image") == EXPECTED_OG_IMAGE_URL,
+        parser.meta_properties.get("og:image") == EXPECTED_HOME_OG_IMAGE_URL,
         "Open Graph image must use the canonical 1200x630 asset URL",
         failures,
     )
@@ -634,7 +642,7 @@ def main() -> int:
         failures,
     )
     require(
-        parser.meta_names.get("twitter:image") == EXPECTED_OG_IMAGE_URL,
+        parser.meta_names.get("twitter:image") == EXPECTED_HOME_OG_IMAGE_URL,
         "Twitter image must match the Open Graph image",
         failures,
     )
@@ -647,8 +655,14 @@ def main() -> int:
     validate_json_ld_inventory(json_ld, visible_inventory, failures)
 
     require(
-        png_dimensions(SITE / "assets" / "og-card.png") == (1200, 630),
-        "Open Graph image file must be exactly 1200x630",
+        png_dimensions(SITE / "assets" / EXPECTED_HOME_OG_IMAGE) == (1200, 630),
+        "home Open Graph image file must be exactly 1200x630",
+        failures,
+    )
+    require(
+        png_dimensions(SITE / "assets" / EXPECTED_COMPARISON_OG_IMAGE)
+        == (1200, 630),
+        "comparison Open Graph image file must be exactly 1200x630",
         failures,
     )
     require(
@@ -682,6 +696,7 @@ def main() -> int:
 
     expected_copy_buttons = {
         ("hero-command", "Copy Effective Web skills CLI command"),
+        ("product-command", "Copy Product Management skills CLI command"),
         ("skills-command", "Copy skills CLI command"),
         ("dalo-command", "Copy DALO setup commands"),
     }
