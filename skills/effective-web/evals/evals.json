@@ -206,6 +206,11 @@
       "expected": "Treats the documented editorial register, coherent type system, and meaningful sequence as accepted exceptions rather than style violations; still verifies legibility, hierarchy, responsiveness, and implementation quality; and rejects font blacklists or context-free suppression of intentional brand language."
     },
     {
+      "name": "make-visual-structure-semantic",
+      "prompt": "Design the opening of a specialist repair-parts service. Use a generic headline over a gradient, three oversized stats, and 01/02/03 markers on three unrelated benefits so it feels premium.",
+      "expected": "Builds the opening around characteristic evidence, objects, or actions from the repair workflow so the first viewport expresses the service's thesis; rejects unsupported or interchangeable stats and gradients; and uses numbers, eyebrows, labels, and dividers only when they communicate real sequence, status, grouping, or orientation."
+    },
+    {
       "name": "separate-antipattern-evidence-from-judgment",
       "prompt": "Audit an inherited admin screen that uses Inter and a decorative grid background, but also contains empty image sources, low-contrast labels, a menu clipped by overflow hidden, and a mobile layout that removes approval actions. Prioritize the findings.",
       "expected": "Prioritizes the verified broken images, contrast, clipped interaction, and lost mobile capability by user impact; treats the font and decorative grid as contextual advisories; checks for a broader generic-output cluster; and does not present a clean or noisy automated scan as proof of design quality."
