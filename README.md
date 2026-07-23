@@ -7,7 +7,7 @@
 **Give your AI agent the practical judgment to take product and software work
 from an ambiguous brief to a review-ready result.**
 
-20 practice-built skills and 206 focused references for product decisions, web
+21 practice-built skills and 211 focused references for product decisions, web
 experiences, codebase improvement, delivery, go-to-market positioning,
 professional communication, and web compliance; go-to-market deliverables such
 as marketing copy route to the separately managed external `marketingskills`
@@ -27,7 +27,7 @@ Install one skill to try the collection:
 npx skills add sebastian-software/skills.sebastian-software.com --skill effective-web
 ```
 
-Or install all 20 skills:
+Or install all 21 skills:
 
 ```sh
 npx skills add sebastian-software/skills.sebastian-software.com --all
@@ -150,6 +150,7 @@ the external tools and credentials required to act on third-party systems.
 | [`decision-records`](skills/decision-records/) | Repository-native ADR creation, supersession, review, and drift control for durable cross-functional decisions. |
 | [`port-codebases`](skills/port-codebases/) | Resource-aware, behavior-preserving ports across languages, runtimes, frameworks, platforms, and major APIs. |
 | [`pr-review`](skills/pr-review/) | Human, impact-led PR review, maintenance, feedback resolution, and CI recovery. |
+| [`rust-engineering`](skills/rust-engineering/) | Strict, readable Rust implementation and review across ownership, errors, concurrency, unsafe code, and FFI. |
 | [`smart-dependency-updater`](skills/smart-dependency-updater/) | Evidence-backed dependency selection, introduction, update portfolios, local adaptation, validation, and PR delivery. |
 | [`software-architecture`](skills/software-architecture/) | Evidence-led system boundaries, operability, architecture tradeoffs, and evolutionary migration paths. |
 | [`software-testing`](skills/software-testing/) | Focused non-frontend test and repository-native benchmark design, implementation, and verification. |
@@ -245,7 +246,7 @@ dalo doctor
 ```
 
 Unlike `source add-catalog`, `source add` treats this repository as a trusted
-team source, so all 20 first-party skills are active together. External
+team source, so all 21 first-party skills are active together. External
 repositories are configured separately as DALO catalogs; they are never copied
 or renamed here. See [docs/dalo.md](docs/dalo.md) for the complete setup and the
 curated external selection.

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Rust Engineering"
+  short_description: "Write and review strict, readable Rust"
+  default_prompt: "Use $rust-engineering to implement or review this Rust change with explicit ownership, error, concurrency, and unsafe contracts."
