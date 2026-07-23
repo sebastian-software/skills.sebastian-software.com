@@ -20,7 +20,9 @@ Use this skill for typography in digital interfaces. It covers type choice, hier
 
 ## References
 
-- [typography.md](typography.md) - core UI typography rules.
+- [typography-system.md](typography-system.md) - roles, scale, readable text,
+  fallback behavior, and loading; read [typography-detail.md](typography-detail.md)
+  only for measure, numeric, display, or overlay concerns.
 - [webfonts.md](webfonts.md) - webfont loading, fallbacks, and performance.
 - [typography-rules.md](typography-rules.md) - practical typography implementation rules.
 - [line-height-and-measure.md](line-height-and-measure.md) - couple leading to
