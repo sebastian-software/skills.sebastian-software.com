@@ -92,6 +92,30 @@ accessibility constraints, and questions worth asking. Record source,
 publication context, recency, method, and relevance. Treat it as supporting
 evidence rather than a substitute for observing the target situation.
 
+## Use proxy sources without hiding their bias
+
+Reviews, support tickets, community discussions, sales notes, analytics
+comments, and public complaints can expose language, failure contexts,
+workarounds, and questions worth investigating when direct sessions are
+limited. Keep each observation tagged with its source, date, product or plan
+context, available participant context, and known selection mechanism.
+
+Name how the channel shapes what appears:
+
+- reviews and public posts often overrepresent unusually strong positive or
+  negative experiences;
+- support records overrepresent problems people chose and were able to report;
+- technical communities often overrepresent expert, skeptical, early-adopter,
+  or power-user perspectives;
+- sales notes reflect a buying conversation, the recorder's interpretation, and
+  incentives that may differ from day-to-day use.
+
+Do not merge these channels into a fictional representative user, count repeated
+phrases as prevalence without a defensible denominator, or turn a vivid quote
+into a requirement. Use proxy evidence to refine hypotheses, vocabulary,
+recruiting, and direct-research questions. State which target perspectives the
+available channels cannot reveal.
+
 ## Synthesize without laundering assumptions
 
 Use this synthesis chain:

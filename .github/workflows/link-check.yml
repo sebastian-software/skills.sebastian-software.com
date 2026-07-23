@@ -26,6 +26,9 @@ jobs:
           args: >-
             --no-progress
             --include-fragments
+            --max-concurrency 32
+            --host-concurrency 2
+            --timeout 30
             './**/*.md'
             './site/**/*.html'
           fail: true

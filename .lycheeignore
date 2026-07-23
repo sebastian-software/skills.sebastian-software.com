@@ -6,6 +6,10 @@ https?://([a-z0-9-]+\.)?xing\.com.*
 # canonical URL and sitemap entry are checked by scripts/validate-site.py.
 https://skills\.sebastian-software\.com/comparisons\.html
 
+# New main-branch routes cannot resolve before their first merge. Repository
+# inventory and local links are checked by scripts/validate-readmes.py.
+https://github\.com/sebastian-software/skills\.sebastian-software\.com/tree/main/skills/rust-engineering
+
 # These live primary sources reject, reset, or time out on GitHub Actions'
 # link-check traffic.
 https://www\.mckinsey\.com/careers/interviewing
@@ -17,3 +21,5 @@ https://www\.isof\.se/utforska/publikationer/publikationer/2024-01-22-snabba-skr
 https://www\.gesetze-im-internet\.de/ddg/
 https://www\.gesetze-im-internet\.de/tdddg/
 https://www\.cai\.gouv\.qc\.ca/
+https://europass\.europa\.eu/en/create-europass-cv
+https://portal\.education\.lu/zls

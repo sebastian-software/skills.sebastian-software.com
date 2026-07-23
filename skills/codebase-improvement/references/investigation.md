@@ -36,6 +36,25 @@ Resolve these before chasing a cause:
 If expected behavior is not established, keep “expectation mismatch” or
 “product decision required” live instead of assuming a defect.
 
+## Build a Discriminating Feedback Loop
+
+Before settling on a cause, establish the narrowest signal that distinguishes
+the reported behavior from a known-good path. Prefer an already executed,
+repository-native reproduction, focused test, request, fixture, trace, or
+instrumented boundary that:
+
+- reaches the observed symptom rather than a nearby proxy;
+- can show both failure and success under understood inputs;
+- is deterministic enough to compare hypotheses;
+- runs narrowly enough to repeat while investigating; and
+- does not require production mutation, real secrets, or broadened access.
+
+When no trustworthy loop is currently possible, name the exact missing
+artifact, access, fixture, or bounded instrumentation that would create one.
+Do not substitute code reading or an unexecuted command while describing the
+symptom as reproduced. A complete logical trace may still support a conclusion
+when its assumptions and unobserved boundaries are explicit.
+
 ## Separate Evidence from Explanation
 
 Label important statements by epistemic role:

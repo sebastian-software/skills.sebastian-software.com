@@ -34,6 +34,11 @@
       "name": "route-existing-load-command-to-validation",
       "prompt": "The repository already documents `pnpm load:staging` with an approved workload, target environment, credentials procedure, and cleanup runbook. Run it once and report whether it passed; do not redesign the experiment.",
       "expected": "Routes execution of the established repository-native command to software-validation, which preserves its documented scope, prerequisites, working state, artifacts, and explicit result status. It does not treat the existing harness as unowned or reopen workload and capacity decisions without contrary evidence."
+    },
+    {
+      "name": "remove-shallow-module-without-erasing-policy",
+      "prompt": "An order service has an IOrderRepository interface, one Postgres implementation, and twenty methods that mirror the ORM one for one. Tests mock internals behind the interface. The team wants either to keep it because interfaces are clean architecture or delete every repository boundary as boilerplate.",
+      "expected": "Evaluates which ownership, transaction, authorization, compatibility, or query policy the boundary actually removes from callers; applies the deletion test; seeks a smaller caller-and-test-facing contract; rejects hypothetical variation as the sole justification; and preserves a concrete policy seam rather than choosing interface ceremony or indiscriminate deletion."
     }
   ]
 }

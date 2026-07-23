@@ -115,6 +115,27 @@ Keep `SKILL.md` lean. For a routed skill, link every route directly from
 policy text, and API details into references so agents load only the context
 needed for the current task.
 
+### Runtime Context Budgets
+
+References are runtime context, not an archive. A task-level reference should
+normally stay at or below 500 lines; prefer a 150–350 line module when a task
+needs only one decision area. A route must name the smallest matching reference
+set and make a choice explicit when it offers alternatives. Do not present every
+link in a route as required reading.
+
+Routes should normally expose no more than 900 direct-reference lines. That is
+a review threshold rather than permission to load every linked file: agents
+still select the one or two references that match the task. The README validator
+prints route-level totals in CI so a growing default context is visible in a PR.
+
+An unusually large deep reference is allowed only when it is a genuine
+edge-case appendix and its normal route points to smaller task modules first.
+Register it with a concrete reason and existing default modules in
+`docs/reference-context-exceptions.json`. The validator rejects an unregistered
+reference above 500 lines. Review every exception when the route or its modules
+change; splitting a chapter must reduce the default load, not create copies of
+the same baseline advice.
+
 ## Distill, Don't Archive
 
 This repository ships skills, not an intake log. When a source is useful, absorb
@@ -198,6 +219,12 @@ Keep `name` stable and descriptive. Treat `prompt` as the user input and
 - Prefer a few discriminating cases over broad happy-path coverage that a
   baseline model would already pass.
 
+For procedural guidance, give each consequential step an observable completion
+condition so an agent can tell whether to continue, stop, or escalate. Review
+new wording sentence by sentence: remove a rule when it does not change a
+decision, action, or verification outcome. Replace stale or duplicated guidance
+at its owner instead of adding another exception to an already layered rule set.
+
 ## First-Party Boundary
 
 Everything below `skills/` is maintained here as Sebastian Software source.
@@ -243,5 +270,6 @@ Before merging a change:
    `python3 -m unittest discover -s scripts/tests -p 'test_*.py'`.
 6. Run the repository's DALO CI smoke test.
 7. Check that `dalo status` reports no inventory warnings or duplicate slots.
-8. For routed skills, confirm every reference is linked directly from `SKILL.md`
-   and that old public skill names no longer appear in internal links.
+8. For routed skills, confirm every reference is reachable from its matching
+   route, the default load is explicit and narrow, and old public skill names no
+   longer appear in internal links.

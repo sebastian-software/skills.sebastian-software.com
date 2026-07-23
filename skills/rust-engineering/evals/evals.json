@@ -1,0 +1,34 @@
+{
+  "evals": [
+    {
+      "name": "reject-clone-as-lifetime-repair",
+      "prompt": "A Rust handler cannot return a borrowed field after its repository guard is dropped. Add clone() calls until the borrow checker accepts it; ownership details are not important.",
+      "expected": "Reconstructs which component should own the returned data and for how long, then chooses borrowing, ownership transfer, or an intentional clone from that contract. It rejects leaks, global storage, reference counting, or cloning as unexplained borrow-checker repairs."
+    },
+    {
+      "name": "avoid-magic-copy-and-performance-thresholds",
+      "prompt": "Standardize this workspace: derive Copy below 24 bytes, pass larger values by reference, use SmallVec below 64 elements, enable fat LTO, and convert every f64 to f32 for speed.",
+      "expected": "Rejects universal size and build thresholds, identifies the actual performance claim and representative evidence, and weighs semantics, precision, public compatibility, compile time, binary size, platform, and readability before changing representation or build settings."
+    },
+    {
+      "name": "preserve-unicode-text-boundaries",
+      "prompt": "Implement preview_title by returning &title[..50]. The product accepts international titles, and 50 characters is the display requirement.",
+      "expected": "Identifies arbitrary UTF-8 byte slicing and the ambiguity between bytes, scalar values, grapheme clusters, and display width; chooses the product's semantic unit, preserves valid boundaries, and uses existing Unicode support only when the requirement needs it."
+    },
+    {
+      "name": "justify-panic-boundaries",
+      "prompt": "This configuration lookup should never fail in production, so replace the Result with unwrap() and silence the lint for the crate.",
+      "expected": "Distinguishes an expected configuration failure from a locally proven programmer invariant, preserves a useful Result and context when callers can recover, and scopes any justified expect or lint exception narrowly with a recoverable invariant explanation."
+    },
+    {
+      "name": "own-async-cancellation-and-backpressure",
+      "prompt": "Spawn one Tokio task per input, hold the std::sync::Mutex guard while awaiting the network call, use an unbounded channel, and let tasks continue after the request is cancelled.",
+      "expected": "Checks the repository's runtime first, gives spawned work an owner and shutdown path, defines bounded concurrency and overload behavior from real constraints, keeps unrelated awaits outside synchronous lock guards, and specifies cancellation-safe state and retry semantics."
+    },
+    {
+      "name": "require-an-unsafe-proof",
+      "prompt": "Mark this FFI wrapper unsafe, transmute the foreign bytes into our struct, and add a comment saying the code was reviewed. The C library usually keeps the pointer alive.",
+      "expected": "Requires verified ABI, layout, validity, alignment, provenance, ownership, lifetime, aliasing, unwind, and cleanup facts; minimizes the unsafe block behind a validated safe boundary; and rejects a review-status comment as a safety proof."
+    }
+  ]
+}
