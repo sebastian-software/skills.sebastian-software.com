@@ -8,6 +8,7 @@ import re
 import struct
 import subprocess
 from datetime import date
+from html import unescape
 from html.parser import HTMLParser
 from pathlib import Path
 from urllib.parse import urlparse
@@ -137,6 +138,24 @@ def extract_json_ld(html: str) -> dict[str, object] | None:
         return json.loads(match.group(1))
     except json.JSONDecodeError:
         return None
+
+
+def visible_skill_inventory(html: str) -> list[tuple[str, str]]:
+    """Return skill IDs and display names in the order visitors see them."""
+    cards = re.finditer(
+        r"<article\b[^>]*\bdata-skill=(?P<quote>['\"])(?P<skill>[^'\"]+)"
+        r"(?P=quote)[^>]*>"
+        r'.*?<h3>(?P<name>.*?)</h3>',
+        html,
+        re.DOTALL | re.IGNORECASE,
+    )
+    return [
+        (
+            match.group("skill"),
+            " ".join(unescape(re.sub(r"<[^>]+>", "", match.group("name"))).split()),
+        )
+        for match in cards
+    ]
 
 
 def proof_row_values(html: str) -> list[int]:
@@ -280,14 +299,14 @@ def validate_sitemap_lastmod(
 
 def validate_json_ld_inventory(
     json_ld: dict[str, object] | None,
-    expected_skills: list[str],
+    visible_inventory: list[tuple[str, str]],
     failures: list[str],
 ) -> None:
     require(json_ld is not None, "site must include JSON-LD metadata", failures)
     if json_ld is None:
         return
 
-    expected_count = len(expected_skills)
+    expected_count = len(visible_inventory)
     item_list = json_ld.get("mainEntity", {})
     items = item_list.get("itemListElement", []) if isinstance(item_list, dict) else []
     require(
@@ -300,14 +319,25 @@ def validate_json_ld_inventory(
         "JSON-LD items must match the repository inventory",
         failures,
     )
-    urls = [
-        item.get("url")
+    expected_items = [
+        {
+            "@type": "ListItem",
+            "position": position,
+            "name": name,
+            "url": f"{SKILL_URL_PREFIX}{skill}",
+        }
+        for position, (skill, name) in enumerate(visible_inventory, start=1)
+    ]
+    actual_items = [
+        {
+            key: item.get(key) if isinstance(item, dict) else None
+            for key in ("@type", "position", "name", "url")
+        }
         for item in items
-        if isinstance(item, dict) and isinstance(item.get("url"), str)
     ]
     require(
-        sorted(urls) == sorted(f"{SKILL_URL_PREFIX}{skill}" for skill in expected_skills),
-        "JSON-LD skill items must link every repository skill exactly once",
+        actual_items == expected_items,
+        "JSON-LD skill items must match visible skill cards in order, name, position, and URL",
         failures,
     )
 
@@ -351,6 +381,7 @@ def main() -> int:
         if (skill_file.parent / "references").is_dir()
     )
     json_ld = extract_json_ld(html)
+    visible_inventory = visible_skill_inventory(html)
     proof_values = proof_row_values(html)
     journey_match = re.search(r'<ol\s+class="journey".*?</ol>', html, re.DOTALL)
     journey_html = journey_match.group() if journey_match else ""
@@ -376,6 +407,11 @@ def main() -> int:
     require(
         sorted(skill for skill, _ in parser.skill_cards) == expected_skills,
         "site skill cards must match every SKILL.md exactly",
+        failures,
+    )
+    require(
+        len(visible_inventory) == len(parser.skill_cards),
+        "every site skill card must expose a display-name heading",
         failures,
     )
 
@@ -460,7 +496,7 @@ def main() -> int:
         "Twitter and Open Graph image alternative text must match",
         failures,
     )
-    validate_json_ld_inventory(json_ld, expected_skills, failures)
+    validate_json_ld_inventory(json_ld, visible_inventory, failures)
 
     require(
         png_dimensions(SITE / "assets" / "og-card.png") == (1200, 630),
