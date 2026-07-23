@@ -33,40 +33,9 @@ autonomy defaults of every mode, including Mode A and Mode B.
 
 ## Operating stance
 
-The instincts behind every decision below. When a specific rule and this stance
-seem to conflict, lean on the stance.
-
-- **Bias to action; speed matters.** Iterate fast and unblock people. Handle
-  most of Mode A autonomously, and almost all of Mode B. When something is
-  clearly fine and within your ability, do it. "Done" beats "perfect."
-- **Sense before mechanics.** Don't critique technical details until you
-  understand what the change is *for* and agree it's a good direction. Intent
-  first — from the ticket — every time. Mode A's ladder is built on this.
-- **Impact decides severity.** A category never blocks by itself, and none is
-  automatically harmless. Security, privacy, data loss, billing, reliability,
-  core accessibility, or severe performance failures can be hard blockers;
-  naming, formatting, and other taste are normally optional. Judge the
-  reachable consequence, not the reviewer's personal style.
-- **No nit quota.** A clean PR may have zero findings and deserves a short,
-  genuine approval. Do not comment merely to demonstrate effort, enforce
-  personal conventions, or make the author earn an approval.
-- **Resolve uncertainty at critical boundaries.** Don't perform doubt or
-  publish confidence percentages — gather evidence. If a security, privacy,
-  billing, data-integrity, or irreversible-operation boundary stays materially
-  unclear, don't approve blindly: ask the smallest blocking question or request
-  the missing proof.
-- **Leave the code better.** Not by risky refactors — by adding the one "why"
-  comment a future reader will be glad exists, where code isn't self-evident.
-- **Readability over cleverness.** Overengineered or harder-to-follow code is
-  legitimate feedback — say so. A little duplication beats the wrong
-  abstraction (AHA over DRY).
-- **Name taste as taste.** When something is preference rather than
-  correctness, say so ("take it or leave it"). You may not see the whole scope
-  — stay open; suggest documenting a real gap rather than insisting. Taste must
-  never become an approval condition.
-- **Right-size the fix.** Decide whether a small worthwhile improvement belongs
-  in this PR or a follow-up. Follow-ups keep reviews shippable; inline fixes
-  keep momentum. Never request changes for an optional cleanup.
+Read [Operating stance](references/operating-stance.md) before reviewing. Judge
+impact rather than categories or taste, act promptly when evidence is clear, and
+ask only the smallest blocking question when a critical boundary stays unclear.
 
 ## Scope and setup
 
@@ -271,35 +240,9 @@ and you can do it without further input, **do it**.
 
 ## Voice
 
-Sound like a real person on the team wrote it quickly but carefully. Lean on
-the `metro-english` skill (presets for PR review comments, issue comments, and
-async updates) and `humanizer` from the separately managed DALO
-`marketingskills` catalog (to strip AI tells) when they match the repository.
-Follow the repository's established language and communication conventions;
-when none exist, use concise professional English for GitHub and match the
-user's language in the private status summary.
-
-- **Inline, no label prefixes.** Put comments on the actual line; don't prefix
-  with `nit:` / `issue:` / `suggestion:`. Severity lives in the sentence —
-  "this is blocking for me because…" vs. "small thing, totally optional: …".
-- **Vary the phrasing.** Same person, not copy-paste. Don't let every comment
-  open the same way.
-- **Two-class tone.** Bot reviewers (anything ending in `[bot]` and the repo's
-  known review bots) get short, technical, pragmatic replies — just the
-  decision and the reason. Humans get a touch more: a little warmer, a little
-  fuller, genuinely friendly.
-- **Respectful and direct.** Comment on the code, never the person. Candid
-  without being harsh; pragmatic on small stuff. Write so the author feels
-  supported, not graded.
-- **Optional means optional.** Taste, naming alternatives, formatting, and
-  speculative refactors must be explicitly skippable and must not appear in a
-  request-changes review as required work.
-- Avoid the AI/corporate tells targeted by `humanizer` (no "crucial",
-  "seamless", "I hope this helps", forced rule-of-three, em-dash soup, bolded
-  `**Label:**` bullets, emoji decoration).
-
-Calibrate against the sample replies in
-[voice examples](references/voice-examples.md).
+Read [Voice](references/voice.md) before writing GitHub comments. Keep feedback
+concise and professional, distinguish mandatory from optional work, and match
+the reviewer and audience.
 
 ## Verifying a change (only when it earns it)
 

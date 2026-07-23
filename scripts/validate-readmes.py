@@ -22,7 +22,7 @@ MARKDOWN_FENCE = re.compile(r"^\s{0,3}(`{3,}|~{3,})(.*)$")
 INLINE_CODE = re.compile(r"``[^`]*``|`[^`\n]*`")
 FRONTMATTER_KEY = re.compile(r"^([A-Za-z_][\w.-]*):\s*(.*)$")
 MAX_DESCRIPTION_LENGTH = 1024
-SKILL_LINE_TARGET = 300
+SKILL_LINE_LIMIT = 300
 WORKTREE_SAFETY_SKILLS = ("pr-review", "smart-dependency-updater", "port-codebases")
 
 
@@ -172,17 +172,24 @@ def validate_frontmatter(skill_directory: Path, errors: list[str]) -> None:
         )
 
 
-def skill_length_warning(skill_directory: Path) -> str | None:
-    """Return a soft warning when SKILL.md exceeds the size target."""
+def validate_skill_body_conventions(skill_directory: Path, errors: list[str]) -> None:
+    """Require the documented routing heading and size limit for every skill."""
     skill_file = skill_directory / "SKILL.md"
-    line_count = len(skill_file.read_text(encoding="utf-8").splitlines())
-    if line_count <= SKILL_LINE_TARGET:
-        return None
+    skill_text = skill_file.read_text(encoding="utf-8")
     relative = skill_directory.relative_to(REPOSITORY_ROOT)
-    return (
-        f"{relative}/SKILL.md: {line_count} lines exceeds the "
-        f"{SKILL_LINE_TARGET}-line target; consider moving detail into references/"
-    )
+    if re.search(
+        r"^## Routing Boundaries\s*$", without_fenced_code(skill_text), re.MULTILINE
+    ) is None:
+        errors.append(
+            f"{relative}/SKILL.md: missing exact '## Routing Boundaries' section"
+        )
+
+    line_count = len(skill_text.splitlines())
+    if line_count > SKILL_LINE_LIMIT:
+        errors.append(
+            f"{relative}/SKILL.md: {line_count} lines exceeds the "
+            f"{SKILL_LINE_LIMIT}-line limit; move detail into references/"
+        )
 
 
 def validate_reference_orphans(skill_directory: Path, errors: list[str]) -> None:
@@ -328,7 +335,6 @@ def validate_required_readme_fragments(
 
 def main() -> int:
     errors: list[str] = []
-    warnings: list[str] = []
     root_readme = REPOSITORY_ROOT / "README.md"
     root_text = root_readme.read_text(encoding="utf-8")
     skill_directories = sorted(path.parent for path in SKILLS_ROOT.glob("*/SKILL.md"))
@@ -349,10 +355,9 @@ def main() -> int:
         validate_evals(skill_directory, errors)
         validate_skill_metadata(skill_directory, errors)
         validate_frontmatter(skill_directory, errors)
+        validate_skill_body_conventions(skill_directory, errors)
         validate_reference_orphans(skill_directory, errors)
         validate_required_readme_fragments(name, text, errors)
-        if warning := skill_length_warning(skill_directory):
-            warnings.append(warning)
 
         if f"skills/{name}/" not in root_text:
             errors.append(f"README.md: skill {name} is not linked")
@@ -368,9 +373,6 @@ def main() -> int:
 
     for markdown in markdown_files:
         validate_local_links(markdown, errors)
-
-    for warning in warnings:
-        print(f"WARNING: {warning}", file=sys.stderr)
 
     if errors:
         print("README validation failed:", file=sys.stderr)

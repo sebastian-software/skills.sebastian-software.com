@@ -438,7 +438,7 @@ class WorktreeSafetySyncTests(unittest.TestCase):
         self.assertEqual(errors, [])
 
 
-class SkillLengthWarningTests(unittest.TestCase):
+class SkillBodyConventionTests(unittest.TestCase):
     def setUp(self) -> None:
         self.temporary_directory = tempfile.TemporaryDirectory()
         self.root = Path(self.temporary_directory.name)
@@ -451,22 +451,46 @@ class SkillLengthWarningTests(unittest.TestCase):
         VALIDATOR.REPOSITORY_ROOT = self.original_root
         self.temporary_directory.cleanup()
 
-    def test_no_warning_at_or_below_the_target(self) -> None:
+    def test_accepts_canonical_boundary_and_line_limit(self) -> None:
         (self.skill / "SKILL.md").write_text(
-            "\n".join(["line"] * VALIDATOR.SKILL_LINE_TARGET), encoding="utf-8"
+            "## Routing Boundaries\n"
+            + "\n".join(["line"] * (VALIDATOR.SKILL_LINE_LIMIT - 1)),
+            encoding="utf-8",
+        )
+        errors: list[str] = []
+
+        VALIDATOR.validate_skill_body_conventions(self.skill, errors)
+
+        self.assertEqual(errors, [])
+
+    def test_requires_the_exact_boundary_heading(self) -> None:
+        (self.skill / "SKILL.md").write_text("## Boundaries\n", encoding="utf-8")
+        errors: list[str] = []
+
+        VALIDATOR.validate_skill_body_conventions(self.skill, errors)
+
+        self.assertEqual(
+            errors,
+            ["skills/example/SKILL.md: missing exact '## Routing Boundaries' section"],
         )
 
-        self.assertIsNone(VALIDATOR.skill_length_warning(self.skill))
-
-    def test_warns_above_the_target(self) -> None:
+    def test_rejects_a_skill_above_the_line_limit(self) -> None:
         (self.skill / "SKILL.md").write_text(
-            "\n".join(["line"] * (VALIDATOR.SKILL_LINE_TARGET + 1)), encoding="utf-8"
+            "## Routing Boundaries\n"
+            + "\n".join(["line"] * VALIDATOR.SKILL_LINE_LIMIT),
+            encoding="utf-8",
         )
+        errors: list[str] = []
 
-        warning = VALIDATOR.skill_length_warning(self.skill)
+        VALIDATOR.validate_skill_body_conventions(self.skill, errors)
 
-        self.assertIsNotNone(warning)
-        self.assertIn("301 lines exceeds the 300-line target", warning)
+        self.assertEqual(
+            errors,
+            [
+                "skills/example/SKILL.md: 301 lines exceeds the 300-line limit; "
+                "move detail into references/"
+            ],
+        )
 
 
 if __name__ == "__main__":
