@@ -38,15 +38,19 @@ EXPECTED_DALO_COMMANDS = (
     "dalo approve skill sebastian:effective-web",
     "dalo sync",
 )
-EXPECTED_COMPARISON_URLS = (
-    "https://github.com/obra/superpowers",
-    "https://github.com/mattpocock/skills",
-    "https://github.com/anthropics/skills",
-    "https://github.com/coreyhaines31/marketingskills",
-    "https://github.com/vercel-labs/agent-browser",
-    "https://github.com/DietrichGebert/ponytail",
-    "https://github.com/juliusbrussee/caveman",
+EXPECTED_COMPARISON_SOURCES = (
+    ("obra/superpowers", "https://github.com/obra/superpowers"),
+    ("mattpocock/skills", "https://github.com/mattpocock/skills"),
+    ("anthropics/skills", "https://github.com/anthropics/skills"),
+    (
+        "coreyhaines31/marketingskills",
+        "https://github.com/coreyhaines31/marketingskills",
+    ),
+    ("vercel-labs/agent-browser", "https://github.com/vercel-labs/agent-browser"),
+    ("DietrichGebert/ponytail", "https://github.com/DietrichGebert/ponytail"),
+    ("juliusbrussee/caveman", "https://github.com/juliusbrussee/caveman"),
 )
+EXPECTED_COMPARISON_URLS = tuple(url for _, url in EXPECTED_COMPARISON_SOURCES)
 
 
 class SiteParser(HTMLParser):
@@ -166,6 +170,32 @@ def visible_skill_inventory(html: str) -> list[tuple[str, str]]:
         )
         for match in cards
     ]
+
+
+def visible_comparison_inventory(html: str) -> list[tuple[str, str]]:
+    """Return comparison names and source URLs in visible card order."""
+    inventory: list[tuple[str, str]] = []
+    cards = re.finditer(
+        r'<article\b[^>]*class=["\'][^"\']*\bcomparison-card\b[^"\']*["\'][^>]*>'
+        r"(?P<body>.*?)</article>",
+        html,
+        re.DOTALL | re.IGNORECASE,
+    )
+    for card in cards:
+        body = card.group("body")
+        name = re.search(r"<h3>(?P<name>.*?)</h3>", body, re.DOTALL | re.IGNORECASE)
+        source = re.search(
+            r'<a\b[^>]*href=["\'](?P<url>[^"\']+)["\'][^>]*>'
+            r"\s*Inspect source\b",
+            body,
+            re.DOTALL | re.IGNORECASE,
+        )
+        if name and source:
+            visible_name = " ".join(
+                unescape(re.sub(r"<[^>]+>", "", name.group("name"))).split()
+            )
+            inventory.append((visible_name, source.group("url")))
+    return inventory
 
 
 def proof_row_values(html: str) -> list[int]:
@@ -352,6 +382,46 @@ def validate_json_ld_inventory(
     )
 
 
+def validate_comparison_json_ld(
+    json_ld: dict[str, object] | None,
+    visible_inventory: list[tuple[str, str]],
+    failures: list[str],
+) -> None:
+    require(json_ld is not None, "comparison page must include JSON-LD metadata", failures)
+    if json_ld is None:
+        return
+
+    expected_count = len(visible_inventory)
+    item_list = json_ld.get("mainEntity", {})
+    items = item_list.get("itemListElement", []) if isinstance(item_list, dict) else []
+    require(
+        isinstance(item_list, dict) and item_list.get("numberOfItems") == expected_count,
+        "comparison JSON-LD count must match the visible source cards",
+        failures,
+    )
+    expected_items = [
+        {
+            "@type": "ListItem",
+            "position": position,
+            "name": name,
+            "url": url,
+        }
+        for position, (name, url) in enumerate(visible_inventory, start=1)
+    ]
+    actual_items = [
+        {
+            key: item.get(key) if isinstance(item, dict) else None
+            for key in ("@type", "position", "name", "url")
+        }
+        for item in items
+    ]
+    require(
+        actual_items == expected_items,
+        "comparison JSON-LD items must match visible cards in order, name, position, and URL",
+        failures,
+    )
+
+
 def main() -> int:
     failures: list[str] = []
     required_files = (
@@ -466,32 +536,14 @@ def main() -> int:
         "comparison social metadata must use the canonical image",
         failures,
     )
+    comparison_inventory = visible_comparison_inventory(comparisons_html)
     require(
-        len(re.findall(r'<article\s+class="comparison-card\b', comparisons_html))
-        == len(EXPECTED_COMPARISON_URLS),
-        "comparison page must contain one card per reviewed source",
+        comparison_inventory == list(EXPECTED_COMPARISON_SOURCES),
+        "comparison cards must match the reviewed sources in order, name, and URL",
         failures,
     )
     comparison_json_ld = extract_json_ld(comparisons_html)
-    comparison_main_entity = (
-        comparison_json_ld.get("mainEntity", {})
-        if isinstance(comparison_json_ld, dict)
-        else {}
-    )
-    comparison_items = (
-        comparison_main_entity.get("itemListElement", [])
-        if isinstance(comparison_main_entity, dict)
-        else []
-    )
-    require(
-        isinstance(comparison_main_entity, dict)
-        and comparison_main_entity.get("numberOfItems")
-        == len(EXPECTED_COMPARISON_URLS)
-        and isinstance(comparison_items, list)
-        and len(comparison_items) == len(EXPECTED_COMPARISON_URLS),
-        "comparison JSON-LD inventory must match the visible source cards",
-        failures,
-    )
+    validate_comparison_json_ld(comparison_json_ld, comparison_inventory, failures)
     for source_url in EXPECTED_COMPARISON_URLS:
         require(
             source_url in comparisons_parser.links,
