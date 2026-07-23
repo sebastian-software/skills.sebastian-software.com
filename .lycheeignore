@@ -2,6 +2,10 @@
 https?://([a-z0-9-]+\.)?linkedin\.com.*
 https?://([a-z0-9-]+\.)?xing\.com.*
 
+# New main-branch routes cannot resolve before their first merge. Repository
+# inventory and local links are checked by scripts/validate-readmes.py.
+https://github\.com/sebastian-software/skills\.sebastian-software\.com/tree/main/skills/rust-engineering
+
 # These live primary sources reject, reset, or time out on GitHub Actions'
 # link-check traffic.
 https://www\.mckinsey\.com/careers/interviewing

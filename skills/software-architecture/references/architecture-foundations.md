@@ -43,6 +43,26 @@ Avoid a database shared directly by multiple independently deployed services.
 If a temporary exception is necessary, state its owner, permitted access,
 replacement path, and removal gate.
 
+## Evaluate Module Depth
+
+Prefer a small interface that removes meaningful complexity from its callers.
+Before adding or preserving a layer, ask:
+
+- What behavior, invariant, failure handling, or coordination does the
+  interface make callers no longer need to understand?
+- If the module disappeared, would complexity vanish with it, or spread back
+  into several callers?
+- Can callers and tests exercise the contract through the same stable
+  interface, or must they reach through it to verify useful behavior?
+- Does the seam represent demonstrated variation or multiple justified
+  implementations, rather than a hypothetical adapter around one path?
+
+A pass-through wrapper, one-to-one method mirror, or single-implementation
+interface can still own compatibility, policy, observability, or a genuine
+boundary. Keep it only when that leverage is concrete and explainable. Do not
+measure depth by implementation-line count or hide a broad, surprising
+interface behind the word “module.”
+
 ## Compare Options
 
 Compare only realistic options, often including retaining or simplifying the

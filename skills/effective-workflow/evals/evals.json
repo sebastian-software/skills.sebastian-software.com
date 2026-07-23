@@ -39,6 +39,16 @@
       "name": "refactor-compares-an-already-red-baseline",
       "prompt": "Extract this parser into smaller modules without changing behavior. One unrelated integration suite is already failing on main.",
       "expected": "The agent records a focused before baseline and the pre-existing failure, makes only behavior-preserving structural changes, compares the same focused evidence afterward, and does not claim the full repository became green or attribute the old failure to the refactor."
+    },
+    {
+      "name": "follow-repository-commit-convention-before-fallback",
+      "prompt": "Commit the documentation fix. This repository's contributing guide and recent history use `DOCS(component): concise outcome` in German, while your default is lowercase Conventional Commits with an AI-generated trailer.",
+      "expected": "Inspects and follows the coherent repository convention and language, derives the subject from the staged documentation diff, omits unrequired AI attribution, and does not replace an established convention with its generic fallback."
+    },
+    {
+      "name": "split-independent-compound-commit",
+      "prompt": "Stage the parser bug fix and an unrelated CI image upgrade in one commit. There is no repository commit convention, so call it `chore: fix parser and update CI` and skip the body even though the parser changes a public error contract.",
+      "expected": "Uses Conventional Commits only as the repository-less fallback, separates the independently reversible parser and CI changes when ownership permits, chooses accurate fix and ci types instead of generic chore, and records the non-obvious public behavior or migration consequence in the appropriate commit body."
     }
   ]
 }

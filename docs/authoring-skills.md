@@ -188,12 +188,14 @@ Markdown under `docs/plans/`; create an index only when several plans require
 ordering. Route repository audits, plan creation, complexity review, and backlog
 reconciliation through `codebase-improvement`.
 
-## Behavioral Evals
+## Review Scenarios (Unrun)
 
-For consequential workflow or judgment changes, add an eval that tests the
-failure mode the new rule is meant to prevent.
+For consequential workflow or judgment changes, add a review scenario that
+tests the failure mode the new rule is meant to prevent. The historical
+`evals/evals.json` path is retained as a portable fixture format, but it is not
+an executed behavioral-evaluation harness.
 
-Store evals in `skills/<name>/evals/evals.json`. New files use a top-level
+Store review scenarios in `skills/<name>/evals/evals.json`. New files use a top-level
 `evals` array whose entries contain `name`, `prompt`, and `expected`:
 
 ```json
@@ -209,7 +211,15 @@ Store evals in `skills/<name>/evals/evals.json`. New files use a top-level
 ```
 
 Keep `name` stable and descriptive. Treat `prompt` as the user input and
-`expected` as behavioral acceptance criteria, not a golden response string.
+`expected` as manual review criteria, not a golden response string. CI validates
+only the fixture's JSON shape, non-empty fields, and unique names; it does not
+submit prompts to a model, score responses, or claim behavioral correctness.
+
+When a change needs behavior evidence, follow the documented [manual
+review-scenario workflow](review-scenarios.md). It generates a report template
+and validates that a human-recorded review identifies the skill, case, agent,
+model, sampling settings, response, pass/fail result, and grading evidence. The
+report validator checks traceability, not whether the human's grade is correct.
 
 - Use a realistic prompt containing a plausible misconception, incomplete fix,
   or tempting shortcut; do not merely ask the agent to repeat the rule.
@@ -218,6 +228,12 @@ Keep `name` stable and descriptive. Treat `prompt` as the user input and
 - Include fallback and degraded-state scenarios for progressive enhancements.
 - Prefer a few discriminating cases over broad happy-path coverage that a
   baseline model would already pass.
+
+For procedural guidance, give each consequential step an observable completion
+condition so an agent can tell whether to continue, stop, or escalate. Review
+new wording sentence by sentence: remove a rule when it does not change a
+decision, action, or verification outcome. Replace stale or duplicated guidance
+at its owner instead of adding another exception to an already layered rule set.
 
 ## First-Party Boundary
 
@@ -257,7 +273,8 @@ Before merging a change:
 1. Confirm the trigger description still selects the skill for the right tasks.
 2. Confirm links to bundled references, scripts, and any optional resources resolve.
 3. When adding a skill, create `agents/openai.yaml` and `evals/evals.json`; add
-   or update behavioral cases for consequential changes.
+   or update unrun review scenarios for consequential changes, and record a
+   manual review report when behavior evidence is needed.
 4. When adding a skill, add its `site/index.html` card and inventory metadata.
 5. Run `python3 scripts/validate-readmes.py`,
    `python3 scripts/validate-site.py`, and
