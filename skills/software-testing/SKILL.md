@@ -144,6 +144,10 @@ to the claim.
 - Route Rust implementation, ownership, API, unsafe, and idiom decisions beyond
   the minimal testability extraction to `rust-engineering`; this skill owns the
   test design and any small testability refactor.
+- Route non-frontend TypeScript type, module, async, and error implementation
+  decisions beyond the minimal testability extraction to
+  `typescript-engineering`; this skill owns the test design and any small
+  testability refactor.
 - Route substantive runtime or service implementation decisions to the
   appropriate engineering capability. This skill owns the test design and any
   small testability refactor, not the surrounding delivery workflow.

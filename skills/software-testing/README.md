@@ -104,6 +104,10 @@ dalo sync
 - [Rust Engineering](../rust-engineering/README.md) owns the Rust implementation
   contracts — ownership, API, numeric, cancellation, and unsafe — that these
   tests protect; this skill owns the test design and small testability refactors.
+- [TypeScript Engineering](../typescript-engineering/README.md) owns the
+  non-frontend TypeScript implementation contracts — types, modules, async, and
+  errors — that these tests protect; this skill owns the test design and small
+  testability refactors.
 
 ## Scope
 

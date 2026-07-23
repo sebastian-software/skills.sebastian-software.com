@@ -1,0 +1,34 @@
+{
+  "evals": [
+    {
+      "name": "reject-as-any-to-silence-compiler",
+      "prompt": "This function fails to compile because the value from our untyped helper does not match the return type. Just cast it with `as any` (or add `@ts-ignore`) so the build passes; the shapes are basically the same.",
+      "expected": "Refuses to repair the type error by suppressing the compiler. Identifies that the value crosses an untyped boundary and must be narrowed or parsed into the real type once, treats `as any`/`as unknown as T`/`@ts-ignore` as moving the failure to runtime, and if any suppression is genuinely unavoidable scopes it narrowly, prefers `@ts-expect-error`, and states why it is sound and when it can be removed."
+    },
+    {
+      "name": "no-default-runtime-validation-library",
+      "prompt": "Add Zod and wrap every internal function's arguments in a schema so nothing is ever the wrong type, including calls between our own already-typed modules.",
+      "expected": "Distinguishes the untyped external edge (request bodies, JSON.parse, env, untyped dependencies) where a single parse is warranted from internal calls the type system already guarantees, where re-validation is redundant. Follows an existing validation library if the repository has one rather than adding a dependency by default, and does not blanket-validate values the compiler already proves."
+    },
+    {
+      "name": "discriminated-union-over-boolean-flags",
+      "prompt": "Model our job as one interface with status: string plus optional result, error, and retryAt fields, and cast with `as` at each call site depending on which fields are set.",
+      "expected": "Prefers a discriminated union with a literal discriminant over loosely related optional fields and call-site assertions, so illegal combinations are unrepresentable and a switch with a never default gives exhaustiveness. Justifies enum-versus-union-of-literals from repository convention rather than reflex, and avoids assertions where control-flow narrowing on the discriminant proves the type."
+    },
+    {
+      "name": "own-floating-promise-and-cancellation",
+      "prompt": "Kick off refreshCache() without awaiting it so the handler returns fast, ignore the returned promise, and for the timeout just resolve early and let the original fetch finish in the background.",
+      "expected": "Treats the floating promise as a defect that drops errors and risks an unhandled rejection, giving detached work an explicit error sink and reason or awaiting it. Rejects an ignore-the-late-result timeout because the resource keeps running, and models real cancellation with AbortSignal propagated into fetch and downstream calls, treating AbortError as an expected outcome."
+    },
+    {
+      "name": "reject-blanket-strict-flag-migration",
+      "prompt": "Turn on every strict and opt-in tsconfig flag (noUncheckedIndexedAccess, exactOptionalPropertyTypes, verbatimModuleSyntax) across the whole repo in this feature PR, and switch us from CommonJS to ESM while you are in there.",
+      "expected": "Reviews the existing tsconfig, module system, and runtime as the contract and declines to bundle a codebase-wide strictness or module-system migration into a feature change. Explains that each opt-in flag and the CJS-to-ESM switch is a substantive, churn-heavy, potentially breaking decision (emit, import extensions, exports/interop) that belongs in its own scoped change, not incidental cleanup."
+    },
+    {
+      "name": "typed-error-cause-over-stringified-throw",
+      "prompt": "In the catch block just do throw new Error('save failed: ' + err) so we get a message, and assume err.message is always there. A magic rule of max 200 lines per file says split the module too.",
+      "expected": "Narrows the caught unknown before use rather than assuming err.message exists, preserves the original failure via the Error cause chain instead of stringifying it, and prefers a typed error or result the caller can branch on for an expected failure. Rejects the arbitrary 200-line file threshold as a magic limit with no derived reason rather than applying it mechanically."
+    }
+  ]
+}

@@ -293,7 +293,7 @@ These exist because the cost of getting them wrong is high and hard to undo:
   skill judges whether a PR's evidence is enough to merge.
 - Route discovery and execution of local repository-native checks to
   `software-validation`; this skill owns PR CI interpretation and merge judgment.
-- Route Rust-specific implementation depth inside a review to `rust-engineering`.
+- Route language implementation depth inside a review to `rust-engineering` (Rust) or `typescript-engineering` (TypeScript).
 - Route dependency-update portfolio research and PR creation to
   `smart-dependency-updater`; this skill reviews and maintains those PRs.
 - Route durable choices discovered during review to `decision-records` when the

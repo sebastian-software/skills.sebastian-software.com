@@ -84,6 +84,9 @@ broad design route and load the matching focused route directly.
 - Route general marketing copy and campaigns to the separately managed skills
   selected from the DALO `marketingskills` catalog; use Interface Copy only for
   language embedded in a web experience.
+- Route non-frontend TypeScript engineering depth — server-side and
+  shared-library type, module, async, error, and tooling contracts — to
+  `typescript-engineering`; keep browser-facing TypeScript here.
 - Keep backend-only architecture, infrastructure, deployment, load testing, and
   security audits, and non-web desktop publishing outside this skill unless
   they directly constrain the browser-facing result.
