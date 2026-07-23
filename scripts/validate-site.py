@@ -17,9 +17,16 @@ from urllib.parse import urlparse
 ROOT = Path(__file__).resolve().parents[1]
 SITE = ROOT / "site"
 INDEX = SITE / "index.html"
+COMPARISONS = SITE / "comparisons.html"
 EXPECTED_DOMAIN = "skills.sebastian-software.com"
-EXPECTED_OG_IMAGE = "og-card-product-review.png"
-EXPECTED_OG_IMAGE_URL = f"https://{EXPECTED_DOMAIN}/assets/{EXPECTED_OG_IMAGE}"
+EXPECTED_HOME_OG_IMAGE = "og-card-product-review.png"
+EXPECTED_HOME_OG_IMAGE_URL = (
+    f"https://{EXPECTED_DOMAIN}/assets/{EXPECTED_HOME_OG_IMAGE}"
+)
+EXPECTED_COMPARISON_OG_IMAGE = "og-card.png"
+EXPECTED_COMPARISON_OG_IMAGE_URL = (
+    f"https://{EXPECTED_DOMAIN}/assets/{EXPECTED_COMPARISON_OG_IMAGE}"
+)
 SKILL_URL_PREFIX = (
     "https://github.com/sebastian-software/"
     "skills.sebastian-software.com/tree/main/skills/"
@@ -38,6 +45,19 @@ EXPECTED_DALO_COMMANDS = (
     "dalo approve skill sebastian:effective-web",
     "dalo sync",
 )
+EXPECTED_COMPARISON_SOURCES = (
+    ("obra/superpowers", "https://github.com/obra/superpowers"),
+    ("mattpocock/skills", "https://github.com/mattpocock/skills"),
+    ("anthropics/skills", "https://github.com/anthropics/skills"),
+    (
+        "coreyhaines31/marketingskills",
+        "https://github.com/coreyhaines31/marketingskills",
+    ),
+    ("vercel-labs/agent-browser", "https://github.com/vercel-labs/agent-browser"),
+    ("DietrichGebert/ponytail", "https://github.com/DietrichGebert/ponytail"),
+    ("juliusbrussee/caveman", "https://github.com/juliusbrussee/caveman"),
+)
+EXPECTED_COMPARISON_URLS = tuple(url for _, url in EXPECTED_COMPARISON_SOURCES)
 
 
 class SiteParser(HTMLParser):
@@ -157,6 +177,32 @@ def visible_skill_inventory(html: str) -> list[tuple[str, str]]:
         )
         for match in cards
     ]
+
+
+def visible_comparison_inventory(html: str) -> list[tuple[str, str]]:
+    """Return comparison names and source URLs in visible card order."""
+    inventory: list[tuple[str, str]] = []
+    cards = re.finditer(
+        r'<article\b[^>]*class=["\'][^"\']*\bcomparison-card\b[^"\']*["\'][^>]*>'
+        r"(?P<body>.*?)</article>",
+        html,
+        re.DOTALL | re.IGNORECASE,
+    )
+    for card in cards:
+        body = card.group("body")
+        name = re.search(r"<h3>(?P<name>.*?)</h3>", body, re.DOTALL | re.IGNORECASE)
+        source = re.search(
+            r'<a\b[^>]*href=["\'](?P<url>[^"\']+)["\'][^>]*>'
+            r"\s*Inspect source\b",
+            body,
+            re.DOTALL | re.IGNORECASE,
+        )
+        if name and source:
+            visible_name = " ".join(
+                unescape(re.sub(r"<[^>]+>", "", name.group("name"))).split()
+            )
+            inventory.append((visible_name, source.group("url")))
+    return inventory
 
 
 def proof_row_values(html: str) -> list[int]:
@@ -343,16 +389,58 @@ def validate_json_ld_inventory(
     )
 
 
+def validate_comparison_json_ld(
+    json_ld: dict[str, object] | None,
+    visible_inventory: list[tuple[str, str]],
+    failures: list[str],
+) -> None:
+    require(json_ld is not None, "comparison page must include JSON-LD metadata", failures)
+    if json_ld is None:
+        return
+
+    expected_count = len(visible_inventory)
+    item_list = json_ld.get("mainEntity", {})
+    items = item_list.get("itemListElement", []) if isinstance(item_list, dict) else []
+    require(
+        isinstance(item_list, dict) and item_list.get("numberOfItems") == expected_count,
+        "comparison JSON-LD count must match the visible source cards",
+        failures,
+    )
+    expected_items = [
+        {
+            "@type": "ListItem",
+            "position": position,
+            "name": name,
+            "url": url,
+        }
+        for position, (name, url) in enumerate(visible_inventory, start=1)
+    ]
+    actual_items = [
+        {
+            key: item.get(key) if isinstance(item, dict) else None
+            for key in ("@type", "position", "name", "url")
+        }
+        for item in items
+    ]
+    require(
+        actual_items == expected_items,
+        "comparison JSON-LD items must match visible cards in order, name, position, and URL",
+        failures,
+    )
+
+
 def main() -> int:
     failures: list[str] = []
     required_files = (
         INDEX,
+        COMPARISONS,
         SITE / "styles.css",
         SITE / "script.js",
         SITE / "assets" / "favicon.svg",
         SITE / "assets" / "favicon-32.png",
         SITE / "assets" / "apple-touch-icon.png",
-        SITE / "assets" / EXPECTED_OG_IMAGE,
+        SITE / "assets" / EXPECTED_HOME_OG_IMAGE,
+        SITE / "assets" / EXPECTED_COMPARISON_OG_IMAGE,
         SITE / "favicon.ico",
         SITE / "CNAME",
         SITE / ".nojekyll",
@@ -369,10 +457,13 @@ def main() -> int:
         return 1
 
     html = INDEX.read_text(encoding="utf-8")
+    comparisons_html = COMPARISONS.read_text(encoding="utf-8")
     css = (SITE / "styles.css").read_text(encoding="utf-8")
     script = (SITE / "script.js").read_text(encoding="utf-8")
     parser = SiteParser()
     parser.feed(html)
+    comparisons_parser = SiteParser()
+    comparisons_parser.feed(comparisons_html)
 
     skill_files = sorted((ROOT / "skills").glob("*/SKILL.md"))
     expected_skills = sorted(path.parent.name for path in skill_files)
@@ -403,6 +494,70 @@ def main() -> int:
         failures,
     )
     require(len(parser.ids) == len(set(parser.ids)), "site contains duplicate IDs", failures)
+    require(
+        comparisons_parser.lang == "en",
+        "comparison page language must be English",
+        failures,
+    )
+    require(
+        comparisons_parser.h1_count == 1,
+        "comparison page must contain exactly one h1",
+        failures,
+    )
+    require(
+        comparisons_parser.main_count == 1,
+        "comparison page must contain exactly one main element",
+        failures,
+    )
+    require(
+        comparisons_parser.has_viewport,
+        "comparison page must define a viewport meta tag",
+        failures,
+    )
+    require(
+        comparisons_parser.has_description,
+        "comparison page must define a meta description",
+        failures,
+    )
+    require(
+        comparisons_parser.canonical
+        == f"https://{EXPECTED_DOMAIN}/comparisons.html",
+        "comparison canonical URL must match the Pages custom domain",
+        failures,
+    )
+    require(
+        len(comparisons_parser.ids) == len(set(comparisons_parser.ids)),
+        "comparison page contains duplicate IDs",
+        failures,
+    )
+    require(
+        comparisons_parser.meta_properties.get("og:url")
+        == comparisons_parser.canonical,
+        "comparison Open Graph URL must match its canonical URL",
+        failures,
+    )
+    require(
+        comparisons_parser.meta_properties.get("og:image")
+        == EXPECTED_COMPARISON_OG_IMAGE_URL
+        and comparisons_parser.meta_names.get("twitter:image")
+        == EXPECTED_COMPARISON_OG_IMAGE_URL,
+        "comparison social metadata must use the canonical image",
+        failures,
+    )
+    comparison_inventory = visible_comparison_inventory(comparisons_html)
+    require(
+        comparison_inventory == list(EXPECTED_COMPARISON_SOURCES),
+        "comparison cards must match the reviewed sources in order, name, and URL",
+        failures,
+    )
+    comparison_json_ld = extract_json_ld(comparisons_html)
+    validate_comparison_json_ld(comparison_json_ld, comparison_inventory, failures)
+    for source_url in EXPECTED_COMPARISON_URLS:
+        require(
+            source_url in comparisons_parser.links,
+            f"comparison source link is missing: {source_url}",
+            failures,
+        )
     require("no-js" not in html, "site must not ship an unused no-js hook", failures)
     require("⌘" not in html, "copy buttons must not imply a keyboard shortcut", failures)
     require(
@@ -455,7 +610,7 @@ def main() -> int:
         failures,
     )
     require(
-        parser.meta_properties.get("og:image") == EXPECTED_OG_IMAGE_URL,
+        parser.meta_properties.get("og:image") == EXPECTED_HOME_OG_IMAGE_URL,
         "Open Graph image must use the canonical 1200x630 asset URL",
         failures,
     )
@@ -487,7 +642,7 @@ def main() -> int:
         failures,
     )
     require(
-        parser.meta_names.get("twitter:image") == EXPECTED_OG_IMAGE_URL,
+        parser.meta_names.get("twitter:image") == EXPECTED_HOME_OG_IMAGE_URL,
         "Twitter image must match the Open Graph image",
         failures,
     )
@@ -500,8 +655,14 @@ def main() -> int:
     validate_json_ld_inventory(json_ld, visible_inventory, failures)
 
     require(
-        png_dimensions(SITE / "assets" / EXPECTED_OG_IMAGE) == (1200, 630),
-        "Open Graph image file must be exactly 1200x630",
+        png_dimensions(SITE / "assets" / EXPECTED_HOME_OG_IMAGE) == (1200, 630),
+        "home Open Graph image file must be exactly 1200x630",
+        failures,
+    )
+    require(
+        png_dimensions(SITE / "assets" / EXPECTED_COMPARISON_OG_IMAGE)
+        == (1200, 630),
+        "comparison Open Graph image file must be exactly 1200x630",
         failures,
     )
     require(
@@ -565,6 +726,33 @@ def main() -> int:
         path = local_path(asset)
         require(path is not None and path.is_file(), f"local asset does not exist: {asset}", failures)
 
+    for link in comparisons_parser.links:
+        if link.startswith("#"):
+            require(
+                link[1:] in comparisons_parser.ids,
+                f"comparison fragment target does not exist: {link}",
+                failures,
+            )
+        elif path := local_path(link):
+            require(
+                path.is_file(),
+                f"comparison local link target does not exist: {link}",
+                failures,
+            )
+
+    for asset in comparisons_parser.assets:
+        path = local_path(asset)
+        require(
+            path is not None and path.is_file(),
+            f"comparison local asset does not exist: {asset}",
+            failures,
+        )
+
+    require(
+        'href="comparisons.html"' in html,
+        "home page must link to the comparison page",
+        failures,
+    )
     require(EXPECTED_SKILLS_COMMAND in html, "selective skills CLI command is missing", failures)
     for command in EXPECTED_DALO_COMMANDS:
         require(command in html, f"DALO command is missing: {command}", failures)
@@ -609,6 +797,11 @@ def main() -> int:
         "sitemap must reference the canonical URL",
         failures,
     )
+    require(
+        f"<loc>https://{EXPECTED_DOMAIN}/comparisons.html</loc>" in sitemap,
+        "sitemap must reference the comparison page",
+        failures,
+    )
     try:
         expected_lastmod = expected_site_lastmod()
     except RuntimeError as error:
@@ -623,7 +816,8 @@ def main() -> int:
 
     print(
         f"Validated dependency-free site: {len(expected_skills)} skills, "
-        f"{len(parser.ids)} unique IDs, {len(parser.links)} links."
+        f"{len(parser.ids) + len(comparisons_parser.ids)} unique IDs across 2 pages, "
+        f"{len(parser.links) + len(comparisons_parser.links)} links."
     )
     return 0
 

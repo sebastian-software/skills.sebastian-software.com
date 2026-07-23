@@ -34,6 +34,23 @@ Use values and type-safe helpers that make identity, time, and expected state
 obvious. Do not test borrow layout, private helper calls, or incidental
 allocation choices unless those are explicitly part of the supported contract.
 
+Select boundary evidence from the demonstrated risk:
+
+- exercise minimum, maximum, sign, narrowing, and overflow behavior when
+  arithmetic or conversion is part of the contract;
+- exercise cancellation at meaningful await boundaries and verify owned state,
+  cleanup, retry safety, and task shutdown;
+- cover supported feature combinations and `cfg` branches that change public
+  behavior rather than assuming the default feature set represents the crate;
+- use property tests, fuzzing, Miri, sanitizers, or concurrency exploration only
+  when the repository supports the tool and the parser, unsafe boundary,
+  invariant space, or interleaving risk justifies it.
+
+Do not add a property, snapshot, mock, async, or unsafe-testing dependency by
+default. A focused example or table-driven test is often the clearest evidence.
+Do not split one coherent behavior across tests merely to enforce an assertion
+count; keep failures diagnosable and the protected contract visible.
+
 ## Keep Live Smoke Tests Deliberately Opt-In
 
 Credentialed, billable, remote, destructive, or flaky live checks are useful

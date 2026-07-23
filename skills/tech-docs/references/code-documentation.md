@@ -34,6 +34,12 @@ when the contract has that behavior. Explain the triggering conditions rather
 than repeating that an error, panic, or unsafe operation exists. Prefer
 intra-doc links and executable documentation examples supported by the crate.
 
+Document ownership transfer, borrowing, mutation, cancellation, ordering,
+feature gates, units, and platform limits when callers need them. In `# Safety`,
+state the caller obligations that make the operation sound; a warning that an
+item is unsafe is not a contract. Keep examples Unicode-safe: do not demonstrate
+arbitrary byte slicing when the prose promises characters or display width.
+
 ## Explanatory comments and docstrings
 
 - Explain why a constraint or unusual approach exists and what would break if

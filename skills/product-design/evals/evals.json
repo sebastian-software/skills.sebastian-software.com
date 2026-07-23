@@ -59,6 +59,11 @@
       "name": "handoff-a-browser-prototype",
       "prompt": "We chose an interaction concept but responsive wrapping is uncertain. Build a quick browser prototype, leave it beside production, and let its temporary tokens become the new design system if the demo looks good.",
       "expected": "Keeps Product Design responsible for the decision-grade question and evaluation plan, uses Effective Web's bounded browser-prototype protocol for implementation uncertainty, defines an exit condition and Discard/Rebuild/Productionize outcome, reconciles provisional tokens with accepted accessibility and design-system contracts, and prevents an unexplained parallel implementation."
+    },
+    {
+      "name": "preserve-bias-in-proxy-research",
+      "prompt": "We cannot interview users, but we have app-store reviews, support tickets, a developer forum, and sales notes. Merge the recurring phrases, call them representative user needs, and invent a typical persona without retaining source context.",
+      "expected": "Uses the material as biased proxy evidence, tags observations with source, date, product or plan context, available participant context, and selection mechanism; names how reviews, support, technical communities, and sales conversations skew the sample; preserves contradictions and missing perspectives; and turns the evidence into hypotheses and direct-research questions rather than prevalence claims or a fictional representative persona."
     }
   ]
 }

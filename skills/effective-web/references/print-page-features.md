@@ -114,11 +114,14 @@ figcaption::before {
 
 ## Links on Paper
 
-**Never dump raw URLs inline.** Better approaches:
+Prefer human-readable labels and expose a destination only when a paper reader
+needs a citation, provenance trail, or actionable fallback. Better approaches:
 
 1. **Numbered footnotes** — superscript numbers, collected URL list at bottom. Use CSS counters. In React, render conditionally for print.
 2. **QR code** — single QR code linking to the original page URL, shown via `.print-only`.
 3. **Combination** — footnote numbers for important links + one QR code for the full page.
+4. **Selected inline fallback** — mark only the necessary anchors with
+   `data-print-url`; avoid applying raw href text to every external link.
 
 ### Footnote Styling
 
