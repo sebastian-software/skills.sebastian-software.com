@@ -1042,6 +1042,7 @@
   }
 
   .install-card {
+    min-width: 0;
     display: flex;
     min-height: 27rem;
     flex-direction: column;
@@ -1095,6 +1096,7 @@
   .code-block code {
     font-size: 0.74rem;
     line-height: 1.8;
+    overflow-wrap: anywhere;
     white-space: pre-wrap;
   }
 
@@ -1562,7 +1564,7 @@
 
     .skill-grid,
     .install-grid {
-      grid-template-columns: 1fr;
+      grid-template-columns: minmax(0, 1fr);
     }
 
     .skill-card-feature {
