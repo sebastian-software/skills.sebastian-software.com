@@ -26,7 +26,7 @@ results without pretending that browsers provide every DTP capability.
 
 | Category | Reference |
 |----------|-----------|
-| Typography | [print-typography.md](print-typography.md) — font sizes, stacks, OpenType, text-wrap, hyphenation |
+| Typography | [print-typography-core.md](print-typography-core.md) — sizes, scale, stacks, wrapping/hyphenation, and figure decisions (load the deep print-typography appendix only for the full cookbook) |
 | Layout | [print-layout.md](print-layout.md) — layers, reset, @page, simulation, grid, fragmentation |
 | Web Print CSS | [print-web-basics.md](print-web-basics.md) — start for ordinary web pages; add [print-web-content.md](print-web-content.md) for links, images, tables, and code, or [print-web-layout.md](print-web-layout.md) for paper-specific reading order |
 | Page Features | [print-page-features.md](print-page-features.md) — headers/footers, counters, bleed, links, element styles |
