@@ -108,9 +108,8 @@ For a broad product-design request, return:
   shape the experience.
 - Use `effective-web` to specify and implement browser UI, visual systems,
   accessibility, responsive behavior, performance, and frontend verification.
-- Use `customer-research` from the separately managed DALO `marketingskills`
-  catalog when the request is to recruit, conduct, or operate a full research
-  program; use this skill to frame design questions and synthesize supplied
-  evidence.
+- Hand recruitment, fieldwork, and operation of a full customer research
+  program to a dedicated research specialist; use this skill to frame design
+  questions and synthesize supplied evidence.
 - Use `decision-records` when a durable design-system or interaction decision
   needs repository-level rationale and reopening conditions.

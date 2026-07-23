@@ -55,7 +55,7 @@ jobs:
             exit 1
           fi
 
-      - name: Validate and materialize the first-party source
+      - name: Validate and materialize the first-party catalog
         env:
           DALO_STORE: ${{ runner.temp }}/dalo-store
           DALO_TARGET: ${{ runner.temp }}/dalo-target
@@ -63,10 +63,17 @@ jobs:
           git switch -c ci-source
           dalo init
           dalo target link generic "$DALO_TARGET"
-          dalo source add sebastian "$GITHUB_WORKSPACE"
-          dalo --json status > "$RUNNER_TEMP/status.json"
-
           expected_skill_count="$(find skills -mindepth 2 -maxdepth 2 -type f -name SKILL.md | wc -l | tr -d ' ')"
+          mapfile -t first_party_skills < <(
+            find skills -mindepth 2 -maxdepth 2 -type f -name SKILL.md -printf '%h\n' |
+              sed 's#^skills/##' |
+              sort
+          )
+
+          dalo source add-catalog sebastian "$GITHUB_WORKSPACE"
+          dalo source select sebastian "${first_party_skills[@]}"
+          dalo approve source sebastian
+          dalo --json status > "$RUNNER_TEMP/status.json"
 
           jq -e --argjson expected_skill_count "$expected_skill_count" '
             (.sources[] | select(.id == "sebastian") | .skill_count) == $expected_skill_count and

@@ -213,8 +213,7 @@ post concepts.
   strategy around the posts — including engagement-to-pipeline diagnosis — to
   `linkedin-social-selling`; consume its grounded brief when drafting posts
   inside a larger engagement.
-- Use `copywriting` for general marketing copy principles, `copy-editing` for
-  polishing post drafts, `humanizer` to remove AI-sounding patterns, and
-  `marketing-psychology` for psychological principles (all from the separately
-  managed DALO `marketingskills` catalog). If an external catalog skill is
-  unavailable, apply the equivalent principles directly.
+- Keep general marketing-copy systems, standalone copy editing, broad
+  AI-pattern cleanup, and persuasion analysis with their dedicated specialists.
+  Apply the writing principles in this skill directly when no such specialist
+  is available.

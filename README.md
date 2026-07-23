@@ -9,9 +9,7 @@ from an ambiguous brief to a review-ready result.**
 
 21 practice-built skills and 211 focused references for product decisions, web
 experiences, codebase improvement, delivery, go-to-market positioning,
-professional communication, and web compliance; go-to-market deliverables such
-as marketing copy route to the separately managed external `marketingskills`
-DALO catalog.
+professional communication, and web compliance.
 
 This is not a loose prompt dump. It is a maintained, first-party operating
 layer for agents that work on real products and repositories. Each skill turns
@@ -35,9 +33,7 @@ npx skills add sebastian-software/skills.sebastian-software.com --all
 
 Selective installation works with both the skills CLI and DALO. You do not
 need to adopt the whole collection to use `effective-web` or any other single
-skill. With DALO, register this repository as a catalog instead of a complete
-team source; the [selective DALO setup](#selective-setup-with-dalo) below shows
-the difference.
+skill.
 
 Then ask for the work in normal language. A compatible agent selects the
 relevant skill from its description and loads the detailed guidance it needs.
@@ -60,8 +56,8 @@ Build a LinkedIn positioning and content system that leads to qualified B2B
 conversations.
 ```
 
-For reproducible setups, pinned selections, multiple agent targets, and managed
-external catalogs, use [DALO](#installation).
+For reproducible selections and multiple agent targets, use
+[DALO](#installation).
 
 ## What This Collection Enables
 
@@ -231,31 +227,6 @@ Replace `effective-web` with another skill name, or pass several names to
 skills do not become active automatically. Review selected skills before
 granting the source-qualified approval.
 
-### Complete team setup with DALO
-
-[DALO](https://dalo.sh) manages skill sources, reviewed selections, versions,
-approvals, and installation targets. It is the recommended option for teams,
-multiple agent targets, or setups that combine this collection with external
-skill catalogs.
-
-Install DALO, then register this repository as the `sebastian` team source:
-
-```sh
-curl -fsSL https://dalo.sh/install.sh | sh
-dalo init
-dalo target link codex
-dalo source add sebastian https://github.com/sebastian-software/skills.sebastian-software.com.git
-dalo status
-dalo sync
-dalo doctor
-```
-
-Unlike `source add-catalog`, `source add` treats this repository as a trusted
-team source, so all 21 first-party skills are active together. External
-repositories are configured separately as DALO catalogs; they are never copied
-or renamed here. See [docs/dalo.md](docs/dalo.md) for the complete setup and the
-curated external selection.
-
 ### Quick install with skills.sh
 
 Vercel's [skills CLI](https://skills.sh/docs) is a lightweight alternative for
@@ -281,7 +252,8 @@ explanation.
 - Group cohesive domains behind a clear router; keep unrelated work separate.
 - Prefer practical rules, examples, and checks over broad advice.
 - Keep `SKILL.md` lean and move detail into `references/`.
-- Do not vendor external skills; manage them through DALO.
+- Keep external source selection and cross-catalog precedence in a downstream
+  agent stack; do not vendor or configure external skills here.
 
 Read [docs/authoring-skills.md](docs/authoring-skills.md) before changing a skill.
 

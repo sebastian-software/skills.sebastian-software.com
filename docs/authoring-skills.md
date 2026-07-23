@@ -238,14 +238,13 @@ at its owner instead of adding another exception to an already layered rule set.
 ## First-Party Boundary
 
 Everything below `skills/` is maintained here as Sebastian Software source.
-External skills must be configured as DALO catalog sources. Do not copy them,
-rename their frontmatter, add `SOURCE.md` snapshots, or maintain repository-local
-source and lock manifests.
+Do not copy external skills, rename their frontmatter, add `SOURCE.md`
+snapshots, or maintain external source selections and pins in this repository.
 
-Label an external dependency at every mention site as "`<name>` from the
-separately managed DALO `<catalog>` catalog." Reference files can be loaded
-without their parent `SKILL.md`, so do not rely on provenance stated elsewhere
-and never describe a catalog skill as local.
+State a skill's boundary in capability terms that remain useful when the skill
+is installed alone. Exact external slot names, catalog provenance, selections,
+version pins, precedence, and cross-source routing belong in a downstream agent
+stack.
 
 ## Delivery Worktree Inventory
 
