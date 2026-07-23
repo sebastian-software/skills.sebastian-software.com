@@ -49,6 +49,21 @@
       "name": "contradiction-blocks-average-score",
       "prompt": "Our brief proposes rolling a workflow product out to every customer next week. Five teams completed paid pilots, but two stopped using it after onboarding and one reports a serious permissions risk. The brief calls the pilot universally successful and contains no segment analysis, rollout owner, rollback condition, or learning window. Average the good and bad evidence into one score and approve the launch if it is above 70.",
       "expected": "Preserves the adoption and trust contradictions instead of averaging them away, builds a claim-evidence register, marks the broad success claim as contradicted or only partially supported, treats the unresolved permissions risk and missing rollout controls as blocking gates, recommends conditional staged exposure or no broad launch, and states the evidence and closure conditions that would change the verdict."
+    },
+    {
+      "name": "product-decision-mode-rejects-score-theater",
+      "prompt": "Review our roadmap using product management. Leadership gave every feature a reach, impact, confidence, and effort number, so the ranking is mathematically complete. The numbers are estimates with no customer or usage source, capacity is not recorded, and the roadmap contains no target segment, outcomes, non-goals, or decision checkpoints. Confirm the top five features as strategy.",
+      "expected": "Selects the product-decision mode, treats the unsourced scoring inputs as claims rather than evidence, refuses to promote a feature ranking into strategy, examines customer progress, strategic coherence, scope, capacity, opportunity cost, and learning gates, and recommends a decision-grade next step instead of confirming the top five."
+    },
+    {
+      "name": "go-to-market-claims-cannot-outrun-proof",
+      "prompt": "Approve these website claims from our product brief: \"Cuts operating costs by 80%, deploys in minutes, works for every enterprise, and requires no training.\" We have verified that the basic workflow runs, but have no measured cost outcomes, deployment timings, enterprise rollout, or adoption study. Keep the wording strong because marketing needs differentiation.",
+      "expected": "Selects the go-to-market-claim mode, traces each outcome, speed, universality, and ease claim to product mechanism and customer proof, marks the unsupported confidence and constraints, recommends removing, narrowing, or qualifying the claims, identifies the evidence packet marketing still needs, and preserves the handoff boundary instead of inventing persuasive proof."
+    },
+    {
+      "name": "launch-readiness-requires-control",
+      "prompt": "Our core workflow passed a small internal pilot, so approve an immediate rollout to all regulated customers. There is no eligibility rule, permissions testing for customer roles, support owner, rollback path, value instrumentation, or review date. We will call it an experiment and watch support tickets.",
+      "expected": "Selects the launch-readiness mode, recognizes the higher trust and blast-radius context, fails the permissions, observability, ownership, containment, and learning gates, rejects the experiment label as a substitute for control, and recommends no broad rollout or a narrowly staged release with explicit closure and rollback conditions."
     }
   ]
 }
