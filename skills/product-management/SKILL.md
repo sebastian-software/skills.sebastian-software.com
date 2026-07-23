@@ -36,7 +36,7 @@ and post-release behavior as one system rather than separate handoffs.
    ```
 
    Find the weakest transition or riskiest assumption before proposing work.
-4. Load only the matching route:
+4. Load only the matching route or routes:
    - [Evidence review](references/evidence-review.md) when reviewing an existing
      artifact, recommendation, or claim set for decision readiness. Also load
      the domain route that owns the artifact's subject.
