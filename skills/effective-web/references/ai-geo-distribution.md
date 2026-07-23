@@ -40,7 +40,11 @@ For Google AI Overviews and AI Mode, follow the normal Google Search technical r
 - Keep important content in text form, with high-quality images and video where useful.
 - Make structured data match visible text.
 - Keep Merchant Center and Google Business Profile data current where relevant.
-- Use Search Console to diagnose indexability and traffic. AI feature traffic is reported under the normal Web search type, not as a standalone GEO metric.
+- Use Search Console to diagnose indexability and traffic. Google includes AI
+  feature visibility in the overall performance report and is rolling out
+  dedicated Generative AI views to a subset of sites; availability is not
+  universal and the dedicated report remains a visibility view, not causal
+  conversion attribution.
 
 Do not add the following as Google AI ranking requirements:
 
@@ -171,7 +175,13 @@ Define success before choosing a monitoring tool. Keep four layers separate:
 
 Use a versioned query panel based on real audience tasks, not only brand-name prompts. Record engine or product, locale, account or personalization state where controllable, device, date, query wording, answer, mentions, citations, and cited URLs. Repeat samples over time because model, retrieval, and ranking changes make any single run unstable.
 
-Compare like with like and retain raw snapshots. A vendor score can support trend analysis, but it cannot prove complete market visibility or causal ROI. Google AI feature traffic is blended into the Search Console Web search type, so do not claim precise AI Overview attribution from Search Console alone. Pair visibility monitoring with analytics, logs, conversions, and periodic manual accuracy review.
+Compare like with like and retain raw snapshots. A vendor score can support
+trend analysis, but it cannot prove complete market visibility or causal ROI.
+Where the [Generative AI performance report](https://developers.google.com/search/blog/2026/06/gen-ai-performance-reports)
+is available, use its impressions, pages, countries, devices, and dates as
+dedicated Google visibility evidence while retaining the overall performance
+view. Pair either view with analytics, logs, conversions, and periodic manual
+accuracy review; neither report proves campaign ROI.
 
 ## Tactics Worth Testing
 
