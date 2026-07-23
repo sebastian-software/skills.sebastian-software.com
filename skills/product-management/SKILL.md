@@ -121,11 +121,10 @@ For an existing artifact or decision-readiness audit, use the deliverable in
 
 - Use `product-naming` after the product thesis, target user, and differentiation
   are stable enough to support a naming brief.
-- Use `customer-research` from the separately managed DALO `marketingskills`
-  catalog to execute a focused research program; use this skill to frame the
-  decision and synthesize the evidence.
-- Use `product-marketing`, `marketing-plan`, `launch`, and `pricing` from that
-  catalog for their dedicated deliverables after the product brief is stable.
+- Hand execution of a focused customer research program to a dedicated research
+  specialist; use this skill to frame the decision and synthesize the evidence.
+- Hand positioning, marketing planning, launch, and pricing deliverables to their
+  dedicated specialists after the product brief is stable.
 - Use `linkedin-social-selling` when LinkedIn is an evidence-backed acquisition
   or conversation channel, and `linkedin-posts` for post-only work.
 - Use `product-design` to research, frame, model, structure, and prototype the

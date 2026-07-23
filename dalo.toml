@@ -1,6 +1,0 @@
-schema_version = 1
-
-[source]
-id = "sebastian"
-name = "Sebastian Software Skills"
-kind = "team"

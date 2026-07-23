@@ -49,10 +49,6 @@ EXPECTED_COMPARISON_SOURCES = (
     ("obra/superpowers", "https://github.com/obra/superpowers"),
     ("mattpocock/skills", "https://github.com/mattpocock/skills"),
     ("anthropics/skills", "https://github.com/anthropics/skills"),
-    (
-        "coreyhaines31/marketingskills",
-        "https://github.com/coreyhaines31/marketingskills",
-    ),
     ("vercel-labs/agent-browser", "https://github.com/vercel-labs/agent-browser"),
     ("DietrichGebert/ponytail", "https://github.com/DietrichGebert/ponytail"),
     ("JuliusBrussee/caveman", "https://github.com/JuliusBrussee/caveman"),
