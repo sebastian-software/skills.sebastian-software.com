@@ -1,0 +1,43 @@
+name: Site layout
+
+# Viewport regression needs a Chrome download on every ephemeral runner, so it
+# runs only when something that can change the rendered site layout changes.
+on:
+  push:
+    branches: [main]
+    paths:
+      - "site/**"
+      - "scripts/test-site-layout.mjs"
+      - "package.json"
+      - "package-lock.json"
+      - ".github/workflows/site-layout.yml"
+  pull_request:
+    paths:
+      - "site/**"
+      - "scripts/test-site-layout.mjs"
+      - "package.json"
+      - "package-lock.json"
+      - ".github/workflows/site-layout.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  viewport:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      - name: Install viewport regression dependencies
+        run: npm ci --ignore-scripts
+
+      - name: Install Chrome for viewport regression
+        id: chrome
+        uses: browser-actions/setup-chrome@2e1d749697dd1612b833dba4a722266286fbefcd # v2.1.2
+        with:
+          chrome-version: stable
+
+      - name: Check narrow viewport layout
+        run: npm run test:site-layout
+        env:
+          CHROME_BIN: ${{ steps.chrome.outputs.chrome-path }}
