@@ -19,7 +19,7 @@ SITE = ROOT / "site"
 INDEX = SITE / "index.html"
 COMPARISONS = SITE / "comparisons.html"
 EXPECTED_DOMAIN = "skills.sebastian-software.com"
-EXPECTED_HOME_OG_IMAGE = "og-card-product-review.png"
+EXPECTED_HOME_OG_IMAGE = "og-card.png"
 EXPECTED_HOME_OG_IMAGE_URL = (
     f"https://{EXPECTED_DOMAIN}/assets/{EXPECTED_HOME_OG_IMAGE}"
 )
@@ -782,7 +782,7 @@ def main() -> int:
 
     expected_copy_buttons = {
         ("hero-command", "Copy Effective Web skills CLI command"),
-        ("product-command", "Copy Product Management skills CLI command"),
+        ("starter-command", "Copy the Effective Web starter command"),
         ("skills-command", "Copy skills CLI command"),
         ("dalo-command", "Copy DALO setup commands"),
     }
@@ -835,8 +835,8 @@ def main() -> int:
         )
 
     require(
-        'href="comparisons.html"' in html,
-        "home page must link to the comparison page",
+        'href="comparisons.html"' not in html,
+        "home page must keep external collection comparison out of the first-party journey",
         failures,
     )
     require(EXPECTED_SKILLS_COMMAND in html, "selective skills CLI command is missing", failures)
