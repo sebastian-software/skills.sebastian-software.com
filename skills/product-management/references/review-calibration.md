@@ -2,7 +2,9 @@
 
 Calibrate a repeated or high-stakes product-review process against representative
 cases and later outcomes. Improve judgment without training reviewers to mimic
-one preferred answer or rewriting past decisions with hindsight.
+one preferred answer or rewriting past decisions with hindsight. The
+claim-evidence classification, readiness gate, critical-gate, and verdict
+vocabulary calibrated here is defined in [evidence-review.md](evidence-review.md).
 
 ## Define the Calibration Claim
 

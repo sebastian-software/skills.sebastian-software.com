@@ -335,7 +335,8 @@ gh pr view <N> --repo "$REPO" --json statusCheckRollup \
 gh api repos/"$REPO"/deployments --jq '.[0].statuses_url'   # fallback
 ```
 
-Then drive that URL with the external `agent-browser` skill — an optional,
-separately managed skill that is not part of this collection — only when it is
-installed and configured. Otherwise, keep the verification static and report
+Then drive that URL with the `agent-browser` CLI
+([vercel-labs/agent-browser](https://github.com/vercel-labs/agent-browser)) —
+optional, separately installed, and not part of this collection — only when it
+is installed and configured. Otherwise, keep the verification static and report
 that the preview could not be exercised.

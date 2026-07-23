@@ -21,6 +21,11 @@
       "expected": "Preserves the German language, short root README, MkDocs information architecture, terminology, navigation, and nearby heading conventions. It improves or adds the contributor task in the established guide location, links from the README only when useful, and rejects the generic English README rewrite unless repository evidence or the user explicitly changes the convention."
     },
     {
+      "name": "rewrite-safety-section-into-caller-obligations",
+      "prompt": "Improve the rustdoc for a public `unsafe fn from_raw_parts(ptr: *const u8, len: usize) -> &'static str` whose draft `# Safety` section only says \"This is unsafe, so be careful when calling it.\" The implementation requires `ptr` to be non-null, aligned, and to point to `len` initialized bytes that are valid UTF-8 and live for `'static`. Follow this crate's conventions.",
+      "expected": "Rewrites the `# Safety` section to state the concrete caller obligations that make the call sound (non-null and aligned pointer, len initialized readable bytes, valid UTF-8, and the required 'static lifetime), rather than repeating that the function is unsafe or telling the caller to be careful. It keeps the summary and any Errors or Panics sections accurate, uses the crate's rustdoc conventions, and identifies cargo doc verification without inventing obligations absent from the implementation."
+    },
+    {
       "name": "document-migration-with-real-recovery",
       "prompt": "Write migration documentation for renaming a required configuration key. The code accepts both keys for one release, warns on the old key, and then removes it. There is no automatic rollback after the old key is removed. Use the repository's release-doc convention.",
       "expected": "States affected users and versions, the compatibility window, exact before-and-after configuration, warning and removal behavior, checkpoints, validation, and the supported recovery path. It does not promise rollback after removal, invent dates, or create a new documentation hierarchy outside the existing release convention."
