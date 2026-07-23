@@ -138,6 +138,8 @@ no first-party skill currently claims their execution methodology.
   `software-validation`.
 - Route Rust implementation, ownership, API, unsafe, and idiom depth within an
   agreed module or service boundary to `rust-engineering`.
+- Route non-frontend TypeScript type, module, async, and error implementation
+  depth within an agreed boundary to `typescript-engineering`.
 - Route a specific pull request's review, feedback, or CI recovery to
   `pr-review`.
 

@@ -7,7 +7,7 @@
 **Give your AI agent the practical judgment to take product and software work
 from an ambiguous brief to a review-ready result.**
 
-21 practice-built skills and 216 focused references for product decisions, web
+22 practice-built skills and 221 focused references for product decisions, web
 experiences, codebase improvement, delivery, go-to-market positioning,
 professional communication, and web compliance; go-to-market deliverables such
 as marketing copy route to the separately managed external `marketingskills`
@@ -27,7 +27,7 @@ Install one skill to try the collection:
 npx skills add sebastian-software/skills.sebastian-software.com --skill effective-web
 ```
 
-Or install all 21 skills:
+Or install all 22 skills:
 
 ```sh
 npx skills add sebastian-software/skills.sebastian-software.com --all
@@ -156,6 +156,7 @@ the external tools and credentials required to act on third-party systems.
 | [`software-testing`](skills/software-testing/) | Focused non-frontend test and repository-native benchmark design, implementation, and verification. |
 | [`software-validation`](skills/software-validation/) | Repository-native discovery and execution of existing typecheck, lint, test, benchmark, load, build, package, and documentation gates with explicit evidence gaps. |
 | [`tech-docs`](skills/tech-docs/) | Repository-native READMEs, guides, API and CLI references, migration notes, code documentation, examples, and verification. |
+| [`typescript-engineering`](skills/typescript-engineering/) | Strict, honest server-side and general TypeScript implementation and review across types, modules, async, errors, and tooling contracts. |
 
 ### Positioning, marketing, and communication
 
@@ -251,7 +252,7 @@ dalo doctor
 ```
 
 Unlike `source add-catalog`, `source add` treats this repository as a trusted
-team source, so all 21 first-party skills are active together. External
+team source, so all 22 first-party skills are active together. External
 repositories are configured separately as DALO catalogs; they are never copied
 or renamed here. See [docs/dalo.md](docs/dalo.md) for the complete setup and the
 curated external selection.

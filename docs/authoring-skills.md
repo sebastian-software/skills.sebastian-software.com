@@ -29,13 +29,15 @@ Do not add external snapshots or generated copies.
 Add a dedicated language engineering skill only where the generic engineering and
 testing skills demonstrably miss agent failure modes specific to that language —
 for example borrow-checker workarounds and written unsafe-proof discipline in
-Rust, which `rust-engineering` owns. A language a generic skill already handles
-well does not earn its own skill: TypeScript depth currently lives in
-`effective-web` for frontend concerns and in `software-testing` for test
-evidence, with no dedicated TypeScript engineering skill yet. When a new language
-skill is justified, give it reciprocal `## Routing Boundaries` lines with the
-generic skills so a review, test, or port hands the language-depth findings in
-and keeps lifecycle, merge, and delivery ownership out.
+Rust, which `rust-engineering` owns. TypeScript has its own recurring failure
+modes — casting away type errors, defensive `any`, floating promises, and
+cargo-cult strictness — so `typescript-engineering` owns server-side and general
+TypeScript depth. Frontend and browser-facing TypeScript stays with
+`effective-web`, and TypeScript test evidence stays with `software-testing`; the
+dedicated skill does not absorb those. When a new language skill is justified,
+give it reciprocal `## Routing Boundaries` lines with the generic skills so a
+review, test, or port hands the language-depth findings in and keeps lifecycle,
+merge, and delivery ownership out.
 
 ## Human-Facing `README.md`
 
