@@ -44,14 +44,15 @@ Capture:
 - the path from first awareness to actual commitment
 - the result that would make the switch worthwhile
 
-For interview execution, use the recent-event and neutral-probing baseline in
-[`product-design`'s research and synthesis guidance](../../product-design/references/research-and-synthesis.md),
-which owns it; also use that guidance when the decision requires a research
-plan, situated observation, empathy maps, personas, design-context synthesis,
-or an experience-model handoff. This reference owns the product-decision
-deltas: reconstruct what happened before, during, and after the buying or
-adoption decision, probe commitment, alternatives, and willingness to pay, and
-grade the result with the evidence ladder below.
+For interview execution, use the optional `product-design` skill's
+recent-event and neutral-probing baseline when the decision also needs a
+research plan, situated observation, empathy maps, personas, design-context
+synthesis, or an experience-model handoff. Without it, ask about specific past
+events and probe context, behavior, artifacts, expectations, and consequences.
+This reference owns the product-decision deltas: reconstruct what happened
+before, during, and after the buying or adoption decision, probe commitment,
+alternatives, and willingness to pay, and grade the result with the evidence
+ladder below.
 
 ## Use an evidence ladder
 
