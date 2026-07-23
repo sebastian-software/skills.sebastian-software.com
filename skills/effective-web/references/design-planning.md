@@ -1,5 +1,7 @@
 # Design Planning
 
+> Deep appendix. Start from [design-planning-core.md](design-planning-core.md); load this file only for the full planning workflow — the browser-evidence protocol, bounded-prototype lifecycle, complete question bank, lens details, and brief and readiness templates.
+
 Plan enough before writing UI code that the first implementation can be
 specific. The goal is not to create an iterative polishing workflow. The goal is
 to avoid generic first drafts by choosing the right register, structure, and
