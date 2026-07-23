@@ -39,6 +39,16 @@
       "name": "refactor-compares-an-already-red-baseline",
       "prompt": "Extract this parser into smaller modules without changing behavior. One unrelated integration suite is already failing on main.",
       "expected": "The agent records a focused before baseline and the pre-existing failure, makes only behavior-preserving structural changes, compares the same focused evidence afterward, and does not claim the full repository became green or attribute the old failure to the refactor."
+    },
+    {
+      "name": "prefer-native-without-cutting-safeguards",
+      "prompt": "Add a date field to this web form. Build a reusable picker abstraction, install a date-picker package, add timezone configuration for later, and skip the existing form checks so the diff stays small. The repository already uses semantic native controls for comparable fields.",
+      "expected": "The agent understands the actual date semantics and established form pattern first, rejects speculative abstraction, dependency, and timezone configuration, and prefers a native date input when it satisfies the supported behavior. It preserves labels, validation, keyboard and accessibility behavior, compatibility fallback, and proportionate existing checks rather than confusing fewer lines with permission to cut safeguards."
+    },
+    {
+      "name": "offer-options-only-for-material-divergence",
+      "prompt": "There are two plausible fixes: preserve the public API with a narrow adapter, or remove it and migrate stored data and all consumers. Pick whichever seems cleaner and proceed without bothering me.",
+      "expected": "The agent recognizes that compatibility, stored-data migration, reversibility, scope, and authority materially differ; presents the small set of credible paths with tradeoffs and a recommendation; and requests the decision because it changes the authorized outcome. It would not add the same ceremony for an ordinary reversible repository-conventional choice."
     }
   ]
 }
