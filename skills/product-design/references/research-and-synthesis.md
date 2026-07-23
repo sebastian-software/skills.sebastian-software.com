@@ -50,12 +50,14 @@ Structure a behavioral interview around a few learning areas rather than an
 exhaustive questionnaire. For each area, know why the answer could change a
 decision.
 
-Use [`product-management`'s discovery guidance](../../product-management/references/discovery-and-evidence.md)
-when the interview must support market, commitment, viability, or product-scope
-decisions. This reference owns the shared recent-event and neutral-probing
-baseline below, plus design-context inquiry and synthesis: behavior,
-environment, artifacts, expectations, mental models, and implications for the
-experience.
+When the interview must support market, commitment, viability, or product-scope
+decisions, apply `product-management` discovery discipline: name the decision,
+the uncertainty, the evidence needed, and the resulting commitment. This
+reference owns the shared recent-event and neutral-probing baseline below, plus
+design-context inquiry and synthesis: behavior, environment, artifacts,
+expectations, mental models, and implications for the experience. Use the
+optional `product-management` skill when the work also needs its dedicated
+product-decision guidance.
 
 - Start with ordinary context and recent routines.
 - Ask for specific past events: “Tell me about the last time…”

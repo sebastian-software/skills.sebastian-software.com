@@ -256,4 +256,4 @@ both edges.
 Sources: [David Bushell's full-bleed analysis](https://dbushell.com/2026/07/03/fixing-full-bleed-css/),
 [CSS Values viewport and scrollbar behavior](https://www.w3.org/TR/css-values-4/#viewport-relative-lengths),
 [CSS container-relative units](https://www.w3.org/TR/css-contain-3/#container-lengths),
-and the [CSS Properties and Values API](https://drafts.css-houdini.org/css-properties-values-api-1/#computed-value-time).
+and the [CSS Properties and Values API](https://drafts.css-houdini.org/css-properties-values-api-1/).

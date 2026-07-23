@@ -52,12 +52,10 @@ about its environment.
 Three active running-system repositories were checked as representative
 service shapes:
 
-- [`stellara` at `43cf48c5`](https://github.com/sebastian-software/stellara/tree/43cf48c534786fb307a2566233ac148b8517a0cb),
-  a Fastify REST and MCP gateway;
-- [`relanto` at `3ed351f2`](https://github.com/sebastian-software/relanto/tree/3ed351f22e2f115c1ea1415ec3f31670389758a2),
-  an email-delivery service; and
-- [`terminaro` at `2b588d18`](https://github.com/sebastian-software/terminaro/tree/2b588d185b1d13bc307bfadff6c11ffbc5225970),
-  an appointment-booking application.
+- `stellara` at internal snapshot `43cf48c5`, a Fastify REST and MCP gateway;
+- `relanto` at internal snapshot `3ed351f2`, an email-delivery service; and
+- `terminaro` at internal snapshot `2b588d18`, an appointment-booking
+  application.
 
 Their repository trees contain no maintained load, soak, or stress harness.
 The organization-wide searches found no intentional k6, Locust, JMeter, or

@@ -5,11 +5,13 @@ link directory.
 
 ## Keep profile ownership explicit
 
-Use [Consultant Profile](../../consultant-profile/SKILL.md) as the owner of
-field-level profile doctrine: professional evidence, photo, banner, headline,
-About, Experience, skills, recommendations, localization, and cross-channel
-consistency. This route owns only the acquisition overlay: the target-buyer path,
-campaign proof, Featured choices, primary action, and downstream measurement.
+Use the optional `consultant-profile` skill for field-level profile doctrine:
+professional evidence, photo, banner, headline, About, Experience, skills,
+recommendations, localization, and cross-channel consistency. Without that
+skill, audit those fields against the target buyer, promise, evidence, and
+acquisition path defined here. This route owns the acquisition overlay: the
+target-buyer path, campaign proof, Featured choices, primary action, and
+downstream measurement.
 
 For end-to-end social-selling work:
 

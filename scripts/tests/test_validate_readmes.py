@@ -343,6 +343,69 @@ class InlineCodeLinkExtractionTests(unittest.TestCase):
         self.assertEqual(errors, ["README.md: missing missing.md"])
 
 
+class IsolatedSkillRuntimeLinkTests(unittest.TestCase):
+    def setUp(self) -> None:
+        self.temporary_directory = tempfile.TemporaryDirectory()
+        self.root = Path(self.temporary_directory.name)
+        self.skill = self.root / "skills" / "example"
+        self.references = self.skill / "references"
+        self.references.mkdir(parents=True)
+        self.skill.joinpath("SKILL.md").write_text("# Example\n", encoding="utf-8")
+        self.original_root = VALIDATOR.REPOSITORY_ROOT
+        VALIDATOR.REPOSITORY_ROOT = self.root
+
+    def tearDown(self) -> None:
+        VALIDATOR.REPOSITORY_ROOT = self.original_root
+        self.temporary_directory.cleanup()
+
+    def test_accepts_links_within_an_isolated_skill_artifact(self) -> None:
+        guide = self.references / "guide.md"
+        guide.write_text("See [another section](other.md).\n", encoding="utf-8")
+        self.references.joinpath("other.md").write_text("# Other\n", encoding="utf-8")
+        errors: list[str] = []
+
+        VALIDATOR.validate_isolated_skill_runtime_links(self.skill, errors)
+
+        self.assertEqual(errors, [])
+
+    def test_rejects_a_sibling_skill_link_from_a_reference(self) -> None:
+        sibling = self.root / "skills" / "other"
+        sibling.mkdir()
+        sibling.joinpath("SKILL.md").write_text("# Other\n", encoding="utf-8")
+        guide = self.references / "guide.md"
+        guide.write_text("See [Other](../../other/SKILL.md).\n", encoding="utf-8")
+        errors: list[str] = []
+
+        VALIDATOR.validate_isolated_skill_runtime_links(self.skill, errors)
+
+        self.assertEqual(
+            errors,
+            [
+                "skills/example/references/guide.md: sibling-skill link "
+                "../../other/SKILL.md; use inline `other` guidance instead"
+            ],
+        )
+
+    def test_rejects_a_sibling_skill_link_from_skill_instructions(self) -> None:
+        sibling = self.root / "skills" / "other"
+        sibling.mkdir()
+        sibling.joinpath("SKILL.md").write_text("# Other\n", encoding="utf-8")
+        self.skill.joinpath("SKILL.md").write_text(
+            "See [Other](../other/SKILL.md).\n", encoding="utf-8"
+        )
+        errors: list[str] = []
+
+        VALIDATOR.validate_isolated_skill_runtime_links(self.skill, errors)
+
+        self.assertEqual(
+            errors,
+            [
+                "skills/example/SKILL.md: sibling-skill link ../other/SKILL.md; "
+                "use inline `other` guidance instead"
+            ],
+        )
+
+
 class ReferenceOrphanTests(unittest.TestCase):
     def setUp(self) -> None:
         self.temporary_directory = tempfile.TemporaryDirectory()

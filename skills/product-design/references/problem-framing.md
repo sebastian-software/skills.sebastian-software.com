@@ -126,9 +126,9 @@ Frequency alone must not erase rare but severe cases.
 
 This comparison chooses what design should explore next; it does not set product
 priority, roadmap order, release scope, or investment. Route those decisions to
-[`product-management`](../../product-management/SKILL.md) with the exploration
-evidence and tradeoffs attached. Describe the output here as an exploration
-order unless product management has already supplied an accepted priority.
+`product-management` with the exploration evidence and tradeoffs attached.
+Describe the output here as an exploration order unless product management has
+already supplied an accepted priority.
 
 ## Problem-space deliverable
 
