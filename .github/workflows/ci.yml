@@ -31,8 +31,16 @@ jobs:
       - name: Install viewport regression dependencies
         run: npm ci --ignore-scripts
 
+      - name: Install Chrome for viewport regression
+        id: chrome
+        uses: browser-actions/setup-chrome@19ae4b339ee18925ab85cf12c1041150ea4a44c8 # v1
+        with:
+          chrome-version: stable
+
       - name: Check narrow viewport layout
         run: npm run test:site-layout
+        env:
+          CHROME_BIN: ${{ steps.chrome.outputs.chrome-path }}
 
       - name: Install pinned DALO release
         env:
