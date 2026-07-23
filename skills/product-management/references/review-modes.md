@@ -1,16 +1,17 @@
 # Review Modes
 
-Select one primary review mode after applying the core evidence-review contract.
-Use the mode to add decision-specific gates and dimensions, not to replace the
-claim-evidence register or common verdict vocabulary.
+Select one primary review mode after applying the core evidence-review contract
+in [evidence-review.md](evidence-review.md). Use the mode to add
+decision-specific gates and dimensions, not to replace the claim-evidence
+register or common verdict vocabulary.
 
 ## Select the Smallest Applicable Mode
 
 | Mode | Use for | Load with |
 | --- | --- | --- |
-| `product-decision` | Product briefs, strategies, prioritization choices, roadmaps, and investment recommendations | Discovery, strategy, and scope guidance as relevant |
-| `go-to-market-claim` | Positioning inputs, launch claims, sales promises, proof packets, and product-to-marketing handoffs | Go-to-market handoff guidance |
-| `launch-readiness` | Release recommendations, rollout plans, exposure changes, and post-pilot scale decisions | Product quality and shipping guidance |
+| `product-decision` | Product briefs, strategies, prioritization choices, roadmaps, and investment recommendations | Discovery and evidence, Strategy and outcomes, and Scope and prioritization, as relevant |
+| `go-to-market-claim` | Positioning inputs, launch claims, sales promises, proof packets, and product-to-marketing handoffs | Go-to-market handoff |
+| `launch-readiness` | Release recommendations, rollout plans, exposure changes, and post-pilot scale decisions | Product quality and delight, and Shipping and learning |
 
 Choose the mode from the decision the artifact must support, not its filename.
 If an artifact spans several modes, use one primary mode and apply only the

@@ -64,7 +64,7 @@ route.
 
 ## Apply Decision-Readiness Gates
 
-For a decision-ready artifact, mark each gate `pass`, `fail`, `unknown`, or
+For each readiness gate, mark it `pass`, `fail`, `unknown`, or
 `not_applicable`:
 
 1. Target user and triggering situation are specific enough to act on.
@@ -79,9 +79,11 @@ For a decision-ready artifact, mark each gate `pass`, `fail`, `unknown`, or
 6. An accountable owner, decision window, next signal, and keep, change, stop,
    or escalate rule exist.
 
-A failed critical gate blocks a `ready` verdict even when other dimensions are
-strong. Use `insufficient evidence` when the review cannot distinguish failure
-from missing input.
+A gate is critical when its failure makes the proposed action unsafe or
+incoherent at the declared exposure and reversibility. A failed critical gate
+blocks a `ready` verdict even when other dimensions are strong. Use
+`insufficient evidence` when the review cannot distinguish failure from missing
+input.
 
 ## Prefer Anchored Verdicts Over Aggregate Scores
 
@@ -97,8 +99,9 @@ Use one verdict:
   readiness judgment
 
 Do not average a contradiction or failed trust gate into a reassuring score.
-When the user explicitly requests scoring, score each applicable dimension from
-0 to 3 and keep the final verdict gate-based:
+When the user explicitly requests scoring, score each mode dimension when a
+review mode is selected; otherwise score each readiness gate and consequential
+claim. Score from 0 to 3 and keep the final verdict gate-based:
 
 - `0`: absent or contradicted
 - `1`: assertion or weak indirect signal
