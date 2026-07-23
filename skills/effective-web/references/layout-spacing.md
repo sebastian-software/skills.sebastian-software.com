@@ -1,5 +1,7 @@
 # Layout and Spacing
 
+> Deep appendix. Start from [layout-foundations.md](layout-foundations.md); load this file only for uncommon spacing and CSS patterns.
+
 Create a consistent spacing system and learn about alignment and layout.
 
 ## Group Related Elements
@@ -657,8 +659,8 @@ When you need different crops or aspect ratios at different breakpoints (not jus
 
 ### Image Format Priority
 
-1. **AVIF** — smallest files, best quality, ~93% browser support
-2. **WebP** — good compression, ~97% support
+1. **AVIF** — smallest files, best quality; Baseline Newly available (serve behind a `<picture>` fallback)
+2. **WebP** — good compression; Baseline Widely available
 3. **JPEG/PNG** — universal fallback
 
 Use `<picture>` with `type` to serve modern formats with fallbacks. For most projects, WebP alone is sufficient.
@@ -928,23 +930,3 @@ Avoid `px` for font sizes - it overrides the user's browser font size preference
 }
 ```
 All `rem`-based values scale automatically.
-
-## Chapter Summary
-
-1. Group related elements using containers, proximity, similarity, or continuity — don't default to cards when spacing or background tints suffice
-2. Create clear visual hierarchy using size, colour, contrast, spacing, position, depth
-3. Interfaces = rectangles within rectangles with margin, padding, border (box model)
-4. Create predefined spacing options in 8pt increments; space based on relationship
-5. Align to 12-column grid; avoid multiple different alignments
-6. Use logical properties (`margin-inline-start`) instead of physical properties (`margin-left`)
-7. Make the parent own sibling rhythm: use `gap` for Flex/Grid and the Owl for
-   normal block flow; nest Stack/group contexts for different relationships
-   instead of assigning default outer margins to reusable children
-8. Choose and compose intrinsic layout algorithms before adding container or
-   viewport breakpoints
-9. Use responsive images (`srcset`, `sizes`, `loading="lazy"`) and prevent layout shift with `aspect-ratio`
-10. Use container queries for component-level responsiveness; media queries for page-level layout
-11. Use subgrid to align nested content across sibling elements
-12. Use `pointer`/`hover` media queries to adapt interaction to input method — never hide content behind hover
-13. Use `env(safe-area-inset-*)` with `viewport-fit=cover` for notches, home indicators, and gesture bars
-14. Use relative units (rem, em, ch) for accessible, scalable layouts

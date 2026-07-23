@@ -57,7 +57,7 @@ Use these editing sweeps:
 7. **Risk** - Does anything sound exaggerated, unverifiable, or likely to trigger distrust?
 8. **Fit** - Does the copy make role fit and boundaries clearer, or does it imply generic "can do everything" breadth?
 
-### Humanizer
+### Human-Voice Cleanup
 
 Remove AI-ish and hollow marketing patterns:
 

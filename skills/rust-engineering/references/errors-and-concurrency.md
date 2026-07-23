@@ -2,18 +2,16 @@
 
 ## Separate Expected Failure from Defects
 
-Return `Result` when callers can reasonably encounter and handle the failure.
-Use `Option` only when absence is the whole contract; do not erase a meaningful
-failure into `None`. Preserve a typed error when callers need to branch and add
-human-readable context at boundaries where it identifies the failed operation
-or resource.
-
-Do not log and return the same error at every layer. Choose the layer that owns
-the operational event and preserve the source chain for diagnostics.
+`Result` for handleable failure and `Option` for genuine absence is baseline;
+the rules that change decisions are to not erase a meaningful failure into
+`None`, to preserve a typed error when callers must branch, and to add context
+at boundaries that identify the failed operation or resource. Do not log and
+return the same error at every layer — choose the layer that owns the
+operational event and preserve the source chain for diagnostics.
 
 Use `unwrap` or `expect` only when failure would prove a programmer error or a
-locally established invariant. Prefer an assertion or `expect` message that
-states the invariant, not a generic claim that the value "should exist". Do not
+locally established invariant, with an assertion or `expect` message that states
+the invariant rather than a generic claim that the value "should exist". Do not
 ban these methods mechanically in tests, prototypes, generated code, or proven
 invariant boundaries; review whether the proof remains valid instead.
 
@@ -31,7 +29,7 @@ which state may already have changed, which resource must be released, and
 whether retrying is safe. Keep guards and partially initialized state owned so
 drop behavior leaves a valid result.
 
-- Do not hold a synchronous mutex guard across unrelated `.await` points.
+- Do not hold a synchronous mutex guard across any `.await` point.
 - Use an async-aware lock only when the protected operation genuinely spans an
   await; otherwise shorten the critical section or move awaited work outside.
 - Bound queues, tasks, retries, and concurrency from an actual resource or

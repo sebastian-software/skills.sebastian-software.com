@@ -1,5 +1,7 @@
 # Navigation
 
+> Deep appendix. Start from [navigation-structure.md](navigation-structure.md) and [navigation-responsive.md](navigation-responsive.md); load this file only for unusual navigation combinations.
+
 Patterns and guidelines for building accessible, well-structured navigation that works across devices and input methods.
 
 ## Navigation Types and When to Use Each
@@ -801,14 +803,3 @@ Screen readers benefit from `<ul>` inside `<nav>` because they announce "list, N
 15. Consider sticky or partially sticky menus for long pages
 16. Optimise for easy physical access to frequently used items (Fitts's Law)
 17. Avoid innovative or gimmicky navigation patterns
-
-## Chapter Summary
-
-1. Use `<nav>` with `<ul>` for all navigation; label with `aria-label` when multiple `<nav>` exist
-2. Mark active page with `aria-current="page"` -- visible styling and semantic
-3. Show navigation visibly on desktop; hide only on mobile when items exceed 4
-4. Use the disclosure pattern (`aria-expanded`) for expandable menus, not ARIA menu roles
-5. Provide keyboard access: Tab between links, Escape to close
-6. Fix sticky header focus obscurement with `scroll-padding-top`
-7. Use click-activation for menus, not hover-only
-8. Front-load keywords in labels; use specific, familiar terms

@@ -68,7 +68,7 @@ def review_template(skill: str, scenario_names: set[str]) -> dict[str, object]:
             {
                 "name": name,
                 "response": "",
-                "result": "pass",
+                "result": "",
                 "grading_evidence": "",
             }
             for name in sorted(scenario_names)

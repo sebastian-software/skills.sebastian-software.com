@@ -90,6 +90,47 @@ for (const button of filterButtons) {
   })
 }
 
+const capabilityTabs = [...document.querySelectorAll("[data-capability-tab]")]
+const capabilityPanels = [...document.querySelectorAll("[data-capability-panel]")]
+
+const activateCapability = (tab, moveFocus = false) => {
+  const capability = tab.dataset.capabilityTab
+
+  for (const candidate of capabilityTabs) {
+    const selected = candidate === tab
+    candidate.setAttribute("aria-selected", String(selected))
+    candidate.tabIndex = selected ? 0 : -1
+  }
+
+  for (const panel of capabilityPanels) {
+    panel.hidden = panel.dataset.capabilityPanel !== capability
+  }
+
+  if (moveFocus) tab.focus()
+}
+
+for (const [index, tab] of capabilityTabs.entries()) {
+  tab.addEventListener("click", () => activateCapability(tab))
+  tab.addEventListener("keydown", (event) => {
+    let nextIndex
+
+    if (event.key === "ArrowRight" || event.key === "ArrowDown") {
+      nextIndex = (index + 1) % capabilityTabs.length
+    } else if (event.key === "ArrowLeft" || event.key === "ArrowUp") {
+      nextIndex = (index - 1 + capabilityTabs.length) % capabilityTabs.length
+    } else if (event.key === "Home") {
+      nextIndex = 0
+    } else if (event.key === "End") {
+      nextIndex = capabilityTabs.length - 1
+    } else {
+      return
+    }
+
+    event.preventDefault()
+    activateCapability(capabilityTabs[nextIndex], true)
+  })
+}
+
 const revealElements = [...document.querySelectorAll(".reveal")]
 
 if (!reduceMotion.matches && "IntersectionObserver" in window) {

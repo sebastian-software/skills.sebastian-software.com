@@ -1,5 +1,7 @@
 # Scroll Patterns
 
+> Deep appendix. Start from [scroll-navigation.md](scroll-navigation.md) and [scroll-feedback.md](scroll-feedback.md); load this file only for specialist scroll cases.
+
 Techniques for controlling scroll behaviour, scroll-driven animations, and scroll-related UX patterns that respect user preferences and assistive technology.
 
 ## CSS Scroll Snap

@@ -68,7 +68,7 @@
     {
       "name": "follow-repository-commit-convention-before-fallback",
       "prompt": "Commit the documentation fix. This repository's contributing guide and recent history use `DOCS(component): concise outcome` in German, while your default is lowercase Conventional Commits with an AI-generated trailer.",
-      "expected": "Inspects and follows the coherent repository convention and language, derives the subject from the staged documentation diff, omits unrequired AI attribution, and does not replace an established convention with its generic fallback."
+      "expected": "Inspects and follows the coherent repository convention and language, derives the subject from the staged documentation diff, omits AI attribution not required by the repository, host, or user, and does not replace an established convention with its generic fallback."
     },
     {
       "name": "split-independent-compound-commit",

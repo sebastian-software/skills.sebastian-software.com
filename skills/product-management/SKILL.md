@@ -8,8 +8,8 @@ description: >-
   prioritization, roadmaps, feature requests, quality bars, product delight,
   release decisions, product experiments, adoption and retention learning, or
   transitions from consulting and services to repeatable products. Use when
-  deciding what to build, why, for whom, or whether an artifact or product is
-  ready to act on, especially when product, design, engineering, and
+  deciding what to build, why, for whom, or whether a product artifact or
+  product is ready to act on, especially when product, design, engineering, and
   go-to-market evidence must stay aligned.
 ---
 

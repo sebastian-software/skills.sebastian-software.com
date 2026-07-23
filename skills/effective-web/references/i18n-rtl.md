@@ -1,5 +1,7 @@
 # Internationalisation and RTL
 
+> Deep appendix. Start from the [Internationalization UX route](route-i18n.md), which narrows to the sections your target locales need; load this file for the full RTL and locale reference.
+
 Build interfaces that work across languages, scripts, and reading directions.
 
 ## Set Text Direction with the HTML `dir` Attribute
@@ -526,18 +528,3 @@ pseudoLocalize('Hello world'); // → "Ħḗŀŀǿ ẇǿřŀḓ"
 - `lang` and `dir` attributes are set correctly on `<html>`
 
 *Source: BrowserStack Internationalisation Testing, pseudo-localization (GitHub)*
-
-## Chapter Summary
-
-1. Set text direction with HTML `dir` (not CSS `direction`) -- use `ltr`, `rtl`, or `auto` for user-generated content
-2. Use CSS logical properties for all spacing, positioning, borders, border-radius, floats, and text alignment
-3. Mirror page layout and directional icons for RTL but never flip media controls, logos, checkmarks, or clocks
-4. Design flexible containers that accommodate 100-200% text expansion for short strings and 30% for longer content
-5. Wrap user-generated content of unknown direction in `<bdi>` elements to isolate bidirectional text
-6. Format all numbers, dates, and lists with the `Intl` API -- never hardcode locale-specific formats
-7. Define per-script font stacks using `:lang()` selectors and load only needed subsets with `unicode-range`
-8. Set Arabic line-height to 1.7 or higher to prevent clipped diacritics
-9. Never rely on colour alone to convey meaning -- colour symbolism varies across cultures
-10. Prefer abstract, universally recognised icons over culturally specific metaphors
-11. Test RTL by adding `dir="rtl"` to `<html>` in DevTools and use pseudo-localisation to catch layout issues before translation
-12. Audit every icon as directional (flip with `scaleX(-1)`) or non-directional (never flip)

@@ -63,8 +63,8 @@ Add a body when the reason, constraint, migration, security consequence, or
 behavior change is not recoverable from the subject and diff. Mark breaking
 changes and reverts using the repository's convention, and name relevant issue
 or migration context when it will remain useful. Do not add AI attribution,
-generated-by trailers, emojis, or release tokens unless the repository
-explicitly requires them.
+generated-by trailers, emojis, or release tokens unless the repository, host
+platform, or user explicitly requires them.
 
 Derive the message from the staged diff, not from the original request or the
 whole worktree. Do not use `chore` as a generic escape hatch for a user-visible

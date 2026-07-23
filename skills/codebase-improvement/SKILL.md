@@ -104,6 +104,9 @@ convention; never introduce a private hypothesis or report directory.
 - Route pull-request review and upkeep to `pr-review`.
 - Route focused non-frontend test design, test implementation, and test-suite or
   test-framework diagnosis to `software-testing`.
+- Route Rust-specific implementation and refactoring depth to `rust-engineering`.
+- Route non-frontend TypeScript-specific implementation and refactoring depth to
+  `typescript-engineering`.
 - Route discovery and execution of established repository-native validation
   commands to `software-validation`; use this skill to decide what improvement
   or evidence should exist, not to duplicate the command runner.

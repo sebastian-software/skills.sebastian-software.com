@@ -170,4 +170,8 @@ gate, focused coverage, and lower total risk than immediate replacement.
   differential evidence to `software-testing`.
 - Route discovery and execution of established repository-native checks to
   `software-validation`; this skill owns migration-specific parity gates.
+- Route a post-parity Rust idiom and quality pass on ported code to
+  `rust-engineering`, and a post-parity non-frontend TypeScript idiom and
+  quality pass to `typescript-engineering`; this skill owns the
+  behavior-preserving migration and its parity gates.
 - Route review and upkeep of the resulting pull requests to `pr-review`.

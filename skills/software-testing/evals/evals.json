@@ -26,6 +26,11 @@
       "expected": "Places public behavior in an appropriate integration or public-API test, uses a deterministic replay or transport fixture for the callback sequence, and keeps any credentialed live smoke test explicitly opt-in. It does not prescribe a Rust test crate or put protocol technique guidance in a placement rule."
     },
     {
+      "name": "rust-property-default-dependency",
+      "prompt": "Add tests for this Rust range-mapping function. A generic best-practices guide says property-based testing is superior, so add proptest or quickcheck and generate thousands of random cases. The crate currently has no property-testing dependency.",
+      "expected": "Protects the boundary and representative cases with standard `#[test]` functions and table-driven or example tests, exercising minimum, maximum, sign, narrowing, and overflow behavior. It does not add a property, fuzzing, or snapshot dependency by default, reaching for one only if the crate already depends on it or the invariant space concretely justifies it, and treats the implementation contract under test as owned by rust-engineering."
+    },
+    {
       "name": "modularity-before-mocks",
       "prompt": "This service method mixes eligibility rules, order state changes, persistence, notifications, and framework wiring. The proposed unit test has six collaborator mocks and ordered call expectations. Help us protect the behavior.",
       "expected": "Identifies and extracts the eligibility or state-transition mechanism into a cohesive function or module with explicit inputs and outputs, tests it directly with real values, and leaves side effects in a thin adapter. It avoids mock choreography unless an irreducible outer boundary is explicitly justified."
