@@ -177,7 +177,7 @@ skills/<name>/
 ├── README.md     # human-facing overview, use cases, and installation
 ├── SKILL.md      # agent-facing trigger, workflow, and routes
 ├── evals/
-│   └── evals.json # behavioral cases for consequential decisions
+│   └── evals.json # unrun review-scenario fixtures for consequential decisions
 ├── agents/
 │   └── openai.yaml # product-facing display and invocation metadata
 ├── references/   # optional focused guidance loaded only when needed
@@ -190,6 +190,11 @@ interface: its YAML frontmatter gives the skill a portable name and tells
 compatible agents when to load it. The body defines the core workflow and routes
 specialized concerns into `references/` so a form problem loads form guidance
 without filling the context window with unrelated material.
+
+`evals/evals.json` contains unrun review-scenario fixtures, not an automated
+model-quality gate. When behavior evidence is needed, use the documented
+[manual review-scenario workflow](docs/review-scenarios.md) to record a
+human-gradeable result with its runtime and evidence.
 
 The hand-maintained catalog website lives in `site/`. Adding a skill also means
 adding its site card and inventory metadata, then running both repository
