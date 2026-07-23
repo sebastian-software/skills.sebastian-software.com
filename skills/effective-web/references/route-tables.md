@@ -17,6 +17,10 @@ Use this skill when the primary UI problem is understanding, comparing, filterin
 - Do not hide essential data behind hover.
 - Sticky headers and columns are useful only when they preserve orientation without covering content.
 - Responsive tables need an explicit strategy, not horizontal overflow by default.
+- Stacked-card patterns that set `display: block` on table elements destroy
+  table semantics for screen readers; restore roles
+  (`role="table"`/`"row"`/`"cell"`) or prefer keeping table `display` — see
+  [html-accessibility.md](html-accessibility.md).
 
 ## References
 

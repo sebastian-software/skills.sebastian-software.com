@@ -94,10 +94,11 @@ dalo sync
   test-suite diagnosis, test design, and implementation.
 - [PR Review](../pr-review/README.md) judges whether a pull request has enough
   evidence to merge; this skill designs and implements the test evidence.
-- [Software Architecture](../software-architecture/README.md) owns system
-  contracts, quality scenarios, workload scenarios, performance targets,
-  capacity, and broader redesign; this skill tests an agreed contract or owns
-  repository-native benchmark methodology for a named question.
+- [Software Architecture](../software-architecture/README.md) owns
+  testing-strategy design, system contracts, quality scenarios, workload
+  scenarios, performance targets, capacity, and broader redesign; this skill
+  tests an agreed strategy or contract and owns repository-native benchmark
+  methodology for a named question.
 - [Port Codebases](../port-codebases/README.md) owns behavior parity and
   compatibility evidence across a port.
 
@@ -105,15 +106,17 @@ dalo sync
 
 This skill owns non-frontend test design, implementation, focused verification,
 and the smallest production-code restructuring needed to expose a cohesive
-mechanism. TypeScript and Rust are the primary ecosystems in active use; other
-languages receive generic, convention-following guidance rather than a
-prescribed framework or toolchain. It does not prescribe Jest, Vitest, pytest,
+mechanism. TypeScript and Rust are the primary ecosystems; other stacks get
+standard-practice, convention-following depth rather than a prescribed
+framework or toolchain. It does not prescribe Jest, Vitest, pytest,
 cargo-nextest, rstest, proptest, mockall, Playwright, an assertion count, a
 coverage percentage, or a strict TDD ritual. It does not own browser testing,
-repository-wide audits, contract design, load, soak, stress, and capacity
-methodology, broad architectural change, or commits and delivery orchestration.
-The evidence-led ownership split is recorded in
-[ADR 0001](../../docs/adr/0001-performance-testing-ownership.md).
+repository-wide audits, testing-strategy design and contract design (owned by
+Software Architecture), load, soak, stress, and capacity methodology (no
+first-party owner; benchmarks here are repository-native comparative
+measurements), broad architectural change, or commits and delivery
+orchestration. The evidence-led ownership split is recorded in
+[ADR 0001](https://github.com/sebastian-software/skills.sebastian-software.com/blob/main/docs/adr/0001-performance-testing-ownership.md).
 
 ## About Sebastian Software
 

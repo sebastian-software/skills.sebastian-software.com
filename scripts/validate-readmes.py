@@ -19,6 +19,11 @@ LICENSE_NOTICE = "MIT — see the collection [LICENSE](../../LICENSE)."
 MARKDOWN_LINK = re.compile(r"\[[^\]]*\]\(([^)]+)\)")
 MARKDOWN_HEADING = re.compile(r"^#{1,6}\s+(.+?)\s*$")
 MARKDOWN_FENCE = re.compile(r"^\s{0,3}(`{3,}|~{3,})(.*)$")
+INLINE_CODE = re.compile(r"``[^`]*``|`[^`\n]*`")
+FRONTMATTER_KEY = re.compile(r"^([A-Za-z_][\w.-]*):\s*(.*)$")
+MAX_DESCRIPTION_LENGTH = 1024
+SKILL_LINE_TARGET = 300
+WORKTREE_SAFETY_SKILLS = ("pr-review", "smart-dependency-updater", "port-codebases")
 
 
 def github_anchor(heading: str) -> str:
@@ -70,8 +75,13 @@ def anchors(markdown: Path) -> set[str]:
     return found
 
 
+def linkable_text(markdown: Path) -> str:
+    """Return Markdown content outside fenced code blocks and inline code spans."""
+    return INLINE_CODE.sub("", without_fenced_code(markdown.read_text(encoding="utf-8")))
+
+
 def validate_local_links(markdown: Path, errors: list[str]) -> None:
-    text = without_fenced_code(markdown.read_text(encoding="utf-8"))
+    text = linkable_text(markdown)
     for raw_target in MARKDOWN_LINK.findall(text):
         target = raw_target.strip().split(maxsplit=1)[0].strip("<>")
         if not target or target.startswith(("http://", "https://", "mailto:")):
@@ -92,6 +102,135 @@ def validate_local_links(markdown: Path, errors: list[str]) -> None:
                     f"{markdown.relative_to(REPOSITORY_ROOT)}: missing anchor #{fragment} "
                     f"in {anchor_file.relative_to(REPOSITORY_ROOT)}"
                 )
+
+
+def parse_skill_frontmatter(text: str) -> dict[str, str] | None:
+    """Parse the flat SKILL.md frontmatter without an external YAML dependency.
+
+    Supports plain scalar values plus folded (>-) and literal (|) block scalars,
+    which is the full shape this repository allows. Returns None when the
+    document has no parseable frontmatter block.
+    """
+    lines = text.splitlines()
+    if not lines or lines[0].strip() != "---":
+        return None
+    try:
+        end = lines.index("---", 1)
+    except ValueError:
+        return None
+
+    data: dict[str, str] = {}
+    current_key: str | None = None
+    in_block_scalar = False
+    for line in lines[1:end]:
+        if in_block_scalar and (line.startswith((" ", "\t")) or not line.strip()):
+            if current_key is not None and line.strip():
+                folded = data[current_key]
+                data[current_key] = f"{folded} {line.strip()}".strip()
+            continue
+
+        in_block_scalar = False
+        key_match = FRONTMATTER_KEY.match(line)
+        if key_match is None:
+            return None
+        current_key, value = key_match.group(1), key_match.group(2).strip()
+        if value in {">", ">-", ">+", "|", "|-", "|+"}:
+            in_block_scalar = True
+            data[current_key] = ""
+        else:
+            data[current_key] = value.strip("'\"")
+    return data
+
+
+def validate_frontmatter(skill_directory: Path, errors: list[str]) -> None:
+    """Validate the parsed SKILL.md frontmatter keys, name, and description."""
+    name = skill_directory.name
+    relative = skill_directory.relative_to(REPOSITORY_ROOT)
+    skill_file = skill_directory / "SKILL.md"
+    frontmatter = parse_skill_frontmatter(skill_file.read_text(encoding="utf-8"))
+    if frontmatter is None:
+        errors.append(f"{relative}/SKILL.md: missing or malformed YAML frontmatter")
+        return
+
+    if set(frontmatter) != {"name", "description"}:
+        errors.append(
+            f"{relative}/SKILL.md: frontmatter keys must be exactly "
+            "['description', 'name']"
+        )
+    if "name" in frontmatter and frontmatter["name"] != name:
+        errors.append(
+            f"{relative}/SKILL.md: frontmatter name {frontmatter['name']!r} "
+            f"must match the directory name {name!r}"
+        )
+    description = frontmatter.get("description", "")
+    if not description:
+        errors.append(f"{relative}/SKILL.md: frontmatter description must not be empty")
+    elif len(description) > MAX_DESCRIPTION_LENGTH:
+        errors.append(
+            f"{relative}/SKILL.md: description is {len(description)} characters "
+            f"after folding; the limit is {MAX_DESCRIPTION_LENGTH}"
+        )
+
+
+def skill_length_warning(skill_directory: Path) -> str | None:
+    """Return a soft warning when SKILL.md exceeds the size target."""
+    skill_file = skill_directory / "SKILL.md"
+    line_count = len(skill_file.read_text(encoding="utf-8").splitlines())
+    if line_count <= SKILL_LINE_TARGET:
+        return None
+    relative = skill_directory.relative_to(REPOSITORY_ROOT)
+    return (
+        f"{relative}/SKILL.md: {line_count} lines exceeds the "
+        f"{SKILL_LINE_TARGET}-line target; consider moving detail into references/"
+    )
+
+
+def validate_reference_orphans(skill_directory: Path, errors: list[str]) -> None:
+    """Require every reference file to be linked from its own skill directory."""
+    references_directory = skill_directory / "references"
+    if not references_directory.is_dir():
+        return
+
+    linked: dict[Path, set[Path]] = {}
+    for markdown in sorted(skill_directory.rglob("*.md")):
+        for raw_target in MARKDOWN_LINK.findall(linkable_text(markdown)):
+            target = raw_target.strip().split(maxsplit=1)[0].strip("<>")
+            if not target or target.startswith(("http://", "https://", "mailto:", "#")):
+                continue
+            path_part = target.partition("#")[0]
+            if not path_part:
+                continue
+            destination = (markdown.parent / unquote(path_part)).resolve()
+            linked.setdefault(destination, set()).add(markdown.resolve())
+
+    for reference in sorted(references_directory.rglob("*.md")):
+        resolved = reference.resolve()
+        inbound = linked.get(resolved, set()) - {resolved}
+        if not inbound:
+            errors.append(
+                f"{reference.relative_to(REPOSITORY_ROOT)}: orphaned reference; "
+                "it must be linked from at least one Markdown file in its skill"
+            )
+
+
+def validate_worktree_safety_sync(skills_root: Path, errors: list[str]) -> None:
+    """Require the shared worktree-safety contracts to stay byte-identical."""
+    paths = [
+        skills_root / name / "references" / "worktree-safety.md"
+        for name in WORKTREE_SAFETY_SKILLS
+    ]
+    existing = [path for path in paths if path.is_file()]
+    if len(existing) < 2:
+        return
+
+    baseline = existing[0]
+    baseline_bytes = baseline.read_bytes()
+    for path in existing[1:]:
+        if path.read_bytes() != baseline_bytes:
+            errors.append(
+                f"{path.relative_to(skills_root.parent)}: must be byte-identical "
+                f"to {baseline.relative_to(skills_root.parent)}"
+            )
 
 
 def validate_evals(skill_directory: Path, errors: list[str]) -> None:
@@ -189,6 +328,7 @@ def validate_required_readme_fragments(
 
 def main() -> int:
     errors: list[str] = []
+    warnings: list[str] = []
     root_readme = REPOSITORY_ROOT / "README.md"
     root_text = root_readme.read_text(encoding="utf-8")
     skill_directories = sorted(path.parent for path in SKILLS_ROOT.glob("*/SKILL.md"))
@@ -208,10 +348,16 @@ def main() -> int:
         text = readme.read_text(encoding="utf-8")
         validate_evals(skill_directory, errors)
         validate_skill_metadata(skill_directory, errors)
+        validate_frontmatter(skill_directory, errors)
+        validate_reference_orphans(skill_directory, errors)
         validate_required_readme_fragments(name, text, errors)
+        if warning := skill_length_warning(skill_directory):
+            warnings.append(warning)
 
         if f"skills/{name}/" not in root_text:
             errors.append(f"README.md: skill {name} is not linked")
+
+    validate_worktree_safety_sync(SKILLS_ROOT, errors)
 
     for label, url in (
         ("Sebastian Software OSS link", OSS_URL),
@@ -222,6 +368,9 @@ def main() -> int:
 
     for markdown in markdown_files:
         validate_local_links(markdown, errors)
+
+    for warning in warnings:
+        print(f"WARNING: {warning}", file=sys.stderr)
 
     if errors:
         print("README validation failed:", file=sys.stderr)

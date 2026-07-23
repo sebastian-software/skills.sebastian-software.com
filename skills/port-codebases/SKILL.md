@@ -57,7 +57,7 @@ parallelism. More agents reduce wall-clock time only when the work can be
 partitioned and verification keeps pace.
 
 When any profile creates, adopts, writes in, stages from, integrates from, or
-removes a worktree, read [Port shard worktree
+removes a worktree, read [worktree
 safety](references/worktree-safety.md). Record its repository, absolute root,
 branch or commit, base, shard ownership, checkout class, and cleanup ownership
 in run context; re-verify before the first write and after every resume or
@@ -156,3 +156,18 @@ gate, focused coverage, and lower total risk than immediate replacement.
    risks, resource profile, and the next queue item. Claim completion only when
    every migration-contract gate passes or the user explicitly accepts an
    exception.
+
+## Routing Boundaries
+
+- Route ordinary dependency bumps — a version upgrade plus scoped local
+  adaptation, even a major with migration work — to `smart-dependency-updater`.
+  This skill owns migrations dominated by mechanical repository-wide
+  translation with their own parity evidence.
+- Route unresolved target-architecture direction and system-boundary tradeoffs
+  to `software-architecture`; record durable migration decisions through
+  `decision-records`.
+- Route focused non-frontend test design beyond the port's parity and
+  differential evidence to `software-testing`.
+- Route discovery and execution of established repository-native checks to
+  `software-validation`; this skill owns migration-specific parity gates.
+- Route review and upkeep of the resulting pull requests to `pr-review`.

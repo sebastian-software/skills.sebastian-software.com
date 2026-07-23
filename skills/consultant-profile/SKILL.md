@@ -1,11 +1,12 @@
 ---
 name: consultant-profile
 description: >-
-  Create, audit, rewrite, localize, and improve consultant CVs, LinkedIn/XING
+  Create, audit, rewrite, localize, and improve consultant CVs, LinkedIn
   profiles, case studies, project lists, bios, and senior technology-consulting
   resumes. Use for positioning, profile completeness, career narratives,
   evidence-led project selection, cross-channel synchronization, and
-  interview-driven discovery.
+  interview-driven discovery. For the profile as a customer-acquisition or
+  pipeline surface, use linkedin-social-selling.
 ---
 
 # Consultant Profile
@@ -141,9 +142,9 @@ For a full rewrite, return a complete profile with:
 
 Prefer concrete, commercially legible language over career-history narration. A strong output should make the reader think, within 30 seconds: "I understand what this person does, where they have done it, and why they are credible for this kind of work."
 
-## Related Skills
+## Routing Boundaries
 
-- Use [linkedin-social-selling](../linkedin-social-selling/SKILL.md) when the
-  completed profile needs a target-buyer acquisition overlay, network,
-  conversation, content, or pipeline strategy. Keep professional evidence and
-  field-level profile content in this skill.
+- Route the acquisition overlay — target-buyer path, network, conversation,
+  content, and pipeline strategy for a completed profile — to
+  `linkedin-social-selling`. Keep professional evidence and field-level profile
+  content in this skill.

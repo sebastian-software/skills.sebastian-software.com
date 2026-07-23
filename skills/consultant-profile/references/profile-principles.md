@@ -2,6 +2,8 @@
 
 This reference condenses current consultant-resume, web-reading, and career-positioning guidance into a reusable profile-writing method.
 
+Note: examples in this file (industries, clients, background details) come from one specific consultant's history and are illustrative only — never transfer them into another user's profile.
+
 ## Research Synthesis
 
 The strongest sources converge on the same point: a consulting profile is not a neutral archive. It is a fast-scanned business argument.
@@ -14,9 +16,9 @@ The strongest sources converge on the same point: a consulting profile is not a 
 - PrepLounge distinguishes traditional CVs from consulting CVs: the former list responsibilities, while the latter prove fit through results, impact, strategic thinking, and value creation. It recommends making top achievements easy to see and writing bullets in a result/action/metric pattern where possible.
 - Europass represents the institutional EU baseline: CVs should be tailored to the specific opportunity, highlight matching skills and experiences, avoid a full detailed history, stay readable, use strong verbs, and usually preserve reverse chronology. Europass also treats a profile as a structured repository from which tailored CVs can be generated in many EU languages.
 - LinkedIn frames the profile as a professional landing page and personal storyboard rather than a static CV. Its own guidance emphasizes a custom headline, short About section, relevant experience, skills, recommendations, media samples, public URL, and ongoing activity.
-- LinkedIn supports profiles in multiple languages, but the owner must translate and maintain the content manually. Viewers see the profile language matching their LinkedIn interface when that language exists.
+- LinkedIn supports profiles in multiple languages. Historically the owner had to translate and maintain each language version manually, but LinkedIn has been rolling out automatic profile translation; treat the maintenance model as volatile and verify current behavior before planning multilingual upkeep. Viewers see the profile language matching their LinkedIn interface when that language exists.
 - Public career-advice sources for LinkedIn converge on a similar pattern: make the headline descriptive, keep the summary concise, add external proof/media, prioritize visible skills, request recommendations, consider multilingual profiles, and post selectively to show perspective.
-- DACH platforms and CV norms remain more document-, role-, and evidence-oriented than many US-style personal-brand profiles. XING, for example, has historically had a stronger DACH focus and tabular career/profile conventions, while LinkedIn is stronger for international reach and content-led visibility.
+- DACH platforms and CV norms remain more document-, role-, and evidence-oriented than many US-style personal-brand profiles. XING, for example, has historically had a stronger DACH focus and tabular career/profile conventions, while LinkedIn is stronger for international reach and content-led visibility. XING has since shifted toward a DACH job board with reduced network features; verify its current relevance to the client's market before investing in a XING profile.
 - Good profile writing also benefits from classic nonfiction and plain-language principles: cut clutter, write for the reader, put important information first, use active verbs, and make claims easy to understand. See `language-and-persuasion.md` for the tone and self-presentation layer.
 - Personality is part of buyer fit, not a decorative afterthought. People often choose consultants partly because they understand and trust the person behind the capability list. Working style, values, taste, motivation, boundaries, and professional judgment should be translated into buyer-safe language and grounded in proof. See `personality-and-boundaries.md` for the personality and role-fit layer.
 
@@ -106,10 +108,10 @@ Recommended LinkedIn structure:
    repeating the headline, crowding the space, or relying on slogans.
 3. **Headline** - combine role, specialization, and buyer-relevant outcomes. Avoid only listing a job title.
 4. **About** - one or two short paragraphs, optionally with bullets. State what the consultant helps with, for whom, and what proof exists.
-5. **Featured** - prioritize one or two high-value proof or conversion paths for
-   the intended buyer. Add another item only for a deliberate campaign; keep
-   supporting case studies, articles, talks, PDFs, or project writeups
-   discoverable without turning Featured into a link directory.
+5. **Featured** - keep one or two high-value proof items for the intended
+   buyer, discoverable without turning Featured into a link directory.
+   Campaign-driven Featured decisions belong to `linkedin-social-selling`'s
+   inbound-profile reference.
 6. **Experience** - treat current independent consulting as the container role. Add selected project evidence inside it rather than duplicating every CV entry.
 7. **Skills** - prioritize searchable, current skills that reinforce the positioning.
 8. **Recommendations** - request targeted recommendations from clients or senior collaborators that prove trust, delivery, and advisory quality.
@@ -143,7 +145,7 @@ Generate channel-specific outputs from that model:
 - LinkedIn headline/About/experience snippets
 - XING or marketplace snippets
 
-For LinkedIn automation, assume caution. Official LinkedIn APIs clearly support authenticated member actions such as sharing posts with `w_member_social`; profile editing is a different capability and should be re-checked against the current official API and terms before building anything that writes directly to a profile. A safer first version is "generate suggested diffs and copy-ready snippets" rather than unattended profile updates.
+For LinkedIn automation, assume caution. At last review, official LinkedIn APIs supported authenticated member actions such as sharing posts (the `w_member_social` scope); scope names and availability shift frequently, and profile editing is a different capability. Re-check both against the current official API and terms before building anything that writes directly to a profile. A safer first version is "generate suggested diffs and copy-ready snippets" rather than unattended profile updates.
 
 ## Project Prominence Model
 

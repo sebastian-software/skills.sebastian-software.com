@@ -148,9 +148,11 @@ measurement reveals, not the technique that is easiest to apply.
 
 ## Fonts
 
-- Set `font-display: swap` (or `optional` for non-critical text) so text renders
-  immediately in a fallback and never blocks paint waiting for the web font.
-  Invisible text (FOIT) blocks LCP when the LCP element is text.
+- Set `font-display: swap` plus a metric-matched fallback font
+  (`size-adjust`/`ascent-override`/`descent-override`); use `fallback` or
+  `optional` when CLS is the measured problem. `swap` renders text immediately
+  in the fallback and never blocks paint waiting for the web font — invisible
+  text (FOIT) blocks LCP when the LCP element is text.
 - `preload` only the one or two font files actually used for above-the-fold text,
   and only the formats actually served. Preloading every weight competes with the
   LCP image for bandwidth.

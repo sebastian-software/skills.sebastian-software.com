@@ -63,6 +63,24 @@ Cognitive load = amount of brain power required to use an interface.
 - Maintain consistency - similar elements look and work similarly
 - Create clear visual hierarchy
 
+### Replace Borders with Subtler Alternatives
+
+Borders add visual noise. When separating elements, try less prominent alternatives first:
+
+- **Background colours** — give input fields and section footers a subtle background colour instead of a border
+- **Spacing** — replace divider lines between list rows with increased padding; the whitespace provides enough separation
+- **Box shadows** — give elevated elements (modals, dropdowns, cards) a subtle shadow instead of a border; mimics real-world depth
+
+**Keep borders when:** form fields need visible boundaries for accessibility (3:1 contrast), background colours aren't distinct enough, or you need to indicate interactive boundaries.
+
+### Use Progressive Disclosure
+
+Reveal information gradually as needed — show only what the current task requires. Use expandable sections for secondary details, and opt-in controls to reveal dependent inputs (e.g. a "Receive updates via text message" checkbox that reveals a required mobile-number field, instead of an always-present optional field).
+
+### Don't Confuse Minimalism with Simplicity
+
+Minimal interfaces can be vague — unlabelled navigation, overly subtle selected states, hidden actions, insufficient icon contrast. Simplify by removing what carries no meaning, never by hiding what users need. People don't use what they can't see: if there is space, keep important content and actions visible, and make hidden content discoverable (e.g. expose the edge of off-screen cards). Don't let aesthetics hinder usability or exclude people — trendy effects (glassmorphic, neumorphic) age poorly and often cause accessibility and hierarchy issues.
+
 ## Create a Design System
 
 A system of predefined options and guidelines for efficient design decisions.
@@ -731,7 +749,7 @@ The one exception to "only animate transform and opacity": `grid-template-rows` 
 }
 ```
 
-**Future alternative:** `interpolate-size: allow-keywords` (Chrome 129+) will allow direct `height: 0` to `height: auto` transitions — but browser support is not yet sufficient (~70%).
+**Future alternative:** `interpolate-size: allow-keywords` (Chrome 129+) allows direct `height: 0` to `height: auto` transitions — but it is Baseline Limited availability, so keep the grid technique as the default until support widens.
 
 ### Every Entrance Needs an Exit
 
@@ -872,8 +890,12 @@ Anticipatory animation helps users mentally prepare. For example, hovering over 
 
 Vestibular disorders affect ~35% of adults over 40. Seizure-triggering animations can be dangerous — never flash elements more than twice per second.
 
+**Static-first is the standard approach:** author the non-animated state as the default, and gate all motion inside `@media (prefers-reduced-motion: no-preference)` (see [motion and interaction](motion-interaction.md) and [Motion route](route-motion.md)). Motion then never reaches users who opted out, and there is nothing to undo.
+
+**Retrofit fallback only:** when adding reduced-motion support to an existing codebase where motion was not gated, a global kill-switch limits the damage until the animations are migrated:
+
 ```css
-/* Safety net: disable all motion by default */
+/* Retrofit safety net for ungated legacy animations */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     animation: none;

@@ -2,6 +2,8 @@
 
 Use this reference when the task involves tone, translation, self-presentation, LinkedIn copy, English variants, German variants, or making a consultant profile feel more positive without becoming hollow.
 
+Note: examples in this file (industries, clients, background details) come from one specific consultant's history and are illustrative only — never transfer them into another user's profile.
+
 ## Core Principle
 
 Write profiles as positive, evidence-backed interpretation.
@@ -67,9 +69,12 @@ Remove AI-ish and hollow marketing patterns:
 
 Replace them with real evidence: client context, role, deliverable, constraint, outcome, or domain.
 
-### Metro English
+### Natural Idiomatic English
 
-Use natural English for LinkedIn, About sections, and international variants:
+Apply this register directly for LinkedIn, About sections, and international
+variants. Do not invoke the `metro-english` skill for this: it is scoped to
+internal team channels (Slack, issues, PRs), not public profile content. The
+register itself:
 
 - prefer plain verbs over corporate verbs
 - use contractions when they fit the channel

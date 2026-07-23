@@ -615,13 +615,3 @@ Match photo colour temperature to palette for harmonious look:
 - Warm palette (orange) = warmer photos
 
 Not for product photos where realistic colours matter.
-
-## Chapter Summary
-
-1. Ensure text/UI elements have sufficient contrast; don't rely on colour alone
-2. Design in black and white first, then add colour purposefully (brand colour for interactive elements)
-3. Create small predefined colour palette with usage rules
-4. Use OKLCH for perceptually uniform palettes; derive variations with relative color syntax
-5. Use `light-dark()` for clean theme switching without media query duplication
-6. Consider transparent colours for consistent prominence across backgrounds
-7. Name colours systematically using a 3-tier token architecture

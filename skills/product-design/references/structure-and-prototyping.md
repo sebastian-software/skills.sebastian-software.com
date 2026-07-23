@@ -94,10 +94,10 @@ Prototype the uncertain part and enough surrounding context for it to be
 credible. Avoid building every screen at high fidelity when the decision
 depends on one model, transition, or state change.
 
-Product Design owns the decision-grade question, fidelity choice, realistic
+`product-design` owns the decision-grade question, fidelity choice, realistic
 task, and evaluation plan. When the uncertainty is specifically browser layout,
 responsive behavior, input, or implementation under already accepted intent,
-use Effective Web's [bounded browser prototype protocol](../../effective-web/references/design-planning.md#bounded-browser-prototypes).
+use `effective-web`'s [bounded browser prototype protocol](../../effective-web/references/design-planning.md#bounded-browser-prototypes).
 Carry its `Discard`, `Rebuild`, or `Productionize` conclusion back into the
 design brief and prototype findings; do not leave a parallel browser artifact.
 
@@ -140,11 +140,11 @@ to the audience, purpose, and design brief. Avoid generic mood words that cannot
 help distinguish a decision. Also name qualities that would send the wrong
 signal.
 
-This exploration precedes or feeds Effective Web's compact
+This exploration precedes or feeds `effective-web`'s compact
 [Design Read](../../effective-web/references/design-directions.md#design-read)
 and [Decide Before Styling](../../effective-web/references/design-planning.md#decide-before-styling)
-contract. Product Design compares materially different experience directions;
-Effective Web carries the accepted direction into browser structure,
+contract. `product-design` compares materially different experience directions;
+`effective-web` carries the accepted direction into browser structure,
 implementation constraints, and its
 [persistence and drift](../../effective-web/references/design-directions.md#persistence-and-drift)
 rules.

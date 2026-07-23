@@ -2,6 +2,8 @@
 
 Use this reference when a consultant profile should feel coherent rather than like a loose list of projects. The goal is not to write a biography or a dramatic story. The goal is to reveal the professional through-line that is already present in the work.
 
+Note: examples in this file (industries, clients, background details) come from one specific consultant's history and are illustrative only — never transfer them into another user's profile.
+
 ## Core Idea
 
 A strong profile answers two questions at once:

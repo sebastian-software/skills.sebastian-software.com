@@ -44,15 +44,14 @@ Capture:
 - the path from first awareness to actual commitment
 - the result that would make the switch worthwhile
 
-Ask about a recent concrete event. Reconstruct what happened before, during,
-and after the decision instead of asking what someone might do in the future.
-
-Use [Product Design's research and synthesis guidance](../../product-design/references/research-and-synthesis.md)
-when the decision requires a research plan, situated observation, empathy maps,
-personas, design-context synthesis, or an experience-model handoff. This
-reference owns product-decision strength, market and commitment evidence, and
-the evidence hierarchy below; share the behavioral-interview baseline rather
-than duplicating it.
+For interview execution, use the recent-event and neutral-probing baseline in
+[`product-design`'s research and synthesis guidance](../../product-design/references/research-and-synthesis.md),
+which owns it; also use that guidance when the decision requires a research
+plan, situated observation, empathy maps, personas, design-context synthesis,
+or an experience-model handoff. This reference owns the product-decision
+deltas: reconstruct what happened before, during, and after the buying or
+adoption decision, probe commitment, alternatives, and willingness to pay, and
+grade the result with the evidence ladder below.
 
 ## Use an evidence ladder
 

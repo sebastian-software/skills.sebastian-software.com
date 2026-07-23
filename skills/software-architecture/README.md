@@ -18,6 +18,8 @@ without mistaking diagrams or fashionable patterns for a decision.
 - architecture options with concrete quality-attribute tradeoffs
 - service, module, data ownership, and integration contract directions
 - operational design using relevant Twelve-Factor practices
+- non-frontend testing-strategy direction: test-pyramid shape, coverage goals,
+  and which risks get which test types
 - incremental migration, compatibility, rollback, and removal plans
 - durable decision inputs ready for the repository's ADR convention
 
@@ -80,10 +82,11 @@ dalo sync
   migrations across languages, runtimes, frameworks, and platforms.
 - [Effective Web](../effective-web/README.md) owns frontend and React
   architecture detail.
-- [Software Testing](../software-testing/README.md) owns repository-native
-  microbenchmark, comparative benchmark, and bounded workflow benchmark
-  methodology after this skill establishes the performance question and
-  system-level target.
+- [Software Testing](../software-testing/README.md) designs and implements
+  focused tests against the testing strategy agreed here, and owns
+  repository-native microbenchmark, comparative benchmark, and bounded workflow
+  benchmark methodology after this skill establishes the performance question
+  and system-level target.
 
 ## Scope
 

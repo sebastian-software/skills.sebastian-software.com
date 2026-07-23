@@ -15,13 +15,15 @@ The simplest SVG texture — raw noise:
 </svg>
 ```
 
-Apply to any HTML element:
+Apply as a background image (inline or external SVG):
 ```css
 .textured {
-  filter: url(#noise);
-  /* or as background-image with inline/external SVG */
+  background-image: url("noise.svg");
+  /* or a data-URI of the SVG above */
 }
 ```
+
+Careful with `filter: url(#noise)` on an HTML element: `feTurbulence` ignores `SourceGraphic`, so a filter that ends with it replaces the element's own rendering with pure noise. To overlay noise on the element's content, composite it back — e.g. end the chain with `<feBlend in="SourceGraphic" in2="noise" mode="multiply"/>` (or `feComposite`).
 
 ## feTurbulence — The Noise Engine
 
@@ -168,7 +170,7 @@ For more recipes and variations, read these reference files:
 
 ## Performance Tips
 
-- SVG filters are rendered on the GPU in modern browsers, but complex chains still cost CPU
+- SVG filters may be partially GPU-accelerated depending on engine and primitive; measure — complex chains still cost CPU
 - Keep animated filters small in area — avoid full-viewport animated turbulence on mobile
 - For static textures in production, consider pre-rendering to PNG/WebP if the filter chain is complex
 - `numOctaves` beyond 5 adds computation with barely visible improvement

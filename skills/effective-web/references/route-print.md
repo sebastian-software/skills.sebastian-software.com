@@ -20,7 +20,7 @@ results without pretending that browsers provide every DTP capability.
 | Simple print stylesheet | `@media print` block in existing CSS |
 | Screen preview matching print | Paper-simulation technique (see [print layout](print-layout.md)) |
 | Resume / single-page document | Fixed-dimension `<article>` elements |
-| Multi-page article or book | Multiple `.page` elements with `page-break-after` |
+| Multi-page article or book | Multiple `.page` elements with `break-after: page` (plus legacy `page-break-after` alias) |
 
 ## References
 

@@ -7,11 +7,13 @@ description: >-
   user asks for software or system architecture, architecture options or
   review, service or module boundaries, monolith versus service decisions,
   scalability, reliability, deployability, operational readiness, performance
-  objectives, workload scenarios, capacity planning, or definition of a new
-  load, soak, or stress program. Apply Twelve-Factor practices where they fit a
-  long-running service; do not use for frontend-only architecture, codebase
-  audit-only work, implementation plans, execution of an existing repository
-  check, or recording an already-made decision when a narrower skill applies.
+  objectives, load, soak, or stress objectives, workload scenarios, and
+  capacity decisions, or non-frontend testing-strategy design such as the test
+  pyramid, coverage goals, and which risks get which test types. Apply
+  Twelve-Factor practices where they fit a long-running service; do not use for
+  frontend-only architecture, codebase audit-only work, implementation plans,
+  execution of an existing repository check, or recording an already-made
+  decision when a narrower skill applies.
 ---
 
 # Software Architecture
@@ -26,8 +28,9 @@ patterns, diagrams, or distributed components without a clear driver.
   strengths, and unknowns without editing it.
 - **Design:** compare viable options and recommend the smallest architecture
   that meets stated quality attributes and constraints.
-- **Review:** test a proposal, ADR, or implementation plan against the current
-  system, operational reality, and delivery path.
+- **Review:** test an architecture proposal or ADR against the current system,
+  operational reality, and delivery path. Route implementation-plan review to
+  `codebase-improvement`.
 - **Evolve:** define an incremental migration, compatibility period, rollback
   conditions, and evidence gates for an approved direction.
 
@@ -105,10 +108,21 @@ place secrets or personal data in an architecture artifact.
 - Treat observability, deployment, data recovery, and rollback as design
   concerns for consequential flows, not post-launch chores.
 
+## Testing-Strategy Design
+
+This skill owns non-frontend testing-strategy design: the test-pyramid shape,
+coverage goals, and which risks deserve which test types, derived from the
+system's quality scenarios, contracts, and failure consequences rather than
+from a generic pyramid ratio. Hand the agreed strategy to `software-testing`
+for focused test design and implementation, and route frontend testing
+strategy to `effective-web`. Load, soak, and stress work stays split: the
+objectives, workload scenarios, and capacity decisions are owned here, while
+no first-party skill currently claims their execution methodology.
+
 ## Routing Boundaries
 
-- Route repository-wide audit findings, prioritization, and executable delivery
-  plans to `codebase-improvement`.
+- Route repository-wide audit findings, prioritization, implementation-plan
+  creation and review, and executable delivery plans to `codebase-improvement`.
 - Route durable choices, ADR format, supersession, and drift control to
   `decision-records`.
 - Route behavior-preserving language, framework, runtime, or platform ports to

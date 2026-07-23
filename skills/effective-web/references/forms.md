@@ -331,63 +331,14 @@ input, select, textarea {
 
 **Do NOT disable zoom** via `maximum-scale=1` in the viewport meta tag - this breaks accessibility for users who need to zoom.
 
-## Choose Your Form Validation Approach
+## Form Validation
 
-Even well-designed forms = people make mistakes.
+Even well-designed forms = people make mistakes. For validation timing (submit vs blur vs as-you-type) and error-recovery flow, follow the canonical rules in [Forms UX](forms-ux.md).
 
-### 1. Validate on Submit of the Form
-
-Simplest, easiest to implement.
-
-**Guidelines:**
-- Display error message ABOVE invalid fields (below can be covered by keyboards/autofill)
+**Error display guidelines:**
+- Display error messages ABOVE invalid fields (below can be covered by keyboards/autofill)
 - Use red border + background shade + icon (not colour alone)
-- List multiple errors in a programmatically labelled summary at the top, move
-  focus to it after failed submission, and link each item to its invalid field
-- Keep the submit button available until submission is in progress; do not
-  disable it merely because the form appears incomplete
-- Preserve entered values and associate each inline error with its field
-
-**Advantages:**
-- Simple to implement
-- Allows focus on completion without distractions
-
-**Disadvantages:**
-- No feedback while completing
-- Multiple errors at once = overwhelming
-- Must navigate entire form again
-
-### 2. Validate After People Leave a Field (On Blur)
-
-Also called inline validation.
-
-**Guidelines:**
-- Remove error message once error resolved
-- Combines with instant validation for removal
-
-**Advantages:**
-- Immediate feedback
-- Fix errors faster while context fresh
-- Can provide positive feedback (password meets criteria)
-
-**Disadvantages:**
-- Distracting to switch between answering and fixing
-- Doesn't work well for groups (checkbox lists)
-- More complex to implement
-
-### 3. Validate Instantly as People Type
-
-Waits until typing stops, then validates (with delay).
-
-**Advantages:**
-- Helps work toward answer (password criteria, username availability)
-- Immediate feedback
-- Fix errors faster
-
-**Disadvantages:**
-- Premature error messages frustrate users
-- Hard to know when typing is finished (different speeds)
-- More complex to implement
+- Remove an error message once the error is resolved
 
 ### Use :user-valid and :user-invalid for CSS-Only Validation Feedback
 

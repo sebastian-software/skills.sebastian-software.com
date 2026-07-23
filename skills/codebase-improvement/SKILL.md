@@ -107,8 +107,9 @@ convention; never introduce a private hypothesis or report directory.
 - Route discovery and execution of established repository-native validation
   commands to `software-validation`; use this skill to decide what improvement
   or evidence should exist, not to duplicate the command runner.
-- Route unresolved system direction and architecture alternatives to
-  `software-architecture`, then durable accepted choices to `decision-records`.
+- Route unresolved system direction, architecture alternatives, and
+  testing-strategy design to `software-architecture`, then durable accepted
+  choices to `decision-records`.
 - Route dependency portfolio research and update delivery to
   `smart-dependency-updater`.
 - Route browser-facing design, frontend implementation detail, and

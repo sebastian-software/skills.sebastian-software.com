@@ -81,7 +81,7 @@ visible result of facts and operational decisions, not as boilerplate.
   explicit missing-facts list. Never produce plausible-looking fictional
   registration, tax, representative, address, or contact data.
 
-## Related Skills
+## Routing Boundaries
 
 - Route layout, footer navigation, forms, consent UI, accessibility
   implementation, and frontend testing to `effective-web` after this skill has

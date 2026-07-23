@@ -27,6 +27,5 @@ Use this skill for reusable UI building blocks and the interaction rules attache
 - [navigation.md](navigation.md) - navigation structure and affordances.
 - [dialog-modal.md](dialog-modal.md) - dialogs, modals, and confirmation flows.
 - [component-development.md](component-development.md) - component API and implementation rules.
-- [ux-patterns.md](ux-patterns.md) - reusable UX patterns.
 - [platform-feature-radar.md](platform-feature-radar.md) - dated leads for recent
   native controls, state selectors, and positioning capabilities.

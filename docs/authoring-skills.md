@@ -83,6 +83,19 @@ The description is what an agent sees before deciding whether to load a skill.
 - Keep the frontmatter name portable: lowercase ASCII letters, digits, `.`, `_`,
   and `-` only.
 
+## `SKILL.md` Body Conventions
+
+- Name the boundary section exactly `## Routing Boundaries`. It states what the
+  skill must not invent and where it hands work to another skill; keep that
+  canonical heading so agents and reviewers find the section in every skill.
+- Cross-reference other skills by their frontmatter name in inline code, for
+  example: route frontend work through `effective-web`. Do not use prose names,
+  quotes, or bare links for skill-name cross references.
+- Keep `SKILL.md` at or below 300 lines. The body owns the trigger, workflow,
+  routing, and boundaries; detailed tables, policy text, and examples belong in
+  `references/`. `scripts/validate-readmes.py` prints a soft warning (not a
+  failure) when a `SKILL.md` exceeds the 300-line target.
+
 ## Resource Directories
 
 - Use `agents/openai.yaml` for the required product-facing display name, short

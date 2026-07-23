@@ -80,7 +80,7 @@ For a full naming assignment, return:
 6. Spoken-name test and representative-user validation plan
 7. Legal, registration, and reservation next steps
 
-## Related Skills
+## Routing Boundaries
 
 - Use `product-management` to resolve audience, product thesis, differentiation,
   or portfolio architecture before naming.

@@ -1,64 +1,88 @@
-# Dependency Worktree Safety
+<!-- Synced copy. Identical files live in skills/pr-review, skills/smart-dependency-updater, skills/port-codebases — apply changes to all three. -->
 
-Read this reference before creating, adopting, writing in, staging from,
-committing in, pushing from, or removing a dependency-update worktree.
+# Worktree Safety
 
-## Identify the Checkout
+Read this reference before the workflow creates, adopts, writes in, stages
+from, commits in, pushes from, integrates from, or removes a Git worktree.
 
-For each PR group, record run-locally:
+## Establish a Run-Local Receipt
 
-- repository identity from `git rev-parse --path-format=absolute
-  --git-common-dir` and absolute root from `git rev-parse --path-format=absolute
-  --show-toplevel`;
-- expected branch or detached commit, refreshed base reference, dependency group,
-  and proposed worktree path;
-- classification as primary checkout, user-created worktree, harness-managed
-  worktree, or worktree created by this update run;
-- cleanup ownership. Only a worktree created by this run is owned for cleanup.
+Use Git metadata rather than similar-looking paths. Record in the current run:
 
-Do not persist a private receipt. Treat any pre-existing linked worktree as
-foreign unless the host identifies it as the task's managed checkout.
+- canonical repository identity from `git rev-parse --path-format=absolute
+  --git-common-dir` and the absolute worktree root from `git rev-parse
+  --path-format=absolute --show-toplevel`;
+- the registered worktree entry, expected branch or detached commit, base
+  reference, and the work unit this checkout serves (PR head, dependency
+  group, or port shard) plus its exclusively owned files;
+- the checkout class: primary checkout, user-created worktree, harness-managed
+  worktree, or worktree created by this run;
+- cleanup ownership. Only a worktree created by this run is workflow-owned.
 
-## Preflight Every Group
+Keep the receipt in run context; do not create a private ledger, hidden state
+directory, or mandatory receipt file. Treat a pre-existing linked worktree as
+foreign unless the host identifies it as managed for the current task.
 
-1. Inspect `git worktree list --porcelain`, relevant local and remote refs, the
-   proposed absolute path, and staged and unstaged status. Refuse path or branch
-   collisions; never overwrite or reuse by name resemblance.
-2. Do not stash, reset, discard, or commit foreign changes. Reuse a clean,
-   suitable harness-managed worktree instead of nesting another worktree. Stop
-   when unrelated state cannot be isolated.
-3. Before the first manifest or lockfile write and after resume or handoff,
-   compare repository identity, absolute root, registered worktree entry, and
-   expected branch or commit with the receipt. Stop on mismatch before editing,
-   install commands, validation that writes, staging, commit, push, or cleanup.
-4. Use `git -C <absolute-root>` for Git and set an explicit working directory for
-   package-manager, validation, generation, and research commands. Carry the
-   recorded absolute values into every tool call; do not assume `cd` or shell
-   variables persist.
+## Preflight and Revalidation
 
-## Preserve the PR Group Boundary
+1. Inspect `git worktree list --porcelain`, relevant local and remote branch
+   refs, the proposed absolute path, and dirty and staged state before creating
+   or adopting a worktree. Refuse branch, path, or file-ownership collisions;
+   never overwrite or reuse a checkout by name resemblance.
+2. Preserve dirty and staged state. Never stash, reset, overwrite, discard,
+   commit, or absorb foreign changes. Use a clean isolated worktree when
+   possible; stop when unrelated state cannot be separated safely.
+3. Reuse a suitable linked or harness-managed worktree instead of nesting a new
+   one. Never claim cleanup ownership for a checkout the workflow did not
+   create.
+4. Immediately before the first write and after any resume, delegation, or
+   handoff, compare the repository identity, absolute root, registered worktree
+   entry, and expected branch or detached commit with the receipt. Stop on any
+   mismatch before editing, install or generation commands, validation that
+   writes, staging, commit, integration, push, or cleanup.
+5. Run Git commands with `git -C <absolute-root>` and every other command with
+   an explicit tool working directory. Do not rely on a previous `cd` or on
+   shell variables surviving another tool call; carry the recorded absolute
+   values into each command.
 
-- Keep one branch and worktree per declared dependency group.
-- Stage explicit group paths and inspect the staged filename list and staged
-  diff before every commit. Do not use `git add .`, `git add -A`, or
-  `git commit -a` around mixed state.
-- Own a shared lockfile or generated file only when a repository-native command
-  run in this group's verified root produced it and the whole diff tells this
-  group's dependency story.
-- If another group appears in the lockfile diff, narrow and rerun the owning
-  package-manager command. If unavoidable, serialize after the earlier group,
-  regenerate from the new base, or split coherent lockfile/tooling work. Never
-  hand-delete unrelated lock entries.
-- Never rewrite remote history unless the exact operation is documented by this
-  skill and authorized for the current group.
+## Stage and Deliver One Unit
+
+- Scope the worktree to the one work unit named in the receipt.
+- Stage explicit paths with `git -C <root> add -- <paths>`. Avoid `git add .`,
+  `git add -A`, and `git commit -a` whenever other changes could exist.
+- Inspect both `git -C <root> diff --cached --name-only` and `git -C <root>
+  diff --cached` before every commit or checkpoint. Foreign staged work blocks
+  delivery until it is isolated.
+- Treat a shared lockfile, manifest, or generated file as owned only when the
+  repository-native command for the current unit produced it in the verified
+  root and the complete diff belongs to that unit's declared purpose. If
+  another unit appears in the diff, narrow and rerun the owning command,
+  serialize after the earlier unit, or split the work; never hand-delete
+  unrelated entries.
+- Immediately before a run-owned commit, revalidate that `HEAD` still equals
+  the receipt's expected commit and that detached-versus-branch state still
+  matches. Record the full staged tree ID after inspecting the staged diff.
+  After the commit succeeds, advance the receipt to the new commit only when
+  its parent is that expected commit and its complete tree equals the recorded
+  staged tree. This explicit transition is the only way the workflow may change
+  the receipt's expected commit; an arbitrary HEAD move remains foreign and
+  blocks push, integration, and cleanup. Propagate the latest expected commit
+  through handoff and integration; never bless an arbitrary observed HEAD as a
+  checkpoint.
+- Do not rewrite remote history unless the exact operation is documented by the
+  calling skill and authorized for the current unit. Revalidate review and
+  branch state after any push.
 
 ## Clean Up Conservatively
 
-Automatically remove only a clean, registered worktree that this run created
-for the recorded dependency group. Immediately recheck repository identity,
-absolute path, expected branch or commit, and status before removal.
+Remove a worktree automatically only when the receipt says this run created it
+for the recorded work unit. Immediately before removal, verify the same
+repository identity, registered absolute path, latest run-owned expected branch
+or detached commit, and a clean status. For a detached receipt, also prove that
+`HEAD` has not become attached to a branch even when the commit OID is
+unchanged.
 
-Never force-remove a dirty, moved, mismatched, user-created, or harness-managed
-worktree. Leave its worktree and branch intact and report the expected and
-observed state plus the narrow manual action that would be required. Require
-separate user authority for destructive cleanup or branch deletion.
+Never use force removal for automatic cleanup. Leave a dirty, moved,
+mismatched, user-created, or harness-managed worktree and its branch intact;
+report the exact path, observed state, expected state, and safest next action.
+Require separate user authority for destructive cleanup or branch deletion.

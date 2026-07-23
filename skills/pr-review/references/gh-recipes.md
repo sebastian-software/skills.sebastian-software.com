@@ -50,7 +50,8 @@ Read it like this:
 - **statusCheckRollup**: mixed objects — status contexts carry `state`
   (`SUCCESS`, `FAILURE`, `PENDING`); check runs carry `status` plus
   `conclusion` (`conclusion` is null while running, never `PENDING`). This is
-  your CI view; the Supabase check shows up here.
+  your CI view; provider preview checks (e.g. a database preview like Supabase)
+  show up here too.
 - **closingIssuesReferences**: the linked issue(s) — the intent gate and your
   scope yardstick. If empty, also scan `body` for `Closes #` / `Fixes #` and the
   branch name. To actually read the ticket content, see section 2b.
@@ -89,8 +90,11 @@ ticket.
 
 If no Linear MCP is connected and the content isn't reachable, don't stall:
 confirm whether a ticket is *linked at all*, and otherwise judge intent from the
-PR title + description + diff. On a human PR with no ticket anywhere, that's the
-step-1 gate — ask for the ticket and stop.
+PR title + description + diff. On a human PR with no ticket anywhere, apply the
+step-1 gate — ask for the ticket and stop — only when the repository
+demonstrably uses ticket linking (recent merged PRs reference tickets, or
+CONTRIBUTING requires it). Otherwise judge intent from the PR title +
+description + diff and continue the review.
 
 ## 3. Human vs. bot author
 
@@ -105,8 +109,13 @@ is_bot() {
     *) return 1 ;;
   esac
 }
-# Your stack specifically: vercel[bot], cursor[bot], Copilot.
+# Extend the known-names list with the bots actually active in this repo —
+# check the authors of recent PR comments and reviews.
 ```
+
+Bot findings still deserve real triage: judge each one valid / out of scope /
+wrong exactly like a human comment (Mode B step 2), just reply in the short
+technical tone from "Voice".
 
 ## 3b. Automated PRs
 
@@ -169,14 +178,15 @@ gh api repos/"$REPO"/pulls/<N>/comments/<comment_id>/replies \
 gh pr comment <N> --repo "$REPO" --body "..."
 ```
 
-Bot findings (Vercel/Cursor/Copilot) usually live as review-thread comments —
+Bot findings (from review bots like vercel, cursor, or Copilot) usually live as
+review-thread comments —
 reply in-thread so the conversation stays attached to the line. Optionally
 resolve a thread you've handled via the GraphQL `resolveReviewThread` mutation
 (nice-to-have, skip if it slows you down).
 
 ## 6. Worktree flow (Mode B fixes)
 
-Read [PR maintenance worktree safety](worktree-safety.md) first. Never edit a
+Read [worktree safety](worktree-safety.md) first. Never edit a
 dirty primary checkout. Reuse a suitable verified linked or harness-managed
 worktree without taking cleanup ownership, or create a workflow-owned worktree
 after checking registered worktrees, branch refs, path collisions, and dirty and
@@ -238,13 +248,29 @@ Fork PRs: the head branch lives in the contributor's fork, so a normal push
 won't work — that's a Mode A situation anyway. For your own PRs the branch is in
 this repo, so the explicit push above is correct.
 
-## 7. Keep the branch current (rebase-before-merge)
+## 7. Keep the branch current
 
-Rebasing onto base keeps history linear and is preferred over a merge commit.
-Always end with `--force-with-lease` (refuses to clobber if someone else pushed).
-A force-push can dismiss stale approvals and mark inline review threads outdated
-when repository settings enable those effects. Rebase only when needed, and
-re-check the review state before asking authors or reviewers to repeat work.
+Pick the update strategy from the repository's convention, not from preference.
+Check branch protection and history first: does the repo use squash or merge
+commits (`gh pr list --state merged` titles, merge strategy in settings), does
+CONTRIBUTING mandate rebasing, do PRs show "Update branch" merges?
+
+**Default-safe: merge from base.** Works everywhere, never rewrites history,
+never dismisses approvals:
+
+```bash
+gh pr update-branch <N> --repo "$REPO"
+# or manually:
+git -C "$WT" fetch origin "<base>"
+git -C "$WT" merge "origin/<base>"
+git -C "$WT" push origin HEAD:"<head>"
+```
+
+**Rebase — only where the repo prefers linear history.** Always end with
+`--force-with-lease` (refuses to clobber if someone else pushed). A force-push
+can dismiss stale approvals and mark inline review threads outdated when
+repository settings enable those effects. Rebase only when needed, and re-check
+the review state before asking authors or reviewers to repeat work:
 
 ```bash
 git -C "$WT" fetch origin "<base>"
@@ -253,18 +279,20 @@ git -C "$WT" rebase "origin/<base>"
 git -C "$WT" push --force-with-lease origin HEAD:"<head>"
 ```
 
-**Lockfile conflicts** — don't hand-merge them, regenerate. Resolve any
-`package.json` conflict first, then rebuild the lockfile so it matches:
+**Lockfile conflicts** — don't hand-merge them, regenerate. Detect the package
+manager from the conflicting lockfile: `pnpm-lock.yaml` → `pnpm install`;
+`package-lock.json` → `npm install`; `yarn.lock` → `yarn install`;
+`bun.lockb`/`bun.lock` → `bun install`. Resolve any `package.json` conflict
+first, then rebuild the lockfile so it matches:
 
 ```bash
-# pnpm (this repo): pnpm-lock.yaml
+# example for pnpm-lock.yaml; substitute the detected manager and lockfile
 # run with the tool working directory set explicitly to "$WT"
 pnpm install
 git -C "$WT" add -- pnpm-lock.yaml
 git -C "$WT" diff --cached --name-only
 git -C "$WT" diff --cached
-git -C "$WT" rebase --continue
-# npm → `npm install` + package-lock.json ; yarn → `yarn install` + yarn.lock
+git -C "$WT" rebase --continue   # (merge flow: commit the merge instead)
 ```
 
 ## 8. CI recovery
@@ -279,10 +307,12 @@ gh run rerun <run-id> --failed --repo "$REPO"
 Inspect the new result before escalating. Do not rerun a deterministic code or
 configuration failure; fix the cause instead.
 
-### Supabase stuck check
+### Stuck provider preview check
 
-Only after the branch is genuinely up to date (section 7). Closing+reopening
-re-triggers the preview branch. At most once or twice; never loop.
+Some provider preview checks (e.g. a database preview like Supabase) re-trigger
+on PR close/reopen — check the provider's docs for its documented recovery
+before assuming this. Use such a re-trigger only after the branch is genuinely
+up to date (section 7). At most once or twice; never loop.
 
 ```bash
 gh pr close  <N> --repo "$REPO"
@@ -305,6 +335,7 @@ gh pr view <N> --repo "$REPO" --json statusCheckRollup \
 gh api repos/"$REPO"/deployments --jq '.[0].statuses_url'   # fallback
 ```
 
-Then drive that URL with the optional external `agent-browser` skill when it is
-configured. Otherwise, keep the verification static and report that the preview
-could not be exercised.
+Then drive that URL with the external `agent-browser` skill — an optional,
+separately managed skill that is not part of this collection — only when it is
+installed and configured. Otherwise, keep the verification static and report
+that the preview could not be exercised.

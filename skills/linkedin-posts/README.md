@@ -9,8 +9,8 @@ for a defined audience, voice, and goal.**
 
 LinkedIn Posts helps agents brainstorm, plan, and write professional content
 without defaulting to generic hooks, recycled engagement formulas, or an
-emoji-heavy imitation of “LinkedIn voice.” Its idea library contains 300 prompts
-across 11 categories, loaded selectively for the current topic.
+emoji-heavy imitation of “LinkedIn voice.” Its idea library contains 86 prompts
+across 10 categories, loaded selectively for the current topic.
 
 ## What It Can Deliver
 
@@ -25,9 +25,9 @@ across 11 categories, loaded selectively for the current topic.
 ## Idea Coverage
 
 The bundled idea library spans company and project updates, education,
-engagement, industry insights, careers, lifestyle, networking, personal
-stories, professional development, recognition, and tools. Prompts are treated
-as discovery cues, not as copy to reproduce.
+engagement, industry insights, careers, networking, personal stories,
+professional development, recognition, and tools. Prompts are neutral topic
+cues to develop into original, evidence-led posts.
 
 ## Example Prompts
 

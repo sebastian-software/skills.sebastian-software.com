@@ -25,7 +25,7 @@ system; apply the language profile and let `Intl`/CLDR supply regional formats.
 | `es-ES` | Spanish | Peninsular Spanish punctuation and regional data. |
 | `it-IT` | Italian | Italian editorial defaults. |
 | `it-CH` | Italian | Italian punctuation with Swiss regional data. |
-| `da-DK` | Danish | Danish punctuation and regional data. |
+| `da-DK` | Danish | Danish punctuation and regional data; `»…«` outer quotes when no house style exists. |
 | `nb-NO` | Norwegian | Bokmål text with Norwegian punctuation and regional data. |
 | `nn-NO` | Norwegian | Nynorsk text with the same typographic profile; do not change spelling. |
 | `sv-SE` | Swedish | Swedish punctuation and regional data. |

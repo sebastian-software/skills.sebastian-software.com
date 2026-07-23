@@ -7,9 +7,11 @@
 **Give your AI agent the practical judgment to take product and software work
 from an ambiguous brief to a review-ready result.**
 
-20 practice-built skills and 184 focused references for product decisions, web
-experiences, codebase improvement, delivery, go-to-market work, professional
-communication, and web compliance.
+20 practice-built skills and 183 focused references for product decisions, web
+experiences, codebase improvement, delivery, go-to-market positioning,
+professional communication, and web compliance; go-to-market deliverables such
+as marketing copy route to the separately managed external `marketingskills`
+DALO catalog.
 
 This is not a loose prompt dump. It is a maintained, first-party operating
 layer for agents that work on real products and repositories. Each skill turns

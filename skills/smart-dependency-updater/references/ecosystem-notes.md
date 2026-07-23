@@ -1,6 +1,10 @@
 # Ecosystem Notes
 
-Use this reference for ecosystem-specific commands and update checks. Prefer repository-local scripts and lockfile ownership over generic commands when they conflict.
+Use this reference for the non-obvious ecosystem-specific commands and update
+checks. Prefer repository-local scripts and lockfile ownership over generic
+commands when they conflict. Baseline package-manager usage (`npm outdated`,
+`bundle outdated`, `go list -m -u all`, `dotnet list package --outdated`, and
+similar) is assumed; only the deltas worth remembering are listed here.
 
 ## JavaScript and TypeScript
 
@@ -11,14 +15,18 @@ Detection:
 - `yarn.lock`, `.yarnrc.yml` -> Yarn
 - `bun.lock`, `bun.lockb` -> Bun
 
-Useful commands:
+Non-obvious deltas:
 
-- `npm outdated`, `npm install <pkg>@<version>`
-- `pnpm outdated`, `pnpm update <pkg>@<version>`, `pnpm why <pkg>`
-- `yarn outdated` (Yarn 1), a third-party outdated plugin such as
-  `yarn-plugin-outdated` (Yarn 2+ ships none built in),
-  `yarn npm info <pkg>`, `yarn up <pkg>@<version>`, `yarn why <pkg>`
-- `npm view <pkg> versions --json`, `npm view <pkg> peerDependencies --json`
+- Yarn 2+ ships no built-in `outdated`; use a third-party plugin such as
+  `yarn-plugin-outdated`, or `yarn npm info <pkg>` per package. Yarn 1's
+  `yarn outdated` still exists.
+- `pnpm why <pkg>` / `yarn why <pkg>` explain transitive pulls before you
+  decide where to update.
+- `npm view <pkg> peerDependencies --json` catches peer-range breaks before
+  install does.
+- For transitive-only security fixes, use narrowly scoped `overrides` (npm,
+  pnpm) or `resolutions` (Yarn); regenerate the lockfile with its owner,
+  rescan, and record the removal condition (see the workflow reference, §2a).
 
 Checks:
 
@@ -41,12 +49,12 @@ Detection:
 
 - `Cargo.toml`, `Cargo.lock`, workspace table.
 
-Useful commands:
+Non-obvious deltas:
 
-- `cargo tree -i <crate>`
-- `cargo update <crate>` (positional form; `-p` is a legacy alias no longer documented)
-- `cargo check`, `cargo test`
-- `cargo metadata --format-version 1`
+- `cargo update <crate>` takes the crate positionally; `-p <crate>` is a
+  documented alias for the same selection.
+- `cargo tree -i <crate>` inverts the tree to show who pulls a crate in.
+- `cargo outdated` is a third-party install, not built in.
 
 Checks:
 
@@ -67,12 +75,11 @@ Detection:
 
 - `pyproject.toml`, `requirements*.txt`, `poetry.lock`, `uv.lock`, `Pipfile.lock`, `setup.cfg`, `setup.py`.
 
-Useful commands:
+Non-obvious deltas:
 
-- `python -m pip list --outdated`
-- `uv lock --upgrade-package <pkg>`
-- `poetry show --outdated`, `poetry update <pkg>`
-- `pip-compile --upgrade-package <pkg>` when pip-tools is used
+- The lockfile decides the tool: `uv lock --upgrade-package <pkg>`,
+  `poetry update <pkg>`, or `pip-compile --upgrade-package <pkg>` (pip-tools).
+  Do not mix them against the same lock state.
 
 Checks:
 
@@ -88,40 +95,25 @@ Adoption opportunities:
 
 ## Go
 
-Detection:
-
-- `go.mod`, `go.sum`, workspace files.
-
-Useful commands:
-
-- `go list -m -u all`
-- `go get module@version`
-- `go mod tidy`
-- `go test ./...`
+Detection: `go.mod`, `go.sum`, workspace files.
 
 Checks:
 
-- Inspect module path changes, minimum Go version, and indirect dependency churn.
-- Search public API usage and generated code.
-- Run `go test ./...`; add targeted integration checks for networking/database/auth libraries.
+- Watch for module path changes on majors (`/v2` suffixes), minimum Go version
+  bumps, and indirect dependency churn; run `go mod tidy` after edits.
+- Search public API usage and generated code; add targeted integration checks
+  for networking/database/auth libraries.
 
 ## Ruby
 
-Detection:
-
-- `Gemfile`, `Gemfile.lock`, gemspecs.
-
-Useful commands:
-
-- `bundle outdated`
-- `bundle update <gem>`
-- `bundle exec rake test` or project-specific commands.
+Detection: `Gemfile`, `Gemfile.lock`, gemspecs.
 
 Checks:
 
 - Inspect Ruby and Rails version constraints.
-- Search initializers, config files, monkey patches, and deprecation suppressions.
-- Run focused tests for gems that affect Rails, database, background jobs, or auth.
+- Search initializers, config files, monkey patches, and deprecation
+  suppressions; run focused tests for gems that affect Rails, database,
+  background jobs, or auth.
 
 ## Java and JVM
 
@@ -129,16 +121,17 @@ Detection:
 
 - `pom.xml`, `build.gradle`, `build.gradle.kts`, `gradle.lockfile`.
 
-Useful commands:
+Non-obvious deltas:
 
-- Maven Versions Plugin if configured.
-- Gradle dependency updates plugin if configured.
-- `mvn test`, `./gradlew test`, project-specific check tasks.
+- Version discovery needs the Maven Versions Plugin or a Gradle
+  dependency-updates plugin; use them only when the repository already
+  configures one.
+- Group BOM-managed packages together: a BOM or `dependencyManagement` block
+  owns the versions, so update the BOM, not each member.
 
 Checks:
 
 - Inspect Java version, plugin versions, annotation processors, BOMs, and dependency management blocks.
-- Group BOM-managed packages together.
 - Search config and generated sources for annotation processor or framework changes.
 
 ## .NET
@@ -147,14 +140,12 @@ Detection:
 
 - `.csproj`, `.fsproj`, `packages.lock.json`, `Directory.Packages.props`, `global.json`.
 
-Useful commands:
+Non-obvious deltas:
 
-- `dotnet list package --outdated`
-- `dotnet add package <pkg> --version <version>`
-- `dotnet restore`, `dotnet test`
+- With central package management, `Directory.Packages.props` owns the
+  versions; update it and group the packages it manages together.
 
 Checks:
 
-- Inspect target frameworks and central package management.
-- Group packages managed through shared props files.
+- Inspect target frameworks and `global.json` SDK pinning.
 - Search startup/config code for framework or SDK behavior changes.

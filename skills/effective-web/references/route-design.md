@@ -79,8 +79,7 @@ Do not use this skill as a source archive. Article-derived input has already bee
 
 ## References
 
-- [fundamentals.md](fundamentals.md) - broad UI design principles and quality heuristics.
-- [less-is-more.md](less-is-more.md) - reduction, clarity, and restraint.
+- [fundamentals.md](fundamentals.md) - broad UI design principles, quality heuristics, reduction, and restraint.
 - [design-registers.md](design-registers.md) - registers for design intent and decisions.
 - [design-directions.md](design-directions.md) - combinable directions, axes,
   ambiguity questions, conflict resolution, and decision persistence.

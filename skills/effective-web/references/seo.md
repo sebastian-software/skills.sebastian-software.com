@@ -22,7 +22,7 @@ The most important on-page SEO element. It appears in search results, browser ta
 - Unique per page — never duplicate titles across pages
 - 50-60 characters (longer titles get truncated in search results)
 - Place the primary keyword near the beginning
-- Make it click-worthy — it competes with nine other results on the page
+- Make it click-worthy — it competes with other results and AI-generated summaries
 - Put the brand name last, separated by `|` or `—`
 
 ### Meta Description
@@ -380,11 +380,11 @@ Measures how quickly the main content becomes visible.
 **What counts as LCP:** The largest image, video, or text block in the viewport at load time — typically the hero image or main heading.
 
 **Frontend actions:**
-- Preload the LCP image: `<link rel="preload" as="image" href="hero.webp">`
+- Preload the LCP image only if it is not discoverable in the initial HTML (e.g. a CSS `background-image`): `<link rel="preload" as="image" href="hero.webp">`; for an `<img>` in the markup, use `fetchpriority="high"` instead
 - Use `fetchpriority="high"` on the LCP element
 - Avoid lazy-loading the LCP image
 - Preload one critical web font (see [Typography route](route-typography.md))
-- Inline critical CSS or use `<link rel="preload" as="style">` for the stylesheet
+- Inline critical CSS
 - Minimise render-blocking scripts — use `defer` or `async` on `<script>` tags
 
 ### INP — Interaction to Next Paint (< 200ms)
@@ -406,7 +406,7 @@ Measures visual stability — how much content moves unexpectedly during loading
 - Set explicit `width` and `height` on all images and videos
 - Use `aspect-ratio` in CSS for responsive media containers
 - Reserve space for ads, embeds, and dynamically injected content
-- Use `font-display: fallback` or `optional` and `font-size-adjust` to reduce font-swap layout shift (see [Typography route](route-typography.md))
+- Use `font-display: swap` plus a metric-matched fallback font (`size-adjust`/`ascent-override`/`descent-override`); use `fallback` or `optional` when CLS is the measured problem (see [Typography route](route-typography.md))
 - Place dynamic content (banners, cookie notices) in fixed or reserved space — never push existing content down
 
 ## Internal Linking
@@ -516,18 +516,3 @@ Many performance optimisations are covered across other chapters. This is a cros
 | `loading="lazy"` for off-screen images | Reduces initial page weight | [Layout and Spacing route](route-layout.md) |
 | CSS-only animations (`transform`, `opacity`) | Improves INP | [Design and Review route](route-design.md) |
 | Reduced motion preferences | Accessibility and performance | [Design and Review route](route-design.md) |
-
-## Chapter Summary
-
-1. Every page needs a unique `<title>` (50-60 chars, keyword first) and `<meta name="description">` (150-160 chars)
-2. Add Open Graph tags for social sharing — especially `og:image` at 1200 x 630px
-3. Use self-referencing `<link rel="canonical">` on every page
-4. Set `<html lang="...">` and use `hreflang` for multilingual sites
-5. Maintain exactly one `<h1>` per page with a logical heading hierarchy — no level skipping (a content convention, not a WCAG or Google requirement)
-6. Add only supported, relevant JSON-LD structured data for rich results (for example, Article, Product, and BreadcrumbList); Google FAQ rich results are limited to well-known, authoritative government and health sites
-7. Use descriptive, hyphenated file names and natural alt text for images
-8. Meet Core Web Vitals targets: LCP < 2.5s, INP < 200ms, CLS < 0.1
-9. Link important pages within 3 clicks of the homepage with descriptive anchor text
-10. Keep URLs lowercase, hyphenated, short, and descriptive
-11. Use five favicon files: `favicon.ico` (32×32), `icon.svg` (with dark mode), `apple-touch-icon.png` (180×180), `icon-192.png`, `icon-512.png` — add `manifest.webmanifest` with `icon-mask.png` (maskable) for PWAs
-12. For AI/GEO and business surfaces, keep entity facts, structured data, Business Profile/Merchant Center data, sitemaps, feeds, and crawler policy consistent with the visible page

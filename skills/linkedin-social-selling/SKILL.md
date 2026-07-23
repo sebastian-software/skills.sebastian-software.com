@@ -8,7 +8,8 @@ description: >-
   measurement across the path from profile visit to qualified meeting. Use
   when the request spans multiple LinkedIn growth activities or connects
   content and relationships to pipeline; route a post-only writing request to
-  linkedin-posts.
+  linkedin-posts and field-level profile content or career evidence to
+  consultant-profile.
 ---
 
 # LinkedIn Social Selling
@@ -98,7 +99,7 @@ For an end-to-end request, return:
 7. Funnel-stage scorecard
 8. First three prioritized experiments with stop or keep criteria
 
-## Related Skills
+## Routing Boundaries
 
 - Use `decision-records` to record or supersede durable positioning, audience,
   voice, tone, terminology, evidence, and cross-channel communication choices.

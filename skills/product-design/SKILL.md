@@ -3,7 +3,8 @@ name: product-design
 description: >-
   Plan, research, model, explore, prototype, and review digital product
   experiences. Use when turning product evidence or a provisional brief into a
-  design brief; planning or synthesizing behavioral research; documenting a
+  design brief; planning or synthesizing behavioral research to shape how the
+  experience works; documenting a
   problem space, user expectations, or mental models; framing design
   opportunities; modeling objects, actions, relationships, journeys, and
   moments; creating information architecture, flows, wireframes, or prototype
@@ -100,7 +101,7 @@ For a broad product-design request, return:
 7. Prototype scope, fidelity, realistic tasks, and evaluation plan
 8. Updated design brief, unresolved risks, and handoffs
 
-## Boundaries
+## Routing Boundaries
 
 - Use `product-management` to decide product strategy, target market, outcomes,
   business viability, roadmap, release scope, and prioritization. Return here to

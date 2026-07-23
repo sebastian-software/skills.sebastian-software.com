@@ -17,7 +17,7 @@ owners, or the preferred owner may not be installed.
 | System boundary or evolutionary architecture | `software-architecture` | Drivers, quality scenarios, tradeoffs, operability, and migration |
 | Durable cross-functional decision | `decision-records` | Repository-native ADR lifecycle and drift control |
 | Port or compatibility migration | `port-codebases` | Behavior contract, parity evidence, execution profile, and handoff |
-| Product, design, legal, locale, or communication concern | Matching existing owner | Domain outcome and evidence without expanding orchestration |
+| Product, design, legal, locale, or communication concern | `product-management`, `product-design`, `web-legal-compliance`, `locale-typography`, or the matching communication owner | Domain outcome and evidence without expanding orchestration |
 
 The orchestrator selects and sequences owners. Each owner controls its own
 analysis, implementation guidance, evidence standard, and domain boundaries.

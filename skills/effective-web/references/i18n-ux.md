@@ -14,4 +14,4 @@ Design global interfaces so language, country, currency, units, timezone, direct
 - Never let truncation remove the only part of a label or option that distinguishes it from its siblings.
 - Keep data-grid headers able to identify their cells after responsive transformation (stacked or card layouts), alongside locale-aware alignment and number formatting.
 - Localize form input examples, placeholders, address structure, name and phone-number fields, postal codes, and validation copy per locale.
-- Render quotation marks and other locale-specific punctuation with CSS rather than literal characters in copy: declare `quotes` per language with `:lang()` and emit `<q>` or `quotes`-aware content so the browser inserts the correct marks (`«»`, `„“`, `“”`) for each locale.
+- Delegate the choice of quotation marks and other locale-specific punctuation to the `locale-typography` skill; implement the chosen marks with CSS rather than literal characters in copy — declare `quotes` per language with `:lang()` and emit `<q>` or `quotes`-aware content so the browser inserts the correct marks for each locale.
