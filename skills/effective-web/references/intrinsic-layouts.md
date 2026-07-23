@@ -36,7 +36,7 @@ component CSS.
   its padding must sit outside the readable measure.
 - Encode system-wide tolerances as custom properties such as `--measure`,
   `--space`, `--item-min`, and `--threshold`. Keep the full spacing-scale and
-  measure guidance in [layout-spacing.md](layout-spacing.md).
+  measure guidance in [layout foundations](layout-foundations.md).
 - Implement the algorithm in the project's native component model. Custom
   elements are optional; the value lies in the layout contract, not the wrapper
   technology.
@@ -277,7 +277,7 @@ make overflow discoverable.
 
 Use Imposter only where overlap is intentional. For an interactive modal,
 prefer the native dialog/top-layer mechanism and load the
-[dialog guidance](dialog-modal.md); positioning alone does not provide focus
+[dialog guidance](dialog-foundation.md); positioning alone does not provide focus
 movement, containment, dismissal, background inertness, or an accessible name.
 Let source order determine overlapping layers where it remains semantically
 correct; add `z-index` only when the intended layer order genuinely differs.

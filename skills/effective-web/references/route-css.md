@@ -24,7 +24,11 @@ Use this skill for making CSS maintainable, predictable, and compatible with the
 
 ## References
 
-- [css-architecture.md](css-architecture.md) - cascade, layers, scoping, and maintainable CSS.
+- Choose one primary concern: [css-cascade.md](css-cascade.md) for layers,
+  selectors, and scope; [css-tokens.md](css-tokens.md) for semantic tokens and
+  theming; or [css-organization.md](css-organization.md) for ownership, entry
+  points, and generated output. Each links the deep appendix only for an
+  identified edge case.
 - [baseline-support.md](baseline-support.md) - browser baseline and support decisions.
 - [platform-feature-radar.md](platform-feature-radar.md) - dated leads for recent
   Baseline features that older model knowledge may miss.

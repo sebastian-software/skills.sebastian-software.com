@@ -20,6 +20,8 @@ Use this skill for color decisions that affect usability, brand expression, acce
 
 ## References
 
-- [colour.md](colour.md) - palette construction, contrast, and practical color rules.
+- [colour-accessibility.md](colour-accessibility.md) - contrast, status,
+  interaction, and forced-colors evidence; read [colour-system.md](colour-system.md)
+  for palette construction, tokens, and theming.
 - [dark-mode.md](dark-mode.md) - dark mode implementation and pitfalls.
 - [design-system-rules.md](design-system-rules.md) - token and design-system rules.

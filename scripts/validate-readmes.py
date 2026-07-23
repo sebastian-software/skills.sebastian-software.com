@@ -23,6 +23,8 @@ INLINE_CODE = re.compile(r"``[^`]*``|`[^`\n]*`")
 FRONTMATTER_KEY = re.compile(r"^([A-Za-z_][\w.-]*):\s*(.*)$")
 MAX_DESCRIPTION_LENGTH = 1024
 SKILL_LINE_LIMIT = 300
+REFERENCE_LINE_LIMIT = 500
+ROUTE_CONTEXT_REPORT_LIMIT = 900
 WORKTREE_SAFETY_SKILLS = ("pr-review", "smart-dependency-updater", "port-codebases")
 
 
@@ -224,6 +226,140 @@ def validate_skill_body_conventions(skill_directory: Path, errors: list[str]) ->
         )
 
 
+def load_reference_context_exceptions(errors: list[str]) -> dict[str, dict[str, object]]:
+    """Load the reviewed exceptions to the default reference-size budget."""
+    exception_file = REPOSITORY_ROOT / "docs" / "reference-context-exceptions.json"
+    relative = exception_file.relative_to(REPOSITORY_ROOT)
+    if not exception_file.is_file():
+        errors.append(f"{relative}: missing reference context exception registry")
+        return {}
+
+    try:
+        payload = json.loads(exception_file.read_text(encoding="utf-8"))
+    except json.JSONDecodeError as error:
+        errors.append(f"{relative}: invalid JSON: {error.msg}")
+        return {}
+
+    if not isinstance(payload, dict) or set(payload) != {"exceptions", "version"}:
+        errors.append(
+            f"{relative}: top-level keys must be exactly ['exceptions', 'version']"
+        )
+        return {}
+    if payload["version"] != 1 or not isinstance(payload["exceptions"], dict):
+        errors.append(f"{relative}: version must be 1 and exceptions must be an object")
+        return {}
+
+    exceptions: dict[str, dict[str, object]] = {}
+    for reference, details in payload["exceptions"].items():
+        if not isinstance(reference, str) or not reference.startswith("skills/"):
+            errors.append(f"{relative}: exception path must be a skills/ reference")
+            continue
+        if not isinstance(details, dict) or set(details) != {"defaults", "reason"}:
+            errors.append(
+                f"{relative}: exception {reference!r} must contain defaults and reason"
+            )
+            continue
+        defaults = details["defaults"]
+        reason = details["reason"]
+        if (
+            not isinstance(defaults, list)
+            or not defaults
+            or not all(isinstance(default, str) and default.strip() for default in defaults)
+            or not isinstance(reason, str)
+            or not reason.strip()
+        ):
+            errors.append(
+                f"{relative}: exception {reference!r} defaults must be a non-empty "
+                "array of strings and reason must be a non-empty string"
+            )
+            continue
+        reference_file = REPOSITORY_ROOT / reference
+        if not reference_file.is_file() or reference_file.suffix != ".md":
+            errors.append(
+                f"{relative}: exception {reference!r} must name an existing Markdown reference"
+            )
+            continue
+        if len(reference_file.read_text(encoding="utf-8").splitlines()) <= REFERENCE_LINE_LIMIT:
+            errors.append(
+                f"{relative}: exception {reference!r} no longer exceeds the "
+                f"{REFERENCE_LINE_LIMIT}-line limit; remove it from the registry"
+            )
+            continue
+        reference_root = reference_file.parent.resolve()
+        invalid_default = next(
+            (
+                default
+                for default in defaults
+                if not isinstance(default, str)
+                or not (default_file := (reference_root / default).resolve()).is_file()
+                or default_file.suffix != ".md"
+                or default_file == reference_file.resolve()
+                or not default_file.is_relative_to(reference_root)
+            ),
+            None,
+        )
+        if invalid_default is not None:
+            errors.append(
+                f"{relative}: exception {reference!r} default {invalid_default!r} "
+                "must name a different existing Markdown reference in the same skill"
+            )
+            continue
+        exceptions[reference] = details
+    return exceptions
+
+
+def validate_reference_context_budgets(
+    skill_directory: Path,
+    exceptions: dict[str, dict[str, object]],
+    errors: list[str],
+    reports: list[str],
+) -> None:
+    """Enforce focused references and report broad route-level context."""
+    references_directory = skill_directory / "references"
+    if not references_directory.is_dir():
+        return
+
+    for reference in sorted(references_directory.rglob("*.md")):
+        line_count = len(reference.read_text(encoding="utf-8").splitlines())
+        if line_count <= REFERENCE_LINE_LIMIT:
+            continue
+        relative = reference.relative_to(REPOSITORY_ROOT).as_posix()
+        exception = exceptions.get(relative)
+        if exception is None:
+            errors.append(
+                f"{relative}: {line_count} lines exceeds the {REFERENCE_LINE_LIMIT}-line "
+                "reference limit; split it or register a reviewed context exception"
+            )
+            continue
+        reports.append(
+            f"{relative}: {line_count} lines (documented deep-reference exception; "
+            f"defaults: {', '.join(exception['defaults'])})"
+        )
+
+    for route in sorted(references_directory.glob("route-*.md")):
+        direct_references: set[Path] = set()
+        for raw_target in MARKDOWN_LINK.findall(linkable_text(route)):
+            target = raw_target.strip().split(maxsplit=1)[0].strip("<>")
+            if not target or target.startswith(("http://", "https://", "mailto:", "#")):
+                continue
+            path_part = target.partition("#")[0]
+            destination = (route.parent / unquote(path_part)).resolve()
+            if destination.is_file() and destination.is_relative_to(
+                references_directory.resolve()
+            ):
+                direct_references.add(destination)
+        line_count = sum(
+            len(reference.read_text(encoding="utf-8").splitlines())
+            for reference in direct_references
+        )
+        if line_count > ROUTE_CONTEXT_REPORT_LIMIT:
+            reports.append(
+                f"{route.relative_to(REPOSITORY_ROOT)}: {line_count} direct-reference "
+                f"lines (recommended at most {ROUTE_CONTEXT_REPORT_LIMIT}; make the "
+                "selection explicit)"
+            )
+
+
 def validate_reference_orphans(skill_directory: Path, errors: list[str]) -> None:
     """Require every reference file to be linked from its own skill directory."""
     references_directory = skill_directory / "references"
@@ -367,6 +503,8 @@ def validate_required_readme_fragments(
 
 def main() -> int:
     errors: list[str] = []
+    reference_context_reports: list[str] = []
+    reference_context_exceptions = load_reference_context_exceptions(errors)
     root_readme = REPOSITORY_ROOT / "README.md"
     root_text = root_readme.read_text(encoding="utf-8")
     skill_directories = sorted(path.parent for path in SKILLS_ROOT.glob("*/SKILL.md"))
@@ -388,6 +526,12 @@ def main() -> int:
         validate_skill_metadata(skill_directory, errors)
         validate_frontmatter(skill_directory, errors)
         validate_skill_body_conventions(skill_directory, errors)
+        validate_reference_context_budgets(
+            skill_directory,
+            reference_context_exceptions,
+            errors,
+            reference_context_reports,
+        )
         validate_isolated_skill_runtime_links(skill_directory, errors)
         validate_reference_orphans(skill_directory, errors)
         validate_required_readme_fragments(name, text, errors)
@@ -396,6 +540,11 @@ def main() -> int:
             errors.append(f"README.md: skill {name} is not linked")
 
     validate_worktree_safety_sync(SKILLS_ROOT, errors)
+
+    if reference_context_reports:
+        print("Reference context report:")
+        for report in reference_context_reports:
+            print(f"- {report}")
 
     for label, url in (
         ("Sebastian Software OSS link", OSS_URL),
