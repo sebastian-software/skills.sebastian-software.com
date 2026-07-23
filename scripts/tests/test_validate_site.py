@@ -101,6 +101,33 @@ class JsonLdInventoryValidationTests(unittest.TestCase):
             ],
         )
 
+    def test_accepts_additional_valid_list_item_properties(self) -> None:
+        failures: list[str] = []
+        json_ld = {
+            "mainEntity": {
+                "numberOfItems": 2,
+                "itemListElement": [
+                    {
+                        "@type": "ListItem",
+                        "position": 1,
+                        "name": "One",
+                        "url": f"{VALIDATOR.SKILL_URL_PREFIX}one",
+                        "description": "An optional Schema.org property.",
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 2,
+                        "name": "Two",
+                        "url": f"{VALIDATOR.SKILL_URL_PREFIX}two",
+                    },
+                ],
+            }
+        }
+
+        VALIDATOR.validate_json_ld_inventory(json_ld, self.inventory, failures)
+
+        self.assertEqual(failures, [])
+
 
 class VisibleSkillInventoryTests(unittest.TestCase):
     def test_reads_card_order_and_display_name(self) -> None:
@@ -113,6 +140,11 @@ class VisibleSkillInventoryTests(unittest.TestCase):
             VALIDATOR.visible_skill_inventory(html),
             [("one", "One & Only"), ("two", "Two")],
         )
+
+    def test_accepts_single_quoted_skill_attributes(self) -> None:
+        html = "<article data-skill='one'><h3>One</h3></article>"
+
+        self.assertEqual(VALIDATOR.visible_skill_inventory(html), [("one", "One")])
 
 
 class ProofRowValuesTests(unittest.TestCase):

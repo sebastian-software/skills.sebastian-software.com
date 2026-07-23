@@ -143,7 +143,8 @@ def extract_json_ld(html: str) -> dict[str, object] | None:
 def visible_skill_inventory(html: str) -> list[tuple[str, str]]:
     """Return skill IDs and display names in the order visitors see them."""
     cards = re.finditer(
-        r'<article\b[^>]*\bdata-skill="(?P<skill>[^"]+)"[^>]*>'
+        r"<article\b[^>]*\bdata-skill=(?P<quote>['\"])(?P<skill>[^'\"]+)"
+        r"(?P=quote)[^>]*>"
         r'.*?<h3>(?P<name>.*?)</h3>',
         html,
         re.DOTALL,
@@ -327,8 +328,15 @@ def validate_json_ld_inventory(
         }
         for position, (skill, name) in enumerate(visible_inventory, start=1)
     ]
+    actual_items = [
+        {
+            key: item.get(key) if isinstance(item, dict) else None
+            for key in ("@type", "position", "name", "url")
+        }
+        for item in items
+    ]
     require(
-        items == expected_items,
+        actual_items == expected_items,
         "JSON-LD skill items must match visible skill cards in order, name, position, and URL",
         failures,
     )
