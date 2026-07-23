@@ -70,6 +70,19 @@ Prefer compact, task-specific receipts:
 - review work: impact, location, evidence, and smallest credible correction;
 - research work: conclusion, primary source, revision or date, and uncertainty.
 
+Choose the execution shape deliberately:
+
+- use one owner for one bounded result;
+- parallelize only independent scopes with separate state and evidence;
+- chain tasks only when a later task requires an earlier artifact; and
+- bound fan-out, recursion, turns, and returned context to the smallest useful
+  level.
+
+Preserve the complete receipt or artifact when the parent summary omits detail.
+Treat declared read-only access, worktree isolation, and tool limits as
+contracts. If the runtime cannot enforce one, stop or disclose the downgrade
+and request a decision rather than silently continuing with broader authority.
+
 Return the outcome, decisive evidence, and blocker rather than a diary of tool
 calls or discarded searches. Keep identifiers, commands, errors, counts, and
 paths exact; do not invent abbreviations merely to look terse. Use complete,

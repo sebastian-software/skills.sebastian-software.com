@@ -71,6 +71,9 @@ Load only the owners needed for the current stage; do not preload the catalog.
   safety-critical or ambiguous information in normal explicit prose. Read
   [Routing and selective installation](references/routing-and-fallbacks.md)
   for the delegation contract.
+- Treat delegated authority, isolation, and tool limits as enforceable
+  contracts. Stop or disclose the downgrade and request a decision when the
+  runtime cannot honor them; never continue silently with broader capability.
 - Implement only the agreed surface. Do not expand a fix into cleanup, a docs
   task into product behavior, or a dependency update into unrelated migration.
 - Follow repository-native files, commands, branches, issues, tests, and docs.
