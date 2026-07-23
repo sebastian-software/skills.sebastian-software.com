@@ -142,7 +142,7 @@ class VisibleSkillInventoryTests(unittest.TestCase):
         )
 
     def test_accepts_single_quoted_skill_attributes(self) -> None:
-        html = "<article data-skill='one'><h3>One</h3></article>"
+        html = "<article data-skill='one'><H3>One</H3></article>"
 
         self.assertEqual(VALIDATOR.visible_skill_inventory(html), [("one", "One")])
 

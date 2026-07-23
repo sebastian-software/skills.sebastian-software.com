@@ -147,7 +147,7 @@ def visible_skill_inventory(html: str) -> list[tuple[str, str]]:
         r"(?P=quote)[^>]*>"
         r'.*?<h3>(?P<name>.*?)</h3>',
         html,
-        re.DOTALL,
+        re.DOTALL | re.IGNORECASE,
     )
     return [
         (
