@@ -195,6 +195,12 @@ Keep `name` stable and descriptive. Treat `prompt` as the user input and
 - Prefer a few discriminating cases over broad happy-path coverage that a
   baseline model would already pass.
 
+For procedural guidance, give each consequential step an observable completion
+condition so an agent can tell whether to continue, stop, or escalate. Review
+new wording sentence by sentence: remove a rule when it does not change a
+decision, action, or verification outcome. Replace stale or duplicated guidance
+at its owner instead of adding another exception to an already layered rule set.
+
 ## First-Party Boundary
 
 Everything below `skills/` is maintained here as Sebastian Software source.
