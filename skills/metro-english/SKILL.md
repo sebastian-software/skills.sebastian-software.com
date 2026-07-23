@@ -242,3 +242,9 @@ If the user asks for options, provide two:
 
 If the original has important ambiguity, preserve it or ask a short question
 before rewriting. Do not invent facts, decisions, approvals, deadlines, or blame.
+
+## Routing Boundaries
+
+- Route technical, legal, product, and documentation correctness to the skill
+  that owns the underlying work; this skill improves language, not substance.
+- Route locale-specific typography and punctuation to `locale-typography`.

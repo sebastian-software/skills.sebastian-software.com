@@ -93,8 +93,8 @@ The description is what an agent sees before deciding whether to load a skill.
   quotes, or bare links for skill-name cross references.
 - Keep `SKILL.md` at or below 300 lines. The body owns the trigger, workflow,
   routing, and boundaries; detailed tables, policy text, and examples belong in
-  `references/`. `scripts/validate-readmes.py` prints a soft warning (not a
-  failure) when a `SKILL.md` exceeds the 300-line target.
+  `references/`. `scripts/validate-readmes.py` enforces this limit and the
+  canonical boundary heading in CI.
 
 ## Resource Directories
 

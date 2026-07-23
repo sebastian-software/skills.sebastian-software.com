@@ -123,3 +123,10 @@ evidence supports it, the changed surface has been reviewed at the right depth,
 and the handoff says what was done, skipped, or remains. Do not equate a clean
 diff, a passing narrow test, a created pull request, or an available delivery
 tool with completion by itself.
+
+## Routing Boundaries
+
+- Route domain-specific implementation, evidence design, and durable decisions
+  to the selected specialist skill; this skill only coordinates the handoff.
+- Do not use this skill to invent repository workflow, delivery authority, or
+  project-specific policy absent from the host repository or user request.

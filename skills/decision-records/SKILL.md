@@ -97,3 +97,10 @@ living records.
   and generic claims such as "best practice" without a project-specific driver.
 - Never record secrets, personal data, credentials, or private incident details
   in a broadly readable ADR.
+
+## Routing Boundaries
+
+- Route repository-wide decision discovery, audit, and prioritization to
+  `codebase-improvement`; use this skill once a durable decision needs a record.
+- Route unresolved system direction to `software-architecture` before recording
+  it here, and route implementation work to the skill that owns that surface.

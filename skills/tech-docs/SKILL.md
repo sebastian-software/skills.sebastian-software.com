@@ -69,7 +69,7 @@ likely failures without inventing behavior or imposing a foreign docs system.
   inventory, audit ledger, or mandatory docs hierarchy when the repository does
   not already use one.
 
-## Boundaries
+## Routing Boundaries
 
 - Route repository-wide documentation audits, gap prioritization, and broader
   improvement planning to `codebase-improvement`; return here for the selected
