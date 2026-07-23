@@ -147,6 +147,79 @@ class VisibleSkillInventoryTests(unittest.TestCase):
         self.assertEqual(VALIDATOR.visible_skill_inventory(html), [("one", "One")])
 
 
+class ComparisonInventoryValidationTests(unittest.TestCase):
+    inventory = [
+        ("one/skills", "https://github.com/one/skills"),
+        ("two/tool", "https://github.com/two/tool"),
+    ]
+
+    def test_reads_visible_comparison_name_and_source(self) -> None:
+        html = """
+        <article class="comparison-card reveal">
+          <h3>one/skills</h3>
+          <a href="https://github.com/one/skills">Inspect source <span>↗</span></a>
+        </article>
+        """
+
+        self.assertEqual(
+            VALIDATOR.visible_comparison_inventory(html),
+            [self.inventory[0]],
+        )
+
+    def test_matching_comparison_metadata_passes(self) -> None:
+        failures: list[str] = []
+        json_ld = {
+            "mainEntity": {
+                "numberOfItems": 2,
+                "itemListElement": [
+                    {
+                        "@type": "ListItem",
+                        "position": position,
+                        "name": name,
+                        "url": url,
+                    }
+                    for position, (name, url) in enumerate(self.inventory, start=1)
+                ],
+            }
+        }
+
+        VALIDATOR.validate_comparison_json_ld(json_ld, self.inventory, failures)
+
+        self.assertEqual(failures, [])
+
+    def test_rejects_duplicate_or_misplaced_comparison_item(self) -> None:
+        failures: list[str] = []
+        json_ld = {
+            "mainEntity": {
+                "numberOfItems": 2,
+                "itemListElement": [
+                    {
+                        "@type": "ListItem",
+                        "position": 1,
+                        "name": "one/skills",
+                        "url": "https://github.com/one/skills",
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 1,
+                        "name": "one/skills",
+                        "url": "https://github.com/one/skills",
+                    },
+                ],
+            }
+        }
+
+        VALIDATOR.validate_comparison_json_ld(json_ld, self.inventory, failures)
+
+        self.assertEqual(
+            failures,
+            [
+                "comparison JSON-LD items must match visible cards in order, "
+                "name, position, and URL"
+            ],
+        )
+
+
 class ProofRowValuesTests(unittest.TestCase):
     def test_reads_values_from_dd_elements(self) -> None:
         html = (

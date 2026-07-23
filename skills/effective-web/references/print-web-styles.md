@@ -31,14 +31,17 @@ The browser downloads `print.css` at low priority and only applies it when print
 
 ### Hiding Non-Essential Elements
 
-Interactive and navigational elements serve no purpose on paper. Hide them with `display: none`.
+Hide interactive controls and transient chrome by default, but retain navigation,
+sidebars, or footer material when they provide necessary document wayfinding,
+offline provenance, legal notices, or task context. Decide from the printed
+artifact rather than the HTML element name.
 
 ```css
 @media print {
-  nav,
-  footer,
-  aside,
-  .sidebar,
+  nav:not([data-print-keep]),
+  footer:not([data-print-keep]),
+  aside:not([data-print-keep]),
+  .sidebar:not([data-print-keep]),
   .ads,
   .cookie-banner,
   .share-buttons,
@@ -255,9 +258,14 @@ Orphans are lines left at the bottom of a page before a break. Widows are lines 
 
 ## Typography for Print
 
-### Serif Fonts
+### Selecting Body Fonts
 
-On paper, serif typefaces (Georgia, Times New Roman, Garamond) are traditionally more readable for body text. The serifs guide the eye along the baseline on a printed page where resolution is high (300+ DPI), unlike screens where sans-serif tends to be clearer at low resolution.
+Serif and sans-serif families can both work in print. Choose a body face by
+legibility at the target point size, glyph and language coverage, available
+weights/styles, embedding or licensing constraints, and the hierarchy required
+by the artifact. Test the actual printer or PDF pipeline; a familiar fallback
+such as Times New Roman is acceptable when it meets those criteria, not a font
+to ban or prescribe categorically.
 
 ### Point-Based Sizing
 
@@ -266,7 +274,7 @@ Print media uses points (pt), not pixels. 1pt = 1/72 inch. Body text is typicall
 ```css
 @media print {
   body {
-    font-family: Georgia, "Times New Roman", serif;
+    font-family: Charter, Georgia, "Times New Roman", serif;
     font-size: 11pt;
     line-height: 1.4;
     color: #000;
@@ -283,20 +291,32 @@ Print media uses points (pt), not pixels. 1pt = 1/72 inch. Body text is typicall
 
 Use unitless values for `line-height`. Body text on paper reads well at 1.35–1.4 (tighter than screen; see [print typography](print-typography.md)). Decrease for headings (1.2-1.3). Increase for very long lines.
 
-## Showing URLs After Links
+## Making Link Destinations Useful on Paper
 
-On paper, hyperlinks are useless without visible URLs. Use `::after` to append the href value.
+Do not append every raw href mechanically. Use a human-readable link label by
+default, then expose a destination when a reader needs an offline citation,
+provenance trail, or actionable fallback. A short URL, numbered source list,
+footnote, printed attribution, or QR code can be clearer than a full URL.
 
 ### Basic Technique
 
 ```css
 @media print {
-  a[href]::after {
+  a[data-print-url]::after {
     content: " (" attr(href) ")";
     font-size: 90%;
     word-break: break-all;
   }
 }
+```
+
+Mark only links whose destination a paper reader must use. Keep the visible
+label human-readable, and use `data-print-keep` on navigation, footer, or
+sidebar elements that provide necessary document context:
+
+```html
+<a href="https://example.com/source" data-print-url>Source study</a>
+<nav data-print-keep aria-label="Document sections">…</nav>
 ```
 
 ### Filtering: Only External Links
@@ -305,19 +325,19 @@ Internal anchors, `javascript:` links, `mailto:` links, and `tel:` links should 
 
 ```css
 @media print {
-  /* Only show URLs for absolute HTTP links */
-  a[href^="http"]::after,
-  a[href^="//"]::after {
+  /* Mark only the selected external destinations that need a printed fallback. */
+  a[data-print-url][href^="http"]::after,
+  a[data-print-url][href^="//"]::after {
     content: " (" attr(href) ")";
     font-size: 90%;
     word-break: break-all;
   }
 
   /* Suppress for internal, mailto, tel, and JavaScript links */
-  a[href^="#"]::after,
-  a[href^="mailto:"]::after,
-  a[href^="tel:"]::after,
-  a[href^="javascript:"]::after {
+  a[data-print-url][href^="#"]::after,
+  a[data-print-url][href^="mailto:"]::after,
+  a[data-print-url][href^="tel:"]::after,
+  a[data-print-url][href^="javascript:"]::after {
     content: none;
   }
 }
@@ -341,7 +361,7 @@ Long URLs can break layouts. Use `overflow-wrap` and `word-break` to allow wrapp
 
 ```css
 @media print {
-  a[href^="http"]::after {
+  a[data-print-url][href^="http"]::after {
     content: " (" attr(href) ")";
     overflow-wrap: break-word;
     word-break: break-all;
@@ -467,9 +487,9 @@ Prevent oversized images from wasting ink and paper.
 
 | Element / Selector | Reason |
 |---|---|
-| `nav` | Navigation is useless on paper |
-| `footer` (site footer) | Social links, secondary nav irrelevant |
-| `aside`, `.sidebar` | Supplementary content distracts from main content |
+| `nav` | Hide interactive site navigation; retain concise document wayfinding when it helps the reader |
+| `footer` (site footer) | Hide social or secondary navigation; retain provenance, legal notices, or page context when needed |
+| `aside`, `.sidebar` | Hide incidental promotion; retain task instructions, annotations, or essential reference material |
 | `button`, `input[type="submit"]` | Interactive -- no function on paper |
 | `form` | Cannot submit from paper |
 | `video`, `audio`, `iframe` | Cannot play media on paper |
@@ -611,16 +631,16 @@ Copy-paste this into your main stylesheet as a starting point. Adjust selectors 
   body {
     background: #fff;
     color: #000;
-    font-family: Georgia, "Times New Roman", serif;
+    font-family: Charter, Georgia, "Times New Roman", serif;
     font-size: 11pt;
     line-height: 1.4;
   }
 
   /* ---- Hide non-print elements ---- */
-  nav,
-  footer,
-  aside,
-  .sidebar,
+  nav:not([data-print-keep]),
+  footer:not([data-print-keep]),
+  aside:not([data-print-keep]),
+  .sidebar:not([data-print-keep]),
   .ads,
   .cookie-banner,
   .share-buttons,
@@ -643,18 +663,18 @@ Copy-paste this into your main stylesheet as a starting point. Adjust selectors 
     display: block !important;
   }
 
-  /* ---- Links: show URLs ---- */
-  a[href^="http"]::after,
-  a[href^="//"]::after {
+  /* ---- Links: expose only selected printed fallbacks ---- */
+  a[data-print-url][href^="http"]::after,
+  a[data-print-url][href^="//"]::after {
     content: " (" attr(href) ")";
     font-size: 90%;
     word-break: break-all;
   }
 
-  a[href^="#"]::after,
-  a[href^="mailto:"]::after,
-  a[href^="tel:"]::after,
-  a[href^="javascript:"]::after {
+  a[data-print-url][href^="#"]::after,
+  a[data-print-url][href^="mailto:"]::after,
+  a[data-print-url][href^="tel:"]::after,
+  a[data-print-url][href^="javascript:"]::after {
     content: none;
   }
 
@@ -759,8 +779,10 @@ The default of 2 lines is too few. A single line stranded at the top of a page l
 ### Mistake 8: Not hiding interactive elements
 Buttons, forms, modals, and video embeds printed on paper waste space and confuse users.
 
-### Mistake 9: Printing navigation and ads
-Navigation, sidebars, and advertisements waste paper, ink, and reader attention. Always hide them.
+### Mistake 9: Printing irrelevant chrome without reviewing context
+Ads, transient controls, and social-navigation chrome usually waste paper and
+attention. Hide them by default, but retain concise breadcrumbs, document
+navigation, citations, or task context when the printed artifact needs them.
 
 ### Mistake 10: Not linearising multi-column layouts
 Columns that work on screen can produce bizarre results on paper -- content split across pages in an unreadable order. Collapse to a single column.
@@ -771,11 +793,11 @@ Columns that work on screen can produce bizarre results on paper -- content spli
 2. Use `@page` to set margins (2cm default), page size (A4 or letter), and orientation
 3. Declare both legacy `page-break-*` and modern `break-*` properties for maximum browser compatibility
 4. Set `orphans: 3` and `widows: 3` on paragraphs to avoid stranded lines across page breaks
-5. Switch to a serif font at 11pt with 1.35–1.4 line-height for printed body text
-6. Show URLs after external links using `a[href^="http"]::after { content: " (" attr(href) ")"; }` and filter out internal, mailto, and tel links
+5. Choose a tested body font and size for the artifact; 11pt with 1.35–1.4 line-height is a useful starting point, not a universal prescription
+6. Expose only selected link destinations with `data-print-url`, short URLs, source lists, footnotes, or QR codes when readers need an offline fallback
 7. Remove backgrounds, box-shadows, and text-shadows; use `print-color-adjust: exact` only where colour carries meaning
 8. Constrain images with `max-width: 100%` and `break-inside: avoid`; hide decorative images to save ink
-9. Hide navigation, footers, sidebars, ads, buttons, forms, modals, and media embeds
+9. Hide irrelevant interactive chrome, while preserving useful wayfinding, provenance, and task context
 10. Linearise layouts to single-column block flow -- flex and grid fragmentation is unreliable across browsers
 11. Use `display: table-header-group` on `<thead>` so table headers repeat on each printed page
 12. Test print output in Chrome and Firefox Print Preview as part of your regular QA process

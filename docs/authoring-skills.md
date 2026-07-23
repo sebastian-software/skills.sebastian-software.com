@@ -115,6 +115,27 @@ Keep `SKILL.md` lean. For a routed skill, link every route directly from
 policy text, and API details into references so agents load only the context
 needed for the current task.
 
+### Runtime Context Budgets
+
+References are runtime context, not an archive. A task-level reference should
+normally stay at or below 500 lines; prefer a 150–350 line module when a task
+needs only one decision area. A route must name the smallest matching reference
+set and make a choice explicit when it offers alternatives. Do not present every
+link in a route as required reading.
+
+Routes should normally expose no more than 900 direct-reference lines. That is
+a review threshold rather than permission to load every linked file: agents
+still select the one or two references that match the task. The README validator
+prints route-level totals in CI so a growing default context is visible in a PR.
+
+An unusually large deep reference is allowed only when it is a genuine
+edge-case appendix and its normal route points to smaller task modules first.
+Register it with a concrete reason and existing default modules in
+`docs/reference-context-exceptions.json`. The validator rejects an unregistered
+reference above 500 lines. Review every exception when the route or its modules
+change; splitting a chapter must reduce the default load, not create copies of
+the same baseline advice.
+
 ## Distill, Don't Archive
 
 This repository ships skills, not an intake log. When a source is useful, absorb
@@ -167,12 +188,14 @@ Markdown under `docs/plans/`; create an index only when several plans require
 ordering. Route repository audits, plan creation, complexity review, and backlog
 reconciliation through `codebase-improvement`.
 
-## Behavioral Evals
+## Review Scenarios (Unrun)
 
-For consequential workflow or judgment changes, add an eval that tests the
-failure mode the new rule is meant to prevent.
+For consequential workflow or judgment changes, add a review scenario that
+tests the failure mode the new rule is meant to prevent. The historical
+`evals/evals.json` path is retained as a portable fixture format, but it is not
+an executed behavioral-evaluation harness.
 
-Store evals in `skills/<name>/evals/evals.json`. New files use a top-level
+Store review scenarios in `skills/<name>/evals/evals.json`. New files use a top-level
 `evals` array whose entries contain `name`, `prompt`, and `expected`:
 
 ```json
@@ -188,7 +211,15 @@ Store evals in `skills/<name>/evals/evals.json`. New files use a top-level
 ```
 
 Keep `name` stable and descriptive. Treat `prompt` as the user input and
-`expected` as behavioral acceptance criteria, not a golden response string.
+`expected` as manual review criteria, not a golden response string. CI validates
+only the fixture's JSON shape, non-empty fields, and unique names; it does not
+submit prompts to a model, score responses, or claim behavioral correctness.
+
+When a change needs behavior evidence, follow the documented [manual
+review-scenario workflow](review-scenarios.md). It generates a report template
+and validates that a human-recorded review identifies the skill, case, agent,
+model, sampling settings, response, pass/fail result, and grading evidence. The
+report validator checks traceability, not whether the human's grade is correct.
 
 - Use a realistic prompt containing a plausible misconception, incomplete fix,
   or tempting shortcut; do not merely ask the agent to repeat the rule.
@@ -197,6 +228,12 @@ Keep `name` stable and descriptive. Treat `prompt` as the user input and
 - Include fallback and degraded-state scenarios for progressive enhancements.
 - Prefer a few discriminating cases over broad happy-path coverage that a
   baseline model would already pass.
+
+For procedural guidance, give each consequential step an observable completion
+condition so an agent can tell whether to continue, stop, or escalate. Review
+new wording sentence by sentence: remove a rule when it does not change a
+decision, action, or verification outcome. Replace stale or duplicated guidance
+at its owner instead of adding another exception to an already layered rule set.
 
 ## First-Party Boundary
 
@@ -236,12 +273,14 @@ Before merging a change:
 1. Confirm the trigger description still selects the skill for the right tasks.
 2. Confirm links to bundled references, scripts, and any optional resources resolve.
 3. When adding a skill, create `agents/openai.yaml` and `evals/evals.json`; add
-   or update behavioral cases for consequential changes.
+   or update unrun review scenarios for consequential changes, and record a
+   manual review report when behavior evidence is needed.
 4. When adding a skill, add its `site/index.html` card and inventory metadata.
 5. Run `python3 scripts/validate-readmes.py`,
    `python3 scripts/validate-site.py`, and
    `python3 -m unittest discover -s scripts/tests -p 'test_*.py'`.
 6. Run the repository's DALO CI smoke test.
 7. Check that `dalo status` reports no inventory warnings or duplicate slots.
-8. For routed skills, confirm every reference is linked directly from `SKILL.md`
-   and that old public skill names no longer appear in internal links.
+8. For routed skills, confirm every reference is reachable from its matching
+   route, the default load is explicit and narrow, and old public skill names no
+   longer appear in internal links.
