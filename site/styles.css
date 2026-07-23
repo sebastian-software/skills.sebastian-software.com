@@ -1016,6 +1016,317 @@
     color: var(--muted);
   }
 
+  .landscape-teaser {
+    border-block: 1px solid var(--ink);
+    background: var(--signal);
+    color: var(--accent-ink);
+  }
+
+  .landscape-teaser-grid {
+    display: grid;
+    grid-template-columns: minmax(18rem, 0.9fr) minmax(24rem, 1.1fr);
+    align-items: end;
+    gap: clamp(3rem, 10vw, 9rem);
+  }
+
+  .landscape-teaser h2 {
+    max-width: 10ch;
+  }
+
+  .landscape-teaser .eyebrow {
+    color: var(--accent-ink);
+  }
+
+  .landscape-teaser-copy {
+    display: grid;
+    max-width: 40rem;
+    justify-items: start;
+    gap: 2rem;
+  }
+
+  .landscape-hero {
+    padding: clamp(10rem, 18vh, 13rem) 0 clamp(5rem, 9vw, 8rem);
+    border-bottom: 1px solid var(--ink);
+    background:
+      linear-gradient(90deg, transparent 49.8%, rgb(17 19 26 / 6%) 50%, transparent 50.2%),
+      var(--paper);
+  }
+
+  .landscape-hero-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.25fr) minmax(20rem, 0.75fr);
+    align-items: end;
+    gap: clamp(3rem, 9vw, 8rem);
+  }
+
+  .landscape-hero-copy h1 {
+    max-width: 12ch;
+    font-size: clamp(4rem, 8vw, 7.8rem);
+  }
+
+  .landscape-hero-copy > p:last-child {
+    max-width: 49rem;
+    margin-top: 2rem;
+    color: var(--muted);
+    font-size: clamp(1.05rem, 1.8vw, 1.35rem);
+  }
+
+  .verdict-key {
+    padding: clamp(1.5rem, 3vw, 2.2rem);
+    border: 1px solid var(--ink);
+    background: var(--white);
+    box-shadow: 9px 9px 0 var(--ink);
+  }
+
+  .verdict-key h2 {
+    max-width: 13ch;
+    margin-top: 0.65rem;
+    font-family: var(--sans);
+    font-size: clamp(1.45rem, 2.7vw, 2.2rem);
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    line-height: 1.08;
+  }
+
+  .verdict-key dl {
+    display: grid;
+    gap: 1rem;
+    margin-top: 2rem;
+  }
+
+  .verdict-key dl > div {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    align-items: start;
+    gap: 0.85rem;
+  }
+
+  .verdict-key dd {
+    color: var(--muted);
+    font-size: 0.78rem;
+    line-height: 1.45;
+  }
+
+  .comparison-kicker {
+    color: var(--blue);
+    font-size: 0.68rem;
+    font-weight: 850;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  .method-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    margin-top: 4rem;
+    border: 1px solid var(--ink);
+    background: var(--ink);
+    gap: 1px;
+    list-style: none;
+  }
+
+  .method-grid li {
+    min-height: 15rem;
+    padding: 1.5rem;
+    background: var(--white);
+  }
+
+  .method-grid li > span {
+    color: var(--blue);
+    font-family: var(--display);
+    font-size: 1.5rem;
+  }
+
+  .method-grid h3 {
+    margin-top: 3.5rem;
+  }
+
+  .method-grid p {
+    margin-top: 0.75rem;
+    color: var(--muted);
+    font-size: 0.82rem;
+  }
+
+  .comparison-list {
+    border-top: 1px solid var(--ink);
+    background: var(--paper-soft);
+  }
+
+  .comparison-list-focused {
+    background: var(--paper);
+  }
+
+  .comparison-section-heading {
+    display: grid;
+    grid-template-columns: minmax(0, 1.2fr) minmax(18rem, 0.8fr);
+    align-items: end;
+    gap: 3rem;
+  }
+
+  .comparison-section-heading h2 {
+    max-width: 13ch;
+  }
+
+  .comparison-section-heading > p {
+    max-width: 34rem;
+    color: var(--muted);
+  }
+
+  .comparison-cards {
+    display: grid;
+    gap: 1.5rem;
+    margin-top: 4rem;
+  }
+
+  .comparison-card {
+    padding: clamp(1.5rem, 4vw, 3rem);
+    border: 1px solid var(--ink);
+    background: var(--white);
+    box-shadow: 7px 7px 0 var(--ink);
+  }
+
+  .comparison-card > header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 2rem;
+  }
+
+  .comparison-card h3 {
+    margin-top: 0.4rem;
+    font-family: var(--display);
+    font-size: clamp(2rem, 4vw, 3.5rem);
+    font-weight: 500;
+    letter-spacing: -0.04em;
+  }
+
+  .fit-badge {
+    display: inline-flex;
+    min-height: 1.75rem;
+    align-items: center;
+    justify-content: center;
+    padding: 0.28rem 0.55rem;
+    border: 1px solid currentColor;
+    border-radius: 999px;
+    font-size: 0.61rem;
+    font-weight: 850;
+    letter-spacing: 0.05em;
+    line-height: 1;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+
+  .fit-companion {
+    background: var(--signal);
+    color: var(--accent-ink);
+  }
+
+  .fit-selective {
+    background: var(--sky);
+    color: var(--accent-ink);
+  }
+
+  .fit-covered {
+    background: var(--paper-soft);
+    color: var(--ink);
+  }
+
+  .comparison-summary {
+    max-width: 65rem;
+    margin-top: 2rem;
+    font-size: clamp(1rem, 1.7vw, 1.2rem);
+  }
+
+  .comparison-facts {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    margin-top: 2.5rem;
+    border-top: 1px solid var(--line-strong);
+    border-left: 1px solid var(--line);
+  }
+
+  .comparison-facts > div {
+    min-height: 11rem;
+    padding: 1.4rem;
+    border-right: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+  }
+
+  .comparison-facts dt {
+    color: var(--blue);
+    font-size: 0.68rem;
+    font-weight: 850;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  .comparison-facts dd {
+    margin-top: 0.8rem;
+    color: var(--muted);
+    font-size: 0.86rem;
+  }
+
+  .comparison-card > footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+    margin-top: 2rem;
+    font-size: 0.72rem;
+    font-weight: 800;
+  }
+
+  .comparison-card > footer a {
+    color: var(--blue);
+  }
+
+  .comparison-card > footer span {
+    color: var(--muted);
+    font-weight: 650;
+  }
+
+  .compatibility {
+    border-top: 1px solid var(--ink);
+    background: var(--signal);
+    color: var(--accent-ink);
+  }
+
+  .compatibility-grid {
+    display: grid;
+    grid-template-columns: minmax(18rem, 0.9fr) minmax(24rem, 1.1fr);
+    align-items: start;
+    gap: clamp(3rem, 10vw, 9rem);
+  }
+
+  .compatibility h2 {
+    max-width: 11ch;
+  }
+
+  .compatibility .eyebrow {
+    color: var(--accent-ink);
+  }
+
+  .compatibility-rules {
+    display: grid;
+    justify-items: start;
+    gap: 2rem;
+  }
+
+  .compatibility-rules ol {
+    display: grid;
+    gap: 1px;
+    width: 100%;
+    border: 1px solid var(--ink);
+    background: var(--ink);
+    list-style-position: inside;
+  }
+
+  .compatibility-rules li {
+    padding: 1.2rem 1.4rem;
+    background: var(--white);
+    color: var(--ink);
+  }
+
   .install {
     border-block: 1px solid var(--ink);
     background: var(--sky);
@@ -1391,6 +1702,10 @@
     .flagship-grid,
     .library-heading,
     .principles-grid,
+    .landscape-teaser-grid,
+    .landscape-hero-grid,
+    .comparison-section-heading,
+    .compatibility-grid,
     .install-heading,
     .about-grid {
       grid-template-columns: 1fr;
@@ -1429,6 +1744,10 @@
       grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
+    .method-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
     .principles-intro {
       position: static;
     }
@@ -1462,6 +1781,14 @@
 
     .hero h1 {
       font-size: clamp(3.6rem, 17vw, 5.2rem);
+    }
+
+    .landscape-hero {
+      padding-top: 10rem;
+    }
+
+    .landscape-hero-copy h1 {
+      font-size: clamp(3.5rem, 15vw, 5.2rem);
     }
 
     .hero-actions,
@@ -1563,8 +1890,20 @@
     }
 
     .skill-grid,
-    .install-grid {
+    .install-grid,
+    .method-grid,
+    .comparison-facts {
       grid-template-columns: minmax(0, 1fr);
+    }
+
+    .comparison-card > header,
+    .comparison-card > footer {
+      align-items: flex-start;
+      flex-direction: column;
+    }
+
+    .comparison-facts > div {
+      min-height: auto;
     }
 
     .skill-card-feature {
@@ -1680,6 +2019,12 @@
       color: var(--accent-ink);
     }
 
+    .landscape-hero {
+      background:
+        linear-gradient(90deg, transparent 49.8%, rgb(232 234 241 / 7%) 50%, transparent 50.2%),
+        var(--paper);
+    }
+
     .filter-bar button:not([aria-pressed="true"]) span {
       background: rgb(255 255 255 / 12%);
     }
@@ -1708,6 +2053,10 @@
     .command-dock,
     .skill-card,
     .install-card,
+    .verdict-key,
+    .comparison-card,
+    .method-grid,
+    .compatibility-rules ol,
     .about-mark,
     .filter-bar button {
       border: 2px solid ButtonText;
@@ -1730,6 +2079,10 @@
 
     .hero {
       min-height: auto;
+      padding-top: 2rem;
+    }
+
+    .landscape-hero {
       padding-top: 2rem;
     }
 

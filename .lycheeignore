@@ -2,6 +2,10 @@
 https?://([a-z0-9-]+\.)?linkedin\.com.*
 https?://([a-z0-9-]+\.)?xing\.com.*
 
+# A new Pages route cannot resolve in production before its first merge. Its
+# canonical URL and sitemap entry are checked by scripts/validate-site.py.
+https://skills\.sebastian-software\.com/comparisons\.html
+
 # New main-branch routes cannot resolve before their first merge. Repository
 # inventory and local links are checked by scripts/validate-readmes.py.
 https://github\.com/sebastian-software/skills\.sebastian-software\.com/tree/main/skills/rust-engineering
