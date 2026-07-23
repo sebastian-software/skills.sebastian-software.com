@@ -19,6 +19,12 @@ documentation, dependencies, architecture, ports, decisions, and PR review.
 - repository-native plans, tests, documentation, Git conventions, and handoffs
 - before-and-after evidence for refactors and regression evidence for bug fixes
 - selective coordination of only the specialist skills the current task needs
+- capability- and cost-aware routing across available models and agents instead
+  of assuming one model should own every stage
+- compact delegation receipts that preserve exact evidence without returning a
+  transcript of every search or tool call
+- bounded delegation topologies that never silently weaken read-only access,
+  worktree isolation, or tool limits
 - a smallest-sufficient implementation path that prefers reuse, native
   capabilities, and installed dependencies without cutting safeguards
 - an honest completion report covering evidence, skipped checks, delivery state,
@@ -59,6 +65,7 @@ See [SKILL.md](SKILL.md) for the four-stage workflow and its authority model.
 | Diagnosis and clarification | Preserve read-only diagnosis and resolve only choices that block a safe next step. |
 | Implementation intent | Use natural-language routes and sequence understand, change, verify, and deliver only as far as the task needs. |
 | Specialist judgment | Delegate frontend, testing, validation, documentation, dependency, review, architecture, decision, and port depth to their owners. Use a disclosed repository-led fallback where no language specialist exists. |
+| Delegation | Match model capability to judgment and execution risk; give bounded owners explicit authority, deliberate execution topology, and compact result contracts without weakening isolation or evidence to save cost. |
 | Pragmatic restraint | Understand the owning flow, then prefer no new work, repository reuse, standard-library or native capability, an installed dependency, and finally the smallest cohesive implementation. |
 | Mixed repositories | Route each affected domain independently; distinguish product code, tooling, documentation, generated output, and vendored content before delegating. |
 | Plans and progress | Reuse repository-native issues, plans, branches, commits, CI, and pull requests instead of creating a parallel workflow store. |

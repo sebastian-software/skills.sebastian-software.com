@@ -93,6 +93,22 @@ issue, or decision convention. Do not add a skill-specific debt marker.
 - Invoke the appropriate first-party owner when available and treat its domain
   rules as authoritative. Pass it the outcome, scope, repository evidence,
   constraints, and expected handoff.
+- Do not assume one model or session must own every stage. When the host
+  supports model or agent selection, reserve the strongest suitable capability
+  for ambiguity-heavy, high-impact judgment. Route bounded, reversible
+  execution to faster or lower-cost workers only when the handoff is
+  self-contained and verification is objective.
+- For delegated work, define a compact result contract and return boundary.
+  Prefer outcome, evidence, and blocker over process narration; keep
+  safety-critical or ambiguous information in normal explicit prose. Read
+  [Routing and selective installation](references/routing-and-fallbacks.md)
+  for the delegation contract.
+- Treat delegated authority, isolation, and tool limits as enforceable
+  contracts. Stop or disclose the downgrade and request a decision when the
+  runtime cannot honor them; never continue silently with broader capability.
+- Keep work in the caller when context loss, capability mismatch, or
+  coordination cost outweighs delegation. Never invent unavailable model tiers
+  or let price weaken authority, evidence, review depth, or safety.
 - Implement only the agreed surface. Do not expand a fix into cleanup, a docs
   task into product behavior, or a dependency update into unrelated migration.
 - Follow repository-native files, commands, branches, issues, tests, and docs.
