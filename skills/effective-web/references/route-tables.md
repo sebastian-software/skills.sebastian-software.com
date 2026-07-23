@@ -24,4 +24,11 @@ Use this skill when the primary UI problem is understanding, comparing, filterin
 
 ## References
 
-- [tables-data.md](tables-data.md) - table structure, dense data, and responsive data patterns.
+Choose the one primary concern before reading another module:
+
+- [tables-semantics.md](tables-semantics.md) - native structure, headers,
+  captions, accessible comparison, and dense-value scanning.
+- [tables-responsive.md](tables-responsive.md) - constrained widths, overflow,
+  cards, priority columns, and sticky orientation.
+- [tables-interactions.md](tables-interactions.md) - sorting, filters, column
+  controls, pagination, and row or bulk actions.
