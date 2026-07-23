@@ -38,14 +38,17 @@ Each skill README must include:
 - a link to the local `SKILL.md` agent interface
 - selective installation commands for the skills CLI and DALO
 - an honest scope or boundary section
-- relative links to the most relevant first-party skills
+- where a handoff matters, inline references to relevant first-party skills,
+  naming the owner and the handoff
 - the canonical Sebastian Software open-source and English consulting links
 - the portable license notice `MIT — see the collection [LICENSE](../../LICENSE).`
 
 Use `https://oss.sebastian-software.com/` for Sebastian Software open source and
-`https://sebastian-consulting.com/en` for consulting. Keep related-skill links
-purposeful: explain where the workflow hands work to the other skill instead of
-building a generic cross-promotion list.
+`https://sebastian-consulting.com/en` for consulting. Keep related-skill
+references purposeful: explain where the workflow hands work to the other skill
+instead of building a generic cross-promotion list. In `SKILL.md` and
+`references/`, name related skills inline rather than linking into sibling
+directories, because selective installs do not include those files.
 
 Run `python3 scripts/validate-readmes.py` after adding or changing a README. CI
 requires one README per public skill and verifies collection links, agent

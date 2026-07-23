@@ -97,9 +97,10 @@ depends on one model, transition, or state change.
 `product-design` owns the decision-grade question, fidelity choice, realistic
 task, and evaluation plan. When the uncertainty is specifically browser layout,
 responsive behavior, input, or implementation under already accepted intent,
-use `effective-web`'s [bounded browser prototype protocol](../../effective-web/references/design-planning.md#bounded-browser-prototypes).
-Carry its `Discard`, `Rebuild`, or `Productionize` conclusion back into the
-design brief and prototype findings; do not leave a parallel browser artifact.
+use the optional `effective-web` skill. Its bounded browser protocol means:
+build the smallest representative browser slice, record whether to `Discard`,
+`Rebuild`, or `Productionize` it, and carry that conclusion back into the design
+brief and prototype findings; do not leave a parallel browser artifact.
 
 Start in the environment and viewport most representative of the intended use;
 add other sizes when they answer a real layout or behavior question. Move into
@@ -140,14 +141,13 @@ to the audience, purpose, and design brief. Avoid generic mood words that cannot
 help distinguish a decision. Also name qualities that would send the wrong
 signal.
 
-This exploration precedes or feeds `effective-web`'s compact
-[Design Read](../../effective-web/references/design-directions.md#design-read)
-and [Decide Before Styling](../../effective-web/references/design-planning.md#decide-before-styling)
-contract. `product-design` compares materially different experience directions;
-`effective-web` carries the accepted direction into browser structure,
-implementation constraints, and its
-[persistence and drift](../../effective-web/references/design-directions.md#persistence-and-drift)
-rules.
+This exploration precedes or feeds the optional `effective-web` skill's compact
+Design Read and Decide Before Styling contract: record what the direction should
+communicate, the evidence for it, and the decision that must precede styling.
+`product-design` compares materially different experience directions;
+`effective-web` carries the accepted direction into browser structure and
+implementation constraints, then checks persistence and drift when later work
+would erode that direction.
 
 Gather references purposefully. Annotate the exact typography, color behavior,
 shape language, spacing, imagery, icon treatment, depth, motion, or content tone
@@ -169,13 +169,13 @@ different functionality. For each direction:
   decide between the directions
 
 Turn the chosen qualities into provisional tokens, component rules, and clear
-anti-examples. Keep them as study evidence until Effective Web reconciles them
-with accepted design-system, accessibility, responsive, and implementation
+anti-examples. Keep them as study evidence until `effective-web` reconciles
+them with accepted design-system, accessibility, responsive, and implementation
 contracts. Persist durable choices through the repository's decision convention
-or [`decision-records`](../../decision-records/SKILL.md) rather than allowing a
-prototype token set to become an undocumented parallel system. The delivered
-direction must fit this product rather than reproduce another product's
-composition.
+or the optional `decision-records` skill: record the context, decision, and
+consequences rather than allowing a prototype token set to become an
+undocumented parallel system. The delivered direction must fit this product
+rather than reproduce another product's composition.
 
 ## Increase craft deliberately
 

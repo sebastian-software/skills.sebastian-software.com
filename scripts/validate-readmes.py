@@ -104,6 +104,38 @@ def validate_local_links(markdown: Path, errors: list[str]) -> None:
                 )
 
 
+def validate_isolated_skill_runtime_links(
+    skill_directory: Path, errors: list[str]
+) -> None:
+    """Reject sibling-skill links that would break selective installation."""
+    runtime_documents = [skill_directory / "SKILL.md"]
+    references_directory = skill_directory / "references"
+    if references_directory.is_dir():
+        runtime_documents.extend(sorted(references_directory.rglob("*.md")))
+
+    skills_root = (REPOSITORY_ROOT / "skills").resolve()
+    for markdown in runtime_documents:
+        for raw_target in MARKDOWN_LINK.findall(linkable_text(markdown)):
+            target = raw_target.strip().split(maxsplit=1)[0].strip("<>")
+            if not target or target.startswith(("http://", "https://", "mailto:", "#")):
+                continue
+
+            path_part = target.partition("#")[0]
+            if not path_part:
+                continue
+            destination = (markdown.parent / unquote(path_part)).resolve()
+            try:
+                sibling_path = destination.relative_to(skills_root)
+            except ValueError:
+                continue
+
+            if sibling_path.parts and sibling_path.parts[0] != skill_directory.name:
+                errors.append(
+                    f"{markdown.relative_to(REPOSITORY_ROOT)}: sibling-skill link "
+                    f"{target}; use inline `{sibling_path.parts[0]}` guidance instead"
+                )
+
+
 def parse_skill_frontmatter(text: str) -> dict[str, str] | None:
     """Parse the flat SKILL.md frontmatter without an external YAML dependency.
 
@@ -356,6 +388,7 @@ def main() -> int:
         validate_skill_metadata(skill_directory, errors)
         validate_frontmatter(skill_directory, errors)
         validate_skill_body_conventions(skill_directory, errors)
+        validate_isolated_skill_runtime_links(skill_directory, errors)
         validate_reference_orphans(skill_directory, errors)
         validate_required_readme_fragments(name, text, errors)
 
