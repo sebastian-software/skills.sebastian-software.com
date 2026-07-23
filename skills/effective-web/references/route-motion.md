@@ -33,5 +33,7 @@ progress, or adds an earned moment of brand character without slowing users down
 
 ## References
 
-- [scroll-patterns.md](scroll-patterns.md) - scroll interaction patterns and risks.
+- [scroll-navigation.md](scroll-navigation.md) - anchors, sticky offsets,
+  horizontal sequences, and scroll snap; read [scroll-feedback.md](scroll-feedback.md)
+  for back-to-top, scroll-driven feedback, and large lists.
 - [motion-interaction.md](motion-interaction.md) - motion principles, timing, and reduced-motion rules.

@@ -1,0 +1,16 @@
+{
+  "skill": "effective-web",
+  "runtime": {
+    "agent": "documentation negative control",
+    "model": "not run",
+    "sampling": "not applicable"
+  },
+  "results": [
+    {
+      "name": "rsc-boundary",
+      "response": "Make the whole page a client component so its data fetch and interactive filter can live together.",
+      "result": "fail",
+      "grading_evidence": "The response misses the required server/client boundary: it moves data access and static rendering to the client instead of isolating filter interactivity."
+    }
+  ]
+}

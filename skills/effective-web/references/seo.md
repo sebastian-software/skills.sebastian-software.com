@@ -246,7 +246,7 @@ Pair with structured data (see below) to display breadcrumbs directly in search 
 
 ## Structured Data (JSON-LD)
 
-Structured data helps search engines understand *what* content is, not just *what it says*. It can enable eligible rich results such as star ratings, breadcrumb paths, and product prices in search results. Google FAQ rich results have separate eligibility limits.
+Structured data helps search engines understand *what* content is, not just *what it says*. It can enable eligible rich results such as star ratings, breadcrumb paths, and product prices in search results. Eligibility and supported result types change; markup is not a display guarantee.
 
 ### Implementation
 
@@ -276,12 +276,16 @@ Use JSON-LD (JavaScript Object Notation for Linked Data) embedded in a `<script>
 | `Article` | Blog posts, news articles | Headline, image, date in results |
 | `Product` | Product pages | Price, availability, ratings |
 | `BreadcrumbList` | Breadcrumb navigation | Breadcrumb trail in results |
-| `FAQPage` | FAQ sections | Google FAQ rich results only for well-known, authoritative government and health sites |
+| `FAQPage` | Visible question-and-answer content | No Google rich result (retired May 2026) |
 | `Organization` | Company info | Knowledge panel, logo |
 | `LocalBusiness` | Physical business or location pages | Local panels, business facts |
 | `Service` | Service pages | Entity clarity for offered services |
 | `WebSite` | Homepage | Sitelinks search box |
 | `HowTo` | Step-by-step guides | No Google rich result (retired) |
+
+Google retired FAQ rich results on May 7, 2026; confirm current feature support
+against [Google Search documentation updates](https://developers.google.com/search/updates)
+before treating any schema type as a search appearance.
 
 ### BreadcrumbList Example
 
@@ -302,7 +306,8 @@ Use JSON-LD (JavaScript Object Notation for Linked Data) embedded in a `<script>
 **Guidelines:**
 - Place JSON-LD in the `<head>` or at the end of `<body>` — both work
 - Only mark up content that is visible on the page — hidden structured data violates Google's guidelines
-- Validate with Google's Rich Results Test before deploying
+- Validate eligible markup with Google's Rich Results Test before deploying
+- Inspect the rendered DOM when the application injects JSON-LD on the client; a static HTML fetch can miss markup that appears only after JavaScript runs
 - One JSON-LD block per distinct entity; multiple blocks per page are fine
 - Use stable `@id` values when the same entity appears across pages
 - Keep business details, product data, reviews, prices, availability, and opening hours synchronized with the operational source of truth
