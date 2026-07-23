@@ -578,13 +578,22 @@ class ReferenceContextBudgetTests(unittest.TestCase):
             encoding="utf-8",
         )
 
+    def write_registry(self, payload: dict[str, object]) -> None:
+        docs = self.root / "docs"
+        docs.mkdir(exist_ok=True)
+        docs.joinpath("reference-context-exceptions.json").write_text(
+            json.dumps(payload), encoding="utf-8"
+        )
+
     def test_rejects_an_oversized_reference_without_a_reviewed_exception(self) -> None:
         reference = self.references / "guide.md"
         reference.write_text("\n".join(["line"] * 501), encoding="utf-8")
         errors: list[str] = []
         reports: list[str] = []
 
-        VALIDATOR.validate_reference_context_budgets(self.skill, {}, errors, reports)
+        VALIDATOR.validate_reference_context_budgets(
+            self.skill, {}, {}, errors, reports
+        )
 
         self.assertEqual(
             errors,
@@ -608,7 +617,7 @@ class ReferenceContextBudgetTests(unittest.TestCase):
         }
 
         VALIDATOR.validate_reference_context_budgets(
-            self.skill, exceptions, errors, reports
+            self.skill, exceptions, {}, errors, reports
         )
 
         self.assertEqual(errors, [])
@@ -620,7 +629,7 @@ class ReferenceContextBudgetTests(unittest.TestCase):
             ],
         )
 
-    def test_reports_a_route_with_a_broad_direct_reference_set(self) -> None:
+    def write_broad_route(self) -> None:
         self.references.joinpath("route-example.md").write_text(
             "[First](first.md)\n[Second](second.md)\n", encoding="utf-8"
         )
@@ -630,19 +639,73 @@ class ReferenceContextBudgetTests(unittest.TestCase):
         self.references.joinpath("second.md").write_text(
             "\n".join(["line"] * 500), encoding="utf-8"
         )
+
+    def test_fails_an_unregistered_broad_route(self) -> None:
+        self.write_broad_route()
         errors: list[str] = []
         reports: list[str] = []
 
-        VALIDATOR.validate_reference_context_budgets(self.skill, {}, errors, reports)
+        VALIDATOR.validate_reference_context_budgets(
+            self.skill, {}, {}, errors, reports
+        )
+
+        self.assertEqual(
+            errors,
+            [
+                "skills/example/references/route-example.md: 1000 direct-reference "
+                "lines exceeds the 900-line advisory budget; make the route selection "
+                "explicit or register a reviewed route context exception"
+            ],
+        )
+        self.assertEqual(reports, [])
+
+    def test_registered_route_without_a_ceiling_stays_advisory(self) -> None:
+        self.write_broad_route()
+        errors: list[str] = []
+        reports: list[str] = []
+        route_exceptions = {
+            "skills/example/references/route-example.md": {
+                "reason": "A broad router selected per task.",
+            }
+        }
+
+        VALIDATOR.validate_reference_context_budgets(
+            self.skill, {}, route_exceptions, errors, reports
+        )
 
         self.assertEqual(errors, [])
         self.assertEqual(
             reports,
             [
                 "skills/example/references/route-example.md: 1000 direct-reference "
-                "lines (recommended at most 900; make the selection explicit)"
+                "lines (registered route exception, advisory limit 900)"
             ],
         )
+
+    def test_registered_route_over_its_ceiling_fails(self) -> None:
+        self.write_broad_route()
+        errors: list[str] = []
+        reports: list[str] = []
+        route_exceptions = {
+            "skills/example/references/route-example.md": {
+                "reason": "Bounded router.",
+                "ceiling": 950,
+            }
+        }
+
+        VALIDATOR.validate_reference_context_budgets(
+            self.skill, {}, route_exceptions, errors, reports
+        )
+
+        self.assertEqual(
+            errors,
+            [
+                "skills/example/references/route-example.md: 1000 direct-reference "
+                "lines exceeds its registered ceiling of 950; trim the route or "
+                "raise the ceiling"
+            ],
+        )
+        self.assertEqual(reports, [])
 
     def test_counts_nested_direct_references_in_a_route(self) -> None:
         nested = self.references / "guides"
@@ -660,16 +723,19 @@ class ReferenceContextBudgetTests(unittest.TestCase):
         errors: list[str] = []
         reports: list[str] = []
 
-        VALIDATOR.validate_reference_context_budgets(self.skill, {}, errors, reports)
+        VALIDATOR.validate_reference_context_budgets(
+            self.skill, {}, {}, errors, reports
+        )
 
-        self.assertEqual(errors, [])
         self.assertEqual(
-            reports,
+            errors,
             [
                 "skills/example/references/route-example.md: 1000 direct-reference "
-                "lines (recommended at most 900; make the selection explicit)"
+                "lines exceeds the 900-line advisory budget; make the route selection "
+                "explicit or register a reviewed route context exception"
             ],
         )
+        self.assertEqual(reports, [])
 
     def test_loads_only_a_complete_exception_registry(self) -> None:
         self.references.joinpath("guide.md").write_text(
@@ -732,6 +798,136 @@ class ReferenceContextBudgetTests(unittest.TestCase):
                 "docs/reference-context-exceptions.json: exception "
                 "'skills/example/references/guide.md' no longer exceeds the "
                 "500-line limit; remove it from the registry"
+            ],
+        )
+
+    def test_loads_registered_route_exceptions(self) -> None:
+        self.references.joinpath("route-example.md").write_text(
+            "# Route\n", encoding="utf-8"
+        )
+        self.write_registry(
+            {
+                "version": 1,
+                "exceptions": {},
+                "routes": {
+                    "skills/example/references/route-example.md": {
+                        "reason": "A broad router selected per task.",
+                        "ceiling": 1500,
+                    }
+                },
+            }
+        )
+        errors: list[str] = []
+
+        routes = VALIDATOR.load_route_context_exceptions(errors)
+
+        self.assertEqual(errors, [])
+        self.assertEqual(
+            routes["skills/example/references/route-example.md"]["ceiling"], 1500
+        )
+
+    def test_accepts_the_full_registry_top_level_shape(self) -> None:
+        self.references.joinpath("route-example.md").write_text(
+            "# Route\n", encoding="utf-8"
+        )
+        self.write_registry(
+            {
+                "version": 1,
+                "exceptions": {},
+                "routes": {
+                    "skills/example/references/route-example.md": {
+                        "reason": "A broad router selected per task.",
+                    }
+                },
+            }
+        )
+        errors: list[str] = []
+
+        exceptions = VALIDATOR.load_reference_context_exceptions(errors)
+
+        self.assertEqual(errors, [])
+        self.assertEqual(exceptions, {})
+
+    def test_rejects_a_route_without_a_reason(self) -> None:
+        self.references.joinpath("route-example.md").write_text(
+            "# Route\n", encoding="utf-8"
+        )
+        self.write_registry(
+            {
+                "version": 1,
+                "exceptions": {},
+                "routes": {
+                    "skills/example/references/route-example.md": {"ceiling": 1500}
+                },
+            }
+        )
+        errors: list[str] = []
+
+        routes = VALIDATOR.load_route_context_exceptions(errors)
+
+        self.assertEqual(routes, {})
+        self.assertEqual(
+            errors,
+            [
+                "docs/reference-context-exceptions.json: route "
+                "'skills/example/references/route-example.md' must contain a reason "
+                "and may set a ceiling"
+            ],
+        )
+
+    def test_rejects_a_route_ceiling_at_or_below_the_advisory_limit(self) -> None:
+        self.references.joinpath("route-example.md").write_text(
+            "# Route\n", encoding="utf-8"
+        )
+        self.write_registry(
+            {
+                "version": 1,
+                "exceptions": {},
+                "routes": {
+                    "skills/example/references/route-example.md": {
+                        "reason": "Bounded router.",
+                        "ceiling": 900,
+                    }
+                },
+            }
+        )
+        errors: list[str] = []
+
+        routes = VALIDATOR.load_route_context_exceptions(errors)
+
+        self.assertEqual(routes, {})
+        self.assertEqual(
+            errors,
+            [
+                "docs/reference-context-exceptions.json: route "
+                "'skills/example/references/route-example.md' ceiling must be an "
+                "integer above the 900-line advisory limit"
+            ],
+        )
+
+    def test_rejects_a_route_that_names_a_missing_file(self) -> None:
+        self.write_registry(
+            {
+                "version": 1,
+                "exceptions": {},
+                "routes": {
+                    "skills/example/references/route-missing.md": {
+                        "reason": "Points at nothing.",
+                    }
+                },
+            }
+        )
+        errors: list[str] = []
+
+        routes = VALIDATOR.load_route_context_exceptions(errors)
+
+        self.assertEqual(routes, {})
+        self.assertEqual(
+            errors,
+            [
+                "docs/reference-context-exceptions.json: route "
+                "'skills/example/references/route-missing.md' must name an existing "
+                "Markdown route"
             ],
         )
 

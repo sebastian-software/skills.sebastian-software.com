@@ -96,6 +96,26 @@ class ScenarioReviewReportTests(unittest.TestCase):
             ["good-case", "negative-control"],
         )
 
+    def test_unedited_template_rows_fail_validation(self) -> None:
+        template = VALIDATOR.review_template("example", self.scenarios)
+        template["runtime"] = self.runtime
+
+        errors, counts = VALIDATOR.validate_review_report(
+            template, "example", self.scenarios, require_failure=False
+        )
+
+        self.assertEqual(counts, {"pass": 0, "fail": 0})
+        for name in ("good-case", "negative-control"):
+            self.assertNotIn(name, "".join(errors))  # names themselves are valid
+        self.assertTrue(
+            any(error.endswith(".result must be 'pass' or 'fail'") for error in errors),
+            errors,
+        )
+        self.assertTrue(
+            any(error.endswith(".response must be a non-empty string") for error in errors),
+            errors,
+        )
+
     def test_reports_unreadable_or_non_text_json_inputs_without_a_traceback(self) -> None:
         with tempfile.TemporaryDirectory() as temporary_directory:
             root = Path(temporary_directory)

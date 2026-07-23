@@ -240,9 +240,14 @@ def load_reference_context_exceptions(errors: list[str]) -> dict[str, dict[str, 
         errors.append(f"{relative}: invalid JSON: {error.msg}")
         return {}
 
-    if not isinstance(payload, dict) or set(payload) != {"exceptions", "version"}:
+    if (
+        not isinstance(payload, dict)
+        or not {"exceptions", "version"}.issubset(payload)
+        or not set(payload).issubset({"exceptions", "routes", "version"})
+    ):
         errors.append(
-            f"{relative}: top-level keys must be exactly ['exceptions', 'version']"
+            f"{relative}: top-level keys must include ['exceptions', 'version'] "
+            "with an optional 'routes' section"
         )
         return {}
     if payload["version"] != 1 or not isinstance(payload["exceptions"], dict):
@@ -308,13 +313,80 @@ def load_reference_context_exceptions(errors: list[str]) -> dict[str, dict[str, 
     return exceptions
 
 
+def load_route_context_exceptions(errors: list[str]) -> dict[str, dict[str, object]]:
+    """Load the reviewed exceptions to the advisory route context budget.
+
+    A registered route stays advisory (it emits a warning, not a failure). An
+    optional integer ``ceiling`` sets a hard upper bound above the advisory
+    limit; a route with no ceiling is never failed on size. JSON, file, and
+    top-level-key errors are owned by load_reference_context_exceptions, so this
+    loader only reports problems specific to the routes section.
+    """
+    exception_file = REPOSITORY_ROOT / "docs" / "reference-context-exceptions.json"
+    relative = exception_file.relative_to(REPOSITORY_ROOT)
+    if not exception_file.is_file():
+        return {}
+    try:
+        payload = json.loads(exception_file.read_text(encoding="utf-8"))
+    except json.JSONDecodeError:
+        return {}
+    if not isinstance(payload, dict):
+        return {}
+
+    routes = payload.get("routes", {})
+    if not isinstance(routes, dict):
+        errors.append(f"{relative}: routes must be an object")
+        return {}
+
+    parsed: dict[str, dict[str, object]] = {}
+    for route, details in routes.items():
+        if not isinstance(route, str) or not route.startswith("skills/"):
+            errors.append(f"{relative}: route path must be a skills/ reference")
+            continue
+        if (
+            not isinstance(details, dict)
+            or "reason" not in details
+            or not set(details).issubset({"ceiling", "reason"})
+        ):
+            errors.append(
+                f"{relative}: route {route!r} must contain a reason and may set a ceiling"
+            )
+            continue
+        reason = details["reason"]
+        if not isinstance(reason, str) or not reason.strip():
+            errors.append(
+                f"{relative}: route {route!r} reason must be a non-empty string"
+            )
+            continue
+        ceiling = details.get("ceiling")
+        if ceiling is not None and (
+            not isinstance(ceiling, int)
+            or isinstance(ceiling, bool)
+            or ceiling <= ROUTE_CONTEXT_REPORT_LIMIT
+        ):
+            errors.append(
+                f"{relative}: route {route!r} ceiling must be an integer above the "
+                f"{ROUTE_CONTEXT_REPORT_LIMIT}-line advisory limit"
+            )
+            continue
+        route_file = REPOSITORY_ROOT / route
+        if not route_file.is_file() or route_file.suffix != ".md":
+            errors.append(
+                f"{relative}: route {route!r} must name an existing Markdown route"
+            )
+            continue
+        parsed[route] = details
+    return parsed
+
+
 def validate_reference_context_budgets(
     skill_directory: Path,
     exceptions: dict[str, dict[str, object]],
+    route_exceptions: dict[str, dict[str, object]],
     errors: list[str],
     reports: list[str],
 ) -> None:
-    """Enforce focused references and report broad route-level context."""
+    """Enforce focused references and gate broad route-level context."""
     references_directory = skill_directory / "references"
     if not references_directory.is_dir():
         return
@@ -352,12 +424,35 @@ def validate_reference_context_budgets(
             len(reference.read_text(encoding="utf-8").splitlines())
             for reference in direct_references
         )
-        if line_count > ROUTE_CONTEXT_REPORT_LIMIT:
-            reports.append(
-                f"{route.relative_to(REPOSITORY_ROOT)}: {line_count} direct-reference "
-                f"lines (recommended at most {ROUTE_CONTEXT_REPORT_LIMIT}; make the "
-                "selection explicit)"
+        if line_count <= ROUTE_CONTEXT_REPORT_LIMIT:
+            continue
+
+        route_key = route.relative_to(REPOSITORY_ROOT).as_posix()
+        registration = route_exceptions.get(route_key)
+        if registration is None:
+            errors.append(
+                f"{route_key}: {line_count} direct-reference lines exceeds the "
+                f"{ROUTE_CONTEXT_REPORT_LIMIT}-line advisory budget; make the route "
+                "selection explicit or register a reviewed route context exception"
             )
+            continue
+
+        ceiling = registration.get("ceiling")
+        if isinstance(ceiling, int) and not isinstance(ceiling, bool) and line_count > ceiling:
+            errors.append(
+                f"{route_key}: {line_count} direct-reference lines exceeds its "
+                f"registered ceiling of {ceiling}; trim the route or raise the ceiling"
+            )
+            continue
+
+        reports.append(
+            f"{route_key}: {line_count} direct-reference lines "
+            f"(registered route exception, advisory limit {ROUTE_CONTEXT_REPORT_LIMIT})"
+        )
+        print(
+            f"::warning::{route_key}: {line_count} direct-reference lines over the "
+            f"{ROUTE_CONTEXT_REPORT_LIMIT}-line advisory budget (registered exception)"
+        )
 
 
 def validate_reference_orphans(skill_directory: Path, errors: list[str]) -> None:
@@ -501,10 +596,49 @@ def validate_required_readme_fragments(
             errors.append(f"skills/{name}/README.md: missing {label}")
 
 
+def count_references(skill_directories: list[Path]) -> int:
+    """Count every focused Markdown reference across the skill collection."""
+    return sum(
+        len(list((skill_directory / "references").rglob("*.md")))
+        for skill_directory in skill_directories
+        if (skill_directory / "references").is_dir()
+    )
+
+
+def validate_root_inventory_sentence(
+    root_text: str,
+    skill_count: int,
+    reference_count: int,
+    errors: list[str],
+) -> None:
+    """Tie the README inventory sentence to the computed filesystem counts.
+
+    Mirrors the Open Graph inventory guard in validate-site.py so the public
+    skill and reference counts cannot silently drift from the repository.
+    """
+    expected = (
+        f"{skill_count} practice-built skills and "
+        f"{reference_count} focused references"
+    )
+    if expected not in root_text:
+        sentence = re.search(
+            r"(\d+) practice-built skills and (\d+) focused references", root_text
+        )
+        found = (
+            f"found {sentence.group(1)} skills and {sentence.group(2)} references"
+            if sentence
+            else "the inventory sentence is missing"
+        )
+        errors.append(
+            f"README.md: inventory sentence must read {expected!r}; {found}"
+        )
+
+
 def main() -> int:
     errors: list[str] = []
     reference_context_reports: list[str] = []
     reference_context_exceptions = load_reference_context_exceptions(errors)
+    route_context_exceptions = load_route_context_exceptions(errors)
     root_readme = REPOSITORY_ROOT / "README.md"
     root_text = root_readme.read_text(encoding="utf-8")
     skill_directories = sorted(path.parent for path in SKILLS_ROOT.glob("*/SKILL.md"))
@@ -529,6 +663,7 @@ def main() -> int:
         validate_reference_context_budgets(
             skill_directory,
             reference_context_exceptions,
+            route_context_exceptions,
             errors,
             reference_context_reports,
         )
@@ -545,6 +680,13 @@ def main() -> int:
         print("Reference context report:")
         for report in reference_context_reports:
             print(f"- {report}")
+
+    validate_root_inventory_sentence(
+        root_text,
+        len(skill_directories),
+        count_references(skill_directories),
+        errors,
+    )
 
     for label, url in (
         ("Sebastian Software OSS link", OSS_URL),

@@ -679,6 +679,12 @@
     text-transform: uppercase;
   }
 
+  .capability-tablist {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+  }
+
   .capability-tabs button {
     display: grid;
     flex: 1;
@@ -1522,6 +1528,7 @@
 
   .comparison-cards {
     display: grid;
+    grid-template-columns: minmax(0, 1fr);
     gap: 1.5rem;
     margin-top: 4rem;
   }
@@ -1546,6 +1553,7 @@
     font-size: clamp(2rem, 4vw, 3.5rem);
     font-weight: 500;
     letter-spacing: -0.04em;
+    overflow-wrap: anywhere;
   }
 
   .fit-badge {
@@ -1571,7 +1579,7 @@
 
   .fit-selective {
     background: var(--sky);
-    color: var(--accent-ink);
+    color: var(--ink);
   }
 
   .fit-covered {
@@ -2071,14 +2079,13 @@
     }
 
     .capability-tabs {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
       border-right: 0;
       border-bottom: 1px solid var(--line-strong);
     }
 
-    .capability-tabs > p {
-      grid-column: 1 / -1;
+    .capability-tablist {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
     .capability-tabs button {
@@ -2243,7 +2250,7 @@
       margin-top: 3rem;
     }
 
-    .capability-tabs {
+    .capability-tablist {
       grid-template-columns: minmax(0, 1fr);
     }
 

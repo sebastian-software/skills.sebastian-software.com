@@ -7,7 +7,7 @@ import json
 import re
 import struct
 import subprocess
-from datetime import date
+from datetime import date, datetime
 from html import unescape
 from html.parser import HTMLParser
 from pathlib import Path
@@ -55,9 +55,10 @@ EXPECTED_COMPARISON_SOURCES = (
     ),
     ("vercel-labs/agent-browser", "https://github.com/vercel-labs/agent-browser"),
     ("DietrichGebert/ponytail", "https://github.com/DietrichGebert/ponytail"),
-    ("juliusbrussee/caveman", "https://github.com/juliusbrussee/caveman"),
+    ("JuliusBrussee/caveman", "https://github.com/JuliusBrussee/caveman"),
 )
 EXPECTED_COMPARISON_URLS = tuple(url for _, url in EXPECTED_COMPARISON_SOURCES)
+COMPARISON_REVIEW_MAX_STALENESS_DAYS = 90
 
 
 class SiteParser(HTMLParser):
@@ -344,6 +345,67 @@ def validate_sitemap_lastmod(
         )
 
 
+def comparison_review_date(comparisons_html: str, failures: list[str]) -> date | None:
+    """Parse the hard-coded 'reviewed <day month year>' date on the comparison page."""
+    match = re.search(r"reviewed\s+(\d{1,2}\s+[A-Za-z]+\s+\d{4})", comparisons_html)
+    require(match is not None, "comparison page must state its review date", failures)
+    if match is None:
+        return None
+    try:
+        return datetime.strptime(match.group(1).strip(), "%d %B %Y").date()
+    except ValueError:
+        failures.append(
+            f"comparison review date is not a valid calendar date: {match.group(1)!r}"
+        )
+        return None
+
+
+def comparison_sitemap_lastmod(sitemap: str, failures: list[str]) -> date | None:
+    """Return the sitemap lastmod for the comparison page entry."""
+    match = re.search(
+        rf"<loc>https://{re.escape(EXPECTED_DOMAIN)}/comparisons\.html</loc>\s*"
+        r"<lastmod>(\d{4}-\d{2}-\d{2})</lastmod>",
+        sitemap,
+    )
+    require(
+        match is not None,
+        "sitemap must include a lastmod for the comparison page",
+        failures,
+    )
+    if match is None:
+        return None
+    try:
+        return date.fromisoformat(match.group(1))
+    except ValueError:
+        failures.append("comparison sitemap lastmod must be a valid calendar date")
+        return None
+
+
+def validate_comparison_review_freshness(
+    comparisons_html: str,
+    sitemap: str,
+    failures: list[str],
+) -> None:
+    """Tie the hard-coded review date to the comparison page's sitemap lastmod.
+
+    Prevents the 'reviewed <date>' line from silently going stale: if the page is
+    changed (its sitemap lastmod advances) but the review date is not refreshed,
+    the drift is flagged once it exceeds the allowed window.
+    """
+    reviewed = comparison_review_date(comparisons_html, failures)
+    lastmod = comparison_sitemap_lastmod(sitemap, failures)
+    if reviewed is None or lastmod is None:
+        return
+    staleness = (lastmod - reviewed).days
+    require(
+        staleness <= COMPARISON_REVIEW_MAX_STALENESS_DAYS,
+        f"comparison review date {reviewed.isoformat()} is {staleness} days older "
+        f"than its sitemap lastmod {lastmod.isoformat()}; re-review the page and "
+        f"update the date (limit {COMPARISON_REVIEW_MAX_STALENESS_DAYS} days)",
+        failures,
+    )
+
+
 def validate_json_ld_inventory(
     json_ld: dict[str, object] | None,
     visible_inventory: list[tuple[str, str]],
@@ -542,6 +604,34 @@ def main() -> int:
         and comparisons_parser.meta_names.get("twitter:image")
         == EXPECTED_COMPARISON_OG_IMAGE_URL,
         "comparison social metadata must use the canonical image",
+        failures,
+    )
+    require(
+        comparisons_parser.meta_names.get("twitter:card") == "summary_large_image",
+        "comparison Twitter card must use summary_large_image",
+        failures,
+    )
+    require(
+        comparisons_parser.meta_names.get("twitter:title")
+        == comparisons_parser.meta_properties.get("og:title"),
+        "comparison Twitter title must match the Open Graph title",
+        failures,
+    )
+    require(
+        comparisons_parser.meta_names.get("twitter:description")
+        == comparisons_parser.meta_properties.get("og:description"),
+        "comparison Twitter description must match the Open Graph description",
+        failures,
+    )
+    require(
+        bool(comparisons_parser.meta_properties.get("og:image:alt")),
+        "comparison Open Graph image must include alternative text",
+        failures,
+    )
+    require(
+        comparisons_parser.meta_names.get("twitter:image:alt")
+        == comparisons_parser.meta_properties.get("og:image:alt"),
+        "comparison Twitter and Open Graph image alternative text must match",
         failures,
     )
     comparison_inventory = visible_comparison_inventory(comparisons_html)
@@ -808,6 +898,7 @@ def main() -> int:
         failures.append(str(error))
         expected_lastmod = None
     validate_sitemap_lastmod(sitemap, expected_lastmod, failures)
+    validate_comparison_review_freshness(comparisons_html, sitemap, failures)
 
     if failures:
         for failure in failures:

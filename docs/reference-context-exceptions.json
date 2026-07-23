@@ -49,5 +49,16 @@
       "defaults": ["route-seo.md"],
       "reason": "Search implementation reference retained because checks differ materially by crawl, metadata, and structured-data task; the route narrows the required sections."
     }
+  },
+  "routes": {
+    "skills/effective-web/references/route-css.md": {
+      "reason": "CSS is a broad router across cascade, tokens, organization, layout, and architecture; a task selects a focused module rather than loading every linked reference. Advisory only until the CSS route is split into narrower entry points."
+    },
+    "skills/effective-web/references/route-design.md": {
+      "reason": "The design route spans research, visual system, motion, and accessibility appendices and is being restructured in parallel; registered without a ceiling so the in-flight content rework is not blocked by the advisory line budget."
+    },
+    "skills/effective-web/references/route-print.md": {
+      "reason": "Print work legitimately fans out into basics, content, and layout concerns; the route lists all three so a document task can pick the relevant one. Kept advisory rather than split because print requests often combine concerns."
+    }
   }
 }
