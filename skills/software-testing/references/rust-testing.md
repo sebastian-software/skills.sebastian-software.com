@@ -4,6 +4,10 @@ Rust's native test organization gives useful placement choices. Select among
 them from the claim and the crate's current conventions; property, snapshot,
 and replay technique selection remains in [Select test evidence](select-test-evidence.md).
 
+The implementation contracts under test — ownership, numeric, cancellation, and
+unsafe — are owned by `rust-engineering`; this reference covers only how to place
+and shape the Rust test evidence that protects them.
+
 ## Place Evidence at the Right Visibility
 
 - Put unit tests in the source module when they protect module-local behavior,
@@ -42,9 +46,10 @@ Select boundary evidence from the demonstrated risk:
   cleanup, retry safety, and task shutdown;
 - cover supported feature combinations and `cfg` branches that change public
   behavior rather than assuming the default feature set represents the crate;
-- use property tests, fuzzing, Miri, sanitizers, or concurrency exploration only
-  when the repository supports the tool and the parser, unsafe boundary,
-  invariant space, or interleaving risk justifies it.
+- reach for property tests, fuzzing, Miri, sanitizers, or concurrency
+  exploration only when the repository supports the tool and the risk justifies
+  it; `rust-engineering` owns the unsafe and FFI proof discipline those tools
+  verify.
 
 Do not add a property, snapshot, mock, async, or unsafe-testing dependency by
 default. A focused example or table-driven test is often the clearest evidence.

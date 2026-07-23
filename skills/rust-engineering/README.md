@@ -21,7 +21,8 @@ thresholds or borrow-checker workarounds.
 - typed error and panic boundaries with actionable context
 - cancellation-aware async work, backpressure, and owned task lifecycles
 - focused unsafe, FFI, and manual `Send`/`Sync` reviews
-- Rust-specific code reviews grounded in edition, MSRV, features, and CI policy
+- Rust-depth review findings, grounded in edition, MSRV, features, and CI
+  policy, for a code review owned by PR Review
 
 ## Use It When
 
@@ -29,9 +30,9 @@ Use this skill while implementing, refactoring, or reviewing Rust crates and
 workspaces, especially around ownership, lifetimes, public APIs, numeric
 conversion, async execution, unsafe code, or FFI.
 
-It does not replace the owner skills for test design, rustdoc, dependency
-updates, repository-wide audits, behavior-preserving ports, or execution of
-existing checks.
+It does not replace the owner skills for pull-request lifecycle and merge
+judgment, test design, rustdoc, dependency updates, repository-wide audits,
+behavior-preserving ports, or execution of existing checks.
 
 ## Example Prompts
 
@@ -71,6 +72,9 @@ dalo sync
 
 ## Related Skills
 
+- [PR Review](../pr-review/README.md) owns pull-request lifecycle, approval, CI
+  recovery, and merge judgment; this skill supplies the Rust-depth findings
+  inside a review.
 - [Software Testing](../software-testing/README.md) owns focused Rust test design
   and implementation against the contracts established here.
 - [Tech Docs](../tech-docs/README.md) owns rustdoc, examples, and contributor

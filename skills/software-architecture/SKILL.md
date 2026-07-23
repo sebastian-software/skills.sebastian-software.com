@@ -136,6 +136,8 @@ no first-party skill currently claims their execution methodology.
   first-party skill currently claims their execution methodology. Route an
   existing repository-native benchmark, load, soak, or stress command to
   `software-validation`.
+- Route Rust implementation, ownership, API, unsafe, and idiom depth within an
+  agreed module or service boundary to `rust-engineering`.
 - Route a specific pull request's review, feedback, or CI recovery to
   `pr-review`.
 

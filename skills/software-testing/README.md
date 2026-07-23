@@ -101,6 +101,9 @@ dalo sync
   methodology for a named question.
 - [Port Codebases](../port-codebases/README.md) owns behavior parity and
   compatibility evidence across a port.
+- [Rust Engineering](../rust-engineering/README.md) owns the Rust implementation
+  contracts — ownership, API, numeric, cancellation, and unsafe — that these
+  tests protect; this skill owns the test design and small testability refactors.
 
 ## Scope
 
