@@ -1,5 +1,7 @@
 # Print Styles
 
+> Deep appendix. Start from [print-web-basics.md](print-web-basics.md), then [print-web-content.md](print-web-content.md) or [print-web-layout.md](print-web-layout.md); load this file only for uncommon output constraints.
+
 Ensure web pages produce clean, readable output when printed on paper or saved as PDF.
 
 ## @media print Basics
@@ -786,18 +788,3 @@ navigation, citations, or task context when the printed artifact needs them.
 
 ### Mistake 10: Not linearising multi-column layouts
 Columns that work on screen can produce bizarre results on paper -- content split across pages in an unreadable order. Collapse to a single column.
-
-## Chapter Summary
-
-1. Add `@media print` rules inline in your main stylesheet to override screen styles for paged media
-2. Use `@page` to set margins (2cm default), page size (A4 or letter), and orientation
-3. Declare both legacy `page-break-*` and modern `break-*` properties for maximum browser compatibility
-4. Set `orphans: 3` and `widows: 3` on paragraphs to avoid stranded lines across page breaks
-5. Choose a tested body font and size for the artifact; 11pt with 1.35–1.4 line-height is a useful starting point, not a universal prescription
-6. Expose only selected link destinations with `data-print-url`, short URLs, source lists, footnotes, or QR codes when readers need an offline fallback
-7. Remove backgrounds, box-shadows, and text-shadows; use `print-color-adjust: exact` only where colour carries meaning
-8. Constrain images with `max-width: 100%` and `break-inside: avoid`; hide decorative images to save ink
-9. Hide irrelevant interactive chrome, while preserving useful wayfinding, provenance, and task context
-10. Linearise layouts to single-column block flow -- flex and grid fragmentation is unreliable across browsers
-11. Use `display: table-header-group` on `<thead>` so table headers repeat on each printed page
-12. Test print output in Chrome and Firefox Print Preview as part of your regular QA process

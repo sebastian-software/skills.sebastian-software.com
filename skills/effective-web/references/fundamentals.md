@@ -1,5 +1,7 @@
 # Fundamentals
 
+> Deep appendix. Start from [fundamentals-core.md](fundamentals-core.md); load this file only for the full historical design and motion treatment.
+
 Overarching UI design principles that form the foundation of all guidelines.
 
 ## Minimise Usability Risks
@@ -443,7 +445,7 @@ every missing state repeats across the product.
 Never remove focus indicators without replacement - it's an accessibility violation.
 
 ```css
-/* Show focus ring only for keyboard navigation (~96% support) */
+/* Show focus ring only for keyboard navigation (:focus-visible is Baseline Widely available) */
 :focus-visible {
   outline: 2px solid var(--brand);
   outline-offset: 2px;
@@ -707,7 +709,7 @@ A consistent frame rate matters more than a high one — a steady 30fps looks sm
 
 ### Animate Height with grid-template-rows
 
-The one exception to "only animate transform and opacity": `grid-template-rows` can animate between `0fr` and `1fr`, enabling smooth accordion-style height transitions without JavaScript height calculations (~93% browser support):
+The one exception to "only animate transform and opacity": `grid-template-rows` can animate between `0fr` and `1fr`, enabling smooth accordion-style height transitions without JavaScript height calculations (this animation is Baseline Newly available — gate it with `@supports` or keep a non-animated fallback):
 
 ```css
 .collapsible {
@@ -1015,18 +1017,3 @@ For SPA transitions, substitute a quick cross-fade instead of disabling entirely
   }
 }
 ```
-
-## Chapter Summary
-
-1. Minimise usability risk by keeping interfaces simple and familiar
-2. Every interface detail needs a logical reason behind it
-3. Minimise interaction cost and cognitive load as much as possible
-4. Create a design system of predefined styles, modular components, and usage guidelines
-5. Good accessibility means great usability — provide skip links, never disable zoom, use semantic HTML
-6. Use roving tabindex in composite widgets (tabs, toolbars, menus) — one Tab stop, arrow keys within
-7. Use `inert` for off-screen content and custom overlays — native `<dialog>.showModal()` handles this automatically
-8. Only animate `transform` and `opacity` — except `grid-template-rows` for height animations (accordions)
-9. Use `linear()` for spring-like easing in pure CSS; reserve JS animation libraries for gesture-driven or interruptible motion
-10. Exit animations should be ~75-85% of entrance duration with ease-in (vs ease-out for entrance)
-11. Use `@starting-style` for CSS-only entry animations; Popover API for native tooltips/dropdowns/menus
-12. Use the View Transition API for page transitions and shared element animations — always respect `prefers-reduced-motion` and keep under 500ms

@@ -1,5 +1,7 @@
 # Colour
 
+> Deep appendix. Start from [colour-system.md](colour-system.md) and [colour-accessibility.md](colour-accessibility.md); load this file only for advanced palette work.
+
 Learn how to use colour sparingly and purposefully to add meaning to an interface.
 
 ## Ensure Sufficient Contrast

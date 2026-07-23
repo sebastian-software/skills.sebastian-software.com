@@ -1,5 +1,7 @@
 # Dialogs & Modals
 
+> Deep appendix. Start from [dialog-foundation.md](dialog-foundation.md) and [dialog-decisions.md](dialog-decisions.md); load this file only for unusual mobile and notification combinations.
+
 Use the native `<dialog>` element and Popover API to build accessible, well-structured overlays without JavaScript libraries.
 
 ## The `<dialog>` Element
@@ -590,18 +592,3 @@ When a toast carries an action, auto-dismissal works against keyboard and screen
 - Auto-dismiss after 5-10 seconds
 - Position at the bottom of the viewport to avoid blocking content
 - Do NOT use toasts for critical errors or actions requiring user response (use a dialog instead)
-
-## Chapter Summary
-
-1. Use `.showModal()` for modals and `.show()` for non-modals -- never toggle the `open` attribute directly
-2. Use `<dialog>` for interactions requiring focus trapping; use Popover API for tooltips, menus, and toasts
-3. Place `autofocus` on the safest action (Cancel), not the destructive one
-4. Add `aria-labelledby` pointing to the dialog heading; use `role="alertdialog"` for critical alerts
-5. Animate dialogs with `@starting-style` and `transition-behavior: allow-discrete`; always respect `prefers-reduced-motion`
-6. Use `closedby="any"` for light dismiss; polyfill with click-on-backdrop detection for broader support
-7. Prefer undo toasts over confirmation dialogs for reversible actions; reserve modals for truly irreversible tasks
-8. Structure dialogs as grid with header/article/footer; make the article scrollable with `overscroll-behavior: contain`
-9. Lock page scroll with `html:has(dialog[open]) { overflow: hidden; }`
-10. Apply the Five Ws test before choosing an overlay -- most content works better as a new page or inline expansion
-11. Use descriptive button labels (verb + noun) -- never "OK" / "Cancel" on destructive confirmations
-12. Convert modals to full-screen action sheets on mobile; never nest modals within modals

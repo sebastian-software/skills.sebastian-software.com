@@ -17,25 +17,12 @@ Do not use this skill as a source archive. Article-derived input has already bee
 
 ## Route Specific Work
 
-- Layout, spacing, responsive CSS, grid/flex, safe areas: read [Layout and Spacing](route-layout.md).
-- Typeface choice, readable measure, font loading, text hierarchy: read [Typography](route-typography.md).
-- Color palettes, semantic tokens, dark mode, theming: read [Color and Theming](route-color.md).
-- Buttons, dialogs, navigation, component primitives: read [Component Primitives](route-components.md).
-- Inputs, validation, field grouping, form flows: read [Forms UX](route-forms.md).
-- Tables, dense data, comparison views: read [Data Tables](route-tables.md).
-- HTML semantics, focus, ARIA, keyboard access: read [Accessibility and HTML](route-accessibility.md).
-- Motion, transitions, scroll interaction, reduced motion: read [Motion and Interaction](route-motion.md).
-- Metadata, structured data, frontend SEO: read [Frontend SEO and AI Search](route-seo.md).
-- CSS layers, custom properties, browser support, build tooling: read [CSS Architecture](route-css.md).
-- Localization, RTL, text expansion, international UX: read [Internationalization UX](route-i18n.md).
-- Interface copy, empty-state language, editorial UX: read [Interface Copy](route-copy.md).
-- Loading, error, success, and not-found states: read [Error and Loading States](route-states.md).
-- Auth UX and browser-security-sensitive flows: read [Auth and Security UX](route-auth.md).
-- Print output and paged media: read [Print Design](route-print.md).
-- Runtime speed and Core Web Vitals: read [Web Performance](route-performance.md).
-- React architecture: read [React Architecture](route-react-architecture.md).
-- React component implementation: read [React Components](route-react-components.md).
-- Test strategy and Playwright/Vitest checks: read [Frontend Testing](route-testing.md).
+When a narrow problem (layout, typography, color, components, forms, tables,
+accessibility, motion, SEO, CSS, i18n, copy, states, auth, print, performance,
+React, or testing) becomes the primary task, hand off to the matching focused
+route rather than expanding this one. Use the **Route by Intent** table in
+[SKILL.md](../SKILL.md) to pick the destination; do not re-list the sibling
+routes here.
 
 ## Review Workflow
 
@@ -79,20 +66,17 @@ Do not use this skill as a source archive. Article-derived input has already bee
 
 ## References
 
-- [fundamentals-core.md](fundamentals-core.md) - broad UI design decisions,
-  quality heuristics, reduction, and restraint; load the deep appendix only for
-  an identified edge case.
-- [design-registers.md](design-registers.md) - registers for design intent and decisions.
-- [design-directions.md](design-directions.md) - combinable directions, axes,
-  ambiguity questions, conflict resolution, and decision persistence.
-- [redesign-preservation.md](redesign-preservation.md) - greenfield, preserve,
-  and overhaul modes plus protected brand, IA, copy, analytics, and accessibility
-  contracts.
-- [design-planning.md](design-planning.md) - planning workflow before implementation.
-- [ui-antipatterns.md](ui-antipatterns.md) - defect, advisory, cluster, and
-  accepted-exception review for generated UI and copy.
-- [ai-interface-design.md](ai-interface-design.md) - match AI capabilities to
-  tasks, modalities, uncertainty, control, and environmental constraints.
-- [ui-quality-gates.md](ui-quality-gates.md) - final review gates before shipping.
-- [cognitive-ux.md](cognitive-ux.md) - attention budgets, satisficing, task-based
-  grouping, perceptual hierarchy, conventions, mental models, and learnability.
+Select by the primary concern of the current step; load one module, then add
+another only when the work genuinely shifts concern.
+
+| Primary concern | Reference |
+|-----------------|-----------|
+| Broad UI design decisions, quality heuristics, reduction, and restraint (load the deep appendix only for an identified edge case) | [fundamentals-core.md](fundamentals-core.md) |
+| Setting the design intent, register, and decision framing | [design-registers.md](design-registers.md) |
+| Choosing combinable directions, axes, ambiguity questions, and conflict resolution | [design-directions.md](design-directions.md) |
+| Modernizing an existing experience under preserve/overhaul contracts (brand, IA, copy, analytics, accessibility) | [redesign-preservation.md](redesign-preservation.md) |
+| Planning the workflow before implementation | [design-planning.md](design-planning.md) |
+| Reviewing generated UI and copy for defects, advisories, clusters, and accepted exceptions | [ui-antipatterns.md](ui-antipatterns.md) |
+| Designing an AI-assisted feature: capabilities, modalities, uncertainty, control, and constraints | [ai-interface-design.md](ai-interface-design.md) |
+| Running the final review gates before shipping | [ui-quality-gates.md](ui-quality-gates.md) |
+| Attention budgets, satisficing, task grouping, perceptual hierarchy, conventions, mental models, and learnability | [cognitive-ux.md](cognitive-ux.md) |
