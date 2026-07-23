@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import importlib.util
+import tempfile
 import unittest
 from pathlib import Path
 
@@ -94,6 +95,26 @@ class ScenarioReviewReportTests(unittest.TestCase):
             [result["name"] for result in template["results"]],
             ["good-case", "negative-control"],
         )
+
+    def test_reports_unreadable_or_non_text_json_inputs_without_a_traceback(self) -> None:
+        with tempfile.TemporaryDirectory() as temporary_directory:
+            root = Path(temporary_directory)
+            invalid_encoding = root / "invalid.json"
+            invalid_encoding.write_bytes(b"\xff")
+            errors: list[str] = []
+
+            payload = VALIDATOR.load_json(invalid_encoding, "report", errors)
+
+            self.assertIsNone(payload)
+            self.assertEqual(len(errors), 1)
+            self.assertTrue(errors[0].startswith("report: invalid UTF-8:"))
+
+            errors = []
+            payload = VALIDATOR.load_json(root, "report", errors)
+
+            self.assertIsNone(payload)
+            self.assertEqual(len(errors), 1)
+            self.assertTrue(errors[0].startswith("report: could not read file:"))
 
 
 if __name__ == "__main__":

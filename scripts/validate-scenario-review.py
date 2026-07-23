@@ -26,6 +26,10 @@ def load_json(path: Path, label: str, errors: list[str]) -> object | None:
         return json.loads(path.read_text(encoding="utf-8"))
     except FileNotFoundError:
         errors.append(f"{label}: file not found")
+    except UnicodeDecodeError as error:
+        errors.append(f"{label}: invalid UTF-8: {error.reason}")
+    except OSError as error:
+        errors.append(f"{label}: could not read file: {error.strerror or error}")
     except json.JSONDecodeError as error:
         errors.append(f"{label}: invalid JSON: {error.msg}")
     return None
