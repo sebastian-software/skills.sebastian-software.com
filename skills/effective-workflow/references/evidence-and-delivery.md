@@ -42,6 +42,34 @@ Before a remote action, resolve the exact repository, branch, base, pull request
 tracker item, environment, or release target with a read-only check. Use the
 host's recovery and approval mechanisms for destructive or privileged actions.
 
+## Write an Intentional Commit Message
+
+Before committing, inspect the repository's documented contribution rules and
+recent accepted history. Follow that established syntax and language when it is
+coherent. Use Conventional Commits as the fallback when the repository has no
+clear convention:
+
+```text
+type(optional-scope): imperative outcome
+```
+
+Choose a recognized type such as `feat`, `fix`, `docs`, `refactor`, `test`,
+`build`, `ci`, or `chore` from the actual change. Keep the subject specific
+enough to distinguish the commit in a log. If the subject needs “and” to join
+two independently reversible outcomes, reconsider the staging boundary instead
+of hiding multiple changes in one message.
+
+Add a body when the reason, constraint, migration, security consequence, or
+behavior change is not recoverable from the subject and diff. Mark breaking
+changes and reverts using the repository's convention, and name relevant issue
+or migration context when it will remain useful. Do not add AI attribution,
+generated-by trailers, emojis, or release tokens unless the repository
+explicitly requires them.
+
+Derive the message from the staged diff, not from the original request or the
+whole worktree. Do not use `chore` as a generic escape hatch for a user-visible
+fix, feature, or documentation change.
+
 ## Produce a Review-Ready Handoff
 
 Report:

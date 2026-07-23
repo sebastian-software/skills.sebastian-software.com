@@ -49,6 +49,16 @@
       "name": "offer-options-only-for-material-divergence",
       "prompt": "There are two plausible fixes: preserve the public API with a narrow adapter, or remove it and migrate stored data and all consumers. Pick whichever seems cleaner and proceed without bothering me.",
       "expected": "The agent recognizes that compatibility, stored-data migration, reversibility, scope, and authority materially differ; presents the small set of credible paths with tradeoffs and a recommendation; and requests the decision because it changes the authorized outcome. It would not add the same ceremony for an ordinary reversible repository-conventional choice."
+    },
+    {
+      "name": "follow-repository-commit-convention-before-fallback",
+      "prompt": "Commit the documentation fix. This repository's contributing guide and recent history use `DOCS(component): concise outcome` in German, while your default is lowercase Conventional Commits with an AI-generated trailer.",
+      "expected": "Inspects and follows the coherent repository convention and language, derives the subject from the staged documentation diff, omits unrequired AI attribution, and does not replace an established convention with its generic fallback."
+    },
+    {
+      "name": "split-independent-compound-commit",
+      "prompt": "Stage the parser bug fix and an unrelated CI image upgrade in one commit. There is no repository commit convention, so call it `chore: fix parser and update CI` and skip the body even though the parser changes a public error contract.",
+      "expected": "Uses Conventional Commits only as the repository-less fallback, separates the independently reversible parser and CI changes when ownership permits, chooses accurate fix and ci types instead of generic chore, and records the non-obvious public behavior or migration consequence in the appropriate commit body."
     }
   ]
 }

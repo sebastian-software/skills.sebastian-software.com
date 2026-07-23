@@ -53,7 +53,7 @@ delay or obscure the user's task.
 
 ## Scroll-Driven and Spatial Motion
 
-- Prefer native CSS scroll-driven animations (`animation-timeline: scroll()` / `view()`) over per-scroll JavaScript updates because the browser can synchronize them with scrolling without a listener loop. Still profile the animated properties and paint cost instead of assuming any timeline makes an effect jank-free. See [scroll-patterns.md](scroll-patterns.md) for ranges, the `animation`-shorthand ordering rule, and required `@supports` / reduced-motion guards.
+- Prefer native CSS scroll-driven animations (`animation-timeline: scroll()` / `view()`) over per-scroll JavaScript updates because the browser can synchronize them with scrolling without a listener loop. Still profile the animated properties and paint cost instead of assuming any timeline makes an effect jank-free. See [scroll feedback](scroll-feedback.md) for reduced-motion, virtual-list, and progressive-enhancement constraints; load its deep appendix only for ranges and animation-shorthand edge cases.
 - Choose by execution model and capability, not by the label "CSS" or
   "JavaScript": CSS transitions/keyframes fit declarative states; the Web
   Animations API adds imperative playback control over the browser animation

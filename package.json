@@ -1,0 +1,9 @@
+{
+  "private": true,
+  "scripts": {
+    "test:site-layout": "node scripts/test-site-layout.mjs"
+  },
+  "devDependencies": {
+    "playwright-core": "1.61.1"
+  }
+}
