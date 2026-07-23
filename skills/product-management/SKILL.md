@@ -42,7 +42,7 @@ and post-release behavior as one system rather than separate handoffs.
      the domain route that owns the artifact's subject.
    - [Review modes](references/review-modes.md) after the evidence review when
      the artifact supports a product decision, go-to-market claim set, or launch
-     readiness decision.
+     readiness decision. Also load the domain routes named by the selected mode.
    - [Discovery and evidence](references/discovery-and-evidence.md) for market
      selection, interviews, observation, Jobs to be Done, validation, and
      service-to-product opportunities.
