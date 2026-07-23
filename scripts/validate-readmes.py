@@ -409,7 +409,7 @@ def validate_worktree_safety_sync(skills_root: Path, errors: list[str]) -> None:
 
 
 def validate_evals(skill_directory: Path, errors: list[str]) -> None:
-    """Validate the required behavioral-eval file and its public entry shape."""
+    """Validate unrun review-scenario fixtures without executing model behavior."""
     relative = skill_directory.relative_to(REPOSITORY_ROOT)
     evals_file = skill_directory / "evals" / "evals.json"
     if not evals_file.is_file():
@@ -563,8 +563,9 @@ def main() -> int:
         return 1
 
     print(
-        f"README validation passed: {len(skill_directories)} skill READMEs, "
-        f"{len(markdown_files)} public Markdown files, all required links present"
+        f"Public documentation and review-scenario schema validation passed: "
+        f"{len(skill_directories)} skill READMEs, {len(markdown_files)} public "
+        "Markdown files, all required links present; model behavior is not executed"
     )
     return 0
 
