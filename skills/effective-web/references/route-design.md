@@ -75,7 +75,7 @@ another only when the work genuinely shifts concern.
 | Setting the design intent, register, and decision framing | [design-registers.md](design-registers.md) |
 | Choosing combinable directions, axes, ambiguity questions, and conflict resolution | [design-directions.md](design-directions.md) |
 | Modernizing an existing experience under preserve/overhaul contracts (brand, IA, copy, analytics, accessibility) | [redesign-preservation.md](redesign-preservation.md) |
-| Planning the workflow before implementation | [design-planning.md](design-planning.md) |
+| Planning the workflow before implementation (load the deep appendix only for the full question bank, lens detail, and brief templates) | [design-planning-core.md](design-planning-core.md) |
 | Reviewing generated UI and copy for defects, advisories, clusters, and accepted exceptions | [ui-antipatterns.md](ui-antipatterns.md) |
 | Designing an AI-assisted feature: capabilities, modalities, uncertainty, control, and constraints | [ai-interface-design.md](ai-interface-design.md) |
 | Running the final review gates before shipping | [ui-quality-gates.md](ui-quality-gates.md) |

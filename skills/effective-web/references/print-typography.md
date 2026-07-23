@@ -1,5 +1,7 @@
 # Typography Reference
 
+> Deep appendix. Start from [print-typography-core.md](print-typography-core.md); load this file only for the full print-typography cookbook — detailed tables, OpenType, glyph substitution, optical sizing, stylistic alternates, and resume/ATS specifics.
+
 Detailed CSS for print typography. See SKILL.md for principles.
 
 ## Font Sizes

@@ -7,7 +7,7 @@
 **Give your AI agent the practical judgment to take product and software work
 from an ambiguous brief to a review-ready result.**
 
-21 practice-built skills and 214 focused references for product decisions, web
+21 practice-built skills and 216 focused references for product decisions, web
 experiences, codebase improvement, delivery, go-to-market positioning,
 professional communication, and web compliance; go-to-market deliverables such
 as marketing copy route to the separately managed external `marketingskills`

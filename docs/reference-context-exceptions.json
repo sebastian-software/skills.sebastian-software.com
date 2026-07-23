@@ -55,10 +55,8 @@
       "reason": "CSS is a broad router across cascade, tokens, organization, layout, and architecture; a task selects a focused module rather than loading every linked reference. Advisory only until the CSS route is split into narrower entry points."
     },
     "skills/effective-web/references/route-design.md": {
-      "reason": "The design route spans research, visual system, motion, and accessibility appendices and is being restructured in parallel; registered without a ceiling so the in-flight content rework is not blocked by the advisory line budget."
-    },
-    "skills/effective-web/references/route-print.md": {
-      "reason": "Print work legitimately fans out into basics, content, and layout concerns; the route lists all three so a document task can pick the relevant one. Kept advisory rather than split because print requests often combine concerns."
+      "ceiling": 1360,
+      "reason": "The design route still spans research, visual system, motion, and accessibility modules; the planning appendix now loads through design-planning-core.md, but the remaining focused modules keep the route above the advisory budget. Ceiling set just above the current total so further growth fails."
     }
   }
 }
