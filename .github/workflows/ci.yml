@@ -19,7 +19,7 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Validate public README graph
+      - name: Validate public docs and review-scenario schemas
         run: python3 scripts/validate-readmes.py
 
       - name: Validate static website

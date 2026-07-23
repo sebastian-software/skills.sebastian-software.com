@@ -47,6 +47,33 @@ When ownership spans more than one domain or an optional skill may be missing,
 read [Routing and selective installation](references/routing-and-fallbacks.md).
 Load only the owners needed for the current stage; do not preload the catalog.
 
+## Prefer the Smallest Sufficient Change
+
+Minimize only after understanding the requested behavior and tracing the owning
+flow. Before adding new code, configuration, abstraction, or dependencies,
+check in this order:
+
+1. the work is necessary for the accepted outcome;
+2. an established repository pattern or implementation already owns it;
+3. the language standard library or native platform covers it;
+4. an already-installed dependency covers it without distorting the design;
+5. otherwise, add the smallest cohesive implementation at the owning seam.
+
+The shortest diff is not the goal when it patches a symptom, hides risk, or
+pushes complexity into callers. Never simplify away trust-boundary validation,
+data-loss protection, security, accessibility, required compatibility, useful
+error handling, or evidence proportionate to the change.
+
+When plausible paths materially differ in public behavior, data, authority,
+operational cost, reversibility, or scope, present the smallest useful set of
+options with tradeoffs and a recommendation. Ask for the decision only when it
+changes the authorized outcome. For ordinary reversible choices, follow the
+repository's conventional path and proceed.
+
+If a deliberate shortcut has a real ceiling, record the ceiling and the
+observable trigger for revisiting it in the repository's normal comment,
+issue, or decision convention. Do not add a skill-specific debt marker.
+
 ## Work from Understand to Deliver
 
 ### 1. Understand
@@ -66,6 +93,22 @@ Load only the owners needed for the current stage; do not preload the catalog.
 - Invoke the appropriate first-party owner when available and treat its domain
   rules as authoritative. Pass it the outcome, scope, repository evidence,
   constraints, and expected handoff.
+- Do not assume one model or session must own every stage. When the host
+  supports model or agent selection, reserve the strongest suitable capability
+  for ambiguity-heavy, high-impact judgment. Route bounded, reversible
+  execution to faster or lower-cost workers only when the handoff is
+  self-contained and verification is objective.
+- For delegated work, define a compact result contract and return boundary.
+  Prefer outcome, evidence, and blocker over process narration; keep
+  safety-critical or ambiguous information in normal explicit prose. Read
+  [Routing and selective installation](references/routing-and-fallbacks.md)
+  for the delegation contract.
+- Treat delegated authority, isolation, and tool limits as enforceable
+  contracts. Stop or disclose the downgrade and request a decision when the
+  runtime cannot honor them; never continue silently with broader capability.
+- Keep work in the caller when context loss, capability mismatch, or
+  coordination cost outweighs delegation. Never invent unavailable model tiers
+  or let price weaken authority, evidence, review depth, or safety.
 - Implement only the agreed surface. Do not expand a fix into cleanup, a docs
   task into product behavior, or a dependency update into unrelated migration.
 - Follow repository-native files, commands, branches, issues, tests, and docs.
@@ -84,6 +127,9 @@ Load only the owners needed for the current stage; do not preload the catalog.
 - Run the narrow check first, then the relevant established repository checks.
   Review the changed surface in proportion to user impact, reversibility,
   security, data, concurrency, and release risk.
+- Run a subtraction pass over the final diff: remove speculative files,
+  dependencies, configuration, wrappers, duplicated behavior, and options that
+  do not serve the accepted outcome. Preserve every requirement and safeguard.
 - Distinguish new failures from pre-existing failures. Report skipped checks,
   missing credentials, unavailable services, and remaining uncertainty.
 

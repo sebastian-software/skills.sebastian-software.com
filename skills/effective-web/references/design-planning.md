@@ -155,6 +155,9 @@ Before choosing colours, spacing, shadows, or typography, decide:
 - The tone: quiet utility, confident product, instructional, editorial,
   promotional, or immersive, aligned with recorded audience relationship,
   form of address, voice, and channel exceptions.
+- The meaning of structural devices: numbers, eyebrows, badges, labels, and
+  dividers should communicate sequence, status, grouping, or orientation rather
+  than serve as interchangeable decoration.
 
 These decisions make the visual layer follow from the job. Do not start with
 card grids, hero templates, gradients, or animation before the surface has a
@@ -192,6 +195,9 @@ For brand surfaces, decide the point of view before layout and styling:
   hero pattern that would make the surface feel interchangeable.
 - Primary evidence: identify the product, place, person, object, screenshot,
   diagram, or real outcome that should carry credibility.
+- Opening composition: make the first viewport express the surface's thesis
+  through characteristic evidence, an object, or an action. Do not default to a
+  headline, stat row, and gradient when that structure says nothing specific.
 - Memorable signal: choose one dominant design move the rest of the surface can
   support.
 

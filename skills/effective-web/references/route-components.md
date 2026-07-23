@@ -24,8 +24,11 @@ Use this skill for reusable UI building blocks and the interaction rules attache
 ## References
 
 - [buttons.md](buttons.md) - button hierarchy, labels, and states.
-- [navigation.md](navigation.md) - navigation structure and affordances.
-- [dialog-modal.md](dialog-modal.md) - dialogs, modals, and confirmation flows.
+- [navigation-structure.md](navigation-structure.md) - select and mark up the
+  navigation pattern; it routes responsive behavior when that is the concern.
+- [dialog-foundation.md](dialog-foundation.md) - select the native surface and
+  implement its focus lifecycle; it routes product-friction decisions when
+  appropriate.
 - [component-development.md](component-development.md) - component API and implementation rules.
 - [platform-feature-radar.md](platform-feature-radar.md) - dated leads for recent
   native controls, state selectors, and positioning capabilities.
