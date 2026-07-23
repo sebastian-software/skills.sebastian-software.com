@@ -1,5 +1,7 @@
 # Tables and Data Display
 
+> Deep appendix. Start from [tables-semantics.md](tables-semantics.md), [tables-responsive.md](tables-responsive.md), or [tables-interactions.md](tables-interactions.md); load this file only for rare combined cases.
+
 Design accessible, well-structured data tables that work across screen sizes and assistive technologies.
 
 ## Semantic HTML Table Structure

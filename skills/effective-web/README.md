@@ -19,8 +19,9 @@ Frontend quality rarely fails in only one discipline. A visually polished page
 can still have weak semantics, broken focus order, expensive loading, unclear
 states, fragile responsive behavior, or an API that makes future changes harder.
 
-Effective Web treats those concerns as one system. Its 24 intent routes and 112
-focused references let an agent load the smallest useful guidance set, then
+Effective Web treats those concerns as one system. Its 24 routed intents across
+22 route files and 112 reference documents let an agent load the smallest useful
+guidance set, then
 check the result across the boundaries that matter before calling it done.
 
 ## What It Covers

@@ -1,5 +1,7 @@
 # CSS Architecture
 
+> Deep appendix. Start from [css-cascade.md](css-cascade.md), [css-tokens.md](css-tokens.md), or [css-organization.md](css-organization.md); load this file only for migration and feature edge cases.
+
 Structure stylesheets with cascade layers, native nesting, scoped styles, and a custom properties architecture that scales from small projects to large design systems.
 
 ## Baseline Styles
@@ -763,18 +765,3 @@ Custom property inheritance is cheap -- browsers handle it efficiently.
 - Avoid setting custom properties on every element; prefer `:root` or component roots
 - `@property` registration with `inherits: false` prevents unnecessary recalculation down the tree
 - Cascade layers add minimal parsing overhead -- the benefit of eliminating `!important` chains outweighs any cost
-
-## Chapter Summary
-
-1. Declare cascade layer order once at the top of the stylesheet (`@layer reset, tokens, base, layouts, components, utilities`) -- layer order determines priority, not specificity
-2. Unlayered styles have highest normal priority; `!important` reverses layer order -- avoid `!important` entirely
-3. Use native CSS nesting for pseudo-classes, states, and media queries within a component; limit depth to 2-3 levels
-4. Nested selectors inherit the highest specificity from the parent's selector list via the `:is()` wrapper -- be aware this differs from Sass
-5. Use `@scope` for component boundary isolation and donut scope for slotted content; scope proximity resolves theming conflicts
-6. Structure custom properties in three tiers: primitive (raw values), semantic (contextual meaning), component (scoped with `--_` prefix)
-7. Use `light-dark()` on semantic tokens for dark mode theming; requires `color-scheme: light dark` on an ancestor
-8. Combine cascade layers with a low-specificity methodology (CUBE CSS or BEM) and Every Layout primitives for composition
-9. Use anchor positioning (`position-anchor`, `position-area`, `position-try-fallbacks`) as progressive enhancement for tooltips and dropdowns
-10. Organise files by layer with a single entry point (`main.css`) that declares layer order and imports all partials
-11. Remove unused CSS (50-80% of shipped CSS is unused on average) -- this is the single biggest performance win
-12. Keep selectors flat, avoid specificity wars, and let cascade layers manage priority instead of `!important` chains

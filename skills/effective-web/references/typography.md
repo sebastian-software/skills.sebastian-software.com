@@ -1,5 +1,7 @@
 # Typography
 
+> Deep appendix. Start from [typography-system.md](typography-system.md) and [typography-detail.md](typography-detail.md); load this file only for exceptional editorial and display treatments.
+
 Learn a system of logical guidelines to make text beautiful and easy to read.
 
 ## Typeface Classifications
@@ -332,7 +334,7 @@ Plain justified text creates uneven word spacing and "rivers" of white space. If
 ```css
 .justified-prose {
   text-align: justify;
-  hyphens: auto;                   /* 97% support — set lang attribute on <html> */
+  hyphens: auto;                   /* Baseline Widely available — set lang attribute on <html> */
   hyphenate-limit-chars: 6 3 2;    /* Min 6 chars, 3 before break, 2 after */
 }
 ```
@@ -452,7 +454,7 @@ Use the correct typographic marks:
 - **Hyphen** (-) connects words: "five-dollar"
 - **En dash** (\u2013) replaces "to": "6\u20135 p.m."
 - **Em dash** (\u2014) can indicate a break in thought; route its use and spacing to `locale-typography` for the target locale while preserving an established house style
-- **Curly quotation marks** (\u201c \u201d \u2018 \u2019) for prose - straight marks (' ") are for code only
+- **Quotation marks** \u2014 mark selection is locale-specific and belongs to the `locale-typography` skill (English curly \u201c \u201d \u2018 \u2019, German \u201e \u201c \u00bb \u00ab, French \u00ab \u00bb, and others differ); implement the chosen marks with CSS `quotes` and `:lang()` rather than hardcoding one language's glyphs. Straight marks (' ") remain for code only.
 
 **Additional typographic marks:**
 - **Proper minus** (`&minus;` / −) for negative numbers — not a hyphen

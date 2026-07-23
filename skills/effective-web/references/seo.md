@@ -1,5 +1,7 @@
 # SEO for Frontend
 
+> Deep appendix. Start from the [Frontend SEO and AI Search route](route-seo.md), which narrows to the crawl, metadata, or structured-data checks in scope; load this file for the full implementation reference.
+
 Search engine optimisation techniques that frontend developers and designers directly control.
 
 This chapter covers the intersection of UI design and SEO — the markup, metadata, and performance decisions made in HTML, CSS, and page structure. Keyword research, backlink strategy, analytics setup, and server configuration (robots.txt, sitemaps) are outside the scope of a UI design system.
@@ -280,7 +282,7 @@ Use JSON-LD (JavaScript Object Notation for Linked Data) embedded in a `<script>
 | `Organization` | Company info | Knowledge panel, logo |
 | `LocalBusiness` | Physical business or location pages | Local panels, business facts |
 | `Service` | Service pages | Entity clarity for offered services |
-| `WebSite` | Homepage | Sitelinks search box |
+| `WebSite` | Homepage | No Google rich result (Sitelinks search box retired 2024); still useful for site-name and entity clarity |
 | `HowTo` | Step-by-step guides | No Google rich result (retired) |
 
 Google retired FAQ rich results on May 7, 2026; confirm current feature support
