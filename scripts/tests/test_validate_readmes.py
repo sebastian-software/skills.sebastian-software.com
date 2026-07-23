@@ -602,7 +602,7 @@ class ReferenceContextBudgetTests(unittest.TestCase):
         reports: list[str] = []
         exceptions = {
             "skills/example/references/guide.md": {
-                "default": "guide-core.md",
+                "defaults": ["guide-core.md"],
                 "reason": "A narrow module is the normal entry point.",
             }
         }
@@ -616,7 +616,7 @@ class ReferenceContextBudgetTests(unittest.TestCase):
             reports,
             [
                 "skills/example/references/guide.md: 501 lines (documented "
-                "deep-reference exception; default: guide-core.md)"
+                "deep-reference exception; defaults: guide-core.md)"
             ],
         )
 
@@ -644,14 +644,42 @@ class ReferenceContextBudgetTests(unittest.TestCase):
             ],
         )
 
+    def test_counts_nested_direct_references_in_a_route(self) -> None:
+        nested = self.references / "guides"
+        nested.mkdir()
+        self.references.joinpath("route-example.md").write_text(
+            "[First](guides/first.md)\n[Second](guides/second.md)\n",
+            encoding="utf-8",
+        )
+        nested.joinpath("first.md").write_text(
+            "\n".join(["line"] * 500), encoding="utf-8"
+        )
+        nested.joinpath("second.md").write_text(
+            "\n".join(["line"] * 500), encoding="utf-8"
+        )
+        errors: list[str] = []
+        reports: list[str] = []
+
+        VALIDATOR.validate_reference_context_budgets(self.skill, {}, errors, reports)
+
+        self.assertEqual(errors, [])
+        self.assertEqual(
+            reports,
+            [
+                "skills/example/references/route-example.md: 1000 direct-reference "
+                "lines (recommended at most 900; make the selection explicit)"
+            ],
+        )
+
     def test_loads_only_a_complete_exception_registry(self) -> None:
         self.references.joinpath("guide.md").write_text(
             "\n".join(["line"] * 501), encoding="utf-8"
         )
+        self.references.joinpath("guide-core.md").write_text("Core guide.\n", encoding="utf-8")
         self.write_exception_registry(
             {
                 "skills/example/references/guide.md": {
-                    "default": "guide-core.md",
+                    "defaults": ["guide-core.md"],
                     "reason": "A narrow module is the normal entry point.",
                 }
             }
@@ -662,12 +690,13 @@ class ReferenceContextBudgetTests(unittest.TestCase):
 
         self.assertEqual(errors, [])
         self.assertEqual(
-            exceptions["skills/example/references/guide.md"]["default"], "guide-core.md"
+            exceptions["skills/example/references/guide.md"]["defaults"],
+            ["guide-core.md"],
         )
 
     def test_rejects_an_incomplete_exception_registry_entry(self) -> None:
         self.write_exception_registry(
-            {"skills/example/references/guide.md": {"reason": "Missing default."}}
+            {"skills/example/references/guide.md": {"reason": "Missing defaults."}}
         )
         errors: list[str] = []
 
@@ -678,7 +707,7 @@ class ReferenceContextBudgetTests(unittest.TestCase):
             errors,
             [
                 "docs/reference-context-exceptions.json: exception "
-                "'skills/example/references/guide.md' must contain default and reason"
+                "'skills/example/references/guide.md' must contain defaults and reason"
             ],
         )
 
@@ -687,7 +716,7 @@ class ReferenceContextBudgetTests(unittest.TestCase):
         self.write_exception_registry(
             {
                 "skills/example/references/guide.md": {
-                    "default": "guide.md",
+                    "defaults": ["guide.md"],
                     "reason": "No longer needed.",
                 }
             }
@@ -703,6 +732,32 @@ class ReferenceContextBudgetTests(unittest.TestCase):
                 "docs/reference-context-exceptions.json: exception "
                 "'skills/example/references/guide.md' no longer exceeds the "
                 "500-line limit; remove it from the registry"
+            ],
+        )
+
+    def test_rejects_a_missing_default_module(self) -> None:
+        self.references.joinpath("guide.md").write_text(
+            "\n".join(["line"] * 501), encoding="utf-8"
+        )
+        self.write_exception_registry(
+            {
+                "skills/example/references/guide.md": {
+                    "defaults": ["missing-core.md"],
+                    "reason": "A misspelled module must not bypass the budget.",
+                }
+            }
+        )
+        errors: list[str] = []
+
+        exceptions = VALIDATOR.load_reference_context_exceptions(errors)
+
+        self.assertEqual(exceptions, {})
+        self.assertEqual(
+            errors,
+            [
+                "docs/reference-context-exceptions.json: exception "
+                "'skills/example/references/guide.md' default 'missing-core.md' must "
+                "name a different existing Markdown reference in the same skill"
             ],
         )
 

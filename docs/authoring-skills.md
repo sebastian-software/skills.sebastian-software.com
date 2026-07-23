@@ -130,7 +130,7 @@ prints route-level totals in CI so a growing default context is visible in a PR.
 
 An unusually large deep reference is allowed only when it is a genuine
 edge-case appendix and its normal route points to smaller task modules first.
-Register it with a concrete reason and default module in
+Register it with a concrete reason and existing default modules in
 `docs/reference-context-exceptions.json`. The validator rejects an unregistered
 reference above 500 lines. Review every exception when the route or its modules
 change; splitting a chapter must reduce the default load, not create copies of

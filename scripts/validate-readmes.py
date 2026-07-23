@@ -226,7 +226,7 @@ def validate_skill_body_conventions(skill_directory: Path, errors: list[str]) ->
         )
 
 
-def load_reference_context_exceptions(errors: list[str]) -> dict[str, dict[str, str]]:
+def load_reference_context_exceptions(errors: list[str]) -> dict[str, dict[str, object]]:
     """Load the reviewed exceptions to the default reference-size budget."""
     exception_file = REPOSITORY_ROOT / "docs" / "reference-context-exceptions.json"
     relative = exception_file.relative_to(REPOSITORY_ROOT)
@@ -249,19 +249,28 @@ def load_reference_context_exceptions(errors: list[str]) -> dict[str, dict[str, 
         errors.append(f"{relative}: version must be 1 and exceptions must be an object")
         return {}
 
-    exceptions: dict[str, dict[str, str]] = {}
+    exceptions: dict[str, dict[str, object]] = {}
     for reference, details in payload["exceptions"].items():
         if not isinstance(reference, str) or not reference.startswith("skills/"):
             errors.append(f"{relative}: exception path must be a skills/ reference")
             continue
-        if not isinstance(details, dict) or set(details) != {"default", "reason"}:
+        if not isinstance(details, dict) or set(details) != {"defaults", "reason"}:
             errors.append(
-                f"{relative}: exception {reference!r} must contain default and reason"
+                f"{relative}: exception {reference!r} must contain defaults and reason"
             )
             continue
-        if not all(isinstance(details[field], str) and details[field].strip() for field in details):
+        defaults = details["defaults"]
+        reason = details["reason"]
+        if (
+            not isinstance(defaults, list)
+            or not defaults
+            or not all(isinstance(default, str) and default.strip() for default in defaults)
+            or not isinstance(reason, str)
+            or not reason.strip()
+        ):
             errors.append(
-                f"{relative}: exception {reference!r} fields must be non-empty strings"
+                f"{relative}: exception {reference!r} defaults must be a non-empty "
+                "array of strings and reason must be a non-empty string"
             )
             continue
         reference_file = REPOSITORY_ROOT / reference
@@ -276,13 +285,32 @@ def load_reference_context_exceptions(errors: list[str]) -> dict[str, dict[str, 
                 f"{REFERENCE_LINE_LIMIT}-line limit; remove it from the registry"
             )
             continue
+        reference_root = reference_file.parent.resolve()
+        invalid_default = next(
+            (
+                default
+                for default in defaults
+                if not isinstance(default, str)
+                or not (default_file := (reference_root / default).resolve()).is_file()
+                or default_file.suffix != ".md"
+                or default_file == reference_file.resolve()
+                or not default_file.is_relative_to(reference_root)
+            ),
+            None,
+        )
+        if invalid_default is not None:
+            errors.append(
+                f"{relative}: exception {reference!r} default {invalid_default!r} "
+                "must name a different existing Markdown reference in the same skill"
+            )
+            continue
         exceptions[reference] = details
     return exceptions
 
 
 def validate_reference_context_budgets(
     skill_directory: Path,
-    exceptions: dict[str, dict[str, str]],
+    exceptions: dict[str, dict[str, object]],
     errors: list[str],
     reports: list[str],
 ) -> None:
@@ -305,7 +333,7 @@ def validate_reference_context_budgets(
             continue
         reports.append(
             f"{relative}: {line_count} lines (documented deep-reference exception; "
-            f"default: {exception['default']})"
+            f"defaults: {', '.join(exception['defaults'])})"
         )
 
     for route in sorted(references_directory.glob("route-*.md")):
@@ -316,7 +344,9 @@ def validate_reference_context_budgets(
                 continue
             path_part = target.partition("#")[0]
             destination = (route.parent / unquote(path_part)).resolve()
-            if destination.is_file() and destination.parent == references_directory.resolve():
+            if destination.is_file() and destination.is_relative_to(
+                references_directory.resolve()
+            ):
                 direct_references.add(destination)
         line_count = sum(
             len(reference.read_text(encoding="utf-8").splitlines())
