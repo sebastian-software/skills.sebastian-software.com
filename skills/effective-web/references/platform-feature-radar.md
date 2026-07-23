@@ -95,7 +95,7 @@ Release notes are discovery feeds, not support policy. As of this snapshot:
   readable fallback and do not replace semantic order or explicit application
   data with DOM-position inference.
 - Browser-generated carousel controls and markers such as
-  [`::scroll-button()`](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Selectors/%3A%3Ascroll-button),
+  [`::scroll-button()`](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Selectors/::scroll-button),
   `::scroll-marker`, and `:target-current` remain Limited availability. Keep a
   native overflow/scroll-snap baseline with clear reachability, then add them as
   a feature-detected enhancement and re-test keyboard, focus, names, disabled
