@@ -24,6 +24,19 @@ Every public skill requires `README.md`, `SKILL.md`, `evals/evals.json`, and
 `agents/openai.yaml`. Add the other directories when they serve a clear purpose.
 Do not add external snapshots or generated copies.
 
+### Language-Specific Engineering Skills
+
+Add a dedicated language engineering skill only where the generic engineering and
+testing skills demonstrably miss agent failure modes specific to that language —
+for example borrow-checker workarounds and written unsafe-proof discipline in
+Rust, which `rust-engineering` owns. A language a generic skill already handles
+well does not earn its own skill: TypeScript depth currently lives in
+`effective-web` for frontend concerns and in `software-testing` for test
+evidence, with no dedicated TypeScript engineering skill yet. When a new language
+skill is justified, give it reciprocal `## Routing Boundaries` lines with the
+generic skills so a review, test, or port hands the language-depth findings in
+and keeps lifecycle, merge, and delivery ownership out.
+
 ## Human-Facing `README.md`
 
 Treat every independently installable skill as a small product. Its README is

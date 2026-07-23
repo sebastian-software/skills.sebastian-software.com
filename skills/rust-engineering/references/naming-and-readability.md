@@ -2,19 +2,15 @@
 
 ## Name the Contract
 
-Follow repository terminology and Rust conventions. Prefer names that identify
-the domain role rather than the representation:
-
-- predicates read naturally with `is_`, `has_`, `can_`, or another precise verb;
-- accessors normally use the noun without a `get_` prefix;
-- `as_*` borrows or cheaply views, `to_*` creates a value, and `into_*` consumes;
-- fallible operations reveal failure through `Result`, `Option`, or a clear
-  domain verb rather than a surprising panic;
-- include units in the type or name when the type alone cannot express them.
-
-Do not encode implementation history, author narration, or type names that the
-signature already makes obvious. Keep one term for one domain concept across
-types, variants, functions, fields, tests, logs, and documentation.
+Follow repository terminology and standard Rust naming conventions (`is_`/`has_`/
+`can_` predicates, no `get_` prefix, `as_`/`to_`/`into_` for borrow/create/
+consume), naming the domain role rather than the representation. Beyond that
+baseline: make fallible operations reveal failure through `Result`, `Option`, or
+a domain verb rather than a surprising panic, and put units in the type or name
+when the type alone cannot express them. Do not encode implementation history,
+author narration, or type names that the signature already makes obvious. Keep
+one term for one domain concept across types, variants, functions, fields,
+tests, logs, and documentation.
 
 ## Keep Values Explainable
 

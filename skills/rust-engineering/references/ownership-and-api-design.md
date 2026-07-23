@@ -44,7 +44,8 @@ Keep public types and trait bounds focused on caller needs:
 
 - hide implementation-only generics and storage choices;
 - avoid exposing third-party types unless that coupling is intentional;
-- preserve object safety only when dynamic dispatch is an actual requirement;
+- preserve dyn compatibility (object safety) only when dynamic dispatch is an
+  actual requirement;
 - use associated types when one implementation determines one related type;
 - use generic parameters when callers must choose among types.
 
@@ -54,8 +55,7 @@ semver policy, `#[non_exhaustive]`, feature gates, and MSRV before changing it.
 
 ## Make Conversions Honest
 
-Use `From`/`Into` for infallible, unsurprising conversions and
-`TryFrom`/`TryInto` for range, validation, or representation failures. Avoid
-lossy `as` casts where truncation, sign changes, precision loss, or platform
-width affects behavior. Name a deliberately lossy conversion so callers can see
-the policy.
+`From`/`Into` for infallible conversions and `TryFrom`/`TryInto` for fallible
+ones is baseline. The rule that changes decisions: avoid lossy `as` casts where
+truncation, sign change, precision loss, or platform width affects behavior, and
+name a deliberately lossy conversion so callers can see the policy.

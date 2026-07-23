@@ -4,10 +4,11 @@ description: >-
   Implement, refactor, and review Rust crates and workspaces with explicit
   ownership, API, error, concurrency, unsafe, and maintainability contracts.
   Use for Rust source changes, Cargo projects, lifetime or cloning decisions,
-  public Rust APIs, async Rust, unsafe code, FFI, numeric conversions, or a
-  Rust-specific code review. Do not use for behavior-preserving ports,
-  dependency-only updates, test-only work, documentation-only work, or merely
-  running existing repository checks when a narrower skill owns the task.
+  public Rust APIs, async Rust, unsafe code, FFI, numeric conversions, or the
+  Rust-depth findings inside a code review that pr-review owns. Do not use for
+  behavior-preserving ports, dependency-only updates, test-only work,
+  documentation-only work, or merely running existing repository checks when a
+  narrower skill owns the task.
 ---
 
 # Rust Engineering
@@ -75,8 +76,14 @@ performance claims explicitly.
 
 ## Routing Boundaries
 
-- Route language, runtime, framework, or API ports to `port-codebases`; use this
-  skill for Rust quality inside an already selected Rust implementation.
+- Route pull-request lifecycle, approval, CI recovery, and merge judgment to
+  `pr-review`; this skill supplies Rust-depth findings inside a review.
+- Route language, runtime, framework, or API ports to `port-codebases`; that
+  skill owns port execution and parity, while a post-parity Rust idiom pass on
+  the ported code comes here.
+- Route module and service boundary decisions for a Rust workspace to
+  `software-architecture`; this skill implements Rust quality within an agreed
+  boundary.
 - Route test selection and implementation to `software-testing`; this skill owns
   the Rust contracts the tests must protect.
 - Route rustdoc and contributor documentation to `tech-docs`.
