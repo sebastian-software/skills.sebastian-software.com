@@ -78,6 +78,16 @@ def white_alpha(selector: str) -> float:
     return int(match.group(1)) / 100
 
 
+def token_pair(selector: str) -> tuple[str, str]:
+    """Return the (background, color) design tokens declared by a badge rule."""
+    body = rule(selector)
+    background = re.search(r"background:\s*var\(--([\w-]+)\)", body)
+    foreground = re.search(r"color:\s*var\(--([\w-]+)\)", body)
+    if background is None or foreground is None:
+        raise AssertionError(f"Missing background/color token pair in {selector}")
+    return background.group(1), foreground.group(1)
+
+
 class SiteContrastTests(unittest.TestCase):
     def test_dark_palette_overrides_every_color_token(self) -> None:
         light_tokens = re.findall(r"--([\w-]+):\s*#[0-9a-fA-F]{6}", palette_block("light"))
@@ -148,6 +158,19 @@ class SiteContrastTests(unittest.TestCase):
                 ):
                     foreground = blend(white, blue_surface, white_alpha(selector))
                     self.assertGreaterEqual(contrast(foreground, blue_surface), 4.5)
+
+    def test_fit_badges_meet_text_contrast_in_both_palettes(self) -> None:
+        for selector in (".fit-companion", ".fit-selective", ".fit-covered"):
+            background_token, foreground_token = token_pair(selector)
+            for palette in PALETTES:
+                with self.subTest(selector=selector, palette=palette):
+                    self.assertGreaterEqual(
+                        contrast(
+                            color(foreground_token, palette),
+                            color(background_token, palette),
+                        ),
+                        4.5,
+                    )
 
     def test_flagship_accent_chip_meets_text_contrast(self) -> None:
         self.assertIn("background: var(--coral-deep)", rule(".route-accent"))

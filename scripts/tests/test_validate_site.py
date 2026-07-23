@@ -309,5 +309,74 @@ class SitemapLastmodValidationTests(unittest.TestCase):
         )
 
 
+class ComparisonReviewFreshnessTests(unittest.TestCase):
+    sitemap = (
+        "<url><loc>https://skills.sebastian-software.com/</loc>"
+        "<lastmod>2026-07-23</lastmod></url>"
+        "<url><loc>https://skills.sebastian-software.com/comparisons.html</loc>"
+        "<lastmod>2026-07-23</lastmod></url>"
+    )
+
+    def test_same_day_review_and_lastmod_pass(self) -> None:
+        failures: list[str] = []
+
+        VALIDATOR.validate_comparison_review_freshness(
+            '<p class="eyebrow">Field notes · reviewed 23 July 2026</p>',
+            self.sitemap,
+            failures,
+        )
+
+        self.assertEqual(failures, [])
+
+    def test_review_within_the_window_passes(self) -> None:
+        failures: list[str] = []
+
+        VALIDATOR.validate_comparison_review_freshness(
+            "reviewed 1 May 2026",
+            self.sitemap,
+            failures,
+        )
+
+        self.assertEqual(failures, [])
+
+    def test_stale_review_fails_against_the_page_lastmod(self) -> None:
+        failures: list[str] = []
+
+        VALIDATOR.validate_comparison_review_freshness(
+            "reviewed 1 January 2026",
+            self.sitemap,
+            failures,
+        )
+
+        self.assertEqual(len(failures), 1)
+        self.assertIn("comparison review date 2026-01-01 is 203 days older", failures[0])
+
+    def test_missing_review_date_reports_a_failure(self) -> None:
+        failures: list[str] = []
+
+        VALIDATOR.validate_comparison_review_freshness(
+            "<p>No date here.</p>",
+            self.sitemap,
+            failures,
+        )
+
+        self.assertIn("comparison page must state its review date", failures)
+
+    def test_uses_the_comparison_page_lastmod_not_the_homepage(self) -> None:
+        sitemap = (
+            "<url><loc>https://skills.sebastian-software.com/</loc>"
+            "<lastmod>2026-12-31</lastmod></url>"
+            "<url><loc>https://skills.sebastian-software.com/comparisons.html</loc>"
+            "<lastmod>2026-07-23</lastmod></url>"
+        )
+        failures: list[str] = []
+
+        VALIDATOR.validate_comparison_review_freshness(
+            "reviewed 23 July 2026", sitemap, failures
+        )
+
+        self.assertEqual(failures, [])
+
+
 if __name__ == "__main__":
     unittest.main()

@@ -28,7 +28,9 @@ jobs:
             --include-fragments
             --max-concurrency 32
             --host-concurrency 2
-            --timeout 30
+            --timeout 40
+            --max-retries 4
+            --retry-wait-time 5
             './**/*.md'
             './site/**/*.html'
           fail: true
