@@ -1,0 +1,53 @@
+{
+  "version": 1,
+  "exceptions": {
+    "skills/effective-web/references/fundamentals.md": {
+      "default": "fundamentals-core.md",
+      "reason": "Historical design and motion appendix; focused design, accessibility, and motion routes load smaller modules first."
+    },
+    "skills/effective-web/references/layout-spacing.md": {
+      "default": "layout-foundations.md",
+      "reason": "Deep layout appendix retained for uncommon CSS patterns; the layout route selects a focused foundation or responsive module first."
+    },
+    "skills/effective-web/references/tables-data.md": {
+      "default": "tables-semantics.md, tables-responsive.md, or tables-interactions.md",
+      "reason": "Complete table cookbook retained for rare combined cases; normal table tasks select one focused concern."
+    },
+    "skills/effective-web/references/navigation.md": {
+      "default": "navigation-structure.md or navigation-responsive.md",
+      "reason": "Pattern catalog retained for unusual navigation combinations; common structure and responsive decisions have focused modules."
+    },
+    "skills/effective-web/references/print-web-styles.md": {
+      "default": "print-web-basics.md, print-web-content.md, or print-web-layout.md",
+      "reason": "Long-form print cookbook retained for uncommon output constraints; normal print work loads the relevant artifact concern."
+    },
+    "skills/effective-web/references/css-architecture.md": {
+      "default": "css-cascade.md, css-tokens.md, or css-organization.md",
+      "reason": "Architecture survey retained for migration and feature edge cases; the CSS route selects one implementation concern first."
+    },
+    "skills/effective-web/references/scroll-patterns.md": {
+      "default": "scroll-navigation.md or scroll-feedback.md",
+      "reason": "Comprehensive scroll catalog retained for specialist cases; navigation and feedback tasks have separate focused modules."
+    },
+    "skills/effective-web/references/typography.md": {
+      "default": "typography-system.md or typography-detail.md",
+      "reason": "Type survey retained for exceptional editorial and display treatments; routine system and text-detail work load smaller modules."
+    },
+    "skills/effective-web/references/colour.md": {
+      "default": "colour-accessibility.md or colour-system.md",
+      "reason": "Full palette catalogue retained for advanced color work; contrast and token-system tasks load separate focused modules."
+    },
+    "skills/effective-web/references/dialog-modal.md": {
+      "default": "dialog-foundation.md or dialog-decisions.md",
+      "reason": "Complete dialog catalog retained for unusual mobile and notification combinations; common implementation and product decisions are separate."
+    },
+    "skills/effective-web/references/i18n-rtl.md": {
+      "default": "route-i18n.md",
+      "reason": "Wide locale and RTL reference retained because correct use depends on the target locales; the route narrows the required sections."
+    },
+    "skills/effective-web/references/seo.md": {
+      "default": "route-seo.md",
+      "reason": "Search implementation reference retained because checks differ materially by crawl, metadata, and structured-data task; the route narrows the required sections."
+    }
+  }
+}

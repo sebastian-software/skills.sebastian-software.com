@@ -79,7 +79,9 @@ Do not use this skill as a source archive. Article-derived input has already bee
 
 ## References
 
-- [fundamentals.md](fundamentals.md) - broad UI design principles, quality heuristics, reduction, and restraint.
+- [fundamentals-core.md](fundamentals-core.md) - broad UI design decisions,
+  quality heuristics, reduction, and restraint; load the deep appendix only for
+  an identified edge case.
 - [design-registers.md](design-registers.md) - registers for design intent and decisions.
 - [design-directions.md](design-directions.md) - combinable directions, axes,
   ambiguity questions, conflict resolution, and decision persistence.

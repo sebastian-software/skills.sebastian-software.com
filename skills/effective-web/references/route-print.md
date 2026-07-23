@@ -28,7 +28,7 @@ results without pretending that browsers provide every DTP capability.
 |----------|-----------|
 | Typography | [print-typography.md](print-typography.md) — font sizes, stacks, OpenType, text-wrap, hyphenation |
 | Layout | [print-layout.md](print-layout.md) — layers, reset, @page, simulation, grid, fragmentation |
-| Web Print CSS | [print-web-styles.md](print-web-styles.md) — print styles for ordinary web pages |
+| Web Print CSS | [print-web-basics.md](print-web-basics.md) — start for ordinary web pages; add [print-web-content.md](print-web-content.md) for links, images, tables, and code, or [print-web-layout.md](print-web-layout.md) for paper-specific reading order |
 | Page Features | [print-page-features.md](print-page-features.md) — headers/footers, counters, bleed, links, element styles |
 | Locale | [print-locale.md](print-locale.md) — integrate reviewed locale rules into print CSS; route language-level rules to `locale-typography` and follow its verification and safe-preprocessing requirements |
 

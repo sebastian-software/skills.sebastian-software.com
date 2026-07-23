@@ -53,8 +53,7 @@ Use this skill for the structural geometry of an interface: where things sit, ho
 
 ## References
 
-- [intrinsic-layouts.md](intrinsic-layouts.md) - algorithmic layout mental model,
-  primitive selection, composition contracts, implementation, and verification.
-- [layout-spacing.md](layout-spacing.md) - spacing systems, grids, white space, and visual grouping.
-- [responsive-design.md](responsive-design.md) - responsive design decisions and breakpoints.
-- [css-layout-responsive.md](css-layout-responsive.md) - CSS layout primitives and responsive implementation.
+- [layout-foundations.md](layout-foundations.md) - start here for structural
+  geometry, grouping, spacing, and primitive selection. It names the one
+  follow-up reference to load only when the remaining constraint is intrinsic,
+  responsive, or CSS-implementation specific.
