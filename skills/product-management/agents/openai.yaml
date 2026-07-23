@@ -1,4 +1,4 @@
 interface:
   display_name: "Product Management"
-  short_description: "Make evidence-led product decisions"
-  default_prompt: "Use $product-management to turn customer evidence into a focused product decision and learning plan."
+  short_description: "Review and make evidence-led product decisions"
+  default_prompt: "Use $product-management to audit this product artifact and turn its evidence into a focused decision and learning plan."

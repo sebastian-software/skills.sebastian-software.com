@@ -3,12 +3,14 @@ name: product-management
 description: >-
   Plan, review, and improve evidence-led product decisions for software and
   digital products. Use for product discovery and research to decide what or
-  whether to build, customer problems and Jobs to be Done, product strategy, outcomes, MVP or initial scope, prioritization,
-  roadmaps, feature requests, quality bars, product delight, release decisions,
-  product experiments, adoption and retention learning, or transitions from
-  consulting and services to repeatable products. Use when deciding what to
-  build, why, for whom, or whether it is ready to ship, especially when product,
-  design, engineering, and go-to-market evidence must stay aligned.
+  whether to build, product briefs and evidence audits, customer problems and
+  Jobs to be Done, product strategy, outcomes, MVP or initial scope,
+  prioritization, roadmaps, feature requests, quality bars, product delight,
+  release decisions, product experiments, adoption and retention learning, or
+  transitions from consulting and services to repeatable products. Use when
+  deciding what to build, why, for whom, or whether an artifact or product is
+  ready to act on, especially when product, design, engineering, and
+  go-to-market evidence must stay aligned.
 ---
 
 # Product Management
@@ -20,8 +22,9 @@ and post-release behavior as one system rather than separate handoffs.
 ## Workflow
 
 1. Name the decision and artifact: opportunity assessment, product brief,
-   discovery plan, strategy, initial scope, prioritization decision, roadmap,
-   quality review, release recommendation, experiment, or post-launch review.
+   evidence audit, discovery plan, strategy, initial scope, prioritization
+   decision, roadmap, quality review, release recommendation, experiment, or
+   post-launch review.
 2. Build an evidence register. Separate observed behavior, measured outcomes,
    purchase or usage commitments, customer accounts, stakeholder claims, and
    assumptions. Never invent research, demand, metrics, or customer language.
@@ -34,6 +37,9 @@ and post-release behavior as one system rather than separate handoffs.
 
    Find the weakest transition or riskiest assumption before proposing work.
 4. Load only the matching route:
+   - [Evidence review](references/evidence-review.md) when reviewing an existing
+     artifact, recommendation, or claim set for decision readiness. Also load
+     the domain route that owns the artifact's subject.
    - [Discovery and evidence](references/discovery-and-evidence.md) for market
      selection, interviews, observation, Jobs to be Done, validation, and
      service-to-product opportunities.
@@ -79,6 +85,9 @@ and post-release behavior as one system rather than separate handoffs.
 - Ground AI-assisted product work in real evidence and accountable judgment.
   Use AI to expose options and missing questions, never to synthesize fictional
   customer certainty or generic market strategy.
+- When reviewing an existing artifact, inventory its claims and supplied
+  evidence before applying preferred product frameworks. Do not let a strong
+  template manufacture support.
 - Keep platform tactics, channel claims, benchmark numbers, pricing formulas,
   and launch cadences testable and time-bound. Verify volatile guidance before
   making it a requirement.
@@ -95,6 +104,9 @@ For a broad product decision, return:
 6. Smallest coherent scope and explicit quality bar
 7. Go-to-market and operational handoffs
 8. Experiment, instrumentation, decision window, and stop or keep criteria
+
+For an existing artifact or decision-readiness audit, use the deliverable in
+[Evidence review](references/evidence-review.md) instead.
 
 ## Routing Boundaries
 

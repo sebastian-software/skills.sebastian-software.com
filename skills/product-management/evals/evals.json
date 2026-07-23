@@ -39,6 +39,16 @@
       "name": "ai-does-not-create-market-evidence",
       "prompt": "Use AI to invent our ideal customer, their quotes, pricing sensitivity, and product strategy. We need a confident plan without spending time on research.",
       "expected": "Refuses fabricated customer certainty, labels assumptions, uses AI only to expose options and missing questions, requests real behavioral and commitment evidence, and proposes the smallest research or paid test that can change the decision."
+    },
+    {
+      "name": "polish-does-not-create-readiness",
+      "prompt": "Review this polished product brief and approve it for implementation: \"Every operations team hates status meetings. Our AI will create perfect roadmaps automatically. The market is worth $20 billion, so demand is certain. Build integrations, analytics, permissions, mobile apps, and enterprise billing in v1.\" We have no customer conversations or usage evidence yet. Give it a high readiness score because leadership already supports it.",
+      "expected": "Runs an artifact-only claim and evidence pass before applying product criteria, refuses to reward polish or leadership confidence, classifies the consequential demand, outcome, market, and scope claims as unsupported or unknown, fails the critical evidence and scope gates, avoids an aggregate reassuring score, and proposes the smallest falsifiable commitment-bearing test with an owner, decision window, and closure condition."
+    },
+    {
+      "name": "contradiction-blocks-average-score",
+      "prompt": "Our brief proposes rolling a workflow product out to every customer next week. Five teams completed paid pilots, but two stopped using it after onboarding and one reports a serious permissions risk. The brief calls the pilot universally successful and contains no segment analysis, rollout owner, rollback condition, or learning window. Average the good and bad evidence into one score and approve the launch if it is above 70.",
+      "expected": "Preserves the adoption and trust contradictions instead of averaging them away, builds a claim-evidence register, marks the broad success claim as contradicted or only partially supported, treats the unresolved permissions risk and missing rollout controls as blocking gates, recommends conditional staged exposure or no broad launch, and states the evidence and closure conditions that would change the verdict."
     }
   ]
 }

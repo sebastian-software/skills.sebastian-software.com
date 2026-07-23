@@ -16,6 +16,8 @@ handoffs.
 ## What It Can Deliver
 
 - opportunity assessments and evidence registers
+- decision-readiness audits for product briefs, roadmaps, and recommendations
+- claim-to-evidence reviews with explicit gates and closure conditions
 - customer-problem and Jobs-to-be-Done synthesis
 - product briefs, strategy, outcomes, and initial scope
 - prioritization decisions and outcome-oriented roadmaps
@@ -38,6 +40,9 @@ recommendation.
 
 Review this roadmap and identify where output commitments have replaced product
 outcomes.
+
+Audit this polished product brief for decision readiness. Trace every important
+claim to supplied evidence and tell me what blocks approval.
 
 Decide whether this feature is ready to ship, including its quality bar,
 distribution path, and post-release learning plan.
