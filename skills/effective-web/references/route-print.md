@@ -39,21 +39,21 @@ results without pretending that browsers provide every DTP capability.
 | **Units** | `pt` | `rem` / `px` | `rem` / `px` |
 | **Layout** | Fixed page (A4 / Letter) | Fluid, `max-width` | Fluid, single-column |
 | **Colors** | OKLCH; B&W first, CMYK gamut | OKLCH / RGB | OKLCH / RGB |
-| **Typography** | 11pt, serif, justify, hyphens | 16px+, variable | 16px+, left-align |
+| **Typography** | 11pt starting point; tested body face; justify only with measure and hyphenation | 16px+, variable | 16px+, left-align |
 | **Line-height** | 1.35–1.4 (tight) | 1.5–1.6 | 1.5–1.6 |
-| **Images** | 300 DPI | 72–96 DPI | 72–96 DPI, lazy load |
+| **Images** | Raster density matched to physical output; vector where possible | CSS pixels are reference units, not display density | CSS pixels are reference units; optimize transfer size |
 | **Backgrounds** | Stripped by browser | Free | Free |
-| **Font-weight** | Min 400 (thin vanishes) | Free | Free |
-| **Interaction** | None — hide all UI | Full | Touch |
+| **Font-weight** | Start at 400; verify thin/light weights on actual output | Free | Free |
+| **Interaction** | Hide interactive chrome by default; keep useful provenance or wayfinding | Full | Touch |
 | **Line length** | Page margins control | `max-width` / container | Full width |
 
 ## Architecture
 
 - Use `@layer` to separate print from screen — eliminates `!important` wars
 - Start with a clean-slate reset: strip backgrounds, shadows, filters to `transparent`/`none`
-- Blacklist approach: explicitly hide what doesn't belong (nav, sidebar, ads, buttons)
+- Blacklist approach: explicitly hide chrome that does not serve the printed artifact (ads, controls, transient overlays); retain selected context or provenance
 - Use `print-color-adjust: exact` only where backgrounds carry meaning
-- **Generous whitespace** — too much rarely hurts, too little is fatal (cramped layouts are the #1 amateur mistake)
+- Choose whitespace for the artifact's density, reading distance, and hierarchy; generous space is a design choice, not a universal print rule
 
 ## Typography
 
@@ -72,7 +72,7 @@ results without pretending that browsers provide every DTP capability.
 - Max 2–3 typefaces; pair by matching x-heights and historical period
 - Books: use `text-indent: 1em` on `p + p` (not `margin-bottom`) for paragraph separation
 - Choose body faces with low-to-medium stroke contrast and open apertures — high contrast (Bodoni) for display only
-- Avoid Times New Roman; prefer Georgia, Charter, Palatino
+- Choose body faces by legibility at the target point size, glyph coverage, licensing/availability, and fit with the artifact's hierarchy; Georgia, Charter, Palatino, and Times New Roman are context-dependent options, not a universal ranking
 - Quotation marks, dashes, number formatting, and spacing rules vary by locale — route them to `locale-typography`; use `quotes: auto` only after verifying the rendered locale result, and preprocess only rendered prose with an explicit locale
 
 ## Colors
@@ -93,14 +93,13 @@ results without pretending that browsers provide every DTP capability.
 
 ## Images
 
-- Print = **300 DPI** (screen = 96); for 2-inch print width → 600 px source
+- Size raster assets from their final physical width and the required output density: a 2-inch image at 300 ppi needs 600 source pixels; use vector artwork for marks, diagrams, and type where practical. CSS pixels are defined reference units (1 px = 1/96 inch), not a statement about a screen's physical density.
 - `break-inside: avoid` on figures; hide decorative images
 - CSS background images don't print by default (good for decorative)
 
 ## Links
 
-- **Never dump raw URLs inline** — clutter the layout, nobody types them
-- Use numbered footnotes (CSS counters) or a single QR code, or both
+- Prefer human-readable link labels. For citations, offline provenance, or a useful fallback path, include a short URL, numbered footnote, printed source list, QR code, or a deliberate combination; avoid tracking-heavy raw URLs in running text.
 - Expand abbreviations on paper (see [paged-media features](print-page-features.md))
 
 ## Tables
@@ -121,3 +120,8 @@ results without pretending that browsers provide every DTP capability.
 2. **Print Preview:** Cmd+P (shows actual pagination)
 3. **Playwright:** `page.emulateMedia({ media: 'print' })` + `page.pdf()` for automated PDF generation and visual regression tests
 4. **Actual printers** — laser and inkjet render differently
+
+## Production Sources
+
+- [CSS Values and Units Level 4: absolute lengths and resolution units](https://www.w3.org/TR/css-values-4/#absolute-lengths) — CSS reference units, including `px`, `pt`, and `dpi`
+- [CSS Paged Media Module Level 3](https://www.w3.org/TR/css-page-3/) — page-based media rules and the `@page` model
