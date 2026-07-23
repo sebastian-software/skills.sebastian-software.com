@@ -18,7 +18,8 @@ ROOT = Path(__file__).resolve().parents[1]
 SITE = ROOT / "site"
 INDEX = SITE / "index.html"
 EXPECTED_DOMAIN = "skills.sebastian-software.com"
-EXPECTED_OG_IMAGE_URL = f"https://{EXPECTED_DOMAIN}/assets/og-card.png"
+EXPECTED_OG_IMAGE = "og-card-product-review.png"
+EXPECTED_OG_IMAGE_URL = f"https://{EXPECTED_DOMAIN}/assets/{EXPECTED_OG_IMAGE}"
 SKILL_URL_PREFIX = (
     "https://github.com/sebastian-software/"
     "skills.sebastian-software.com/tree/main/skills/"
@@ -351,7 +352,7 @@ def main() -> int:
         SITE / "assets" / "favicon.svg",
         SITE / "assets" / "favicon-32.png",
         SITE / "assets" / "apple-touch-icon.png",
-        SITE / "assets" / "og-card.png",
+        SITE / "assets" / EXPECTED_OG_IMAGE,
         SITE / "favicon.ico",
         SITE / "CNAME",
         SITE / ".nojekyll",
@@ -499,7 +500,7 @@ def main() -> int:
     validate_json_ld_inventory(json_ld, visible_inventory, failures)
 
     require(
-        png_dimensions(SITE / "assets" / "og-card.png") == (1200, 630),
+        png_dimensions(SITE / "assets" / EXPECTED_OG_IMAGE) == (1200, 630),
         "Open Graph image file must be exactly 1200x630",
         failures,
     )
@@ -534,6 +535,7 @@ def main() -> int:
 
     expected_copy_buttons = {
         ("hero-command", "Copy Effective Web skills CLI command"),
+        ("product-command", "Copy Product Management skills CLI command"),
         ("skills-command", "Copy skills CLI command"),
         ("dalo-command", "Copy DALO setup commands"),
     }
