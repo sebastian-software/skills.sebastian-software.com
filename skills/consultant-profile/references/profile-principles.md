@@ -28,13 +28,14 @@ The strongest sources converge on the same point: a consulting profile is not a 
 
 Do not treat reverse chronology as the only organizing principle. Chronology answers "what happened most recently?" A consultant profile must also answer "what proves this person's market value?"
 
-Use five layers:
+Use six layers:
 
 1. **Positioning layer** - the profile thesis, capability pillars, and strongest buyer-facing proof.
 2. **Narrative layer** - the short professional through-line that explains how projects and capabilities connect.
 3. **Signature evidence layer** - 3-5 selected projects that prove the thesis with recognizable clients, scale, complexity, and outcomes.
-4. **Human-fit layer** - enough personality, motivation, working style, and boundaries that the reader understands what kind of person they may hire.
-5. **Breadth/archive layer** - additional projects grouped compactly by industry, client type, technology, or theme.
+4. **External proof layer** - a small number of permissioned, locally attributed recommendations that verify capability, impact, trust, or working style without becoming the profile's structure.
+5. **Human-fit layer** - enough personality, motivation, working style, and boundaries that the reader understands what kind of person they may hire.
+6. **Breadth/archive layer** - additional projects grouped compactly by industry, client type, technology, or theme.
 
 This keeps recent work visible without demoting older high-signal work that helps the reader understand seniority and credibility.
 
@@ -227,6 +228,8 @@ Use a source-of-truth data model:
 - localized About sections
 - capability pillars
 - project records with permissions
+- recommendation records with author/context, original text and language,
+  source locator, permission, themes, excerpts, and localized translations
 - selected highlights per market/channel
 - skills per channel
 - featured links/media
@@ -275,9 +278,10 @@ For a website or PDF consultant profile:
 6. **Industry and Organization Context** - compact client/sector map.
 7. **Additional Selected Projects** - grouped list for breadth.
 8. **Skills and Tools** - only the tools that reinforce the thesis.
-9. **Operational Fit** - availability, location/time zone, delivery setup, travel readiness, languages, and engagement model only when the channel needs them.
-10. **Working Style / Role Fit** - concise description of how the consultant operates.
-11. **Optional Personal Motivation / Working Principles** - only when personality, values, motivation, or boundaries improve fit and are supported by evidence.
+9. **Selected External Proof** - optional; usually 2-3 short, relevant, permissioned recommendations with local attribution, source handling, and visibly labelled translations.
+10. **Operational Fit** - availability, location/time zone, delivery setup, travel readiness, languages, and engagement model only when the channel needs them.
+11. **Working Style / Role Fit** - concise description of how the consultant operates.
+12. **Optional Personal Motivation / Working Principles** - only when personality, values, motivation, or boundaries improve fit and are supported by evidence.
 
 For a classic one-page recruiting resume, keep stricter chronology, but still place the strongest bullet first within each role and consider a "Selected impact" block if seniority and project breadth justify it.
 
@@ -362,6 +366,9 @@ Check whether the profile:
 - treats photo, personal data, references, and page length as country- and channel-dependent
 - adapts tone and structure to Germany, Austria, Switzerland, EU/international, US/global, and LinkedIn contexts
 - includes LinkedIn-specific headline/About/Featured/skills/recommendation guidance when social visibility matters
+- curates recommendations by the buyer claim they prove instead of copying every flattering quote
+- attributes quotes locally with author, relationship/context, role/company at the time, date, translation status, and a source locator where practical
+- keeps the original quotation as source of truth, labels translations and omissions, and does not treat LinkedIn acceptance as permission for external republication
 - keeps bilingual variants fact-aligned while adapting tone and terminology
 - treats platform automation as a draft/diff workflow unless official API write access is verified
 - uses LinkedIn recommendations and references as proof/perception signals rather than dumping long testimonials into the profile
