@@ -21,7 +21,8 @@ inventory with evidence-led positioning and a coherent career narrative.
 - a connected professional narrative instead of a loose project list
 - gap analysis and interview questions for missing evidence
 - synchronized CV, website, LinkedIn, bio, and project-list content
-- localized versions that preserve meaning and professional credibility
+- country- and channel-aware variants for Germany, Austria, Switzerland,
+  international markets, direct buyers, staffing, and public profiles
 
 ## Use It When
 

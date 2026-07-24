@@ -17,8 +17,13 @@
     },
     {
       "name": "localize-profile-for-dach-and-linkedin",
-      "prompt": "I need German and English versions of my consultant profile for DACH clients, international EU leads, and LinkedIn. Do not just translate it literally; adapt tone and structure.",
-      "expected": "A localization plan with DACH/German, EU/international English, and LinkedIn variants, including headline/About examples, terminology choices, and notes on what facts must stay aligned."
+      "prompt": "I need German and English versions of my consultant profile for direct buyers and staffing partners in Germany, Austria, and Switzerland, plus international EU leads and LinkedIn. Do not just translate it literally or assume one DACH CV format; adapt tone, structure, and operational details.",
+      "expected": "A localization plan that combines country and buying channel, distinguishes German, Austrian, and Swiss conventions where relevant, separates consultant sales from employment-CV conventions, includes EU/international English and LinkedIn variants, and notes which facts must stay aligned."
+    },
+    {
+      "name": "map-staffing-brief-to-consultant-evidence",
+      "prompt": "Adapt my consultant profile to this Swiss staffing brief. Separate hard requirements from useful and contextual signals, show which supplied projects prove each one, and include relevant availability and delivery details. Do not invent missing experience, rate my skills without evidence, or give me a made-up match percentage.",
+      "expected": "A qualitative opportunity-fit map tied to supplied evidence, unresolved gaps kept explicit, Swiss staffing conventions applied without turning the profile into an exhaustive archive, evidence-based skill descriptions, and only supplied channel-relevant operational facts such as availability, location, delivery setup, travel, languages, engagement model, or rate."
     },
     {
       "name": "sync-linkedin-with-pdf-profile",
