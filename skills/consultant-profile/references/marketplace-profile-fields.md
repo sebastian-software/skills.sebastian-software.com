@@ -181,7 +181,7 @@ taxonomy inside its portal.
 | Vertragsmodell | Engagement type | Freelance, contracting, temporary, permanent, supplier employee, or other supported model |
 | Stundensatz / Tagessatz | Hourly rate / Daily rate | Amount, currency, unit, and applicability |
 | Sprachen | Languages | Language plus supplied proficiency level |
-| Referenzen | References / Recommendations | Permissioned third-party proof |
+| Referenzen | References / Recommendations | Attributed third-party proof |
 | Arbeitsproben | Portfolio / Work samples | Shareable artifacts or case studies |
 
 Do not rename every owned-profile section to provider branding. "Superpowers",

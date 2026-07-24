@@ -73,7 +73,8 @@ Before rewriting, classify every project and source:
 - **Mention-only** - name/client exists but not enough context yet.
 - **Reference-only** - useful as proof or perception signal, not a project entry.
 - **Archive-only** - keep for completeness but probably not prominent.
-- **Needs permission** - do not publish client name, quote, metric, or outcome until verified.
+- **Needs confirmation** - do not publish a restricted client name, private
+  quote, sensitive metric, or confidential outcome until verified.
 
 Then produce a gap map:
 
@@ -160,7 +161,7 @@ Extract these signals instead:
 - **Trust signals** - senior stakeholders trusted them, difficult work was assigned, teams wanted to work with them again
 - **Impact language** - what others say changed because of the work
 - **Differentiators** - unusual combinations such as technical depth plus product judgment
-- **Exact phrases** - short phrases that can inspire profile language, if permission allows
+- **Exact phrases** - short phrases that can inspire profile language or become attributed excerpts
 
 Classify each reference:
 
@@ -184,12 +185,13 @@ With a large collection, create one record per recommendation:
 - **Source platform and locator** - LinkedIn profile URL, recommendations-page
   URL if currently functional, received/given tab, author, and date
 - **Original language and exact text**
-- **Permission** - LinkedIn display only; external excerpt; full republication;
-  translation; author name/title/company; photo/logo; unknown
+- **Reuse status and sensitivity** - accepted public recommendation; private or
+  withdrawn; known restriction; routine excerpt/translation; sensitive
+  full-text, advertising, photo/logo, confidential, or heavily edited use
 - **Themes** - capability, impact, trust, working style, leadership,
   collaboration, technical depth, product judgment, or other repeated signals
 - **Relevant project or claim**
-- **Approved excerpts** - preserve omissions and surrounding meaning
+- **Selected excerpts** - preserve omissions and surrounding meaning
 - **Localized versions** - locale, translator/reviewer, translation status,
   author approval if obtained
 - **Channel status** - selected for website, German CV, English CV, proposal,
@@ -212,7 +214,7 @@ Select by:
 - strength and clarity of the author's relationship to the work
 - coverage of a distinct proof theme instead of repeating the same praise
 - recency where it matters
-- permission and ability to attribute the quote
+- ability to attribute the quote and absence of known restrictions
 
 A strong main profile usually needs only two or three short quotes. Use the
 larger collection to identify recurring language and to supply
@@ -266,32 +268,36 @@ Use links as supporting provenance, not as the complete attribution.
   permalinks for individual recommendations. Verify the link before release.
 - Add author and date as a source locator because visibility, login state, and
   LinkedIn UI can prevent the reader from seeing the same recommendation.
-- For durable website use, consider a permissioned evidence page with a stable
+- For durable website use, consider an attributed evidence page with a stable
   anchor per recommendation, the localized excerpt, the original-language
   text, attribution, and a LinkedIn source link.
 - Link the author's profile only as identity context; it does not by itself
   prove the exact wording.
 
-### Permission
+### Practical Reuse Rule
 
-The recommendation author owns their original LinkedIn content as between them
-and LinkedIn. LinkedIn's user agreement also restricts copying or distributing
-other members' content without the content owner's consent. Do not treat the
-recipient's acceptance of a LinkedIn recommendation as permission to republish
-or translate it on a website, CV, or proposal.
+Do not turn routine use of an accepted public LinkedIn recommendation into a
+second approval workflow. For a normal website, consultant CV, or proposal,
+the practical default is:
 
-Ask once for channel-aware permission:
+- select a short, faithful excerpt
+- attribute it locally with author and collaboration context
+- label translation and omissions
+- link or point to the LinkedIn source where practical
+- remove or adjust it promptly if the author later objects
 
-- short or full quotation
-- external publication channels
-- translation into named languages
-- author name, historical role, and organization
-- optional photo or company logo
-- approval workflow for the translated wording
+This is a pragmatic editorial default, not a universal legal conclusion. Ask
+or confirm only when the reuse materially changes the risk or relationship:
 
-When permission is unknown, keep the full text internal and use only the
-insight it provides for interview questions, project verification, or a
-non-quoted summary in the consultant's own voice.
+- publishing the complete recommendation rather than a short excerpt
+- using the quote in paid promotion or as a prominent advertising claim
+- using the author's photo, company logo, or confidential project detail
+- making substantial edits or a translation whose tone or meaning is uncertain
+- republishing a private, withdrawn, disputed, or restricted recommendation
+- presenting an author's current employer as endorsing the consultant
+
+Do not make the low-risk path so burdensome that useful social proof never gets
+used.
 
 ## Where References Belong
 
@@ -299,15 +305,17 @@ Use references differently by channel:
 
 - **LinkedIn** - keep the full collection on LinkedIn; summarize recurring
   themes in About or Experience and control which recommendations are visible.
-- **Website** - use a small number of short, permissioned excerpts near the
+- **Website** - use a small number of short, attributed excerpts near the
   claims they prove; an optional evidence page can hold originals and
   translations.
 - **PDF consultant profile** - use two or three short, locally attributed
-  quotes at most, or summarize proof signals. Put a larger permissioned
+  quotes at most, or summarize proof signals. Put a larger attributed
   collection in a separate appendix only when the buying situation benefits.
 - **Proposal bio** - select one recommendation that directly supports the
   buyer's situation.
-- **Internal source of truth** - store full recommendation text, source, date, author, relationship, permission, and extracted signals.
+- **Internal source of truth** - store full recommendation text, source, date,
+  author, relationship, known restrictions/sensitivities, and extracted
+  signals.
 
 Avoid turning the profile into a testimonial wall. References are evidence, not the structure.
 
@@ -317,19 +325,21 @@ Return:
 
 1. **Source Inventory** - sources reviewed or requested.
 2. **Project Inventory** - known projects, missing projects, duplicates, and likely high-signal gaps.
-3. **Completeness Table** - complete, incomplete, mention-only, reference-only, archive-only, needs permission.
+3. **Completeness Table** - complete, incomplete, mention-only, reference-only,
+   archive-only, needs confirmation.
 4. **Interview Questions** - the next 3-7 highest-value questions.
 5. **Reference Signal Map** - themes extracted from recommendations/references.
 6. **Recommendation Usage Map** - selected quote, supported claim, channel,
-   attribution, source, translation, permission, and unresolved action.
+   attribution, source, translation, reuse sensitivity, and unresolved action.
 7. **Next Profile Update** - what can be safely improved now vs what should wait for answers.
 
 ## Guardrails
 
 - Do not invent missing project details.
-- Do not publish private recommendations without permission.
-- Do not republish or translate a LinkedIn recommendation externally merely
-  because it is visible on the platform.
+- Do not publish private, withdrawn, disputed, or explicitly restricted
+  recommendations.
+- Do not require a second approval round for routine short, faithful,
+  attributed use or translation of an accepted public LinkedIn recommendation.
 - Do not quote long references unless explicitly requested and allowed.
 - Do not hide translation, omissions, or unclear provenance.
 - Do not scrape LinkedIn; work from user-provided material or account exports.
@@ -346,8 +356,7 @@ The best interview mode feels like a senior editor helping the user remember and
   [recommend someone](https://www.linkedin.com/help/linkedin/answer/a543723),
   [download account data](https://www.linkedin.com/help/linkedin/answer/a1339364),
   and [public profile visibility](https://www.linkedin.com/help/linkedin/answer/a518980)
-- LinkedIn, [User Agreement](https://www.linkedin.com/legal/user-agreement)
 - Chicago Manual of Style,
   [acknowledging one's own translation](https://www.chicagomanualofstyle.org/qanda/data/faq/topics/Documentation/faq0174.html)
-- The National Archives,
-  [quote attribution guidance](https://www.nationalarchives.gov.uk/design-guide/typography/quotes/)
+- MLA Style Center,
+  [local attribution for quoted material](https://style.mla.org/quotation-in-title-or-heading/)

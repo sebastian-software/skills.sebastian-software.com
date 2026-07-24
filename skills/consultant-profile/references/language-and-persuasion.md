@@ -184,8 +184,13 @@ visible.
   remove qualifications that change the meaning.
 - If the translation is approved by the author, store that fact. Otherwise do
   not imply author approval.
-- Obtain permission for external verbatim use and translation. Acceptance and
-  visibility on LinkedIn are not themselves a general republication license.
+- For an accepted, publicly displayed LinkedIn recommendation, do not require a
+  second approval round merely to use a short, faithful, attributed excerpt or
+  translation in a normal consultant profile.
+- Confirm separately when the use is materially more sensitive: full-text
+  republication, paid promotion, a prominent advertising claim, the author's
+  photo or company logo, confidential details, major editing, or a known
+  restriction.
 
 Do not silently present a translation inside quotation marks as though the
 author wrote in that language. A short translation note solves this without
@@ -200,9 +205,10 @@ Example:
   Original auf LinkedIn
 ```
 
-If permission is not clear, use the recommendation as source material:
-summarize recurring themes in the consultant's own voice without presenting a
-direct quote, and keep the external source in the internal evidence map.
+If the recommendation is private, withdrawn, restricted, or too sensitive for
+direct use, summarize recurring themes in the consultant's own voice without
+presenting a direct quote, and keep the external source in the internal
+evidence map.
 
 ## Ethical Marketing Psychology for Consultant Profiles
 
@@ -257,7 +263,7 @@ Before returning profile copy, check:
 - Is the English version idiomatic rather than translated?
 - Is LinkedIn more personal, searchable, and proof-linked than the PDF?
 - Are translated recommendations visibly labelled, faithfully attributed,
-  permissioned for external use, and traceable to their originals?
+  traceable to their originals, and free of known reuse restrictions?
 - Does the profile show personality and boundaries where they improve trust?
 - Would a reader remember at least one clear reason to hire this consultant?
 
