@@ -23,6 +23,8 @@ inventory with evidence-led positioning and a coherent career narrative.
 - synchronized CV, website, LinkedIn, bio, and project-list content
 - country- and channel-aware variants for Germany, Austria, Switzerland,
   international markets, direct buyers, staffing, and public profiles
+- a stable consultant master-field model plus dated adapters for DACH
+  intermediaries and international expert marketplaces
 
 ## Use It When
 
@@ -42,6 +44,10 @@ inventing metrics or responsibilities.
 
 Build one coherent narrative across my website profile, LinkedIn, and the CV I
 send to staffing partners.
+
+Map my master consultant profile to the current public fields used by Hays,
+GULP, SOLCOM, Malt, and Upwork. Keep private intake data and platform-owned
+ratings separate from reusable CV content.
 
 Interview me for the missing information needed to position me as a senior
 frontend and product consultant.
