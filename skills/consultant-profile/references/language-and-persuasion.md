@@ -42,7 +42,7 @@ Plain-language guidance emphasizes writing for the audience, organizing importan
 - avoid unexplained acronyms and internal project shorthand
 - prefer active constructions: "Led", "Designed", "Built", "Advised", "Stabilized", "Modernized"
 
-### Copywriting and Copy-Editing
+### Persuasive Writing and Revision
 
 Borrow marketing-copy discipline, but do not turn the profile into a landing-page caricature.
 

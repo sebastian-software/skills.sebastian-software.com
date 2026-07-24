@@ -1,4 +1,4 @@
-# Copywriting
+# Interface Copy Guidelines
 
 Practical guidelines on how to write interface text that clearly communicates with people.
 

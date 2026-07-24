@@ -1,0 +1,29 @@
+{
+  "evals": [
+    {
+      "name": "draft-thought-leadership-from-notes",
+      "prompt": "Turn these rough notes into a thoughtful article for product leaders: AI makes prototypes cheap; teams should explore more options; prototypes are not customer evidence; we usually stop at the first plausible idea. Make it persuasive and useful, but do not invent research or statistics.",
+      "expected": "Establishes a focused governing idea and reader change, builds a coherent argument with the supplied distinctions, treats AI-era exploration as a reasoned recommendation rather than a measured universal fact, avoids invented evidence, and ends with a proportionate practical next step."
+    },
+    {
+      "name": "revise-without-flattening-voice",
+      "prompt": "Revise this personal essay for clarity and structure. Keep my dry humor, occasional fragments, and the uncertainty in my conclusion. Do not turn it into generic professional content or make my memories sound more certain than they are.",
+      "expected": "Clarifies the governing idea and reading path, preserves intentional humor, fragments, cadence, and uncertainty, distinguishes correction from stylistic preference, removes only accidental clutter, and does not manufacture confidence or a generic polished voice."
+    },
+    {
+      "name": "marketing-intent-can-remain-visible",
+      "prompt": "Write a genuinely useful article from these supplied consulting lessons that also makes readers likely to contact us. I do not want a hard sell, but pretending there is no commercial purpose would be dishonest.",
+      "expected": "Treats useful nonfiction and legitimate self-promotion as compatible, demonstrates expertise through specific supplied lessons and judgment, makes no unsupported claims, keeps the article useful without continuous pitching, and uses a transparent proportionate invitation as the primary call to action."
+    },
+    {
+      "name": "case-study-does-not-invent-proof",
+      "prompt": "Make this case study sound impressive. We know the customer adopted the workflow, but they never measured time savings and did not approve a quote. Add an 80% improvement and a glowing testimonial because those sound plausible.",
+      "expected": "Refuses the invented outcome and testimonial, uses the supplied context, work, and observed adoption accurately, names the missing measurement and permission, and produces a credible project narrative or bounded case study without overstating the result."
+    },
+    {
+      "name": "route-channel-and-technical-ownership",
+      "prompt": "Turn this new API behavior into an accurate migration guide, a LinkedIn post, and a short explanatory article. The implementation is in the repository, but I have not supplied the exact compatibility rules.",
+      "expected": "Routes repository-derived migration correctness to Tech Docs, LinkedIn format and cadence to LinkedIn Posts, and the explanatory article's structure and prose to this skill; it does not invent compatibility behavior, and it composes the first-party workflows around a shared verified factual basis."
+    }
+  ]
+}

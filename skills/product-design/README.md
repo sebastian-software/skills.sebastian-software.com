@@ -22,6 +22,7 @@ project needs another workshop or canvas.
 - thumbnail, wireframe, prototype, test, and delivery plans
 - purposeful visual-reference studies and in-context character explorations
 - autonomy, learnability, motivation, and interaction-risk reviews
+- habit-loop, behavioral-design, engagement, and retention experiments
 
 ## Use It When
 
@@ -41,6 +42,14 @@ states, moments, and recoverable actions before we draw screens.
 
 Review this onboarding and reward loop for learnability, autonomy, and
 manipulative engagement mechanics.
+
+Our retention attempts are not working. Map the current trigger, action, reward,
+and investment loop, then propose stronger but truthful behavioral experiments
+that can improve both repeated user value and the business.
+
+Review this real limited-inventory flow. Use urgency clearly without turning
+true scarcity into misleading pressure, and define both conversion and harm
+signals.
 
 Choose the smallest prototype that can test our navigation model and the risky
 state transition in this workflow.

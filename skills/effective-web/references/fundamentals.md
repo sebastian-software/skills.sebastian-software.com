@@ -204,7 +204,7 @@ too generic become hard to use correctly.
 ### 3. Define Usage Guidelines
 
 - How to use components and visual styles
-- How to write interface text (copywriting)
+- How to write clear interface text
 - Examples from the book:
   - Indicate interactive elements using brand colour
   - Use sentence case

@@ -1,0 +1,117 @@
+---
+name: nonfiction-writing
+description: >-
+  Plan, write, revise, or critique clear and persuasive nonfiction from supplied
+  ideas and evidence. Use for articles, essays, newsletters, thought leadership,
+  content marketing, reports, case studies, About pages, product descriptions,
+  explanatory prose, and other factual writing; for turning notes into a draft;
+  or for improving structure, clarity, voice, rhythm, credibility, and calls to
+  action without inventing facts.
+---
+
+# Nonfiction Writing
+
+Turn source material and intent into prose that a particular reader can
+understand, trust, remember, and act on. Treat useful communication and
+legitimate self-promotion as compatible when claims remain specific and
+supportable.
+
+## Workflow
+
+1. Name the assignment:
+   - output and mode: plan, draft, rewrite, line edit, critique, or adaptation
+   - audience, situation, existing knowledge, and likely resistance
+   - purpose: inform, explain, argue, teach, reassure, demonstrate, or invite
+   - desired change in the reader's understanding, belief, or action
+   - channel, length, language, voice, deadline, and supplied source material
+2. Build a small evidence register. Separate:
+   - supplied facts, quotations, examples, and measured outcomes
+   - the author's interpretation or professional judgment
+   - opinions, hypotheses, memories, and details that still need verification
+
+   Never invent statistics, quotations, citations, testimonials, customer
+   stories, personal experience, or product behavior. Mark gaps or write around
+   them honestly.
+3. State one governing idea in a sentence. Decide what belongs, what does not,
+   and what the reader must understand before accepting the conclusion.
+4. Load only the matching route or routes:
+   - [Structure and story](references/structure-and-story.md) for thesis, scope,
+     leads, argument or narrative sequence, transitions, people and places,
+     personal material, and endings.
+   - [Prose and revision](references/prose-and-revision.md) for clarity, clutter,
+     syntax, verbs, rhythm, voice, line editing, and multi-pass revision.
+   - [Persuasive nonfiction](references/persuasive-nonfiction.md) for thought
+     leadership, content marketing, case studies, About pages, product
+     descriptions, objections, proof, and calls to action.
+5. Build the reading path before polishing sentences. Give each section one
+   job, make the relationship between paragraphs visible, and place context
+   before claims that depend on it.
+6. Draft concretely. Prefer observable detail, precise nouns, and active verbs.
+   Preserve the author's meaningful vocabulary and perspective rather than
+   replacing them with a generic polished voice.
+7. Revise in separate passes:
+   - meaning and governing idea
+   - structure and proportion
+   - evidence, attribution, and unsupported certainty
+   - voice, audience fit, and persuasion
+   - sentence clarity, rhythm, repetition, and mechanics
+   - lead, ending, title, and call to action
+8. Return the requested artifact. Briefly list material gaps or consequential
+   editorial choices only when they help the user judge or continue the work.
+
+## Operating Rules
+
+- Write for the reader without pretending the reader is passive. Make the
+  argument easy to follow, not difficult to question.
+- Prefer clear language to status language. Keep specialist terms when they are
+  accurate and useful; define or replace them when they merely signal expertise.
+- Use active voice as a useful default, not a grammar law. Passive voice is
+  appropriate when the actor is unknown, unimportant, or intentionally
+  backgrounded.
+- Remove words that do no work, but do not compress away qualifications,
+  personality, cadence, or evidence.
+- Use examples, scenes, comparisons, and quoted language to make abstractions
+  graspable. Do not fabricate them to enliven thin source material.
+- Open with genuine tension, relevance, movement, or specificity. Do not bolt
+  on a sensational hook that the piece cannot repay.
+- Let sentence length and paragraph shape vary with meaning. Read for breath,
+  emphasis, and unintended monotony.
+- Make persuasive intent legible through relevance, proof, fair treatment of
+  uncertainty, and an appropriate next step. Marketing value does not excuse
+  inflated claims, fake urgency, or disguised advertising.
+- End after the work is complete. Prefer a consequence, implication, earned
+  synthesis, image, or next step to a repetitive summary.
+- When editing, distinguish correction from preference. Preserve intentional
+  choices unless they obstruct meaning, violate a stated constraint, or weaken
+  the piece's purpose.
+
+## Default Deliverable
+
+For a new piece, return:
+
+1. working title or title options when useful
+2. the finished draft
+3. unresolved fact or evidence gaps
+4. optional alternatives for the lead, ending, or call to action when the
+   choice materially changes the effect
+
+For revision or critique, return:
+
+1. the revised text or prioritized diagnosis requested
+2. the most consequential structural and evidentiary changes
+3. unresolved author decisions, not a catalog of every stylistic preference
+
+## Routing Boundaries
+
+- Use `linkedin-posts` for LinkedIn-specific ideation, formats, cadence, and
+  engagement context. This skill can improve the underlying prose once the
+  channel constraints and factual basis are clear.
+- Use `consultant-profile` to select and structure career evidence, professional
+  positioning, project narratives, and profile facts before writing the prose.
+- Use `tech-docs` when correctness must be derived from a software repository,
+  public interface, executable example, migration contract, or documentation
+  toolchain.
+- Use `effective-web` for interface copy inside a browser experience and for
+  implementing or verifying the surrounding web interface.
+- Use `locale-typography` for locale-specific punctuation, spacing, quotation,
+  number, date, and typographic conventions.

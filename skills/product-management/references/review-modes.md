@@ -46,8 +46,8 @@ to hide missing evidence, capacity, or opportunity cost.
 ## Review Go-to-Market Claims
 
 Review the evidence packet at the product-to-marketing boundary. Do not perform
-the downstream positioning, pricing, campaign, or launch work owned by the
-specialist marketing skills.
+the downstream positioning, pricing, campaign, or launch work; those
+deliverables remain outside this review mode.
 
 For each consequential external claim, record:
 

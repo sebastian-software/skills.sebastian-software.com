@@ -8,10 +8,12 @@ description: >-
   problem space, user expectations, or mental models; framing design
   opportunities; modeling objects, actions, relationships, journeys, and
   moments; creating information architecture, flows, wireframes, or prototype
-  plans; or deciding how autonomy, learnability, fidelity, and visual character
-  should shape an experience. Use for product and interaction design before or
-  alongside implementation, especially when research, systems thinking, and
-  interface craft must remain connected.
+  plans; designing or reviewing habit loops, triggers, rewards, investment,
+  gamification, engagement, retention, or sticky experiences; or deciding how
+  autonomy, learnability, fidelity, and visual character should shape an
+  experience. Use for product and interaction design before or alongside
+  implementation, especially when research, behavioral design, systems
+  thinking, and interface craft must remain connected.
 ---
 
 # Product Design
@@ -44,6 +46,10 @@ do not produce workshops, personas, flows, or polished screens as ceremony.
    - [Autonomy and motivation](references/autonomy-and-motivation.md) when the
      experience uses choice, reward, progression, guidance, or engagement
      mechanics.
+   - [Habit and retention design](references/habit-and-retention-design.md)
+     together with autonomy and motivation for explicit habit loops, triggers,
+     variable rewards, investment, gamification, sticky-product questions,
+     engagement mechanics, or retention problems.
 4. Keep observations, participant language, interpretation, design principles,
    opportunities, and solution ideas in distinguishable layers. Do not turn a
    repeated quote directly into a feature requirement.
@@ -73,8 +79,10 @@ do not produce workshops, personas, flows, or polished screens as ceremony.
   the purpose of the environment. Craft is part of function.
 - Make consequential state visible and actions recoverable. People learn by
   acting and observing results; defensive users do not explore.
-- Challenge manipulative motivation and retention mechanics. Choice, reward,
-  friction, and guidance must serve the user's goals and autonomy.
+- Treat behavioral influence as a design responsibility, not an automatic
+  violation. Choice, reward, friction, urgency, and guidance may support user
+  value and legitimate business retention; reject deception, coercion,
+  disproportionate harm, and mechanics that depend on blocking informed choice.
 - Scale research and testing rigor with risk, reversibility, novelty, and the
   cost of being wrong.
 - Never invent participants, observations, quotes, usability findings, or
@@ -108,8 +116,8 @@ For a broad product-design request, return:
   shape the experience.
 - Use `effective-web` to specify and implement browser UI, visual systems,
   accessibility, responsive behavior, performance, and frontend verification.
-- Hand recruitment, fieldwork, and operation of a full customer research
-  program to a dedicated research specialist; use this skill to frame design
-  questions and synthesize supplied evidence.
+- Use this skill to frame design questions and synthesize supplied evidence.
+  Recruitment, fieldwork, participant operations, and execution of a full
+  customer research program remain outside its scope.
 - Use `decision-records` when a durable design-system or interaction decision
   needs repository-level rationale and reopening conditions.
