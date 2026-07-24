@@ -88,6 +88,38 @@ Define the threshold and stop rule before collecting results. A landing-page
 conversion can support a message hypothesis; it does not prove retention,
 delivery feasibility, or willingness to adopt a finished product.
 
+## Exploit cheap exploration without faking evidence
+
+AI can make idea generation, critique, simulation, interface variants,
+feasibility spikes, and rough prototypes dramatically cheaper. Spend some of
+that gain on breadth before convergence.
+
+For an important, still-reversible decision, use **10–20 materially different
+approaches in a week** as a deliberate challenge. This is a tempo heuristic,
+not a universal performance target. Count different mechanisms, workflows,
+service models, channels, constraints, or value propositions—not cosmetic
+variations of one preferred answer.
+
+Move the portfolio through progressively more expensive filters:
+
+1. Generate approaches from different assumptions and perspectives.
+2. State the value, usability, feasibility, business, trust, and distribution
+   assumption each approach exposes.
+3. Eliminate contradictions and obvious constraint failures through critique,
+   pre-mortems, calculations, technical spikes, or policy review.
+4. Prototype only the approaches that can answer a specific remaining question.
+5. Put the strongest distinct options in front of real behavior, commitment, or
+   operational evidence.
+6. Commit only when the evidence matches the consequence and reversibility of
+   the decision.
+
+Teams may explore fewer options when the solution space is narrow, the decision
+is urgent and irreversible, or generating another option costs more than
+testing the current uncertainty. They may explore more when AI and reusable
+components make alternatives nearly free. In every case, internal simulations
+and convincing prototypes remain option evidence—not customer, market, or
+retention evidence.
+
 ## Move from services to a product
 
 For a consultancy or freelancer, start with evidence already available:
@@ -112,4 +144,6 @@ that each require a new market and distribution system.
 - Does the evidence include non-users, churned users, failures, or alternatives?
 - Can the team name what would falsify the current product thesis?
 - Is the next test smaller than building the proposed solution?
+- Did cheap generation widen the option set before the team converged?
+- Are materially different approaches distinguished from cosmetic variants?
 - Are confidential data, consent, and participant expectations protected?

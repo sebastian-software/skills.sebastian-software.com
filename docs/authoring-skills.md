@@ -109,6 +109,11 @@ The description is what an agent sees before deciding whether to load a skill.
 - Cross-reference other skills by their frontmatter name in inline code, for
   example: route frontend work through `effective-web`. Do not use prose names,
   quotes, or bare links for skill-name cross references.
+- Name only first-party skills that exist directly below `skills/`. Describe an
+  unowned or external capability as outside the current skill's scope without
+  inventing a downstream skill slot. The validator treats backticked
+  identifiers in `## Routing Boundaries` and explicit phrases such as
+  `` `example` skill `` as first-party skill references.
 - Keep `SKILL.md` at or below 300 lines. The body owns the trigger, workflow,
   routing, and boundaries; detailed tables, policy text, and examples belong in
   `references/`. `scripts/validate-readmes.py` enforces this limit and the
@@ -260,6 +265,11 @@ State a skill's boundary in capability terms that remain useful when the skill
 is installed alone. Exact external slot names, catalog provenance, selections,
 version pins, precedence, and cross-source routing belong in a downstream agent
 stack.
+
+Named runtime references are closed over this repository: every named skill
+must match an existing first-party skill directory. Do not leave a dead named
+handoff for an external or formerly installed skill. When no first-party owner
+exists, state what the current skill does and does not cover, then stop.
 
 ## Delivery Worktree Inventory
 

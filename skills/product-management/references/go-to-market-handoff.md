@@ -45,12 +45,13 @@ Do not assume a good product markets itself. Product quality can strengthen
 retention and referral, but it does not create awareness or a repeatable channel
 by itself.
 
-## Route specialized work
+## Bound the handoff
 
-- Hand a dedicated research program to a customer research specialist.
-- Hand positioning and messaging artifacts to a product marketing specialist.
-- Hand pricing research and packaging decisions to a pricing specialist.
-- Hand channel planning and launch execution to their dedicated specialists.
+This reference prepares product evidence for downstream decisions. It does not
+run a customer research program, create a complete positioning or messaging
+system, conduct pricing and packaging research, or own channel planning and
+launch execution.
+
 - Use `linkedin-social-selling` only when LinkedIn fits the target buyer and
   touch model.
 - Use `effective-web` for the implemented web journey and measurement surfaces.

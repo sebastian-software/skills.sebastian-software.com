@@ -7,7 +7,7 @@
 **Open-source skills for the professional judgment that capable AI agents still
 need to do dependable product and software work.**
 
-22 practice-built skills and 222 focused references for product decisions, web
+23 practice-built skills and 227 focused references for product decisions, web
 experiences, codebase improvement, delivery, go-to-market positioning,
 professional communication, and web compliance.
 
@@ -36,7 +36,7 @@ The skill tells a compatible agent what to inspect, which specialist guidance
 to load, where its authority stops, and what evidence is needed before the task
 is complete.
 
-Install all 22 skills only when you want the complete first-party collection:
+Install all 23 skills only when you want the complete first-party collection:
 
 ```sh
 npx skills add sebastian-software/skills.sebastian-software.com --all
@@ -56,7 +56,7 @@ Start with the job you need done rather than the repository taxonomy.
 | Diagnose a repository and choose the highest-leverage next move | [`codebase-improvement`](skills/codebase-improvement/), [`software-architecture`](skills/software-architecture/) |
 | Take an authorized software change through implementation and verification | [`effective-workflow`](skills/effective-workflow/), [`software-testing`](skills/software-testing/), [`software-validation`](skills/software-validation/) |
 | Review, document, modernize, or port an existing codebase | [`pr-review`](skills/pr-review/), [`tech-docs`](skills/tech-docs/), [`smart-dependency-updater`](skills/smart-dependency-updater/), [`port-codebases`](skills/port-codebases/) |
-| Turn expertise into credible positioning, content, and professional communication | [`consultant-profile`](skills/consultant-profile/), [`linkedin-social-selling`](skills/linkedin-social-selling/), [`linkedin-posts`](skills/linkedin-posts/), [`metro-english`](skills/metro-english/) |
+| Turn expertise into credible positioning, content, and professional communication | [`nonfiction-writing`](skills/nonfiction-writing/), [`consultant-profile`](skills/consultant-profile/), [`linkedin-social-selling`](skills/linkedin-social-selling/), [`linkedin-posts`](skills/linkedin-posts/), [`metro-english`](skills/metro-english/) |
 
 `effective-workflow` coordinates the path from an unclear software request to a
 verified handoff while leaving specialist depth with its first-party owners.
@@ -112,8 +112,8 @@ repository from silently deciding how a user's complete environment behaves.
 
 | Skill | Focus |
 | --- | --- |
-| [`product-management`](skills/product-management/) | Evidence-led discovery, product strategy, outcomes, scope, prioritization, product quality, release decisions, and learning loops. |
-| [`product-design`](skills/product-design/) | Evidence-led research synthesis, problem framing, interaction and object modeling, information architecture, prototyping, autonomy, and design delivery. |
+| [`product-management`](skills/product-management/) | Evidence-led discovery, product strategy, empowered teams, AI-era exploration, scope, product quality, release decisions, and learning loops. |
+| [`product-design`](skills/product-design/) | Evidence-led research synthesis, problem framing, interaction and object modeling, habit and retention design, prototyping, autonomy, and design delivery. |
 | [`product-naming`](skills/product-naming/) | Strategic name generation, multilingual spoken-name testing, live conflict research, and evidence-backed shortlists. |
 
 ### Web design and engineering
@@ -145,6 +145,7 @@ repository from silently deciding how a user's complete environment behaves.
 
 | Skill | Focus |
 | --- | --- |
+| [`nonfiction-writing`](skills/nonfiction-writing/) | Clear, credible, persuasive articles, essays, newsletters, thought leadership, case studies, About pages, product descriptions, and revision. |
 | [`consultant-profile`](skills/consultant-profile/) | Consultant profiles, CVs, case studies, project selection, career narratives, and positioning. |
 | [`linkedin-social-selling`](skills/linkedin-social-selling/) | Evidence-led B2B LinkedIn positioning, profile, network, content, conversations, lead magnets, funnels, and measurement. |
 | [`linkedin-posts`](skills/linkedin-posts/) | LinkedIn ideas, formats, calendars, and post writing for a defined audience, voice, and goal. |

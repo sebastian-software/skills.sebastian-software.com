@@ -213,7 +213,7 @@ post concepts.
   strategy around the posts — including engagement-to-pipeline diagnosis — to
   `linkedin-social-selling`; consume its grounded brief when drafting posts
   inside a larger engagement.
-- Keep general marketing-copy systems, standalone copy editing, broad
-  AI-pattern cleanup, and persuasion analysis with their dedicated specialists.
-  Apply the writing principles in this skill directly when no such specialist
-  is available.
+- Keep the work scoped to LinkedIn posts. Do not expand a post request into a
+  general website-copy system, unrelated content editing, AI-authorship
+  diagnosis, or a broad persuasion audit. Apply the writing and revision
+  principles in this skill directly to the requested post.

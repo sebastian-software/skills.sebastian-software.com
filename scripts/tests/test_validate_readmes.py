@@ -406,6 +406,87 @@ class IsolatedSkillRuntimeLinkTests(unittest.TestCase):
         )
 
 
+class FirstPartySkillReferenceTests(unittest.TestCase):
+    def setUp(self) -> None:
+        self.temporary_directory = tempfile.TemporaryDirectory()
+        self.root = Path(self.temporary_directory.name)
+        self.skill = self.root / "skills" / "example"
+        self.references = self.skill / "references"
+        self.references.mkdir(parents=True)
+        self.other = self.root / "skills" / "other"
+        self.other.mkdir()
+        self.original_root = VALIDATOR.REPOSITORY_ROOT
+        VALIDATOR.REPOSITORY_ROOT = self.root
+
+    def tearDown(self) -> None:
+        VALIDATOR.REPOSITORY_ROOT = self.original_root
+        self.temporary_directory.cleanup()
+
+    def test_accepts_a_first_party_routing_reference(self) -> None:
+        self.skill.joinpath("SKILL.md").write_text(
+            "# Example\n\n## Routing Boundaries\n\nRoute work to `other`.\n",
+            encoding="utf-8",
+        )
+        errors: list[str] = []
+
+        VALIDATOR.validate_first_party_skill_references(
+            self.skill, {"example", "other"}, errors
+        )
+
+        self.assertEqual(errors, [])
+
+    def test_rejects_an_unknown_routing_reference(self) -> None:
+        self.skill.joinpath("SKILL.md").write_text(
+            "# Example\n\n## Routing Boundaries\n\nRoute work to `external-skill`.\n",
+            encoding="utf-8",
+        )
+        errors: list[str] = []
+
+        VALIDATOR.validate_first_party_skill_references(
+            self.skill, {"example", "other"}, errors
+        )
+
+        self.assertEqual(
+            errors,
+            [
+                "skills/example/SKILL.md: named skill reference `external-skill` "
+                "does not match a first-party skill directory"
+            ],
+        )
+
+    def test_rejects_an_explicit_unknown_skill_in_a_reference(self) -> None:
+        self.skill.joinpath("SKILL.md").write_text("# Example\n", encoding="utf-8")
+        self.references.joinpath("guide.md").write_text(
+            "Use the `external-skill` skill for the next step.\n",
+            encoding="utf-8",
+        )
+        errors: list[str] = []
+
+        VALIDATOR.validate_first_party_skill_references(
+            self.skill, {"example", "other"}, errors
+        )
+
+        self.assertEqual(
+            errors,
+            [
+                "skills/example/references/guide.md: named skill reference "
+                "`external-skill` does not match a first-party skill directory"
+            ],
+        )
+
+    def test_ignores_inline_code_outside_routing_boundaries(self) -> None:
+        self.skill.joinpath("SKILL.md").write_text(
+            "Run `external-command` when needed.\n", encoding="utf-8"
+        )
+        errors: list[str] = []
+
+        VALIDATOR.validate_first_party_skill_references(
+            self.skill, {"example", "other"}, errors
+        )
+
+        self.assertEqual(errors, [])
+
+
 class ReferenceOrphanTests(unittest.TestCase):
     def setUp(self) -> None:
         self.temporary_directory = tempfile.TemporaryDirectory()

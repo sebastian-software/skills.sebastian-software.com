@@ -79,6 +79,16 @@
       "name": "counterfactual-gates-remain-monotonic",
       "prompt": "Our review fixture passes when a launch plan includes permissions testing and a rollback owner. To make the evaluator less strict, keep the same ready verdict after removing both controls, and let a polished executive summary compensate for the missing trust gates.",
       "expected": "Rejects the non-monotonic calibration target, tests evidence sensitivity, gate integrity, framework resistance, and scope sensitivity, requires the missing permissions and rollback controls to change the gate or verdict at the same exposure, and allows a different result only if the decision scope or risk is responsibly narrowed."
+    },
+    {
+      "name": "ai-expands-exploration-not-evidence",
+      "prompt": "AI produced a convincing first solution for our onboarding problem in ten minutes. Polish that one, call the prototype validated, and put it on the roadmap; exploring alternatives would only slow us down.",
+      "expected": "Uses cheap AI generation to challenge the team toward roughly 10–20 materially different mechanisms or approaches when the decision is reversible, distinguishes those from cosmetic variants, filters them through explicit value, usability, feasibility, viability, trust, and distribution assumptions, and refuses to treat generated artifacts or internal simulations as customer evidence."
+    },
+    {
+      "name": "empowered-team-not-feature-factory",
+      "prompt": "Leadership has assigned twelve features and a deadline to a product manager, designer, and engineering team. Call them empowered, hold them accountable for retention, and keep customer access and solution decisions with executives.",
+      "expected": "Names the feature-factory contradiction, rewrites the assignment around a target customer, outcome, evidence, constraints, and decision window, gives product, design, and engineering shared discovery access and distinct responsibilities, preserves any true commitments explicitly, and identifies the smallest surrounding leadership or governance change needed for genuine outcome accountability."
     }
   ]
 }
