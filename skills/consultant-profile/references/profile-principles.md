@@ -116,6 +116,11 @@ supports a different buying decision.
 - **Marketplace card** - make the title and searchable specialization precise;
   keep availability, location/time zone, remote/on-site setup, travel
   readiness, languages, and engagement model current.
+- **Named intermediary or marketplace** - use
+  `marketplace-profile-fields.md` to map one stable master profile to the
+  provider's dated public fields. Separate reusable facts, private intake data,
+  buyer-facing operational fit, application-only answers, and platform-owned
+  signals.
 - **Rate** - include it only when expected by the channel and supplied by the
   consultant.
 - **Public website or LinkedIn** - prioritize positioning, selected proof,
@@ -351,6 +356,8 @@ Check whether the profile:
 - distinguishes employment-application conventions from direct-buyer, staffing/supplier, marketplace, website, and LinkedIn needs
 - maps opportunity requirements to supplied evidence without inventing match scores
 - keeps channel-relevant operational facts current and omits them when they do not help the buying decision
+- maps named-provider fields through `marketplace-profile-fields.md` without treating a dated portal schema as universal
+- keeps private/account fields, application-only data, and platform-owned signals out of the reusable CV unless explicitly relevant and verified
 - describes language and tool proficiency with known levels or evidence instead of vague unsupported ratings
 - treats photo, personal data, references, and page length as country- and channel-dependent
 - adapts tone and structure to Germany, Austria, Switzerland, EU/international, US/global, and LinkedIn contexts
