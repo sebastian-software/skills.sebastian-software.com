@@ -18,7 +18,9 @@ The strongest sources converge on the same point: a consulting profile is not a 
 - LinkedIn frames the profile as a professional landing page and personal storyboard rather than a static CV. Its own guidance emphasizes a custom headline, short About section, relevant experience, skills, recommendations, media samples, public URL, and ongoing activity.
 - LinkedIn supports profiles in multiple languages. Historically the owner had to translate and maintain each language version manually, but LinkedIn has been rolling out automatic profile translation; treat the maintenance model as volatile and verify current behavior before planning multilingual upkeep. Viewers see the profile language matching their LinkedIn interface when that language exists.
 - Public career-advice sources for LinkedIn converge on a similar pattern: make the headline descriptive, keep the summary concise, add external proof/media, prioritize visible skills, request recommendations, consider multilingual profiles, and post selectively to show perspective.
-- DACH platforms and CV norms remain more document-, role-, and evidence-oriented than many US-style personal-brand profiles. XING, for example, has historically had a stronger DACH focus and tabular career/profile conventions, while LinkedIn is stronger for international reach and content-led visibility. XING has since shifted toward a DACH job board with reduced network features; verify its current relevance to the client's market before investing in a XING profile.
+- German, Austrian, and Swiss university and public-employment guidance converges on relevance, clear hierarchy, concrete language, reverse chronology for formal CVs, and evidence for claimed skills. It does not converge on one universal "DACH CV": page length, references, personal data, and photo conventions differ by country and channel.
+- The University of Cologne, ETH Zurich, and the University of Graz all treat the application as an argument for fit rather than a complete archive. Their guides support inventorying capabilities, analyzing the target opportunity, promoting relevant proof, and letting the intended reader's decision determine section order and detail.
+- DACH platforms and supplier channels remain more document-, role-, evidence-, and operational-fit-oriented than many US-style personal-brand profiles. XING, for example, has historically had a stronger DACH focus and tabular career/profile conventions, while LinkedIn is stronger for international reach and content-led visibility. XING has since shifted toward a DACH job board with reduced network features; verify its current relevance to the client's market before investing in a XING profile.
 - Good profile writing also benefits from classic nonfiction and plain-language principles: cut clutter, write for the reader, put important information first, use active verbs, and make claims easy to understand. See `language-and-persuasion.md` for the tone and self-presentation layer.
 - Personality is part of buyer fit, not a decorative afterthought. People often choose consultants partly because they understand and trust the person behind the capability list. Working style, values, taste, motivation, boundaries, and professional judgment should be translated into buyer-safe language and grounded in proof. See `personality-and-boundaries.md` for the personality and role-fit layer.
 
@@ -42,13 +44,16 @@ Read `interview-and-completion.md` when projects are missing, unclear, duplicate
 
 Read `personality-and-boundaries.md` when the profile should communicate opinionated judgment, design background, self-directed learning, working principles, or what the consultant deliberately does not do.
 
-## Regional Strategy
+## Regional and Channel Strategy
 
-Adapt the same evidence to the market. Do not merely translate the words.
+Adapt the same evidence to the country, buying situation, and channel. Do not
+merely translate the words, and do not apply employment-CV conventions
+automatically to a document meant to sell an independent consultant.
 
-### DACH / German
+### Shared German-Language DACH Principles
 
-Use a sober, precise, credibility-first style. Strong German consultant profiles usually benefit from:
+Across Germany, Austria, and German-speaking Switzerland, use a sober, precise,
+credibility-first style. Strong consultant profiles usually benefit from:
 
 - clear role labels such as "Senior Software Engineer", "Frontend Architect", "Product Engineering Consultant", "Interim Tech Lead", or "Berater"
 - project entries with client type, industry, role, duration/period if available, responsibilities, deliverables, technologies, and bounded impact
@@ -58,6 +63,63 @@ Use a sober, precise, credibility-first style. Strong German consultant profiles
 - less hype, fewer self-branding slogans, more verifiable substance
 
 German copy can still be commercially sharp. The difference is tone: prefer "Ich unterstütze Unternehmen bei..." or "Schwerpunkte: ..." over exaggerated transformation claims. Use direct evidence to create confidence.
+
+### Germany
+
+For a formal employment-style CV, one or two pages, tabular reverse chronology,
+consistent month/year dates, and job-specific selection are common baselines.
+Photos are optional rather than a universal requirement, and competence-first
+or anonymized processes deliberately omit them.
+
+For a consultant profile, preserve the relevance and clarity principles but do
+not add birth date, marital status, nationality, a photo, or other personal
+details merely because the copy is German. Use them only when the person
+chooses them and the target channel has a defensible reason to expect them.
+
+### Austria
+
+For formal Austrian applications, tabular reverse chronology, role- and
+industry-specific tailoring, explicit language levels, and clearly qualified
+training or certifications are common. CEFR labels are preferable to vague
+language claims.
+
+For consultant sales, keep the same precision while giving the most space to
+the projects and capabilities relevant to the assignment. Skill levels should
+be supported by context, recency, depth, or use in real projects rather than
+generic labels such as "good" or "advanced".
+
+### Switzerland
+
+Swiss application dossiers can be fuller than German employment CVs: official
+guidance allows up to three pages, and references or "available on request" are
+more established conventions. ETH guidance still emphasizes relevance,
+complete dates, explained responsibilities, keywords, and selected rather than
+exhaustive proof.
+
+Do not turn that fuller convention into an unedited project archive. A senior
+consultant profile still needs selected evidence, clear positioning, and a
+fast-scanned first page. Treat personal data, photos, certificates, and
+references as channel decisions, especially when the same profile is also sold
+internationally.
+
+### Employment Application vs Consultant Sales
+
+Country norms describe employment applications; a consultant profile often
+supports a different buying decision.
+
+- **Direct buyer or proposal bio** - foreground the business problem,
+  capability, relevant proof, working fit, and a clear next step. Minimize
+  personal data.
+- **Staffing or supplier profile** - preserve the required template and make
+  role, periods, responsibilities, deliverables, technology, and availability
+  easy to verify.
+- **Marketplace card** - make the title and searchable specialization precise;
+  keep availability, location/time zone, remote/on-site setup, travel
+  readiness, languages, and engagement model current.
+- **Rate** - include it only when expected by the channel and supplied by the
+  consultant.
+- **Public website or LinkedIn** - prioritize positioning, selected proof,
+  discoverability, and human fit over dossier completeness.
 
 ### EU / International English
 
@@ -75,14 +137,44 @@ Make the value proposition more explicit and outcome-led.
 - Lead with the problem solved, the buyer context, and the business or product outcome.
 - Use first-person LinkedIn/about copy more naturally than in German.
 - Make achievements, scope, and impact easier to see in the first screen.
-- Remove DACH-only conventions such as personal details or photo when inappropriate for the market.
+- Omit photos and sensitive personal details from US-facing resumes.
+
+## Opportunity-Fit Pass
+
+When a project brief, role description, request for proposal, or staffing
+requirement exists, analyze it before selecting profile content.
+
+1. Separate **explicit requirements**, **useful signals**, and **contextual
+   preferences**.
+2. Map each criterion to supplied evidence: project, deliverable, outcome,
+   industry, responsibility, skill, certification, or operating context.
+3. Promote the strongest relevant evidence in the first page or screen, even
+   when it is older.
+4. Keep unknowns, unsupported requirements, and missing recency visible as
+   gaps. Do not manufacture fit through inference.
+5. Do not calculate a match percentage unless a transparent, user-supplied
+   scoring method exists. A qualitative evidence map is more honest and more
+   useful.
+
+Use wording from the opportunity where it is accurate and helps people or
+systems find the evidence. Do not keyword-stuff or rename experience into a
+claim the source material does not support.
+
+For language and tool proficiency:
+
+- prefer CEFR levels for languages when the level is known
+- support tool expertise with project context, recency, duration, depth, or a
+  concrete deliverable
+- distinguish current hands-on capability from older exposure
+- preserve "unknown" instead of assigning a self-rating on the consultant's
+  behalf
 
 ## Translation and Localization
 
 Maintain a single factual source of truth, then generate localized channel variants.
 
 - Keep facts stable: clients, industries, dates, roles, technologies, deliverables, outcomes, and permissions.
-- Localize tone: German can be precise and restrained; English can be more direct and outcome-led.
+- Localize tone: German can be precise and restrained; English can be more direct and outcome-led. Apply German, Austrian, or Swiss format conventions only where the target channel needs them.
 - Localize terminology: "Projekt-Highlights" may become "Selected consulting highlights"; "weitere Projekte" may become "Additional selected engagements"; "Beraterprofil" may become "consultant profile" or "expert profile" depending on audience.
 - Localize section order: German supplier profiles may need a fuller project history; LinkedIn and website variants should foreground thesis and proof.
 - Avoid one-to-one translation of idioms, inflated adjectives, and culturally loaded claims.
@@ -140,7 +232,7 @@ Generate channel-specific outputs from that model:
 
 - website profile
 - PDF consultant profile
-- DACH/German CV
+- German, Austrian, or Swiss formal CV/supplier variants where needed
 - EU/international English CV
 - LinkedIn headline/About/experience snippets
 - XING or marketplace snippets
@@ -178,8 +270,9 @@ For a website or PDF consultant profile:
 6. **Industry and Organization Context** - compact client/sector map.
 7. **Additional Selected Projects** - grouped list for breadth.
 8. **Skills and Tools** - only the tools that reinforce the thesis.
-9. **Working Style / Role Fit** - concise description of how the consultant operates.
-10. **Optional Personal Motivation / Working Principles** - only when personality, values, motivation, or boundaries improve fit and are supported by evidence.
+9. **Operational Fit** - availability, location/time zone, delivery setup, travel readiness, languages, and engagement model only when the channel needs them.
+10. **Working Style / Role Fit** - concise description of how the consultant operates.
+11. **Optional Personal Motivation / Working Principles** - only when personality, values, motivation, or boundaries improve fit and are supported by evidence.
 
 For a classic one-page recruiting resume, keep stricter chronology, but still place the strongest bullet first within each role and consider a "Selected impact" block if seniority and project breadth justify it.
 
@@ -230,7 +323,7 @@ Best when a classic CV is required. Keep reverse chronology, but add a sidebar/t
 
 ### Channel Matrix
 
-Best when the consultant needs website, PDF, LinkedIn, and German/English variants. Keep one evidence map, then choose different highlights, tone, and section order per channel.
+Best when the consultant needs website, PDF, LinkedIn, staffing/marketplace, and country/language variants. Keep one evidence map, then choose different highlights, tone, operational facts, and section order per channel.
 
 ## Audit Checklist
 
@@ -253,7 +346,14 @@ Check whether the profile:
 - includes enough numbers, scale, or qualified context
 - keeps additional projects compact and grouped
 - uses headings and bullets that survive a fast scan
-- adapts tone and structure to DACH/German, EU/international, US/global, and LinkedIn contexts
+- identifies country and buying channel before applying profile conventions
+- distinguishes German, Austrian, and Swiss conventions instead of treating DACH as one fixed format
+- distinguishes employment-application conventions from direct-buyer, staffing/supplier, marketplace, website, and LinkedIn needs
+- maps opportunity requirements to supplied evidence without inventing match scores
+- keeps channel-relevant operational facts current and omits them when they do not help the buying decision
+- describes language and tool proficiency with known levels or evidence instead of vague unsupported ratings
+- treats photo, personal data, references, and page length as country- and channel-dependent
+- adapts tone and structure to Germany, Austria, Switzerland, EU/international, US/global, and LinkedIn contexts
 - includes LinkedIn-specific headline/About/Featured/skills/recommendation guidance when social visibility matters
 - keeps bilingual variants fact-aligned while adapting tone and terminology
 - treats platform automation as a draft/diff workflow unless official API write access is verified
@@ -263,12 +363,20 @@ Check whether the profile:
 
 ## Source Notes
 
-Sources consulted during initial creation:
+Sources consulted for this reference:
 
 - Management Consulted, "Consulting Resume: Complete Guide (2026)" - https://managementconsulted.com/consulting-resume/
 - IGotAnOffer, "Consulting Resume Guide (REAL McKinsey, BCG, Bain examples)" - https://igotanoffer.com/blogs/mckinsey-case-interview-blog/consulting-resume
 - McKinsey Careers, "Interviewing at McKinsey" - https://www.mckinsey.com/careers/interviewing
 - Harvard FAS Mignone Center for Career Success, "Harvard College Guide to Creating a Strong Resume" - https://careerservices.fas.harvard.edu/resources/create-a-strong-resume/
+- University of Cologne Career Service, "Guide fuer deinen Lebenslauf" (2025) - https://career.phil-fak.uni-koeln.de/sites/career_service/Guides/Guide_Lebenslauf_012025_CS_PhilFakUzK.pdf
+- Technical University of Munich, "Present Your Skills" / Career Guide preview - https://www.community.tum.de/wp-content/uploads/2023/01/TUM_2209_career_guide_PREVIEW.pdf
+- University of Graz Career Center, "Bewerbungsleitfaden 2026/27" - https://static.uni-graz.at/fileadmin/_files/_administrative_sites/_careercenter/Karriere_Guide_und_Bewerbungsvorlagen/2026/Bewerbungsleitfaden_CareerCenter_2026-27_NR2.pdf
+- Austrian Public Employment Service (AMS), "Ansprechender Lebenslauf" - https://www.ams.at/arbeitsuchende/richtig-bewerben/ansprechender-lebenslauf
+- ETH Zurich Career Center, "Application Guide" - https://ethz.ch/content/dam/ethz/main/industry/career-center/Bewerbungsratgeber/2024_BRG_DE.pdf
+- work.swiss, "Bewerbungstipps" - https://www.arbeit.swiss/de/stellensuchende/bewerbungstipps
+- Make it in Germany, "Application" - https://www.make-it-in-germany.com/en/working-in-germany/job/application
+- German Federal Anti-Discrimination Agency, "Anonymised application procedures" - https://www.antidiskriminierungsstelle.de/SharedDocs/faqs/DE/Projekte_ADS/01_Was_bedeutet.html
 - Nielsen Norman Group, "F-Shaped Pattern of Reading on the Web" and "How People Read Online" - https://www.nngroup.com/articles/f-shaped-pattern-reading-web-content/ and https://www.nngroup.com/articles/how-people-read-online/
 - PrepLounge, "Your Consulting CV Guide 2026" - https://www.preplounge.com/en/blog/consulting/interview/resume
 - Europass, "Create your Europass CV" - https://europass.europa.eu/en/create-europass-cv
@@ -280,4 +388,6 @@ Sources consulted during initial creation:
 - LinkedIn API Documentation, "Share on LinkedIn" - https://learn.microsoft.com/en-us/linkedin/consumer/integrations/self-serve/share-on-linkedin
 - WIRED, "How to Polish Your LinkedIn Profile" - https://www.wired.com/story/how-to-polish-improve-linkedin-profile
 - Wikipedia, "Xing (Job-Plattform)" - https://de.wikipedia.org/wiki/Xing_%28Job-Plattform%29
+- Freelancermap, "Der Leitfaden zum perfekten Freelancer-Profil" (commercial practice signal) - https://www.freelancermap.de/blog/der-leitfaden-zum-perfekten-freelancer-profil/
+- Randstad Professional/GULP, "Freelancer-Profil optimieren" (commercial practice signal) - https://www.gulp.de/freelancing/wissen/freelancer-profil/optimieren-10-schritte
 - Language and persuasion sources are listed in `language-and-persuasion.md`

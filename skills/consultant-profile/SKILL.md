@@ -36,7 +36,8 @@ Read these references before making substantive changes:
 1. Identify the target reader and buying situation.
    - Distinguish between project staffing, direct client acquisition, recruiter screening, partnership, and public website profile.
    - Identify the channel: PDF/CV, website, LinkedIn, XING, marketplace profile, proposal bio, or internal supplier profile.
-   - Identify the region and language: DACH/German, EU/international English, US/global English, or bilingual.
+   - Identify the country/market and language: Germany, Austria, Switzerland, EU/international English, US/global English, or bilingual.
+   - Combine country with buying channel before applying format conventions. Germany, Austria, and Switzerland share some credibility-first expectations, but they are not one fixed CV format; direct-buyer profiles, staffing CVs, and marketplace cards also solve different jobs.
    - Read accepted ADRs and brand or editorial guidance for audience
      relationship, form of address, voice, tone, terminology, and channel
      exceptions. Use `decision-records` when this work establishes or changes a
@@ -50,6 +51,7 @@ Read these references before making substantive changes:
 3. Build an evidence map before rewriting.
    - List projects, clients, roles, industries, scale, technologies, seniority, outcomes, and notable constraints.
    - Mark each item with evidence types: brand signal, business impact, technical depth, leadership/stakeholder complexity, industry relevance, recency, and uniqueness.
+   - When an opportunity brief or project request exists, separate explicit requirements, useful signals, and contextual preferences. Map each one to supplied evidence, and leave unsupported or unknown criteria unresolved instead of inferring a match or inventing a percentage score.
 
 4. Run completeness and interview mode when data is missing or uncertain.
    - Inventory sources such as the current website, old website, LinkedIn profile, LinkedIn recommendations, CVs, project notes, proposals, and testimonials.
@@ -80,6 +82,7 @@ Read these references before making substantive changes:
    - Put the strongest positioning and proof in the first screen/page.
    - Use front-loaded headings, short bullets, and grouped evidence.
    - Avoid walls of text and burying high-signal clients in long chronological lists.
+   - Let every section earn its place by helping the target reader perceive relevant fit; design should reinforce hierarchy rather than decorate the document.
 
 9. Calibrate personality, values, and boundaries.
    - Identify what makes the consultant memorable: working style, professional values, taste, judgment, collaboration style, and recurring stances.
@@ -91,8 +94,12 @@ Read these references before making substantive changes:
    - Keep personality grounded in proof. Do not make the profile quirky for its own sake; show how the stance improves outcomes, collaboration, quality, or focus.
 
 10. Localize the profile instead of translating it literally.
-   - For DACH/German profiles, favor precise, credible, evidence-heavy language and avoid exaggerated sales claims.
+   - For German-language profiles, favor precise, credible, evidence-heavy language and avoid exaggerated sales claims, then apply country-specific conventions only where the target channel needs them.
+   - Do not transfer employment-application conventions automatically to consultant sales profiles. Treat photo, personal data, references, and page count as country- and channel-dependent rather than universal DACH requirements.
+   - For staffing, supplier, and marketplace channels, surface supplied operational fit such as availability, location/time zone, remote/on-site setup, travel readiness, languages, and engagement model. Include a rate only when the channel expects it and the user supplied it.
+   - Use CEFR levels for languages when useful. Describe tool proficiency with evidence such as project context, recency, depth, or years used instead of vague self-ratings.
    - For US/global English profiles, make the value proposition more explicit and outcome-led.
+   - For US-facing resumes, omit photos and sensitive personal details.
    - For LinkedIn, combine searchable keywords with a human first-person summary, visible proof, recommendations, media, and posts.
    - Keep bilingual variants aligned in facts but adapted in tone, section order, and terminology.
 
@@ -118,9 +125,9 @@ For an audit, return:
 4. **Interview Questions** - prioritized questions that resolve the most important uncertainties.
 5. **Narrative Arc** - the through-line that connects projects, capabilities, industries, and recurring strengths.
 6. **Personality, Boundaries, and Buyer Fit Strategy** - which values, motivations, stances, strengths, limits, and background signals should be visible, and how to word them professionally.
-7. **Channel and Region Strategy** - how the profile should differ for PDF/CV, website, LinkedIn/XING, and German vs English audiences.
+7. **Channel and Market Strategy** - how the profile should differ for direct buyers, staffing/supplier channels, marketplaces, PDF/CV, website, LinkedIn/XING, and Germany, Austria, Switzerland, EU/international, or US audiences.
 8. **Structure** - proposed profile sections in order.
-9. **Voice Strategy** - recommended tone for DACH/German, English/international, LinkedIn, and any "more positive" variant.
+9. **Voice Strategy** - recommended German-language credibility-first tone, country/channel adaptations, English/international tone, LinkedIn tone, and any "more positive" variant.
 10. **Rewrite Samples** - improved headline, intro, LinkedIn/About version if relevant, and 3-5 project entries.
 11. **Gaps** - missing metrics, facts, client permissions, or platform/API constraints to verify.
 
@@ -133,9 +140,10 @@ For a full rewrite, return a complete profile with:
 - capability pillars
 - selected highlights or signature projects
 - industry/client context
+- optional operational-fit block for staffing, supplier, or marketplace channels
 - additional selected projects
 - LinkedIn/About and headline variants when a social profile is in scope
-- tone variants when useful: restrained DACH, warmer DACH, international English, LinkedIn
+- tone variants when useful: restrained or warmer German-language copy, country/channel adaptations, international English, LinkedIn
 - skills/tooling only where it reinforces the thesis
 
 ## Quality Bar
