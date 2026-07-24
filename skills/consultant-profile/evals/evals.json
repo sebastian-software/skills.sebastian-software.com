@@ -36,6 +36,11 @@
       "expected": "A channel comparison and sync plan covering LinkedIn headline, About, Featured, Experience, skills, recommendations, activity, source-of-truth data, and API/platform caution."
     },
     {
+      "name": "curate-and-translate-linkedin-recommendations",
+      "prompt": "I have about 20 LinkedIn recommendations in German and English that describe my strengths well. Help me use a few in German and English consultant CVs so the quotes are clearly external, traceable, and faithfully translated. I do not want a testimonial wall or wording that looks self-authored.",
+      "expected": "A recommendation inventory and thematic signal map, relevance-based selection by channel, a reusable source record with original and localized text, permission status, author relationship and role/company at the time, date and source locator, concise attributed quote examples, visible translation and omission labels, caution about LinkedIn visibility and lack of dependable individual public permalinks, and no verbatim external reuse or translation without appropriate permission."
+    },
+    {
       "name": "strengthen-tone-without-invention",
       "prompt": "This profile is factually right but feels too flat. Make the strengths actually read as strengths, but do not invent anything or turn it into hollow marketing copy.",
       "expected": "A language strategy plus rewrites that use positive-but-earned framing, proof-backed claims, DACH and English tone variants, and a checklist of unsupported claims to avoid."

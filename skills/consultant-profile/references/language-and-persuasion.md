@@ -166,6 +166,44 @@ Use:
 
 LinkedIn is also where marketing psychology matters most, because the reader may not be actively reviewing a CV. The copy must create relevance quickly.
 
+## Translating External Recommendations
+
+A translated recommendation remains someone else's statement. Treat its
+original wording as the source of truth and make the editorial intervention
+visible.
+
+- Store the original language and exact original text.
+- Translate for meaning and voice, not word-for-word syntax, without making the
+  praise stronger or more specific.
+- Label the result locally: `Aus dem englischen Original übersetzt` or
+  `Translated from the German original`.
+- Keep author, relationship/context, role and organization at the time, and
+  publication date next to the quote.
+- Link to the source or provide a precise source locator when practical.
+- Mark cuts with `[…]`; do not join distant fragments into a new sentence or
+  remove qualifications that change the meaning.
+- If the translation is approved by the author, store that fact. Otherwise do
+  not imply author approval.
+- Obtain permission for external verbatim use and translation. Acceptance and
+  visibility on LinkedIn are not themselves a general republication license.
+
+Do not silently present a translation inside quotation marks as though the
+author wrote in that language. A short translation note solves this without
+making the layout feel academic.
+
+Example:
+
+```text
+„[Kurzer, bedeutungstreuer deutscher Auszug …]“
+— Vorname Nachname, damalige Rolle bei Unternehmen
+  Zusammenarbeit: Projekt/Rolle, 2023 · Aus dem englischen Original übersetzt
+  Original auf LinkedIn
+```
+
+If permission is not clear, use the recommendation as source material:
+summarize recurring themes in the consultant's own voice without presenting a
+direct quote, and keep the external source in the internal evidence map.
+
 ## Ethical Marketing Psychology for Consultant Profiles
 
 Use persuasion only where the evidence is real.
@@ -218,6 +256,8 @@ Before returning profile copy, check:
 - Is the German version confident without sounding like imported US sales copy?
 - Is the English version idiomatic rather than translated?
 - Is LinkedIn more personal, searchable, and proof-linked than the PDF?
+- Are translated recommendations visibly labelled, faithfully attributed,
+  permissioned for external use, and traceable to their originals?
 - Does the profile show personality and boundaries where they improve trust?
 - Would a reader remember at least one clear reason to hire this consultant?
 
