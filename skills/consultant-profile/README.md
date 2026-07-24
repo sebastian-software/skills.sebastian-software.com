@@ -19,7 +19,7 @@ inventory with evidence-led positioning and a coherent career narrative.
 - evidence-led project selection and prominence
 - complete case studies with context, responsibility, decisions, and outcomes
 - a curated external-proof strategy for multilingual LinkedIn recommendations,
-  testimonials, permissions, attribution, and source links
+  testimonials, practical reuse, attribution, and source links
 - a connected professional narrative instead of a loose project list
 - gap analysis and interview questions for missing evidence
 - synchronized CV, website, LinkedIn, bio, and project-list content

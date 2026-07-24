@@ -52,7 +52,7 @@ Read these references before making substantive changes:
 3. Build an evidence map before rewriting.
    - List projects, clients, roles, industries, scale, technologies, seniority, outcomes, and notable constraints.
    - Mark each item with evidence types: brand signal, business impact, technical depth, leadership/stakeholder complexity, industry relevance, recency, and uniqueness.
-   - Treat recommendations and testimonials as attributed external evidence. Preserve author, relationship, role/company at the time, date, original language/text, source locator, permissions, approved excerpts, translations, and the claims they support.
+   - Treat recommendations and testimonials as attributed external evidence. Preserve author, relationship, role/company at the time, date, original language/text, source locator, known reuse restrictions or sensitivities, selected excerpts, translations, and the claims they support.
    - When an opportunity brief or project request exists, separate explicit requirements, useful signals, and contextual preferences. Map each one to supplied evidence, and leave unsupported or unknown criteria unresolved instead of inferring a match or inventing a percentage score.
 
 4. Run completeness and interview mode when data is missing or uncertain.
@@ -129,13 +129,13 @@ For an audit, return:
 4. **Interview Questions** - prioritized questions that resolve the most important uncertainties.
 5. **Narrative Arc** - the through-line that connects projects, capabilities, industries, and recurring strengths.
 6. **Personality, Boundaries, and Buyer Fit Strategy** - which values, motivations, stances, strengths, limits, and background signals should be visible, and how to word them professionally.
-7. **External Proof Strategy** - which recommendations should become direct quotes, claim support, working-style evidence, or source-only material; include attribution, permission, translation, and source-link handling.
+7. **External Proof Strategy** - which recommendations should become direct quotes, claim support, working-style evidence, or source-only material; include attribution, reuse sensitivity, translation, and source-link handling.
 8. **Channel and Market Strategy** - how the profile should differ for direct buyers, staffing/supplier channels, marketplaces, PDF/CV, website, LinkedIn/XING, and Germany, Austria, Switzerland, EU/international, or US audiences.
 9. **Provider Field Mapping** - when a named intermediary or marketplace is in scope, map its current documented fields to the stable master model and label each as reusable, private/account, operational/application, or platform-owned.
 10. **Structure** - proposed profile sections in order.
 11. **Voice Strategy** - recommended German-language credibility-first tone, country/channel adaptations, English/international tone, LinkedIn tone, and any "more positive" variant.
 12. **Rewrite Samples** - improved headline, intro, LinkedIn/About version if relevant, and 3-5 project entries.
-13. **Gaps** - missing metrics, facts, quote permissions, client permissions, provider-field volatility, or platform/API constraints to verify.
+13. **Gaps** - missing metrics, facts, known quote restrictions, client permissions, provider-field volatility, or platform/API constraints to verify.
 
 For a full rewrite, return a complete profile with:
 
