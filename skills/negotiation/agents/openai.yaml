@@ -1,0 +1,4 @@
+interface:
+  display_name: "Negotiation"
+  short_description: "Prepare and conduct professional negotiations"
+  default_prompt: "Use $negotiation to prepare and conduct this professional negotiation within my authority."

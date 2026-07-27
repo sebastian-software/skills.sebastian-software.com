@@ -11,6 +11,7 @@ https?://www\.solcom\.de/.*
 # inventory and local links are checked by scripts/validate-readmes.py.
 https://github\.com/sebastian-software/skills\.sebastian-software\.com/tree/main/skills/nonfiction-writing
 https://github\.com/sebastian-software/skills\.sebastian-software\.com/tree/main/skills/pricing-and-packaging
+https://github\.com/sebastian-software/skills\.sebastian-software\.com/tree/main/skills/negotiation
 
 # These live primary sources reject, reset, or time out on GitHub Actions'
 # link-check traffic.
