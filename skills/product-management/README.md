@@ -103,6 +103,9 @@ dalo sync
   into researched name candidates.
 - [Product Design](../product-design/README.md) turns product evidence and scope
   into a problem model, interaction system, and prototype plan.
+- [Pricing and Packaging](../pricing-and-packaging/README.md) carries a stable
+  target customer, product promise, and economic constraints into pricing
+  research, value metrics, packages, and price changes.
 - [Effective Web](../effective-web/README.md) designs and implements the browser
   experience after outcomes and scope are clear.
 - [Decision Records](../decision-records/README.md) preserves durable product
