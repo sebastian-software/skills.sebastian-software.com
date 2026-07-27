@@ -7,7 +7,7 @@
 **Open-source skills for the professional judgment that capable AI agents still
 need to do dependable product and software work.**
 
-25 practice-built skills and 234 focused references for product decisions, web
+26 practice-built skills and 237 focused references for product decisions, web
 experiences, codebase improvement, delivery, go-to-market positioning,
 professional communication, and web compliance.
 
@@ -36,7 +36,7 @@ The skill tells a compatible agent what to inspect, which specialist guidance
 to load, where its authority stops, and what evidence is needed before the task
 is complete.
 
-Install all 25 skills only when you want the complete first-party collection:
+Install all 26 skills only when you want the complete first-party collection:
 
 ```sh
 npx skills add sebastian-software/skills.sebastian-software.com --all
@@ -54,6 +54,7 @@ Start with the job you need done rather than the repository taxonomy.
 | Turn incomplete evidence into product direction, scope, or a durable decision | [`product-management`](skills/product-management/), [`product-design`](skills/product-design/), [`decision-records`](skills/decision-records/) |
 | Research what to charge, what to charge for, and how to package or change an offer | [`pricing-and-packaging`](skills/pricing-and-packaging/) |
 | Turn stable product evidence into positioning, messages, proof, launch choices, and market learning | [`product-marketing`](skills/product-marketing/) |
+| Diagnose a funnel constraint and design a trustworthy experiment or low-traffic learning plan | [`conversion-optimization`](skills/conversion-optimization/) |
 | Design, build, review, or improve a production web experience | [`effective-web`](skills/effective-web/), [`locale-typography`](skills/locale-typography/), [`web-legal-compliance`](skills/web-legal-compliance/) |
 | Diagnose a repository and choose the highest-leverage next move | [`codebase-improvement`](skills/codebase-improvement/), [`software-architecture`](skills/software-architecture/) |
 | Take an authorized software change through implementation and verification | [`effective-workflow`](skills/effective-workflow/), [`software-testing`](skills/software-testing/), [`software-validation`](skills/software-validation/) |
@@ -149,6 +150,7 @@ repository from silently deciding how a user's complete environment behaves.
 | --- | --- |
 | [`pricing-and-packaging`](skills/pricing-and-packaging/) | Evidence-led pricing research, value metrics, models, packages, trials, discounts, and existing-customer changes. |
 | [`product-marketing`](skills/product-marketing/) | Evidence-led positioning, messaging, proof, launch planning, sales enablement, and win/loss and adoption learning. |
+| [`conversion-optimization`](skills/conversion-optimization/) | Evidence-led funnel diagnosis, research synthesis, ethical experiments, low-traffic learning, guardrails, and result decisions. |
 | [`nonfiction-writing`](skills/nonfiction-writing/) | Clear, credible, persuasive articles, essays, newsletters, thought leadership, case studies, About pages, product descriptions, and revision. |
 | [`consultant-profile`](skills/consultant-profile/) | Consultant profiles, CVs, case studies, project selection, career narratives, and positioning. |
 | [`linkedin-social-selling`](skills/linkedin-social-selling/) | Evidence-led B2B LinkedIn positioning, profile, network, content, conversations, lead magnets, funnels, and measurement. |

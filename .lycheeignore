@@ -12,6 +12,7 @@ https?://www\.solcom\.de/.*
 https://github\.com/sebastian-software/skills\.sebastian-software\.com/tree/main/skills/nonfiction-writing
 https://github\.com/sebastian-software/skills\.sebastian-software\.com/tree/main/skills/pricing-and-packaging
 https://github\.com/sebastian-software/skills\.sebastian-software\.com/tree/main/skills/product-marketing
+https://github\.com/sebastian-software/skills\.sebastian-software\.com/tree/main/skills/conversion-optimization
 
 # These live primary sources reject, reset, or time out on GitHub Actions'
 # link-check traffic.
