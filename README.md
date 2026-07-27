@@ -7,7 +7,7 @@
 **Open-source skills for the professional judgment that capable AI agents still
 need to do dependable product and software work.**
 
-24 practice-built skills and 231 focused references for product decisions, web
+24 practice-built skills and 234 focused references for product decisions, web
 experiences, codebase improvement, delivery, go-to-market positioning,
 professional communication, reliable data systems, and web compliance.
 
