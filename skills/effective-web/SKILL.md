@@ -85,6 +85,10 @@ broad design route and load the matching focused route directly.
   and campaign strategy to `product-marketing`; return here to implement and
   verify the resulting web experience. Use Interface Copy only for language
   embedded in that experience.
+- Route funnel diagnosis, conversion research, experiment design, and ship,
+  iterate, or stop decisions to `conversion-optimization`; return here to build
+  and verify the variants it approves. A page that converts poorly is a
+  measurement and evidence question before it is a layout question.
 - Route non-frontend TypeScript engineering depth — server-side and
   shared-library type, module, async, error, and tooling contracts — to
   `typescript-engineering`; keep browser-facing TypeScript here.

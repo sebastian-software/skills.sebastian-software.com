@@ -1,0 +1,4 @@
+interface:
+  display_name: "Conversion Optimization"
+  short_description: "Diagnose funnels and run trustworthy experiments"
+  default_prompt: "Use $conversion-optimization to diagnose this funnel, identify the best-supported bottleneck, and design an ethical learning plan with guardrails."

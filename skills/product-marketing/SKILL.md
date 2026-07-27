@@ -118,6 +118,10 @@ For a broad product-marketing decision, return:
 - Use `pricing-and-packaging` for willingness-to-pay research, value metrics,
   pricing models, packages, discounts, trials, and customer migrations. This
   skill communicates only approved commercial facts and their evidence limits.
+- Use `conversion-optimization` to diagnose funnel constraints and design
+  ethical tests of an approved position, message, proof, offer expression, or
+  channel path. Return evidence here when it changes the segment, position,
+  claim, proof, launch, or channel decision.
 - Use `nonfiction-writing` to plan, draft, and revise articles, case studies,
   product descriptions, and other finished long-form prose after the audience,
   position, claims, proof, and purpose are stable enough to brief.
