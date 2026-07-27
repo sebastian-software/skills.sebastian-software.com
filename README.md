@@ -7,9 +7,9 @@
 **Open-source skills for the professional judgment that capable AI agents still
 need to do dependable product and software work.**
 
-23 practice-built skills and 227 focused references for product decisions, web
-experiences, codebase improvement, delivery, go-to-market positioning,
-professional communication, and web compliance.
+24 practice-built skills and 231 focused references for product decisions, web
+experiences, codebase improvement, delivery, engineering leadership,
+go-to-market positioning, professional communication, and web compliance.
 
 Use one skill when an agent needs deeper judgment for a specific job, or combine
 several in your own downstream agent stack. Each skill turns repeated
@@ -36,7 +36,7 @@ The skill tells a compatible agent what to inspect, which specialist guidance
 to load, where its authority stops, and what evidence is needed before the task
 is complete.
 
-Install all 23 skills only when you want the complete first-party collection:
+Install all 24 skills only when you want the complete first-party collection:
 
 ```sh
 npx skills add sebastian-software/skills.sebastian-software.com --all
@@ -140,6 +140,7 @@ repository from silently deciding how a user's complete environment behaves.
 | [`software-validation`](skills/software-validation/) | Repository-native discovery and execution of existing typecheck, lint, test, benchmark, load, build, package, and documentation gates with explicit evidence gaps. |
 | [`tech-docs`](skills/tech-docs/) | Repository-native READMEs, guides, API and CLI references, migration notes, code documentation, examples, and verification. |
 | [`typescript-engineering`](skills/typescript-engineering/) | Strict, honest server-side and general TypeScript implementation and review across types, modules, async, errors, and tooling contracts. |
+| [`engineering-management`](skills/engineering-management/) | Evidence-led responsibilities, delegation, coaching, decision paths, team design, cognitive load, and product-engineering collaboration. |
 
 ### Positioning, marketing, and communication
 
