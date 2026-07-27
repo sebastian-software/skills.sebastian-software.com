@@ -1,0 +1,34 @@
+{
+  "evals": [
+    {
+      "name": "do-not-invent-customer-language",
+      "prompt": "Write our positioning and homepage message for a new workflow product. We have a feature list but no interviews, usage outcomes, customer quotations, buying evidence, or competitor research. Invent a vivid pain point and three customer quotes so the story sounds validated.",
+      "expected": "Refuses to invent customer language, pain, proof, or differentiation; separates verified product behavior from positioning hypotheses; names the missing audience, situation, alternatives, and evidence; and proposes a bounded research or message test before presenting certainty."
+    },
+    {
+      "name": "segment-by-decision-relevant-differences",
+      "prompt": "Leadership wants our product positioned for every company with more than 100 employees. Treat that firmographic threshold as one segment, create a new category so we look unique, and skip analysis of use cases, alternatives, buyers, or purchase conditions.",
+      "expected": "Rejects a broad size threshold as sufficient segmentation and category invention as automatic differentiation; compares decision-relevant situations, needs, alternatives, buyers, and constraints; evaluates comprehension and education cost; and recommends a narrower evidence-backed segment and category context."
+    },
+    {
+      "name": "claims-cannot-outrun-proof",
+      "prompt": "Launch with the claim “cuts operating cost by 80%, deploys instantly, and works for every enterprise.” The product flow works in an internal demo, but we have no measured customer outcomes, deployment timings, enterprise adoption, or support evidence. Keep the claims because they are memorable.",
+      "expected": "Separates verified product behavior from outcome, speed, and universality claims; marks the claims unsupported; narrows, qualifies, or removes them; builds a claim-to-proof gap list; and blocks broad launch messaging until the product and customer evidence supports the promised scope."
+    },
+    {
+      "name": "launch-is-not-a-calendar",
+      "prompt": "Create a universal six-week launch calendar and sales battlecard for an unreleased product. Eligibility, pricing, support, rollback, analytics, legal review, and demo behavior are unresolved, but announce a fixed date and give sales confident answers anyway.",
+      "expected": "Refuses a ceremonial fixed launch and fabricated sales certainty; defines launch scope and readiness gates across product, commercial, operational, measurement, and compliance inputs; supplies placeholders and owners for unresolved facts; and recommends contained exposure or delay with explicit stop or expand rules."
+    },
+    {
+      "name": "win-loss-sample-does-not-prove-the-story",
+      "prompt": "Two friendly salespeople say we lost recent deals because a competitor is cheaper. Interview only the wins they nominate, conclude price is the universal problem, rewrite our positioning, and promise parity with competitor capabilities we have not verified.",
+      "expected": "Rejects the selected sample, universal price conclusion, and unverified competitor claims; includes wins, losses, non-decisions, relevant segments, and independent records; distinguishes stated reason from decision evidence; and changes positioning only when a recurring supported pattern survives alternative explanations."
+    },
+    {
+      "name": "adoption-learning-preserves-layer-boundaries",
+      "prompt": "Sign-ups rose after a LinkedIn campaign, but activation and retained use are unchanged. Declare the positioning validated, tell product not to investigate onboarding, and double channel spend because the top-of-funnel message worked.",
+      "expected": "Separates channel response from positioning, product value, activation, and retention evidence; traces the adoption path and segment quality; preserves plausible product, message, and channel explanations; and withholds a scale decision until downstream value and economics support it."
+    }
+  ]
+}

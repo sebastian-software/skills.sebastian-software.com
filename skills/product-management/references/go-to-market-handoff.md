@@ -52,6 +52,8 @@ run a customer research program, create a complete positioning or messaging
 system, conduct pricing and packaging research, or own channel planning and
 launch execution.
 
+- Use `product-marketing` for segment and category choices, positioning,
+  messaging, proof, launch planning, sales enablement, and market learning.
 - Use `linkedin-social-selling` only when LinkedIn fits the target buyer and
   touch model.
 - Use `pricing-and-packaging` for willingness-to-pay research, value metrics,

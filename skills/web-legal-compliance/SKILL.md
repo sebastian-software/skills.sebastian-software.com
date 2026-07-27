@@ -83,6 +83,10 @@ visible result of facts and operational decisions, not as boilerplate.
 
 ## Routing Boundaries
 
+- Use `product-marketing` to establish the intended audience, position,
+  messaging, supplied proof, launch plan, and sales-enablement context; return
+  here to determine current legal applicability, required qualifications,
+  disclosures, consent, and other jurisdiction-specific constraints.
 - Route layout, footer navigation, forms, consent UI, accessibility
   implementation, and frontend testing to `effective-web` after this skill has
   established the legal and factual requirements.

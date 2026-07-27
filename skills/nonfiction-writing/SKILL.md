@@ -103,6 +103,9 @@ For revision or critique, return:
 
 ## Routing Boundaries
 
+- Use `product-marketing` to establish the audience, position, message,
+  supported claims, proof, and market-facing purpose before drafting product
+  descriptions, launch narratives, case studies, or campaign prose.
 - Use `linkedin-posts` for LinkedIn-specific ideation, formats, cadence, and
   engagement context. This skill can improve the underlying prose once the
   channel constraints and factual basis are clear.

@@ -81,8 +81,10 @@ broad design route and load the matching focused route directly.
   and verification work.
 - Route locale-specific punctuation, quotation, spacing, and language-level
   typographic rules to `locale-typography`.
-- Keep general marketing copy and campaign strategy outside this skill; use
-  Interface Copy only for language embedded in a web experience.
+- Route market segmentation, positioning, messaging, proof, launch planning,
+  and campaign strategy to `product-marketing`; return here to implement and
+  verify the resulting web experience. Use Interface Copy only for language
+  embedded in that experience.
 - Route non-frontend TypeScript engineering depth — server-side and
   shared-library type, module, async, error, and tooling contracts — to
   `typescript-engineering`; keep browser-facing TypeScript here.

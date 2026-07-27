@@ -103,9 +103,9 @@ For a consequential pricing or packaging decision, return:
 - Use `product-management` to resolve the target customer, product promise,
   product strategy, scope, or viability question that the pricing decision
   depends on.
-- Hand positioning, messaging, launch campaigns, and sales collateral to an
-  appropriate go-to-market owner when one is available; this skill supplies the
-  approved pricing facts, evidence limits, and package rationale.
+- Use `product-marketing` for positioning, messaging, proof, launch planning,
+  and sales enablement; this skill supplies the approved pricing facts,
+  evidence limits, package rationale, and migration constraints.
 - Use `web-legal-compliance` for website disclosures, consent, privacy, and
   jurisdiction-specific legal requirements connected to presenting or testing
   an offer.
