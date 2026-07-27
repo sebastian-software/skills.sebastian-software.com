@@ -1,0 +1,4 @@
+interface:
+  display_name: "Data Systems"
+  short_description: "Design reliable data systems and evolution"
+  default_prompt: "Use $data-systems to design a data model and consistency approach from the actual access patterns, invariants, load, and failure consequences."
