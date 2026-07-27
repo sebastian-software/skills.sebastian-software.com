@@ -29,3 +29,8 @@ https://portal\.education\.lu/zls
 # GitHub runners even with retries; both verified reachable manually.
 https://gfds\.de/leerzeichen-und-festabstaende/
 https://frageladan\.isof\.se/faqs/23562
+
+# 2026-07-27: the Norwegian language council refuses GitHub runner traffic with a
+# connection failure. It broke every open pull request while main stayed green by
+# chance; verified reachable manually.
+https://sprakradet\.no/.*
