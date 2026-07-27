@@ -121,6 +121,11 @@ no first-party skill currently claims their execution methodology.
 
 ## Routing Boundaries
 
+- Route data models, datastore choice, transactions, consistency guarantees,
+  replication, partitioning, batch or streaming semantics, and safe data
+  evolution within agreed system boundaries to `data-systems`. Keep overall
+  service boundaries, quality attributes, ownership, and deployment direction
+  here.
 - Route repository-wide audit findings, prioritization, implementation-plan
   creation and review, and executable delivery plans to `codebase-improvement`.
 - Route durable choices, ADR format, supersession, and drift control to
@@ -142,6 +147,9 @@ no first-party skill currently claims their execution methodology.
   depth within an agreed boundary to `typescript-engineering`.
 - Route a specific pull request's review, feedback, or CI recovery to
   `pr-review`.
+- Route team boundaries, ownership, delegation, decision paths, and cognitive
+  load to `engineering-management` when the organization around a boundary, not
+  the boundary itself, is what has to change.
 
 Use this skill when the system-level direction itself needs reasoning; use the
 narrower skill once the question becomes its specialized execution work.

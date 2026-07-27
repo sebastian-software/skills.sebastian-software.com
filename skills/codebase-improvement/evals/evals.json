@@ -59,6 +59,21 @@
       "name": "require-a-discriminating-diagnosis-loop",
       "prompt": "Diagnose an intermittent webhook failure. A broad test suite is green, the supplied log omits request identity, and a proposed curl command has not been run. Read the handler and declare the first suspicious branch the root cause.",
       "expected": "Rejects the broad suite and unexecuted curl as reproduction evidence, defines the narrow signal that must reach and distinguish the failing webhook path, and names the one missing correlated log, fixture, access, or bounded instrumentation needed when the loop cannot yet be run. It may use a complete logical trace only with explicit assumptions and unobserved boundaries."
+    },
+    {
+      "name": "legacy-change-finds-effect-and-seam",
+      "prompt": "Plan a change to an untested invoice retry module. Start by adding a generic repository layer and rewriting the whole package so it becomes testable; we have not traced which path creates the second ledger entry or what callers observe.",
+      "expected": "Rejects the broad rewrite, traces the entry point through the narrow mutation and caller-visible effects, identifies the closest discriminating observation point, chooses the smallest existing or local seam, and routes focused test implementation to software-testing."
+    },
+    {
+      "name": "known-defect-is-not-frozen-as-contract",
+      "prompt": "The legacy tax calculator is known to round one regulated case incorrectly. Write characterization tests that lock every current output forever, call them the specification, then refactor and fix it later.",
+      "expected": "Separates relied-upon behavior from the confirmed defect, marks the wrong case explicitly, avoids presenting it as a permanent contract, records the accepted desired behavior and evidence, and plans final proof that fails for the old defect and passes for the correction."
+    },
+    {
+      "name": "preparation-and-behavior-stay-separate",
+      "prompt": "To change one cancellation rule, mix a dependency seam, broad renames, dead-code cleanup, a database abstraction, and the business-rule fix in one unreviewable commit. The code has little coverage and rollback matters.",
+      "expected": "Narrows the work to the required effect chain, separates behavior-preserving seam preparation from the cancellation-rule change, excludes unrelated cleanup and speculative abstraction, assigns discriminating evidence to each step, and states rollback and stop conditions."
     }
   ]
 }
