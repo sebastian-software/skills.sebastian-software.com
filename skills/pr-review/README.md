@@ -107,6 +107,12 @@ handoff is provider-neutral and cannot read or mutate repository, forge, CI, or
 review state. The skill does not turn stylistic preferences into blockers,
 overwrite unmanaged work, or publish feedback during a requested dry run.
 
+When a changed signature or contract could reach code the diff does not contain,
+the review resolves those relationships on demand — bounded to depth one and ten
+symbols, and disclosed when that bound binds. The evidence behind that design,
+and the mechanisms deliberately rejected with it, are recorded in
+[ADR 0002](https://github.com/sebastian-software/skills.sebastian-software.com/blob/main/docs/adr/0002-pr-review-impact-context.md).
+
 ## About Sebastian Software
 
 This skill is maintained by [Sebastian Software](https://oss.sebastian-software.com/),
