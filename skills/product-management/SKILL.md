@@ -145,3 +145,6 @@ For an existing artifact or decision-readiness audit, use the deliverable in
   direct marketing, and jurisdiction-specific legal requirements.
 - Use `decision-records` to preserve durable product decisions, their
   tradeoffs, and the conditions that should reopen them.
+- Use `engineering-management` when the obstacle is the team system around the
+  product work — unclear ownership, delegation, decision paths, meeting load,
+  team boundaries, or cognitive load — rather than the product decision itself.

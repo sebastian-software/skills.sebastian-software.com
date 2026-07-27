@@ -55,6 +55,7 @@ Start with the job you need done rather than the repository taxonomy.
 | Design, build, review, or improve a production web experience | [`effective-web`](skills/effective-web/), [`locale-typography`](skills/locale-typography/), [`web-legal-compliance`](skills/web-legal-compliance/) |
 | Diagnose a repository and choose the highest-leverage next move | [`codebase-improvement`](skills/codebase-improvement/), [`software-architecture`](skills/software-architecture/) |
 | Take an authorized software change through implementation and verification | [`effective-workflow`](skills/effective-workflow/), [`software-testing`](skills/software-testing/), [`software-validation`](skills/software-validation/) |
+| Clarify ownership, delegation, decision paths, or team load around the work | [`engineering-management`](skills/engineering-management/) |
 | Review, document, modernize, or port an existing codebase | [`pr-review`](skills/pr-review/), [`tech-docs`](skills/tech-docs/), [`smart-dependency-updater`](skills/smart-dependency-updater/), [`port-codebases`](skills/port-codebases/) |
 | Turn expertise into credible positioning, content, and professional communication | [`nonfiction-writing`](skills/nonfiction-writing/), [`consultant-profile`](skills/consultant-profile/), [`linkedin-social-selling`](skills/linkedin-social-selling/), [`linkedin-posts`](skills/linkedin-posts/), [`metro-english`](skills/metro-english/) |
 
