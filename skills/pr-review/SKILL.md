@@ -84,10 +84,10 @@ print what you *would* do, in the real form you'd do it:
 - the decision per PR (approve / request-changes / comment), and why in one line;
 - the actual comment and reply text, **verbatim** — not a paraphrase — and
   inline comments with their `file:line` anchors and bodies;
-- for Mode B fixes, the concrete diff and commit message. You may prepare the fix
-  in a throwaway worktree to show a real `git diff`, but never push or touch PR
-  state;
-- any CI action you'd take (bounded Actions retry, branch update, or a
+- for Mode B fixes, the concrete diff and commit message. You may prepare the
+  fix in a throwaway worktree to show a real `git diff`, but never push or
+  touch PR state;
+- any CI action you'd take (bounded GitHub Actions retry, branch update, or a
   provider-documented check re-trigger).
 
 Read-only verification still runs (preview deployment, or local
