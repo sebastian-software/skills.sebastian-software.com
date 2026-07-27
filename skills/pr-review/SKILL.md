@@ -113,10 +113,9 @@ Before deciding anything, build the state (commands in the recipes):
 
 ## Mode A — Reviewing others' PRs
 
-Reviews follow a fixed inspection order, but severity always comes from impact:
-work top-down, then classify each finding by its concrete consequence, not by
-which rung exposed it. If nothing changed since your last review and there are
-no new comments, record "no change" and skip the ladder.
+Reviews follow a fixed inspection order; severity still comes from impact, not
+from which rung exposed the finding. If nothing changed since your last review
+and there are no new comments, record "no change" and skip the ladder.
 
 **1. Does it make sense? (gate)**
 Understand the wish before judging the code. Read the linked ticket — GitHub
@@ -135,7 +134,10 @@ Only once you understand it *and* agree the direction is sound do you go on.
 
 **2. Was it built right?**
 Does it do what the ticket asked? Check the delta both ways: more than needed
-(scope creep — name it, kindly) or less?
+(scope creep — name it, kindly) or less? When a signature or contract changed,
+resolve what the diff touches beyond itself before judging — see
+[Codebase context](references/codebase-context.md); expect silence, most diffs
+break nothing outside themselves.
 
 **3. Was it built cleanly?**
 Code quality, naming, structure, the right files, sensible granularity, reuse
@@ -261,12 +263,11 @@ inspect screenshots and other artifacts for secrets and redact them before shari
 ## Final summary (to the user)
 
 Close every run with a compact summary in the user's language unless they ask
-for another. Lead with status, sorted by what matters; keep it short and
-spoken, not a report. Cover, roughly: what you approved or is merge-ready, what
-you changed or pushed yourself (Mode B), what's still open or blocked and why,
-and anything you're escalating (architecture call, author conflict) with the
-decision you need. Keep GitHub communication in the repository's established
-language; the private summary may use the user's language.
+for another. Lead with status, sorted by what matters; keep it short and spoken,
+not a report. Cover: what you approved or is merge-ready, what you changed or
+pushed yourself (Mode B), what's still open or blocked and why, and anything
+you're escalating with the decision you need. Keep GitHub communication in the
+repository's established language.
 
 ## Hard limits (safety rails)
 
@@ -282,8 +283,7 @@ These exist because the cost of getting them wrong is high and hard to undo:
 - Never approve with an unresolved material risk merely to keep the queue
   moving.
 - Posting a review/approval and pushing code are real, visible actions taken as
-  the user. Within the autonomy above that's intended — but if you're
-  escalating (architecture / conflict), hold off and ask first.
+  the user. That's intended — but when escalating, hold off and ask first.
 
 ## Routing Boundaries
 
