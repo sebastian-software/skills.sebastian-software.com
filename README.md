@@ -7,9 +7,9 @@
 **Open-source skills for the professional judgment that capable AI agents still
 need to do dependable product and software work.**
 
-23 practice-built skills and 227 focused references for product decisions, web
+24 practice-built skills and 231 focused references for product decisions, web
 experiences, codebase improvement, delivery, go-to-market positioning,
-professional communication, and web compliance.
+professional communication, native Apple experiences, and web compliance.
 
 Use one skill when an agent needs deeper judgment for a specific job, or combine
 several in your own downstream agent stack. Each skill turns repeated
@@ -36,7 +36,7 @@ The skill tells a compatible agent what to inspect, which specialist guidance
 to load, where its authority stops, and what evidence is needed before the task
 is complete.
 
-Install all 23 skills only when you want the complete first-party collection:
+Install all 24 skills only when you want the complete first-party collection:
 
 ```sh
 npx skills add sebastian-software/skills.sebastian-software.com --all
@@ -52,6 +52,7 @@ Start with the job you need done rather than the repository taxonomy.
 | When you need to… | Start with… |
 | --- | --- | --- |
 | Turn incomplete evidence into product direction, scope, or a durable decision | [`product-management`](skills/product-management/), [`product-design`](skills/product-design/), [`decision-records`](skills/decision-records/) |
+| Adapt a native product across iPhone, iPad, Mac, Apple Watch, and Apple Vision Pro | [`apple-platform-design`](skills/apple-platform-design/) |
 | Design, build, review, or improve a production web experience | [`effective-web`](skills/effective-web/), [`locale-typography`](skills/locale-typography/), [`web-legal-compliance`](skills/web-legal-compliance/) |
 | Diagnose a repository and choose the highest-leverage next move | [`codebase-improvement`](skills/codebase-improvement/), [`software-architecture`](skills/software-architecture/) |
 | Take an authorized software change through implementation and verification | [`effective-workflow`](skills/effective-workflow/), [`software-testing`](skills/software-testing/), [`software-validation`](skills/software-validation/) |
@@ -114,6 +115,7 @@ repository from silently deciding how a user's complete environment behaves.
 | --- | --- |
 | [`product-management`](skills/product-management/) | Evidence-led discovery, product strategy, empowered teams, AI-era exploration, scope, product quality, release decisions, and learning loops. |
 | [`product-design`](skills/product-design/) | Evidence-led research synthesis, problem framing, interaction and object modeling, habit and retention design, prototyping, autonomy, and design delivery. |
+| [`apple-platform-design`](skills/apple-platform-design/) | Native iOS and iPadOS design with purposeful macOS, watchOS, and visionOS adaptation, accessibility, integration, and fallback review. |
 | [`product-naming`](skills/product-naming/) | Strategic name generation, multilingual spoken-name testing, live conflict research, and evidence-backed shortlists. |
 
 ### Web design and engineering

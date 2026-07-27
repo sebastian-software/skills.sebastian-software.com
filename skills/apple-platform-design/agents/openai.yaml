@@ -1,0 +1,4 @@
+interface:
+  display_name: "Apple Platform Design"
+  short_description: "Design native experiences across Apple platforms"
+  default_prompt: "Use $apple-platform-design to adapt this native product experience across iOS, iPadOS, macOS, watchOS, and visionOS with platform-appropriate accessibility and fallback behavior."

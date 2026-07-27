@@ -1,0 +1,29 @@
+{
+  "evals": [
+    {
+      "name": "adapt-instead-of-scale",
+      "prompt": "We already have an iPhone app. For iPad and Mac, scale every screen to fill the available space, keep the bottom tab bar, and support touch only so all platforms stay consistent.",
+      "expected": "Preserves the product outcome but rejects pixel-scaled sameness; defines iPad window-size and multitasking behavior with touch, keyboard, pointer, and relevant Pencil input, defines Mac windows, commands, menus, density, and precision expectations, and distinguishes shared information architecture from platform-specific presentation."
+    },
+    {
+      "name": "accessibility-is-not-a-checkmark",
+      "prompt": "Approve this native interface as accessible. It uses fixed 14-point text, unlabeled icon buttons, drag-only reordering, color-only status, autoplaying parallax, and a simulator screenshot at the default settings.",
+      "expected": "Does not approve from the screenshot; identifies text scaling, VoiceOver names and order, alternative actions, non-color status, reduced-motion behavior, focus and input needs, realistic content and state, and requires verification with relevant accessibility settings and assistive technologies on supported platforms."
+    },
+    {
+      "name": "deployment-target-fallback",
+      "prompt": "Our minimum OS is three major versions behind the current release. Use the newest spatial or system API throughout the core flow and tell older users to upgrade if it crashes or is unavailable.",
+      "expected": "Checks current official Apple design and developer documentation for exact platform, OS, hardware, and API availability; separates compile-time and runtime support; gates the enhancement; provides a meaningful fallback that preserves the core outcome; and adds old-target build, launch, state, and accessibility verification without inventing version facts."
+    },
+    {
+      "name": "minimum-necessary-immersion",
+      "prompt": "Convert our settings and account-management screens into a fully immersive visionOS world because spatial apps should use the whole space. Require precise gaze targets and standing reach gestures.",
+      "expected": "Challenges immersion without user value, starts standard settings work in a familiar window, uses the minimum necessary spatial treatment, supports indirect and alternative inputs without requiring precise gaze or extended reach, and includes comfort, safety, privacy, reduced-motion, seated-use, and non-immersive review."
+    },
+    {
+      "name": "permission-and-notification-trust",
+      "prompt": "Ask for location, contacts, microphone, and notifications at first launch. If people decline, prompt them on every screen and send generic daily reminders until engagement recovers.",
+      "expected": "Rejects up-front bundled and repeated coercive requests; ties each permission to an immediate explained benefit, minimizes access, handles denied, limited, restricted, unavailable, and revoked states, keeps a useful continuation, requests notification consent in context, and limits notifications to timely private user value."
+    }
+  ]
+}
