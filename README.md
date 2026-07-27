@@ -7,9 +7,10 @@
 **Open-source skills for the professional judgment that capable AI agents still
 need to do dependable product and software work.**
 
-24 practice-built skills and 231 focused references for product decisions, web
-experiences, codebase improvement, delivery, engineering leadership,
-go-to-market positioning, professional communication, and web compliance.
+25 practice-built skills and 238 focused references for product decisions, web
+experiences, codebase improvement, delivery, engineering leadership, reliable
+data systems, go-to-market positioning, professional communication, and web
+compliance.
 
 Use one skill when an agent needs deeper judgment for a specific job, or combine
 several in your own downstream agent stack. Each skill turns repeated
@@ -36,7 +37,7 @@ The skill tells a compatible agent what to inspect, which specialist guidance
 to load, where its authority stops, and what evidence is needed before the task
 is complete.
 
-Install all 24 skills only when you want the complete first-party collection:
+Install all 25 skills only when you want the complete first-party collection:
 
 ```sh
 npx skills add sebastian-software/skills.sebastian-software.com --all
@@ -53,7 +54,7 @@ Start with the job you need done rather than the repository taxonomy.
 | --- | --- | --- |
 | Turn incomplete evidence into product direction, scope, or a durable decision | [`product-management`](skills/product-management/), [`product-design`](skills/product-design/), [`decision-records`](skills/decision-records/) |
 | Design, build, review, or improve a production web experience | [`effective-web`](skills/effective-web/), [`locale-typography`](skills/locale-typography/), [`web-legal-compliance`](skills/web-legal-compliance/) |
-| Diagnose a repository and choose the highest-leverage next move | [`codebase-improvement`](skills/codebase-improvement/), [`software-architecture`](skills/software-architecture/) |
+| Diagnose a repository or data system and choose the highest-leverage next move | [`codebase-improvement`](skills/codebase-improvement/), [`software-architecture`](skills/software-architecture/), [`data-systems`](skills/data-systems/) |
 | Take an authorized software change through implementation and verification | [`effective-workflow`](skills/effective-workflow/), [`software-testing`](skills/software-testing/), [`software-validation`](skills/software-validation/) |
 | Clarify ownership, delegation, decision paths, or team load around the work | [`engineering-management`](skills/engineering-management/) |
 | Review, document, modernize, or port an existing codebase | [`pr-review`](skills/pr-review/), [`tech-docs`](skills/tech-docs/), [`smart-dependency-updater`](skills/smart-dependency-updater/), [`port-codebases`](skills/port-codebases/) |
@@ -137,6 +138,7 @@ repository from silently deciding how a user's complete environment behaves.
 | [`rust-engineering`](skills/rust-engineering/) | Strict, readable Rust implementation and review across ownership, errors, concurrency, unsafe code, and FFI. |
 | [`smart-dependency-updater`](skills/smart-dependency-updater/) | Evidence-backed dependency selection, introduction, update portfolios, local adaptation, validation, and PR delivery. |
 | [`software-architecture`](skills/software-architecture/) | Evidence-led system boundaries, operability, architecture tradeoffs, and evolutionary migration paths. |
+| [`data-systems`](skills/data-systems/) | Evidence-led data models, storage choices, consistency guarantees, distribution tradeoffs, and safe data evolution. |
 | [`software-testing`](skills/software-testing/) | Focused non-frontend test and repository-native benchmark design, implementation, and verification. |
 | [`software-validation`](skills/software-validation/) | Repository-native discovery and execution of existing typecheck, lint, test, benchmark, load, build, package, and documentation gates with explicit evidence gaps. |
 | [`tech-docs`](skills/tech-docs/) | Repository-native READMEs, guides, API and CLI references, migration notes, code documentation, examples, and verification. |

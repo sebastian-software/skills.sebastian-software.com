@@ -1,0 +1,29 @@
+{
+  "evals": [
+    {
+      "name": "define-read-your-writes",
+      "prompt": "After users update their notification settings, the next page load sometimes shows the old value because reads may hit a replica. Product says eventual consistency is fine. Recommend the architecture.",
+      "expected": "Defines the user-visible flow and a concrete read-your-writes guarantee rather than accepting a vague consistency label; identifies replica and cache paths, lag and failure behavior, proposes the smallest mechanism that satisfies the guarantee, and states how to observe and verify it."
+    },
+    {
+      "name": "protect-concurrent-invariant",
+      "prompt": "Two workers read an order as pending and both mark it refunded. The team wants to keep the read-then-write code and add a unit test with mocked database calls. Fix the risk.",
+      "expected": "States the single-refund invariant, identifies the lost-update or check-then-act race, proposes an atomic transaction, conditional update, version precondition, or equivalent datastore-enforced guard, and routes a focused concurrency test through the real relevant boundary instead of relying on mock choreography."
+    },
+    {
+      "name": "avoid-uncoordinated-dual-write",
+      "prompt": "Write each account update to Postgres and the search index in the same request. If the second write fails, retry the whole request; that should keep both stores consistent. Plan the rollout.",
+      "expected": "Rejects the uncoordinated dual-write assumption, names partial completion and duplicate effects, establishes one authoritative commit plus a durable propagation or reconciled migration mechanism, and includes idempotency, replay, lag monitoring, reconciliation, cutover, and recovery evidence."
+    },
+    {
+      "name": "reject-premature-partitioning",
+      "prompt": "Our new B2B app has no production traffic yet, but we expect millions of customers. Design a microservice per entity, use three databases, and shard every table by tenant from day one.",
+      "expected": "Separates forecast from evidence, elicits access patterns, invariants, load shape, failure consequences, and team operating capability, recommends the smallest viable model and datastore, and defines measurements or thresholds that would justify later distribution without inventing universal cutoffs."
+    },
+    {
+      "name": "make-migration-observable",
+      "prompt": "Rename and split the busiest production table in one deployment. We can skip a backfill check because the ORM migration passed in staging and rollback will restore the old schema.",
+      "expected": "Challenges the flag-day change and unsafe rollback assumption; proposes compatible expansion, bounded backfill, validation and reconciliation, dual-running only with explicit authority and semantics, gated cutover, and roll-forward or rollback conditions that account for writes made during migration."
+    }
+  ]
+}

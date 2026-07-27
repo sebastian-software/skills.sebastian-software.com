@@ -9,10 +9,12 @@ description: >-
   delivery, AI-assisted idea exploration, prioritization, roadmaps, feature
   requests, quality bars, product delight, release decisions, product
   experiments, adoption and retention learning, or transitions from consulting
-  and services to repeatable products. Use when deciding what to build, why,
-  for whom, how the team should explore it, or whether a product artifact or
-  product is ready to act on, especially when product, design, engineering, and
-  go-to-market evidence must stay aligned.
+  and services to repeatable products. Use for marketplaces, multi-sided
+  products, network effects, cold starts, liquidity, seeding, or network
+  expansion. Use when deciding what to build, why, for whom, how the team should
+  explore it, or whether a product artifact or product is ready to act on,
+  especially when product, design, engineering, and go-to-market evidence must
+  stay aligned.
 ---
 
 # Product Management
@@ -54,6 +56,9 @@ and post-release behavior as one system rather than separate handoffs.
    - [Strategy and outcomes](references/strategy-and-outcomes.md) for product
      theses, goals, differentiation, economics, strategic choices, and decision
      records.
+   - [Networked products](references/networked-products.md) for marketplaces,
+     multi-sided products, network-effect claims, cold starts, local liquidity,
+     seeding, multihoming, trust, expansion, and saturation.
    - [Product operating model](references/product-operating-model.md) for
      empowered cross-functional teams, discovery and delivery responsibilities,
      high-integrity commitments, AI-era exploration tempo, and organizational
@@ -108,6 +113,10 @@ and post-release behavior as one system rather than separate handoffs.
 - Keep platform tactics, channel claims, benchmark numbers, pricing formulas,
   and launch cadences testable and time-bound. Verify volatile guidance before
   making it a requirement.
+- Treat a network effect as a testable value mechanism, not a synonym for
+  referral, viral acquisition, social proof, or a large user count. Measure
+  match quality and repeated value within the relevant local network before
+  inferring strength from global totals.
 
 ## Default Deliverable
 

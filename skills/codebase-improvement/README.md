@@ -8,9 +8,10 @@
 well-supported improvements, and one executable next move.**
 
 Codebase Improvement helps agents audit, prioritize, plan, reconcile, simplify,
-diagnose, and improve software repositories. It favors repository evidence and
-leverage over generic best-practice inventories, producing fewer findings that
-a team can actually act on.
+diagnose, and improve software repositories, including risky changes in
+weakly tested legacy code. It favors repository evidence and leverage over
+generic best-practice inventories, producing fewer findings that a team can
+actually act on.
 
 ## Operating Modes
 
@@ -23,6 +24,8 @@ a team can actually act on.
 - **Review plan:** test an existing plan against current code and conventions.
 - **Reconcile:** classify recorded work as done, stale, blocked, superseded, or
   still valuable.
+- **Plan a legacy change:** locate the change and observation points, establish
+  current behavior, and separate structural preparation from new behavior.
 - **Improve:** implement the agreed scope and verify it proportionately.
 
 ## What It Can Find
@@ -49,6 +52,10 @@ duplicated, blocked, or still worth doing?
 
 Investigate why token refresh intermittently returns 401. Compare plausible
 causes, report what the evidence rules out, and stop before implementing.
+
+Plan a safe change to this untested billing module. Preserve the behavior we
+depend on, mark the known defect explicitly, and keep preparatory refactoring
+separate from the business-rule correction.
 ```
 
 See [SKILL.md](SKILL.md) for the evidence model, artifact boundaries, safety
