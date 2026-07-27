@@ -89,6 +89,26 @@
       "name": "empowered-team-not-feature-factory",
       "prompt": "Leadership has assigned twelve features and a deadline to a product manager, designer, and engineering team. Call them empowered, hold them accountable for retention, and keep customer access and solution decisions with executives.",
       "expected": "Names the feature-factory contradiction, rewrites the assignment around a target customer, outcome, evidence, constraints, and decision window, gives product, design, and engineering shared discovery access and distinct responsibilities, preserves any true commitments explicitly, and identifies the smallest surrounding leadership or governance change needed for genuine outcome accountability."
+    },
+    {
+      "name": "referral-is-not-a-network-effect",
+      "prompt": "Customers invite colleagues for a one-time discount and our sign-ups are growing quickly. Declare that we have strong network effects and recommend spending heavily to acquire users before competitors catch up.",
+      "expected": "Separates referral-driven acquisition and viral distribution from a network effect, tests whether an additional relevant participant improves value or match outcomes for existing participants, examines retention and repeated value after the incentive, and withholds a network-effect or spend recommendation until the mechanism and economics are supported."
+    },
+    {
+      "name": "global-users-do-not-prove-local-liquidity",
+      "prompt": "Our home-services marketplace has one million registered users worldwide, so every new city should work. Set one global user threshold for launch and roll out to fifty cities at once even though customers report slow responses and poor matches outside two dense markets.",
+      "expected": "Rejects global registrations and a universal threshold as evidence of local liquidity, defines the relevant market cell by place, time, category, and participant role, traces discovery through successful fulfillment and repeat use, compares match quality by cohort, and recommends bounded expansion only from locally repeatable evidence."
+    },
+    {
+      "name": "cold-start-focuses-on-the-difficult-side",
+      "prompt": "We are launching a two-sided care marketplace with no providers. Add a waitlist for families, advertise nationally, and show placeholder provider profiles so the marketplace looks active until real supply arrives.",
+      "expected": "Refuses deceptive placeholder supply, identifies the constrained or harder-to-retain side from evidence rather than assuming it, narrows the initial geography, service, and time window to a smallest viable network, proposes honest seeding or concierge operations, includes verification and trust controls, and defines match-quality and repeat-value evidence before expansion."
+    },
+    {
+      "name": "multihoming-and-saturation-limit-expansion",
+      "prompt": "Drivers and riders use several mobility apps, completed rides are flattening in our strongest district, and cancellations rise at peak times. Treat every additional account as more network value, block participants from using competitors, and expand nationwide.",
+      "expected": "Distinguishes account growth from incremental participant value, investigates multihoming, congestion, capacity, cancellations, and diminishing returns in the current local network, rejects coercive lock-in, improves differentiated workflow or trust value, and requires a stable local operating pattern before choosing an adjacent expansion cell."
     }
   ]
 }
