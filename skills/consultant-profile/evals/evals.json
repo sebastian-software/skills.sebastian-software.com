@@ -17,13 +17,28 @@
     },
     {
       "name": "localize-profile-for-dach-and-linkedin",
-      "prompt": "I need German and English versions of my consultant profile for DACH clients, international EU leads, and LinkedIn. Do not just translate it literally; adapt tone and structure.",
-      "expected": "A localization plan with DACH/German, EU/international English, and LinkedIn variants, including headline/About examples, terminology choices, and notes on what facts must stay aligned."
+      "prompt": "I need German and English versions of my consultant profile for direct buyers and staffing partners in Germany, Austria, and Switzerland, plus international EU leads and LinkedIn. Do not just translate it literally or assume one DACH CV format; adapt tone, structure, and operational details.",
+      "expected": "A localization plan that combines country and buying channel, distinguishes German, Austrian, and Swiss conventions where relevant, separates consultant sales from employment-CV conventions, includes EU/international English and LinkedIn variants, and notes which facts must stay aligned."
+    },
+    {
+      "name": "map-staffing-brief-to-consultant-evidence",
+      "prompt": "Adapt my consultant profile to this Swiss staffing brief. Separate hard requirements from useful and contextual signals, show which supplied projects prove each one, and include relevant availability and delivery details. Do not invent missing experience, rate my skills without evidence, or give me a made-up match percentage.",
+      "expected": "A qualitative opportunity-fit map tied to supplied evidence, unresolved gaps kept explicit, Swiss staffing conventions applied without turning the profile into an exhaustive archive, evidence-based skill descriptions, and only supplied channel-relevant operational facts such as availability, location, delivery setup, travel, languages, engagement model, or rate."
+    },
+    {
+      "name": "map-master-profile-to-marketplace-fields",
+      "prompt": "Compare my master consultant profile with the fields currently expected or exposed by Hays, GULP, SOLCOM, Malt, and Upwork. Give me one reusable field model and provider-specific mappings. Distinguish documented requirements, recommendations, buyer filters, and merely observed profile fields. Do not put private registration data or platform-owned ratings into my CV, and do not invent my rate or availability.",
+      "expected": "A dated provider-field audit that re-checks current public documentation, maps stable master fields to exact provider terminology, distinguishes reusable profile facts, private/account data, operational or application-only fields, and platform-owned signals, preserves rate and capacity units, labels evidence and uncertainty, and reports missing values instead of inventing them."
     },
     {
       "name": "sync-linkedin-with-pdf-profile",
       "prompt": "Review my LinkedIn profile against my PDF consultant profile. I want LinkedIn to stay updated from the same project data, but I am not sure what should be copied, shortened, or posted separately.",
       "expected": "A channel comparison and sync plan covering LinkedIn headline, About, Featured, Experience, skills, recommendations, activity, source-of-truth data, and API/platform caution."
+    },
+    {
+      "name": "curate-and-translate-linkedin-recommendations",
+      "prompt": "I have about 20 LinkedIn recommendations in German and English that describe my strengths well. Help me use a few in German and English consultant CVs so the quotes are clearly external, traceable, and faithfully translated. I do not want a testimonial wall or wording that looks self-authored.",
+      "expected": "A recommendation inventory and thematic signal map, relevance-based selection by channel, a reusable source record with original and localized text, known reuse restrictions or sensitivities, author relationship and role/company at the time, date and source locator, concise attributed quote examples, visible translation and omission labels, and caution about LinkedIn visibility and lack of dependable individual public permalinks. It should allow routine short, faithful, attributed reuse and translation of accepted public LinkedIn recommendations without a bureaucratic second approval round, while escalating genuinely sensitive uses."
     },
     {
       "name": "strengthen-tone-without-invention",
@@ -43,7 +58,7 @@
     {
       "name": "run-completeness-interview-pass",
       "prompt": "Run an interview/completeness pass before rewriting my consultant profile. The current homepage misses older projects that exist on the old homepage and LinkedIn, and I also have LinkedIn recommendations that may contain useful signals but should not be pasted into the profile.",
-      "expected": "A source inventory, project completeness table, prioritized interview questions, reference-signal map, and a recommendation for what can be safely improved now versus what needs answers or permission."
+      "expected": "A source inventory, project completeness table, prioritized interview questions, reference-signal map, and a recommendation for what can be safely improved now versus what needs answers or confirmation."
     },
     {
       "name": "translate-personality-into-professional-language",

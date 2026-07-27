@@ -1,0 +1,4 @@
+interface:
+  display_name: "Nonfiction Writing"
+  short_description: "Write clear, persuasive nonfiction"
+  default_prompt: "Use $nonfiction-writing to turn these ideas into clear, persuasive prose without inventing facts."

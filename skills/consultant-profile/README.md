@@ -18,10 +18,15 @@ inventory with evidence-led positioning and a coherent career narrative.
 - a profile thesis and differentiated positioning
 - evidence-led project selection and prominence
 - complete case studies with context, responsibility, decisions, and outcomes
+- a curated external-proof strategy for multilingual LinkedIn recommendations,
+  testimonials, practical reuse, attribution, and source links
 - a connected professional narrative instead of a loose project list
 - gap analysis and interview questions for missing evidence
 - synchronized CV, website, LinkedIn, bio, and project-list content
-- localized versions that preserve meaning and professional credibility
+- country- and channel-aware variants for Germany, Austria, Switzerland,
+  international markets, direct buyers, staffing, and public profiles
+- a stable consultant master-field model plus dated adapters for DACH
+  intermediaries and international expert marketplaces
 
 ## Use It When
 
@@ -41,6 +46,14 @@ inventing metrics or responsibilities.
 
 Build one coherent narrative across my website profile, LinkedIn, and the CV I
 send to staffing partners.
+
+Map my master consultant profile to the current public fields used by Hays,
+GULP, SOLCOM, Malt, and Upwork. Keep private intake data and platform-owned
+ratings separate from reusable CV content.
+
+Turn my German and English LinkedIn recommendations into a small set of
+properly attributed, translated proof quotes for my German and English
+consultant profiles without making them look self-authored.
 
 Interview me for the missing information needed to position me as a senior
 frontend and product consultant.

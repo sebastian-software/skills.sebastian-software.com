@@ -45,15 +45,13 @@ Do not assume a good product markets itself. Product quality can strengthen
 retention and referral, but it does not create awareness or a repeatable channel
 by itself.
 
-## Route specialized work
+## Bound the handoff
 
-The following marketing specialists come from the separately managed DALO
-`marketingskills` catalog, not this repository:
+This reference prepares product evidence for downstream decisions. It does not
+run a customer research program, create a complete positioning or messaging
+system, conduct pricing and packaging research, or own channel planning and
+launch execution.
 
-- Use `customer-research` for a dedicated research program.
-- Use `product-marketing` for positioning and messaging artifacts.
-- Use `pricing` for pricing research and packaging decisions.
-- Use `marketing-plan` and `launch` for channel and launch execution.
 - Use `linkedin-social-selling` only when LinkedIn fits the target buyer and
   touch model.
 - Use `effective-web` for the implemented web journey and measurement surfaces.

@@ -20,6 +20,11 @@ MARKDOWN_LINK = re.compile(r"\[[^\]]*\]\(([^)]+)\)")
 MARKDOWN_HEADING = re.compile(r"^#{1,6}\s+(.+?)\s*$")
 MARKDOWN_FENCE = re.compile(r"^\s{0,3}(`{3,}|~{3,})(.*)$")
 INLINE_CODE = re.compile(r"``[^`]*``|`[^`\n]*`")
+INLINE_IDENTIFIER = re.compile(r"`([a-z][a-z0-9-]*)`")
+EXPLICIT_SKILL_REFERENCE = re.compile(
+    r"`([a-z][a-z0-9-]*)`\s+skills?\b|\bskills?\s+`([a-z][a-z0-9-]*)`",
+    re.IGNORECASE,
+)
 FRONTMATTER_KEY = re.compile(r"^([A-Za-z_][\w.-]*):\s*(.*)$")
 MAX_DESCRIPTION_LENGTH = 1024
 SKILL_LINE_LIMIT = 300
@@ -136,6 +141,36 @@ def validate_isolated_skill_runtime_links(
                     f"{markdown.relative_to(REPOSITORY_ROOT)}: sibling-skill link "
                     f"{target}; use inline `{sibling_path.parts[0]}` guidance instead"
                 )
+
+
+def validate_first_party_skill_references(
+    skill_directory: Path, skill_names: set[str], errors: list[str]
+) -> None:
+    """Reject named runtime handoffs to skills outside this repository."""
+    runtime_documents = [skill_directory / "SKILL.md"]
+    references_directory = skill_directory / "references"
+    if references_directory.is_dir():
+        runtime_documents.extend(sorted(references_directory.rglob("*.md")))
+
+    for markdown in runtime_documents:
+        text = without_fenced_code(markdown.read_text(encoding="utf-8"))
+        candidates: set[str] = set()
+
+        for match in EXPLICIT_SKILL_REFERENCE.finditer(text):
+            candidates.add(match.group(1) or match.group(2))
+
+        if markdown == skill_directory / "SKILL.md":
+            routing = re.split(
+                r"^## Routing Boundaries\s*$", text, maxsplit=1, flags=re.MULTILINE
+            )
+            if len(routing) == 2:
+                candidates.update(INLINE_IDENTIFIER.findall(routing[1]))
+
+        for candidate in sorted(candidates - skill_names):
+            errors.append(
+                f"{markdown.relative_to(REPOSITORY_ROOT)}: named skill reference "
+                f"`{candidate}` does not match a first-party skill directory"
+            )
 
 
 def parse_skill_frontmatter(text: str) -> dict[str, str] | None:
@@ -642,6 +677,7 @@ def main() -> int:
     root_readme = REPOSITORY_ROOT / "README.md"
     root_text = root_readme.read_text(encoding="utf-8")
     skill_directories = sorted(path.parent for path in SKILLS_ROOT.glob("*/SKILL.md"))
+    skill_names = {skill_directory.name for skill_directory in skill_directories}
 
     markdown_files = [root_readme]
     for skill_directory in skill_directories:
@@ -668,6 +704,7 @@ def main() -> int:
             reference_context_reports,
         )
         validate_isolated_skill_runtime_links(skill_directory, errors)
+        validate_first_party_skill_references(skill_directory, skill_names, errors)
         validate_reference_orphans(skill_directory, errors)
         validate_required_readme_fragments(name, text, errors)
 

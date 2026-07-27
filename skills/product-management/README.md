@@ -22,6 +22,8 @@ handoffs.
 - behavioral review calibration with counterfactual cases and outcome learning
 - customer-problem and Jobs-to-be-Done synthesis
 - product briefs, strategy, outcomes, and initial scope
+- empowered-team and product-operating-model recommendations
+- AI-assisted exploration portfolios with evidence and commitment gates
 - prioritization decisions and outcome-oriented roadmaps
 - feature-request and quality-bar reviews
 - release, experiment, adoption, retention, and post-launch recommendations
@@ -57,6 +59,14 @@ distribution path, and post-release learning plan.
 
 Help us turn this consulting workflow into a repeatable software product without
 inventing demand we have not validated.
+
+Our team keeps accepting the first plausible AI-generated solution. Design an
+exploration cadence that gets us to materially different options quickly
+without confusing prototypes with customer evidence.
+
+Turn this executive feature list into an empowered-team brief with an outcome,
+constraints, shared product-design-engineering responsibilities, and honest
+commitment gates.
 ```
 
 See [SKILL.md](SKILL.md) for the evidence model, workflow routes, operating
@@ -97,9 +107,9 @@ dalo sync
 ## Scope
 
 This skill supports product judgment; it does not manufacture customer
-research, demand, metrics, commitments, or certainty. Dedicated design,
-implementation, legal, and channel work should move to the relevant specialist
-skill once the product decision is stable.
+research, demand, metrics, commitments, or certainty. Design, implementation,
+legal, and channel execution remain outside its scope except where a
+first-party skill named above owns the handoff.
 
 ## About Sebastian Software
 

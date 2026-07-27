@@ -1,12 +1,11 @@
 # Voice
 
 Sound like a real person on the team wrote it quickly but carefully. Lean on
-the `metro-english` skill (presets for PR review comments, issue comments, and
-async updates) and `humanizer` from the separately managed DALO
-`marketingskills` catalog (to strip AI tells) when they match the repository.
-Follow the repository's established language and communication conventions;
-when none exist, use concise professional English for GitHub and match the
-user's language in the private status summary.
+the `metro-english` skill for PR review comments, issue comments, and async
+updates when it matches the repository. Strip AI tells, follow the repository's
+established language and communication conventions, and use concise
+professional English for GitHub when none exist. Match the user's language in
+the private status summary.
 
 - **Inline, no label prefixes.** Put comments on the actual line; don't prefix
   with `nit:` / `issue:` / `suggestion:`. Severity lives in the sentence —
@@ -23,9 +22,9 @@ user's language in the private status summary.
 - **Optional means optional.** Taste, naming alternatives, formatting, and
   speculative refactors must be explicitly skippable and must not appear in a
   request-changes review as required work.
-- Avoid the AI/corporate tells targeted by `humanizer` (no "crucial",
-  "seamless", "I hope this helps", forced rule-of-three, em-dash soup, bolded
-  `**Label:**` bullets, emoji decoration).
+- Avoid common AI/corporate tells: no "crucial", "seamless", "I hope this
+  helps", forced rule-of-three, em-dash soup, bolded `**Label:**` bullets, or
+  emoji decoration.
 
 Calibrate against the sample replies in
 [voice examples](voice-examples.md).

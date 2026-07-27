@@ -290,10 +290,10 @@ Avoid dumping the full changelog. The PR should answer "what does this change fo
 
 Writing quality:
 
-- Use `copywriting` from the separately managed DALO `marketingskills` catalog:
-  lead with the main review question, then give enough detail to make approval easy.
-- Use `humanizer` from the separately managed DALO `marketingskills` catalog:
-  remove stiff AI phrasing, generic praise, empty transitions, and vague claims.
+- Lead with the main review question, then give enough detail to make approval
+  easy.
+- Remove stiff AI phrasing, generic praise, empty transitions, and vague
+  claims.
 - Prefer concrete local impact over broad upstream summaries.
 - Keep bullets readable. One dense bullet that lists every upstream release is worse than two short bullets that explain what changed locally.
 - Name deferred work explicitly, especially major upgrades split into follow-up PRs.

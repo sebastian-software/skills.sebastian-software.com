@@ -81,9 +81,8 @@ broad design route and load the matching focused route directly.
   and verification work.
 - Route locale-specific punctuation, quotation, spacing, and language-level
   typographic rules to `locale-typography`.
-- Route general marketing copy and campaigns to the separately managed skills
-  selected from the DALO `marketingskills` catalog; use Interface Copy only for
-  language embedded in a web experience.
+- Keep general marketing copy and campaign strategy outside this skill; use
+  Interface Copy only for language embedded in a web experience.
 - Route non-frontend TypeScript engineering depth — server-side and
   shared-library type, module, async, error, and tooling contracts — to
   `typescript-engineering`; keep browser-facing TypeScript here.

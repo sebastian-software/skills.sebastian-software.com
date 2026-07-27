@@ -73,7 +73,8 @@ Before rewriting, classify every project and source:
 - **Mention-only** - name/client exists but not enough context yet.
 - **Reference-only** - useful as proof or perception signal, not a project entry.
 - **Archive-only** - keep for completeness but probably not prominent.
-- **Needs permission** - do not publish client name, quote, metric, or outcome until verified.
+- **Needs confirmation** - do not publish a restricted client name, private
+  quote, sensitive metric, or confidential outcome until verified.
 
 Then produce a gap map:
 
@@ -143,6 +144,16 @@ Ask when the project list feels disconnected:
 
 Do not paste long recommendations into the main profile unless the output format explicitly calls for testimonials. Long references usually work better as source material than as body copy.
 
+In German, distinguish **Empfehlungen** or **Stimmen aus der Zusammenarbeit**
+from **Referenzen**. The latter often means people a buyer may contact. Use
+`Stimmen aus der Zusammenarbeit` for attributed quotes in a consultant profile
+and reserve `Referenzen` or `Referenzkontakte` for contactable people.
+
+At last review (2026-07-24), LinkedIn stated that received recommendations are
+fully visible only to signed-in first-, second-, and third-degree connections.
+A public profile shows the number of recommenders and at most two received
+recommendations. Do not rely on a LinkedIn link as the only proof layer.
+
 Extract these signals instead:
 
 - **Perceived strengths** - what others repeatedly say the consultant is good at
@@ -150,7 +161,7 @@ Extract these signals instead:
 - **Trust signals** - senior stakeholders trusted them, difficult work was assigned, teams wanted to work with them again
 - **Impact language** - what others say changed because of the work
 - **Differentiators** - unusual combinations such as technical depth plus product judgment
-- **Exact phrases** - short phrases that can inspire profile language, if permission allows
+- **Exact phrases** - short phrases that can inspire profile language or become attributed excerpts
 
 Classify each reference:
 
@@ -161,15 +172,150 @@ Classify each reference:
 - narrative-arc clue
 - not relevant for public profile
 
+### Recommendation Record Schema
+
+With a large collection, create one record per recommendation:
+
+- **Author** - exact public name
+- **Relationship and context** - client, manager, peer, direct report,
+  partner, project, and the role selected in LinkedIn
+- **Role and organization at the time** - do not silently replace historical
+  context with the person's current title
+- **Published date**
+- **Source platform and locator** - LinkedIn profile URL, recommendations-page
+  URL if currently functional, received/given tab, author, and date
+- **Original language and exact text**
+- **Reuse status and sensitivity** - accepted public recommendation; private or
+  withdrawn; known restriction; routine excerpt/translation; sensitive
+  full-text, advertising, photo/logo, confidential, or heavily edited use
+- **Themes** - capability, impact, trust, working style, leadership,
+  collaboration, technical depth, product judgment, or other repeated signals
+- **Relevant project or claim**
+- **Selected excerpts** - preserve omissions and surrounding meaning
+- **Localized versions** - locale, translator/reviewer, translation status,
+  author approval if obtained
+- **Channel status** - selected for website, German CV, English CV, proposal,
+  appendix, or source-only
+- **Last verified**
+
+LinkedIn's account-data download includes received recommendations with name,
+associated company, description, and published date. Prefer that export or
+user-supplied copies for inventory work; do not scrape profiles.
+
+### Select, Do Not Dump
+
+Treat 20 recommendations as an evidence dataset, not 20 blocks that must fit in
+the CV.
+
+Select by:
+
+- relevance to what the consultant should be hired for next
+- specificity about an observable strength, action, or outcome
+- strength and clarity of the author's relationship to the work
+- coverage of a distinct proof theme instead of repeating the same praise
+- recency where it matters
+- ability to attribute the quote and absence of known restrictions
+
+A strong main profile usually needs only two or three short quotes. Use the
+larger collection to identify recurring language and to supply
+opportunity-specific variants.
+
+### Attribution and Provenance
+
+Make third-party authorship obvious without turning the CV into an academic
+citation system.
+
+Put these elements next to each quote:
+
+1. short, faithful quotation
+2. author name
+3. relationship or collaboration context
+4. role and organization at the time
+5. recommendation date or project period
+6. translation/omission note when applicable
+7. source label or link
+
+German pattern:
+
+```text
+„[Kurzer externer Beleg für eine konkrete Stärke …]“
+— Vorname Nachname, damalige Rolle bei Unternehmen
+  Zusammenarbeit: [Projekt/Rolle], 2023
+  Aus dem englischen Original übersetzt · Original auf LinkedIn
+```
+
+English pattern:
+
+```text
+“[Short external proof of one concrete strength …]”
+— Firstname Lastname, then [role] at [company]
+  Worked together on [context], 2023
+  Translated from the German original · View original on LinkedIn
+```
+
+If shortened, use `[…]` and optionally add `gekürzt` / `excerpt`. Never combine
+separate phrases in a way that changes the author's claim.
+
+### Link Strategy
+
+Use links as supporting provenance, not as the complete attribution.
+
+- In a PDF, hyperlink a descriptive label such as `Original auf LinkedIn`;
+  avoid raw tracking URLs and do not make a QR code the only route.
+- A current URL shaped like
+  `linkedin.com/in/<profile>/details/recommendations/` may open the
+  recommendations section, but LinkedIn does not document dependable public
+  permalinks for individual recommendations. Verify the link before release.
+- Add author and date as a source locator because visibility, login state, and
+  LinkedIn UI can prevent the reader from seeing the same recommendation.
+- For durable website use, consider an attributed evidence page with a stable
+  anchor per recommendation, the localized excerpt, the original-language
+  text, attribution, and a LinkedIn source link.
+- Link the author's profile only as identity context; it does not by itself
+  prove the exact wording.
+
+### Practical Reuse Rule
+
+Do not turn routine use of an accepted public LinkedIn recommendation into a
+second approval workflow. For a normal website, consultant CV, or proposal,
+the practical default is:
+
+- select a short, faithful excerpt
+- attribute it locally with author and collaboration context
+- label translation and omissions
+- link or point to the LinkedIn source where practical
+- remove or adjust it promptly if the author later objects
+
+This is a pragmatic editorial default, not a universal legal conclusion. Ask
+or confirm only when the reuse materially changes the risk or relationship:
+
+- publishing the complete recommendation rather than a short excerpt
+- using the quote in paid promotion or as a prominent advertising claim
+- using the author's photo, company logo, or confidential project detail
+- making substantial edits or a translation whose tone or meaning is uncertain
+- republishing a private, withdrawn, disputed, or restricted recommendation
+- presenting an author's current employer as endorsing the consultant
+
+Do not make the low-risk path so burdensome that useful social proof never gets
+used.
+
 ## Where References Belong
 
 Use references differently by channel:
 
-- **LinkedIn** - keep recommendations on LinkedIn; summarize recurring themes in About or Experience, and point readers to recommendations only if useful.
-- **Website** - use one or two short testimonial excerpts only when they support the page's positioning and permission is clear.
-- **PDF consultant profile** - usually summarize proof signals; include full references only in a separate appendix or "References available" section.
-- **Proposal bio** - use the most relevant reference angle for the buyer's situation.
-- **Internal source of truth** - store full recommendation text, source, date, author, relationship, permission, and extracted signals.
+- **LinkedIn** - keep the full collection on LinkedIn; summarize recurring
+  themes in About or Experience and control which recommendations are visible.
+- **Website** - use a small number of short, attributed excerpts near the
+  claims they prove; an optional evidence page can hold originals and
+  translations.
+- **PDF consultant profile** - use two or three short, locally attributed
+  quotes at most, or summarize proof signals. Put a larger attributed
+  collection in a separate appendix only when the buying situation benefits.
+- **Proposal bio** - select one recommendation that directly supports the
+  buyer's situation.
+- **Internal source of truth** - store full recommendation text, source, date,
+  author, relationship, known restrictions/sensitivities, and extracted
+  signals.
 
 Avoid turning the profile into a testimonial wall. References are evidence, not the structure.
 
@@ -179,17 +325,38 @@ Return:
 
 1. **Source Inventory** - sources reviewed or requested.
 2. **Project Inventory** - known projects, missing projects, duplicates, and likely high-signal gaps.
-3. **Completeness Table** - complete, incomplete, mention-only, reference-only, archive-only, needs permission.
+3. **Completeness Table** - complete, incomplete, mention-only, reference-only,
+   archive-only, needs confirmation.
 4. **Interview Questions** - the next 3-7 highest-value questions.
 5. **Reference Signal Map** - themes extracted from recommendations/references.
-6. **Next Profile Update** - what can be safely improved now vs what should wait for answers.
+6. **Recommendation Usage Map** - selected quote, supported claim, channel,
+   attribution, source, translation, reuse sensitivity, and unresolved action.
+7. **Next Profile Update** - what can be safely improved now vs what should wait for answers.
 
 ## Guardrails
 
 - Do not invent missing project details.
-- Do not publish private recommendations without permission.
+- Do not publish private, withdrawn, disputed, or explicitly restricted
+  recommendations.
+- Do not require a second approval round for routine short, faithful,
+  attributed use or translation of an accepted public LinkedIn recommendation.
 - Do not quote long references unless explicitly requested and allowed.
+- Do not hide translation, omissions, or unclear provenance.
+- Do not scrape LinkedIn; work from user-provided material or account exports.
 - Do not let data collection block all progress; improve what is supported, then mark the rest as open.
 - Do not over-interview. Ask enough to unblock the next profile improvement.
 
 The best interview mode feels like a senior editor helping the user remember and organize the evidence they already have.
+
+## Source Notes
+
+- LinkedIn Help,
+  [visibility of recommendations](https://www.linkedin.com/help/linkedin/answer/a544830),
+  [hide and unhide recommendations](https://www.linkedin.com/help/linkedin/answer/a542730),
+  [recommend someone](https://www.linkedin.com/help/linkedin/answer/a543723),
+  [download account data](https://www.linkedin.com/help/linkedin/answer/a1339364),
+  and [public profile visibility](https://www.linkedin.com/help/linkedin/answer/a518980)
+- Chicago Manual of Style,
+  [acknowledging one's own translation](https://www.chicagomanualofstyle.org/qanda/data/faq/topics/Documentation/faq0174.html)
+- MLA Style Center,
+  [local attribution for quoted material](https://style.mla.org/quotation-in-title-or-heading/)

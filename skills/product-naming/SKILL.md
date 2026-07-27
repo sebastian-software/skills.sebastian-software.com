@@ -86,9 +86,8 @@ For a full naming assignment, return:
   or portfolio architecture before naming.
 - Use `consultant-profile` when naming is part of an individual consultant's
   positioning rather than a product or business identity.
-- Use `product-marketing` from the separately managed DALO `marketingskills`
-  catalog after the name is selected for messaging and launch work; use a brand
-  specialist only when one is separately configured.
+- Hand post-selection messaging and launch work to a product marketing
+  specialist; use a brand specialist only when one is available.
 - Use `web-legal-compliance` for website disclosures and jurisdiction-specific
   launch requirements; it does not replace trademark counsel.
 - Use `decision-records` to preserve a durable naming choice, the rejected

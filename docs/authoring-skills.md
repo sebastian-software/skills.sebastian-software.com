@@ -109,6 +109,11 @@ The description is what an agent sees before deciding whether to load a skill.
 - Cross-reference other skills by their frontmatter name in inline code, for
   example: route frontend work through `effective-web`. Do not use prose names,
   quotes, or bare links for skill-name cross references.
+- Name only first-party skills that exist directly below `skills/`. Describe an
+  unowned or external capability as outside the current skill's scope without
+  inventing a downstream skill slot. The validator treats backticked
+  identifiers in `## Routing Boundaries` and explicit phrases such as
+  `` `example` skill `` as first-party skill references.
 - Keep `SKILL.md` at or below 300 lines. The body owns the trigger, workflow,
   routing, and boundaries; detailed tables, policy text, and examples belong in
   `references/`. `scripts/validate-readmes.py` enforces this limit and the
@@ -253,14 +258,18 @@ at its owner instead of adding another exception to an already layered rule set.
 ## First-Party Boundary
 
 Everything below `skills/` is maintained here as Sebastian Software source.
-External skills must be configured as DALO catalog sources. Do not copy them,
-rename their frontmatter, add `SOURCE.md` snapshots, or maintain repository-local
-source and lock manifests.
+Do not copy external skills, rename their frontmatter, add `SOURCE.md`
+snapshots, or maintain external source selections and pins in this repository.
 
-Label an external dependency at every mention site as "`<name>` from the
-separately managed DALO `<catalog>` catalog." Reference files can be loaded
-without their parent `SKILL.md`, so do not rely on provenance stated elsewhere
-and never describe a catalog skill as local.
+State a skill's boundary in capability terms that remain useful when the skill
+is installed alone. Exact external slot names, catalog provenance, selections,
+version pins, precedence, and cross-source routing belong in a downstream agent
+stack.
+
+Named runtime references are closed over this repository: every named skill
+must match an existing first-party skill directory. Do not leave a dead named
+handoff for an external or formerly installed skill. When no first-party owner
+exists, state what the current skill does and does not cover, then stop.
 
 ## Delivery Worktree Inventory
 

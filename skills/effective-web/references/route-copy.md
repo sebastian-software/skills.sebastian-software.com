@@ -28,7 +28,7 @@ Use this skill for words inside product UI: labels, helper text, empty states, h
 
 ## References
 
-- [copywriting.md](copywriting.md) - concise interface and product copy rules.
+- [interface-copy.md](interface-copy.md) - concise interface and product copy rules.
 - [editorial-ux.md](editorial-ux.md) - editorial UX patterns and wording checks.
 - [ui-antipatterns.md](ui-antipatterns.md) - contextual generated-copy and
   marketing tells plus exception handling.

@@ -5,10 +5,12 @@ description: >-
   digital products. Use for product discovery and research to decide what or
   whether to build, product briefs and evidence audits, customer problems and
   Jobs to be Done, product strategy, outcomes, MVP or initial scope,
-  prioritization, roadmaps, feature requests, quality bars, product delight,
-  release decisions, product experiments, adoption and retention learning, or
-  transitions from consulting and services to repeatable products. Use when
-  deciding what to build, why, for whom, or whether a product artifact or
+  product operating models and empowered teams, continuous discovery and
+  delivery, AI-assisted idea exploration, prioritization, roadmaps, feature
+  requests, quality bars, product delight, release decisions, product
+  experiments, adoption and retention learning, or transitions from consulting
+  and services to repeatable products. Use when deciding what to build, why,
+  for whom, how the team should explore it, or whether a product artifact or
   product is ready to act on, especially when product, design, engineering, and
   go-to-market evidence must stay aligned.
 ---
@@ -52,6 +54,10 @@ and post-release behavior as one system rather than separate handoffs.
    - [Strategy and outcomes](references/strategy-and-outcomes.md) for product
      theses, goals, differentiation, economics, strategic choices, and decision
      records.
+   - [Product operating model](references/product-operating-model.md) for
+     empowered cross-functional teams, discovery and delivery responsibilities,
+     high-integrity commitments, AI-era exploration tempo, and organizational
+     change away from feature-factory behavior.
    - [Scope and prioritization](references/scope-and-prioritization.md) for
      initial releases, feature requests, roadmaps, tradeoffs, and non-goals.
    - [Product quality and delight](references/product-quality-and-delight.md)
@@ -89,8 +95,10 @@ and post-release behavior as one system rather than separate handoffs.
   a substitute for distribution. A good launch cannot rescue an irrelevant
   product, and a good product does not guarantee discovery.
 - Ground AI-assisted product work in real evidence and accountable judgment.
-  Use AI to expose options and missing questions, never to synthesize fictional
-  customer certainty or generic market strategy.
+  Use AI to expose many materially different options, assumptions, and missing
+  questions, never to synthesize fictional customer certainty or generic market
+  strategy. Cheap generation should increase exploration breadth, not lower the
+  evidence required for consequential commitments.
 - When reviewing an existing artifact, inventory its claims and supplied
   evidence before applying preferred product frameworks. Do not let a strong
   template manufacture support.
@@ -121,11 +129,12 @@ For an existing artifact or decision-readiness audit, use the deliverable in
 
 - Use `product-naming` after the product thesis, target user, and differentiation
   are stable enough to support a naming brief.
-- Use `customer-research` from the separately managed DALO `marketingskills`
-  catalog to execute a focused research program; use this skill to frame the
-  decision and synthesize the evidence.
-- Use `product-marketing`, `marketing-plan`, `launch`, and `pricing` from that
-  catalog for their dedicated deliverables after the product brief is stable.
+- Use this skill to frame the product decision and synthesize supplied customer
+  evidence. Recruitment, fieldwork, participant operations, and execution of a
+  focused research program remain outside its scope.
+- Carry stable product evidence into a bounded go-to-market handoff.
+  Full positioning systems, marketing plans, launch execution, and pricing
+  research remain outside this skill's scope.
 - Use `linkedin-social-selling` when LinkedIn is an evidence-backed acquisition
   or conversation channel, and `linkedin-posts` for post-only work.
 - Use `product-design` to research, frame, model, structure, and prototype the

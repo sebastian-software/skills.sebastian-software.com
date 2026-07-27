@@ -1,8 +1,10 @@
 # Autonomy and Motivation
 
-Design engagement around the outcome a person chose, not the product's desire
-for repeated activity. Use rewards, progression, prompts, and friction only
-when they support agency, growing capability, meaningful connection, or safety.
+Design engagement around an outcome a person values while recognizing that the
+product also needs adoption, repetition, and a viable business. Products
+inevitably influence behavior; use rewards, progression, prompts, and friction
+deliberately, then test whether the exchange remains understandable,
+proportionate, and worth it for the person.
 
 ## Diagnose the motivation context
 
