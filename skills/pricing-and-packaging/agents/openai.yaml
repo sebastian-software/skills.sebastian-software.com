@@ -1,0 +1,4 @@
+interface:
+  display_name: "Pricing and Packaging"
+  short_description: "Design evidence-led pricing and packages"
+  default_prompt: "Use $pricing-and-packaging to research and design an evidence-led pricing and packaging decision."

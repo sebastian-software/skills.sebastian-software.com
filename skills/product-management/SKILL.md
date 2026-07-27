@@ -134,7 +134,9 @@ For an existing artifact or decision-readiness audit, use the deliverable in
   focused research program remain outside its scope.
 - Carry stable product evidence into a bounded go-to-market handoff.
   Full positioning systems, marketing plans, launch execution, and pricing
-  research remain outside this skill's scope.
+  research remain outside this skill's scope. Use `pricing-and-packaging` for
+  willingness-to-pay research, value metrics, pricing models, packages,
+  discounts, trials, and existing-customer price changes.
 - Use `linkedin-social-selling` when LinkedIn is an evidence-backed acquisition
   or conversation channel, and `linkedin-posts` for post-only work.
 - Use `product-design` to research, frame, model, structure, and prototype the

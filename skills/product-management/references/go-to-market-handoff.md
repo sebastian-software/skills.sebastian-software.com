@@ -54,6 +54,8 @@ launch execution.
 
 - Use `linkedin-social-selling` only when LinkedIn fits the target buyer and
   touch model.
+- Use `pricing-and-packaging` for willingness-to-pay research, value metrics,
+  pricing models, packages, commercial policies, and price changes.
 - Use `effective-web` for the implemented web journey and measurement surfaces.
 - Use `web-legal-compliance` before tracking, testimonials, lead capture, or
   direct-marketing behavior is approved.
