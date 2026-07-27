@@ -10,6 +10,7 @@ https?://www\.solcom\.de/.*
 # A new main-branch route cannot resolve before its first merge. Repository
 # inventory and local links are checked by scripts/validate-readmes.py.
 https://github\.com/sebastian-software/skills\.sebastian-software\.com/tree/main/skills/nonfiction-writing
+https://github\.com/sebastian-software/skills\.sebastian-software\.com/blob/main/docs/adr/0002-pr-review-impact-context\.md
 
 # These live primary sources reject, reset, or time out on GitHub Actions'
 # link-check traffic.
@@ -34,3 +35,8 @@ https://frageladan\.isof\.se/faqs/23562
 # connection failure. It broke every open pull request while main stayed green by
 # chance; verified reachable manually.
 https://sprakradet\.no/.*
+
+# 2026-07-27: GitHub renders pull-request review-comment anchors client-side, so
+# --include-fragments can never resolve them from the served HTML. The pull
+# request itself is still checked; only the comment anchor is skipped.
+https://github\.com/.*/pull/[0-9]+\#discussion_r[0-9]+
