@@ -22,6 +22,7 @@ handoffs.
 - behavioral review calibration with counterfactual cases and outcome learning
 - customer-problem and Jobs-to-be-Done synthesis
 - product briefs, strategy, outcomes, and initial scope
+- marketplace and multi-sided product strategy, cold-start, and liquidity plans
 - empowered-team and product-operating-model recommendations
 - AI-assisted exploration portfolios with evidence and commitment gates
 - prioritization decisions and outcome-oriented roadmaps
@@ -67,6 +68,13 @@ without confusing prototypes with customer evidence.
 Turn this executive feature list into an empowered-team brief with an outcome,
 constraints, shared product-design-engineering responsibilities, and honest
 commitment gates.
+
+Determine whether this referral loop is a real network effect, then design a
+cold-start plan for the smallest market where reliable matches are possible.
+
+Our marketplace has many registered users but poor matches in most cities.
+Diagnose local liquidity, the difficult side, trust failures, and the next
+expansion decision without inventing a universal density threshold.
 ```
 
 See [SKILL.md](SKILL.md) for the evidence model, workflow routes, operating
@@ -107,9 +115,11 @@ dalo sync
 ## Scope
 
 This skill supports product judgment; it does not manufacture customer
-research, demand, metrics, commitments, or certainty. Design, implementation,
-legal, and channel execution remain outside its scope except where a
-first-party skill named above owns the handoff.
+research, demand, metrics, commitments, network effects, or certainty. It
+diagnoses product and market mechanisms but does not operate marketplace
+participants or decide regulated market access. Design, implementation, legal,
+and channel execution remain outside its scope except where a first-party skill
+named above owns the handoff.
 
 ## About Sebastian Software
 
