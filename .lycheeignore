@@ -10,6 +10,7 @@ https?://www\.solcom\.de/.*
 # A new main-branch route cannot resolve before its first merge. Repository
 # inventory and local links are checked by scripts/validate-readmes.py.
 https://github\.com/sebastian-software/skills\.sebastian-software\.com/tree/main/skills/nonfiction-writing
+https://github\.com/sebastian-software/skills\.sebastian-software\.com/tree/main/skills/engineering-management
 https://github\.com/sebastian-software/skills\.sebastian-software\.com/tree/main/skills/data-systems
 https://github\.com/sebastian-software/skills\.sebastian-software\.com/blob/main/docs/adr/0002-pr-review-impact-context\.md
 
