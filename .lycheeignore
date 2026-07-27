@@ -1,21 +1,25 @@
 # Hosts that block or rate-limit automated link checkers.
 https?://([a-z0-9-]+\.)?linkedin\.com.*
 https?://([a-z0-9-]+\.)?xing\.com.*
+# 2026-07-27: returns nothing within 60s from GitHub runners, a local checker,
+# and a third network path, so the check can neither confirm nor refute these
+# URLs. It failed the link check on roughly every second run. The citations in
+# skills/web-legal-compliance/references/canada.md are unverified by tooling and
+# need a human to confirm them.
+https?://laws-lois\.justice\.gc\.ca/.*
 https?://help\.malt\.com/.*
 https?://www\.malt\.com/.*
 https?://support\.upwork\.com/.*
 https?://support\.usebraintrust\.com/.*
 https?://www\.solcom\.de/.*
 
-# A new main-branch route cannot resolve before its first merge. Repository
+# A new main-branch route cannot resolve before its first merge, so a pull
+# request that adds a skill or ADR needs a temporary entry here. Repository
 # inventory and local links are checked by scripts/validate-readmes.py.
-https://github\.com/sebastian-software/skills\.sebastian-software\.com/tree/main/skills/nonfiction-writing
-https://github\.com/sebastian-software/skills\.sebastian-software\.com/tree/main/skills/engineering-management
-https://github\.com/sebastian-software/skills\.sebastian-software\.com/tree/main/skills/data-systems
-https://github\.com/sebastian-software/skills\.sebastian-software\.com/blob/main/docs/adr/0002-pr-review-impact-context\.md
-https://github\.com/sebastian-software/skills\.sebastian-software\.com/tree/main/skills/pricing-and-packaging
-https://github\.com/sebastian-software/skills\.sebastian-software\.com/tree/main/skills/product-marketing
-https://github\.com/sebastian-software/skills\.sebastian-software\.com/tree/main/skills/conversion-optimization
+#
+# Remove the entry once the branch is merged. An exception left behind stops the
+# link check from ever verifying that route again, which is how a genuinely
+# broken link would slip through unnoticed.
 
 # These live primary sources reject, reset, or time out on GitHub Actions'
 # link-check traffic.
