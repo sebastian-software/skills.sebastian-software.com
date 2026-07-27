@@ -7,10 +7,11 @@ description: >-
   proportionate simplification. Use when asked why a defect or surprising
   behavior occurs, for a read-only root-cause report, to audit a repository,
   decide what to improve next, simplify code, create or review an implementation
-  plan, reconcile stale work, or implement selected improvements. Do not use for
-  PR-only review, dependency-update-only work, focused test, test-runner, or
-  test-framework diagnosis, architecture-only decisions, or frontend-only
-  diagnosis when a narrower skill applies.
+  plan, reconcile stale work, plan a risky change in untested legacy code, or
+  implement selected improvements. Do not use for PR-only review,
+  dependency-update-only work, focused test, test-runner, or test-framework
+  diagnosis, architecture-only decisions, or frontend-only diagnosis when a
+  narrower skill applies.
 ---
 
 # Codebase Improvement
@@ -60,9 +61,13 @@ Match actions to the user's authority:
    defects.
 7. Read [Complexity lens](references/complexity-lens.md) when the task involves
    simplification, abstraction, dependencies, duplication, or solution design.
-8. Read [Implementation plans](references/implementation-plans.md) before
+8. Read
+   [Legacy change strategy](references/legacy-change-strategy.md) before
+   planning or implementing a consequential change in weakly tested existing
+   code. Keep preparatory structure work separate from the behavior change.
+9. Read [Implementation plans](references/implementation-plans.md) before
    creating, reviewing, saving, or reconciling a plan.
-9. Report the smallest useful result: a diagnosis, evidence-backed findings,
+10. Report the smallest useful result: a diagnosis, evidence-backed findings,
    the selected plan, verified implementation, or current backlog state.
 
 ## Artifact Ownership
@@ -103,7 +108,9 @@ convention; never introduce a private hypothesis or report directory.
 
 - Route pull-request review and upkeep to `pr-review`.
 - Route focused non-frontend test design, test implementation, and test-suite or
-  test-framework diagnosis to `software-testing`.
+  test-framework diagnosis to `software-testing`; this skill may identify the
+  observation point, behavior boundary, and evidence needed for a safe legacy
+  change.
 - Route Rust-specific implementation and refactoring depth to `rust-engineering`.
 - Route non-frontend TypeScript-specific implementation and refactoring depth to
   `typescript-engineering`.
@@ -113,6 +120,9 @@ convention; never introduce a private hypothesis or report directory.
 - Route unresolved system direction, architecture alternatives, and
   testing-strategy design to `software-architecture`, then durable accepted
   choices to `decision-records`.
+- Route migrations across languages, runtimes, frameworks, platforms, or major
+  APIs to `port-codebases`; do not stretch a local legacy-change plan into a
+  compatibility port.
 - Route dependency portfolio research and update delivery to
   `smart-dependency-updater`.
 - Route browser-facing design, frontend implementation detail, and
