@@ -110,6 +110,9 @@ For an end-to-end request, return:
 - Use `consultant-profile` for professional evidence, field-level profile
   content, project history, biography, and cross-channel profile consistency;
   then return to the inbound-profile route for the acquisition overlay.
+- Use `product-marketing` for cross-channel segmentation, category choice,
+  positioning, messaging, proof, launches, and market learning; return here to
+  adapt the approved direction to LinkedIn relationships, content, and pipeline.
 - Use `effective-web` to design, implement, or test landing pages, forms,
   analytics delivery, accessibility, performance, and responsive behavior.
 - Use `product-management` when the target user, customer problem, product

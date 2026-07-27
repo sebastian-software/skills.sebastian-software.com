@@ -1,0 +1,4 @@
+interface:
+  display_name: "Product Marketing"
+  short_description: "Turn product evidence into market clarity"
+  default_prompt: "Use $product-marketing to turn product evidence into positioning, messaging, proof, and a launch plan."
