@@ -29,3 +29,8 @@ https://portal\.education\.lu/zls
 # GitHub runners even with retries; both verified reachable manually.
 https://gfds\.de/leerzeichen-und-festabstaende/
 https://frageladan\.isof\.se/faqs/23562
+
+# 2026-07-27: GitHub renders pull-request review-comment anchors client-side, so
+# --include-fragments can never resolve them from the served HTML. The pull
+# request itself is still checked; only the comment anchor is skipped.
+https://github\.com/.*/pull/[0-9]+\#discussion_r[0-9]+
