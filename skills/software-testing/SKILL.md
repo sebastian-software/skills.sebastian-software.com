@@ -114,6 +114,11 @@ to the claim.
 
 ## Routing Boundaries
 
+- Route data models, datastore selection, transaction and consistency
+  guarantees, replication, partitioning, stream semantics, and data-evolution
+  strategy to `data-systems`. This skill owns focused executable evidence for
+  the agreed invariant, concurrent behavior, migration, retry, or failure
+  contract.
 - Route browser, component, visual, accessibility, browser E2E, browser
   performance, and an overall frontend testing strategy to `effective-web`.
   Route by primary mission, not artifact type: a browser feature belongs there
