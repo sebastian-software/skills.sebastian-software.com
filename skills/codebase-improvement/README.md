@@ -85,7 +85,7 @@ dalo sync
   skill owns its read-only repository diagnosis, prioritization, and planning
   depth.
 - [PR Review](../pr-review/README.md) handles review and maintenance of specific
-  pull or merge requests, including change-scoped diagnosis.
+  pull requests, including PR-scoped diagnosis.
 - [Smart Dependency Updater](../smart-dependency-updater/README.md) handles a
   dependency-update portfolio end to end.
 - [Port Codebases](../port-codebases/README.md) manages deliberate migrations

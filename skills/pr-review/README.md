@@ -4,18 +4,18 @@
 
 [![Maintained by Sebastian Software](https://img.shields.io/badge/Maintained%20by-Sebastian%20Software-0f172a.svg)](https://oss.sebastian-software.com/)
 
-**Review and maintain pull or merge requests across GitHub, GitLab, Forgejo,
-Gitea, and compatible forges like a trusted teammate: warm, specific,
-technically serious, and focused on helping the work land.**
+**Review and maintain pull requests like a trusted teammate on GitHub, with
+adapter-based support for GitLab, Forgejo, Gitea, and other providers: warm,
+specific, technically serious, and focused on helping the work land.**
 
 PR Review gives agents an end-to-end workflow for reviewing other people's
-proposed changes and maintaining their own. It combines branch-aware inspection,
+pull requests and maintaining their own. It combines branch-aware inspection,
 impact-led findings, human feedback, CI diagnosis, author follow-up, and
 delivery hygiene without manufacturing friction over taste or nits.
 
 ## Operating Modes
 
-- **Reviewing others:** understand the change from a live forge or complete
+- **Reviewing others:** understand the PR from live provider data or complete
   caller-supplied context, find consequential issues, and approve, request
   changes, or return the exact review for caller-owned publication.
 - **Maintaining your own PRs:** act on valid review comments, fix the branch,
@@ -30,13 +30,13 @@ provider-neutral, so orchestration systems can reuse the review judgment without
 adopting this skill's delivery policies.
 
 Caller-owned analysis is not a dry run. A dry run reads the real repository and
-forge state, then previews the actions a direct user could apply. The handoff
+PR state, then previews the actions a direct user could apply. The handoff
 uses only supplied context, performs no discovery or mutations, and leaves every
 action with the caller.
 
 Live access is capability-based: the skill prefers an already authenticated
 host connector, then a capable provider CLI or API. If neither is complete, a
-caller can supply the full change, diff, threads, checks, intent, identity, and
+caller can supply the full PR, diff, threads, checks, intent, identity, and
 repository context and receive `pr-review-result/v1`. Provider commands stay at
 that boundary; the review ladder is shared.
 
@@ -48,7 +48,7 @@ that boundary; the review ladder is shared.
   accessibility, or product risk
 - keep inline findings few, specific, and actionable
 - separate branch regressions from infrastructure failures
-- use natural human forge replies and verify fixes before resolving threads
+- use natural human PR replies and verify fixes before resolving threads
 - work in isolated worktrees and preserve unrelated local changes
 
 ## Example Prompts
@@ -60,10 +60,10 @@ request changes.
 Catch up on my open pull requests, fix valid review findings, and get the
 branches ready to merge.
 
-Run a dry review of this PR: show what you would post without changing the
-forge.
+Run a dry review of this PR: show what you would post without changing its
+remote state.
 
-Review this caller-supplied Forgejo change and return `pr-review-result/v1`; I
+Review this caller-supplied Forgejo PR and return `pr-review-result/v1`; I
 retain publication and delivery.
 
 Classify these supplied review items as a caller-owned handoff. Return the
@@ -115,7 +115,7 @@ dalo sync
 
 Its live workflows require one adapter that satisfies the documented
 capabilities; detecting a remote or finding a provider CLI is not enough.
-Caller-owned full reviews work without live forge access, while the narrower
+Caller-owned full reviews work without live provider access, while the narrower
 Mode C handoff only classifies supplied review items. The skill does not move
 credentials into a sandbox, turn stylistic preferences into blockers, overwrite
 unmanaged work, or publish feedback during a requested dry run.
@@ -127,7 +127,7 @@ and the mechanisms deliberately rejected with it, are recorded in
 [ADR 0002](https://github.com/sebastian-software/skills.sebastian-software.com/blob/main/docs/adr/0002-pr-review-impact-context.md).
 The provider boundary, caller-owned full-review contract, and rejected wrapper
 options are recorded in
-[ADR 0003](https://github.com/sebastian-software/skills.sebastian-software.com/blob/main/docs/adr/0003-capability-based-forge-access.md).
+[ADR 0003](https://github.com/sebastian-software/skills.sebastian-software.com/blob/main/docs/adr/0003-multi-provider-pr-access.md).
 
 ## About Sebastian Software
 

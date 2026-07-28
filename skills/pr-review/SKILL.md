@@ -1,27 +1,27 @@
 ---
 name: pr-review
 description: >-
-  Review and maintain pull or merge requests across GitHub, GitLab, Forgejo,
-  Gitea, and compatible forges: inspect changes, approve or request changes,
-  handle feedback, fix valid findings, recover CI, keep branches current, or
-  review caller-supplied context without taking provider action. Use when a
-  user asks to review changes, catch up on review work, maintain their own
-  changes, names a PR or MR, requests a dry run, or delegates review analysis
-  while retaining approval and delivery authority.
+  Review and maintain pull requests across GitHub, GitLab, Forgejo, Gitea, and
+  other providers: inspect PRs, approve or request changes, handle feedback,
+  fix valid findings, recover CI, keep branches current, or review
+  caller-supplied context without taking provider action. Use when a user asks
+  to review PRs, catch up on review work, maintain their own PRs, names a PR,
+  requests a dry run, or delegates review analysis while retaining approval
+  and delivery authority.
 ---
 
 # PR Review
 
-Review proposed changes the way a trusted teammate would: human, close to the
+Review pull requests the way a trusted teammate would: human, close to the
 work, generous about what is already good, technically uncompromising where it
 matters, and pragmatic everywhere else. Help the author move forward.
 
 Three workflows:
 
-- **Mode A — Reviewing others' changes**: Assigned or previously reviewed
-  changes, read live or supplied in full by a caller. Confirm earlier feedback
+- **Mode A — Reviewing others' PRs**: Assigned or previously reviewed PRs,
+  read live or supplied in full by a caller. Confirm earlier feedback
   got addressed, judge the change, approve or return the exact review.
-- **Mode B — Maintaining your own changes**: Changes you authored. Act on review
+- **Mode B — Maintaining your own PRs**: PRs you authored. Act on review
   comments, fix valid findings yourself, get CI green, keep the branch current.
 - **Mode C — Caller-owned analysis handoff**: Classify review items from
   caller-supplied context. Return structured decisions without reading or
@@ -36,20 +36,20 @@ Read [Operating stance](references/operating-stance.md) before reviewing. Judge
 impact rather than categories or taste, act promptly when evidence is clear, and
 ask only the smallest blocking question when a critical boundary stays unclear.
 
-## Scope and forge access
+## Scope and provider access
 
 Work on the **current repository** only (the repo of the working directory),
-unless the user names specific changes. Skip this entire setup in Mode C.
+unless the user names specific PRs. Skip this entire setup in Mode C.
 
-1. Read [Forge access](references/forge-access.md). Select one coherent path:
-   connected forge tools, a capable provider CLI/API, or complete
+1. Read [Provider access](references/provider-access.md). Select one coherent
+   path: connected provider tools, a capable CLI/API, or complete
    caller-supplied Mode A context with caller-owned publication.
 2. Resolve review identity once from caller input or that adapter; never require
    a logged-in user when an app or bot is the delivery actor.
-3. If the user named changes, operate on exactly those. Otherwise discover the
+3. If the user named PRs, operate on exactly those. Otherwise discover the
    Mode A and Mode B sets through the selected adapter.
 
-Caller-supplied full context runs Mode A's normal ladder and returns
+Caller-supplied full PR context runs Mode A's normal ladder and returns
 `pr-review-result/v1`; unlike Mode C, it produces an actual review. Read
 [GitHub CLI fallback recipes](references/gh-recipes.md) only when `gh` is the
 selected adapter. Do not translate those commands into another provider by
@@ -57,10 +57,10 @@ analogy.
 
 ## Mode C — Caller-owned analysis handoff
 
-Use Mode C only when a caller explicitly supplies review items and asks for
-their classification while retaining approval, implementation, and delivery. It is
-provider-neutral: do not assume GitHub or any other forge. Analyze only the
-supplied material — no repository, Git, forge, CI, deployment, or thread
+Use Mode C only when a caller supplies review items for classification while
+retaining approval, implementation, and delivery. It is provider-neutral: do
+not assume GitHub or any other provider. Analyze only the supplied material —
+no repository, Git, provider, CI, deployment, or thread
 discovery, and no mutations of any kind. Caller constraints override every
 autonomous Mode B default.
 
@@ -79,7 +79,7 @@ If it's genuinely unclear whether they want it live, ask once.
 
 Unlike Mode C or caller-supplied Mode A, dry-run reads live repository and
 provider state. Do all the reading, analysis, and judging **exactly** as normal — same
-ladder, same decisions — but take **no outward action** on the forge: no review,
+ladder, same decisions — but take **no outward provider action**: no review,
 approval, request-changes, comment, reply, push, or PR close/reopen. Instead,
 print what you *would* do, in the real form you'd do it:
 
@@ -112,7 +112,7 @@ Before deciding anything, build the state through the selected access path:
   your scope yardstick in Mode B. Use the selected adapter for provider issues
   and a connected tracker tool for external tickets.
 
-## Mode A — Reviewing others' changes
+## Mode A — Reviewing others' PRs
 
 Reviews follow a fixed inspection order; severity still comes from impact, not
 from which rung exposed the finding. If nothing changed since your last review
@@ -206,7 +206,7 @@ Shape the overall review for a human:
    softening the critical finding: the author should leave knowing both what
    they got right and exactly what must change before merge.
 
-## Mode B — Maintaining your own changes
+## Mode B — Maintaining your own PRs
 
 Target near-full autonomy here. Most of the work is small: corrections,
 misunderstandings, minor follow-ups. If it makes sense, fits the PR's scope,
@@ -242,7 +242,7 @@ and you can do it without further input, **do it**.
 
 ## Voice
 
-Read [Voice](references/voice.md) before writing forge comments. Keep feedback
+Read [Voice](references/voice.md) before writing PR comments. Keep feedback
 concise and professional, distinguish mandatory from optional work, and match
 the reviewer and audience.
 
@@ -266,7 +266,7 @@ Close every run with a compact summary in the user's language unless they ask
 for another. Lead with status, sorted by what matters; keep it short and spoken,
 not a report. Cover: what you approved or is merge-ready, what you changed or
 pushed yourself (Mode B), what's still open or blocked and why, and anything
-you're escalating with the decision you need. Keep forge communication in the
+you're escalating with the decision you need. Keep PR communication in the
 repository's established language.
 
 ## Hard limits (safety rails)

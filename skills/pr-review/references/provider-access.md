@@ -1,13 +1,13 @@
-# Forge Access Boundary
+# PR Provider Access
 
-Use this reference before reading or changing pull-request or merge-request
-state. It keeps provider access separate from review judgment.
+Use this reference before reading or changing remote PR state. It keeps
+provider access separate from review judgment.
 
 ## Choose one access path
 
-Select one coherent path per change and keep it for the run:
+Select one coherent path per PR and keep it for the run:
 
-1. **Connected forge tools.** Prefer host-provided, already authenticated app,
+1. **Connected provider tools.** Prefer host-provided, already authenticated app,
    MCP, or connector tools when they expose the required capabilities. They do
    not depend on a shell sandbox being able to read a local CLI login.
 2. **Provider CLI or API.** Use an installed, authenticated provider tool when
@@ -15,14 +15,14 @@ Select one coherent path per change and keep it for the run:
    `glab` for GitLab, and `tea`, `fj`, or the documented REST API for
    Gitea/Forgejo. Tool presence alone is not proof that review submission,
    threads, checks, or inline anchors are supported.
-3. **Caller-supplied review context.** When live access is missing or the caller
+3. **Caller-supplied PR context.** When live access is missing or the caller
    already owns provider integration, accept the complete context below, run
    Mode A's normal inspection ladder, and return a caller-owned review result.
 
 Do not mix adapters merely because one call is awkward. Mixing identities,
 timestamps, pagination, and thread IDs can make "since my last action" and
 review delivery inconsistent. A local Git checkout may still supply code search
-and worktree operations; the selected forge adapter owns remote state.
+and worktree operations; the selected provider adapter owns remote state.
 
 Never copy tokens, credential files, keychain entries, or login output into a
 sandbox to make a CLI work. If a CLI cannot access its stored login or the
@@ -34,7 +34,7 @@ automation token, or caller-supplied context. Do not print or persist tokens.
 
 A live Mode A adapter must be able to:
 
-- resolve the forge, repository, and exact change;
+- resolve the provider, repository, and exact PR;
 - resolve the review identity, or accept an explicit caller-supplied identity;
 - read metadata, base/head refs and SHAs, commits, the full diff, earlier
   reviews, comments, and unresolved threads;
@@ -68,7 +68,7 @@ through the selected adapter. Keep it distinct from `delivery_actor`:
 An app installation or automation token may have no user endpoint. That is not
 an authentication failure and must not force a user lookup. The caller can
 supply the app or bot identity explicitly. If no earlier-review identity is
-available, inspect the full current change and disclose that incremental
+available, inspect the full current PR and disclose that incremental
 "since last review" filtering was not possible.
 
 ## Provider selection notes
@@ -78,18 +78,18 @@ available, inspect the full current change and disclose that incremental
 | GitHub | Connected GitHub tool with the required capabilities | `gh` or the documented GitHub API; read [GitHub CLI fallback recipes](gh-recipes.md) only for this path |
 | GitLab | Connected GitLab tool | `glab` or the documented GitLab API |
 | Forgejo / Gitea | Connected instance-specific tool | `fj`, `tea`, or the documented compatible API after verifying every required capability |
-| Other forge | Connected provider tool | Provider CLI/API only when it satisfies the same contract |
+| Other provider | Connected provider tool | Provider CLI/API only when it satisfies the same contract |
 
 Names and command shapes are examples, not dependencies of the skill. Prefer
 provider documentation over translating a GitHub command by analogy.
 
-## Caller-supplied full review
+## Caller-supplied full PR review
 
 This is Mode A with caller-owned provider access, not Mode C's review-item
 classifier. The caller supplies equivalent structured fields for:
 
-- `change`: stable ID and URL, title, description, author, draft state, base and
-  head refs and SHAs;
+- `pull_request`: stable ID and URL, title, description, author, draft state,
+  base and head refs and SHAs;
 - `reviewer_identity` and, when different, `delivery_actor`;
 - `intent`: linked ticket or other authoritative scope, plus repository
   guidance relevant to the review;
@@ -107,15 +107,15 @@ classifier. The caller supplies equivalent structured fields for:
 
 Missing non-critical fields must be named in `missing_evidence`. Missing
 critical-boundary evidence must prevent approval. Do not discover live
-repository, forge, CI, deployment, or thread state unless the caller explicitly
-authorizes a separate access path.
+repository, provider, CI, deployment, or thread state unless the caller
+explicitly authorizes a separate access path.
 
 Return exactly one JSON object without Markdown fences or surrounding prose:
 
     {
       "schema_version": "pr-review-result/v1",
       "mode": "caller_owned_review",
-      "change_id": "preserve-the-caller-id",
+      "pr_id": "preserve-the-caller-id",
       "reviewer_identity": "supplied-or-resolved-identity",
       "caller_constraints": {
         "publication_owner": "caller",
@@ -138,7 +138,7 @@ Return exactly one JSON object without Markdown fences or surrounding prose:
     }
 
 Use only `approve`, `request_changes`, `comment`, or `no_action` for
-`decision`. Preserve the caller's change ID. Bodies are publication-ready, not
+`decision`. Preserve the caller's PR ID. Bodies are publication-ready, not
 summaries. `caller_actions` names required provider or delivery actions without
 claiming they happened. Use `no_action` only when no new action is warranted,
 not as a substitute for naming missing critical evidence.

@@ -14,7 +14,7 @@ The caller supplies:
 - authority, approval, and delivery ownership;
 - allowed and prohibited actions plus delivery requirements.
 
-Analyze only that material. Do not discover or inspect repository, Git, forge,
+Analyze only that material. Do not discover or inspect repository, Git, provider,
 CI, deployment, or thread state. Do not modify the working tree, commit, push,
 rebase, rewrite history, post or resolve feedback, recover CI, or deliver work.
 Caller constraints override every autonomous Mode B default.

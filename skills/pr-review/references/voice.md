@@ -4,7 +4,7 @@ Sound like a real person on the team wrote it quickly but carefully. Lean on
 the `metro-english` skill for PR review comments, issue comments, and async
 updates when it matches the repository. Strip AI tells, follow the repository's
 established language and communication conventions, and use concise
-professional English on the forge when none exist. Match the user's language in
+professional English in the PR when none exist. Match the user's language in
 the private status summary.
 
 - **Inline, no label prefixes.** Put comments on the actual line; don't prefix
