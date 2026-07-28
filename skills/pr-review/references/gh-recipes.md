@@ -1,6 +1,6 @@
 # GitHub CLI fallback recipes
 
-Use this reference only after [Forge access](forge-access.md) selects `gh` as
+Use this reference only after [Provider access](provider-access.md) selects `gh` as
 the adapter. Prefer a capable connected GitHub tool when the shell sandbox
 cannot reach the network or local CLI credentials. Never copy credential files,
 keychain values, or tokens into the sandbox to make these commands work.

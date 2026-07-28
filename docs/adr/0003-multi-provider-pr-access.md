@@ -1,4 +1,4 @@
-# ADR 0003: Put PR Review Behind a Capability-Based Forge Boundary
+# ADR 0003: Put PR Review Behind a Capability-Based Provider Boundary
 
 - Status: Accepted
 - Date: 2026-07-28
@@ -8,7 +8,7 @@
 
 `pr-review` coupled its complete review and maintenance workflows to `gh`.
 Mode C was provider-neutral, but it only classified review items already
-resolved by a caller; it could not inspect a supplied change and produce an
+resolved by a caller; it could not inspect a supplied PR and produce an
 actual review. Forgejo, Gitea, GitLab, and unattended GitHub App callers
 therefore had no complete path.
 
@@ -20,17 +20,17 @@ host already has an authenticated GitHub connector. GitHub documents
 into a sandbox would widen credential exposure rather than fix the boundary.
 
 The review judgment itself does not depend on a provider. It needs a bounded set
-of facts — change metadata and intent, diff, history and threads, checks and
+of facts — PR metadata and intent, diff, history and threads, checks and
 mergeability, reviewer identity — and it produces a decision plus review
 comments. Provider APIs differ in how those facts and actions are represented.
 
 ## Decision
 
-1. `pr-review` defines one capability contract for live forge access. The
+1. `pr-review` defines one capability contract for live provider access. The
    review ladder refers to those capabilities, not to provider commands.
-2. Each change uses one coherent access path: an already authenticated
-   host-native forge tool first, a provider CLI or documented API second, or
-   complete caller-supplied context when the caller owns forge integration.
+2. Each PR uses one coherent access path: an already authenticated
+   host-native provider tool first, a provider CLI or documented API second, or
+   complete caller-supplied context when the caller owns provider integration.
 3. Caller-supplied full context runs the same Mode A judgment as a live review
    and can return `pr-review-result/v1` for caller-owned publication. Mode C's
    narrower `pr-review-handoff/v1` item classifier remains unchanged.
@@ -40,7 +40,7 @@ comments. Provider APIs differ in how those facts and actions are represented.
 5. Provider-specific commands stay at the boundary. Existing `gh` commands
    remain in one GitHub fallback reference; adding another provider must not
    duplicate or fork the review ladder.
-6. This repository does not adopt or build a universal forge CLI wrapper now.
+6. This repository does not adopt or build a universal PR CLI wrapper now.
    A tool may be used as an adapter when it satisfies the same capabilities,
    but it is not part of the skill's portable contract.
 
@@ -69,9 +69,9 @@ wrappers the change is intended to avoid.
 
 ### Support only caller-supplied reviews
 
-Rejected as the sole path. It fits automated multi-forge services, but removes
-the useful direct workflow for people whose host already exposes a capable
-connected tool or provider CLI.
+Rejected as the sole path. It fits automated multi-provider services, but
+removes the useful direct workflow for people whose host already exposes a
+capable connected tool or provider CLI.
 
 ## Consequences
 
@@ -83,8 +83,8 @@ connected tool or provider CLI.
 - Sandboxed GitHub runs prefer an authenticated host connector. They do not
   copy local login files or tokens into the shell merely to make `gh` pass an
   upfront authentication gate.
-- Provider adapters still own translation into their native concepts,
-  including GitLab merge requests and provider-specific inline positions.
+- Provider adapters still own translation into their native concepts and
+  provider-specific inline positions. The skill itself consistently says PR.
 - The caller-supplied contract adds one stable integration surface and one
   versioned result schema. The review ladder, voice, decision rules, and
   codebase-context pass remain single-source.
@@ -95,11 +95,11 @@ The static scenarios must cover a caller-owned Forgejo review, a GitHub
 connector fallback when sandboxed `gh` is unavailable, a supplied app identity,
 and safe degradation when a partial adapter cannot publish a review.
 
-Revisit the wrapper decision when a maintained cross-forge tool provides stable
-read, thread, check, inline-review, approval/request-changes, and reply support
-for GitHub, GitLab, Forgejo, and Gitea; or when repeated adapters reveal a
-smaller common contract than the one in
-`skills/pr-review/references/forge-access.md`.
+Revisit the wrapper decision when a maintained multi-provider tool provides
+stable read, thread, check, inline-review, approval/request-changes, and reply
+support for GitHub, GitLab, Forgejo, and Gitea; or when repeated adapters reveal
+a smaller common contract than the one in
+`skills/pr-review/references/provider-access.md`.
 
 ## References
 

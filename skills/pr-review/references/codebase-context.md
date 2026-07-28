@@ -127,7 +127,7 @@ location or symbol, the concrete risk, the consequence when it is not obvious,
 and the smallest credible correction or question.
 
 The one mechanical difference: **a finding on an unchanged line may not be
-anchorable inline.** When the selected forge adapter cannot attach a review
+anchorable inline.** When the selected provider adapter cannot attach a review
 comment to a line outside the diff, put it in the review body under a plain
 heading, name the file and symbol in the text, and say plainly that it sits
 outside the diff:
