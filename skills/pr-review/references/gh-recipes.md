@@ -1,14 +1,25 @@
-# GitHub gh / git recipes
+# GitHub CLI fallback recipes
 
-Concrete commands for the workflow in SKILL.md. Placeholders: `<N>` = PR number,
-`<head>`/`<base>` = the PR's head/base branch names.
+Use this reference only after [Forge access](forge-access.md) selects `gh` as
+the adapter. Prefer a capable connected GitHub tool when the shell sandbox
+cannot reach the network or local CLI credentials. Never copy credential files,
+keychain values, or tokens into the sandbox to make these commands work.
+
+Placeholders: `<N>` = PR number, `<head>`/`<base>` = the PR's head/base branch
+names.
 
 Set up once per run:
 
 ```bash
 REPO=$(gh repo view --json nameWithOwner -q .nameWithOwner)
+# Use a caller-supplied reviewer identity when available. Only otherwise:
 ME=$(gh api user -q .login)
 ```
+
+For headless automation, `gh` supports an already injected `GH_TOKEN` (or
+`GH_ENTERPRISE_TOKEN` for GitHub Enterprise). Do not extract a host login into
+one. An installation token may not expose a user identity; use the supplied app
+or bot identity instead of requiring `gh api user`.
 
 ## 1. Discover the relevant PRs
 
