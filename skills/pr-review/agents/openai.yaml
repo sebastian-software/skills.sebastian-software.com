@@ -1,4 +1,4 @@
 interface:
   display_name: "PR Review"
-  short_description: "Review PRs or classify supplied review context"
-  default_prompt: "Use $pr-review to review the relevant pull requests or return a caller-owned analysis handoff, respecting the requested authority and delivery boundaries."
+  short_description: "Review changes across compatible Git forges"
+  default_prompt: "Use $pr-review to review the relevant pull or merge requests, or return a caller-owned review or analysis handoff, respecting the requested authority and delivery boundaries."

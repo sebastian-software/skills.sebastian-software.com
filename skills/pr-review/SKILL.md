@@ -1,28 +1,27 @@
 ---
 name: pr-review
 description: >-
-  Review and maintain GitHub pull requests end to end: inspect assigned or
-  previously reviewed PRs, approve or request changes, handle author feedback,
-  fix valid findings, recover CI, keep branches current, or classify
-  caller-supplied review context without taking action. Use when a user asks to
-  review PRs, catch up on PR work, handle review feedback, maintain their own
-  PRs, names a PR number, requests a dry run, or delegates review-item analysis
+  Review and maintain pull or merge requests across GitHub, GitLab, Forgejo,
+  Gitea, and compatible forges: inspect changes, approve or request changes,
+  handle feedback, fix valid findings, recover CI, keep branches current, or
+  review caller-supplied context without taking provider action. Use when a
+  user asks to review changes, catch up on review work, maintain their own
+  changes, names a PR or MR, requests a dry run, or delegates review analysis
   while retaining approval and delivery authority.
 ---
 
 # PR Review
 
-Review pull requests the way a trusted teammate would: human, close to the
+Review proposed changes the way a trusted teammate would: human, close to the
 work, generous about what is already good, technically uncompromising where it
-matters, and pragmatic everywhere else. Help the author move forward. Do not
-manufacture friction to prove that a review happened.
+matters, and pragmatic everywhere else. Help the author move forward.
 
 Three workflows:
 
-- **Mode A — Reviewing others' PRs**: PRs assigned to you for review, or that
-  you reviewed before. Confirm earlier feedback got addressed, judge the
-  change, approve or request changes.
-- **Mode B — Maintaining your own PRs**: PRs you authored. Act on review
+- **Mode A — Reviewing others' changes**: Assigned or previously reviewed
+  changes, read live or supplied in full by a caller. Confirm earlier feedback
+  got addressed, judge the change, approve or return the exact review.
+- **Mode B — Maintaining your own changes**: Changes you authored. Act on review
   comments, fix valid findings yourself, get CI green, keep the branch current.
 - **Mode C — Caller-owned analysis handoff**: Classify review items from
   caller-supplied context. Return structured decisions without reading or
@@ -37,26 +36,29 @@ Read [Operating stance](references/operating-stance.md) before reviewing. Judge
 impact rather than categories or taste, act promptly when evidence is clear, and
 ask only the smallest blocking question when a critical boundary stays unclear.
 
-## Scope and setup
+## Scope and forge access
 
 Work on the **current repository** only (the repo of the working directory),
-unless the user names specific PRs. Skip this entire setup in Mode C; its caller
-has already resolved the context and retains all action authority.
+unless the user names specific changes. Skip this entire setup in Mode C.
 
-1. Confirm tooling: `gh auth status` and the current repo (`gh repo view --json
-   nameWithOwner`). The active GitHub login is "you" for review attribution.
-2. If the user gave PR numbers, operate on exactly those. Otherwise discover the
-   relevant PRs (Mode A and Mode B sets) with the recipes.
-3. Writing voice: see "Voice" for the supporting skills and the inline rules.
+1. Read [Forge access](references/forge-access.md). Select one coherent path:
+   connected forge tools, a capable provider CLI/API, or complete
+   caller-supplied Mode A context with caller-owned publication.
+2. Resolve review identity once from caller input or that adapter; never require
+   a logged-in user when an app or bot is the delivery actor.
+3. If the user named changes, operate on exactly those. Otherwise discover the
+   Mode A and Mode B sets through the selected adapter.
 
-For every concrete `gh`/`git` command — PR discovery, the per-PR picture,
-inline reviews, the worktree flow, branch updates, CI recovery — read
-[GitHub recipes](references/gh-recipes.md). Keep that file open while you work.
+Caller-supplied full context runs Mode A's normal ladder and returns
+`pr-review-result/v1`; unlike Mode C, it produces an actual review. Read
+[GitHub CLI fallback recipes](references/gh-recipes.md) only when `gh` is the
+selected adapter. Do not translate those commands into another provider by
+analogy.
 
 ## Mode C — Caller-owned analysis handoff
 
-Use Mode C only when a caller explicitly supplies review context and asks for
-analysis while retaining approval, implementation, and delivery. It is
+Use Mode C only when a caller explicitly supplies review items and asks for
+their classification while retaining approval, implementation, and delivery. It is
 provider-neutral: do not assume GitHub or any other forge. Analyze only the
 supplied material — no repository, Git, forge, CI, deployment, or thread
 discovery, and no mutations of any kind. Caller constraints override every
@@ -75,9 +77,9 @@ Triggered when the user asks for a dry run or preview — a `--dry-run` argument
 "dry run", "trockenlauf", "just show me what you'd do", "don't post anything".
 If it's genuinely unclear whether they want it live, ask once.
 
-Unlike Mode C, dry-run resolves and reads the real repository and provider
-state. Do all the reading, analysis, and judging **exactly** as normal — same
-ladder, same decisions — but take **no outward action** on GitHub: no review,
+Unlike Mode C or caller-supplied Mode A, dry-run reads live repository and
+provider state. Do all the reading, analysis, and judging **exactly** as normal — same
+ladder, same decisions — but take **no outward action** on the forge: no review,
 approval, request-changes, comment, reply, push, or PR close/reopen. Instead,
 print what you *would* do, in the real form you'd do it:
 
@@ -87,7 +89,7 @@ print what you *would* do, in the real form you'd do it:
 - for Mode B fixes, the concrete diff and commit message. You may prepare the
   fix in a throwaway worktree to show a real `git diff`, but never push or
   touch PR state;
-- any CI action you'd take (bounded GitHub Actions retry, branch update, or a
+- any CI action you'd take (bounded failed-job retry, branch update, or a
   provider-documented check re-trigger).
 
 Read-only verification still runs (preview deployment, or local
@@ -97,7 +99,7 @@ stays with the user. Offer to execute specific items, but default to listing.
 
 ## Per-PR picture (do this first, every PR)
 
-Before deciding anything, build the state (commands in the recipes):
+Before deciding anything, build the state through the selected access path:
 
 - What changed **since your last action** on this PR (new commits, comments,
   pushes). Nothing new since your last review → nothing to do; note it for the
@@ -107,19 +109,18 @@ Before deciding anything, build the state (commands in the recipes):
   vercel, cursor, or Copilot). This drives the tone — see "Voice".
 - CI / check status, mergeability, and whether the branch is behind its base.
 - The linked ticket — **read it**. It's the basis for Mode A's gate (step 1) and
-  your scope yardstick in Mode B. GitHub issue via `gh`; if the project clearly
-  doesn't use GitHub issues, look for a Linear ticket and read it through a
-  Linear MCP when one is connected (adaptive lookup in the recipes).
+  your scope yardstick in Mode B. Use the selected adapter for provider issues
+  and a connected tracker tool for external tickets.
 
-## Mode A — Reviewing others' PRs
+## Mode A — Reviewing others' changes
 
 Reviews follow a fixed inspection order; severity still comes from impact, not
 from which rung exposed the finding. If nothing changed since your last review
 and there are no new comments, record "no change" and skip the ladder.
 
 **1. Does it make sense? (gate)**
-Understand the wish before judging the code. Read the linked ticket — GitHub
-issue, Linear, wherever the source lives.
+Understand the wish before judging the code. Read the linked ticket wherever
+the source lives.
 - **No linked ticket on a human PR** → check whether the repository demonstrably
   uses ticket linking (recent merged PRs reference tickets, or CONTRIBUTING
   requires it). If it does, the missing link is the whole review: don't dig
@@ -205,7 +206,7 @@ Shape the overall review for a human:
    softening the critical finding: the author should leave knowing both what
    they got right and exactly what must change before merge.
 
-## Mode B — Maintaining your own PRs
+## Mode B — Maintaining your own changes
 
 Target near-full autonomy here. Most of the work is small: corrections,
 misunderstandings, minor follow-ups. If it makes sense, fits the PR's scope,
@@ -227,12 +228,11 @@ and you can do it without further input, **do it**.
    - Valid but out of scope → reply kindly, point to a follow-up or issue rather
      than growing the PR.
    - Wrong or a misunderstanding → reply with the clarification, respectfully.
-4. **CI:** check status. For a completed GitHub Actions run that appears
-   transiently flaky, rerun failed jobs once before changing PR state. If the
-   branch is behind its base, bring it current using the repository's
-   convention: `gh pr update-branch` / merge-from-base is the default-safe
-   option; rebase + `git push --force-with-lease` only where the repo prefers
-   linear history (details and lockfile-conflict handling in the recipes). For
+4. **CI:** check status. For a completed provider CI run that appears
+   transiently flaky, rerun failed jobs once through the selected adapter. If
+   the branch is behind its base, bring it current using the repository's
+   convention; merge-from-base is the default-safe option, while rebase +
+   `git push --force-with-lease` is only for repos preferring linear history. For
    a stuck/failed provider preview check (e.g. a database preview like
    Supabase), use a provider-documented re-trigger only after the bounded
    retry, with a genuinely up-to-date branch, at most once or twice. Never
@@ -242,14 +242,14 @@ and you can do it without further input, **do it**.
 
 ## Voice
 
-Read [Voice](references/voice.md) before writing GitHub comments. Keep feedback
+Read [Voice](references/voice.md) before writing forge comments. Keep feedback
 concise and professional, distinguish mandatory from optional work, and match
 the reviewer and audience.
 
 ## Verifying a change (only when it earns it)
 
 You usually review by reading. To see behavior, **never start a dev server.**
-Use the PR's **preview deployment** when one exists (recipes §9), driven by the
+Use the change's **preview deployment** when one exists, driven by the
 `agent-browser` CLI (optional, separately installed) only when installed and
 configured. Otherwise stay static: run only what works without a server (lint,
 typecheck, unit tests). Treat local green as a bonus signal, not a gate.
@@ -266,7 +266,7 @@ Close every run with a compact summary in the user's language unless they ask
 for another. Lead with status, sorted by what matters; keep it short and spoken,
 not a report. Cover: what you approved or is merge-ready, what you changed or
 pushed yourself (Mode B), what's still open or blocked and why, and anything
-you're escalating with the decision you need. Keep GitHub communication in the
+you're escalating with the decision you need. Keep forge communication in the
 repository's established language.
 
 ## Hard limits (safety rails)
@@ -279,7 +279,7 @@ These exist because the cost of getting them wrong is high and hard to undo:
   worktree-safety contract; never nest worktrees reflexively, and clean up only
   a matching clean worktree created by this run.
 - Force-push only with `--force-with-lease`, and only on your own PR branches.
-- Never loop on PR close/reopen — one or two attempts, then report.
+- Never loop on change close/reopen — one or two attempts, then report.
 - Never approve with an unresolved material risk merely to keep the queue
   moving.
 - Posting a review/approval and pushing code are real, visible actions taken as

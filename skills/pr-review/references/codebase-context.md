@@ -126,10 +126,11 @@ It follows the existing content contract in `SKILL.md`, unchanged: the anchored
 location or symbol, the concrete risk, the consequence when it is not obvious,
 and the smallest credible correction or question.
 
-The one mechanical difference: **a finding on an unchanged line cannot be
-anchored inline.** GitHub will not attach a review comment to a line the diff
-does not contain. Put it in the review body under a plain heading, name the file
-and symbol in the text, and say plainly that it sits outside the diff:
+The one mechanical difference: **a finding on an unchanged line may not be
+anchorable inline.** When the selected forge adapter cannot attach a review
+comment to a line outside the diff, put it in the review body under a plain
+heading, name the file and symbol in the text, and say plainly that it sits
+outside the diff:
 
 > `resolveTarget` lost its second parameter here, but `src/queue/worker.ts:88`
 > and `src/api/handlers.ts:203` still call it with two arguments. Those are

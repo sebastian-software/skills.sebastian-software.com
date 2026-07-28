@@ -4,18 +4,20 @@
 
 [![Maintained by Sebastian Software](https://img.shields.io/badge/Maintained%20by-Sebastian%20Software-0f172a.svg)](https://oss.sebastian-software.com/)
 
-**Review and maintain GitHub pull requests like a trusted teammate: warm,
-specific, technically serious, and focused on helping the work land.**
+**Review and maintain pull or merge requests across GitHub, GitLab, Forgejo,
+Gitea, and compatible forges like a trusted teammate: warm, specific,
+technically serious, and focused on helping the work land.**
 
 PR Review gives agents an end-to-end workflow for reviewing other people's
-pull requests and maintaining their own. It combines branch-aware inspection,
+proposed changes and maintaining their own. It combines branch-aware inspection,
 impact-led findings, human feedback, CI diagnosis, author follow-up, and
 delivery hygiene without manufacturing friction over taste or nits.
 
 ## Operating Modes
 
-- **Reviewing others:** understand the change, inspect earlier feedback, find
-  consequential issues, and approve or request changes.
+- **Reviewing others:** understand the change from a live forge or complete
+  caller-supplied context, find consequential issues, and approve, request
+  changes, or return the exact review for caller-owned publication.
 - **Maintaining your own PRs:** act on valid review comments, fix the branch,
   recover CI, keep it current, and close the feedback loop.
 - **Caller-owned analysis:** classify review items from context supplied by
@@ -25,12 +27,18 @@ delivery hygiene without manufacturing friction over taste or nits.
 The autonomous modes can run together when a review round reveals work the agent
 is authorized to implement. Caller-owned analysis is deliberately read-only and
 provider-neutral, so orchestration systems can reuse the review judgment without
-adopting this skill's GitHub or delivery policies.
+adopting this skill's delivery policies.
 
 Caller-owned analysis is not a dry run. A dry run reads the real repository and
-GitHub state, then previews the actions a direct user could apply. The handoff
+forge state, then previews the actions a direct user could apply. The handoff
 uses only supplied context, performs no discovery or mutations, and leaves every
 action with the caller.
+
+Live access is capability-based: the skill prefers an already authenticated
+host connector, then a capable provider CLI or API. If neither is complete, a
+caller can supply the full change, diff, threads, checks, intent, identity, and
+repository context and receive `pr-review-result/v1`. Provider commands stay at
+that boundary; the review ladder is shared.
 
 ## What Good Review Looks Like
 
@@ -40,7 +48,7 @@ action with the caller.
   accessibility, or product risk
 - keep inline findings few, specific, and actionable
 - separate branch regressions from infrastructure failures
-- use natural human GitHub replies and verify fixes before resolving threads
+- use natural human forge replies and verify fixes before resolving threads
 - work in isolated worktrees and preserve unrelated local changes
 
 ## Example Prompts
@@ -52,7 +60,11 @@ request changes.
 Catch up on my open pull requests, fix valid review findings, and get the
 branches ready to merge.
 
-Run a dry review of this PR: show what you would post without changing GitHub.
+Run a dry review of this PR: show what you would post without changing the
+forge.
+
+Review this caller-supplied Forgejo change and return `pr-review-result/v1`; I
+retain publication and delivery.
 
 Classify these supplied review items as a caller-owned handoff. Return the
 versioned JSON contract only; I retain approval and delivery.
@@ -101,17 +113,21 @@ dalo sync
 
 ## Scope
 
-Its autonomous workflows are designed around GitHub pull requests and assume
-the required repository and GitHub access exists. Its caller-owned analysis
-handoff is provider-neutral and cannot read or mutate repository, forge, CI, or
-review state. The skill does not turn stylistic preferences into blockers,
-overwrite unmanaged work, or publish feedback during a requested dry run.
+Its live workflows require one adapter that satisfies the documented
+capabilities; detecting a remote or finding a provider CLI is not enough.
+Caller-owned full reviews work without live forge access, while the narrower
+Mode C handoff only classifies supplied review items. The skill does not move
+credentials into a sandbox, turn stylistic preferences into blockers, overwrite
+unmanaged work, or publish feedback during a requested dry run.
 
 When a changed signature or contract could reach code the diff does not contain,
 the review resolves those relationships on demand — bounded to depth one and ten
 symbols, and disclosed when that bound binds. The evidence behind that design,
 and the mechanisms deliberately rejected with it, are recorded in
 [ADR 0002](https://github.com/sebastian-software/skills.sebastian-software.com/blob/main/docs/adr/0002-pr-review-impact-context.md).
+The provider boundary, caller-owned full-review contract, and rejected wrapper
+options are recorded in
+[ADR 0003](https://github.com/sebastian-software/skills.sebastian-software.com/blob/main/docs/adr/0003-capability-based-forge-access.md).
 
 ## About Sebastian Software
 
