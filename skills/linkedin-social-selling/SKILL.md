@@ -110,6 +110,10 @@ For an end-to-end request, return:
   and rewriting, including posts inside an end-to-end social-selling
   engagement. Pass it the audience, content role, evidence, and commercial
   intent established here.
+- Use `create-social-content` when the content program spans LinkedIn and other
+  social platforms or the target platform remains open. Pass it the same
+  approved audience, evidence, offer connection, and claim boundaries; keep
+  LinkedIn-only expression with `linkedin-posts`.
 - Use `consultant-profile` for professional evidence, field-level profile
   content, project history, biography, and cross-channel profile consistency;
   then return to the inbound-profile route for the acquisition overlay.
