@@ -34,17 +34,18 @@ accessibility, performance, and verification boundaries.
 5. Verify the affected states, responsive behavior, keyboard and screen-reader
    use, loading cost, and relevant project checks before declaring the work done.
 
-For a broad redesign or cross-cutting review, start with Design and Review, then
-add the focused routes revealed by the review. For a narrow request, skip the
-broad design route and load the matching focused route directly.
+For greenfield direction or an AI-assisted feature, start with Design Planning.
+For a broad redesign or cross-cutting review, start with Design Review and
+Modernization. Add focused routes only as the work crosses those concerns.
 
 ## Route by Intent
 
 | User intent | Read |
 | --- | --- |
-| Plan, critique, redesign, polish, or quality-gate a whole experience | [Design and Review](references/route-design.md) |
-| Modernize an existing site or app without losing brand, content, routes, analytics, or accessibility contracts | [Design and Review](references/route-design.md) |
-| Design an AI-assisted feature, choose chat versus structured UI, or expose uncertainty and control | [Design and Review](references/route-design.md) |
+| Plan a new experience or establish its register, hierarchy, direction, and interaction model | [Design Planning](references/route-design-planning.md) |
+| Critique, redesign, polish, or quality-gate an existing experience | [Design Review and Modernization](references/route-design.md) |
+| Modernize an existing site or app without losing brand, content, routes, analytics, or accessibility contracts | [Design Review and Modernization](references/route-design.md) |
+| Design an AI-assisted feature, choose chat versus structured UI, or expose uncertainty and control | [Design Planning](references/route-design-planning.md) |
 | Fix hierarchy, grids, spacing, responsive layout, or safe areas | [Layout and Spacing](references/route-layout.md) |
 | Improve type hierarchy, measure, rhythm, fallbacks, or font loading | [Typography](references/route-typography.md) |
 | Build palettes, semantic tokens, contrast, dark mode, or themes | [Color and Theming](references/route-color.md) |
