@@ -1,4 +1,4 @@
-# Reviewing Unrun Scenarios
+# Reviewing Skill Behavior
 
 `skills/<name>/evals/evals.json` contains manual review scenarios. They are
 useful prompts and expectations for consequential behavior, but neither local
@@ -6,22 +6,87 @@ checks nor CI runs a model, grades a response, or establishes behavioral
 correctness from them. CI validates only their static JSON shape, non-empty
 fields, and unique names through `python3 scripts/validate-readmes.py`.
 
-Use this workflow when a PR needs recorded behavioral evidence without claiming
-that the repository has a reproducible automated model-evaluation harness.
+Use the smallest review mode that answers the current question:
 
-## Prepare a Review
+- **Activation:** Does the host load the skill for the right requests and avoid
+  adjacent requests?
+- **Single run:** Does a response satisfy the scenario criteria?
+- **With/without comparison:** Does the skill improve quality enough to justify
+  its context, latency, and token cost?
 
-Generate a template for the affected skill:
+All modes record human-reviewed evidence without claiming automatic semantic
+grading.
+
+## Review Activation
+
+Add should-trigger and should-not-trigger cases to the skill's `activation`
+array, then generate a report template:
+
+```sh
+python3 scripts/validate-scenario-review.py \
+  --skill effective-workflow \
+  --activation-template \
+  > /tmp/effective-workflow-activation.json
+```
+
+Run every case in a fresh session with the normal installed skill set. Do not
+mention the skill explicitly unless explicit invocation itself is the behavior
+under test. Record whether the host exposed or invoked the skill and the trace,
+log, or other evidence supporting that observation.
+
+Validate the completed report:
+
+```sh
+python3 scripts/validate-scenario-review.py \
+  --skill effective-workflow \
+  --report /tmp/effective-workflow-activation.json
+```
+
+The validator checks that the recorded pass/fail result agrees with the
+fixture's expected activation and the observed boolean. It does not establish
+that the host trace was interpreted correctly.
+
+## Compare With and Without the Skill
+
+Generate a comparison template:
+
+```sh
+python3 scripts/validate-scenario-review.py \
+  --skill effective-web \
+  --comparison-template \
+  > /tmp/effective-web-comparison.json
+```
+
+For every selected scenario:
+
+1. Start a fresh session with the skill available.
+2. Start another fresh session with only that skill disabled.
+3. Keep the model, sampling settings, prompt, repository state, tools, and other
+   installed skills the same.
+4. Grade each response independently against `expected`.
+5. Record duration and input/output tokens when the host exposes them; use
+   `null` for unavailable token counts.
+6. Choose `with_skill`, `without_skill`, or `tie`, then explain the evidence for
+   that comparison.
+
+Validate the completed comparison with the same `--report` command. Compare
+pass rate first, then evidence quality, material omissions, duration, and token
+cost. A shorter or cheaper result is an improvement only when it still passes
+the scenario.
+
+## Review One Run
+
+Generate a single-run template for the affected skill:
 
 ```sh
 python3 scripts/validate-scenario-review.py --skill effective-web --template \
   > /tmp/effective-web-review.json
 ```
 
-Select the changed skill and the scenarios that exercise its consequential
-behavior. Keep the relevant skill loaded in the agent under review, provide each
-stored prompt unchanged, and record the actual response. Fill in the agent,
-model/version, and sampling/runtime settings that materially affect the result.
+Select the scenarios that exercise consequential behavior. Keep the relevant
+skill loaded, provide each stored prompt unchanged, and record the actual
+response. Fill in the agent, model/version, and sampling/runtime settings that
+materially affect the result.
 
 Compare each response with that scenario's `expected` criteria. Record `pass`
 only when the response addresses the relevant judgment; record `fail` when it
@@ -53,7 +118,7 @@ Attach the report to the PR or its review record when it informs a merge
 decision. Do not commit arbitrary model output or private prompts to the source
 tree unless the repository explicitly asks for a durable benchmark artifact.
 
-## Validate the Record
+## Validate a Single-Run Record
 
 The validator confirms that every recorded case belongs to the selected skill,
 fields are complete, results are explicitly `pass` or `fail`, and no case is
@@ -83,9 +148,12 @@ an automatic behavioral grader.
 
 ## What This Does Not Claim
 
-This workflow is a transparent manual quality record. It does not make reports
-comparable across models, replace a model-provider evaluation harness, or turn a
-schema-valid report into proof that an agent will behave correctly in production.
+This workflow creates transparent manual quality records. It does not make
+reports comparable across models, replace a provider-backed evaluation harness,
+or turn a schema-valid report into proof that an agent will behave correctly in
+production. Comparisons are meaningful only when their recorded conditions are
+actually held constant.
+
 If the collection later adds a reproducible provider-backed runner, it must
 define the provider, model/version, sampling, rubric or grader, artifacts,
 baseline, cost and flake policy, and its CI or scheduled execution boundary.

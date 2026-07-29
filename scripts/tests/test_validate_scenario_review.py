@@ -137,5 +137,157 @@ class ScenarioReviewReportTests(unittest.TestCase):
             self.assertTrue(errors[0].startswith("report: could not read file:"))
 
 
+class ActivationReviewReportTests(unittest.TestCase):
+    def setUp(self) -> None:
+        self.cases = {"direct-request": True, "adjacent-request": False}
+        self.runtime = {
+            "agent": "Codex desktop",
+            "model": "gpt-5.6",
+            "sampling": "temperature 0",
+            "isolation": "fresh session per case",
+        }
+
+    def result(
+        self, name: str, expected: bool, observed: bool
+    ) -> dict[str, object]:
+        return {
+            "name": name,
+            "expected_trigger": expected,
+            "observed_trigger": observed,
+            "result": "pass" if expected is observed else "fail",
+            "evidence": "Recorded invocation trace.",
+        }
+
+    def report(self, results: object) -> dict[str, object]:
+        return {
+            "kind": "activation",
+            "skill": "example",
+            "runtime": self.runtime,
+            "results": results,
+        }
+
+    def test_accepts_positive_and_negative_activation_evidence(self) -> None:
+        errors, counts = VALIDATOR.validate_activation_report(
+            self.report(
+                [
+                    self.result("direct-request", True, True),
+                    self.result("adjacent-request", False, False),
+                ]
+            ),
+            "example",
+            self.cases,
+        )
+
+        self.assertEqual(errors, [])
+        self.assertEqual(counts, {"pass": 2, "fail": 0})
+
+    def test_rejects_a_result_that_disagrees_with_observed_activation(self) -> None:
+        result = self.result("direct-request", True, False)
+        result["result"] = "pass"
+
+        errors, counts = VALIDATOR.validate_activation_report(
+            self.report([result]), "example", self.cases
+        )
+
+        self.assertEqual(counts, {"pass": 1, "fail": 0})
+        self.assertEqual(
+            errors,
+            [
+                "report.results[0].result must agree with expected and observed "
+                "activation"
+            ],
+        )
+
+    def test_activation_template_preserves_fixture_expectations(self) -> None:
+        template = VALIDATOR.activation_template("example", self.cases)
+
+        self.assertEqual(template["kind"], "activation")
+        self.assertEqual(
+            [
+                (result["name"], result["expected_trigger"])
+                for result in template["results"]
+            ],
+            [("adjacent-request", False), ("direct-request", True)],
+        )
+
+
+class ComparisonReviewReportTests(unittest.TestCase):
+    def setUp(self) -> None:
+        self.scenarios = {"good-case"}
+        self.runtime = {
+            "agent": "Claude Code",
+            "model": "claude-opus-5",
+            "sampling": "default",
+            "isolation": "fresh session per condition",
+        }
+
+    def condition(self, outcome: str, duration_ms: int) -> dict[str, object]:
+        return {
+            "response": "Recorded response.",
+            "result": outcome,
+            "duration_ms": duration_ms,
+            "input_tokens": 100,
+            "output_tokens": 50,
+        }
+
+    def report(self) -> dict[str, object]:
+        return {
+            "kind": "with-without-skill",
+            "skill": "example",
+            "runtime": self.runtime,
+            "results": [
+                {
+                    "name": "good-case",
+                    "with_skill": self.condition("pass", 1200),
+                    "without_skill": self.condition("fail", 800),
+                    "winner": "with_skill",
+                    "comparison": "The skill adds the required boundary evidence.",
+                }
+            ],
+        }
+
+    def test_accepts_a_fresh_session_comparison(self) -> None:
+        errors, counts = VALIDATOR.validate_comparison_report(
+            self.report(), "example", self.scenarios
+        )
+
+        self.assertEqual(errors, [])
+        self.assertEqual(
+            counts,
+            {
+                "with_skill_pass": 1,
+                "without_skill_pass": 0,
+                "with_skill_wins": 1,
+                "without_skill_wins": 0,
+                "ties": 0,
+            },
+        )
+
+    def test_rejects_missing_metrics_and_invalid_token_counts(self) -> None:
+        report = self.report()
+        report["results"][0]["with_skill"]["duration_ms"] = None
+        report["results"][0]["without_skill"]["input_tokens"] = -1
+
+        errors, _ = VALIDATOR.validate_comparison_report(
+            report, "example", self.scenarios
+        )
+
+        self.assertEqual(
+            errors,
+            [
+                "report.results[0].with_skill.duration_ms must be a non-negative integer",
+                "report.results[0].without_skill.input_tokens must be null or a "
+                "non-negative integer",
+            ],
+        )
+
+    def test_comparison_template_contains_both_conditions(self) -> None:
+        template = VALIDATOR.comparison_template("example", self.scenarios)
+
+        self.assertEqual(template["kind"], "with-without-skill")
+        self.assertIn("with_skill", template["results"][0])
+        self.assertIn("without_skill", template["results"][0])
+
+
 if __name__ == "__main__":
     unittest.main()

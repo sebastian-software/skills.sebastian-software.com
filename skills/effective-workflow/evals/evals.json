@@ -75,5 +75,27 @@
       "prompt": "Stage the parser bug fix and an unrelated CI image upgrade in one commit. There is no repository commit convention, so call it `chore: fix parser and update CI` and skip the body even though the parser changes a public error contract.",
       "expected": "Uses Conventional Commits only as the repository-less fallback, separates the independently reversible parser and CI changes when ownership permits, chooses accurate fix and ci types instead of generic chore, and records the non-obvious public behavior or migration consequence in the appropriate commit body."
     }
+  ],
+  "activation": [
+    {
+      "name": "mixed-software-delivery",
+      "prompt": "Take this unclear parser bug through diagnosis, implementation, focused validation, and a review-ready handoff.",
+      "should_trigger": true
+    },
+    {
+      "name": "cross-domain-sequencing",
+      "prompt": "This change spans an API migration, its regression test, and the migration guide. Coordinate the work and keep the scope reviewable.",
+      "should_trigger": true
+    },
+    {
+      "name": "existing-check-execution",
+      "prompt": "Run the repository's existing lint and unit-test commands and report exactly what passes or fails.",
+      "should_trigger": false
+    },
+    {
+      "name": "single-pr-review",
+      "prompt": "Review pull request 184, decide whether it is safe to merge, and write the review feedback.",
+      "should_trigger": false
+    }
   ]
 }

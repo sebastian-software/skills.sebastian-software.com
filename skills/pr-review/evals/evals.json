@@ -135,5 +135,27 @@
       "prompt": "Review a large refactor whose diff changes 34 exported symbols across 12 modules. You resolve impact context for the highest-priority ten and reach the per-review cap. Two of the twelve modules are generated files your search heuristics cannot resolve at all. Write the review.",
       "expected": "States in the review that ten of the 34 changed symbols were resolved and how they were ranked, and reports the generated modules separately as not resolvable rather than implying they came back clean. Does not silently fall back to a diff-only pass or claim complete coverage."
     }
+  ],
+  "activation": [
+    {
+      "name": "named-pr-review",
+      "prompt": "Review pull request 184, inspect its impact and CI, and decide whether to approve or request changes.",
+      "should_trigger": true
+    },
+    {
+      "name": "maintain-own-pr",
+      "prompt": "Address the valid review comments on my open PR, get its checks green, and leave the branch ready for another review.",
+      "should_trigger": true
+    },
+    {
+      "name": "repository-audit",
+      "prompt": "Audit this repository and rank the five highest-leverage codebase improvements.",
+      "should_trigger": false
+    },
+    {
+      "name": "dependency-portfolio",
+      "prompt": "Research our outdated dependencies, group the compatible updates, and prepare focused upgrade PRs.",
+      "should_trigger": false
+    }
   ]
 }

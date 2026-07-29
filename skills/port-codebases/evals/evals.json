@@ -45,5 +45,27 @@
       "prompt": "A workflow-created detached port shard was assigned at commit A. After revalidation, it commits an inspected shard-owned checkpoint B whose parent is A. A later handoff wants to validate and clean up the now-clean worktree, but the assignment receipt originally named A.",
       "expected": "Advances the run-local shard receipt from A to B only after proving the run-owned parent and inspected-diff transition, hands off B as the latest expected commit, and permits cleanup only when repository identity, registration, B, cleanup ownership, and clean status match; an unproven HEAD move still blocks work and cleanup."
     }
+  ],
+  "activation": [
+    {
+      "name": "language-port",
+      "prompt": "Rewrite this C library in Rust while preserving its public behavior, error semantics, cleanup, and platform support.",
+      "should_trigger": true
+    },
+    {
+      "name": "runtime-migration",
+      "prompt": "Move this service from the current runtime to the new platform without changing its observable API or operational contract.",
+      "should_trigger": true
+    },
+    {
+      "name": "ordinary-refactor",
+      "prompt": "Split this large module into smaller files without changing its language, runtime, framework, or public behavior.",
+      "should_trigger": false
+    },
+    {
+      "name": "dependency-major-update",
+      "prompt": "Upgrade the HTTP client to its latest major version, adapt affected callers, and prepare one reviewable dependency PR.",
+      "should_trigger": false
+    }
   ]
 }

@@ -415,5 +415,27 @@
       "prompt": "A shrink-to-fit breadcrumb sets container-type:inline-size on itself and uses @container to restyle that same element. It collapses in one sidebar, so the team wants to copy the old media query and add a fixed width. Explain the failure and design a reusable solution.",
       "expected": "Explains that a size container queries descendants rather than itself and that inline-size containment removes the content contribution the shrink-to-fit breadcrumb relied on; moves containment to a stable owning region with an intentional size contract; queries the breadcrumb as a descendant; keeps a usable no-query baseline; verifies the nearest eligible container in nested hosts; and chooses the threshold in a resizable fixture with realistic labels rather than copying a viewport breakpoint."
     }
+  ],
+  "activation": [
+    {
+      "name": "frontend-accessibility-fix",
+      "prompt": "Fix the inaccessible React checkout form, preserve its design, and verify keyboard, screen-reader, responsive, and loading states.",
+      "should_trigger": true
+    },
+    {
+      "name": "web-experience-redesign",
+      "prompt": "Redesign this landing page to improve hierarchy, responsive layout, typography, performance, and conversion clarity.",
+      "should_trigger": true
+    },
+    {
+      "name": "privacy-notice-research",
+      "prompt": "Determine which privacy and cookie disclosures this German and Canadian website legally requires.",
+      "should_trigger": false
+    },
+    {
+      "name": "backend-query-performance",
+      "prompt": "Diagnose the slow database query behind this API endpoint and propose an indexing and data-model fix.",
+      "should_trigger": false
+    }
   ]
 }
