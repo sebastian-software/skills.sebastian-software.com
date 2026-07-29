@@ -44,12 +44,12 @@ Read these references before making substantive changes:
      exceptions. Use `decision-records` when this work establishes or changes a
      durable cross-channel communication direction.
    - If the target is unclear, infer the most likely one from the prompt and state the assumption briefly.
-   - When the initial request equates a technical audience with ASD-STE100 or
-     another controlled-language profile, state the channel tradeoff and
-     provide natural profile language. Switch only when an existing artifact
-     contract governs or the user reconfirms the preference after that tradeoff.
-     Before returning a first-pass rewrite, include the brief correction rather
-     than silently adopting the requested controlled rhythm.
+   - A controlled-language request made only because the subject is technical is
+     a profile mismatch, not a governing contract: state the channel tradeoff,
+     use natural language for this artifact, and switch only when an existing
+     artifact contract governs it or the user reconfirms after that tradeoff.
+     Include that correction with the first-pass rewrite rather than silently
+     adopting the requested controlled rhythm.
 
 2. Extract the consultant's positioning thesis.
    - Reduce the profile to one sharp sentence: "[Role/specialty] who helps [type of organization] achieve [business/technical outcome] in [contexts]."
@@ -121,10 +121,11 @@ Read these references before making substantive changes:
      technical document.
    - Publish a technology only when the supplied role, depth, recency,
      mechanism, deliverable, or outcome makes it evidence for the profile
-     thesis. Never put a merely observed tool in published copy, an
-     "additional experience" section, or a complete stack list, even when the
-     user asks to keep every technology. Put it only in the source-and-gap
-     inventory until the role and relevance are known.
+     thesis. Keep a merely observed tool in the source-and-gap inventory rather
+     than in published copy, an "additional experience" section, or a complete
+     stack list. When the user asks to keep every technology, name the missing
+     role and relevance for each unsupported entry and publish it only after
+     the user supplies that evidence or confirms the weaker list.
    - Do not infer security, quality, delivery speed, scale, or business impact
      from a technology choice. State the verified role, mechanism, deliverable,
      or constraint when no outcome was measured.

@@ -25,7 +25,7 @@ Use the narrowest profile that meets the audience need:
 | --- | --- |
 | Natural technical German | Improve clarity while preserving the repository's established voice and terminology. |
 | Rule-based technical German | Apply an adopted tekom-based editorial guide, terminology database, and repeatable sentence and structure rules. |
-| Einfache Sprache | Apply DIN 8581-1 or DIN ISO 24495-1 only when the audience, contract, or accessibility goal requires this profile. |
+| Einfache Sprache | Apply DIN 8581-1 or ISO 24495-1 only when the audience, contract, or accessibility goal requires this profile. |
 | Leichte Sprache | Treat as a separate accessibility and audience requirement. Do not infer it from a general request for clear technical text. |
 
 For experienced technicians, engineers, administrators, and software users,
@@ -205,7 +205,8 @@ a complete editorial review.
 ## Typical references
 
 - [tekom: Deutsch für die Technische Kommunikation — Regelbasiertes Schreiben, 3. Auflage (2026)](https://www.tekom.de/services-unsere-angebote/publikationen/fachbuecher/detail/deutsch-fuer-technische-kommunikation-regeln-und-ihre-anwendung)
-- [DIN EN IEC/IEEE 82079-1:2021-09 — Erstellung von Nutzungsinformationen](https://www.dinmedia.de/de/norm/din-en-iec-ieee-82079-1/342226844)
+- [DIN EN IEC/IEEE 82079-1:2021-09 — Erstellung von Nutzungsinformationen](https://www.dinmedia.de/de/norm/din-en-iec-ieee-82079-1/342226844),
+  the German adoption of IEC/IEEE 82079-1
 - [DIN 8581-1:2024-05 — Einfache Sprache, Anwendung für das Deutsche](https://www.dinmedia.de/de/norm/din-8581-1/377238273)
 - [ISO 24495-1:2023 — plain-language principles and guidelines](https://www.iso.org/standard/78907.html)
 - [ISO 704:2022 — terminology work principles and methods](https://www.iso.org/standard/79077.html)
