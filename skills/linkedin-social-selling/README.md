@@ -73,6 +73,9 @@ dalo sync
 
 ## Related Skills
 
+- [Social Content](../create-social-content/README.md) coordinates
+  non-LinkedIn and multi-platform expression from the audience, evidence,
+  offer connection, and claim boundaries established here.
 - [LinkedIn Posts](../linkedin-posts/README.md) creates individual posts, ideas,
   and calendars from the audience, evidence, role, and commercial intent
   established here.

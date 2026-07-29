@@ -180,6 +180,9 @@ Prefer concrete, commercially legible language over career-history narration. A 
 
 ## Routing Boundaries
 
+- Route public posts derived from approved professional positioning, project
+  evidence, and permission-sensitive client context to `create-social-content`;
+  keep source selection, profile claims, and career evidence here.
 - Route the acquisition overlay — target-buyer path, network, conversation,
   content, and pipeline strategy for a completed profile — to
   `linkedin-social-selling`. Keep professional evidence and field-level profile

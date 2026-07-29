@@ -55,6 +55,12 @@ copy. Without it, use the brief below as the minimum drafting contract and keep
 each post tied to an evidence source, content role, buyer situation, and useful
 next step.
 
+When the program spans LinkedIn and other social platforms, hand the shared
+idea, evidence, voice, commercial connection, and claim boundaries to
+`create-social-content`. Let it coordinate non-LinkedIn and cross-platform
+adaptation while `linkedin-posts` owns the LinkedIn expression. Do not paste one
+LinkedIn draft unchanged across channels.
+
 When the system needs an actual post, pass `linkedin-posts` a concise brief:
 
 - target audience and buyer situation

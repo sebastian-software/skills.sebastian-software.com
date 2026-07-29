@@ -129,6 +129,10 @@ For a broad product-marketing decision, return:
   product descriptions, and other finished long-form prose after the audience,
   position, claims, proof, purpose, approved technical terminology, and
   material constraints are stable enough to brief.
+- Use `create-social-content` to express an approved position, message, launch,
+  proof point, or learning across non-LinkedIn or multiple social platforms.
+  Pass the selected audience, situation, claim, proof, constraints, and desired
+  next action without letting channel response redefine the position as fact.
 - Use `effective-web` to specify, implement, and verify landing pages, product
   pages, forms, experiments, analytics delivery, accessibility, performance,
   and responsive behavior after the market-facing requirements are clear.
