@@ -45,10 +45,11 @@ correct port from plausible-looking code.
 Read [Execution profiles](references/execution-profiles.md), then select the
 smallest profile that can satisfy the migration contract:
 
-- **Solo:** one working agent, sequential batches, cold review passes, narrow
-  checks after every batch, and scheduled full-suite checkpoints.
-- **Paired:** separate implementer and reviewer contexts, or alternating fresh
-  passes when only one agent can run at a time.
+- **Solo:** one working agent, sequential batches, cold self-review or fresh
+  passes, narrow checks after every batch, and scheduled full-suite checkpoints.
+- **Paired:** an implementer plus one independent semantic reviewer for a named
+  high-risk question or measured review benefit; deterministic checks remain
+  the default evidence path.
 - **Parallel:** independent shards with explicit ownership, isolated worktrees
   or directories, bounded concurrency, and a single integration queue.
 
@@ -70,6 +71,11 @@ available. Default to a strong architect at planning and milestone boundaries,
 an efficient builder for bounded slices, deterministic evidence owned by the
 builder or integrator, and risk-based specialist review instead of assigning a
 second model to recheck every change.
+
+When a proposed workflow assigns the cheapest model to routine quick review,
+correct that assumption explicitly. Keep routine review with the builder's cold
+pass and deterministic gates; use an independent model only for a named
+semantic risk or a review class with measured benefit.
 
 ## Build the Porting System
 

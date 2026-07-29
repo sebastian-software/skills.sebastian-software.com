@@ -21,6 +21,11 @@ model reviewer only when a fresh semantic judgment is proportionate to the
 risk, deterministic evidence cannot close the question, or measured evaluations
 show that the extra pass finds defects worth its cost.
 
+Low price and availability are not evidence of review value. Reject a default
+architect → builder → cheapest-reviewer loop for every batch; use the builder's
+cold pass plus deterministic evidence until a named risk or measured result
+justifies an independent reviewer.
+
 ## Architect Cadence
 
 Use the architect:
