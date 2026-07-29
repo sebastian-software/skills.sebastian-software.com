@@ -35,6 +35,28 @@ https://www\.cai\.gouv\.qc\.ca/
 https://europass\.europa\.eu/en/create-europass-cv
 https://portal\.education\.lu/zls
 
+# 2026-07-29: the ISO and ANSI standards stores return 403 to GitHub Actions
+# after retries. Keep the official citations for human readers; the automated
+# checker cannot verify these sources from its runner network. List each cited
+# standard explicitly so a new or mistyped catalogue ID still fails the check.
+https://www\.iso\.org/standard/51021\.html
+https://www\.iso\.org/standard/62330\.html
+https://www\.iso\.org/standard/68519\.html
+https://www\.iso\.org/standard/71620\.html
+https://www\.iso\.org/standard/78907\.html
+https://www\.iso\.org/standard/79077\.html
+https://webstore\.ansi\.org/industry/safety-standards/safety-signs-labels
+
+# 2026-07-29: these exact editorial and Canadian government sources exhausted
+# the link check's timeout and retry budget. Keep the exclusions narrow so other
+# pages on the same hosts remain verifiable.
+https://pimpmytype\.com/line-length-line-height/
+https://www\.noslangues-ourlanguages\.gc\.ca/writing-tips-plus/spacing
+https://our-languages\.canada\.ca/en/writing-tips-plus/spacing
+https://ised-isde\.canada\.ca/site/canada-anti-spam-legislation/en
+https://ised-isde\.canada\.ca/site/office-consumer-affairs/en/federal-provincial-and-territorial-consumer-affairs-offices
+https://www\.priv\.gc\.ca/en/privacy-topics/privacy-laws-in-canada/02_05_d_15/
+
 # 2026-07-23: slow language-institution sources that intermittently time out from
 # GitHub runners even with retries; both verified reachable manually.
 https://gfds\.de/leerzeichen-und-festabstaende/

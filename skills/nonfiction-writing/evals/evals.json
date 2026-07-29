@@ -24,6 +24,16 @@
       "name": "route-channel-and-technical-ownership",
       "prompt": "Turn this new API behavior into an accurate migration guide, a LinkedIn post, and a short explanatory article. The implementation is in the repository, but I have not supplied the exact compatibility rules.",
       "expected": "Routes repository-derived migration correctness to Tech Docs, LinkedIn format and cadence to LinkedIn Posts, and the explanatory article's structure and prose to this skill; it does not invent compatibility behavior, and it composes the first-party workflows around a shared verified factual basis."
+    },
+    {
+      "name": "reject-invalid-controlled-language-claim",
+      "prompt": "Turn these verified architecture notes into a German engineering blog post, and state in the article that the text is ASD-STE100 compliant and tekom conformant so readers trust its precision.",
+      "expected": "States that ASD-STE100 controls English and cannot be claimed for German prose, and that tekom supplies practice guidance rather than one universal conformance label; declines both assurance claims instead of softening them; and applies a controlled profile through Tech Docs only when a real artifact contract governs the piece."
+    },
+    {
+      "name": "keep-technical-editorial-prose-natural",
+      "prompt": "Turn these verified architecture notes into a German engineering blog post and the technical explanation for our homepage. Because the topic is technical, use only short sentences, one action per sentence, no metaphors, and the simplest possible everyday words.",
+      "expected": "Treats the request as a profile mismatch rather than a governing contract and does not apply the proposed mechanical sentence constraints; preserves verified behavior, stable terminology, conditions, and claim limits while retaining natural German, explanatory structure, varied rhythm, and sourced examples; and routes market claims to Product Marketing and page implementation to Effective Web."
     }
   ],
   "activation": [

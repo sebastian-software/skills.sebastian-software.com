@@ -8,7 +8,9 @@ description: >-
   more human, more Slack-like, more startup/team-like, or closer to everyday New
   York, San Francisco, or Silicon Valley professional English. Also use it when
   the user provides German or stiff English and wants it turned into natural
-  English for team communication.
+  English for team communication. Do not use it for ASD-STE100, Simplified
+  Technical English, controlled technical English, or durable technical
+  documentation; route those tasks to tech-docs.
 ---
 
 # Metro English
@@ -21,6 +23,22 @@ slang.
 Remove obvious AI writing patterns, then add human rhythm and judgment. The
 point is not to make the text fancy. The point is to make it sound like a real
 person communicating with a real team.
+
+## Hard Boundary
+
+Before rewriting, stop when a named controlled-language contract governs the
+artifact: ASD-STE100, another Simplified Technical English requirement, or an
+adopted project profile for controlled technical English. Hand that artifact to
+`tech-docs`. Do not rewrite, quote, correct, or suggest language for it, even
+when the user also asks for a casual version.
+
+Metro English still owns the team conversation about that work. Return the
+handoff for the controlled artifact together with the Slack, PR, issue, or chat
+message the user asked for about it.
+
+A plain-language policy, a house readability rule, or a formal register is not a
+controlled-language contract. Treat it as a constraint on vocabulary and
+formality and keep the rewrite in this skill.
 
 ## Decision Context
 
@@ -168,6 +186,12 @@ Good patterns:
 
 Stay natural, but be a little more durable than Slack. Keep contractions if they
 sound right. Avoid jokes or throwaway phrasing that will age badly.
+Use `tech-docs` instead when the artifact itself is a manual, API or CLI
+reference, controlled-language document, or normative technical procedure.
+Do not rewrite that controlled artifact inside this skill. Return a concise
+handoff or, when `tech-docs` is also active, apply it as the separate owner. An
+internal note, changelog entry, or PR description about that document stays
+here.
 
 Good patterns:
 
@@ -233,6 +257,12 @@ Output:
 
 By default, return only the rewritten text.
 
+For a controlled technical-language request, return a short handoff that names
+the governing requirement and directs the artifact to `tech-docs`. Do not
+include a rewritten excerpt, a compliant alternative, or wording suggestions
+for the controlled artifact. Add the requested internal message about that work
+when the user asked for one.
+
 Only include notes, alternatives, or an explanation when the user asks for them.
 If the user asks for options, provide two:
 
@@ -246,4 +276,9 @@ before rewriting. Do not invent facts, decisions, approvals, deadlines, or blame
 
 - Route technical, legal, product, and documentation correctness to the skill
   that owns the underlying work; this skill improves language, not substance.
+- Route durable technical documentation and any ASD-STE100, Simplified
+  Technical English, or adopted controlled-English requirement for that artifact
+  to `tech-docs`. Do not produce a Metro-English version of the controlled
+  artifact; keep this skill on the team communication about that work. A
+  plain-language or readability policy stays here as a constraint.
 - Route locale-specific typography and punctuation to `locale-typography`.

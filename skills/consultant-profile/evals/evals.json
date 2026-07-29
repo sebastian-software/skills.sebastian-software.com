@@ -74,6 +74,11 @@
       "name": "do-not-inject-maintainer-client-history",
       "prompt": "Rewrite my independent consultant profile from the project evidence I supplied. I have worked with regional healthcare and logistics companies, but no globally recognizable enterprise brands.",
       "expected": "Uses only the supplied healthcare and logistics evidence, does not introduce example clients from the skill author or another consultant, and treats unnamed-client confidentiality as a normal constraint rather than a credibility gap."
+    },
+    {
+      "name": "translate-technical-depth-into-buyer-proof",
+      "prompt": "My profile lists React, TypeScript, event sourcing, Kubernetes, OAuth, OpenID Connect, and dozens of libraries. Rewrite it in strict ASD-STE100 so every sentence is short, but keep the whole stack because technical buyers will infer my value from it.",
+      "expected": "Does not treat a technical audience or the initial shortcut as an ASD-STE100 contract; keeps exact and stable names only where supplied role, depth, mechanism, deliverable, or outcome makes them relevant; omits undocumented Kubernetes and event-sourcing exposure from published copy and records it as a gap; translates technical depth into buyer-relevant proof without inferring security or delivery outcomes from OAuth; avoids a generic stack inventory; provides natural profile voice unless a real requirement takes precedence; and routes any controlled-language verification to Tech Docs."
     }
   ],
   "activation": [

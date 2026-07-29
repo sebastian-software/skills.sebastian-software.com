@@ -29,6 +29,11 @@
       "name": "adoption-learning-preserves-layer-boundaries",
       "prompt": "Sign-ups rose after a LinkedIn campaign, but activation and retained use are unchanged. Declare the positioning validated, tell product not to investigate onboarding, and double channel spend because the top-of-funnel message worked.",
       "expected": "Separates channel response from positioning, product value, activation, and retention evidence; traces the adoption path and segment quality; preserves plausible product, message, and channel explanations; and withholds a scale decision until downstream value and economics support it."
+    },
+    {
+      "name": "technical-homepage-preserves-claim-contract",
+      "prompt": "Create homepage messaging for our event-processing platform. Replace the architecture terms with friendlier synonyms in every section and call it infinitely scalable, real-time, secure, and zero-maintenance. We have implementation notes but no scale benchmark, latency definition, security review, or maintenance evidence.",
+      "expected": "Keeps product facts, approved technical terminology, position, claim, proof, and page execution separately reviewable; rejects unsupported universality, performance, security, and maintenance claims; identifies the missing evidence and definitions; and hands a bounded message and terminology brief to Nonfiction Writing and Effective Web."
     }
   ],
   "activation": [

@@ -1,21 +1,25 @@
 ---
 name: tech-docs
 description: >-
-  Design, write, update, and verify technical documentation for software users
-  and contributors, including READMEs, setup and task guides, API and CLI
-  references, migration notes, JSDoc, TSDoc, rustdoc, explanatory code
-  comments, and executable examples. Use when asked to create or improve
-  technical docs, document a public interface or migration, align documentation
-  with implementation, or validate docs against repository conventions. Do not
-  use for general marketing copy; route repository-wide documentation audits
-  and prioritization to codebase-improvement.
+  Design, write, update, and verify technical documentation for product and
+  software users, operators, and contributors, including READMEs, setup and task
+  guides, API and CLI references, migration notes, JSDoc, TSDoc, rustdoc,
+  explanatory code comments, executable examples, and ASD-STE100 Simplified
+  Technical English. Use when asked to create or improve technical docs,
+  document a public interface or migration, write or review English technical
+  text in STE or a controlled language, apply tekom-style rule-based writing or
+  controlled technical German, align documentation with implementation, or
+  validate docs against repository conventions. Do not use for general
+  marketing copy; route repository-wide documentation audits and prioritization
+  to codebase-improvement.
 ---
 
 # Tech Docs
 
-Make documentation a trustworthy interface to the software. Help the intended
-reader complete a real task, understand the relevant contract, and recover from
-likely failures without inventing behavior or imposing a foreign docs system.
+Make documentation a trustworthy interface to the product or software. Help the
+intended reader complete a real task, understand the relevant contract, and
+recover from likely failures without inventing behavior or imposing a foreign
+docs system.
 
 ## Workflow
 
@@ -34,6 +38,14 @@ likely failures without inventing behavior or imposing a foreign docs system.
      [Interfaces and Migrations](references/interfaces-and-migrations.md).
    - JSDoc, TSDoc, rustdoc, docstrings, or explanatory comments: read
      [Code Documentation](references/code-documentation.md).
+   - ASD-STE100, Simplified Technical English, STE, controlled English,
+     international maintenance text, or an STE conformance review: read
+     [Simplified Technical English](references/simplified-technical-english.md)
+     together with the reference for the owning documentation surface.
+   - tekom, rule-based writing, controlled or standardized German,
+     translation-oriented German, or a German technical-language review: read
+     [Controlled Technical German](references/controlled-technical-german.md)
+     together with the reference for the owning documentation surface.
    - Any task with commands, code samples, generated references, links, or docs
      tooling: read [Examples and Verification](references/examples-and-verification.md).
 4. Write at the closest stable source of truth. Update connected navigation,
@@ -55,6 +67,10 @@ likely failures without inventing behavior or imposing a foreign docs system.
   tests. Treat uncertain behavior as a question, not documentation.
 - Lead with the supported path a reader should take. Add alternatives only when
   the choice changes compatibility, safety, cost, or outcome.
+- Apply a controlled-language profile only when the user, project, or governing
+  documentation contract requires it. Name the selected standard, guide,
+  edition, and project profile. Distinguish informed editing from a verified
+  review.
 - Prefer task completion and progressive disclosure over exhaustive prose.
   Keep quick-start material short and route advanced concerns to focused pages.
 - Document contracts, constraints, side effects, failure behavior, recovery,
@@ -81,7 +97,9 @@ likely failures without inventing behavior or imposing a foreign docs system.
   `effective-web` when the browser experience is primary.
 - Route locale-specific punctuation and formatting to `locale-typography`.
 - Use `metro-english` for natural professional English when requested; it does
-  not own documentation architecture or technical correctness.
+  not own documentation architecture or technical correctness. When
+  ASD-STE100 governs, its controlled vocabulary and writing rules take
+  precedence over natural voice preferences.
 - Keep marketing positioning and campaign copy outside this skill. A root
   README may contain technical onboarding owned here and product positioning
   owned elsewhere.

@@ -3,7 +3,8 @@ name: nonfiction-writing
 description: >-
   Plan, write, revise, or critique clear and persuasive nonfiction from supplied
   ideas and evidence. Use for articles, essays, newsletters, thought leadership,
-  content marketing, reports, case studies, About pages, product descriptions,
+  content marketing, engineering blog posts, technical articles, reports, case
+  studies, About pages, product descriptions, long-form homepage prose,
   explanatory prose, and other factual writing; for turning notes into a draft;
   or for improving structure, clarity, voice, rhythm, credibility, and calls to
   action without inventing facts.
@@ -24,6 +25,15 @@ supportable.
    - purpose: inform, explain, argue, teach, reassure, demonstrate, or invite
    - desired change in the reader's understanding, belief, or action
    - channel, length, language, voice, deadline, and supplied source material
+   - whether a named controlled-language profile is an actual artifact contract
+     or only a proposed shortcut for technical clarity
+
+   A controlled-language request made only because the subject is technical is a
+   profile mismatch, not a governing contract: state the channel tradeoff, use
+   natural language for this artifact, and switch only when an existing artifact
+   contract governs it or the user reconfirms after that tradeoff. Do not apply
+   ASD-STE100, tekom, or mechanical short-sentence constraints to the draft on
+   that basis.
 2. Build a small evidence register. Separate:
    - supplied facts, quotations, examples, and measured outcomes
    - the author's interpretation or professional judgment
@@ -43,6 +53,9 @@ supportable.
    - [Persuasive nonfiction](references/persuasive-nonfiction.md) for thought
      leadership, content marketing, case studies, About pages, product
      descriptions, objections, proof, and calls to action.
+   - [Technical subject-matter writing](references/technical-subject-matter.md)
+     for engineering blog posts, technical articles, explainers, technical case
+     studies, and long-form homepage prose for technical products or projects.
 5. Build the reading path before polishing sentences. Give each section one
    job, make the relationship between paragraphs visible, and place context
    before claims that depend on it.
@@ -112,9 +125,12 @@ For revision or critique, return:
 - Use `consultant-profile` to select and structure career evidence, professional
   positioning, project narratives, and profile facts before writing the prose.
 - Use `tech-docs` when correctness must be derived from a software repository,
-  public interface, executable example, migration contract, or documentation
-  toolchain.
-- Use `effective-web` for interface copy inside a browser experience and for
-  implementing or verifying the surrounding web interface.
+  public interface, executable example, migration contract, documentation
+  toolchain, or controlled-language standard. Keep the governing idea,
+  editorial structure, and public voice here when the artifact remains an
+  article or long-form page rather than technical documentation.
+- Use `effective-web` for interface copy, page hierarchy, accessibility, and
+  implementing or verifying the surrounding browser experience. Keep
+  long-form editorial page prose here.
 - Use `locale-typography` for locale-specific punctuation, spacing, quotation,
   number, date, and typographic conventions.
