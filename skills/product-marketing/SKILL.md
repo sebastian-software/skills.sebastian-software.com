@@ -85,6 +85,9 @@ channel execution separately reviewable.
   universal result.
 - Preserve qualifications that keep a claim true. Do not strip limits from a
   message merely to make it shorter or more forceful.
+- For technical products and projects, keep approved technical terms stable and
+  translate the verified mechanism into buyer relevance without changing its
+  behavior, conditions, or constraints.
 - Treat launch as a coordinated change in market exposure and operations, not
   a fixed ceremony or a content calendar.
 - Equip sales to discover fit, show supported value, handle uncertainty, and
@@ -124,7 +127,8 @@ For a broad product-marketing decision, return:
   claim, proof, launch, or channel decision.
 - Use `nonfiction-writing` to plan, draft, and revise articles, case studies,
   product descriptions, and other finished long-form prose after the audience,
-  position, claims, proof, and purpose are stable enough to brief.
+  position, claims, proof, purpose, approved technical terminology, and
+  material constraints are stable enough to brief.
 - Use `effective-web` to specify, implement, and verify landing pages, product
   pages, forms, experiments, analytics delivery, accessibility, performance,
   and responsive behavior after the market-facing requirements are clear.
