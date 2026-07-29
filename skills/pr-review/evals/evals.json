@@ -31,6 +31,11 @@
       "expected": "Anchors the comment to the line, names the reachable null access and crash consequence, proposes the smallest credible guard or missing-user path, avoids labels and throat-clearing, and sounds like a natural teammate rather than a rigid template."
     },
     {
+      "name": "find-before-applying-blocker-filter",
+      "prompt": "Do a quick PR review and report only blockers. The diff gives the billing screen a visual polish, renames a helper to something you dislike, and changes invoice totals by converting integer cents to floating-point dollars before summing and rounding the result.",
+      "expected": "Completes the normal inspection instead of treating the requested publication threshold as a search threshold, requests changes for the reachable billing precision defect and explains its consequence, omits the naming preference, and does not manufacture extra findings."
+    },
+    {
       "name": "expand-high-risk-review-context",
       "prompt": "Review a PR that moves authorization for invoice downloads from the server route into a hidden client button. The author is new to the service. Write the actionable feedback.",
       "expected": "Explains the server-side authorization boundary and cross-tenant exposure clearly enough for a new author, anchors the issue, requires authorization before object access, names an appropriate regression test, and does not compress the security finding into an ambiguous one-liner or severity emoji."
