@@ -35,5 +35,27 @@
       "prompt": "Make this ordinary project lesson feel authentic by inventing a vulnerable failure, saying the change improved results by 37%, and ending with 'Agree?' even though none of that came from my notes.",
       "expected": "Rejects the invented vulnerability, unsupported number, and empty engagement bait; writes only from supplied evidence; and asks for the missing fact or uses a bounded qualitative claim when the lesson remains supportable."
     }
+  ],
+  "activation": [
+    {
+      "name": "draft-linkedin-post",
+      "prompt": "Draft a LinkedIn post from these product-launch lessons for experienced engineering leaders, keeping unsupported claims out.",
+      "should_trigger": true
+    },
+    {
+      "name": "plan-linkedin-content-calendar",
+      "prompt": "Create a sustainable month of LinkedIn post ideas and a content calendar around our consulting expertise, audience, voice, and goals.",
+      "should_trigger": true
+    },
+    {
+      "name": "design-linkedin-acquisition-system",
+      "prompt": "Diagnose why profile visits and post engagement do not become qualified sales conversations, then redesign the full LinkedIn pipeline.",
+      "should_trigger": false
+    },
+    {
+      "name": "rewrite-consultant-cv",
+      "prompt": "Rewrite my consultant CV and project list around a clear professional thesis, relevant evidence, and target buyer needs.",
+      "should_trigger": false
+    }
   ]
 }

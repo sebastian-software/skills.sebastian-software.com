@@ -30,5 +30,27 @@
       "prompt": "Sign-ups rose after a LinkedIn campaign, but activation and retained use are unchanged. Declare the positioning validated, tell product not to investigate onboarding, and double channel spend because the top-of-funnel message worked.",
       "expected": "Separates channel response from positioning, product value, activation, and retention evidence; traces the adoption path and segment quality; preserves plausible product, message, and channel explanations; and withholds a scale decision until downstream value and economics support it."
     }
+  ],
+  "activation": [
+    {
+      "name": "develop-product-positioning",
+      "prompt": "Turn the supplied customer, competitor, and product evidence into a positioning brief, message architecture, claims, and proof gaps.",
+      "should_trigger": true
+    },
+    {
+      "name": "plan-evidence-led-launch",
+      "prompt": "Build a cross-functional launch plan with audience, narrative, sales enablement, proof, channel responsibilities, and market-learning signals.",
+      "should_trigger": true
+    },
+    {
+      "name": "decide-feature-scope",
+      "prompt": "Use discovery evidence to decide whether this customer problem belongs in the product roadmap and define the smallest useful outcome.",
+      "should_trigger": false
+    },
+    {
+      "name": "write-standalone-essay",
+      "prompt": "Turn these supplied ideas and sources into a thoughtful long-form essay without creating a positioning or launch strategy.",
+      "should_trigger": false
+    }
   ]
 }

@@ -25,5 +25,27 @@
       "prompt": "Rewrite this regulated customer notice in startup Slack style because Metro English should make every channel casual.",
       "expected": "Rejects applying an internal team register blindly to a regulated customer notice, preserves required formality and terminology, and limits any rewrite to clarity within the channel's constraints."
     }
+  ],
+  "activation": [
+    {
+      "name": "rewrite-german-team-update",
+      "prompt": "Turn this German status update into relaxed, natural US English for an internal Slack thread.",
+      "should_trigger": true
+    },
+    {
+      "name": "humanize-pr-comment",
+      "prompt": "Rewrite this stiff pull-request comment so it sounds direct, warm, concise, and like a real US-based teammate.",
+      "should_trigger": true
+    },
+    {
+      "name": "write-formal-whitepaper",
+      "prompt": "Turn these research notes into a formal customer-facing whitepaper with a structured argument and source-aware claims.",
+      "should_trigger": false
+    },
+    {
+      "name": "localize-legal-notice",
+      "prompt": "Translate and legally review this customer-facing privacy notice for publication in the United States.",
+      "should_trigger": false
+    }
   ]
 }
