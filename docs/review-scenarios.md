@@ -31,8 +31,12 @@ python3 scripts/validate-scenario-review.py \
 
 Run every case in a fresh session with the normal installed skill set. Do not
 mention the skill explicitly unless explicit invocation itself is the behavior
-under test. Record whether the host exposed or invoked the skill and the trace,
-log, or other evidence supporting that observation.
+under test. `observed_trigger` means that the host invoked the skill's full
+instructions for the case. Catalog exposure of its name and description alone
+does not count. Record the invocation trace, log, or other evidence supporting
+that observation. A negative case should fail only when the skill itself was
+invoked, not merely because another legitimately co-activated skill handled the
+request.
 
 Validate the completed report:
 
@@ -65,7 +69,7 @@ For every selected scenario:
    installed skills the same.
 4. Grade each response independently against `expected`.
 5. Record duration and input/output tokens when the host exposes them; use
-   `null` for unavailable token counts.
+   `null` for any unavailable metric.
 6. Choose `with_skill`, `without_skill`, or `tie`, then explain the evidence for
    that comparison.
 

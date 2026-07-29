@@ -236,7 +236,7 @@ high-cost behavior, or a description change that needs trigger evidence:
     },
     {
       "name": "adjacent-owner",
-      "prompt": "A realistic nearby request owned by another skill.",
+      "prompt": "A realistic nearby request that should not invoke this skill's full instructions.",
       "should_trigger": false
     }
   ]
@@ -249,7 +249,11 @@ only the fixture's JSON shape, non-empty fields, and unique names; it does not
 submit prompts to a model, score responses, or claim behavioral correctness.
 An `activation` set must include both should-trigger and should-not-trigger
 cases. Put the most confusable natural-language requests in that set rather
-than testing only explicit `$skill-name` invocation.
+than testing only explicit `$skill-name` invocation. A negative case means that
+the host should not invoke this skill's full instructions; merely exposing its
+name and description in the catalog does not count as activation. Use a request
+owned by another skill or one that needs no skill, and avoid cases where
+co-activation would be legitimate.
 
 When a change needs behavior evidence, follow the documented [manual
 review-scenario workflow](review-scenarios.md). It generates a report template

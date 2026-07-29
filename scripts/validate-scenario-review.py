@@ -374,8 +374,12 @@ def validate_condition(
     else:
         valid_outcome = outcome
     duration = condition["duration_ms"]
-    if not isinstance(duration, int) or isinstance(duration, bool) or duration < 0:
-        errors.append(f"{location}.duration_ms must be a non-negative integer")
+    if duration is not None and (
+        not isinstance(duration, int) or isinstance(duration, bool) or duration < 0
+    ):
+        errors.append(
+            f"{location}.duration_ms must be null or a non-negative integer"
+        )
     for field in ("input_tokens", "output_tokens"):
         value = condition[field]
         if value is not None and (

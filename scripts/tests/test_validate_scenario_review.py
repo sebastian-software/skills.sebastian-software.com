@@ -221,7 +221,7 @@ class ComparisonReviewReportTests(unittest.TestCase):
             "isolation": "fresh session per condition",
         }
 
-    def condition(self, outcome: str, duration_ms: int) -> dict[str, object]:
+    def condition(self, outcome: str, duration_ms: int | None) -> dict[str, object]:
         return {
             "response": "Recorded response.",
             "result": outcome,
@@ -263,9 +263,9 @@ class ComparisonReviewReportTests(unittest.TestCase):
             },
         )
 
-    def test_rejects_missing_metrics_and_invalid_token_counts(self) -> None:
+    def test_rejects_invalid_metrics(self) -> None:
         report = self.report()
-        report["results"][0]["with_skill"]["duration_ms"] = None
+        report["results"][0]["with_skill"]["duration_ms"] = -1
         report["results"][0]["without_skill"]["input_tokens"] = -1
 
         errors, _ = VALIDATOR.validate_comparison_report(
@@ -275,11 +275,26 @@ class ComparisonReviewReportTests(unittest.TestCase):
         self.assertEqual(
             errors,
             [
-                "report.results[0].with_skill.duration_ms must be a non-negative integer",
+                "report.results[0].with_skill.duration_ms must be null or a "
+                "non-negative integer",
                 "report.results[0].without_skill.input_tokens must be null or a "
                 "non-negative integer",
             ],
         )
+
+    def test_accepts_unavailable_metrics(self) -> None:
+        report = self.report()
+        for condition_name in ("with_skill", "without_skill"):
+            condition = report["results"][0][condition_name]
+            condition["duration_ms"] = None
+            condition["input_tokens"] = None
+            condition["output_tokens"] = None
+
+        errors, _ = VALIDATOR.validate_comparison_report(
+            report, "example", self.scenarios
+        )
+
+        self.assertEqual(errors, [])
 
     def test_comparison_template_contains_both_conditions(self) -> None:
         template = VALIDATOR.comparison_template("example", self.scenarios)
