@@ -12,7 +12,8 @@ essays, newsletters, reports, thought leadership, content marketing, case
 studies, About pages, product descriptions, engineering blog posts, technical
 articles, and long-form homepage prose. It joins long-form craft with legitimate
 marketing intent while keeping claims, quotations, examples, outcomes, and
-technical behavior tied to real source material.
+technical behavior tied to real source material. It can also audit formulaic or
+AI-sounding prose through observable patterns without guessing who wrote it.
 
 ## What It Can Deliver
 
@@ -22,6 +23,8 @@ technical behavior tied to real source material.
 - thought leadership and content marketing with credible persuasive structure
 - case studies, About pages, and product or service descriptions
 - structural, evidentiary, voice, and line-level revisions
+- minimal edits that remove formulaic patterns without flattening the author
+- evidence-based pattern audits without AI-authorship scores or guesses
 - prioritized critiques that distinguish errors, tradeoffs, and preferences
 
 ## Use It When
@@ -40,6 +43,9 @@ clear argument, preserve my direct voice, and flag any proof we still need.
 
 Revise this essay for structure, rhythm, and clarity without flattening its
 personal tone or changing the facts.
+
+Audit this draft for formulaic or AI-sounding patterns. Quote the evidence and
+suggest the smallest useful fix, but do not rewrite it or guess who wrote it.
 
 Write a useful thought-leadership article that demonstrates our approach and
 ends with a credible invitation to talk—without turning every paragraph into a
@@ -86,14 +92,17 @@ dalo sync
   surrounding browser experience.
 - [Locale Typography](../locale-typography/README.md) applies locale-specific
   punctuation and typographic conventions.
+- [Metro English](../metro-english/README.md) owns the relaxed US professional
+  register for short internal team communication.
 
 ## Scope
 
 This skill creates and improves factual prose from supplied or verifiable
 material. It does not invent experience, evidence, quotations, testimonials,
 citations, outcomes, product behavior, or independent editorial endorsement,
-and it does not replace channel strategy, technical verification,
-controlled-language documentation, or interface implementation.
+and a pattern audit does not establish whether AI wrote a text. The skill does
+not replace channel strategy, technical verification, controlled-language
+documentation, or interface implementation.
 
 ## About Sebastian Software
 

@@ -240,7 +240,10 @@ post concepts.
   text-level profile while this skill owns the surrounding channel strategy.
 - Route a standalone long-form technical article to `nonfiction-writing`, then
   return here for its LinkedIn excerpt, announcement, or conversation prompt.
+- Route a requested evidence-based audit of formulaic or AI-sounding patterns to
+  `nonfiction-writing`, then return here when the post itself needs
+  channel-specific revision. Never infer AI authorship from prose patterns.
 - Keep the work scoped to LinkedIn posts. Do not expand a post request into a
-  general website-copy system, unrelated content editing, AI-authorship
-  diagnosis, or a broad persuasion audit. Apply the writing and revision
-  principles in this skill directly to the requested post.
+  general website-copy system, unrelated content editing, authorship diagnosis,
+  or a broad persuasion audit. Apply the writing and revision principles in
+  this skill directly to the requested post.
