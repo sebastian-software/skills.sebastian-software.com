@@ -105,5 +105,27 @@
       "prompt": "This TypeScript service uses the repository's established test runner, fixture factory, local PostgreSQL harness, and a focused command. A generic guide suggests replacing them with a new framework and container stack for one authorization test.",
       "expected": "Discovers and follows the existing runner, helpers, database harness, and narrow validation command. It protects the authorization behavior at the real boundary and rejects introducing a new toolchain without a concrete repository need."
     }
+  ],
+  "activation": [
+    {
+      "name": "add-focused-regression-test",
+      "prompt": "Add the narrowest deterministic test that proves a timed-out payment retry cannot create a second charge.",
+      "should_trigger": true
+    },
+    {
+      "name": "diagnose-test-discovery",
+      "prompt": "Diagnose why the repository's integration tests are no longer collected, repair the runner configuration, and verify a representative test executes.",
+      "should_trigger": true
+    },
+    {
+      "name": "run-existing-test-suite",
+      "prompt": "Run the repository's existing unit and integration test commands for this change and report what passed or failed.",
+      "should_trigger": false
+    },
+    {
+      "name": "design-browser-e2e",
+      "prompt": "Design and implement Playwright coverage for this responsive checkout flow, including keyboard and accessibility behavior.",
+      "should_trigger": false
+    }
   ]
 }

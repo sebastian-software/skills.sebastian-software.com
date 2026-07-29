@@ -30,5 +30,27 @@
       "prompt": "Write migration documentation for renaming a required configuration key. The code accepts both keys for one release, warns on the old key, and then removes it. There is no automatic rollback after the old key is removed. Use the repository's release-doc convention.",
       "expected": "States affected users and versions, the compatibility window, exact before-and-after configuration, warning and removal behavior, checkpoints, validation, and the supported recovery path. It does not promise rollback after removal, invent dates, or create a new documentation hierarchy outside the existing release convention."
     }
+  ],
+  "activation": [
+    {
+      "name": "document-cli-command",
+      "prompt": "Inspect the implementation and generated help for this CLI command, update the established user guide, and verify every example.",
+      "should_trigger": true
+    },
+    {
+      "name": "document-public-api",
+      "prompt": "Write accurate TSDoc and migration notes for this changed public API, including errors, cancellation, compatibility, and executable examples.",
+      "should_trigger": true
+    },
+    {
+      "name": "write-marketing-article",
+      "prompt": "Write a persuasive launch article for the product website with a strong narrative and customer-focused positioning.",
+      "should_trigger": false
+    },
+    {
+      "name": "audit-documentation-portfolio",
+      "prompt": "Audit the entire repository's documentation debt, rank the highest-leverage improvements, and create a prioritized implementation plan.",
+      "should_trigger": false
+    }
   ]
 }
