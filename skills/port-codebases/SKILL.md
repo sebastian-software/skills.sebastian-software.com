@@ -67,9 +67,9 @@ cleanup ownership.
 Treat concurrency and model capability as separate controls. Read [Model-tiered
 orchestration](references/model-tiering.md) when multiple model tiers are
 available. Default to a strong architect at planning and milestone boundaries,
-an efficient builder for bounded slices, a fast verifier for deterministic and
-diff-hygiene checks, and risk-based escalation instead of using the strongest
-model continuously.
+an efficient builder for bounded slices, deterministic evidence owned by the
+builder or integrator, and risk-based specialist review instead of assigning a
+second model to recheck every change.
 
 ## Build the Porting System
 

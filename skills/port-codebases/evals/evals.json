@@ -33,7 +33,7 @@
     {
       "name": "tier-models-by-role-and-risk",
       "prompt": "We can afford a premium reasoning model only occasionally. Have it plan the port, let a cheaper coding model implement continuously, use the cheapest model for quick review, and bring the premium model back every few milestones. Design the workflow without making the premium model review every file.",
-      "expected": "Treats model tier and concurrency as separate controls, has the architect define the contract, pilot, mappings, work packets, risk policy, and milestone gates; gives builders bounded slices; uses deterministic tools and a cheap verifier as a filter rather than semantic authority; creates risk-weighted milestone packets; escalates cross-cutting or ambiguous changes; and tunes assignments from rework and defect evidence."
+      "expected": "Treats model tier and concurrency as separate controls, has the architect define the contract, pilot, mappings, work packets, risk policy, and milestone gates; gives builders bounded slices; uses deterministic tools as the default evidence path instead of assigning a cheap model to recheck every change; adds one independent reviewer only for a concrete high-risk semantic question or demonstrated evaluation benefit; creates risk-weighted milestone packets; escalates cross-cutting or ambiguous changes; and tunes assignments from rework and defect evidence."
     },
     {
       "name": "parallel-shard-revalidates-worktree-ownership",

@@ -2,12 +2,12 @@
 
 Choose a profile from the real bottleneck: reasoning, editing, compilation,
 tests, integration, or review. Increase concurrency only when isolated work is
-waiting and the verifier can absorb more output.
+waiting and verification capacity can absorb more output.
 
 Choose concurrency here, then assign model tiers separately through
 [Model-tiered orchestration](model-tiering.md). A Solo run can still alternate
-architect, builder, and verifier models sequentially; a Parallel run need not
-use the highest tier for every worker.
+architect and builder tiers sequentially and add an independent reviewer when
+risk justifies it; a Parallel run need not use the highest tier for every worker.
 
 ## Solo Profile
 
