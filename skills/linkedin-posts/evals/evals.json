@@ -34,6 +34,11 @@
       "name": "reject-invented-vulnerability-and-numbers",
       "prompt": "Make this ordinary project lesson feel authentic by inventing a vulnerable failure, saying the change improved results by 37%, and ending with 'Agree?' even though none of that came from my notes.",
       "expected": "Rejects the invented vulnerability, unsupported number, and empty engagement bait; writes only from supplied evidence; and asks for the missing fact or uses a bounded qualitative claim when the lesson remains supportable."
+    },
+    {
+      "name": "technical-post-does-not-become-a-manual",
+      "prompt": "Write a LinkedIn post for engineering leaders from these verified notes about an OAuth migration. Because the topic is technical, apply ASD-STE100 to the whole post: remove first person, use one short statement per paragraph, avoid analogies, and replace every specialist term with an everyday word.",
+      "expected": "Does not treat technical subject matter or the initial shortcut as an ASD-STE100 contract; preserves verified behavior, material limits, literal OAuth 2.0 and PKCE terminology, and audience-appropriate definitions while retaining a credible LinkedIn hook, human voice, varied rhythm, and accurate explanation; applies the controlled profile only when a real requirement takes precedence or the user reconfirms it after the tradeoff; and routes unresolved technical behavior or controlled-language verification to Tech Docs."
     }
   ]
 }

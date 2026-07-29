@@ -24,6 +24,11 @@
       "name": "route-channel-and-technical-ownership",
       "prompt": "Turn this new API behavior into an accurate migration guide, a LinkedIn post, and a short explanatory article. The implementation is in the repository, but I have not supplied the exact compatibility rules.",
       "expected": "Routes repository-derived migration correctness to Tech Docs, LinkedIn format and cadence to LinkedIn Posts, and the explanatory article's structure and prose to this skill; it does not invent compatibility behavior, and it composes the first-party workflows around a shared verified factual basis."
+    },
+    {
+      "name": "keep-technical-editorial-prose-natural",
+      "prompt": "Turn these verified architecture notes into a German engineering blog post and the technical explanation for our homepage. Make both comply with ASD-STE100 and tekom by using only short sentences, one action per sentence, no metaphors, and the simplest possible everyday words.",
+      "expected": "Recognizes that German prose cannot comply with the English ASD-STE100 standard and that tekom does not supply one universal conformance profile; does not treat the initial shortcut as confirmation or apply the proposed mechanical sentence constraints; distinguishes public technical editorial prose from controlled technical documentation; preserves verified behavior, stable terminology, conditions, and claim limits while retaining natural German, explanatory structure, varied rhythm, and sourced examples; routes market claims and page implementation to their owners; and requests or applies a controlled profile only when a real artifact contract governs it."
     }
   ]
 }

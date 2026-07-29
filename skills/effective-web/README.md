@@ -109,6 +109,9 @@ complete setup and the difference between selective catalogs and team sources.
   outcome, scope, and quality bar before interface implementation.
 - [Product Design](../product-design/README.md) shapes evidence into a problem
   model, interaction system, structure, and prototype before implementation.
+- [Nonfiction Writing](../nonfiction-writing/README.md) owns articles,
+  explainers, case studies, and long-form homepage prose before this skill
+  implements and verifies the browser experience.
 - [Locale Typography](../locale-typography/README.md) handles locale-specific
   punctuation, spacing, quotations, numbers, dates, and visible prose.
 - [Web Legal Compliance](../web-legal-compliance/README.md) establishes legal,

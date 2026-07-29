@@ -21,6 +21,7 @@ across 10 categories, loaded selectively for the current topic.
 - hook and structure alternatives
 - a finished post plus optional engagement and visual suggestions
 - adaptations to an established personal or company voice
+- technical posts that preserve verified behavior, terminology, and constraints
 
 ## Idea Coverage
 
@@ -72,6 +73,11 @@ dalo sync
   LinkedIn Posts consumes that brief without duplicating the strategy.
 - [Consultant Profile](../consultant-profile/README.md) supplies credible
   positioning, project evidence, and professional narrative.
+- [Tech Docs](../tech-docs/README.md) verifies repository-derived technical
+  behavior, terminology, examples, and controlled-language requirements before
+  they are adapted to a post.
+- [Nonfiction Writing](../nonfiction-writing/README.md) owns standalone
+  long-form technical articles that can later be introduced on LinkedIn.
 - [Metro English](../metro-english/README.md) adapts drafts to a more natural,
   relaxed US professional voice where appropriate.
 - [Decision Records](../decision-records/README.md) preserves durable audience,

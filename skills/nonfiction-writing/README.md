@@ -9,14 +9,16 @@ the author's voice.**
 
 Nonfiction Writing helps agents plan, draft, revise, and critique articles,
 essays, newsletters, reports, thought leadership, content marketing, case
-studies, About pages, and product descriptions. It joins long-form craft with
-legitimate marketing intent while keeping claims, quotations, examples, and
-outcomes tied to real source material.
+studies, About pages, product descriptions, engineering blog posts, technical
+articles, and long-form homepage prose. It joins long-form craft with legitimate
+marketing intent while keeping claims, quotations, examples, outcomes, and
+technical behavior tied to real source material.
 
 ## What It Can Deliver
 
 - focused theses, outlines, leads, transitions, and endings
 - complete articles, essays, newsletters, and explanatory pieces
+- technical articles and project pages with stable terminology and natural prose
 - thought leadership and content marketing with credible persuasive structure
 - case studies, About pages, and product or service descriptions
 - structural, evidentiary, voice, and line-level revisions
@@ -45,6 +47,10 @@ sales pitch.
 
 Convert these supplied project facts and measured outcomes into a case study.
 Do not invent customer quotes or imply results beyond the measurement window.
+
+Turn these verified architecture notes into an article for engineering leaders.
+Keep the technical terms and constraints exact without making it read like a
+manual or defaulting to simplified language.
 ```
 
 See [SKILL.md](SKILL.md) for the workflow, evidence rules, writing routes,
@@ -73,8 +79,9 @@ dalo sync
   formats, cadence, and engagement context.
 - [Consultant Profile](../consultant-profile/README.md) selects and structures
   professional evidence and positioning before the prose is written.
-- [Tech Docs](../tech-docs/README.md) derives technical documentation from
-  implemented software contracts and verifies it with repository tooling.
+- [Tech Docs](../tech-docs/README.md) derives technical facts and documentation
+  from implemented software contracts and owns controlled-language standards;
+  Nonfiction Writing keeps editorial structure and public voice.
 - [Effective Web](../effective-web/README.md) owns interface copy and the
   surrounding browser experience.
 - [Locale Typography](../locale-typography/README.md) applies locale-specific
@@ -85,8 +92,8 @@ dalo sync
 This skill creates and improves factual prose from supplied or verifiable
 material. It does not invent experience, evidence, quotations, testimonials,
 citations, outcomes, product behavior, or independent editorial endorsement,
-and it does not replace channel strategy, technical verification, or interface
-implementation.
+and it does not replace channel strategy, technical verification,
+controlled-language documentation, or interface implementation.
 
 ## About Sebastian Software
 

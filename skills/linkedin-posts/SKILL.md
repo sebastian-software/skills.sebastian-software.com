@@ -112,6 +112,26 @@ End with a question or position worth answering; ask for opinions, not likes.
 - Reject engagement bait that asks for interaction without giving the intended
   audience a substantive reason to respond.
 
+### Preserve Technical Integrity
+
+- Keep verified behavior, limits, compatibility, and material qualifications
+  intact when compressing a technical subject into a post.
+- Use stable technical terms and preserve literal product, protocol, API, and
+  technology names. Define only what the selected audience needs. Reject a
+  requested everyday paraphrase when it removes a necessary distinction or
+  makes a standard term less accurate.
+- Keep hooks, examples, first person, varied rhythm, and accurate metaphors.
+  Do not turn the post into controlled technical documentation merely because
+  the subject is technical.
+- Treat a request to use controlled language only because the topic is
+  technical as a profile mismatch, not automatically as a governing contract.
+  State the channel tradeoff and provide a natural post unless a real
+  publication requirement takes precedence or the user confirms the style
+  after that tradeoff is clear. The initial shortcut is not that confirmation.
+- Let the post discuss ASD-STE100 or a tekom-based profile in natural channel
+  language while keeping quoted or embedded controlled text under its governing
+  rules.
+
 ---
 
 ## Content Mix Strategy
@@ -213,6 +233,13 @@ post concepts.
   strategy around the posts — including engagement-to-pipeline diagnosis — to
   `linkedin-social-selling`; consume its grounded brief when drafting posts
   inside a larger engagement.
+- Route repository-derived technical behavior, executable examples, and
+  controlled-language requirements to `tech-docs`; consume the verified facts,
+  terminology, and constraints without handing it the post's voice. When
+  controlled language genuinely governs the post, let `tech-docs` own that
+  text-level profile while this skill owns the surrounding channel strategy.
+- Route a standalone long-form technical article to `nonfiction-writing`, then
+  return here for its LinkedIn excerpt, announcement, or conversation prompt.
 - Keep the work scoped to LinkedIn posts. Do not expand a post request into a
   general website-copy system, unrelated content editing, AI-authorship
   diagnosis, or a broad persuasion audit. Apply the writing and revision

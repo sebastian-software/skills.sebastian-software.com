@@ -69,6 +69,9 @@ system rather than independent growth hacks.
   industry label or an abstract company avatar.
 - Treat trust as cumulative. Align the promise and proof across headline,
   profile, content, messages, lead magnet, landing page, and meeting.
+- Pass approved technical terminology, verified behavior, material conditions,
+  and unresolved evidence gaps unchanged to the profile, post, article, and
+  landing-page owner. Do not simplify them into a stronger commercial promise.
 - Optimize for qualified conversations and commercial learning, not impressions,
   follower count, connection volume, or meetings without fit.
 - Keep outreach human, relevant, and low-volume enough to personalize and
