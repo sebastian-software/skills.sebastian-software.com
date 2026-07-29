@@ -41,9 +41,9 @@ route instead of expanding this one.
    [UI anti-patterns](ui-antipatterns.md). Fix objective defects first and treat
    stylistic tells as context-dependent advisories or clusters, not taste laws.
 6. Route narrow issues through the **Route by Intent** table in
-   [SKILL.md](../SKILL.md) instead of expanding this route. Record new durable
-   direction or communication decisions through `decision-records` rather than
-   a tool-specific memory file.
+   [SKILL.md](../SKILL.md#route-by-intent) instead of expanding this route.
+   Record new durable direction or communication decisions through
+   `decision-records` rather than a tool-specific memory file.
 7. Verify the rendered result and implementation against the accepted direction,
    redesign baseline when applicable, and quality gates before considering the
    UI done.
