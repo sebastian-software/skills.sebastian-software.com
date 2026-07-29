@@ -55,5 +55,27 @@
       "prompt": "Our docs/adr folder has numbered historical ADRs. For new operational decisions we approved a living convention with stable slug filenames. Migrate the repository without renaming everything.",
       "expected": "Keeps existing numbered ADRs readable, documents that new living records use stable numberless slugs, updates the index or discovery guidance to cover both forms, avoids a bulk rename and fabricated supersession chains, and records the living lifecycle, status vocabulary, update metadata, and any configuration-value carve-out explicitly."
     }
+  ],
+  "activation": [
+    {
+      "name": "record-durable-architecture-choice",
+      "prompt": "We chose an event-driven integration over synchronous calls for the billing boundary. Capture the decision, alternatives, consequences, and evidence in the repository's established format.",
+      "should_trigger": true
+    },
+    {
+      "name": "supersede-existing-decision",
+      "prompt": "Review the accepted database decision and record why the new replication constraints require superseding it without losing the historical rationale.",
+      "should_trigger": true
+    },
+    {
+      "name": "compare-before-decision",
+      "prompt": "Compare three caching architectures and recommend which one we should choose; no decision has been made yet.",
+      "should_trigger": false
+    },
+    {
+      "name": "temporary-implementation-checklist",
+      "prompt": "Write a short checklist for today's refactor and delete it after the change lands.",
+      "should_trigger": false
+    }
   ]
 }

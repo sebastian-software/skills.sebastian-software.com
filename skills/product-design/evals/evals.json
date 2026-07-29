@@ -75,5 +75,27 @@
       "prompt": "A workshop truly has four seats left and registration closes Friday because the facilitator needs preparation time. Hide the deadline details because any urgency is manipulative, or avoid mentioning scarcity entirely.",
       "expected": "Rejects the false choice between concealment and silence, permits prominent urgency grounded in the real seat and preparation constraints, states the deadline and what happens next accurately, keeps choice and price clear, avoids fake countdown resets or invented demand, and measures conversion alongside complaints, misunderstanding, and regret."
     }
+  ],
+  "activation": [
+    {
+      "name": "model-product-flow",
+      "prompt": "Turn our research about expense approvals into an object model, end-to-end flow, wireframe plan, and testable prototype questions.",
+      "should_trigger": true
+    },
+    {
+      "name": "plan-behavioral-research",
+      "prompt": "Design a responsible study to understand why new users abandon the weekly planning workflow and how the interaction model should change.",
+      "should_trigger": true
+    },
+    {
+      "name": "decide-product-investment",
+      "prompt": "Use the market and customer evidence to decide whether this problem deserves a product investment and what outcome the team should pursue.",
+      "should_trigger": false
+    },
+    {
+      "name": "implement-approved-screen",
+      "prompt": "Implement this approved dashboard design in React and CSS, including responsive and accessible states.",
+      "should_trigger": false
+    }
   ]
 }

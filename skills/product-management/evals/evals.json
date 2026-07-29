@@ -110,5 +110,27 @@
       "prompt": "Drivers and riders use several mobility apps, completed rides are flattening in our strongest district, and cancellations rise at peak times. Treat every additional account as more network value, block participants from using competitors, and expand nationwide.",
       "expected": "Distinguishes account growth from incremental participant value, investigates multihoming, congestion, capacity, cancellations, and diminishing returns in the current local network, rejects coercive lock-in, improves differentiated workflow or trust value, and requires a stable local operating pattern before choosing an adjacent expansion cell."
     }
+  ],
+  "activation": [
+    {
+      "name": "shape-evidence-led-mvp",
+      "prompt": "Synthesize these interviews and usage signals into a product brief, initial scope, outcome, assumptions, and discovery plan.",
+      "should_trigger": true
+    },
+    {
+      "name": "make-release-decision",
+      "prompt": "Assess whether this feature is ready to release using customer value, quality, operational risk, adoption evidence, and rollback readiness.",
+      "should_trigger": true
+    },
+    {
+      "name": "design-interaction-flow",
+      "prompt": "Create the information architecture, wireframes, and prototype plan for the approved onboarding brief.",
+      "should_trigger": false
+    },
+    {
+      "name": "implement-roadmap-item",
+      "prompt": "Build the already approved export feature, add its tests, and prepare the code for review.",
+      "should_trigger": false
+    }
   ]
 }
