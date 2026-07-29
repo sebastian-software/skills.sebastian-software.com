@@ -40,7 +40,7 @@ Autocannon, load-test, soak, stress-test, and capacity-planning evidence.
 - [`pofile-ts` at `af6d6569`](https://github.com/sebastian-software/pofile-ts/blob/af6d65693ffb8aaa31282dc079f29ab1de50d004/benchmark/package.json)
   maintains a dedicated benchmark workspace with fixture generation and a
   repository-native runner.
-- [`parakeet-coreml` at `3a29d6f8`](https://github.com/sebastian-software/parakeet-coreml/blob/3a29d6f80bfa5f95e791d21cfa86a0154806ef47/src/cli.ts)
+- `parakeet-coreml` at `3a29d6f8`
   exposes a product-specific benchmark command for its native inference path.
 
 The demand is not one framework recipe. It is a recurring need to make a
