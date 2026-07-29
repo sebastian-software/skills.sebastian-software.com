@@ -29,6 +29,21 @@
       "name": "document-migration-with-real-recovery",
       "prompt": "Write migration documentation for renaming a required configuration key. The code accepts both keys for one release, warns on the old key, and then removes it. There is no automatic rollback after the old key is removed. Use the repository's release-doc convention.",
       "expected": "States affected users and versions, the compatibility window, exact before-and-after configuration, warning and removal behavior, checkpoints, validation, and the supported recovery path. It does not promise rollback after removal, invent dates, or create a new documentation hierarchy outside the existing release convention."
+    },
+    {
+      "name": "review-maintenance-procedure-against-ste",
+      "prompt": "Rewrite an English maintenance procedure to ASD-STE100 Issue 9 and state whether it is compliant. The draft uses passive voice, long sentences, several actions in one step, a WARNING, and company-specific component terms. The repository contains the authoritative procedure but no approved terminology database or completed STE review.",
+      "expected": "Preserves the technical meaning and hazard level, separates procedural and descriptive content, uses imperative steps with prior conditions first, applies the applicable sentence and paragraph constraints, and identifies company terms that require technical-noun or technical-verb approval. It checks vocabulary against the official Issue 9 dictionary when available, does not treat a generic readability score or checker as proof, and labels the result as an STE-aligned draft rather than compliant while terminology and full rule review remain incomplete."
+    },
+    {
+      "name": "preserve-literal-interface-text-in-ste",
+      "prompt": "Rewrite an API setup guide in ASD-STE100. The guide contains the literal command `acme deploy --dry-run`, the JSON key `retryPolicy`, the UI label `Start deployment`, and quoted error output. The prose is verbose and mixes prerequisites with actions.",
+      "expected": "Applies STE to the surrounding English prose while preserving commands, identifiers, UI labels, and quoted output exactly. It separates prerequisites from imperative steps, keeps each instruction focused, treats product-approved terms through the project terminology process, and verifies copyability and technical behavior independently from the language review."
+    },
+    {
+      "name": "write-natural-rule-based-technical-german",
+      "prompt": "Überarbeite eine deutsche Wartungsanleitung nach dem tekom-Ansatz für regelbasiertes Schreiben. Die Zielgruppe sind erfahrene Servicetechniker. Der Auftraggeber möchte besonders verständlichen Text, aber ausdrücklich keine abgehackte Leichte Sprache. Der Entwurf wechselt Benennungen, verwendet Nominalstil, verschachtelte Bedingungen und unklare Modalverben.",
+      "expected": "Preserves precise technical terms and necessary domain knowledge, selects one preferred designation per concept, puts prior conditions before clear imperative actions, and distinguishes requirements, prohibitions, recommendations, and possibilities. It reduces nominal style and unnecessary nesting while retaining useful subordinate clauses, normal connective prose, and natural sentence variation. It does not impose Easy-Language conventions or hard sentence-length limits, and it states the adopted tekom edition, project profile, and unresolved terminology decisions needed for a traceable review."
     }
   ]
 }

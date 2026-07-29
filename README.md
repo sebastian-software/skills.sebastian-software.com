@@ -7,7 +7,7 @@
 **Open-source skills for the professional judgment that capable AI agents still
 need to do dependable product and software work.**
 
-28 practice-built skills and 249 focused references for product decisions, web
+28 practice-built skills and 251 focused references for product decisions, web
 experiences, codebase improvement, delivery, engineering leadership, reliable
 data systems, go-to-market positioning, professional communication, and web
 compliance.
@@ -144,7 +144,7 @@ repository from silently deciding how a user's complete environment behaves.
 | [`data-systems`](skills/data-systems/) | Evidence-led data models, storage choices, consistency guarantees, distribution tradeoffs, and safe data evolution. |
 | [`software-testing`](skills/software-testing/) | Focused non-frontend test and repository-native benchmark design, implementation, and verification. |
 | [`software-validation`](skills/software-validation/) | Repository-native discovery and execution of existing typecheck, lint, test, benchmark, load, build, package, and documentation gates with explicit evidence gaps. |
-| [`tech-docs`](skills/tech-docs/) | Repository-native READMEs, guides, API and CLI references, migration notes, code documentation, examples, and verification. |
+| [`tech-docs`](skills/tech-docs/) | Repository-native READMEs, guides, API and CLI references, migration notes, ASD-STE100 English, tekom-style rule-based German, code documentation, examples, and verification. |
 | [`typescript-engineering`](skills/typescript-engineering/) | Strict, honest server-side and general TypeScript implementation and review across types, modules, async, errors, and tooling contracts. |
 | [`engineering-management`](skills/engineering-management/) | Evidence-led responsibilities, delegation, coaching, decision paths, team design, cognitive load, and product-engineering collaboration. |
 

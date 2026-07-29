@@ -8,7 +8,9 @@ description: >-
   more human, more Slack-like, more startup/team-like, or closer to everyday New
   York, San Francisco, or Silicon Valley professional English. Also use it when
   the user provides German or stiff English and wants it turned into natural
-  English for team communication.
+  English for team communication. Do not use it for ASD-STE100, Simplified
+  Technical English, controlled technical English, or durable technical
+  documentation; route those tasks to tech-docs.
 ---
 
 # Metro English
@@ -21,6 +23,14 @@ slang.
 Remove obvious AI writing patterns, then add human rhythm and judgment. The
 point is not to make the text fancy. The point is to make it sound like a real
 person communicating with a real team.
+
+## Hard Boundary
+
+Before rewriting, stop when the artifact is governed by Plain English,
+controlled English, Simplified Technical English, ASD-STE100, or another
+technical-language standard. Return only a short handoff to `tech-docs`. Do not
+rewrite, quote, correct, or suggest language for the controlled artifact, even
+when the user also asks for a casual version.
 
 ## Decision Context
 
@@ -168,6 +178,10 @@ Good patterns:
 
 Stay natural, but be a little more durable than Slack. Keep contractions if they
 sound right. Avoid jokes or throwaway phrasing that will age badly.
+Use `tech-docs` instead when the artifact itself is a manual, API or CLI
+reference, controlled-language document, or normative technical procedure.
+Do not rewrite that controlled artifact inside this skill. Return a concise
+handoff or, when `tech-docs` is also active, apply it as the separate owner.
 
 Good patterns:
 
@@ -233,6 +247,11 @@ Output:
 
 By default, return only the rewritten text.
 
+For a controlled technical-language request, return only a short handoff that
+names the governing requirement and directs the artifact to `tech-docs`. Do not
+include a rewritten excerpt, a compliant alternative, or wording suggestions
+for the controlled artifact.
+
 Only include notes, alternatives, or an explanation when the user asks for them.
 If the user asks for options, provide two:
 
@@ -246,4 +265,9 @@ before rewriting. Do not invent facts, decisions, approvals, deadlines, or blame
 
 - Route technical, legal, product, and documentation correctness to the skill
   that owns the underlying work; this skill improves language, not substance.
+- Route durable technical documentation and any Plain English, controlled
+  English, Simplified Technical English, or ASD-STE100 requirement for that
+  artifact to `tech-docs`. Do not produce a Metro-English version of the
+  controlled artifact. Use this skill only for team communication about that
+  work.
 - Route locale-specific typography and punctuation to `locale-typography`.
