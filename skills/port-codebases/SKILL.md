@@ -118,10 +118,11 @@ For every batch:
 1. Give the implementer the source slice, mapping rules, migration contract,
    owned files, and exact validation target.
 2. Produce the smallest behavior-preserving change that advances one queue.
-3. Run cheap deterministic verification and diff-hygiene checks before spending
-   higher-capability review on the batch.
-4. Review the diff adversarially without relying on the implementer's
-   explanation. Ask how it can compile and still be wrong.
+3. Run cheap deterministic verification and diff-hygiene checks.
+4. Review the diff adversarially in a cold pass without relying on the
+   implementer's explanation. Ask how it can compile and still be wrong.
+   Escalate to an independent specialist only for the named risks or measured
+   review benefits defined in the model-tiering guidance.
 5. Apply verified review findings, then rerun the narrowest decisive check.
 6. Record the result and remaining uncertainty in the existing work artifact.
 7. When a failure pattern repeats, improve the shared rule or workflow before
