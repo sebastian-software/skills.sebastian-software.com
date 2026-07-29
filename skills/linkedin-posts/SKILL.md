@@ -123,11 +123,11 @@ End with a question or position worth answering; ask for opinions, not likes.
 - Keep hooks, examples, first person, varied rhythm, and accurate metaphors.
   Do not turn the post into controlled technical documentation merely because
   the subject is technical.
-- Treat a request to use controlled language only because the topic is
-  technical as a profile mismatch, not automatically as a governing contract.
-  State the channel tradeoff and provide a natural post unless a real
-  publication requirement takes precedence or the user confirms the style
-  after that tradeoff is clear. The initial shortcut is not that confirmation.
+- A controlled-language request made only because the subject is technical is a
+  profile mismatch, not a governing contract: state the channel tradeoff, use
+  natural language for this artifact, and switch only when an existing artifact
+  contract governs it or the user reconfirms after that tradeoff. Keep the post
+  in channel-native voice until then.
 - Let the post discuss ASD-STE100 or a tekom-based profile in natural channel
   language while keeping quoted or embedded controlled text under its governing
   rules.

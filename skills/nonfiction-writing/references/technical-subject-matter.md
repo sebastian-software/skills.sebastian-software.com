@@ -22,19 +22,17 @@ rather than Einfache Sprache. For public English prose, prefer natural
 editorial English rather than internal-team Metro English.
 
 Treat controlled language as an artifact contract, not as a synonym for
-technical clarity. A request to apply ASD-STE100 or tekom rules only because
-the subject is technical signals a profile mismatch: state the distinction and
-use or propose technical editorial prose. Treat the controlled profile as
-governing only when a publication, customer, regulatory, project, or consciously
-confirmed style requirement applies to the artifact. If the user still
-prioritizes that profile after the channel tradeoff is clear, route its
-language-level authoring or review through `tech-docs`.
+technical clarity. A controlled-language request made only because the subject
+is technical is a profile mismatch, not a governing contract: state the channel
+tradeoff, use natural language for this artifact, and switch only when an
+existing artifact contract governs it or the user reconfirms after that
+tradeoff. A publication, customer, regulatory, or project requirement is such a
+contract; the shortcut in the initial request is not.
 
-Do not treat the initial instruction that equates `technical` with `controlled`
-as conscious confirmation. Confirmation follows a stated tradeoff or comes
-from an existing artifact contract. On the first pass, briefly correct the
-profile mismatch and provide the channel-appropriate technical editorial
-version; offer the controlled variant when it remains a meaningful choice.
+On the first pass, correct the profile mismatch briefly and provide the
+channel-appropriate technical editorial version; offer the controlled variant
+when it remains a meaningful choice. If the user still prioritizes that profile,
+route its language-level authoring or review through `tech-docs`.
 
 Do not describe German prose as ASD-STE100 compliant: ASD-STE100 controls
 English. State that mismatch before drafting when the requested assurance is

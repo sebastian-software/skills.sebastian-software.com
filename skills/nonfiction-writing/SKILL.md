@@ -28,11 +28,12 @@ supportable.
    - whether a named controlled-language profile is an actual artifact contract
      or only a proposed shortcut for technical clarity
 
-   When the initial request equates technical subject matter with ASD-STE100,
-   tekom, or mechanical short-sentence rules, do not apply those surrogate
-   constraints to the draft. State the profile mismatch briefly and default to
-   natural technical editorial prose unless an existing contract governs or the
-   user reconfirms the preference after the channel tradeoff is clear.
+   A controlled-language request made only because the subject is technical is a
+   profile mismatch, not a governing contract: state the channel tradeoff, use
+   natural language for this artifact, and switch only when an existing artifact
+   contract governs it or the user reconfirms after that tradeoff. Do not apply
+   ASD-STE100, tekom, or mechanical short-sentence constraints to the draft on
+   that basis.
 2. Build a small evidence register. Separate:
    - supplied facts, quotations, examples, and measured outcomes
    - the author's interpretation or professional judgment
