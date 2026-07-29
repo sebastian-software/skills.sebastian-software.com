@@ -24,6 +24,11 @@
       "name": "avoid-forcing-internal-register-on-customer-copy",
       "prompt": "Rewrite this regulated customer notice in startup Slack style because Metro English should make every channel casual.",
       "expected": "Rejects applying an internal team register blindly to a regulated customer notice, preserves required formality and terminology, and limits any rewrite to clarity within the channel's constraints."
+    },
+    {
+      "name": "route-controlled-technical-english",
+      "prompt": "Rewrite this aircraft maintenance procedure in casual Metro English with contractions. The contract requires ASD-STE100 Issue 9, but the current wording feels too formal.",
+      "expected": "Does not apply conversational Metro English to the controlled procedure. It routes the document authoring or review to tech-docs and preserves the named ASD-STE100 contract, while allowing Metro English only for an internal team message discussing the documentation work."
     }
   ]
 }

@@ -68,12 +68,16 @@ dalo sync
   profile narrative and claims before channel-specific rewriting.
 - [Locale Typography](../locale-typography/README.md) applies punctuation,
   spacing, quotation, number, date, and currency conventions after rewriting.
+- [Tech Docs](../tech-docs/README.md) owns durable technical documentation,
+  Plain or controlled technical English, and ASD-STE100; Metro English can
+  rewrite the team conversation around that work.
 
 ## Scope
 
 Metro English changes voice, rhythm, and clarity. It does not change facts,
 technical meaning, commitments, established terminology, or durable house-style
-decisions without explicit authority.
+decisions without explicit authority. It is not a controlled-language or
+technical-documentation standard.
 
 ## About Sebastian Software
 
