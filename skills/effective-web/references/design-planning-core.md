@@ -21,6 +21,19 @@ hypotheses about a responsive system, not complete specs; validate them against
 realistic content, viewports, inputs, and user settings, but keep accepted
 product/brand/design decisions binding.
 
+Resolve three layers without depending on particular filenames:
+
+- **Product truth:** users, facts, content, capability, constraints, and success.
+- **Shared visual system:** reusable tokens, components, type, colour, material,
+  motion, interaction, and the accepted rationale behind them.
+- **Surface contract:** local register, hierarchy, composition, evidence,
+  interaction, states, and anti-goals.
+
+Visual authority is evidence, not a filename: missing design documentation does
+not make an existing product greenfield. Inspect tokens, components, rendered
+screens, and code. Keep product truth and global tokens out of the surface
+contract; promote local strategy only with evidence of cross-surface reuse.
+
 For net-new or materially changed surfaces run the compact Design Read from
 [design-directions.md](design-directions.md). For an existing experience, first
 classify it as greenfield, preserve, or overhaul and read
@@ -38,11 +51,12 @@ adjectives or re-answer preserved decisions.
 
 Answer from the prompt, product context, or existing code; ask only what cannot
 be inferred. Cover: purpose, primary user and context, the one primary action,
-register (product / brand / content-heavy), product domain or brand point of
-view, required content (min/typical/max cases), states (default, empty, loading,
-error, success, permission-limited), existing constraints (design system,
-framework, a11y, i18n, performance), device/input context, competing attention,
-user mental model, and anti-goals. The full annotated list is in the appendix.
+register (operate / persuade / read / experience), product domain or brand point
+of view, required content (min/typical/max cases), states (default, empty,
+loading, error, success, permission-limited), existing constraints (design
+system, framework, a11y, i18n, performance), device/input context, competing
+attention, user mental model, and anti-goals. The full annotated list is in the
+appendix.
 
 ## Decide Before Styling
 
@@ -65,14 +79,20 @@ surface has a clear job.
 
 ## Specificity
 
-- **Product surfaces:** specificity comes from the product's world — name domain
+- **Operate surfaces:** specificity comes from the product's world — name domain
   concepts, data shapes (compare rows / monitor exceptions / approve batches /
   debug incidents), and one signature move that could only belong to this
   product. Avoid sidebar-plus-generic-cards and icon-number-label metrics.
-- **Brand surfaces:** decide the point of view first — audience and promise,
+- **Persuade surfaces:** decide the point of view first — audience and promise,
   concrete voice, the category reflex to avoid, primary credibility evidence,
   and one memorable signal. Let the first viewport express the thesis through
   real evidence, not a headline-stat-gradient default.
+- **Read surfaces:** name the reader's question, source material, comprehension
+  path, and wayfinding need. Let hierarchy, measure, examples, and evidence make
+  sustained reading unusually clear and trustworthy.
+- **Experience surfaces:** name the artifact or interaction that leads, how
+  exploration unfolds, and which controls remain available while the interface
+  recedes. Do not delay the work behind a persuasion template.
 - If the only claim is "it looks polished", the direction is still too generic.
 
 ## Context Adaptation
@@ -89,8 +109,10 @@ container queries for components, media queries for page layout, and
 
 Pick the lens that prevents the wrong first draft (details in the appendix):
 
-- **Bolder** — a brand/launch surface needs a clearer point of view: raise
-  hierarchy contrast, make one thing unmistakably dominant.
+- **Bolder** — a persuade or experience surface needs a clearer point of view:
+  make one thing unmistakably dominant. In narrow work, preserve neighbours,
+  content, behavior, and system contracts; amplify vocabulary the system already
+  owns. Use the appendix's scope and copy-free structure checks.
 - **Quieter** — too loud for repeated/high-stakes use: cut decorative colour,
   motion, and shadows; let structure and states carry confidence.
 - **Distill** — complexity is the risk: remove duplicate actions and ornamental
@@ -108,7 +130,7 @@ by task, register, or accepted decision. If a cluster appears, change the owning
 brief decision rather than polishing around it.
 
 Write a **compact design brief** for ambiguous or net-new UI (surface, register,
-direction, primary user/action, brand or product signature, layout strategy,
+direction, primary user/action, register-specific signature, layout strategy,
 interaction model, required states, content, context adaptation, browser
 evidence, constraints, anti-goals) in concrete nouns — the full template is in
 the appendix. Record durable register/direction/communication decisions through

@@ -35,5 +35,27 @@
       "prompt": "Create homepage messaging for our event-processing platform. Replace the architecture terms with friendlier synonyms in every section and call it infinitely scalable, real-time, secure, and zero-maintenance. We have implementation notes but no scale benchmark, latency definition, security review, or maintenance evidence.",
       "expected": "Keeps product facts, approved technical terminology, position, claim, proof, and page execution separately reviewable; rejects unsupported universality, performance, security, and maintenance claims; identifies the missing evidence and definitions; and hands a bounded message and terminology brief to Nonfiction Writing and Effective Web."
     }
+  ],
+  "activation": [
+    {
+      "name": "develop-product-positioning",
+      "prompt": "Turn the supplied customer, competitor, and product evidence into a positioning brief, message architecture, claims, and proof gaps.",
+      "should_trigger": true
+    },
+    {
+      "name": "plan-evidence-led-launch",
+      "prompt": "Build a cross-functional launch plan with audience, narrative, sales enablement, proof, channel responsibilities, and market-learning signals.",
+      "should_trigger": true
+    },
+    {
+      "name": "decide-feature-scope",
+      "prompt": "Use discovery evidence to decide whether this customer problem belongs in the product roadmap and define the smallest useful outcome.",
+      "should_trigger": false
+    },
+    {
+      "name": "write-standalone-essay",
+      "prompt": "Turn these supplied ideas and sources into a thoughtful long-form essay without creating a positioning or launch strategy.",
+      "should_trigger": false
+    }
   ]
 }

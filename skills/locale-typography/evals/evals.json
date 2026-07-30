@@ -30,5 +30,27 @@
       "prompt": "Polish this Scandinavian checkout copy. The language and region are not specified, so choose Swedish, Danish, or Norwegian rules interchangeably.",
       "expected": "Asks for the exact language and region or keeps the text unchanged where the choice matters; does not collapse Swedish, Danish, and Norwegian typography into one profile."
     }
+  ],
+  "activation": [
+    {
+      "name": "fix-french-ui-punctuation",
+      "prompt": "Correct quotation marks, punctuation spacing, and non-breaking spaces in this French checkout copy without rewriting its meaning.",
+      "should_trigger": true
+    },
+    {
+      "name": "review-german-display-text",
+      "prompt": "Review the visible German prose in these JSX templates for locale-correct dashes, dates, currency, units, and quotation marks.",
+      "should_trigger": true
+    },
+    {
+      "name": "plan-german-launch-positioning",
+      "prompt": "Define the target audience, positioning, proof points, and channel strategy for launching this product in Germany.",
+      "should_trigger": false
+    },
+    {
+      "name": "choose-font-stack",
+      "prompt": "Improve the CSS font stack, type scale, measure, and responsive line height for this article layout.",
+      "should_trigger": false
+    }
   ]
 }

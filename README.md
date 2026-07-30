@@ -7,10 +7,10 @@
 **Open-source skills for the professional judgment that capable AI agents still
 need to do dependable product and software work.**
 
-28 practice-built skills and 256 focused references for product decisions, web
-experiences, codebase improvement, delivery, engineering leadership, reliable
-data systems, go-to-market positioning, professional communication, and web
-compliance.
+31 practice-built skills and 265 focused references for product decisions,
+reference analysis, originality review, web experiences, codebase improvement,
+delivery, engineering leadership, reliable data systems, go-to-market
+positioning, professional communication, and web compliance.
 
 Use one skill when an agent needs deeper judgment for a specific job, or combine
 several in your own downstream agent stack. Each skill turns repeated
@@ -37,7 +37,7 @@ The skill tells a compatible agent what to inspect, which specialist guidance
 to load, where its authority stops, and what evidence is needed before the task
 is complete.
 
-Install all 28 skills only when you want the complete first-party collection:
+Install all 31 skills only when you want the complete first-party collection:
 
 ```sh
 npx skills add sebastian-software/skills.sebastian-software.com --all
@@ -53,6 +53,7 @@ Start with the job you need done rather than the repository taxonomy.
 | When you need to… | Start with… |
 | --- | --- | --- |
 | Turn incomplete evidence into product direction, scope, or a durable decision | [`product-management`](skills/product-management/), [`product-design`](skills/product-design/), [`decision-records`](skills/decision-records/) |
+| Turn websites, HTML, screenshots, prototypes, or videos into a traceable specification—or audit the result against those sources | [`reference-analysis`](skills/reference-analysis/), [`originality-review`](skills/originality-review/) |
 | Research what to charge, what to charge for, and how to package or change an offer | [`pricing-and-packaging`](skills/pricing-and-packaging/) |
 | Turn stable product evidence into positioning, messages, proof, launch choices, and market learning | [`product-marketing`](skills/product-marketing/) |
 | Diagnose a funnel constraint and design a trustworthy experiment or low-traffic learning plan | [`conversion-optimization`](skills/conversion-optimization/) |
@@ -61,7 +62,7 @@ Start with the job you need done rather than the repository taxonomy.
 | Take an authorized software change through implementation and verification | [`effective-workflow`](skills/effective-workflow/), [`software-testing`](skills/software-testing/), [`software-validation`](skills/software-validation/) |
 | Clarify ownership, delegation, decision paths, or team load around the work | [`engineering-management`](skills/engineering-management/) |
 | Review, document, modernize, or port an existing codebase | [`pr-review`](skills/pr-review/), [`tech-docs`](skills/tech-docs/), [`smart-dependency-updater`](skills/smart-dependency-updater/), [`port-codebases`](skills/port-codebases/) |
-| Turn expertise into credible positioning, content, and professional communication | [`nonfiction-writing`](skills/nonfiction-writing/), [`consultant-profile`](skills/consultant-profile/), [`linkedin-social-selling`](skills/linkedin-social-selling/), [`linkedin-posts`](skills/linkedin-posts/), [`metro-english`](skills/metro-english/) |
+| Turn expertise into credible positioning, content, and professional communication | [`nonfiction-writing`](skills/nonfiction-writing/), [`create-social-content`](skills/create-social-content/), [`consultant-profile`](skills/consultant-profile/), [`linkedin-social-selling`](skills/linkedin-social-selling/), [`linkedin-posts`](skills/linkedin-posts/), [`metro-english`](skills/metro-english/) |
 
 `effective-workflow` coordinates the path from an unclear software request to a
 verified handoff while leaving specialist depth with its first-party owners.
@@ -119,6 +120,8 @@ repository from silently deciding how a user's complete environment behaves.
 | --- | --- |
 | [`product-management`](skills/product-management/) | Evidence-led discovery, product strategy, empowered teams, AI-era exploration, scope, product quality, release decisions, and learning loops. |
 | [`product-design`](skills/product-design/) | Evidence-led research synthesis, problem framing, interaction and object modeling, habit and retention design, prototyping, autonomy, and design delivery. |
+| [`reference-analysis`](skills/reference-analysis/) | Evidence-backed capture and translation of websites, HTML, screenshots, prototypes, and videos into portable design and implementation specifications. |
+| [`originality-review`](skills/originality-review/) | Paired-evidence audits of source overlap, distinctive combinations, asset provenance, and relevant repository history without unsupported legal conclusions. |
 | [`product-naming`](skills/product-naming/) | Strategic name generation, multilingual spoken-name testing, live conflict research, and evidence-backed shortlists. |
 
 ### Web design and engineering
@@ -156,6 +159,7 @@ repository from silently deciding how a user's complete environment behaves.
 | [`product-marketing`](skills/product-marketing/) | Evidence-led positioning, messaging, proof, launch planning, sales enablement, and win/loss and adoption learning. |
 | [`conversion-optimization`](skills/conversion-optimization/) | Evidence-led funnel diagnosis, research synthesis, ethical experiments, low-traffic learning, guardrails, and result decisions. |
 | [`nonfiction-writing`](skills/nonfiction-writing/) | Clear, credible, persuasive articles, essays, newsletters, thought leadership, case studies, About pages, product descriptions, and revision. |
+| [`create-social-content`](skills/create-social-content/) | Evidence-led posts, replies, threads, captions, voice adaptation, repetition checks, and platform-native social content across X, Threads, Bluesky, Instagram, Mastodon, and multi-platform work. |
 | [`consultant-profile`](skills/consultant-profile/) | Consultant profiles, CVs, case studies, project selection, career narratives, and positioning. |
 | [`linkedin-social-selling`](skills/linkedin-social-selling/) | Evidence-led B2B LinkedIn positioning, profile, network, content, conversations, lead magnets, funnels, and measurement. |
 | [`linkedin-posts`](skills/linkedin-posts/) | LinkedIn ideas, formats, calendars, and post writing for a defined audience, voice, and goal. |

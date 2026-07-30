@@ -11,12 +11,20 @@ or assume that a model's marketing tier predicts performance on this codebase.
 | --- | --- | --- |
 | Architect | Highest justified tier | Establish migration contract, semantic mappings, dependency boundaries, pilot, work packets, risk policy, and milestone audits. |
 | Builder | Efficient middle tier | Implement one bounded slice from explicit source files, mapping rules, acceptance checks, and exclusions. |
-| Verifier | Fast low-cost tier plus deterministic tools | Run specified checks, inspect diff hygiene, detect stubs or test weakening, classify failures, and assemble evidence. |
+| Evidence owner | Deterministic tools; normally the builder or integrator | Run specified checks, inspect diff hygiene, detect stubs or test weakening, classify failures, and assemble evidence. |
 | Specialist reviewer | Highest justified tier for the risk | Review ownership, concurrency, FFI, security, parsers, numeric semantics, or cross-shard changes that exceed routine review. |
 
-The verifier is a filter, not the final semantic authority. Prefer scripts,
-compilers, tests, linters, sanitizers, and structural diff checks whenever they
-can answer the question deterministically.
+Do not assign a second model merely to repeat the builder's inspection. Prefer
+scripts, compilers, tests, linters, sanitizers, and structural diff checks
+whenever they can answer the question deterministically. Add one independent
+model reviewer only when a fresh semantic judgment is proportionate to the
+risk, deterministic evidence cannot close the question, or measured evaluations
+show that the extra pass finds defects worth its cost.
+
+Low price and availability are not evidence of review value. Reject a default
+architect → builder → cheapest-reviewer loop for every batch; use the builder's
+cold pass plus deterministic evidence until a named risk or measured result
+justifies an independent reviewer.
 
 ## Architect Cadence
 
@@ -37,7 +45,7 @@ a milestone packet containing:
 - concise diff or changed-boundary inventory
 - gates run, exact results, and test-count deltas
 - new unsafe, FFI, concurrency, suppression, skip, or compatibility-shim changes
-- unresolved failures, uncertainty, and builder or verifier disagreements
+- unresolved failures, uncertainty, and builder, evidence, or reviewer disagreements
 - baseline-versus-current performance and resource measurements when relevant
 
 Trigger architect review by risk and boundary completion, not only by a fixed
@@ -62,9 +70,9 @@ reconstructing architecture:
 If the packet cannot be made this concrete, keep the work with the architect or
 split the slice further.
 
-## Verifier Work Packet
+## Evidence Packet
 
-Ask the verifier to return evidence, not a broad quality opinion:
+Ask the evidence owner to return facts, not a broad quality opinion:
 
 - commands executed and exact results
 - changed tests, fixtures, skips, ignores, assertions, and suppressions
@@ -74,13 +82,14 @@ Ask the verifier to return evidence, not a broad quality opinion:
 - likely failure cluster and the check that would close it
 - items requiring semantic or specialist review
 
-Use a cold diff view without the builder's justification when possible. A cheap
-verifier may reject obvious defects and conserve architect attention, but it
-must not waive contract gates.
+For an independent model review, use a cold diff view without the builder's
+justification when possible. Keep that review focused on a concrete high-risk
+question; it supplements deterministic evidence and must not waive contract
+gates.
 
 ## Escalation Policy
 
-Escalate from builder or verifier to the architect or specialist when:
+Escalate from builder or evidence owner to the architect or specialist when:
 
 - source behavior is ambiguous or conflicts with the migration contract
 - the change crosses ownership, async callback, GC/native, FFI, security, parser,
@@ -101,7 +110,8 @@ the diff is small.
 Track by role and slice:
 
 - accepted batches without rework
-- defects found by verifier, architect, CI, and post-integration checks
+- defects found by deterministic gates, specialist review, architect, CI, and
+  post-integration checks
 - tokens or cost, latency, and human intervention
 - recurring failure classes by model tier
 

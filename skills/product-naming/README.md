@@ -74,6 +74,9 @@ dalo sync
   rejected alternatives, and conditions that should reopen the decision.
 - [Web Legal Compliance](../web-legal-compliance/README.md) covers website and
   launch disclosures after a name is selected.
+- [Originality Review](../originality-review/README.md) compares a produced
+  identity or campaign with supplied visual and verbal references; it does not
+  replace trademark clearance.
 
 ## Scope
 

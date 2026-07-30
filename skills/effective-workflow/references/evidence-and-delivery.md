@@ -31,6 +31,26 @@ ordering.
 5. Separate failures introduced by the change from baseline failures and
    environmental limitations.
 
+## Separate Making From Consequential Judgment
+
+For high-impact, hard-to-reverse, security-sensitive, or meaningfully
+subjective work, do not let the implementer's confidence or self-rating become
+the only review evidence.
+
+- Give a permitted independent reviewer the original outcome, constraints,
+  acceptance conditions, candidate artifact, and reproducible evidence—not the
+  implementer's verdict or a prompt that reveals the expected finding.
+- Ask the reviewer to find failures first and return a gate-by-gate result with
+  locations or artifacts. Preserve one integrator responsible for resolving
+  conflicts and checking the combined result.
+- Use blind side-by-side comparison only when candidates are genuinely
+  comparable and identity cues can be removed. Do not call a preference test
+  blind when authorship or implementation identity remains obvious.
+- Do not add delegation ceremony to a small objective change. When independent
+  review is unavailable or not permitted, perform a separate adversarial pass
+  against the same acceptance conditions and disclose that it was not
+  independent.
+
 ## Apply Delivery Authority Literally
 
 Treat these as distinct mutations: stage, commit, create or switch a branch,

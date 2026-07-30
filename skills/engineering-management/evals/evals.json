@@ -25,5 +25,27 @@
       "prompt": "Two teams depend on one staff engineer, deadlines are fixed, and interruptions consume half her week. Recommend mandatory nights for six weeks and a resilience workshop.",
       "expected": "Rejects forced overload, identifies shared-specialist demand, priority, capacity, and interruption design as system constraints, proposes scope or sequencing decisions and knowledge-spreading options, and includes sustainable-work safeguards."
     }
+  ],
+  "activation": [
+    {
+      "name": "clarify-team-decision-rights",
+      "prompt": "Our staff engineers and manager repeatedly stall on ownership decisions. Design clear decision rights, escalation paths, and a lightweight review cadence.",
+      "should_trigger": true
+    },
+    {
+      "name": "reduce-leadership-overload",
+      "prompt": "The engineering lead approves every change and has no coaching time. Propose a safe delegation and team operating model without assuming a reorganization.",
+      "should_trigger": true
+    },
+    {
+      "name": "design-service-boundaries",
+      "prompt": "Choose module and service boundaries for this system based on reliability, data ownership, deployability, and team constraints.",
+      "should_trigger": false
+    },
+    {
+      "name": "implement-planning-tool",
+      "prompt": "Build the approved internal planning dashboard, add tests, and prepare it for code review.",
+      "should_trigger": false
+    }
   ]
 }

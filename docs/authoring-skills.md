@@ -135,6 +135,56 @@ Keep `SKILL.md` lean. For a routed skill, link every route directly from
 policy text, and API details into references so agents load only the context
 needed for the current task.
 
+## Prove Behavior, Not Packaging
+
+Add reusable proof only when it changes whether an agent or reviewer can trust a
+claimed capability. Do not require a demo from every skill, but do not use a
+static screenshot or prose checklist as the sole proof of behavior that is
+visual, interactive, responsive, stateful, or time-dependent.
+
+- For reusable visual or interaction mechanics, prefer a small executable
+  fixture, existing component workshop story, focused route, or portable demo
+  that exposes the important states. Use the real product surface for a one-off
+  implementation when a parallel fixture would create drift without reuse.
+- For a nonvisual transformation workflow, use a realistic input and expected
+  output when a review scenario alone cannot make the artifact contract clear.
+- Make proof representative rather than decorative: real content, meaningful
+  controls, narrow and wide layouts, keyboard behavior, reduced motion, and
+  relevant failure or fallback states.
+- Give every consequential claim an observable acceptance condition. A rendered
+  still can prove appearance at one moment; it cannot prove focus, interruption,
+  cleanup, responsive continuity, or a complete workflow.
+- Keep proof self-contained where practical and avoid a dependency or build step
+  that exists only to showcase the skill. Never include third-party references,
+  private customer material, or copied branding as reusable demo assets.
+- Record browser or runtime evidence when the behavior depends on rendering.
+  Source inspection can identify risk, but it is not interaction proof.
+
+Treat demos, examples, assets, review scenarios, and deterministic scripts as
+different evidence surfaces. Select the smallest one that discriminates the
+failure mode the guidance is meant to prevent.
+
+## Incubate Small Patterns Without Inflating the Skill Set
+
+Not every useful pattern needs to become a standalone skill. Small interaction
+ideas, visual recipes, style provocations, and tool-specific techniques can
+still add real character when they are placed at the right level:
+
+- Add a focused reference to the owning skill when the pattern supplies
+  reusable decisions, constraints, or implementation guidance.
+- Add a compact executable example when the value is primarily visual,
+  interactive, or timing-dependent and prose cannot prove it.
+- Keep a pattern as an optional specialist route when it requires a distinct
+  runtime, provider, license, or maintenance surface.
+- Promote it to a standalone skill only when users can ask for its outcome
+  independently, its boundary is clear, and recurring demand justifies its own
+  trigger and review scenarios.
+
+A micro-pattern should sharpen the owner skill rather than compete with it.
+Preserve the portable principle, state the conditions under which it helps, and
+avoid turning a single aesthetic treatment or library recipe into a default
+design rule.
+
 ### Runtime Context Budgets
 
 References are runtime context, not an archive. A task-level reference should
@@ -215,8 +265,9 @@ tests the failure mode the new rule is meant to prevent. The historical
 `evals/evals.json` path is retained as a portable fixture format, but it is not
 an executed behavioral-evaluation harness.
 
-Store review scenarios in `skills/<name>/evals/evals.json`. New files use a top-level
-`evals` array whose entries contain `name`, `prompt`, and `expected`:
+Store review scenarios in `skills/<name>/evals/evals.json`. Use `evals` for
+output-quality cases. Add `activation` when the skill has adjacent owners,
+high-cost behavior, or a description change that needs trigger evidence:
 
 ```json
 {
@@ -226,6 +277,18 @@ Store review scenarios in `skills/<name>/evals/evals.json`. New files use a top-
       "prompt": "A realistic request containing the tempting shortcut.",
       "expected": "The decision, evidence, and tradeoff a strong response must surface."
     }
+  ],
+  "activation": [
+    {
+      "name": "direct-request",
+      "prompt": "A realistic request that should load this skill.",
+      "should_trigger": true
+    },
+    {
+      "name": "adjacent-owner",
+      "prompt": "A realistic nearby request that should not invoke this skill's full instructions.",
+      "should_trigger": false
+    }
   ]
 }
 ```
@@ -234,12 +297,25 @@ Keep `name` stable and descriptive. Treat `prompt` as the user input and
 `expected` as manual review criteria, not a golden response string. CI validates
 only the fixture's JSON shape, non-empty fields, and unique names; it does not
 submit prompts to a model, score responses, or claim behavioral correctness.
+An `activation` set must include both should-trigger and should-not-trigger
+cases. Put the most confusable natural-language requests in that set rather
+than testing only explicit `$skill-name` invocation. A negative case means that
+the host should not invoke this skill's full instructions; merely exposing its
+name and description in the catalog does not count as activation. Use a request
+owned by another skill or one that needs no skill, and avoid cases where
+co-activation would be legitimate.
 
 When a change needs behavior evidence, follow the documented [manual
 review-scenario workflow](review-scenarios.md). It generates a report template
 and validates that a human-recorded review identifies the skill, case, agent,
 model, sampling settings, response, pass/fail result, and grading evidence. The
 report validator checks traceability, not whether the human's grade is correct.
+
+Use its fresh-session comparison template when deciding whether a skill or
+prompt revision earns its context, latency, and token cost. Run each case once
+with the skill available and once with it disabled, without sharing conversation
+history between conditions. Record response quality, duration, token usage when
+available, and the evidence for the comparison.
 
 - Use a realistic prompt containing a plausible misconception, incomplete fix,
   or tempting shortcut; do not merely ask the agent to repeat the rule.
@@ -297,8 +373,9 @@ Before merging a change:
 1. Confirm the trigger description still selects the skill for the right tasks.
 2. Confirm links to bundled references, scripts, and any optional resources resolve.
 3. When adding a skill, create `agents/openai.yaml` and `evals/evals.json`; add
-   or update unrun review scenarios for consequential changes, and record a
-   manual review report when behavior evidence is needed.
+   or update unrun output and activation scenarios for consequential changes,
+   and record a fresh-session activation or with/without-skill review when
+   behavior evidence is needed.
 4. When adding a skill, add its `site/index.html` card and inventory metadata.
 5. Run `python3 scripts/validate-readmes.py`,
    `python3 scripts/validate-site.py`, and
@@ -308,3 +385,8 @@ Before merging a change:
 8. For routed skills, confirm every reference is reachable from its matching
    route, the default load is explicit and narrow, and old public skill names no
    longer appear in internal links.
+9. When a skill claims visual, interactive, responsive, stateful, or
+   time-dependent behavior, confirm that an appropriate rendered or executable
+   proof exists or that the real product surface is the deliberate proof target.
+10. Confirm useful micro-patterns sit at the smallest durable level instead of
+    being discarded or promoted automatically.

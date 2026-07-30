@@ -90,5 +90,9 @@ For a full naming assignment, return:
   specialist; use a brand specialist only when one is available.
 - Use `web-legal-compliance` for website disclosures and jurisdiction-specific
   launch requirements; it does not replace trademark counsel.
+- Use `originality-review` when a produced identity or campaign must be
+  compared with supplied visual and verbal references. Keep trademark
+  similarity and clearance with this skill's preliminary screening and
+  qualified counsel.
 - Use `decision-records` to preserve a durable naming choice, the rejected
   alternatives, and conditions that would reopen it.

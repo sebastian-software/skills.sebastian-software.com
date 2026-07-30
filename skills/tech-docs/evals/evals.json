@@ -45,5 +45,27 @@
       "prompt": "Überarbeite eine deutsche Wartungsanleitung nach dem tekom-Ansatz für regelbasiertes Schreiben. Die Zielgruppe sind erfahrene Servicetechniker. Der Auftraggeber möchte besonders verständlichen Text, aber ausdrücklich keine abgehackte Leichte Sprache. Der Entwurf wechselt Benennungen, verwendet Nominalstil, verschachtelte Bedingungen und unklare Modalverben.",
       "expected": "Preserves precise technical terms and necessary domain knowledge, selects one preferred designation per concept, puts prior conditions before clear imperative actions, and distinguishes requirements, prohibitions, recommendations, and possibilities. It reduces nominal style and unnecessary nesting while retaining useful subordinate clauses, normal connective prose, and natural sentence variation. It does not impose Easy-Language conventions or hard sentence-length limits, and it states the adopted tekom edition, project profile, and unresolved terminology decisions needed for a traceable review."
     }
+  ],
+  "activation": [
+    {
+      "name": "document-cli-command",
+      "prompt": "Inspect the implementation and generated help for this CLI command, update the established user guide, and verify every example.",
+      "should_trigger": true
+    },
+    {
+      "name": "document-public-api",
+      "prompt": "Write accurate TSDoc and migration notes for this changed public API, including errors, cancellation, compatibility, and executable examples.",
+      "should_trigger": true
+    },
+    {
+      "name": "write-marketing-article",
+      "prompt": "Write a persuasive launch article for the product website with a strong narrative and customer-focused positioning.",
+      "should_trigger": false
+    },
+    {
+      "name": "audit-documentation-portfolio",
+      "prompt": "Audit the entire repository's documentation debt, rank the highest-leverage improvements, and create a prioritized implementation plan.",
+      "should_trigger": false
+    }
   ]
 }

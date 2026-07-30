@@ -116,6 +116,12 @@ For a broad product-design request, return:
   shape the experience.
 - Use `effective-web` to specify and implement browser UI, visual systems,
   accessibility, responsive behavior, performance, and frontend verification.
+- Use `reference-analysis` to capture and translate supplied websites, HTML,
+  screenshots, prototypes, or videos into a traceable visual and interaction
+  specification. Return here to decide which evidence should shape the product
+  experience.
+- Use `originality-review` after production when the result must be compared
+  with its references for source overlap and asset provenance.
 - Use this skill to frame design questions and synthesize supplied evidence.
   Recruitment, fieldwork, participant operations, and execution of a full
   customer research program remain outside its scope.

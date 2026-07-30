@@ -1,0 +1,4 @@
+interface:
+  display_name: "Social Content"
+  short_description: "Create credible content across social platforms"
+  default_prompt: "Use $create-social-content to turn this idea into credible, platform-native social content."

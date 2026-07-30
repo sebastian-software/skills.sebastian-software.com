@@ -20,7 +20,7 @@ can still have weak semantics, broken focus order, expensive loading, unclear
 states, fragile responsive behavior, or an API that makes future changes harder.
 
 Effective Web treats those concerns as one system. Its 24 routed intents across
-22 route files and 114 reference documents let an agent load the smallest useful
+22 route files and 115 reference documents let an agent load the smallest useful
 guidance set, then
 check the result across the boundaries that matter before calling it done.
 
@@ -109,6 +109,11 @@ complete setup and the difference between selective catalogs and team sources.
   outcome, scope, and quality bar before interface implementation.
 - [Product Design](../product-design/README.md) shapes evidence into a problem
   model, interaction system, structure, and prototype before implementation.
+- [Reference Analysis](../reference-analysis/README.md) converts supplied
+  websites, HTML, screenshots, prototypes, and videos into traceable
+  specifications before implementation.
+- [Originality Review](../originality-review/README.md) checks the produced
+  experience against its references for source overlap and provenance risk.
 - [Nonfiction Writing](../nonfiction-writing/README.md) owns articles,
   explainers, case studies, and long-form homepage prose before this skill
   implements and verifies the browser experience.
@@ -128,6 +133,12 @@ Effective Web is for browser-facing product work. It does not replace product
 discovery, jurisdiction-specific legal analysis, locale-level editorial rules,
 backend-only architecture, infrastructure and deployment work, penetration
 testing, or non-web print production.
+
+A website, URL, browser, or HTML document does not trigger the skill by itself.
+General internet research, source or corpus analysis, repository and catalog
+evaluation, recommendations, and fact-finding belong outside Effective Web
+unless the requested outcome is the design, implementation, review, or
+verification of a browser-facing experience.
 
 ## About Sebastian Software
 

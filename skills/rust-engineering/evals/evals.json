@@ -45,5 +45,27 @@
       "prompt": "Write an AVX2-only unsafe loop over arbitrary input slices and parallelize every iteration with Rayon. Correctness on older CPUs and shutdown behavior are not concerns.",
       "expected": "Keeps the safe scalar fallback as the correctness oracle, dispatches target features through a documented contract, proves alignment and bounds for the narrow unsafe block, checks SIMD speedup against a representative workload, and chooses Rayon granularity plus cancellation/resource ownership from measured work and lifecycle requirements."
     }
+  ],
+  "activation": [
+    {
+      "name": "fix-rust-ownership-contract",
+      "prompt": "Refactor this Rust API so the returned data outlives the repository guard without hiding the ownership cost behind arbitrary cloning.",
+      "should_trigger": true
+    },
+    {
+      "name": "review-unsafe-ffi-boundary",
+      "prompt": "Review and repair this unsafe Rust FFI callback for pointer provenance, thread affinity, panic containment, and exactly-once cleanup.",
+      "should_trigger": true
+    },
+    {
+      "name": "port-library-to-rust",
+      "prompt": "Rewrite this C library in Rust while preserving its public API, error semantics, cleanup behavior, and supported platforms.",
+      "should_trigger": false
+    },
+    {
+      "name": "run-rust-checks",
+      "prompt": "Run the existing Cargo format, clippy, test, and documentation checks for this already completed change.",
+      "should_trigger": false
+    }
   ]
 }

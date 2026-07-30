@@ -75,6 +75,9 @@ dalo sync
 
 ## Related Skills
 
+- [Social Content](../create-social-content/README.md) turns a finished article,
+  newsletter, case study, or other source into evidence-consistent,
+  platform-native social content.
 - [LinkedIn Posts](../linkedin-posts/README.md) owns LinkedIn-specific ideas,
   formats, cadence, and engagement context.
 - [Consultant Profile](../consultant-profile/README.md) selects and structures

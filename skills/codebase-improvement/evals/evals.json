@@ -75,5 +75,27 @@
       "prompt": "To change one cancellation rule, mix a dependency seam, broad renames, dead-code cleanup, a database abstraction, and the business-rule fix in one unreviewable commit. The code has little coverage and rollback matters.",
       "expected": "Narrows the work to the required effect chain, separates behavior-preserving seam preparation from the cancellation-rule change, excludes unrelated cleanup and speculative abstraction, assigns discriminating evidence to each step, and states rollback and stop conditions."
     }
+  ],
+  "activation": [
+    {
+      "name": "audit-repository-leverage",
+      "prompt": "Audit this repository, identify the five highest-leverage improvements with evidence, and turn the top items into executable plans.",
+      "should_trigger": true
+    },
+    {
+      "name": "diagnose-surprising-codebase-behavior",
+      "prompt": "Investigate why this service intermittently loses queued work, compare plausible root causes, and report the evidence before proposing a fix.",
+      "should_trigger": true
+    },
+    {
+      "name": "review-one-pull-request",
+      "prompt": "Review pull request 73, inspect its changed code and checks, and decide whether it is safe to merge.",
+      "should_trigger": false
+    },
+    {
+      "name": "update-dependency-portfolio",
+      "prompt": "Research our outdated packages, group compatible upgrades, and prepare focused dependency changes.",
+      "should_trigger": false
+    }
   ]
 }

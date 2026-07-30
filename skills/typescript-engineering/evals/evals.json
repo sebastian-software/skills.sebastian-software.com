@@ -30,5 +30,27 @@
       "prompt": "In the catch block just do throw new Error('save failed: ' + err) so we get a message, and assume err.message is always there. A magic rule of max 200 lines per file says split the module too.",
       "expected": "Narrows the caught unknown before use rather than assuming err.message exists, preserves the original failure via the Error cause chain instead of stringifying it, and prefers a typed error or result the caller can branch on for an expected failure. Rejects the arbitrary 200-line file threshold as a magic limit with no derived reason rather than applying it mechanically."
     }
+  ],
+  "activation": [
+    {
+      "name": "repair-typescript-boundary",
+      "prompt": "Refactor this TypeScript boundary so unknown input is validated and narrowed without assertions, hidden any values, or duplicated runtime checks.",
+      "should_trigger": true
+    },
+    {
+      "name": "design-async-module-api",
+      "prompt": "Implement a public TypeScript module API with explicit cancellation, typed failure, ESM exports, and ownership of shared async work.",
+      "should_trigger": true
+    },
+    {
+      "name": "build-react-component",
+      "prompt": "Implement this responsive React form component with accessible labels, focus behavior, loading states, and browser tests.",
+      "should_trigger": false
+    },
+    {
+      "name": "run-typescript-checks",
+      "prompt": "Run the existing TypeScript typecheck, lint, unit-test, and build commands for the completed change.",
+      "should_trigger": false
+    }
   ]
 }

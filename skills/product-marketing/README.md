@@ -77,8 +77,14 @@ dalo sync
   migrations; Product Marketing communicates approved commercial choices.
 - [Nonfiction Writing](../nonfiction-writing/README.md) turns a stable message
   and proof brief into credible finished prose.
+- [Social Content](../create-social-content/README.md) adapts an approved
+  position, message, launch, or proof point into non-LinkedIn and
+  multi-platform social expression.
 - [Effective Web](../effective-web/README.md) implements and verifies the
   resulting landing pages, product pages, forms, analytics, and experiments.
+- [Originality Review](../originality-review/README.md) audits a produced
+  campaign or experience against supplied references before Product Marketing
+  corrects its claims, proof, message, or campaign brief.
 - [LinkedIn Social Selling](../linkedin-social-selling/README.md) adapts the
   approved position and message to LinkedIn relationships, content, and
   pipeline.

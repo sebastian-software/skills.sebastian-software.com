@@ -68,6 +68,9 @@ dalo sync
 
 ## Related Skills
 
+- [Social Content](../create-social-content/README.md) owns non-LinkedIn,
+  platform-unspecified, and multi-platform social work; LinkedIn Posts composes
+  the LinkedIn version from its shared idea, evidence, and voice brief.
 - [LinkedIn Social Selling](../linkedin-social-selling/README.md) establishes
   the target buyer, offer, profile, network, funnel, and commercial context;
   LinkedIn Posts consumes that brief without duplicating the strategy.

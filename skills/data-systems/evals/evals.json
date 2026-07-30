@@ -25,5 +25,27 @@
       "prompt": "Rename and split the busiest production table in one deployment. We can skip a backfill check because the ORM migration passed in staging and rollback will restore the old schema.",
       "expected": "Challenges the flag-day change and unsafe rollback assumption; proposes compatible expansion, bounded backfill, validation and reconciliation, dual-running only with explicit authority and semantics, gated cutover, and roll-forward or rollback conditions that account for writes made during migration."
     }
+  ],
+  "activation": [
+    {
+      "name": "design-concurrent-write-contract",
+      "prompt": "Design a safe update contract for two workers that can concurrently reserve the same inventory and explain the transaction and recovery behavior.",
+      "should_trigger": true
+    },
+    {
+      "name": "plan-schema-cutover",
+      "prompt": "Plan a zero-downtime schema migration, backfill, dual-read period, cutover, validation, and rollback for a billion-row table.",
+      "should_trigger": true
+    },
+    {
+      "name": "run-existing-database-checks",
+      "prompt": "Run the repository's existing migration, integration, and database validation commands and report the results.",
+      "should_trigger": false
+    },
+    {
+      "name": "document-approved-schema",
+      "prompt": "Write the API documentation for this already approved database schema and its public query parameters.",
+      "should_trigger": false
+    }
   ]
 }
