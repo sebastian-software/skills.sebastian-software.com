@@ -1,6 +1,16 @@
 {
   "evals": [
     {
+      "name": "reject-general-web-research-trigger",
+      "prompt": "Review this public GitHub repository of agent skills, compare it with our local skill catalog, and recommend which material to adopt, correct, or leave external: https://github.com/example/skills",
+      "expected": "Does not select Effective Web merely because the input is a web URL or repository. Treats the task as source and repository research plus catalog curation, uses the relevant research and repository evidence, and invokes Effective Web only for a resulting recommendation that actually changes or reviews a browser-facing experience."
+    },
+    {
+      "name": "stop-javascript-animation-offscreen",
+      "prompt": "Our long React landing page pauses CSS animations with animation-play-state when sections leave the viewport, but laptop fans still spin, heap use grows after route changes, and two Three.js canvases keep their requestAnimationFrame loops alive. Call the animation optimization complete because the page looks still offscreen.",
+      "expected": "Rejects visual stillness as runtime proof; separates CSS, RAF, WebGL, observers, timers, media, and late async loaders; captures bounded before evidence across page positions and route cycles; stops each loop and disposes resources at its owning visibility and unmount lifecycle; caps resumed frame deltas; repeats the same runtime probes; and reports unavailable heap evidence as unknown rather than declaring the leak fixed."
+    },
+    {
       "name": "choose-visual-layer",
       "prompt": "This React app has Vitest unit tests and Playwright E2E tests, but CSS refactors keep breaking production. Propose what tests to add.",
       "expected": "Recommends Storybook/component state coverage plus visual regression instead of more brittle DOM assertions."

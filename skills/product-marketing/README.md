@@ -82,6 +82,9 @@ dalo sync
   multi-platform social expression.
 - [Effective Web](../effective-web/README.md) implements and verifies the
   resulting landing pages, product pages, forms, analytics, and experiments.
+- [Originality Review](../originality-review/README.md) audits a produced
+  campaign or experience against supplied references before Product Marketing
+  corrects its claims, proof, message, or campaign brief.
 - [LinkedIn Social Selling](../linkedin-social-selling/README.md) adapts the
   approved position and message to LinkedIn relationships, content, and
   pipeline.

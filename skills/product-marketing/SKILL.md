@@ -136,6 +136,10 @@ For a broad product-marketing decision, return:
 - Use `effective-web` to specify, implement, and verify landing pages, product
   pages, forms, experiments, analytics delivery, accessibility, performance,
   and responsive behavior after the market-facing requirements are clear.
+- Use `originality-review` when a produced campaign or market-facing experience
+  must be compared with supplied references for copied identity, content,
+  claims, media, or distinctive combinations. Return here to correct the
+  approved position, message, proof, and campaign brief.
 - Use `linkedin-social-selling` when LinkedIn is an evidence-backed channel for
   profiles, relationships, content systems, conversations, lead magnets, or
   pipeline. Pass it the approved position, messages, proof, and learning goal.

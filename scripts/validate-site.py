@@ -64,6 +64,9 @@ class SiteParser(HTMLParser):
         self.links: list[str] = []
         self.assets: list[str] = []
         self.skill_cards: list[tuple[str, str]] = []
+        self.article_stack: list[str | None] = []
+        self.nested_skill_cards: list[tuple[str, str]] = []
+        self.unmatched_article_closes = 0
         self.filter_counts: dict[str, int] = {}
         self.copy_buttons: list[tuple[str, str]] = []
         self.current_filter: str | None = None
@@ -113,8 +116,21 @@ class SiteParser(HTMLParser):
                 self.has_description = True
             if values.get("property") == "og:description":
                 self.og_description = values.get("content", "") or ""
-        if tag == "article" and (skill := values.get("data-skill")):
-            self.skill_cards.append((skill, values.get("data-category", "") or ""))
+        if tag == "article":
+            skill = values.get("data-skill")
+            if skill:
+                parent_skill = next(
+                    (
+                        open_skill
+                        for open_skill in reversed(self.article_stack)
+                        if open_skill is not None
+                    ),
+                    None,
+                )
+                if parent_skill:
+                    self.nested_skill_cards.append((skill, parent_skill))
+                self.skill_cards.append((skill, values.get("data-category", "") or ""))
+            self.article_stack.append(skill)
         if tag == "button" and (filter_name := values.get("data-filter")):
             self.current_filter = filter_name
             self.current_filter_text = []
@@ -126,6 +142,11 @@ class SiteParser(HTMLParser):
             self.current_filter_text.append(data)
 
     def handle_endtag(self, tag: str) -> None:
+        if tag == "article":
+            if self.article_stack:
+                self.article_stack.pop()
+            else:
+                self.unmatched_article_closes += 1
         if tag == "button" and self.current_filter is not None:
             count = re.search(r"\d+", "".join(self.current_filter_text))
             if count:
@@ -137,6 +158,24 @@ class SiteParser(HTMLParser):
 def require(condition: bool, message: str, failures: list[str]) -> None:
     if not condition:
         failures.append(message)
+
+
+def validate_skill_card_structure(parser: SiteParser, failures: list[str]) -> None:
+    require(
+        not parser.nested_skill_cards,
+        "site skill cards must not be nested inside other skill cards",
+        failures,
+    )
+    require(
+        not any(skill is not None for skill in parser.article_stack),
+        "every site skill-card article must have a closing tag",
+        failures,
+    )
+    require(
+        parser.unmatched_article_closes == 0,
+        "site must not contain unmatched article closing tags",
+        failures,
+    )
 
 
 def local_path(reference: str) -> Path | None:
@@ -656,6 +695,7 @@ def main() -> int:
         "every site skill card must expose a display-name heading",
         failures,
     )
+    validate_skill_card_structure(parser, failures)
 
     categories = {category for _, category in parser.skill_cards}
     filter_categories = set(parser.filter_counts) - {"all"}

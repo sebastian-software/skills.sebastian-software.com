@@ -78,6 +78,8 @@ dalo sync
   markets, and release decisions with unresolved compliance constraints.
 - [Decision Records](../decision-records/README.md) preserves durable consent,
   tracking, and disclosure decisions where appropriate.
+- [Originality Review](../originality-review/README.md) audits source overlap
+  and asset provenance without treating that risk report as legal clearance.
 
 ## Scope
 

@@ -7,10 +7,10 @@
 **Open-source skills for the professional judgment that capable AI agents still
 need to do dependable product and software work.**
 
-29 practice-built skills and 255 focused references for product decisions, web
-experiences, codebase improvement, delivery, engineering leadership, reliable
-data systems, go-to-market positioning, professional communication, and web
-compliance.
+31 practice-built skills and 260 focused references for product decisions,
+reference analysis, originality review, web experiences, codebase improvement,
+delivery, engineering leadership, reliable data systems, go-to-market
+positioning, professional communication, and web compliance.
 
 Use one skill when an agent needs deeper judgment for a specific job, or combine
 several in your own downstream agent stack. Each skill turns repeated
@@ -37,7 +37,7 @@ The skill tells a compatible agent what to inspect, which specialist guidance
 to load, where its authority stops, and what evidence is needed before the task
 is complete.
 
-Install all 29 skills only when you want the complete first-party collection:
+Install all 31 skills only when you want the complete first-party collection:
 
 ```sh
 npx skills add sebastian-software/skills.sebastian-software.com --all
@@ -53,6 +53,7 @@ Start with the job you need done rather than the repository taxonomy.
 | When you need to… | Start with… |
 | --- | --- | --- |
 | Turn incomplete evidence into product direction, scope, or a durable decision | [`product-management`](skills/product-management/), [`product-design`](skills/product-design/), [`decision-records`](skills/decision-records/) |
+| Turn websites, HTML, screenshots, prototypes, or videos into a traceable specification—or audit the result against those sources | [`reference-analysis`](skills/reference-analysis/), [`originality-review`](skills/originality-review/) |
 | Research what to charge, what to charge for, and how to package or change an offer | [`pricing-and-packaging`](skills/pricing-and-packaging/) |
 | Turn stable product evidence into positioning, messages, proof, launch choices, and market learning | [`product-marketing`](skills/product-marketing/) |
 | Diagnose a funnel constraint and design a trustworthy experiment or low-traffic learning plan | [`conversion-optimization`](skills/conversion-optimization/) |
@@ -119,6 +120,8 @@ repository from silently deciding how a user's complete environment behaves.
 | --- | --- |
 | [`product-management`](skills/product-management/) | Evidence-led discovery, product strategy, empowered teams, AI-era exploration, scope, product quality, release decisions, and learning loops. |
 | [`product-design`](skills/product-design/) | Evidence-led research synthesis, problem framing, interaction and object modeling, habit and retention design, prototyping, autonomy, and design delivery. |
+| [`reference-analysis`](skills/reference-analysis/) | Evidence-backed capture and translation of websites, HTML, screenshots, prototypes, and videos into portable design and implementation specifications. |
+| [`originality-review`](skills/originality-review/) | Paired-evidence audits of source overlap, distinctive combinations, asset provenance, and relevant repository history without unsupported legal conclusions. |
 | [`product-naming`](skills/product-naming/) | Strategic name generation, multilingual spoken-name testing, live conflict research, and evidence-backed shortlists. |
 
 ### Web design and engineering
