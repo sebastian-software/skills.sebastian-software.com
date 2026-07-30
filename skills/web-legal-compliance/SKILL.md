@@ -93,6 +93,10 @@ visible result of facts and operational decisions, not as boilerplate.
 - Route locale-specific punctuation, spacing, dates, numbers, and visible
   prose typography to `locale-typography` after counsel-approved wording and
   target locales are known.
+- Route evidence-backed comparison with supplied creative references, copied
+  identity or media, and asset-provenance findings to `originality-review`.
+  Copyright, trademark, plagiarism, and license clearance still require the
+  appropriate qualified specialist.
 - Keep penetration testing, security architecture, records of processing,
   vendor contracting, tax advice, employment law, and corporate filings
   outside this skill unless they directly determine a web disclosure.
