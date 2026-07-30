@@ -257,6 +257,11 @@ Output:
 
 By default, return only the rewritten text.
 
+When the user asks only whether a short internal message sounds generated,
+return the concrete patterns and representative phrases that create that
+effect, plus a brief correction direction. Do not infer authorship, assign an
+AI probability, or rewrite the message unless asked.
+
 For a controlled technical-language request, return a short handoff that names
 the governing requirement and directs the artifact to `tech-docs`. Do not
 include a rewritten excerpt, a compliant alternative, or wording suggestions
@@ -281,4 +286,7 @@ before rewriting. Do not invent facts, decisions, approvals, deadlines, or blame
   to `tech-docs`. Do not produce a Metro-English version of the controlled
   artifact; keep this skill on the team communication about that work. A
   plain-language or readability policy stays here as a constraint.
+- Route general, public, and long-form prose audits to `nonfiction-writing`.
+  Keep short internal Slack, issue, PR, and async-message audits and rewrites
+  here.
 - Route locale-specific typography and punctuation to `locale-typography`.

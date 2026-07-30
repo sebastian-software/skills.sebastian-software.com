@@ -6,8 +6,9 @@ description: >-
   content marketing, engineering blog posts, technical articles, reports, case
   studies, About pages, product descriptions, long-form homepage prose,
   explanatory prose, and other factual writing; for turning notes into a draft;
-  or for improving structure, clarity, voice, rhythm, credibility, and calls to
-  action without inventing facts.
+  for improving structure, clarity, voice, rhythm, credibility, and calls to
+  action without inventing facts; or for auditing formulaic, AI-sounding prose
+  through observable patterns without guessing authorship.
 ---
 
 # Nonfiction Writing
@@ -20,7 +21,8 @@ supportable.
 ## Workflow
 
 1. Name the assignment:
-   - output and mode: plan, draft, rewrite, line edit, critique, or adaptation
+   - output and mode: plan, draft, rewrite, line edit, critique, pattern audit,
+     or adaptation
    - audience, situation, existing knowledge, and likely resistance
    - purpose: inform, explain, argue, teach, reassure, demonstrate, or invite
    - desired change in the reader's understanding, belief, or action
@@ -50,26 +52,32 @@ supportable.
      personal material, and endings.
    - [Prose and revision](references/prose-and-revision.md) for clarity, clutter,
      syntax, verbs, rhythm, voice, line editing, and multi-pass revision.
+   - [Human-voice editing and pattern audits](references/human-voice-editing.md)
+     when prose should sound less generated, a minimal edit must preserve the
+     writer's voice, or the user wants observable patterns without an
+     authorship guess.
    - [Persuasive nonfiction](references/persuasive-nonfiction.md) for thought
      leadership, content marketing, case studies, About pages, product
      descriptions, objections, proof, and calls to action.
    - [Technical subject-matter writing](references/technical-subject-matter.md)
      for engineering blog posts, technical articles, explainers, technical case
      studies, and long-form homepage prose for technical products or projects.
-5. Build the reading path before polishing sentences. Give each section one
+5. For a pattern audit, return the evidence-based report from the matching
+   reference and stop. Do not continue into drafting or revision.
+6. Build the reading path before polishing sentences. Give each section one
    job, make the relationship between paragraphs visible, and place context
    before claims that depend on it.
-6. Draft concretely. Prefer observable detail, precise nouns, and active verbs.
+7. Draft concretely. Prefer observable detail, precise nouns, and active verbs.
    Preserve the author's meaningful vocabulary and perspective rather than
    replacing them with a generic polished voice.
-7. Revise in separate passes:
+8. Revise in separate passes:
    - meaning and governing idea
    - structure and proportion
    - evidence, attribution, and unsupported certainty
    - voice, audience fit, and persuasion
    - sentence clarity, rhythm, repetition, and mechanics
    - lead, ending, title, and call to action
-8. Return the requested artifact. Briefly list material gaps or consequential
+9. Return the requested artifact. Briefly list material gaps or consequential
    editorial choices only when they help the user judge or continue the work.
 
 ## Operating Rules
@@ -114,14 +122,20 @@ For revision or critique, return:
 2. the most consequential structural and evidentiary changes
 3. unresolved author decisions, not a catalog of every stylistic preference
 
+For a pattern audit, return:
+
+1. grouped, prioritized patterns with representative quoted evidence
+2. the reader effect and smallest useful correction for each
+3. a bounded conclusion about the prose, never a claim about AI authorship
+
 ## Routing Boundaries
 
 - Use `product-marketing` to establish the audience, position, message,
   supported claims, proof, and market-facing purpose before drafting product
   descriptions, launch narratives, case studies, or campaign prose.
 - Use `linkedin-posts` for LinkedIn-specific ideation, formats, cadence, and
-  engagement context. This skill can improve the underlying prose once the
-  channel constraints and factual basis are clear.
+  engagement context. Keep post-specific drafting there; use this skill for a
+  requested evidence-based pattern audit or for the underlying long-form prose.
 - Use `create-social-content` to turn an article, essay, newsletter, case study,
   talk, or report into platform-native non-LinkedIn or multi-platform social
   content. Pass the governing idea, evidence, terminology, qualifications, and
@@ -137,5 +151,8 @@ For revision or critique, return:
 - Use `effective-web` for interface copy, page hierarchy, accessibility, and
   implementing or verifying the surrounding browser experience. Keep
   long-form editorial page prose here.
+- Use `metro-english` for short internal team communication that needs a
+  relaxed US professional register. Keep general and public-prose pattern
+  audits here.
 - Use `locale-typography` for locale-specific punctuation, spacing, quotation,
   number, date, and typographic conventions.

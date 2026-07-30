@@ -20,6 +20,8 @@ energy, not slang and not manufactured friendliness.
 - preserves useful uncertainty and avoids fake confidence
 - adapts tone to Slack, issue comments, PR reviews, async updates, and
   docs-adjacent notes
+- audits short internal messages for concrete generated-sounding patterns
+  without guessing authorship
 - translates German team messages by intent rather than word-for-word syntax
 
 ## Example Prompts
@@ -31,6 +33,9 @@ Make this pull-request comment sound less formal and more human without
 weakening the technical concern.
 
 Remove the AI tone from this Linear comment and keep it concise.
+
+Tell me which parts of this Slack update sound generated. Quote the patterns,
+but do not rewrite the message or guess whether AI wrote it.
 
 Turn this blunt rejection into a clear teammate response that explains the real
 blocker and the next useful step.
@@ -66,6 +71,8 @@ dalo sync
   with audience, format, and content goals.
 - [Consultant Profile](../consultant-profile/README.md) creates the underlying
   profile narrative and claims before channel-specific rewriting.
+- [Nonfiction Writing](../nonfiction-writing/README.md) owns general, public,
+  and long-form prose audits and voice-preserving editorial revision.
 - [Locale Typography](../locale-typography/README.md) applies punctuation,
   spacing, quotation, number, date, and currency conventions after rewriting.
 - [Tech Docs](../tech-docs/README.md) owns durable technical documentation and
@@ -77,7 +84,8 @@ dalo sync
 Metro English changes voice, rhythm, and clarity. It does not change facts,
 technical meaning, commitments, established terminology, or durable house-style
 decisions without explicit authority. It is not a controlled-language or
-technical-documentation standard.
+technical-documentation standard, and its pattern audit cannot determine
+whether AI wrote a message.
 
 ## About Sebastian Software
 

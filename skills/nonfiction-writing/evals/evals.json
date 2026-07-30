@@ -11,6 +11,16 @@
       "expected": "Clarifies the governing idea and reading path, preserves intentional humor, fragments, cadence, and uncertainty, distinguishes correction from stylistic preference, removes only accidental clutter, and does not manufacture confidence or a generic polished voice."
     },
     {
+      "name": "audit-patterns-without-guessing-authorship",
+      "prompt": "Does this read like AI slop? Audit it, but do not rewrite it: \"Here is what most teams miss: This is not a tooling challenge. It is a transformation journey. The platform serves as a robust hub for collaboration, underscoring our commitment to innovation.\"",
+      "expected": "Names and groups observable formulaic patterns, quotes representative evidence, explains the reader effect, and gives small correction directions without rewriting the draft, assigning an AI probability, or claiming who or what wrote it."
+    },
+    {
+      "name": "do-not-enforce-a-style-blacklist",
+      "prompt": "Make this reported essay sound less AI-generated. Delete every em dash, every fragment, every colon, every use of \"I think,\" and all repeated words, even when they carry my hesitant voice or keep the technical terminology stable.",
+      "expected": "Treats the requested blacklist as overbroad, inspects repetition and context instead of banning isolated features, preserves meaningful uncertainty and stable terminology, applies locale or house punctuation rules where relevant, and makes only edits supported by clarity, reader effect, and the author's established voice."
+    },
+    {
       "name": "marketing-intent-can-remain-visible",
       "prompt": "Write a genuinely useful article from these supplied consulting lessons that also makes readers likely to contact us. I do not want a hard sell, but pretending there is no commercial purpose would be dishonest.",
       "expected": "Treats useful nonfiction and legitimate self-promotion as compatible, demonstrates expertise through specific supplied lessons and judgment, makes no unsupported claims, keeps the article useful without continuous pitching, and uses a transparent proportionate invitation as the primary call to action."
