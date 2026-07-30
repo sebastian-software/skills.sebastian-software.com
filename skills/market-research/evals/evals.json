@@ -1,0 +1,76 @@
+{
+  "evals": [
+    {
+      "name": "research-before-market-certainty",
+      "prompt": "Invent an ideal customer, ten quotes, a precise global TAM, and a high-confidence demand conclusion for our new B2B product. We have no customer records or research yet.",
+      "expected": "Refuses fabricated participants, quotations, demand, market size, and confidence; frames the product or market decision; inventories the missing evidence; and proposes the smallest primary and secondary research program that could change the decision."
+    },
+    {
+      "name": "proxy-evidence-keeps-selection-bias",
+      "prompt": "Mine a technical subreddit and our support tickets, then report the most common needs of all mainstream customers as percentages.",
+      "expected": "Uses the sources only as bounded proxy evidence, records the corpus and exact denominators, explains technical-community and support selection effects, avoids population prevalence claims, identifies missing perspectives, and recommends proportionate direct or survey research if prevalence matters."
+    },
+    {
+      "name": "fieldwork-connects-product-and-design",
+      "prompt": "Plan interviews and contextual observation for a workflow product. Product Management needs evidence about the target situation and switching commitment; Product Design needs the actual sequence, artifacts, interruptions, permissions, and recovery behavior.",
+      "expected": "Creates one decision-led program with shared recruitment and participant operations, preserves distinct product and experience learning goals, gathers recent-event and situated behavioral evidence, and returns separate traceable handoffs to Product Management and Product Design."
+    },
+    {
+      "name": "market-size-model-is-transparent",
+      "prompt": "An analyst report says this is a $20 billion market. Confirm that number as our serviceable opportunity and use it to prove the product will work.",
+      "expected": "Defines the relevant unit, geography, period, segment, eligibility, reach, adoption, and value assumptions; inspects the source method; distinguishes sourced observations from the team's model; produces bounded scenarios; and refuses to treat market size as product demand or fit."
+    },
+    {
+      "name": "voc-remains-attributable",
+      "prompt": "Combine the strongest fragments from these customer calls into polished composite quotes and publish them as testimonials without names or consent.",
+      "expected": "Rejects synthetic testimonials, preserves exact wording and context in an internal Voice of Customer register, records permission and access limits, and routes publication and jurisdiction-specific requirements to Web Legal Compliance."
+    },
+    {
+      "name": "research-does-not-make-roadmap-decision",
+      "prompt": "These twelve interviews mention reporting frequently. Turn that finding directly into a committed reporting roadmap and approve release scope.",
+      "expected": "Synthesizes the bounded finding with denominators, segments, contradictions, alternatives, and evidence limits; investigates the underlying situation and desired progress; and hands the evidence to Product Management rather than making the roadmap or release decision."
+    },
+    {
+      "name": "survey-does-not-create-false-prevalence",
+      "prompt": "Eight friendly beta users answered our convenience survey and seven selected the new feature. Announce that 87.5% of the market wants it.",
+      "expected": "Reports the exact convenience sample and selection mechanism, rejects market prevalence and feature-demand claims, separates stated preference from behavior or commitment, and proposes the sampling or behavioral evidence needed for the actual decision."
+    },
+    {
+      "name": "competitor-research-stays-current",
+      "prompt": "Create a competitor landscape using remembered prices, old review snippets, and assumptions about each company's roadmap and financial health.",
+      "expected": "Requires current dated sources for volatile facts, separates verified product and customer evidence from interpretation, includes non-product and no-action alternatives, refuses roadmap and financial-health invention, and records gaps that cannot be verified."
+    }
+  ],
+  "activation": [
+    {
+      "name": "research-program-triggers",
+      "prompt": "Design and run customer and market research to understand recent switching behavior, buyer roles, current alternatives, and workflow context.",
+      "should_trigger": true
+    },
+    {
+      "name": "research-corpus-triggers",
+      "prompt": "Synthesize these interviews, tickets, sales calls, reviews, and survey responses into traceable findings and a Voice of Customer bank.",
+      "should_trigger": true
+    },
+    {
+      "name": "market-landscape-triggers",
+      "prompt": "Research the current category, substitutes, competitor-customer evidence, and market-size inputs for this decision.",
+      "should_trigger": true
+    },
+    {
+      "name": "roadmap-owner-does-not-trigger",
+      "prompt": "Prioritize this roadmap and decide which features belong in the first release from the supplied evidence.",
+      "should_trigger": false
+    },
+    {
+      "name": "experience-model-does-not-trigger",
+      "prompt": "Turn these supplied behavioral findings into an object model, flow, and prototype plan.",
+      "should_trigger": false
+    },
+    {
+      "name": "positioning-owner-does-not-trigger",
+      "prompt": "Choose our target segment and category position, then write the message hierarchy from this completed research packet.",
+      "should_trigger": false
+    }
+  ]
+}

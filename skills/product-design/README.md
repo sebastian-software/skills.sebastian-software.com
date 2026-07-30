@@ -77,6 +77,9 @@ dalo sync
 
 ## Related Skills
 
+- [Market Research](../market-research/README.md) owns broader recruitment,
+  fieldwork, participant operations, market and source research, and the shared
+  evidence handoff into experience work.
 - [Product Management](../product-management/README.md) decides strategy,
   audience, outcomes, viability, scope, prioritization, and release direction.
 - [Effective Web](../effective-web/README.md) specifies and implements the
@@ -93,10 +96,10 @@ dalo sync
 
 ## Scope
 
-This skill shapes experience from supplied or gathered evidence. It does not
-manufacture participants, observations, usability results, or product-market
-certainty, and it does not replace specialist implementation, legal, or formal
-research-operations work.
+This skill shapes experience from supplied or bounded design evidence. It does
+not manufacture participants, observations, usability results, or product-
+market certainty, and it hands broader research programs and participant
+operations to Market Research rather than absorbing them.
 
 ## About Sebastian Software
 

@@ -71,6 +71,12 @@ dalo sync
 - [Product Management](../product-management/README.md) resolves the target
   customer, product promise, strategy, and viability assumptions that pricing
   depends on.
+- [Product Marketing](../product-marketing/README.md) turns approved pricing
+  choices into positioning, messages, proof, launch, and sales-enablement
+  requirements.
+- [Marketing Writing](../marketing-writing/README.md) expresses approved
+  prices, packages, billing terms, trials, guarantees, and migration conditions
+  without redesigning them through copy.
 - [Decision Records](../decision-records/README.md) preserves an approved
   pricing choice, its tradeoffs, migration policy, and reopening conditions.
 - [Web Legal Compliance](../web-legal-compliance/README.md) handles

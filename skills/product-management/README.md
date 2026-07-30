@@ -99,6 +99,9 @@ dalo sync
 
 ## Related Skills
 
+- [Market Research](../market-research/README.md) designs and executes customer
+  and market research programs, then returns traceable evidence for the product
+  decision.
 - [Product Naming](../product-naming/README.md) turns a stable product thesis
   into researched name candidates.
 - [Product Design](../product-design/README.md) turns product evidence and scope

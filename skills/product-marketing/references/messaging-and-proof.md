@@ -160,8 +160,10 @@ Return:
 7. channel-stable truths and adaptation boundaries
 8. proof-creation and message-test plan
 
-Route finished long-form prose through `nonfiction-writing`, web implementation
-through `effective-web`, and LinkedIn execution through
+Route commercial page, campaign, launch, sales, pricing, or marketing-email
+copy through `marketing-writing`; route primarily editorial articles, thought
+leadership, and case studies through `nonfiction-writing`; route web
+implementation through `effective-web`; and route LinkedIn execution through
 `linkedin-social-selling`.
 
 ## Quality Check

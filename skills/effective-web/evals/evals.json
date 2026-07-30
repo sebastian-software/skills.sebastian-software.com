@@ -466,6 +466,11 @@
       "name": "backend-query-performance",
       "prompt": "Diagnose the slow database query behind this API endpoint and propose an indexing and data-model fix.",
       "should_trigger": false
+    },
+    {
+      "name": "write-marketing-copy-only",
+      "prompt": "Write persuasive landing-page copy from this approved position, offer, proof pack, reader state, and desired action without implementing or reviewing the page.",
+      "should_trigger": false
     }
   ]
 }

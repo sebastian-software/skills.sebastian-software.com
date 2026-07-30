@@ -98,10 +98,15 @@ Modernization. Add focused routes only as the work crosses those concerns.
   and campaign strategy to `product-marketing`; return here to implement and
   verify the resulting web experience. Use Interface Copy only for language
   embedded in that experience.
-- Route articles, explainers, case studies, and long-form homepage prose,
-  including technical subject matter, to `nonfiction-writing`; return here for
-  page hierarchy, interface copy, accessibility, implementation, and browser
-  verification.
+- Route persuasive homepage, landing-page, product, service, pricing, sales,
+  launch, and campaign prose to `marketing-writing`; return here for page
+  hierarchy, interface copy, accessibility, implementation, and browser
+  verification. Interface Copy owns labels, errors, states, and product
+  interaction language rather than the commercial argument.
+- Route articles, explainers, editorial case studies, thought leadership, and
+  public project prose, including technical subject matter, to
+  `nonfiction-writing`; return here for page hierarchy, interface copy,
+  accessibility, implementation, and browser verification.
 - Route funnel diagnosis, conversion research, experiment design, and ship,
   iterate, or stop decisions to `conversion-optimization`; return here to build
   and verify the variants it approves. A page that converts poorly is a

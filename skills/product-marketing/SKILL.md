@@ -114,6 +114,12 @@ For a broad product-marketing decision, return:
 
 ## Routing Boundaries
 
+- Use `market-research` when a segment, category, positioning, message, launch,
+  or market-learning decision requires a new customer or buyer research
+  program, recruitment, win/loss fieldwork, review or community research,
+  market sizing, or cross-source synthesis. Pass the decision and evidence
+  gaps; receive buyer language, alternatives, decision criteria, proof gaps,
+  and evidence limits without delegating the market-facing decision.
 - Use `product-management` to establish or revise the target user, customer
   problem, product thesis, scope, product evidence, quality bar, and release
   decision. Return market response and adoption evidence there when it changes
@@ -121,14 +127,20 @@ For a broad product-marketing decision, return:
 - Use `pricing-and-packaging` for willingness-to-pay research, value metrics,
   pricing models, packages, discounts, trials, and customer migrations. This
   skill communicates only approved commercial facts and their evidence limits.
+- Use `marketing-writing` to turn an approved audience, position, message
+  hierarchy, claim-and-proof register, offer, constraints, tone boundaries, and
+  desired action into homepages, landing pages, product or service pages,
+  pricing pages, campaigns, launches, sales assets, marketing emails, and
+  marketing-specific copy revisions. Return message and proof gaps here.
 - Use `conversion-optimization` to diagnose funnel constraints and design
   ethical tests of an approved position, message, proof, offer expression, or
   channel path. Return evidence here when it changes the segment, position,
   claim, proof, launch, or channel decision.
-- Use `nonfiction-writing` to plan, draft, and revise articles, case studies,
-  product descriptions, and other finished long-form prose after the audience,
-  position, claims, proof, purpose, approved technical terminology, and
-  material constraints are stable enough to brief.
+- Use `nonfiction-writing` to plan, draft, and revise articles, editorial case
+  studies, thought leadership, public project narratives, and other primarily
+  informative or argumentative long-form prose after the audience, position,
+  claims, proof, purpose, approved technical terminology, and material
+  constraints are stable enough to brief.
 - Use `create-social-content` to express an approved position, message, launch,
   proof point, or learning across non-LinkedIn or multiple social platforms.
   Pass the selected audience, situation, claim, proof, constraints, and desired
@@ -146,6 +158,6 @@ For a broad product-marketing decision, return:
 - Use `web-legal-compliance` to scope current jurisdiction-specific
   requirements for claims, testimonials, endorsements, direct marketing,
   privacy, consent, tracking, disclosures, and online sales.
-- Product strategy, legal conclusions, finished prose, web implementation, and
-  channel operation remain with their named owners; do not absorb them into a
-  product-marketing deliverable.
+- Product strategy, legal conclusions, commercial or editorial prose, web
+  implementation, and channel operation remain with their named owners; do not
+  absorb them into a product-marketing deliverable.

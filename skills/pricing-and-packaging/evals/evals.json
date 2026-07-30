@@ -51,6 +51,11 @@
       "name": "write-positioning-brief",
       "prompt": "Develop the product positioning, message architecture, proof plan, and launch narrative for the chosen audience.",
       "should_trigger": false
+    },
+    {
+      "name": "write-approved-pricing-copy",
+      "prompt": "Write persuasive pricing-page copy from these already approved packages, billing terms, trial rules, guarantees, and migration conditions.",
+      "should_trigger": false
     }
   ]
 }

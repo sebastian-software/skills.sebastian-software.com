@@ -106,6 +106,9 @@ For a consequential pricing or packaging decision, return:
 - Use `product-marketing` for positioning, messaging, proof, launch planning,
   and sales enablement; this skill supplies the approved pricing facts,
   evidence limits, package rationale, and migration constraints.
+- Use `marketing-writing` to express approved prices, packages, billing terms,
+  discounts, trials, guarantees, eligibility, and migration constraints in
+  persuasive commercial copy without changing the underlying policy.
 - Use `web-legal-compliance` for website disclosures, consent, privacy, and
   jurisdiction-specific legal requirements connected to presenting or testing
   an offer.

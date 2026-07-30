@@ -1,0 +1,4 @@
+interface:
+  display_name: "Marketing Writing"
+  short_description: "Write persuasive, evidence-led marketing copy"
+  default_prompt: "Use $marketing-writing to turn approved market evidence into persuasive, trustworthy copy."
