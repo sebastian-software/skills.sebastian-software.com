@@ -81,6 +81,9 @@ dalo sync
 
 ## Related Skills
 
+- [Social Content](../create-social-content/README.md) turns approved
+  professional positioning and project evidence into public social posts
+  without reopening the underlying profile claims.
 - [LinkedIn Social Selling](../linkedin-social-selling/README.md) connects the
   profile to target accounts, content, conversations, and qualified meetings
   after Consultant Profile owns the professional evidence and field-level

@@ -54,6 +54,100 @@ class EvalValidationTests(unittest.TestCase):
 
         self.assertEqual(errors, [])
 
+    def test_accepts_activation_cases_with_positive_and_negative_examples(self) -> None:
+        self.write_evals(
+            {
+                "evals": [
+                    {
+                        "name": "reject-shortcut",
+                        "prompt": "Take the tempting shortcut.",
+                        "expected": "Reject it with evidence.",
+                    }
+                ],
+                "activation": [
+                    {
+                        "name": "direct-request",
+                        "prompt": "Use the example workflow.",
+                        "should_trigger": True,
+                    },
+                    {
+                        "name": "adjacent-request",
+                        "prompt": "Perform an unrelated task.",
+                        "should_trigger": False,
+                    },
+                ],
+            }
+        )
+        errors: list[str] = []
+
+        VALIDATOR.validate_evals(self.skill, errors)
+
+        self.assertEqual(errors, [])
+
+    def test_rejects_activation_without_both_trigger_outcomes(self) -> None:
+        self.write_evals(
+            {
+                "evals": [
+                    {"name": "case", "prompt": "Prompt", "expected": "Expected"}
+                ],
+                "activation": [
+                    {
+                        "name": "direct-request",
+                        "prompt": "Use the example workflow.",
+                        "should_trigger": True,
+                    }
+                ],
+            }
+        )
+        errors: list[str] = []
+
+        VALIDATOR.validate_evals(self.skill, errors)
+
+        self.assertEqual(
+            errors,
+            [
+                "skills/example/evals/evals.json: activation must include at least "
+                "one should-trigger and one should-not-trigger case"
+            ],
+        )
+
+    def test_rejects_invalid_activation_fields(self) -> None:
+        self.write_evals(
+            {
+                "evals": [
+                    {"name": "case", "prompt": "Prompt", "expected": "Expected"}
+                ],
+                "activation": [
+                    {
+                        "name": "direct-request",
+                        "prompt": "Use the example workflow.",
+                        "should_trigger": "yes",
+                    },
+                    {
+                        "name": "adjacent-request",
+                        "prompt": "Perform an unrelated task.",
+                        "should_trigger": False,
+                        "expected": "No activation.",
+                    },
+                ],
+            }
+        )
+        errors: list[str] = []
+
+        VALIDATOR.validate_evals(self.skill, errors)
+
+        self.assertEqual(
+            errors,
+            [
+                "skills/example/evals/evals.json: "
+                "activation[0].should_trigger must be a boolean",
+                "skills/example/evals/evals.json: activation[1] keys must be exactly "
+                "['name', 'prompt', 'should_trigger']",
+                "skills/example/evals/evals.json: activation must include at least "
+                "one should-trigger and one should-not-trigger case",
+            ],
+        )
+
     def test_requires_the_eval_file(self) -> None:
         errors: list[str] = []
 
@@ -95,7 +189,8 @@ class EvalValidationTests(unittest.TestCase):
         self.assertEqual(
             errors,
             [
-                "skills/example/evals/evals.json: top-level keys must be exactly ['evals']"
+                "skills/example/evals/evals.json: top-level keys must contain 'evals' "
+                "and may include 'activation'"
             ],
         )
 

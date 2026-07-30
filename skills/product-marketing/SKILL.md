@@ -129,9 +129,17 @@ For a broad product-marketing decision, return:
   product descriptions, and other finished long-form prose after the audience,
   position, claims, proof, purpose, approved technical terminology, and
   material constraints are stable enough to brief.
+- Use `create-social-content` to express an approved position, message, launch,
+  proof point, or learning across non-LinkedIn or multiple social platforms.
+  Pass the selected audience, situation, claim, proof, constraints, and desired
+  next action without letting channel response redefine the position as fact.
 - Use `effective-web` to specify, implement, and verify landing pages, product
   pages, forms, experiments, analytics delivery, accessibility, performance,
   and responsive behavior after the market-facing requirements are clear.
+- Use `originality-review` when a produced campaign or market-facing experience
+  must be compared with supplied references for copied identity, content,
+  claims, media, or distinctive combinations. Return here to correct the
+  approved position, message, proof, and campaign brief.
 - Use `linkedin-social-selling` when LinkedIn is an evidence-backed channel for
   profiles, relationships, content systems, conversations, lead magnets, or
   pipeline. Pass it the approved position, messages, proof, and learning goal.

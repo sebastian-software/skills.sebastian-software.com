@@ -553,9 +553,13 @@ def validate_evals(skill_directory: Path, errors: list[str]) -> None:
         return
 
     evals = payload.get("evals") if isinstance(payload, dict) else None
-    if isinstance(payload, dict) and set(payload) != {"evals"}:
+    allowed_top_level_keys = {"activation", "evals"}
+    if isinstance(payload, dict) and (
+        "evals" not in payload or not set(payload).issubset(allowed_top_level_keys)
+    ):
         errors.append(
-            f"{relative}/evals/evals.json: top-level keys must be exactly ['evals']"
+            f"{relative}/evals/evals.json: top-level keys must contain 'evals' "
+            "and may include 'activation'"
         )
         return
     if not isinstance(evals, list) or not evals:
@@ -577,6 +581,51 @@ def validate_evals(skill_directory: Path, errors: list[str]) -> None:
             if name in names:
                 errors.append(f"{location}.name duplicates {name!r}")
             names.add(name)
+
+    if not isinstance(payload, dict) or "activation" not in payload:
+        return
+
+    activation = payload["activation"]
+    if not isinstance(activation, list) or not activation:
+        errors.append(
+            f"{relative}/evals/evals.json: activation must be a non-empty array"
+        )
+        return
+
+    activation_names: set[str] = set()
+    trigger_values: set[bool] = set()
+    expected_fields = {"name", "prompt", "should_trigger"}
+    for index, evaluation in enumerate(activation):
+        location = f"{relative}/evals/evals.json: activation[{index}]"
+        if not isinstance(evaluation, dict):
+            errors.append(f"{location} must be an object")
+            continue
+        if set(evaluation) != expected_fields:
+            errors.append(
+                f"{location} keys must be exactly "
+                "['name', 'prompt', 'should_trigger']"
+            )
+            continue
+        for field in ("name", "prompt"):
+            value = evaluation[field]
+            if not isinstance(value, str) or not value.strip():
+                errors.append(f"{location}.{field} must be a non-empty string")
+        should_trigger = evaluation["should_trigger"]
+        if not isinstance(should_trigger, bool):
+            errors.append(f"{location}.should_trigger must be a boolean")
+        else:
+            trigger_values.add(should_trigger)
+        name = evaluation["name"]
+        if isinstance(name, str) and name.strip():
+            if name in activation_names:
+                errors.append(f"{location}.name duplicates {name!r}")
+            activation_names.add(name)
+
+    if trigger_values != {False, True}:
+        errors.append(
+            f"{relative}/evals/evals.json: activation must include at least one "
+            "should-trigger and one should-not-trigger case"
+        )
 
 
 def validate_skill_metadata(skill_directory: Path, errors: list[str]) -> None:

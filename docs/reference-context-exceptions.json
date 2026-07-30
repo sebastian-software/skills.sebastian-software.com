@@ -1,6 +1,14 @@
 {
   "version": 1,
   "exceptions": {
+    "skills/rust-engineering/references/architecture-and-boundaries.md": {
+      "defaults": ["ownership-and-api-design.md", "errors-and-concurrency.md"],
+      "reason": "Comprehensive Rust architecture casebook retained for cross-cutting workspace and production-boundary work; ordinary API and failure tasks load the focused references first."
+    },
+    "skills/rust-engineering/references/simd-and-parallelism.md": {
+      "defaults": ["performance-and-memory.md", "unsafe-and-ffi.md"],
+      "reason": "Deep CPU, SIMD, atomics, and scheduling reference retained for specialist optimization; routine profiling and unsafe reviews load the focused references first."
+    },
     "skills/effective-web/references/fundamentals.md": {
       "defaults": ["fundamentals-core.md"],
       "reason": "Historical design and motion appendix; focused design, accessibility, and motion routes load smaller modules first."
@@ -50,13 +58,5 @@
       "reason": "Search implementation reference retained because checks differ materially by crawl, metadata, and structured-data task; the route narrows the required sections."
     }
   },
-  "routes": {
-    "skills/effective-web/references/route-css.md": {
-      "reason": "CSS is a broad router across cascade, tokens, organization, layout, and architecture; a task selects a focused module rather than loading every linked reference. Advisory only until the CSS route is split into narrower entry points."
-    },
-    "skills/effective-web/references/route-design.md": {
-      "ceiling": 1360,
-      "reason": "The design route still spans research, visual system, motion, and accessibility modules; the planning appendix now loads through design-planning-core.md, but the remaining focused modules keep the route above the advisory budget. Ceiling set just above the current total so further growth fails."
-    }
-  }
+  "routes": {}
 }

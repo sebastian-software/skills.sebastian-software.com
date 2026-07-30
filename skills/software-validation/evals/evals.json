@@ -60,5 +60,27 @@
       "prompt": "The user cancels a running docs build. The harness confirms the full process tree is stopped and reaped before the command produced a result. Mark the final category state.",
       "expected": "Uses SKIPPED (cancelled before completion), not TIMEOUT or FAILED, records confirmed process-tree cleanup and missing evidence, and does not continue dependent checks unless separately resumed."
     }
+  ],
+  "activation": [
+    {
+      "name": "run-repository-quality-gates",
+      "prompt": "Discover and run the repository's established checks for this change, deduplicate overlapping commands, and report evidence and gaps.",
+      "should_trigger": true
+    },
+    {
+      "name": "validate-one-package",
+      "prompt": "Validate the changed package using its existing format, typecheck, test, build, and documentation commands without inventing new tooling.",
+      "should_trigger": true
+    },
+    {
+      "name": "design-new-regression-test",
+      "prompt": "Create a focused regression test for the authorization defect and make the rule directly testable.",
+      "should_trigger": false
+    },
+    {
+      "name": "choose-system-test-strategy",
+      "prompt": "Define the system-wide test pyramid, risk coverage goals, load objectives, and which test types should protect each boundary.",
+      "should_trigger": false
+    }
   ]
 }

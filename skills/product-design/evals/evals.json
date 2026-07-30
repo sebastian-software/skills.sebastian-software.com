@@ -46,6 +46,21 @@
       "expected": "Derives a small set of intended and wrong character qualities from audience, purpose, and the brief; annotates which details in purposeful references communicate those qualities; compares multiple coordinated directions on the same representative product slice with real content, action, and state; evaluates hierarchy, accessibility, cultural interpretation, product fit, distinctiveness, and durability; turns the chosen visual grammar into provisional tokens and component rules without reproducing another product's composition; and hands the accepted direction to Effective Web's Design Read and persistence rules instead of promoting study tokens directly."
     },
     {
+      "name": "preserve-approved-direction-in-build",
+      "prompt": "The decision owner selected a product-launch direction built around close-up material photography, an overlapping specimen rail, and a compact proof panel. During handoff, engineering keeps only the palette and replaces the imagery and overlap with generic flat cards because those are easier in the current stack.",
+      "expected": "Records the selected and rejected qualities, inventories the major visual and structural commitments, assigns each an appropriate semantic, image, SVG, or interactive medium, keeps core text and controls accessible and responsive, and surfaces unavailable assets or accepted omissions before implementation instead of silently flattening the approved topology and evidence."
+    },
+    {
+      "name": "derive-visual-worlds-beyond-category-screenshots",
+      "prompt": "Explore visual directions for a field-research product by collecting competitor dashboards, making one light version and one dark version, then adding an unusual gradient so the result feels original.",
+      "expected": "Derives directions from the audience's tools, notation, publications, places, rituals, artifacts, and established interfaces; asks what the domain looked like before it moved onto screens; names both the category default and its predictable counter-reaction; compares materially different compositions or material families on the same usable slice; and permits a deliberately chosen conventional direction without forcing arbitrary novelty."
+    },
+    {
+      "name": "keep-prototype-demonstrations-honest",
+      "prompt": "A high-fidelity analytics prototype needs populated charts and realistic workflow history, but production data is unavailable. Either keep every surface empty or invent customer logos, measured savings, prices, and performance claims so the design can look complete.",
+      "expected": "Authors representative synthetic data or media needed to test density, hierarchy, and behavior; labels it wherever it could be mistaken for evidence; tracks what must be replaced; refuses to fabricate customers, prices, benchmarks, capabilities, or outcomes; and does not let missing production material collapse the direction into a generic empty composition."
+    },
+    {
       "name": "separate-synthesis-from-evidence-strength",
       "prompt": "The product manager asks us to apply 'the evidence ladder' to interview notes. Use the product-design ladder to score payment evidence, prototype use, survey intent, and stakeholder opinions from strongest to weakest.",
       "expected": "Recognizes the cross-skill ambiguity; uses Product Management's evidence hierarchy to compare decision strength and Product Design's synthesis chain to move raw material through observations, patterns, interpretations, opportunities, and hypotheses; preserves provenance instead of treating the two tools as interchangeable."
@@ -74,6 +89,28 @@
       "name": "real-scarcity-can-create-urgency",
       "prompt": "A workshop truly has four seats left and registration closes Friday because the facilitator needs preparation time. Hide the deadline details because any urgency is manipulative, or avoid mentioning scarcity entirely.",
       "expected": "Rejects the false choice between concealment and silence, permits prominent urgency grounded in the real seat and preparation constraints, states the deadline and what happens next accurately, keeps choice and price clear, avoids fake countdown resets or invented demand, and measures conversion alongside complaints, misunderstanding, and regret."
+    }
+  ],
+  "activation": [
+    {
+      "name": "model-product-flow",
+      "prompt": "Turn our research about expense approvals into an object model, end-to-end flow, wireframe plan, and testable prototype questions.",
+      "should_trigger": true
+    },
+    {
+      "name": "plan-behavioral-research",
+      "prompt": "Design a responsible study to understand why new users abandon the weekly planning workflow and how the interaction model should change.",
+      "should_trigger": true
+    },
+    {
+      "name": "decide-product-investment",
+      "prompt": "Use the market and customer evidence to decide whether this problem deserves a product investment and what outcome the team should pursue.",
+      "should_trigger": false
+    },
+    {
+      "name": "implement-approved-screen",
+      "prompt": "Implement this approved dashboard design in React and CSS, including responsive and accessible states.",
+      "should_trigger": false
     }
   ]
 }

@@ -1,152 +1,124 @@
 # Design Registers
 
-Choose the design register before making visual decisions. A register is the
-interface's job: whether design serves a task, carries a brand impression, or
-supports long-form comprehension. The same colour, typography, motion, and
-layout choices can be excellent in one register and wrong in another.
+Choose the register before making visual decisions. It names the visitor's
+primary success on this surface: operate, persuade, read, or experience. The
+same colour, typography, motion, and layout can be excellent in one register and
+wrong in another.
 
-Do not confuse register with direction. Product, brand, and content-heavy
-describe why the surface exists; precise, warm, minimalist, premium, playful,
-and editorial describe how it should feel. After choosing the register, read
-[Design directions](design-directions.md) and select compatible expression,
-density, warmth, precision, motion, depth, and communication constraints.
+Do not confuse register with direction. Registers describe why the surface
+exists; precise, warm, minimalist, premium, playful, and editorial describe how
+it should feel. A new category, audience, journey stage, or tone does not justify
+a new register. A distinct register must change the success condition and the
+priorities for hierarchy, interaction, evidence, and finish. After choosing,
+select compatible constraints from [Design directions](design-directions.md).
 
-## Product Register
+## Operate Register
 
-Use for apps, dashboards, admin screens, settings, data tables, editors, and
-tools where users are trying to complete a task.
+Use for apps, dashboards, admin screens, settings, tables, editors, and tools
+where users complete or monitor a task.
 
 **Goal:** earned familiarity. Users should trust the interface immediately and
 move through the task without noticing unnecessary design decisions.
 
 **Default choices:**
 
-- Use one well-tuned sans-serif family unless the product already has a
-  different system.
 - Use a restrained colour system: neutral surfaces, semantic states, and one
-  accent for primary actions, current selection, focus, and status.
+  accent for action, selection, focus, and status.
 - Prefer density when users compare, scan, or repeat actions often.
-- Keep component vocabulary consistent across screens: same button shapes, same
-  form controls, same table affordances, same icon family.
-- Use fixed product type scales for controls and dense UI. Reserve fluid
-  `clamp()` display sizing for marketing or content-led surfaces.
-- Use motion only to explain state change, feedback, progress, or spatial
-  continuity.
-- Keep product motion short, usually 150-250ms, and avoid page-load choreography
-  on task surfaces.
-- Place delight at specific earned moments: completion, first success, helpful
-  recovery, or a meaningful milestone. The rest of the product should stay
-  reliable and quiet.
+- Keep controls, components, type roles, and iconography consistent.
+- Use motion only to explain state, feedback, progress, or spatial continuity;
+  keep routine transitions short and avoid page-load choreography.
+- Place delight at earned moments such as first success, completion, helpful
+  recovery, or a meaningful milestone.
 
-**Common product failures:**
+**Common failures:**
 
-- Decorating task UI with brand-page gestures.
-- Using display fonts for labels, buttons, or data.
-- Making inactive states saturated or visually loud.
-- Inventing custom affordances for standard controls.
-- Opening a modal when inline editing, progressive disclosure, or a dedicated
-  page would keep the user's mental model clearer.
+- Decorating task UI with brand-page gestures or display type on controls.
+- Making inactive states loud or inventing custom standard affordances.
+- Opening a modal when inline editing, disclosure, or a dedicated page would
+  preserve the user's mental model.
 
-## Brand Register
+## Persuade Register
 
-Use for landing pages, marketing pages, campaign pages, portfolios, product
-launch pages, and other surfaces where the first impression is the deliverable.
+Use for landing, marketing, campaign, pricing, and launch surfaces where
+visitors need to understand an offer, decide, and act.
 
-**Goal:** distinctiveness with intent. The design should communicate a specific
-position, audience, and atmosphere, not simply look polished.
+**Goal:** distinctiveness with intent. Communicate a specific position,
+audience, and atmosphere while keeping the offer, evidence, and action legible.
 
-### Brand Point of View Before Style
+Before styling, decide:
 
-Before choosing fonts, colours, imagery, or section shapes, decide what the
-brand surface needs to say:
-
-- **Audience:** who should feel directly addressed, and who is intentionally
-  less central?
-- **Voice:** what should the brand sound and feel like in concrete terms, not
-  vague labels like modern, premium, technical, or elegant?
-- **Category expectation:** what does this category normally look like, and
-  which expectations should be honoured, bent, or rejected?
-- **Memorable signal:** what single visual, typographic, spatial, copy, or media
-  decision should make the surface recognisable?
-- **Evidence:** what real product, person, place, object, screenshot, diagram,
-  or outcome can make the brand specific instead of decorative?
-
-A brand surface can be restrained, loud, editorial, playful, severe, warm, or
-precise. The important part is that the style follows a point of view, not a
-category reflex.
+- the audience and concrete voice;
+- the category expectation to honour, bend, or reject;
+- the memorable visual, spatial, typographic, copy, or media signal;
+- the real product, person, place, object, screenshot, diagram, or outcome that
+  supplies credibility.
 
 **Default choices:**
 
-- Pick a colour strategy deliberately: restrained, committed, full palette, or
-  drenched.
-- Choose typography by role and brand voice. A single family is fine when
-  chosen deliberately; a second family is useful only when it creates real
-  contrast in voice, hierarchy, or reading mode.
-- Use real imagery or credible visual evidence when the subject is physical,
-  visual, place-based, product-based, or person-led. Avoid replacing the actual
-  subject with abstract decoration when users need to understand what is being
-  offered.
-- Let sections vary in rhythm and composition when the narrative earns it.
-- Use motion as art direction when it strengthens the story and still respects
-  reduced motion.
-- Let delight carry brand voice through copy, imagery, transitions, discovery,
-  and details when those choices serve the story.
+- Choose colour and typography by role and point of view, not category reflex.
+- Use real imagery or credible evidence when visitors need to inspect the
+  subject; do not replace it with abstract decoration.
+- Let narrative sections vary in rhythm and composition when the story earns
+  it.
+- Use motion and delight as art direction only when they strengthen the story
+  and preserve reduced-motion access.
 
-### Avoid Category Reflexes
+**Common failures:**
 
-Do not derive style directly from the category. The first expected look is often
-only a starting point:
+- Defaulting to a generic hero, statistic row, and repeated card grid.
+- Replacing needed evidence with gradients, decorative panels, or placeholders.
+- Repeating labels, markers, or identical section structures as scaffolding.
 
-- A developer tool does not automatically need a dark terminal aesthetic.
-- A finance surface does not automatically need blue, dense tables, and stock
-  photography.
-- A wellness brand does not automatically need pale neutrals, soft gradients,
-  and rounded cards.
-- An AI product does not automatically need purple-blue gradients, glowing
-  abstract shapes, or synthetic interface mockups.
-- A luxury or craft brand does not automatically need high-contrast serifs,
-  oversized whitespace, and monochrome art direction.
-
-If the obvious category treatment is right, use it intentionally and sharpen the
-details. If it is only familiar, choose a more specific direction from audience,
-voice, evidence, and the memorable signal.
-
-**Common brand failures:**
-
-- Building a generic hero, statistic row, and repeated card grid because the
-  category suggests it.
-- Using a timid neutral palette when the surface needs a point of view.
-- Replacing needed imagery with decorative CSS panels or abstract placeholders.
-- Repeating tiny labels, numbered markers, or identical section structures as
-  scaffolding instead of making specific design choices.
-
-## Content-Heavy Register
+## Read Register
 
 Use for documentation, articles, guides, reports, knowledge bases, legal pages,
 and technical reference material.
 
 **Goal:** comprehension, trust, and sustained reading.
 
-**Default choices:**
-
-- Prioritise measure, hierarchy, rhythm, and scannability over visual novelty.
-- Use generous line height and paragraph spacing for prose.
-- Keep navigation, table of contents, anchors, and search predictable.
+- Prioritise measure, hierarchy, rhythm, and scannability over novelty.
+- Keep navigation, contents, anchors, and search predictable.
 - Use colour sparingly for links, status, callouts, and code emphasis.
-- Prefer real examples, diagrams, tables, and code blocks over decorative
-  imagery.
+- Prefer real examples, diagrams, tables, and code over decorative imagery.
+
+## Experience Register
+
+Use for portfolios, galleries, showcases, interactive stories, entertainment,
+and artifact-led surfaces where entering, viewing, hearing, exploring, or
+feeling the work is the primary outcome.
+
+**Goal:** authored immersion. Let the work lead while the interface supplies
+orientation, access, and control without competing for attention.
+
+- Put the strongest real artifact, scene, or interaction in the first viewport
+  instead of delaying it behind a marketing prelude.
+- Let navigation and controls recede until needed, but keep them discoverable,
+  semantic, keyboard-operable, reversible, and compatible with reduced motion.
+- Use pacing, sequence, framing, sound, motion, and transitions only when they
+  preserve comprehension and user control.
+- Keep captions, provenance, descriptions, and accessibility alternatives close
+  enough to support the work without replacing it.
+
+**Common failures:**
+
+- Treating a portfolio like a conversion page and delaying the work behind
+  claims, metrics, or feature cards.
+- Making the interface louder than the artifact or hiding essential controls in
+  the name of immersion.
+- Repeating one dramatic transition until it becomes waiting.
 
 ## Choosing Quickly
 
-Ask three questions:
+1. Complete or monitor a task? Use operate.
+2. Trust, choose, or act on an offer? Use persuade.
+3. Understand, learn, or reference? Use read.
+4. Encounter or explore the work itself? Use experience.
 
-1. Is the user here to complete a repeatable task? Use the product register.
-2. Is the user judging the brand, offer, or object itself? Use the brand
-   register.
-3. Is the user mainly reading, learning, or referencing? Use the content-heavy
-   register.
-
-When a surface mixes registers, make the primary job decide the baseline and
-allow local exceptions. A product onboarding welcome screen can borrow from
-brand. A marketing pricing table can borrow from product. The register prevents
-defaulting to one universal look.
+Classify the smallest coherent surface, not an entire product or journey. A
+launch page can persuade, its showcase can experience, its documentation can
+read, and its checkout can operate. On a mixed surface, let primary success set
+the baseline and borrow locally: an experience portfolio may end with a
+persuade contact action, while a persuade pricing table may borrow operate
+density. If a candidate differs only by category or tone, select a direction
+instead of inventing a fifth register.

@@ -55,5 +55,27 @@
       "prompt": "Turn the approved disclosure requirements into a localized footer, consent dialog, and Playwright tests.",
       "expected": "Keeps this skill responsible for the requirement and evidence matrix, routes frontend implementation and testing to effective-web, and routes approved locale-specific prose typography to locale-typography."
     }
+  ],
+  "activation": [
+    {
+      "name": "scope-multi-jurisdiction-notices",
+      "prompt": "Audit the privacy, cookie, operator, and online-sales disclosures needed for our EU SaaS site before we expand to Canada.",
+      "should_trigger": true
+    },
+    {
+      "name": "draft-german-legal-notice",
+      "prompt": "Determine the facts required for a German Impressum and draft the website notice with assumptions and legal-review boundaries.",
+      "should_trigger": true
+    },
+    {
+      "name": "audit-backend-authorization",
+      "prompt": "Perform a security audit of our backend authorization, encryption, secrets handling, and incident-response controls.",
+      "should_trigger": false
+    },
+    {
+      "name": "implement-approved-footer",
+      "prompt": "Implement the already approved legal links and consent copy in the responsive website footer.",
+      "should_trigger": false
+    }
   ]
 }

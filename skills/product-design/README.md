@@ -81,6 +81,11 @@ dalo sync
   audience, outcomes, viability, scope, prioritization, and release direction.
 - [Effective Web](../effective-web/README.md) specifies and implements the
   browser experience with accessibility, performance, and verification.
+- [Reference Analysis](../reference-analysis/README.md) turns supplied visual
+  and interactive references into traceable specifications before Product
+  Design decides how they should influence the experience.
+- [Originality Review](../originality-review/README.md) compares a produced
+  result with its source references for overlap and provenance risk.
 - [Decision Records](../decision-records/README.md) preserves durable design
   decisions, tradeoffs, and reopening conditions.
 - [Web Legal Compliance](../web-legal-compliance/README.md) handles privacy,

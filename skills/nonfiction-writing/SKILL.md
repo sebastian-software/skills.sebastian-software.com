@@ -136,6 +136,11 @@ For a pattern audit, return:
 - Use `linkedin-posts` for LinkedIn-specific ideation, formats, cadence, and
   engagement context. Keep post-specific drafting there; use this skill for a
   requested evidence-based pattern audit or for the underlying long-form prose.
+- Use `create-social-content` to turn an article, essay, newsletter, case study,
+  talk, or report into platform-native non-LinkedIn or multi-platform social
+  content. Pass the governing idea, evidence, terminology, qualifications, and
+  source attribution without making the social version stronger than the
+  source supports.
 - Use `consultant-profile` to select and structure career evidence, professional
   positioning, project narratives, and profile facts before writing the prose.
 - Use `tech-docs` when correctness must be derived from a software repository,

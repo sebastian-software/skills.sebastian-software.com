@@ -69,25 +69,30 @@ question when the information cannot be inferred.
 2. **Primary user:** Who uses it, in what context, and how often?
 3. **Primary action:** What is the one action or understanding the design must
    make easiest?
-4. **Register:** Is this product, brand, or content-heavy UI?
-5. **Product domain:** For product surfaces, what domain concepts, data shapes,
+4. **Register:** Is the visitor here to operate, decide and act on an offer,
+   read, or experience the work itself?
+5. **Operate domain:** For operate surfaces, what domain concepts, data shapes,
    workflows, and user vocabulary should make this feel specific?
-6. **Brand point of view:** For brand surfaces, what should make this feel
+6. **Persuade point of view:** For persuade surfaces, what should make this feel
    specific rather than like the category default?
-7. **Content:** What data, text, media, or controls must appear? What are
+7. **Read contract:** For read surfaces, what must the reader understand or
+   find, from which source material, and through which wayfinding?
+8. **Experience lead:** For experience surfaces, which artifact or interaction
+   leads, how does exploration unfold, and which controls must remain available?
+9. **Content:** What data, text, media, or controls must appear? What are
    realistic minimum, typical, and maximum cases?
-8. **States:** What must happen for default, empty, loading, error, success, and
+10. **States:** What must happen for default, empty, loading, error, success, and
    permission-limited states?
-9. **Constraints:** Which design system, components, framework, performance,
-   accessibility, i18n, or browser constraints already exist?
-10. **Context:** Which devices, inputs, orientation, connection, and physical
+11. **Constraints:** Which design system, components, framework, performance,
+    accessibility, i18n, or browser constraints already exist?
+12. **Context:** Which devices, inputs, orientation, connection, and physical
     usage conditions matter?
-11. **Attention:** What may already distract, fatigue, interrupt, or reduce the
+13. **Attention:** What may already distract, fatigue, interrupt, or reduce the
     user's ability to interpret this surface?
-12. **Mental model:** Which system concepts and interaction expectations do users
+14. **Mental model:** Which system concepts and interaction expectations do users
     bring, and which unfamiliar gap must the design bridge?
-13. **Anti-goals:** What would be a wrong direction for this audience or product?
-14. **Modality:** Can users provide input and consume output through the proposed
+15. **Anti-goals:** What would be a wrong direction for this audience or product?
+16. **Modality:** Can users provide input and consume output through the proposed
     interface in their real physical, social, and cognitive context?
 
 ## Visual Decomposition and Oversight Audit
@@ -165,7 +170,7 @@ These decisions make the visual layer follow from the job. Do not start with
 card grids, hero templates, gradients, or animation before the surface has a
 clear job.
 
-## Product Domain Specificity
+## Operate Domain Specificity
 
 For dashboards, admin panels, tools, and data interfaces, specificity comes from
 the product's world, not from adding decoration. Before choosing layout or
@@ -185,9 +190,9 @@ timeline shaped around the real process, a comparison surface tuned to the data,
 or token names that reflect actual product semantics. If the product name were
 removed, the main structure should still hint at what the tool is for.
 
-## Brand Point of View
+## Persuade Point of View
 
-For brand surfaces, decide the point of view before layout and styling:
+For persuade surfaces, decide the point of view before layout and styling:
 
 - Audience and promise: who is being addressed, and what should they believe
   after the first viewport?
@@ -202,6 +207,11 @@ For brand surfaces, decide the point of view before layout and styling:
   headline, stat row, and gradient when that structure says nothing specific.
 - Memorable signal: choose one dominant design move the rest of the surface can
   support.
+
+Apply a delayed-recall check to the opening: what concrete mechanism, artifact,
+or evidence could a visitor describe later? If the answer is only a mood, the
+first viewport has not carried the thesis. Show the proof doing its job instead
+of repeating the claim in another block of copy.
 
 If the point of view is unknown, keep the surface restrained and ask the
 smallest question that reveals audience, voice, evidence, or anti-goal. Do not
@@ -245,12 +255,18 @@ first draft.
 
 ### Bolder
 
-Use when a brand or launch surface needs a clearer point of view.
+Use when a persuade or experience surface needs a clearer point of view.
 
+- Treat the named target as sovereign scope: preserve its neighbours, content,
+  behavior, and system contracts.
+- Amplify the strongest visual and structural vocabulary the system already
+  owns before adding a new primitive.
 - Increase contrast in hierarchy, not random decoration.
 - Commit to one stronger composition, colour strategy, image choice, or
   typographic voice.
 - Make one thing unmistakably dominant instead of making every section louder.
+- Test the structure without its copy. If hierarchy and composition no longer
+  communicate the target's purpose, the change is only louder text.
 
 ### Quieter
 
@@ -259,6 +275,9 @@ Use when the surface is too loud for repeated use or high-stakes work.
 - Reduce decorative colour, motion, shadows, and competing accents.
 - Let product structure, labels, and states carry confidence.
 - Keep primary actions clear while making inactive states calmer.
+- Preserve one anchoring decision that carries the product's point of view. If
+  restraint makes the surface interchangeable, the pass removed identity rather
+  than noise.
 
 ### Distill
 
@@ -306,17 +325,19 @@ audience, and moment. The answer does not have to be loud.
 
 Good specificity can come from:
 
-- A product flow that exposes exactly the right next action and hides the rest.
+- An operate flow that exposes exactly the right next action and hides the rest.
 - A comparison surface tuned to the real data users scan.
 - An empty state that teaches the actual component in context.
 - Navigation and data presentation that reflect the product's mental model, not
   generic application scaffolding.
-- A brand surface anchored by real product, place, person, object, or outcome
+- A persuade surface anchored by real product, place, person, object, or outcome
   evidence.
 - A typographic, colour, spacing, or imagery decision that follows the brand
   point of view rather than the category default.
-- A content-heavy surface whose navigation, examples, and reading rhythm make
+- A read surface whose navigation, examples, and reading rhythm make
   the material easier to trust.
+- An experience surface whose artifact, sequence, and controls make encountering
+  the work specific without the interface competing with it.
 
 If the only answer is "it looks polished", the direction is still too generic.
 Clarify register, audience, evidence, hierarchy, or interaction model before
@@ -380,12 +401,14 @@ Use this structure:
 ## Design Brief
 
 - Surface: [what is being built]
-- Register: [product / brand / content-heavy]
+- Register: [operate / persuade / read / experience]
 - Direction: [primary direction, optional secondary influence, and why]
 - Primary user and context: [who, where, frequency, state of mind]
 - Primary action: [the one thing the design must make easiest]
-- Brand point of view: [audience, voice, category reflex to avoid, memorable signal; omit when not relevant]
-- Product signature: [domain concepts, data shape, default pattern to avoid; omit when not relevant]
+- Operate signature: [domain concepts, data shape, default pattern to avoid; omit when not relevant]
+- Persuade point of view: [audience, voice, evidence, action, category reflex to avoid; omit when not relevant]
+- Read contract: [reader question, source material, comprehension path, wayfinding; omit when not relevant]
+- Experience lead: [artifact or interaction, exploration path, controls, accessibility alternatives; omit when not relevant]
 - Layout strategy: [topology, hierarchy, density, major regions]
 - Interaction model: [form submit, inline edit, route, popover, modal, etc.]
 - Required states: [default, empty, loading, error, success, permissions]
@@ -432,7 +455,7 @@ Mark each dimension as `ready`, `clarify`, or `change direction`:
 
 | Dimension | Ready when |
 |-----------|------------|
-| Register fit | The surface clearly follows product, brand, or content-heavy priorities |
+| Register fit | The surface clearly follows operate, persuade, read, or experience priorities |
 | Primary action | The one most important action or understanding is obvious |
 | Hierarchy | The dominant, secondary, and quiet elements are already decided |
 | State coverage | Default, empty, loading, error, success, and permission states are known |
