@@ -1,156 +1,154 @@
-# Speicher und Datenlayout in Rust
+# Memory and Data Layout
 
-Nutze diese Referenz, wenn ein Profil auf Allokationen, Heap-Spitzen,
-Kopierkosten, Objektgröße, Padding, Cache-Misses oder Binary Size zeigt.
-Optimiere nie nach einer pauschalen Byte- oder Containerregel: Messe den
-konkreten Workload und halte den Layout-/Portabilitätsvertrag fest. Für
-Messdesign, Flamegraphs und Compiler-Profile siehe
+Use this reference when a profile points at allocations, heap peaks, copy
+costs, object size, padding, cache misses, or binary size. Never optimize from
+a blanket byte or container rule: measure the concrete workload and record the
+layout and portability contract. For measurement design, flamegraphs, and
+compiler profiles see [Performance and profiling](performance-and-memory.md).
+
+## Contents
+
+- [Working contract: measure, then lay out](#working-contract-measure-then-lay-out)
+- [Allocations and lifetime](#allocations-and-lifetime)
+- [Vec, String, and reallocation](#vec-string-and-reallocation)
+- [HashMap, HashSet, and hashing](#hashmap-hashset-and-hashing)
+- [Box, Rc, Arc, Cow, and copying](#box-rc-arc-cow-and-copying)
+- [Type sizes, alignment, and padding](#type-sizes-alignment-and-padding)
+- [Layout guarantees and repr](#layout-guarantees-and-repr)
+- [Cache locality: AoS, SoA, and pointers](#cache-locality-aos-soa-and-pointers)
+- [Dispatch, monomorphization, and code size](#dispatch-monomorphization-and-code-size)
+- [DHAT for heap regressions](#dhat-for-heap-regressions)
+- [Binary size and build artifacts](#binary-size-and-build-artifacts)
+- [Safety, portability, and review](#safety-portability-and-review)
+- [Diagnostic checklist](#diagnostic-checklist)
+- [Sources and currency](#sources-and-currency)
+
+## Working contract: measure, then lay out
+
+1. Define the affected metric first: peak bytes, live bytes, allocation count,
+   CPU time, cache misses, or artifact size. A smaller struct is not a goal
+   when it does not improve the relevant metric.
+2. Capture a baseline with the identical toolchain, target, feature selection,
+   input distribution, and allocator. Store benchmark, heap, and binary-size
+   artifacts.
+3. Find allocation call sites with a profiler and connect them to lifetime and
+   peak usage. Do not count only the total: many small short-lived blocks and
+   few large long-lived blocks need different solutions.
+4. Change data structure, ownership, and layout as isolated hypotheses.
+   Re-confirm runtime, memory, code size, and maintainability afterwards.
+
+The [Rust Performance Book – Benchmarking](https://nnethercote.github.io/perf-book/benchmarking.html)
+and the [Heap allocations](https://nnethercote.github.io/perf-book/heap-allocations.html)
+chapter set the measurement frame. For the tooling steps see
 [Performance and profiling](performance-and-memory.md).
 
-## Inhaltsverzeichnis
+## Allocations and lifetime
 
-- [Arbeitsvertrag: messen, dann layouten](#arbeitsvertrag-messen-dann-layouten)
-- [Allokationen und Lebensdauer](#allokationen-und-lebensdauer)
-- [Vec, String und Reallocation](#vec-string-und-reallocation)
-- [HashMap, HashSet und Hashing](#hashmap-hashset-und-hashing)
-- [Box, Rc, Arc, Cow und Kopieren](#box-rc-arc-cow-und-kopieren)
-- [Typgrößen, Alignment und Padding](#typgrößen-alignment-und-padding)
-- [Layout-Garantien und repr](#layout-garantien-und-repr)
-- [Cache-Lokalität: AoS, SoA und Pointer](#cache-lokalität-aos-soa-und-pointer)
-- [Dispatch, Monomorphisierung und Codegröße](#dispatch-monomorphisierung-und-codegröße)
-- [DHAT für Heap-Regressionen](#dhat-für-heap-regressionen)
-- [Binary Size und Build-Artefakte](#binary-size-und-build-artefakte)
-- [Safety, Portabilität und Review](#safety-portabilität-und-review)
-- [Diagnose-Checkliste](#diagnose-checkliste)
-- [Quellen und Aktualität](#quellen-und-aktualität)
+First examine whether a heap allocation is necessary at all:
 
-## Arbeitsvertrag: messen, dann layouten
+- Keep values on the stack when size and lifetime are local and small.
+- Pass borrowed slices and strings (`&[T]`, `&str`) when the caller owns the
+  memory; this avoids `to_owned`/`clone` at API boundaries.
+- Use `Vec::with_capacity` or `String::with_capacity` when the expected size
+  can be derived from the protocol, `size_hint`, or a previous measurement. Do
+  not reserve unrealistic maxima that raise peak RSS.
+- Reuse mutable buffers (`clear` plus `extend_from_slice`/`read_to_end`)
+  instead of creating new vectors in a loop. Measure whether the extended
+  lifetime worsens the peak heap.
+- Avoid implicit allocations from `format!`, `collect`, `lines`, `to_string`,
+  `serde_json::to_string`, and temporary adapter chains in the hot path.
 
-1. Definiere zuerst die betroffene Metrik: Peak-Bytes, live Bytes,
-   Allokationsanzahl, CPU-Zeit, Cache-Misses oder Artefaktgröße. Eine kleinere
-   Struktur ist kein Ziel, wenn sie die relevante Metrik nicht verbessert.
-2. Sichere eine Baseline mit identischer Toolchain, Target, Feature-Auswahl,
-   Eingabeverteilung und Allocator. Speichere Benchmark-, Heap- und
-   Binary-Size-Artefakte.
-3. Finde Allokations-Callsites mit einem Profiler und verknüpfe sie mit
-   Lifetime/Peak. Zähle nicht nur die Summe: viele kleine kurzlebige Blöcke und
-   wenige große langlebige Blöcke brauchen unterschiedliche Lösungen.
-4. Ändere Datenstruktur, Ownership und Layout jeweils als isolierte Hypothese.
-   Bestätige Laufzeit, Speicher, Codegröße und Wartbarkeit danach erneut.
-
-Das [Rust Performance Book – Benchmarking](https://nnethercote.github.io/perf-book/benchmarking.html)
-und der Abschnitt [Heap allocations](https://nnethercote.github.io/perf-book/heap-allocations.html)
-geben den Messrahmen vor. Für die Werkzeugschritte siehe
-[Performance and profiling](performance-and-memory.md).
-
-## Allokationen und Lebensdauer
-
-Untersuche zuerst, ob eine Heap-Allokation überhaupt notwendig ist:
-
-- Halte Werte auf dem Stack, wenn Größe und Lebensdauer lokal und klein sind.
-- Übergib geliehene Slices/Strings (`&[T]`, `&str`), wenn der Aufrufer den
-  Speicher besitzt; vermeide dadurch `to_owned`/`clone` an API-Grenzen.
-- Nutze `Vec::with_capacity` oder `String::with_capacity`, wenn die erwartete
-  Größe aus dem Protokoll, `size_hint` oder einer vorherigen Messung ableitbar
-  ist. Reserviere keine unrealistischen Maxima, die Peak-RSS erhöhen.
-- Reuse mutable Buffers (`clear` + `extend_from_slice`/`read_to_end`), statt im
-  Loop neue Vektoren zu erzeugen. Miss, ob die dadurch verlängerte Lifetime den
-  Peak-Heap verschlechtert.
-- Vermeide implizite Allokationen in `format!`, `collect`, `lines`,
-  `to_string`, `serde_json::to_string` und temporären Adapterketten im Hot Path.
-
-Prüfe mit Heap-Profiling, ob ein Clone für Ownership tatsächlich gebraucht
-wird. `clone_from` kann den Zielbuffer wiederverwenden; vergleiche es mit einem
-gewöhnlichen `clone`, wenn die Zielgröße stark schwankt.
+Use heap profiling to check whether a clone is actually needed for ownership.
+`clone_from` can reuse the target buffer; compare it with a plain `clone` when
+the target size varies strongly.
 [Perf Book – Heap allocations](https://nnethercote.github.io/perf-book/heap-allocations.html)
 
-Ordne Allokationen nach Lifetime. Kurzlebige Scratch-Daten können in einem
-expliziten Arena-/Bump-Allocator gebündelt werden; langlebige Objekte sollten
-keine Arena-Lifetime erzwingen. Führe einen Arena-Allocator nur ein, wenn das
-Profil die Freigabe-/Allokationskosten und die Lebensdauerstruktur bestätigt.
-Dokumentiere Drop-Semantik, Thread-Verträglichkeit und Fragmentierung.
+Group allocations by lifetime. Short-lived scratch data can be bundled in an
+explicit arena or bump allocator; long-lived objects must not be forced into an
+arena lifetime. Introduce an arena allocator only when the profile confirms the
+free/allocate cost and the lifetime structure. Document drop semantics, thread
+compatibility, and fragmentation.
 
-Behandle den globalen Allocator als Systemgrenze. Ein alternativer Allocator
-ändert Fragmentierung, Thread-Contention, RSS und FFI-Verhalten; messe ihn
-gegen den Standard-Allocator auf jeder unterstützten Plattform und versioniere
-die Auswahl. Vermeide einen Allocator-Wechsel als Ersatz für unnötige Clones.
+Treat the global allocator as a system boundary. An alternative allocator
+changes fragmentation, thread contention, RSS, and FFI behavior; measure it
+against the default allocator on every supported platform and version the
+choice. Do not use an allocator swap as a substitute for removing unnecessary
+clones.
 
-## Vec, String und Reallocation
+## Vec, String, and reallocation
 
-Verwende `Vec<T>` als Standard für zusammenhängende Sequenzen. Seine Elemente
-liegen contiguous, wodurch sequentielle Iteration und Prefetching gut
-funktionieren. Eine `Vec` hält pointer/length/capacity; `len` ist nicht die
-reservierte Kapazität. Prüfe `capacity()` im Profil, um Überreservierung und
-Reallocations zu unterscheiden.
+Use `Vec<T>` as the default for contiguous sequences. Its elements are stored
+contiguously, so sequential iteration and prefetching work well. A `Vec` holds
+pointer, length, and capacity; `len` is not the reserved capacity. Check
+`capacity()` in the profile to distinguish over-reservation from reallocation.
 
-- Nutze `with_capacity(n)`, wenn `n` belastbar ist.
-- Nutze `reserve`/`reserve_exact` bewusst: `reserve` darf geometrisch wachsen
-  und amortisiert Reallocation; `reserve_exact` spart potenziell ungenutzten
-  Platz, kann aber bei schrittweisem Wachstum mehr Allokationen erzeugen.
-- Nutze `shrink_to`/`shrink_to_fit` nur außerhalb kritischer Schleifen und nur,
-  wenn die Rückgabe des Speichers den Aufwand rechtfertigt.
-- Entferne am Ende mit `truncate` oder `clear`, wenn der Buffer wiederverwendet
-  wird. `clear` behält die Kapazität.
-- Übergib bekannte Größen über `Iterator::size_hint` oder `ExactSizeIterator`,
-  damit `collect`/`extend` sinnvoll reservieren können.
+- Use `with_capacity(n)` when `n` is well founded.
+- Use `reserve`/`reserve_exact` deliberately: `reserve` may grow geometrically
+  and amortizes reallocation; `reserve_exact` saves potentially unused space
+  but can cause more allocations under incremental growth.
+- Use `shrink_to`/`shrink_to_fit` only outside critical loops and only when
+  returning the memory justifies the cost.
+- Trim with `truncate` or `clear` at the end when the buffer is reused.
+  `clear` keeps the capacity.
+- Communicate known sizes through `Iterator::size_hint` or
+  `ExactSizeIterator` so `collect`/`extend` can reserve sensibly.
 
-Für Text gelten dieselben Regeln für `String`; vermeide wiederholtes
-`format!`/`push_str` ohne Kapazitätsplanung. Bei UTF-8-Protokollen darfst du
-`Vec<u8>` und `read_until` verwenden, wenn Validierung erst später notwendig
-ist. [Perf Book – I/O](https://nnethercote.github.io/perf-book/io.html)
+The same rules apply to `String` for text; avoid repeated `format!`/`push_str`
+without capacity planning. For UTF-8 protocols you may use `Vec<u8>` and
+`read_until` when validation is only needed later.
+[Perf Book – I/O](https://nnethercote.github.io/perf-book/io.html)
 
-Verwende `SmallVec` oder ein Inline-Array nur bei gemessenem Small-Size-
-Dominanzfall. Inline-Speicher vergrößert jeden Wert und kann bei großen
-Elementen/verschachtelten Strukturen den Cache belasten. Dokumentiere den
-Inline-Capacity-Vertrag und vergleiche Heap-Allokationen, `size_of::<T>()` und
-Iteration separat. [Perf Book – Standard library types](https://nnethercote.github.io/perf-book/standard-library-types.html)
+Use `SmallVec` or an inline array only for a measured small-size-dominant
+workload. Inline storage enlarges every value and can pressure the cache with
+large elements or nested structures. Document the inline-capacity contract and
+compare heap allocations, `size_of::<T>()`, and iteration separately.
+[Perf Book – Standard library types](https://nnethercote.github.io/perf-book/standard-library-types.html)
 
-## HashMap, HashSet und Hashing
+## HashMap, HashSet, and hashing
 
-Nutze `HashMap`/`HashSet` für schnelle durchschnittliche Lookup-Kosten, nicht
-für stabile Iterationsreihenfolge oder automatisch minimale Speicherbelegung.
-Prüfe im Profil:
+Use `HashMap`/`HashSet` for fast average lookup cost, not for stable iteration
+order or automatically minimal memory. Check in the profile:
 
-- Reserviere Kapazität aus einer belastbaren Schätzung (`with_capacity`), aber
-  vermeide pauschales Reservieren in jeder Anfrage.
-- Entferne Einträge mit `retain`/`drain`, wenn du die Tabelle als Buffer
-  wiederverwendest; entscheide bewusst, ob die Kapazität bleiben soll.
-- Verwende einen schnelleren Hasher nur mit bekanntem Threat Model. Viele
-  Hashing-Alternativen sind für untrusted Keys anfällig für Hash-Flooding.
-- Für Integer-/Enum-Keys kann ein spezialisierter, collision-resistenter
-  Hasher schneller sein; belege den Effekt mit adversarialen und normalen Daten.
-- Prüfe, ob eine dichte ID-Menge ein `Vec<Option<T>>`, `Vec<T>` plus Bitset oder
-  eine sortierte Sequenz statt Hashing erlaubt.
+- Reserve capacity from a well-founded estimate (`with_capacity`), but avoid
+  blanket reservation on every request.
+- Remove entries with `retain`/`drain` when the table is reused as a buffer;
+  decide deliberately whether the capacity should remain.
+- Use a faster hasher only with a known threat model. Many hashing
+  alternatives are vulnerable to hash flooding with untrusted keys.
+- For integer or enum keys a specialized, collision-resistant hasher can be
+  faster; prove the effect with both adversarial and normal data.
+- Check whether a dense ID set permits a `Vec<Option<T>>`, `Vec<T>` plus
+  bitset, or a sorted sequence instead of hashing.
 
-Vergleiche Hash-Funktion, Load-Factor, Keygröße und Cache-Verhalten zusammen;
-eine schnellere Hashfunktion macht Pointer-/Bucket-Misses nicht automatisch
-billiger. [Perf Book – Hashing](https://nnethercote.github.io/perf-book/hashing.html)
+Compare hash function, load factor, key size, and cache behavior together; a
+faster hash function does not automatically make pointer or bucket misses
+cheaper. [Perf Book – Hashing](https://nnethercote.github.io/perf-book/hashing.html)
 
-## Box, Rc, Arc, Cow und Kopieren
+## Box, Rc, Arc, Cow, and copying
 
-Wähle Pointer-Container nach Ownership-Vertrag:
+Choose pointer containers by ownership contract:
 
-- Verwende `Box<T>`, wenn ein Wert bewusst auf den Heap soll (z. B. rekursive
-  Typen oder große seltene Varianten). Miss, ob zusätzliche Indirektion den
-  Cache-Hot-Path verschlechtert.
-- Verwende `Rc<T>` nur single-threaded und `Arc<T>` bei echter geteilter
-  Thread-Nutzung. Beide speichern Referenzzählungen und verursachen Indirektion;
-  `Arc::clone` ist billig, aber nicht kostenlos.
-- Verwende `Cow<'a, [T]>`/`Cow<'a, str>`, wenn der häufige Pfad geliehen bleiben
-  kann und Mutationen selten sind. Prüfe, ob der Clone-Fallback im realen
-  Workload häufig genug ist.
-- Verwende `clone_from` für wiederverwendete Zielwerte; prüfe die Implementierung
-  und messe die Kapazitätsreuse.
-- Nutze `mem::take`/`mem::replace`, wenn Ownership bewegt werden kann, statt
-  eine tiefe Kopie zu erzwingen.
+- Use `Box<T>` when a value deliberately belongs on the heap (for example
+  recursive types or large rare variants). Measure whether the extra
+  indirection hurts the cache-hot path.
+- Use `Rc<T>` only single-threaded and `Arc<T>` only for genuine cross-thread
+  sharing. Both store reference counts and add indirection; `Arc::clone` is
+  cheap but not free.
+- Use `Cow<'a, [T]>`/`Cow<'a, str>` when the common path can stay borrowed and
+  mutation is rare. Verify that the clone fallback is rare enough in the real
+  workload.
+- Use `clone_from` for reused target values; check the implementation and
+  measure the capacity reuse.
+- Use `mem::take`/`mem::replace` when ownership can be moved instead of
+  forcing a deep copy.
 
-Entferne einen Pointer nicht allein wegen seiner Größe: Er kann Rekursion,
-Unvollständigkeit (`dyn Trait`, DST) oder stabile Adressen ermöglichen. Bewerte
-immer Indirektion, Allokationszahl und Zugriffsmuster gemeinsam.
+Do not remove a pointer solely because of its size: it may enable recursion,
+unsized values (`dyn Trait`, DSTs), or stable addresses. Always evaluate
+indirection, allocation count, and access pattern together.
 
-## Typgrößen, Alignment und Padding
+## Type sizes, alignment, and padding
 
-Miss Layout an den konkreten Zieltargets:
+Measure layout on the concrete deployment targets:
 
 ```rust
 use std::mem::{align_of, size_of};
@@ -161,109 +159,108 @@ const _: () = {
 };
 ```
 
-Nutze zur Diagnose `std::mem::size_of::<T>()` und `align_of::<T>()` in einem
-kleinen Tool oder Test. Für eine Feldübersicht verwende auf Nightly
-`rustc -Zprint-type-sizes` nur diagnostisch; das Ausgabeformat ist kein
-stabiler Build-Vertrag. [Perf Book – Type sizes](https://nnethercote.github.io/perf-book/type-sizes.html)
+Use `std::mem::size_of::<T>()` and `align_of::<T>()` in a small tool or test
+for diagnosis. For a field overview use nightly `rustc -Zprint-type-sizes`
+diagnostically only; the output format is not a stable build contract.
+[Perf Book – Type sizes](https://nnethercote.github.io/perf-book/type-sizes.html)
 
-Erwarte Padding, wenn ein Feld eine höhere Alignment-Anforderung als das
-vorherige Feld hat. Ordne Felder nicht manuell um, solange kein Vertrag und
-keine Messung vorliegen: Bei `repr(Rust)` ist die konkrete Feldreihenfolge nicht
-als ABI-Garantie zugesichert. Nutze `repr(C)` für FFI/externen Layout-Vertrag
-und prüfe die resultierende Größe auf allen Targets. [Rust Reference – Type layout](https://doc.rust-lang.org/stable/reference/type-layout.html)
+Expect padding when a field has a higher alignment requirement than the
+previous field. Do not reorder fields manually without a contract and a
+measurement: with `repr(Rust)` the concrete field order is not guaranteed as an
+ABI. Use `repr(C)` for FFI or an external layout contract and verify the
+resulting size on all targets. [Rust Reference – Type layout](https://doc.rust-lang.org/stable/reference/type-layout.html)
 
-Behandle „große Typen“ als Workload-/Target-Frage. Eine Schwelle wie 128 Byte
-kann ein Anlass sein, Kopierkosten zu messen, ist aber keine Rust-Garantie.
-Miss `memcpy`/Move-Kosten, Registerdruck, Stack-Nutzung und Cache-Effekt, bevor
-du boxst oder Felder aufteilst.
+Treat "large types" as a workload and target question. A threshold such as
+128 bytes can prompt a copy-cost measurement, but it is not a Rust guarantee.
+Measure `memcpy`/move cost, register pressure, stack usage, and cache effect
+before boxing or splitting fields.
 
-Reduziere Größe mit belegbaren Maßnahmen:
+Reduce size with demonstrable measures:
 
-- Ersetze breite Zustandsfelder nur, wenn Wertebereich, Overflow-Vertrag und
-  FFI/Serialization dies erlauben.
-- Packe Bool-/Enum-Zustände in einen repräsentationsstabilen Bitset nur, wenn
-  zusätzliche Maskenoperationen nicht den Hot Path verschlechtern.
-- Prüfe große Enum-Varianten: `Box` kann den Enum verkleinern, fügt aber eine
-  Allokation/Indirektion hinzu.
-- Miss `size_of` von Container-Elementen und die Gesamt-Heap-Belegung; ein
-  kleinerer Header kann durch mehr externe Allokationen verlieren.
+- Replace wide state fields only when value range, overflow contract, and
+  FFI/serialization allow it.
+- Pack bool or enum state into a representation-stable bitset only when the
+  extra mask operations do not hurt the hot path.
+- Check large enum variants: `Box` can shrink the enum but adds an allocation
+  and indirection.
+- Measure `size_of` of container elements and total heap usage; a smaller
+  header can lose through more external allocations.
 
-## Layout-Garantien und repr
+## Layout guarantees and repr
 
-Halte dich an die [Rust Reference – Type layout](https://doc.rust-lang.org/stable/reference/type-layout.html):
+Follow the [Rust Reference – Type layout](https://doc.rust-lang.org/stable/reference/type-layout.html):
 
-- `repr(Rust)` garantiert Feld-Alignment, dass Felder nicht überlappen und der
-  Typ passend ausgerichtet ist; konkrete Reihenfolge, Padding und Nischen-
-  Optimierungen sind kein allgemeiner ABI-Vertrag.
-- `repr(C)` legt die C-kompatible Reihenfolge/Alignment-Regeln fest. Verwende es
-  für FFI, Shared-Memory-Formate und explizite Layout-Tests; es macht einen Typ
-  nicht automatisch insgesamt FFI-sicher (z. B. `String`/`Vec` bleiben Rust-
-  Ownership-Typen).
-- Primitive `repr(u8)`/`repr(u16)` usw. stabilisieren die Enum-Diskriminante,
-  nicht automatisch jedes Padding oder alle Variantendaten.
-- Kombiniere `repr(C, u8)`/`repr(C, u16)` nur mit einem dokumentierten externen
-  Format und teste Size/Align/Offset gegen die Gegenstelle.
-- Verwende `repr(transparent)` für den dokumentierten Single-Field-Wrapper-
-  Vertrag, etwa FFI-Newtypes.
-- Vermeide `repr(packed)` als Größenoptimierung. Unaligned-Referenzen sind
-  Undefined Behavior; greife über `addr_of!` + `read_unaligned`/`write_unaligned`
-  oder kopiere in ein ausgerichtetes temporäres Objekt. Siehe
+- `repr(Rust)` guarantees field alignment, that fields do not overlap, and
+  that the type is suitably aligned; concrete order, padding, and niche
+  optimizations are not a general ABI contract.
+- `repr(C)` fixes the C-compatible order and alignment rules. Use it for FFI,
+  shared-memory formats, and explicit layout tests; it does not make a type
+  FFI-safe as a whole (`String`/`Vec` remain Rust ownership types).
+- Primitive `repr(u8)`/`repr(u16)` and similar stabilize the enum
+  discriminant, not automatically all padding or variant payloads.
+- Combine `repr(C, u8)`/`repr(C, u16)` only with a documented external format
+  and test size, alignment, and offsets against the counterpart.
+- Use `repr(transparent)` for the documented single-field wrapper contract,
+  such as FFI newtypes.
+- Avoid `repr(packed)` as a size optimization. Unaligned references are
+  undefined behavior; access through `addr_of!` plus
+  `read_unaligned`/`write_unaligned`, or copy into an aligned temporary. See
   [Rustonomicon – Working with unsafe](https://doc.rust-lang.org/stable/nomicon/working-with-unsafe.html).
 
-Dokumentiere bei jeder Layout-Abhängigkeit: Target-Architektur, `repr`,
-Alignment, Feld-Offsets, Endianness, Serialisierungsformat und Upgrade-Plan.
-Verwende Compile-Time-Assertions nur für absichtlich stabilisierte Verträge;
-vermeide Assertions auf zufällige `repr(Rust)`-Details.
+For every layout dependency document: target architecture, `repr`, alignment,
+field offsets, endianness, serialization format, and upgrade plan. Use
+compile-time assertions only for deliberately stabilized contracts; avoid
+assertions on incidental `repr(Rust)` details.
 
-Für Pointer-/DST-Layout gilt: Thin Pointer (`&T`, `Box<T>`) und fat Pointer
-(`&[T]`, `&dyn Trait`) haben unterschiedliche Metadaten. Leite ihre Größe nicht
-aus einer zufälligen Implementierung ab; `size_of_val` misst den konkreten
-Wert, nicht ein dauerhaftes ABI. [Rust Reference – Dynamically Sized Types](https://doc.rust-lang.org/stable/reference/dynamically-sized-types.html)
+For pointer and DST layout: thin pointers (`&T`, `Box<T>`) and fat pointers
+(`&[T]`, `&dyn Trait`) carry different metadata. Do not derive their size from
+an incidental implementation; `size_of_val` measures the concrete value, not a
+durable ABI. [Rust Reference – Dynamically Sized Types](https://doc.rust-lang.org/stable/reference/dynamically-sized-types.html)
 
-## Cache-Lokalität: AoS, SoA und Pointer
+## Cache locality: AoS, SoA, and pointers
 
-Ordne Daten nach Zugriffsmuster, nicht nach ästhetischer Feldgruppierung:
+Arrange data by access pattern, not by aesthetic field grouping:
 
-- **AoS (Array of Structs):** Wähle es, wenn jeder Schritt fast alle Felder
-  eines Objekts benötigt oder du stabile Objektgrenzen brauchst.
-- **SoA (Structure of Arrays):** Wähle es, wenn ein Hot Loop nur wenige Felder
-  über viele Objekte verarbeitet. Die aktiven Spalten bleiben dicht und
-  reduzieren Cache-Traffic; halte Längen/Indizes synchron.
-- **AoSoA/Chunking:** Prüfe es bei SIMD-/Cache-Kachelgrößen, wenn reine SoA-
-  oder AoS-Layouts unpraktisch sind.
-- **Pointer-rich Graphen:** Ersetze `Box`/`Rc`-Ketten nicht blind. Prüfe, ob
-  Arena + Index oder eine `Vec<Node>` die Zugriffslokalität verbessert und wie
-  sich Stable-Address-/Deletion-Anforderungen ändern.
+- **AoS (array of structs):** choose it when each step needs nearly all fields
+  of one object or when stable object boundaries matter.
+- **SoA (struct of arrays):** choose it when a hot loop processes few fields
+  across many objects. The active columns stay dense and reduce cache
+  traffic; keep lengths and indices synchronized.
+- **AoSoA/chunking:** evaluate it at SIMD or cache tile sizes when pure SoA or
+  AoS layouts are impractical.
+- **Pointer-rich graphs:** do not blindly replace `Box`/`Rc` chains. Check
+  whether an arena plus indices or a `Vec<Node>` improves access locality and
+  how stable-address and deletion requirements change.
 
-Messe LLC/L1-Misses, Branch-Misses und Wall-Time mit realistischen Datensätzen.
-Ein SoA-Layout kann zusätzliche Indexberechnungen, Scatter/Gather oder
-Synchronisationskosten erzeugen; akzeptiere es nur bei positiver Gesamtbilanz.
+Measure LLC/L1 misses, branch misses, and wall time with realistic data sets.
+An SoA layout can add index arithmetic, scatter/gather, or synchronization
+cost; accept it only with a positive overall balance.
 [Data-Oriented Design in Rust](https://jamesmcm.github.io/blog/intro-dod/)
 
-Vermeide `LinkedList` für normale Sequenzen: Jeder Schritt kann eine
-Pointer-Indirektion und Cache-Miss kosten. Bevorzuge `Vec`, `VecDeque` oder eine
-Indexstruktur und begründe Ausnahmen mit gemessenen Insert/Remove-Anforderungen.
+Avoid `LinkedList` for ordinary sequences: every step can cost a pointer
+indirection and cache miss. Prefer `Vec`, `VecDeque`, or an index structure and
+justify exceptions with measured insert/remove requirements.
 [Perf Book – Standard library types](https://nnethercote.github.io/perf-book/standard-library-types.html)
 
-## Dispatch, Monomorphisierung und Codegröße
+## Dispatch, monomorphization, and code size
 
-Verwende statische Generics (`impl Trait`, generische Funktionen), wenn
-Hot-Path-Dispatch und Inlining zählen und die Code-Vervielfachung akzeptabel
-ist. Verwende `dyn Trait`, wenn viele Implementierungen selten aufgerufen
-werden, Binärgröße/Compile-Zeit wichtiger sind oder Plugin-Grenzen gebraucht
-werden. Miss beide Varianten; eine Vtable-Indirektion kann Branch-/Cache-
-Kosten verursachen, Monomorphisierung kann den Instruction-Cache aufblasen.
+Use static generics (`impl Trait`, generic functions) when hot-path dispatch
+and inlining matter and the code duplication is acceptable. Use `dyn Trait`
+when many implementations are called rarely, binary size or compile time
+matters more, or plugin boundaries are needed. Measure both variants; a vtable
+indirection can cost branches and cache, while monomorphization can bloat the
+instruction cache.
 [Data-Oriented Design – Static vs dynamic dispatch](https://jamesmcm.github.io/blog/intro-dod/)
 
-Teile generische Hot-Codepfade in kleine, wiederverwendbare Funktionen, wenn
-Compiler-Explorer/`cargo asm` eine relevante Codeexplosion zeigt. Prüfe
-`cargo bloat`/`cargo llvm-lines`, um Monomorphisierungs- und Inline-Treiber zu
-identifizieren; entferne keine Abstraktion ohne Größen-/Laufzeitmessung.
+Split generic hot code paths into small reusable functions when Compiler
+Explorer or `cargo asm` shows a relevant code explosion. Use
+`cargo bloat`/`cargo llvm-lines` to attribute monomorphization and inlining
+drivers; do not remove an abstraction without a size and runtime measurement.
 
-## DHAT für Heap-Regressionen
+## DHAT for heap regressions
 
-Setze `dhat-rs` feature-gated ein, damit Produktionsbuilds keinen Profiling-
-Allocator enthalten:
+Gate `dhat-rs` behind a feature so production builds contain no profiling
+allocator:
 
 ```toml
 [features]
@@ -285,99 +282,102 @@ fn main() {
 }
 ```
 
-Starte den diagnostischen Build in Release-Konfiguration und verwende eine
-repräsentative Eingabe. Für automatisierbare Grenzen nutze
-`Profiler::builder().testing().build()` und prüfe `HeapStats` wie
-`total_bytes`, `total_blocks`, `max_bytes` und `max_blocks`.
+Run the diagnostic build in release configuration with a representative input.
+For automatable limits use `Profiler::builder().testing().build()` and check
+`HeapStats` values such as `total_bytes`, `total_blocks`, `max_bytes`, and
+`max_blocks`.
 [DHAT-rs – Configuration and setup](https://docs.rs/dhat/latest/dhat/#configuration-profiling-and-testing),
 [DHAT-rs – Heap usage testing](https://docs.rs/dhat/latest/dhat/#heap-usage-testing)
 
-Markiere seltene, semantische Ereignisse mit `dhat::ad_hoc_event(weight)`,
-wenn die Allokation selbst nicht aussagekräftig ist. Halte den Profiler über
-den gesamten relevanten Scope; eine zu kurze Lifetime verschiebt die
-Interpretation. DHAT ist laut Crate-Dokumentation experimentell und kann
-Performance/Timing stark verändern. [DHAT-rs](https://docs.rs/dhat/latest/dhat/)
+Mark rare, semantic events with `dhat::ad_hoc_event(weight)` when the
+allocation itself is not informative. Keep the profiler alive across the whole
+relevant scope; a too-short lifetime skews the interpretation. DHAT is
+experimental per its crate documentation and can change performance and timing
+substantially. [DHAT-rs](https://docs.rs/dhat/latest/dhat/)
 
-## Binary Size und Build-Artefakte
+## Binary size and build artifacts
 
-Definiere ein Größenbudget und miss das finale, stripbare Artefakt (`ls -lh`,
-`size`, Plattformtool) getrennt vom Debug-/Profiling-Build. Nutze
-[`cargo bloat`](https://github.com/RazrFalcon/cargo-bloat) oder
-[`cargo llvm-lines`](https://github.com/dtolnay/cargo-llvm-lines), um große
-Funktionen und generische Vervielfachung zuzuordnen.
+Define a size budget and measure the final, strippable artifact (`ls -lh`,
+`size`, platform tool) separately from the debug or profiling build. Use
+[`cargo bloat`](https://github.com/RazrFalcon/cargo-bloat) or
+[`cargo llvm-lines`](https://github.com/dtolnay/cargo-llvm-lines) to attribute
+large functions and generic duplication.
 
-Beginne mit einem reproduzierbaren Release-Profil:
+Start from a reproducible release profile:
 
 ```toml
 [profile.release]
-opt-level = "z"       # alternativ "s" oder 3; messen
-lto = true            # thin/fat vergleichen
+opt-level = "z"       # alternatively "s" or 3; measure
+lto = true            # compare thin/fat
 codegen-units = 1
-panic = "abort"      # nur wenn der API-/FFI-Vertrag dies erlaubt
-strip = "symbols"    # nach Profiler-/Debug-Läufen
+panic = "abort"      # only when the API/FFI contract allows it
+strip = "symbols"    # after profiler/debug runs
 ```
 
-Wähle `opt-level = "s"` oder `"z"` nach Messung; `"z"` ist nicht garantiert
-kleiner oder schneller als `"s"`. `lto = "thin"` kann einen besseren
-Größen-/Linkzeitkompromiss als fat LTO liefern. `codegen-units = 1` kann
-Optimierung und Größe verbessern, erhöht aber Compile-Zeit. [rustc Codegen options](https://doc.rust-lang.org/rustc/codegen-options.html),
+Choose `opt-level = "s"` or `"z"` by measurement; `"z"` is not guaranteed
+smaller or faster than `"s"`. `lto = "thin"` can offer a better size and
+link-time compromise than fat LTO. `codegen-units = 1` can improve
+optimization and size but raises compile time. [rustc Codegen options](https://doc.rust-lang.org/rustc/codegen-options.html),
 [min-sized-rust](https://github.com/johnthagen/min-sized-rust#optimize-for-size)
 
-Behalte für Profiling einen separaten Build mit `debug = "line-tables-only"`
-oder `debug = true`; strippe erst beim Release-Artefakt. Prüfe, ob Panic-
-Strings, Backtraces, Formatierungs-/Logging-Code, ungenutzte Features und
-Monomorphisierung den größten Anteil ausmachen.
+Keep a separate build with `debug = "line-tables-only"` or `debug = true` for
+profiling; strip only the release artifact. Check whether panic strings,
+backtraces, formatting and logging code, unused features, and monomorphization
+form the largest share.
 
-Erwäge `no_std`/`no_main` nur für passende Embedded-/Runtime-Verträge.
-`panic = "abort"`, Entfernen von Unwind-/Backtrace-Code oder aggressive
-Linker-Garbage-Collection verändern Fehlerdiagnose und Bibliotheksgrenzen.
-Prüfe mit Cross-Target-CI, ob jedes Artefakt weiterhin startet und FFI-Symbole
-korrekt exportiert.
+Consider `no_std`/`no_main` only for matching embedded or runtime contracts.
+`panic = "abort"`, removing unwind or backtrace code, and aggressive linker
+garbage collection change failure diagnostics and library boundaries. Verify
+with cross-target CI that every artifact still starts and exports FFI symbols
+correctly.
 
-Verwende UPX/Kompression nur, wenn Startzeit, Plattformregeln, Signaturen und
-Deployment dies erlauben; messe die Größe des verpackten und entpackten
-Artefakts und dokumentiere den Release-Schritt. [min-sized-rust – Compressing](https://github.com/johnthagen/min-sized-rust#compressing)
+Use UPX or compression only when startup time, platform rules, signatures, and
+deployment allow it; measure the packed and unpacked artifact sizes and
+document the release step. [min-sized-rust – Compressing](https://github.com/johnthagen/min-sized-rust#compressing)
 
-## Safety, Portabilität und Review
+## Safety, portability, and review
 
-- Behandle `repr(packed)`, `read_unaligned`, `get_unchecked`, Transmute,
-  rohe Pointer und eigene Allocatoren als Unsafe-Proof-Obligations. Dokumentiere
-  Provenienz, Initialisierung, Alignment, Bounds, Aliasing, Lifetimes, Drop,
-  Unwind und Thread-Safety; siehe [Rustonomicon](https://doc.rust-lang.org/stable/nomicon/).
-- Liefere `target-cpu=native`/`target-feature` nur, wenn alle Nutzer die
-  CPU-Anforderungen erfüllen. Für portable SIMD nutze Feature Detection oder
-  mehrere Implementierungen; siehe [rustc target features](https://doc.rust-lang.org/rustc/codegen-options.html#target-feature).
-- Kopple Layout-Assertions an ein explizites `repr` und Target. Teste
-  Endianness, Pointerbreite, Alignment und externe Serialisierung auf allen
-  Zielplattformen.
-- Trenne diagnostische Flags (DHAT, PGO-Instrumentierung, Nightly-
-  `-Zprint-type-sizes`) von Produktionsprofilen. Prüfe Toolchain-/Crate-Versionen
-  bei jedem Upgrade.
+- Treat `repr(packed)`, `read_unaligned`, `get_unchecked`, transmute, raw
+  pointers, and custom allocators as unsafe proof obligations. Document
+  provenance, initialization, alignment, bounds, aliasing, lifetimes, drop,
+  unwind, and thread safety; see the
+  [Rustonomicon](https://doc.rust-lang.org/stable/nomicon/).
+- Ship `target-cpu=native`/`target-feature` builds only when every user meets
+  the CPU requirements. For portable SIMD use feature detection or multiple
+  implementations; see [rustc target features](https://doc.rust-lang.org/rustc/codegen-options.html#target-feature).
+- Couple layout assertions to an explicit `repr` and target. Test endianness,
+  pointer width, alignment, and external serialization on all deployment
+  platforms.
+- Separate diagnostic flags (DHAT, PGO instrumentation, nightly
+  `-Zprint-type-sizes`) from production profiles. Re-check toolchain and crate
+  versions on every upgrade.
 
-## Diagnose-Checkliste
+## Diagnostic checklist
 
-- Welche Allokations-Callsite verursacht Peak-Bytes und welche Lifetime hat sie?
-- Ist die Kapazität von `Vec`/`String` zu klein, zu groß oder wiederverwendbar?
-- Entsteht der Aufwand durch `clone`, `to_owned`, `collect`, `format!`,
-  `Box`/`Arc`-Indirektion oder Hashing?
-- Sind `size_of`, `align_of` und Feld-Padding auf allen Targets bekannt?
-- Passt AoS/SoA/Chunking zum tatsächlichen Feldzugriff und Cache-Profil?
-- Ist statischer Dispatch eine gemessene Code-/Cache-Verbesserung oder nur eine
-  Annahme?
-- Welche Änderung reduziert die gemessene Binary-Size-Komponente tatsächlich?
-- Sind Unsafe-/FFI-/CPU-Feature-Verträge und Fallbacks dokumentiert und getestet?
+- Which allocation call site causes peak bytes, and what lifetime does it have?
+- Is the `Vec`/`String` capacity too small, too large, or reusable?
+- Does the cost come from `clone`, `to_owned`, `collect`, `format!`,
+  `Box`/`Arc` indirection, or hashing?
+- Are `size_of`, `align_of`, and field padding known on all targets?
+- Does AoS/SoA/chunking match the actual field access and cache profile?
+- Is static dispatch a measured code and cache improvement or only an
+  assumption?
+- Which change actually reduces the measured binary-size component?
+- Are unsafe, FFI, and CPU-feature contracts and fallbacks documented and
+  tested?
 
-## Quellen und Aktualität
+## Sources and currency
 
-Verwende die [Rust Reference](https://doc.rust-lang.org/stable/reference/type-layout.html)
-für Layoutgarantien und die [Rustonomicon](https://doc.rust-lang.org/stable/nomicon/)
-für Unsafe-Grundlagen. Die [Rust Performance Book](https://nnethercote.github.io/perf-book/)
-liefert praxisnahe Heuristiken zu Allokationen, Typgrößen, Standardcontainern
-und Hashing. Ergänze sie bei Datenlayout-Fragen mit
-[Data-Oriented Design in Rust](https://jamesmcm.github.io/blog/intro-dod/), bei
-Heap-Regressions mit [DHAT-rs](https://docs.rs/dhat/latest/dhat/) und bei
-Binary-Size-Fragen mit [min-sized-rust](https://github.com/johnthagen/min-sized-rust).
+Use the [Rust Reference](https://doc.rust-lang.org/stable/reference/type-layout.html)
+for layout guarantees and the [Rustonomicon](https://doc.rust-lang.org/stable/nomicon/)
+for unsafe foundations. The [Rust Performance Book](https://nnethercote.github.io/perf-book/)
+provides practice-oriented heuristics on allocations, type sizes, standard
+containers, and hashing. Complement it with
+[Data-Oriented Design in Rust](https://jamesmcm.github.io/blog/intro-dod/) for
+data-layout questions, [DHAT-rs](https://docs.rs/dhat/latest/dhat/) for heap
+regressions, and [min-sized-rust](https://github.com/johnthagen/min-sized-rust)
+for binary-size questions.
 
-Prüfe alle CLI-Flags, Crate-Versionen und Plattformannahmen gegen die aktuelle
-Toolchain. Zahlen/Schwellenwerte aus Blogposts sind Startpunkte für Messungen,
-keine stabilen Rust-Garantien.
+Verify all CLI flags, crate versions, and platform assumptions against the
+current toolchain. Numbers and thresholds from blog posts are starting points
+for measurements, not stable Rust guarantees.

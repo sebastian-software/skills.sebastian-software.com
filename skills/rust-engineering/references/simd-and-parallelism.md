@@ -206,12 +206,13 @@ Source: [Matklad, Conclusion](https://matklad.github.io/2023/04/09/can-you-trust
 ### 4.1 Route by stability requirement
 
 Use std::simd only when the project accepts a nightly, experimental API and can
-track its feature gate. For a stable crate, choose a scalar implementation or
-stable core::arch wrappers unless the project has a separately approved
-nightly policy.
+track its feature gate. For a stable crate, choose a scalar implementation,
+stable core::arch wrappers, or an established portable-SIMD crate such as
+`wide` unless the project has a separately approved nightly policy.
 
 Source: [std::simd module status](https://doc.rust-lang.org/std/simd/index.html);
-[portable-simd repository README](https://github.com/rust-lang/portable-simd).
+[portable-simd repository README](https://github.com/rust-lang/portable-simd);
+[portable_simd tracking issue](https://github.com/rust-lang/rust/issues/86656).
 
 ### 4.2 Keep portable SIMD’s semantic contract
 
@@ -249,8 +250,16 @@ Use target_arch configuration to select the x86, x86_64, aarch64, wasm, RISC-V,
 or other module. Keep architecture modules behind a stable portable facade.
 Do not import x86 intrinsics into a crate path that must compile for ARM.
 
+The stable intrinsic surface keeps growing: AVX-512 intrinsics and their
+target features stabilized in Rust 1.89, and since Rust 1.87 many intrinsics
+are callable without an unsafe block inside a function that already enables
+the matching target feature. Verify the exact stabilization state of an
+intrinsic against the current core::arch documentation instead of assuming
+either nightly-only or stable status.
+
 Source: [core::arch overview](https://doc.rust-lang.org/stable/core/arch/index.html#overview);
-[other architectures](https://doc.rust-lang.org/stable/core/arch/index.html#other-architectures).
+[other architectures](https://doc.rust-lang.org/stable/core/arch/index.html#other-architectures);
+[AVX-512 stabilization tracking issue](https://github.com/rust-lang/rust/issues/111137).
 
 ### 5.2 Choose static features only with a deployment contract
 
@@ -635,6 +644,9 @@ Source: [Rustc Guide, parallelism](https://rustc-dev-guide.rust-lang.org/overvie
 - [core::arch](https://doc.rust-lang.org/stable/core/arch/index.html)
 - [Matklad compiler optimization article](https://matklad.github.io/2023/04/09/can-you-trust-a-compiler-to-optimize-your-code.html)
 - [Rust SIMD Performance Guide](https://rust-lang.github.io/packed_simd/perf-guide/)
+  — published by the archived `packed_simd` project; its profiling, target
+  flag, and bounds-check guidance remains sound, but check crate and flag
+  details against the current toolchain
 - [Rust Atomics and Locks](https://mara.nl/atomics/)
 - [Rayon API](https://docs.rs/rayon/latest/rayon/)
 - [Rust Compiler Development Guide](https://rustc-dev-guide.rust-lang.org/overview.html)

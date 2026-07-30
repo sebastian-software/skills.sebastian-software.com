@@ -510,7 +510,14 @@ members = ["crates/*"]
 Keep directory names equal to crate names. Adopt nested folders only when they
 encode a real ownership or dependency boundary and remain easier to navigate.
 
-**Source:** [matklad – Large Rust Workspaces](https://matklad.github.io/2021/08/22/large-rust-workspaces.html).
+Centralize shared dependency versions in the root `[workspace.dependencies]`
+table and shared lint policy in `[workspace.lints]`, with member crates
+inheriting through `workspace = true`. Both tables postdate the source post
+and are now standard workspace hygiene; they remove version drift between
+member crates without changing the flat layout.
+
+**Source:** [matklad – Large Rust Workspaces](https://matklad.github.io/2021/08/22/large-rust-workspaces.html);
+[Cargo Reference – Workspaces](https://doc.rust-lang.org/cargo/reference/workspaces.html).
 
 ### 7.3 Separate internal and publishable crates
 
