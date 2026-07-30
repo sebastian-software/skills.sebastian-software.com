@@ -46,6 +46,11 @@
       "expected": "Derives a small set of intended and wrong character qualities from audience, purpose, and the brief; annotates which details in purposeful references communicate those qualities; compares multiple coordinated directions on the same representative product slice with real content, action, and state; evaluates hierarchy, accessibility, cultural interpretation, product fit, distinctiveness, and durability; turns the chosen visual grammar into provisional tokens and component rules without reproducing another product's composition; and hands the accepted direction to Effective Web's Design Read and persistence rules instead of promoting study tokens directly."
     },
     {
+      "name": "preserve-approved-direction-in-build",
+      "prompt": "The decision owner selected a product-launch direction built around close-up material photography, an overlapping specimen rail, and a compact proof panel. During handoff, engineering keeps only the palette and replaces the imagery and overlap with generic flat cards because those are easier in the current stack.",
+      "expected": "Records the selected and rejected qualities, inventories the major visual and structural commitments, assigns each an appropriate semantic, image, SVG, or interactive medium, keeps core text and controls accessible and responsive, and surfaces unavailable assets or accepted omissions before implementation instead of silently flattening the approved topology and evidence."
+    },
+    {
       "name": "separate-synthesis-from-evidence-strength",
       "prompt": "The product manager asks us to apply 'the evidence ladder' to interview notes. Use the product-design ladder to score payment evidence, prototype use, survey intent, and stakeholder opinions from strongest to weakest.",
       "expected": "Recognizes the cross-skill ambiguity; uses Product Management's evidence hierarchy to compare decision strength and Product Design's synthesis chain to move raw material through observations, patterns, interpretations, opportunities, and hypotheses; preserves provenance instead of treating the two tools as interchangeable."

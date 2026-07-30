@@ -168,6 +168,28 @@ different functionality. For each direction:
 - record which qualities worked, which conflicted, and what evidence should
   decide between the directions
 
+When this exploration chooses among materially different visual directions,
+have the decision owner select one or explicitly delegate the choice before
+implementation. Record what carries forward, what was rejected, and which
+evidence decided the choice; approval of a direction does not turn every
+incidental pixel in a study into a requirement.
+
+Before handoff, inventory the chosen direction's major visible ingredients and
+implementation commitments:
+
+| Ingredient | Commitment | Medium | Acceptance evidence |
+| --- | --- | --- | --- |
+| What materially carries the direction | The hierarchy, geometry, content, state, or behavior that must survive | Semantic UI, CSS, SVG, existing or new media, canvas/WebGL, or an accepted omission | Rendered viewport, state, interaction, or accessibility check |
+
+Use the medium the ingredient requires rather than silently flattening the
+direction to what is convenient in the current stack. Keep text, controls, and
+responsive behavior semantic; use media for image-native material and code for
+precise, interactive, scalable structure. Surface any unavailable asset or
+medium that would change the concept before implementation, and record an
+accepted omission explicitly. Translate studies into accessible responsive
+systems, but do not preserve only palette and mood while dropping the topology,
+evidence, or signature that made the direction win.
+
 Turn the chosen qualities into provisional tokens, component rules, and clear
 anti-examples. Keep them as study evidence until `effective-web` reconciles
 them with accepted design-system, accessibility, responsive, and implementation

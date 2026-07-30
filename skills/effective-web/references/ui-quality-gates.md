@@ -108,6 +108,14 @@ Do not use this pass to change the design register, invent a new visual
 direction, or add decoration. If the pass reveals that the direction itself is
 wrong, return to the Design Readiness Check and revise the brief.
 
+Bound the complete finish cycle: finish implementation; inspect desktop, mobile,
+the primary path, and relevant states in one evidence round; fix all observed
+execution defects in one batch; confirm those fixes once; then stop. Do not use
+separate screenshot trips for checks one render can cover. If confirmation shows
+a direction problem, return to the brief or ask for a decision. Additional
+rounds require new material evidence or explicit user scope, not a general
+desire to polish.
+
 ## Generic Output Gate
 
 Use this gate to catch templated AI output without turning design into a
@@ -128,12 +136,14 @@ Ask:
 - Is restraint doing real work, or is it hiding an absent point of view?
 - Is boldness doing real work, or is it compensating for weak hierarchy and
   content?
-- For product UI, does navigation, data presentation, or workflow structure
+- For operate UI, does navigation, data presentation, or workflow structure
   reflect the product domain, or could the same shell fit any dashboard?
 
-Product UI can pass this gate by being extremely clear and quiet. Brand UI can
-pass by being memorable. Content-heavy UI can pass by being unusually readable
-and trustworthy. The standard is specificity, not intensity.
+Operate UI can pass this gate by being extremely clear and quiet. Persuade UI
+can pass by making the offer, evidence, and action credible and memorable. Read
+UI can pass by being unusually readable and trustworthy. Experience UI can pass
+when the work itself carries the distinctiveness and the interface provides
+quiet control. The standard is specificity, not intensity.
 
 ## Performance Design Check
 
