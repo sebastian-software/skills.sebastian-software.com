@@ -122,6 +122,8 @@ strategy explanation.
   strategy; consume its approved audience, offer, proof, and content role.
 - Use `nonfiction-writing` for the standalone article, essay, newsletter, case
   study, or other long-form source; return here to turn it into social content.
+  Route a requested evidence-based audit of formulaic or AI-sounding prose
+  there as well; never infer authorship from prose patterns.
 - Use `product-marketing` to establish cross-channel positioning, messaging,
   proof, launches, and market-facing claim boundaries before expressing them
   socially.
