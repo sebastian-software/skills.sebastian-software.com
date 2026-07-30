@@ -122,8 +122,11 @@ For a broad product-design request, return:
   experience.
 - Use `originality-review` after production when the result must be compared
   with its references for source overlap and asset provenance.
-- Use this skill to frame design questions and synthesize supplied evidence.
-  Recruitment, fieldwork, participant operations, and execution of a full
-  customer research program remain outside its scope.
+- Use this skill to frame experience questions, conduct bounded design inquiry,
+  and turn behavioral evidence into design implications. Use `market-research`
+  for a broader research program, recruitment, repeated fieldwork, participant
+  operations, market and source research, or a shared evidence repository;
+  pass the design decision, situated learning goals, relevant variation, and
+  required behavioral handoff.
 - Use `decision-records` when a durable design-system or interaction decision
   needs repository-level rationale and reopening conditions.

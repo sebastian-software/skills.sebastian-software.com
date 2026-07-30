@@ -42,8 +42,8 @@
     },
     {
       "name": "keep-technical-editorial-prose-natural",
-      "prompt": "Turn these verified architecture notes into a German engineering blog post and the technical explanation for our homepage. Because the topic is technical, use only short sentences, one action per sentence, no metaphors, and the simplest possible everyday words.",
-      "expected": "Treats the request as a profile mismatch rather than a governing contract and does not apply the proposed mechanical sentence constraints; preserves verified behavior, stable terminology, conditions, and claim limits while retaining natural German, explanatory structure, varied rhythm, and sourced examples; and routes market claims to Product Marketing and page implementation to Effective Web."
+      "prompt": "Turn these verified architecture notes into a German engineering blog post and public project explanation. Because the topic is technical, use only short sentences, one action per sentence, no metaphors, and the simplest possible everyday words.",
+      "expected": "Treats the request as a profile mismatch rather than a governing contract and does not apply the proposed mechanical sentence constraints; preserves verified behavior, stable terminology, conditions, and claim limits while retaining natural German, explanatory structure, varied rhythm, and sourced examples; and routes commercial page copy to Marketing Writing, market claims to Product Marketing, and page implementation to Effective Web."
     }
   ],
   "activation": [
@@ -65,6 +65,11 @@
     {
       "name": "write-interface-copy",
       "prompt": "Write labels, validation messages, empty states, and retry copy for this checkout interface.",
+      "should_trigger": false
+    },
+    {
+      "name": "write-commercial-page-copy",
+      "prompt": "Write persuasive landing-page and pricing-page copy from this approved position, offer, proof pack, and Voice of Customer register.",
       "should_trigger": false
     }
   ]

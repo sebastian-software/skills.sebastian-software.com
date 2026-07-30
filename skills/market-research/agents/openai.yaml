@@ -1,0 +1,4 @@
+interface:
+  display_name: "Market Research"
+  short_description: "Run traceable customer and market research"
+  default_prompt: "Use $market-research to design and synthesize a decision-led market research program."

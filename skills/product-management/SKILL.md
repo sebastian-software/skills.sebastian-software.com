@@ -138,9 +138,11 @@ For an existing artifact or decision-readiness audit, use the deliverable in
 
 - Use `product-naming` after the product thesis, target user, and differentiation
   are stable enough to support a naming brief.
-- Use this skill to frame the product decision and synthesize supplied customer
-  evidence. Recruitment, fieldwork, participant operations, and execution of a
-  focused research program remain outside its scope.
+- Use this skill to frame the product decision and judge what the evidence
+  changes. Use `market-research` for research-program design, recruitment,
+  fieldwork, participant operations, market and source research, and
+  cross-source synthesis; pass the decision, target situation, uncertainty,
+  evidence standard, and deadline, then receive a traceable evidence handoff.
 - Carry stable product evidence into a bounded go-to-market handoff.
   Use `product-marketing` for segment and category choices, positioning,
   messaging, proof, launch planning, sales enablement, and market learning;

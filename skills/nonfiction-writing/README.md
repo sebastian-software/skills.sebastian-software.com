@@ -9,10 +9,10 @@ the author's voice.**
 
 Nonfiction Writing helps agents plan, draft, revise, and critique articles,
 essays, newsletters, reports, thought leadership, content marketing, case
-studies, About pages, product descriptions, engineering blog posts, technical
-articles, and long-form homepage prose. It joins long-form craft with legitimate
-marketing intent while keeping claims, quotations, examples, outcomes, and
-technical behavior tied to real source material. It can also audit formulaic or
+studies, professional narratives, engineering blog posts, technical articles,
+and public project pages. It joins long-form craft with legitimate commercial
+interest while keeping claims, quotations, examples, outcomes, and technical
+behavior tied to real source material. It can also audit formulaic or
 AI-sounding prose through observable patterns without guessing who wrote it.
 
 ## What It Can Deliver
@@ -21,7 +21,7 @@ AI-sounding prose through observable patterns without guessing who wrote it.
 - complete articles, essays, newsletters, and explanatory pieces
 - technical articles and project pages with stable terminology and natural prose
 - thought leadership and content marketing with credible persuasive structure
-- case studies, About pages, and product or service descriptions
+- editorial case studies and professional narratives
 - structural, evidentiary, voice, and line-level revisions
 - minimal edits that remove formulaic patterns without flattening the author
 - evidence-based pattern audits without AI-authorship scores or guesses
@@ -81,6 +81,9 @@ dalo sync
 
 ## Related Skills
 
+- [Marketing Writing](../marketing-writing/README.md) owns homepages, landing
+  pages, product and service pages, pricing pages, campaigns, launches, sales
+  assets, marketing emails, and marketing-specific copy revision.
 - [Social Content](../create-social-content/README.md) turns a finished article,
   newsletter, case study, or other source into evidence-consistent,
   platform-native social content.
@@ -92,7 +95,8 @@ dalo sync
   from implemented software contracts and owns controlled-language standards;
   Nonfiction Writing keeps editorial structure and public voice.
 - [Effective Web](../effective-web/README.md) owns interface copy and the
-  surrounding browser experience.
+  surrounding browser experience; commercial page prose passes through
+  Marketing Writing first.
 - [Locale Typography](../locale-typography/README.md) applies locale-specific
   punctuation and typographic conventions.
 - [Metro English](../metro-english/README.md) owns the relaxed US professional
@@ -104,8 +108,8 @@ This skill creates and improves factual prose from supplied or verifiable
 material. It does not invent experience, evidence, quotations, testimonials,
 citations, outcomes, product behavior, or independent editorial endorsement,
 and a pattern audit does not establish whether AI wrote a text. The skill does
-not replace channel strategy, technical verification, controlled-language
-documentation, or interface implementation.
+not replace commercial copywriting, channel strategy, technical verification,
+controlled-language documentation, or interface implementation.
 
 ## About Sebastian Software
 

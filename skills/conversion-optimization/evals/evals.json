@@ -46,6 +46,11 @@
       "name": "prioritize-product-roadmap",
       "prompt": "Use customer and business evidence to decide which product problems belong on the next roadmap and define their outcomes.",
       "should_trigger": false
+    },
+    {
+      "name": "draft-approved-copy-variant",
+      "prompt": "Draft the approved landing-page copy variant from this diagnosed reader state, message, proof, offer, and behavioral hypothesis.",
+      "should_trigger": false
     }
   ]
 }

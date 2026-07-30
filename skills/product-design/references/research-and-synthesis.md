@@ -27,6 +27,12 @@ Use a short screener to select participants without revealing the answer the
 team hopes to hear. Pay strangers for their time and never treat willingness to
 participate as permission to record or retain sensitive material.
 
+When the work needs a broader program, repeated recruitment or fieldwork,
+participant operations, market and source research, or a shared research
+repository, pass the design decision, situated learning goals, participant
+variation, and required behavioral handoff to `market-research`. Keep
+experience interpretation and the resulting design decision here.
+
 ## Protect participant control
 
 Before a session, explain the purpose, format, duration, recording and data

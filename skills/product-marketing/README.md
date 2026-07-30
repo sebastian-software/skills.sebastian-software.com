@@ -69,14 +69,21 @@ dalo sync
 
 ## Related Skills
 
+- [Market Research](../market-research/README.md) executes customer, buyer,
+  win/loss, market, alternative, and source research, then returns evidence and
+  limits without deciding the position or message.
 - [Product Management](../product-management/README.md) supplies the product
   thesis, target user, scope, quality bar, release decision, and verified
   product evidence that positioning must not invent.
 - [Pricing and Packaging](../pricing-and-packaging/README.md) owns price
   research, value metrics, models, packages, discounts, trials, and customer
   migrations; Product Marketing communicates approved commercial choices.
+- [Marketing Writing](../marketing-writing/README.md) turns an approved
+  audience, position, message, claim-and-proof register, offer, and action into
+  persuasive commercial copy without silently changing the strategy.
 - [Nonfiction Writing](../nonfiction-writing/README.md) turns a stable message
-  and proof brief into credible finished prose.
+  and proof brief into credible articles, thought leadership, editorial case
+  studies, and public project narratives.
 - [Social Content](../create-social-content/README.md) adapts an approved
   position, message, launch, or proof point into non-LinkedIn and
   multi-platform social expression.
@@ -97,7 +104,8 @@ dalo sync
 This skill does not invent product evidence, customer quotations, market facts,
 differentiation, or certainty. It does not replace product strategy, pricing
 research, legal advice, finished editorial work, web implementation, or
-channel-specific operation; those handoffs remain with the related owners.
+commercial copywriting, or channel-specific operation; those handoffs remain
+with the related owners.
 
 ## About Sebastian Software
 

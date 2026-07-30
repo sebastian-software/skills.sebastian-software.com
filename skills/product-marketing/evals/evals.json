@@ -33,7 +33,7 @@
     {
       "name": "technical-homepage-preserves-claim-contract",
       "prompt": "Create homepage messaging for our event-processing platform. Replace the architecture terms with friendlier synonyms in every section and call it infinitely scalable, real-time, secure, and zero-maintenance. We have implementation notes but no scale benchmark, latency definition, security review, or maintenance evidence.",
-      "expected": "Keeps product facts, approved technical terminology, position, claim, proof, and page execution separately reviewable; rejects unsupported universality, performance, security, and maintenance claims; identifies the missing evidence and definitions; and hands a bounded message and terminology brief to Nonfiction Writing and Effective Web."
+      "expected": "Keeps product facts, approved technical terminology, position, claim, proof, finished copy, and page execution separately reviewable; rejects unsupported universality, performance, security, and maintenance claims; identifies the missing evidence and definitions; and hands a bounded message and terminology brief to Marketing Writing and Effective Web."
     }
   ],
   "activation": [
@@ -55,6 +55,11 @@
     {
       "name": "write-standalone-essay",
       "prompt": "Turn these supplied ideas and sources into a thoughtful long-form essay without creating a positioning or launch strategy.",
+      "should_trigger": false
+    },
+    {
+      "name": "write-approved-landing-page",
+      "prompt": "Write the finished landing-page copy from this already approved audience, position, message hierarchy, offer, proof pack, and next action.",
       "should_trigger": false
     }
   ]

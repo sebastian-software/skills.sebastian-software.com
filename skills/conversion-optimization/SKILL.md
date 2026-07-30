@@ -106,6 +106,10 @@ Return the smallest decision-ready package containing:
 - Use `pricing-and-packaging` for willingness-to-pay, value metrics, price,
   package, discount, trial, entitlement, or customer-migration decisions. Test
   only approved commercial hypotheses and constraints here.
+- Use `marketing-writing` to draft or revise an approved copy intervention from
+  the diagnosed reader state, message, proof, offer, and behavioral hypothesis.
+  Return here for learning design and result judgment; copy quality alone does
+  not establish conversion impact.
 - Use `effective-web` to specify, implement, and verify browser UI, forms,
   analytics delivery, accessibility, responsive behavior, performance, and
   experiment variants after the learning design is approved.

@@ -17,10 +17,11 @@ Write down:
 - the main objection or alternative
 - what remains uncertain
 
-Decide how explicit the commercial intent should be. A useful article may earn
-attention and trust without pitching throughout. A product description should
-make the offer and next step unmistakable. Do not disguise an advertisement as
-independent analysis.
+Decide how explicit the commercial interest should be. A useful article may
+earn attention and trust without pitching throughout. When the primary artifact
+is a commercial page, campaign, sales asset, or marketing email, route its
+persuasive path and finished copy to `marketing-writing`. Do not disguise an
+advertisement as independent analysis.
 
 ## Build a credible argument
 
@@ -99,24 +100,6 @@ Select details for relevance and character. Avoid a chronological résumé in
 paragraph form, unsupported superlatives, and synthetic vulnerability. Personal
 material should reveal a meaningful connection to the work.
 
-## Product and service descriptions
-
-Connect:
-
-```text
-recognizable situation -> relevant capability -> resulting progress -> proof
-```
-
-Describe what the offer does, for whom, under which conditions, and what the
-reader can expect next. Translate features into consequences without erasing
-important constraints. Use sensory or emotional language only when it matches
-the actual experience.
-
-Urgency is legitimate when the underlying constraint is real and material,
-such as a disclosed capacity limit, application window, or remaining stock.
-Fake countdowns, invented scarcity, hidden renewal, and ambiguous pricing
-undermine the factual contract.
-
 ## Titles, leads, and calls to action
 
 - A title should promise the actual value of the piece.
@@ -128,6 +111,11 @@ undermine the factual contract.
 
 Do not substitute formulas for relevance. If a hook sounds stronger than the
 evidence, weaken the hook rather than stretching the body to justify it.
+
+Keep an editorial call to action proportionate to the value and relationship:
+continue reading, inspect a source, try a practice, reply with experience, or
+request a conversation. Route product, pricing, sales, campaign, or other
+commercial action paths to `marketing-writing`.
 
 ## Persuasion Check
 

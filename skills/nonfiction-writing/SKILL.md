@@ -4,11 +4,11 @@ description: >-
   Plan, write, revise, or critique clear and persuasive nonfiction from supplied
   ideas and evidence. Use for articles, essays, newsletters, thought leadership,
   content marketing, engineering blog posts, technical articles, reports, case
-  studies, About pages, product descriptions, long-form homepage prose,
-  explanatory prose, and other factual writing; for turning notes into a draft;
-  for improving structure, clarity, voice, rhythm, credibility, and calls to
-  action without inventing facts; or for auditing formulaic, AI-sounding prose
-  through observable patterns without guessing authorship.
+  studies, professional narratives, public project pages, explanatory prose,
+  and other factual writing; for turning notes into a draft; for improving
+  structure, clarity, voice, rhythm, credibility, and calls to action without
+  inventing facts; or for auditing formulaic, AI-sounding prose through
+  observable patterns without guessing authorship.
 ---
 
 # Nonfiction Writing
@@ -57,11 +57,11 @@ supportable.
      writer's voice, or the user wants observable patterns without an
      authorship guess.
    - [Persuasive nonfiction](references/persuasive-nonfiction.md) for thought
-     leadership, content marketing, case studies, About pages, product
-     descriptions, objections, proof, and calls to action.
+     leadership, content marketing, editorial case studies, professional
+     narratives, objections, proof, and proportionate calls to action.
    - [Technical subject-matter writing](references/technical-subject-matter.md)
      for engineering blog posts, technical articles, explainers, technical case
-     studies, and long-form homepage prose for technical products or projects.
+     studies, and public technical project pages.
 5. For a pattern audit, return the evidence-based report from the matching
    reference and stop. Do not continue into drafting or revision.
 6. Build the reading path before polishing sentences. Give each section one
@@ -132,7 +132,12 @@ For a pattern audit, return:
 
 - Use `product-marketing` to establish the audience, position, message,
   supported claims, proof, and market-facing purpose before drafting product
-  descriptions, launch narratives, case studies, or campaign prose.
+  narratives, editorial case studies, or market-adjacent thought leadership.
+- Use `marketing-writing` for homepages, landing pages, product or service
+  pages, pricing pages, campaign and launch copy, sales pages, marketing emails,
+  headlines, objection handling, calls to action, or marketing-specific copy
+  revision. Keep primarily editorial articles, essays, reports, and
+  thought-leadership prose here even when they support commercial goals.
 - Use `linkedin-posts` for LinkedIn-specific ideation, formats, cadence, and
   engagement context. Keep post-specific drafting there; use this skill for a
   requested evidence-based pattern audit or for the underlying long-form prose.
@@ -149,8 +154,9 @@ For a pattern audit, return:
   editorial structure, and public voice here when the artifact remains an
   article or long-form page rather than technical documentation.
 - Use `effective-web` for interface copy, page hierarchy, accessibility, and
-  implementing or verifying the surrounding browser experience. Keep
-  long-form editorial page prose here.
+  implementing or verifying the surrounding browser experience. Keep public
+  editorial project prose here; route commercial page copy to
+  `marketing-writing`.
 - Use `metro-english` for short internal team communication that needs a
   relaxed US professional register. Keep general and public-prose pattern
   audits here.

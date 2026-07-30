@@ -75,6 +75,12 @@ Choose an interviewer who can reduce pressure to protect the relationship or
 justify the sale. Make participation voluntary and avoid turning the
 conversation into a recovery pitch.
 
+Use `market-research` when the review requires a newly recruited case set,
+participant operations, repeated fieldwork, public or licensed source research,
+or a cross-source evidence repository. Pass the market decision and evidence
+gaps; keep the segment, position, message, proof, launch, enablement, and
+channel decision in `product-marketing`.
+
 Ask for a concrete sequence:
 
 1. What changed and started the evaluation?

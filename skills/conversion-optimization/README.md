@@ -76,6 +76,9 @@ dalo sync
   core product value, journey, scope, quality bar, and release decision.
 - [Pricing and Packaging](../pricing-and-packaging/README.md) owns value
   metrics, prices, packages, discounts, trials, and customer migrations.
+- [Marketing Writing](../marketing-writing/README.md) drafts and revises an
+  approved copy intervention without claiming that the recommendation has
+  already produced uplift.
 - [Effective Web](../effective-web/README.md) implements and verifies approved
   browser variants, forms, analytics, accessibility, and performance.
 - [Web Legal Compliance](../web-legal-compliance/README.md) scopes current

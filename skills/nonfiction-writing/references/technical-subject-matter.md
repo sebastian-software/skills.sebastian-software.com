@@ -1,9 +1,8 @@
 # Technical Subject-Matter Writing
 
 Use this reference for engineering blog posts, technical articles, explainers,
-technical case studies, and long-form homepage prose for technical products or
-projects. Preserve technical integrity without making editorial or
-market-facing prose sound like a manual.
+technical case studies, and public technical project pages. Preserve technical
+integrity without making editorial prose sound like a manual.
 
 ## Select the writing contract
 
@@ -12,7 +11,7 @@ Choose the narrowest contract that fits the artifact:
 | Contract | Use |
 | --- | --- |
 | Technical editorial prose | Explain, argue, teach, or demonstrate through an article, blog post, case study, or public project page. |
-| Technical marketing prose | Explain a verified capability, mechanism, constraint, or differentiator in a product or service page. |
+| Technical marketing prose | Explain a verified capability, mechanism, constraint, or differentiator through `marketing-writing`. |
 | Technical documentation | Help a user operate, configure, integrate, migrate, or troubleshoot a product through `tech-docs`. |
 | Controlled technical language | Apply ASD-STE100, a tekom-based project profile, or another named standard through `tech-docs` only when it governs the artifact. |
 
@@ -54,8 +53,10 @@ engineering truth -> approved terminology -> claim and proof
   interface, or a controlled-language contract owns correctness.
 - Use `product-marketing` to establish market position, supported claims,
   proof, audience, and desired action.
-- Keep the article, explanation, narrative, and long-form page prose in this
-  skill.
+- Keep articles, editorial explanations, narratives, and public project prose
+  in this skill.
+- Use `marketing-writing` for commercial homepages, landing pages, product or
+  service pages, pricing pages, campaigns, launches, and sales assets.
 - Use `effective-web` for page hierarchy, interface copy, accessibility,
   implementation, and browser verification.
 
@@ -144,24 +145,6 @@ operational instructions. Apply documentation discipline to commands,
 prerequisites, steps, expected results, and recovery while allowing the
 surrounding article to retain its voice.
 
-## Write technical homepage prose
-
-Keep the first screen understandable without pretending every reader needs the
-same level of depth:
-
-1. State the recognizable situation or result.
-2. Name the relevant capability or mechanism.
-3. Supply proof and material constraints.
-4. Offer deeper technical detail for readers who need to validate fit.
-
-Do not use terms such as `secure`, `scalable`, `real-time`, `open`, `automated`,
-or `AI-powered` as self-proving benefits. Explain the relevant mechanism,
-boundary, comparison, or evidence.
-
-Keep product positioning and technical explanation distinct. A headline may
-express buyer relevance; the supporting copy must still preserve the behavior
-and conditions that make the claim true.
-
 ## Adapt without losing the contract
 
 ### German
@@ -184,7 +167,7 @@ and conditions that make the claim true.
 - Do not claim ASD-STE100 conformance or apply its dictionary and rule set
   unless the artifact is explicitly governed by it.
 - Use `metro-english` for internal team communication about the work, not as
-  the default voice for a public technical article or homepage.
+  the default voice for a public technical article or project page.
 
 ## Review in passes
 
@@ -198,8 +181,8 @@ and conditions that make the claim true.
    claim within the supplied evidence.
 5. **Voice and movement** - Restore rhythm, personality, examples, and
    transitions where precision editing made the prose mechanical.
-6. **Channel fit** - Check the title, lead, page hierarchy, call to action, and
-   handoffs without changing the technical proposition.
+6. **Channel fit** - Check the title, lead, editorial hierarchy, call to action,
+   and handoffs without changing the technical proposition.
 
 Report a controlled-language conformance level only through the governing
 technical-documentation workflow. For editorial prose, describe the result as

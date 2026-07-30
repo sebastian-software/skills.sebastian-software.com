@@ -114,9 +114,12 @@ complete setup and the difference between selective catalogs and team sources.
   specifications before implementation.
 - [Originality Review](../originality-review/README.md) checks the produced
   experience against its references for source overlap and provenance risk.
+- [Marketing Writing](../marketing-writing/README.md) owns persuasive
+  homepage, landing-page, product, service, pricing, sales, launch, and campaign
+  prose before this skill implements and verifies the experience.
 - [Nonfiction Writing](../nonfiction-writing/README.md) owns articles,
-  explainers, case studies, and long-form homepage prose before this skill
-  implements and verifies the browser experience.
+  explainers, editorial case studies, thought leadership, and public project
+  prose before this skill implements and verifies the browser experience.
 - [Locale Typography](../locale-typography/README.md) handles locale-specific
   punctuation, spacing, quotations, numbers, dates, and visible prose.
 - [Web Legal Compliance](../web-legal-compliance/README.md) establishes legal,
