@@ -208,6 +208,11 @@ For persuade surfaces, decide the point of view before layout and styling:
 - Memorable signal: choose one dominant design move the rest of the surface can
   support.
 
+Apply a delayed-recall check to the opening: what concrete mechanism, artifact,
+or evidence could a visitor describe later? If the answer is only a mood, the
+first viewport has not carried the thesis. Show the proof doing its job instead
+of repeating the claim in another block of copy.
+
 If the point of view is unknown, keep the surface restrained and ask the
 smallest question that reveals audience, voice, evidence, or anti-goal. Do not
 fill the gap with a generic category template.
@@ -270,6 +275,9 @@ Use when the surface is too loud for repeated use or high-stakes work.
 - Reduce decorative colour, motion, shadows, and competing accents.
 - Let product structure, labels, and states carry confidence.
 - Keep primary actions clear while making inactive states calmer.
+- Preserve one anchoring decision that carries the product's point of view. If
+  restraint makes the surface interchangeable, the pass removed identity rather
+  than noise.
 
 ### Distill
 

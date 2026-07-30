@@ -47,6 +47,16 @@ Avoid surprise that obscures state, delays work, creates sensory overload, or
 depends on inaccessible motion, sound, color, or input. Repetition turns novelty
 into noise; keep expressive moments scarce enough to remain meaningful.
 
+Scale expression to effort, consequence, and frequency. A routine save usually
+needs immediate certainty; a meaningful milestone may earn a larger response.
+Reveal the real result before any flourish, and never invent waiting or delay
+completion to make an effect feel substantial.
+
+Apply the hundredth-use test to repeated interactions: the detail should still
+feel useful or quietly satisfying after novelty has worn off. Rewarding
+exploration may reveal optional depth, but required capability must remain
+discoverable without finding a surprise.
+
 ## Decide when good enough is good enough
 
 Define the bar from audience, promise, risk, frequency, reversibility, and
