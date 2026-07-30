@@ -35,14 +35,8 @@ Use this skill for making CSS maintainable, predictable, and compatible with the
 - [css-build-tooling.md](css-build-tooling.md) - CSS build tooling and generated output rules.
 - [design-system-rules.md](design-system-rules.md) - token architecture,
   consumer boundaries, theming, governance, and system-wide review checks.
-- [css-layout-responsive.md](css-layout-responsive.md) - intrinsic layout,
-  configurable compositions, container behavior, and responsive CSS algorithms.
-- [typography-rules.md](typography-rules.md) - fluid type, text metrics, wrapping,
-  and authored-content resilience.
-- [component-development.md](component-development.md) - semantic component
-  state, custom-property contracts, focus, clipping, and local layout ownership.
-- [visibility-and-notifications.md](visibility-and-notifications.md) - hiding
-  techniques (`display: none`, `visibility`, `inert`, `hidden="until-found"`)
-  and their accessibility semantics.
-- [ui-quality-gates.md](ui-quality-gates.md) - semantic fixtures, feature erasure,
-  continuous resize, and core-to-enhancement verification.
+
+If the primary concern becomes responsive layout, typography, component
+behavior, visibility semantics, accessibility, or final UI review, switch
+through [Route by Intent](../SKILL.md#route-by-intent). Add this CSS route only
+when cascade, token, ownership, support, or tooling decisions are also in scope.

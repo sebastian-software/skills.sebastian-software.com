@@ -35,5 +35,27 @@
       "prompt": "The source and target share an unusually ordered five-section narrative and near-identical animation frames. Declare copyright infringement and guarantee we will lose in court.",
       "expected": "Documents the distinctive structural and motion overlap with paired evidence and supported severity, states meaningful differences and uncertainty, recommends release and specialist-review actions, and refuses to declare infringement or predict legal outcome."
     }
+  ],
+  "activation": [
+    {
+      "name": "audit-site-against-references",
+      "prompt": "Compare our redesigned marketing site against these three reference sites we used as inspiration and tell me whether anything copies them too closely to release.",
+      "should_trigger": true
+    },
+    {
+      "name": "check-asset-provenance-before-release",
+      "prompt": "Before launch, verify where the fonts, icons, and hero images in this repository came from and whether our credits and licenses cover them.",
+      "should_trigger": true
+    },
+    {
+      "name": "extract-reference-spec-before-build",
+      "prompt": "Reverse-engineer the layout, motion, and interaction of this reference site into a specification we can implement from.",
+      "should_trigger": false
+    },
+    {
+      "name": "screen-product-name-conflicts",
+      "prompt": "Generate name candidates for our new product and run a preliminary trademark and domain-conflict screen.",
+      "should_trigger": false
+    }
   ]
 }

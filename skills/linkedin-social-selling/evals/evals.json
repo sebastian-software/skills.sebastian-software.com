@@ -45,5 +45,27 @@
       "prompt": "Extend the approved LinkedIn content system to X and Instagram. Copy each LinkedIn post unchanged so the strategy and platform execution stay in one skill.",
       "expected": "Keeps buyer, offer, evidence, content role, and measurement strategy in linkedin-social-selling; hands cross-platform expression to create-social-content and LinkedIn-specific copy to linkedin-posts; and rejects unchanged cross-posting as the default."
     }
+  ],
+  "activation": [
+    {
+      "name": "build-linkedin-pipeline",
+      "prompt": "Create an evidence-led LinkedIn system connecting buyer positioning, profile, content, target-account relationships, messages, offer, and qualified-meeting measurement.",
+      "should_trigger": true
+    },
+    {
+      "name": "diagnose-engagement-without-pipeline",
+      "prompt": "Our LinkedIn reach is rising but qualified conversations are flat. Diagnose the path from impression to meeting and prioritize the best learning steps.",
+      "should_trigger": true
+    },
+    {
+      "name": "write-one-linkedin-post",
+      "prompt": "Turn these notes into one useful LinkedIn post for engineering managers in my established voice.",
+      "should_trigger": false
+    },
+    {
+      "name": "rewrite-profile-experience-section",
+      "prompt": "Rewrite the experience and project sections of my consultant LinkedIn profile using the supplied career evidence.",
+      "should_trigger": false
+    }
   ]
 }

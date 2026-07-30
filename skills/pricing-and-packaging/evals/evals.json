@@ -30,5 +30,27 @@
       "prompt": "Offer every prospect whatever discount closes the deal. Sales can decide the amount and duration verbally, and billing can work it out later.",
       "expected": "Treats discounts as an explicit policy with eligibility, authority, duration, economics, billing representation, renewal behavior, abuse risk, and exception handling; refuses unauthorized or undocumented commitments; and proposes measurable alternatives."
     }
+  ],
+  "activation": [
+    {
+      "name": "design-packages-and-value-metric",
+      "prompt": "Use our customer, usage, and economic evidence to design a value metric, package boundaries, entitlements, and a testable pricing recommendation.",
+      "should_trigger": true
+    },
+    {
+      "name": "plan-price-migration",
+      "prompt": "Plan a responsible price change for existing customers, including segmentation, grandfathering, communication, operational constraints, guardrails, and rollback.",
+      "should_trigger": true
+    },
+    {
+      "name": "implement-price-table",
+      "prompt": "Implement the already approved pricing table and plan selector in the website with responsive and accessible behavior.",
+      "should_trigger": false
+    },
+    {
+      "name": "write-positioning-brief",
+      "prompt": "Develop the product positioning, message architecture, proof plan, and launch narrative for the chosen audience.",
+      "should_trigger": false
+    }
   ]
 }

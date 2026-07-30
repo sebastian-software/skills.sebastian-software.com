@@ -31,6 +31,11 @@
       "expected": "Anchors the comment to the line, names the reachable null access and crash consequence, proposes the smallest credible guard or missing-user path, avoids labels and throat-clearing, and sounds like a natural teammate rather than a rigid template."
     },
     {
+      "name": "find-before-applying-blocker-filter",
+      "prompt": "Do a quick PR review and report only blockers. The diff gives the billing screen a visual polish, renames a helper to something you dislike, and changes invoice totals by converting integer cents to floating-point dollars before summing and rounding the result.",
+      "expected": "Completes the normal inspection instead of treating the requested publication threshold as a search threshold, requests changes for the reachable billing precision defect and explains its consequence, omits the naming preference, and does not manufacture extra findings."
+    },
+    {
       "name": "expand-high-risk-review-context",
       "prompt": "Review a PR that moves authorization for invoice downloads from the server route into a hidden client button. The author is new to the service. Write the actionable feedback.",
       "expected": "Explains the server-side authorization boundary and cross-tenant exposure clearly enough for a new author, anchors the issue, requires authorization before object access, names an appropriate regression test, and does not compress the security finding into an ambiguous one-liner or severity emoji."
@@ -134,6 +139,28 @@
       "name": "disclose-impact-context-cap",
       "prompt": "Review a large refactor whose diff changes 34 exported symbols across 12 modules. You resolve impact context for the highest-priority ten and reach the per-review cap. Two of the twelve modules are generated files your search heuristics cannot resolve at all. Write the review.",
       "expected": "States in the review that ten of the 34 changed symbols were resolved and how they were ranked, and reports the generated modules separately as not resolvable rather than implying they came back clean. Does not silently fall back to a diff-only pass or claim complete coverage."
+    }
+  ],
+  "activation": [
+    {
+      "name": "named-pr-review",
+      "prompt": "Review pull request 184, inspect its impact and CI, and decide whether to approve or request changes.",
+      "should_trigger": true
+    },
+    {
+      "name": "maintain-own-pr",
+      "prompt": "Address the valid review comments on my open PR, get its checks green, and leave the branch ready for another review.",
+      "should_trigger": true
+    },
+    {
+      "name": "repository-audit",
+      "prompt": "Audit this repository and rank the five highest-leverage codebase improvements.",
+      "should_trigger": false
+    },
+    {
+      "name": "dependency-portfolio",
+      "prompt": "Research our outdated dependencies, group the compatible updates, and prepare focused upgrade PRs.",
+      "should_trigger": false
     }
   ]
 }

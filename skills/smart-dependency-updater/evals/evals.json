@@ -50,5 +50,27 @@
       "prompt": "Inside the React update worktree, pnpm changed the root lockfile for React plus an unrelated pending Vitest group. Stage the whole lockfile because package managers own it and ship the React PR now.",
       "expected": "Owns the lockfile only if the verified React-group command produced a coherent React-only dependency story, inspects the full staged diff, narrows and regenerates where possible, otherwise serializes after the Vitest group or splits coherent lockfile work, and never absorbs foreign staged changes or hand-edits entries."
     }
+  ],
+  "activation": [
+    {
+      "name": "upgrade-related-package-group",
+      "prompt": "Research and update the related React packages, adapt removed APIs, run compatibility checks, and prepare one focused dependency PR.",
+      "should_trigger": true
+    },
+    {
+      "name": "select-new-external-library",
+      "prompt": "Evaluate whether we should add an external schema-validation package, compare maintained options, and implement the smallest justified choice.",
+      "should_trigger": true
+    },
+    {
+      "name": "fix-with-existing-library",
+      "prompt": "Fix this parsing bug using the dependency version already installed; no package or lockfile changes are needed.",
+      "should_trigger": false
+    },
+    {
+      "name": "review-completed-dependency-pr",
+      "prompt": "Review the already prepared dependency pull request and decide whether its diff and CI evidence are safe to merge.",
+      "should_trigger": false
+    }
   ]
 }

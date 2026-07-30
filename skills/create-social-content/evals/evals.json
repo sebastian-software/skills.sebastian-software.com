@@ -50,5 +50,27 @@
       "prompt": "Create a three-month daily calendar for every social platform. We have one verified case study, one owner who can review weekly, and no current performance baseline. Fill every slot even if the topics repeat.",
       "expected": "Builds a sustainable plan from the available source and review capacity, gives each item a distinct purpose and evidence source, avoids padding the calendar with repetitions, and frames platform signals as learning inputs rather than algorithm guarantees."
     }
+  ],
+  "activation": [
+    {
+      "name": "draft-multi-platform-launch-posts",
+      "prompt": "Turn these release notes into native posts for X, Mastodon, and Bluesky, adapted to each platform rather than truncated.",
+      "should_trigger": true
+    },
+    {
+      "name": "check-angle-against-recent-posts",
+      "prompt": "Draft a short thread about our migration lessons and check whether this angle repeats what we already posted recently.",
+      "should_trigger": true
+    },
+    {
+      "name": "draft-linkedin-only-post",
+      "prompt": "Draft a LinkedIn post from these product-launch lessons for experienced engineering leaders.",
+      "should_trigger": false
+    },
+    {
+      "name": "write-longform-newsletter",
+      "prompt": "Write the full newsletter essay about our consulting approach, with a structured argument and source-aware claims.",
+      "should_trigger": false
+    }
   ]
 }

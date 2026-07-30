@@ -45,10 +45,11 @@ correct port from plausible-looking code.
 Read [Execution profiles](references/execution-profiles.md), then select the
 smallest profile that can satisfy the migration contract:
 
-- **Solo:** one working agent, sequential batches, cold review passes, narrow
-  checks after every batch, and scheduled full-suite checkpoints.
-- **Paired:** separate implementer and reviewer contexts, or alternating fresh
-  passes when only one agent can run at a time.
+- **Solo:** one working agent, sequential batches, cold self-review or fresh
+  passes, narrow checks after every batch, and scheduled full-suite checkpoints.
+- **Paired:** an implementer plus one independent semantic reviewer for a named
+  high-risk question or measured review benefit; deterministic checks remain
+  the default evidence path.
 - **Parallel:** independent shards with explicit ownership, isolated worktrees
   or directories, bounded concurrency, and a single integration queue.
 
@@ -67,9 +68,14 @@ cleanup ownership.
 Treat concurrency and model capability as separate controls. Read [Model-tiered
 orchestration](references/model-tiering.md) when multiple model tiers are
 available. Default to a strong architect at planning and milestone boundaries,
-an efficient builder for bounded slices, a fast verifier for deterministic and
-diff-hygiene checks, and risk-based escalation instead of using the strongest
-model continuously.
+an efficient builder for bounded slices, deterministic evidence owned by the
+builder or integrator, and risk-based specialist review instead of assigning a
+second model to recheck every change.
+
+When a proposed workflow assigns the cheapest model to routine quick review,
+correct that assumption explicitly. Keep routine review with the builder's cold
+pass and deterministic gates; use an independent model only for a named
+semantic risk or a review class with measured benefit.
 
 ## Build the Porting System
 
@@ -112,10 +118,11 @@ For every batch:
 1. Give the implementer the source slice, mapping rules, migration contract,
    owned files, and exact validation target.
 2. Produce the smallest behavior-preserving change that advances one queue.
-3. Run cheap deterministic verification and diff-hygiene checks before spending
-   higher-capability review on the batch.
-4. Review the diff adversarially without relying on the implementer's
-   explanation. Ask how it can compile and still be wrong.
+3. Run cheap deterministic verification and diff-hygiene checks.
+4. Review the diff adversarially in a cold pass without relying on the
+   implementer's explanation. Ask how it can compile and still be wrong.
+   Escalate to an independent specialist only for the named risks or measured
+   review benefits defined in the model-tiering guidance.
 5. Apply verified review findings, then rerun the narrowest decisive check.
 6. Record the result and remaining uncertainty in the existing work artifact.
 7. When a failure pattern repeats, improve the shared rule or workflow before

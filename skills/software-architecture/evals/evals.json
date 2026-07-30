@@ -40,5 +40,27 @@
       "prompt": "An order service has an IOrderRepository interface, one Postgres implementation, and twenty methods that mirror the ORM one for one. Tests mock internals behind the interface. The team wants either to keep it because interfaces are clean architecture or delete every repository boundary as boilerplate.",
       "expected": "Evaluates which ownership, transaction, authorization, compatibility, or query policy the boundary actually removes from callers; applies the deletion test; seeks a smaller caller-and-test-facing contract; rejects hypothetical variation as the sole justification; and preserves a concrete policy seam rather than choosing interface ceremony or indiscriminate deletion."
     }
+  ],
+  "activation": [
+    {
+      "name": "design-system-boundaries",
+      "prompt": "Compare modular-monolith and service boundaries for this checkout system using data ownership, failure isolation, deployability, and team constraints.",
+      "should_trigger": true
+    },
+    {
+      "name": "define-reliability-and-capacity-strategy",
+      "prompt": "Design the retry, idempotency, observability, load objectives, and capacity evidence for a payment integration before launch.",
+      "should_trigger": true
+    },
+    {
+      "name": "audit-repository-priorities",
+      "prompt": "Audit this codebase and rank the most valuable maintainability improvements with executable implementation plans.",
+      "should_trigger": false
+    },
+    {
+      "name": "record-approved-architecture",
+      "prompt": "The architecture choice is already approved; capture its rationale, alternatives, and consequences in the repository's decision-record format.",
+      "should_trigger": false
+    }
   ]
 }

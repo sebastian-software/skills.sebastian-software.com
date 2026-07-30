@@ -30,5 +30,27 @@
       "prompt": "Analyze these reference captures, pick our product strategy, implement the React page, deploy it, and declare that it does not copy anything.",
       "expected": "Keeps reference evidence and specification here, routes product strategy to product-design or product-management, browser implementation and verification to effective-web, deployment to an authorized delivery owner, and source-overlap judgment to originality-review without expanding authority."
     }
+  ],
+  "activation": [
+    {
+      "name": "reverse-engineer-recording-into-spec",
+      "prompt": "Analyze this screen recording of a competitor's onboarding flow and turn its layout, motion, and interaction into an implementation-ready specification.",
+      "should_trigger": true
+    },
+    {
+      "name": "compare-references-into-portable-rules",
+      "prompt": "Compare these three reference sites and extract the shared visual grammar and interaction patterns we could reuse without copying their identity.",
+      "should_trigger": true
+    },
+    {
+      "name": "audit-finished-work-for-copying",
+      "prompt": "Our new landing page is finished. Check it against the reference sites we drew from and decide whether anything overlaps too much to ship.",
+      "should_trigger": false
+    },
+    {
+      "name": "research-competitor-strategy",
+      "prompt": "Research our competitors' pricing strategies and market positioning across the industry and summarize the landscape.",
+      "should_trigger": false
+    }
   ]
 }

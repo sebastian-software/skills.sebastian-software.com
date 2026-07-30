@@ -265,8 +265,9 @@ tests the failure mode the new rule is meant to prevent. The historical
 `evals/evals.json` path is retained as a portable fixture format, but it is not
 an executed behavioral-evaluation harness.
 
-Store review scenarios in `skills/<name>/evals/evals.json`. New files use a top-level
-`evals` array whose entries contain `name`, `prompt`, and `expected`:
+Store review scenarios in `skills/<name>/evals/evals.json`. Use `evals` for
+output-quality cases. Add `activation` when the skill has adjacent owners,
+high-cost behavior, or a description change that needs trigger evidence:
 
 ```json
 {
@@ -276,6 +277,18 @@ Store review scenarios in `skills/<name>/evals/evals.json`. New files use a top-
       "prompt": "A realistic request containing the tempting shortcut.",
       "expected": "The decision, evidence, and tradeoff a strong response must surface."
     }
+  ],
+  "activation": [
+    {
+      "name": "direct-request",
+      "prompt": "A realistic request that should load this skill.",
+      "should_trigger": true
+    },
+    {
+      "name": "adjacent-owner",
+      "prompt": "A realistic nearby request that should not invoke this skill's full instructions.",
+      "should_trigger": false
+    }
   ]
 }
 ```
@@ -284,12 +297,25 @@ Keep `name` stable and descriptive. Treat `prompt` as the user input and
 `expected` as manual review criteria, not a golden response string. CI validates
 only the fixture's JSON shape, non-empty fields, and unique names; it does not
 submit prompts to a model, score responses, or claim behavioral correctness.
+An `activation` set must include both should-trigger and should-not-trigger
+cases. Put the most confusable natural-language requests in that set rather
+than testing only explicit `$skill-name` invocation. A negative case means that
+the host should not invoke this skill's full instructions; merely exposing its
+name and description in the catalog does not count as activation. Use a request
+owned by another skill or one that needs no skill, and avoid cases where
+co-activation would be legitimate.
 
 When a change needs behavior evidence, follow the documented [manual
 review-scenario workflow](review-scenarios.md). It generates a report template
 and validates that a human-recorded review identifies the skill, case, agent,
 model, sampling settings, response, pass/fail result, and grading evidence. The
 report validator checks traceability, not whether the human's grade is correct.
+
+Use its fresh-session comparison template when deciding whether a skill or
+prompt revision earns its context, latency, and token cost. Run each case once
+with the skill available and once with it disabled, without sharing conversation
+history between conditions. Record response quality, duration, token usage when
+available, and the evidence for the comparison.
 
 - Use a realistic prompt containing a plausible misconception, incomplete fix,
   or tempting shortcut; do not merely ask the agent to repeat the rule.
@@ -347,8 +373,9 @@ Before merging a change:
 1. Confirm the trigger description still selects the skill for the right tasks.
 2. Confirm links to bundled references, scripts, and any optional resources resolve.
 3. When adding a skill, create `agents/openai.yaml` and `evals/evals.json`; add
-   or update unrun review scenarios for consequential changes, and record a
-   manual review report when behavior evidence is needed.
+   or update unrun output and activation scenarios for consequential changes,
+   and record a fresh-session activation or with/without-skill review when
+   behavior evidence is needed.
 4. When adding a skill, add its `site/index.html` card and inventory metadata.
 5. Run `python3 scripts/validate-readmes.py`,
    `python3 scripts/validate-site.py`, and

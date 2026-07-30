@@ -45,5 +45,27 @@
       "prompt": "A cross-platform brief already defines the idea, audience, evidence, voice, and claim boundary for X, Instagram, and LinkedIn. Write the LinkedIn version, but redesign the whole multi-platform system first.",
       "expected": "Consumes the settled shared brief, composes the LinkedIn-specific version through linkedin-posts, and does not reopen the cross-platform direction or force the other channels into LinkedIn form."
     }
+  ],
+  "activation": [
+    {
+      "name": "draft-linkedin-post",
+      "prompt": "Draft a LinkedIn post from these product-launch lessons for experienced engineering leaders, keeping unsupported claims out.",
+      "should_trigger": true
+    },
+    {
+      "name": "plan-linkedin-content-calendar",
+      "prompt": "Create a sustainable month of LinkedIn post ideas and a content calendar around our consulting expertise, audience, voice, and goals.",
+      "should_trigger": true
+    },
+    {
+      "name": "design-linkedin-acquisition-system",
+      "prompt": "Diagnose why profile visits and post engagement do not become qualified sales conversations, then redesign the full LinkedIn pipeline.",
+      "should_trigger": false
+    },
+    {
+      "name": "rewrite-consultant-cv",
+      "prompt": "Rewrite my consultant CV and project list around a clear professional thesis, relevant evidence, and target buyer needs.",
+      "should_trigger": false
+    }
   ]
 }

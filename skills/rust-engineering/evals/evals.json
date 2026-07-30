@@ -30,5 +30,27 @@
       "prompt": "Mark this FFI wrapper unsafe, transmute the foreign bytes into our struct, and add a comment saying the code was reviewed. The C library usually keeps the pointer alive.",
       "expected": "Requires verified ABI, layout, validity, alignment, provenance, ownership, lifetime, aliasing, unwind, and cleanup facts; minimizes the unsafe block behind a validated safe boundary; and rejects a review-status comment as a safety proof."
     }
+  ],
+  "activation": [
+    {
+      "name": "fix-rust-ownership-contract",
+      "prompt": "Refactor this Rust API so the returned data outlives the repository guard without hiding the ownership cost behind arbitrary cloning.",
+      "should_trigger": true
+    },
+    {
+      "name": "review-unsafe-ffi-boundary",
+      "prompt": "Review and repair this unsafe Rust FFI callback for pointer provenance, thread affinity, panic containment, and exactly-once cleanup.",
+      "should_trigger": true
+    },
+    {
+      "name": "port-library-to-rust",
+      "prompt": "Rewrite this C library in Rust while preserving its public API, error semantics, cleanup behavior, and supported platforms.",
+      "should_trigger": false
+    },
+    {
+      "name": "run-rust-checks",
+      "prompt": "Run the existing Cargo format, clippy, test, and documentation checks for this already completed change.",
+      "should_trigger": false
+    }
   ]
 }

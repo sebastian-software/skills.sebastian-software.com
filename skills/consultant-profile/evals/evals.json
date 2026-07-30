@@ -80,5 +80,27 @@
       "prompt": "My profile lists React, TypeScript, event sourcing, Kubernetes, OAuth, OpenID Connect, and dozens of libraries. Rewrite it in strict ASD-STE100 so every sentence is short, but keep the whole stack because technical buyers will infer my value from it.",
       "expected": "Does not treat a technical audience or the initial shortcut as an ASD-STE100 contract; keeps exact and stable names only where supplied role, depth, mechanism, deliverable, or outcome makes them relevant; omits undocumented Kubernetes and event-sourcing exposure from published copy and records it as a gap; translates technical depth into buyer-relevant proof without inferring security or delivery outcomes from OAuth; avoids a generic stack inventory; provides natural profile voice unless a real requirement takes precedence; and routes any controlled-language verification to Tech Docs."
     }
+  ],
+  "activation": [
+    {
+      "name": "rewrite-consultant-positioning",
+      "prompt": "Rewrite my senior technology consultant CV and bio so buyers quickly understand my strongest outcomes, industries, client contexts, and evidence.",
+      "should_trigger": true
+    },
+    {
+      "name": "synchronize-career-surfaces",
+      "prompt": "Audit my CV, LinkedIn profile, case studies, and project list for contradictions, missing proof, and an unclear professional thesis.",
+      "should_trigger": true
+    },
+    {
+      "name": "design-linkedin-pipeline",
+      "prompt": "Build a LinkedIn acquisition system connecting positioning, content, target accounts, outreach conversations, lead magnets, and qualified meetings.",
+      "should_trigger": false
+    },
+    {
+      "name": "write-general-about-page",
+      "prompt": "Turn these company notes into a clear About page for customers without focusing on an individual consultant's career.",
+      "should_trigger": false
+    }
   ]
 }
