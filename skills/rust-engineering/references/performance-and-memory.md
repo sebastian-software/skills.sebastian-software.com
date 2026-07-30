@@ -234,7 +234,7 @@ allocation profile.
 
 Use an explicit release profile for runtime measurements. Adjust
 `codegen-units` only with a measurement: `1` often improves cross-unit
-optimization but increases compile time. [rustc Codegen – codegen-units](https://doc.rust-lang.org/rustc/codegen-options.html#codegen-units)
+optimization but increases compile time. [rustc Codegen – codegen-units](https://doc.rust-lang.org/rustc/codegen-options/index.html#codegen-units)
 
 Set `opt-level` deliberately:
 
@@ -242,31 +242,31 @@ Set `opt-level` deliberately:
 - `s` optimizes for size with somewhat more inlining and vectorization;
 - `z` optimizes for size more aggressively but is not guaranteed smaller than `s`.
 
-[rustc Codegen – opt-level](https://doc.rust-lang.org/rustc/codegen-options.html#opt-level),
+[rustc Codegen – opt-level](https://doc.rust-lang.org/rustc/codegen-options/index.html#opt-level),
 [min-sized-rust – Optimize For Size](https://github.com/johnthagen/min-sized-rust#optimize-for-size)
 
 Use `target-cpu=native` or individual `target-feature` flags only when you
 know the CPU contract of the deployment. Check available values with
 `rustc --print target-cpus` and `rustc --print target-features`; a wrong
 target can cause runtime faults or lost portability.
-[rustc Codegen – target-cpu](https://doc.rust-lang.org/rustc/codegen-options.html#target-cpu),
-[rustc Codegen – target-feature](https://doc.rust-lang.org/rustc/codegen-options.html#target-feature)
+[rustc Codegen – target-cpu](https://doc.rust-lang.org/rustc/codegen-options/index.html#target-cpu),
+[rustc Codegen – target-feature](https://doc.rust-lang.org/rustc/codegen-options/index.html#target-feature)
 
 Disable LLVM vectorization (`no-vectorize-loops`, `no-vectorize-slp`) only for
 diagnostics or A/B comparisons. Do not use these flags as a blanket
-optimization setting. [rustc Codegen – vectorization flags](https://doc.rust-lang.org/rustc/codegen-options.html#no-vectorize-loops)
+optimization setting. [rustc Codegen – vectorization flags](https://doc.rust-lang.org/rustc/codegen-options/index.html#no-vectorize-loops)
 
 ## LTO, linkers, and debug information
 
 Compare `lto = "thin"` and `lto = "fat"` with the same workload. Thin LTO
 reduces link time and often reaches similar runtime gains; fat LTO can deliver
 additional cross-crate optimization but costs more time and is not always
-better. [rustc Codegen – lto](https://doc.rust-lang.org/rustc/codegen-options.html#lto)
+better. [rustc Codegen – lto](https://doc.rust-lang.org/rustc/codegen-options/index.html#lto)
 
 Use `embed-bitcode=no` when no LTO is needed; do not combine it with `-C lto`.
 Use `linker-plugin-lto` only with a compatible native linker.
-[rustc Codegen – embed-bitcode](https://doc.rust-lang.org/rustc/codegen-options.html#embed-bitcode),
-[rustc Codegen – linker-plugin-lto](https://doc.rust-lang.org/rustc/codegen-options.html#linker-plugin-lto)
+[rustc Codegen – embed-bitcode](https://doc.rust-lang.org/rustc/codegen-options/index.html#embed-bitcode),
+[rustc Codegen – linker-plugin-lto](https://doc.rust-lang.org/rustc/codegen-options/index.html#linker-plugin-lto)
 
 Rust uses lld as the default linker on `x86_64-unknown-linux-gnu` since
 Rust 1.90; on other targets, adopt lld, mold, or wild for link-time reduction
@@ -276,7 +276,7 @@ only after a successful link and CI run for every supported target.
 
 Keep debug lines for profilers even when you strip symbols from the shipped
 binary. `strip=debuginfo` or `strip=symbols` reduces size but can weaken
-backtraces, debuggers, and profilers. [rustc Codegen – strip](https://doc.rust-lang.org/rustc/codegen-options.html#strip)
+backtraces, debuggers, and profilers. [rustc Codegen – strip](https://doc.rust-lang.org/rustc/codegen-options/index.html#strip)
 
 ## Profile-guided optimization
 
@@ -364,7 +364,7 @@ safety proof and only after measured relevance.
   behavior. [Rustonomicon](https://doc.rust-lang.org/stable/nomicon/),
   [Rust Engineering – Unsafe and FFI](unsafe-and-ffi.md)
 - **Panic semantics:** `panic = "abort"` saves unwind code but changes
-  behavior and can break library and FFI contracts. [rustc Codegen – panic](https://doc.rust-lang.org/rustc/codegen-options.html#panic)
+  behavior and can break library and FFI contracts. [rustc Codegen – panic](https://doc.rust-lang.org/rustc/codegen-options/index.html#panic)
 - **Profiling overhead:** the DHAT allocator, instrumentation PGO, and debug
   info influence the measurement. Use them only for the diagnostic run and
   measure the final build separately.

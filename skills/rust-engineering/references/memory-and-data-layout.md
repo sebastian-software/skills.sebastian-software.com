@@ -317,7 +317,7 @@ strip = "symbols"    # after profiler/debug runs
 Choose `opt-level = "s"` or `"z"` by measurement; `"z"` is not guaranteed
 smaller or faster than `"s"`. `lto = "thin"` can offer a better size and
 link-time compromise than fat LTO. `codegen-units = 1` can improve
-optimization and size but raises compile time. [rustc Codegen options](https://doc.rust-lang.org/rustc/codegen-options.html),
+optimization and size but raises compile time. [rustc Codegen options](https://doc.rust-lang.org/rustc/codegen-options/index.html),
 [min-sized-rust](https://github.com/johnthagen/min-sized-rust#optimize-for-size)
 
 Keep a separate build with `debug = "line-tables-only"` or `debug = true` for
@@ -344,7 +344,7 @@ document the release step. [min-sized-rust – Compressing](https://github.com/j
   [Rustonomicon](https://doc.rust-lang.org/stable/nomicon/).
 - Ship `target-cpu=native`/`target-feature` builds only when every user meets
   the CPU requirements. For portable SIMD use feature detection or multiple
-  implementations; see [rustc target features](https://doc.rust-lang.org/rustc/codegen-options.html#target-feature).
+  implementations; see [rustc target features](https://doc.rust-lang.org/rustc/codegen-options/index.html#target-feature).
 - Couple layout assertions to an explicit `repr` and target. Test endianness,
   pointer width, alignment, and external serialization on all deployment
   platforms.

@@ -60,7 +60,7 @@ Record:
 - target triple, compiler version, optimization level, CPU features, and LTO;
 - correctness checksum or a reference implementation.
 
-Source: [Matklad, Conclusion](https://matklad.github.io/2023/04/09/can-you-trust-a-compiler-to-optimize-your-code.html#conclusion);
+Source: [Matklad, Conclusion](https://matklad.github.io/2023/04/09/can-you-trust-a-compiler-to-optimize-your-code.html#Conclusion);
 [SIMD Performance Guide, profiling](https://rust-lang.github.io/packed_simd/perf-guide/prof/profiling.html).
 
 ### 1.2 Separate codegen evidence from hardware evidence
@@ -97,7 +97,7 @@ Prefer a small, visible kernel:
 Then inspect whether the abstraction disappears; do not assume that a shorter
 source expression is faster.
 
-Source: [Matklad, Seeing Like a Compiler](https://matklad.github.io/2023/04/09/can-you-trust-a-compiler-to-optimize-your-code.html#seeing-like-a-compiler).
+Source: [Matklad, Seeing Like a Compiler](https://matklad.github.io/2023/04/09/can-you-trust-a-compiler-to-optimize-your-code.html#Seeing-Like-a-Compiler).
 
 ### 2.2 Prefer statically resolvable calls in hot kernels
 
@@ -106,7 +106,7 @@ Treat function pointers and dynamic dispatch as deliberate boundaries because
 they may prevent inlining. Do not remove dynamic dispatch merely for style:
 measure the boundary and keep it where runtime extensibility is required.
 
-Source: [Matklad, Impossible and Possible](https://matklad.github.io/2023/04/09/can-you-trust-a-compiler-to-optimize-your-code.html#impossible-and-possible).
+Source: [Matklad, Impossible and Possible](https://matklad.github.io/2023/04/09/can-you-trust-a-compiler-to-optimize-your-code.html#Impossible-and-Possible).
 
 ### 2.3 Understand inlining as context propagation
 
@@ -118,7 +118,7 @@ Do not blanket-apply inline(always). It can increase code size, instruction
 cache pressure, compile time, and monomorphization cost. Confirm the effect in
 IR/assembly and benchmarks.
 
-Source: [Matklad, Bringing Code Closer to the Compiler’s Nose](https://matklad.github.io/2023/04/09/can-you-trust-a-compiler-to-optimize-your-code.html#bringing-code-closer-to-compilers-nose).
+Source: [Matklad, Bringing Code Closer to the Compiler’s Nose](https://matklad.github.io/2023/04/09/can-you-trust-a-compiler-to-optimize-your-code.html#Bringing-Code-Closer-to-Compiler's-Nose).
 
 ### 2.4 Recognize scalar replacement of aggregates
 
@@ -129,7 +129,7 @@ change a public memory layout or an FFI representation.
 Keep aggregate mutation localized and avoid needless address-taking in a hot
 path. Inspect LLVM IR if a value unexpectedly spills to memory.
 
-Source: [Matklad, SROA discussion](https://matklad.github.io/2023/04/09/can-you-trust-a-compiler-to-optimize-your-code.html#bringing-code-closer-to-compilers-nose).
+Source: [Matklad, SROA discussion](https://matklad.github.io/2023/04/09/can-you-trust-a-compiler-to-optimize-your-code.html#Bringing-Code-Closer-to-Compiler's-Nose).
 
 ### 2.5 Treat aliases and indirection as optimization costs
 
@@ -138,7 +138,7 @@ Box/handle. Unique ownership may let LLVM see through a Box, but that is not a
 portable guarantee. Reduce pointer chasing in data-parallel loops and reserve
 indirection for ownership, lifetime, or API boundaries that need it.
 
-Source: [Matklad, Indirection and layout](https://matklad.github.io/2023/04/09/can-you-trust-a-compiler-to-optimize-your-code.html#impossible-and-possible).
+Source: [Matklad, Indirection and layout](https://matklad.github.io/2023/04/09/can-you-trust-a-compiler-to-optimize-your-code.html#Impossible-and-Possible).
 
 ### 2.6 Design layout and cache behavior explicitly
 
@@ -147,7 +147,7 @@ functions. Choose compact fields, reduce padding only when it does not violate
 alignment/ABI contracts, group fields with common access patterns, and compare
 array-of-structs with struct-of-arrays for the measured workload.
 
-Source: [Matklad, baseline performance rules](https://matklad.github.io/2023/04/09/can-you-trust-a-compiler-to-optimize-your-code.html#impossible-and-possible).
+Source: [Matklad, baseline performance rules](https://matklad.github.io/2023/04/09/can-you-trust-a-compiler-to-optimize-your-code.html#Impossible-and-Possible).
 
 ## 3. Auto-vectorization and branch shape
 
@@ -157,7 +157,7 @@ Express one operation per element with a predictable access pattern. Avoid
 inner-loop branches whose outcome determines whether later elements execute.
 Move a decision outside a fixed-size chunk when semantics allow.
 
-Source: [Matklad, SIMD](https://matklad.github.io/2023/04/09/can-you-trust-a-compiler-to-optimize-your-code.html#simd).
+Source: [Matklad, SIMD](https://matklad.github.io/2023/04/09/can-you-trust-a-compiler-to-optimize-your-code.html#SIMD).
 
 ### 3.2 Process explicit chunks and handle the tail separately
 
@@ -172,7 +172,7 @@ a scalar tail path:
 Do not hard-code 16 as a universal best width. Benchmark widths on the target
 CPU and leave room for the compiler’s chosen vector width.
 
-Source: [Matklad, common-prefix SIMD example](https://matklad.github.io/2023/04/09/can-you-trust-a-compiler-to-optimize-your-code.html#simd).
+Source: [Matklad, common-prefix SIMD example](https://matklad.github.io/2023/04/09/can-you-trust-a-compiler-to-optimize-your-code.html#SIMD).
 
 ### 3.3 Replace short-circuit reduction inside a chunk
 
@@ -189,7 +189,7 @@ The bitwise and is intentional: logical and would introduce a dependency on
 the first false lane. Preserve the original semantics by locating the first
 mismatch in a scalar tail or a second pass when the API requires its position.
 
-Source: [Matklad, branchless chunk comparison](https://matklad.github.io/2023/04/09/can-you-trust-a-compiler-to-optimize-your-code.html#simd).
+Source: [Matklad, branchless chunk comparison](https://matklad.github.io/2023/04/09/can-you-trust-a-compiler-to-optimize-your-code.html#SIMD).
 
 ### 3.4 Verify vectorization, do not infer it from iterators
 
@@ -198,7 +198,7 @@ an unexpected call, bounds check, or alias barrier. Check LLVM IR, assembly,
 and optimization remarks for vector loads, lane operations, and the intended
 reduction.
 
-Source: [Matklad, Conclusion](https://matklad.github.io/2023/04/09/can-you-trust-a-compiler-to-optimize-your-code.html#conclusion);
+Source: [Matklad, Conclusion](https://matklad.github.io/2023/04/09/can-you-trust-a-compiler-to-optimize-your-code.html#Conclusion);
 [Compiler Explorer](https://rust.godbolt.org/).
 
 ## 4. Portable SIMD
@@ -400,7 +400,7 @@ Use shared references for read-only access and exclusive mutable references for
 mutation. Use Arc for shared ownership, not as a mutation or synchronization
 primitive. Establish Send and Sync constraints before introducing atomics.
 
-Source: [Rust Atomics and Locks, borrowing](https://mara.nl/atomics/basics.html#borrowing-and-data-races);
+Source: [Rust Atomics and Locks, borrowing](https://mara.nl/atomics/basics.html#borrowing-and-races);
 [shared ownership](https://mara.nl/atomics/basics.html#shared-ownership-and-reference-counting).
 
 ### 8.2 Prefer scoped threads for bounded borrows
@@ -419,7 +419,7 @@ independent counters are common uses; composite snapshots need stronger
 ordering or a lock.
 
 Source: [Rust Atomics and Locks, atomics](https://mara.nl/atomics/atomics.html#atomic-load-and-store-operations);
-[memory model](https://mara.nl/atomics/memory-ordering.html#relaxed-ordering).
+[memory model](https://mara.nl/atomics/memory-ordering.html#relaxed).
 
 ### 8.4 Use Release/Acquire for publication
 
@@ -455,7 +455,7 @@ Chapter 7 distinguishes x86-64’s stronger apparent ordering from ARM64’s
 weaker ordering and discusses cache coherence, RMW, CAS, and LL/SC. Never infer
 portable ordering from a passing x86-only test.
 
-Source: [Rust Atomics and Locks, processor](https://mara.nl/atomics/understanding-the-processor.html).
+Source: [Rust Atomics and Locks, processor](https://mara.nl/atomics/hardware.html).
 
 ## 9. Locks, blocking, and async boundaries
 
@@ -466,9 +466,9 @@ unless implementing a primitive is itself the requirement. The book’s spinlock
 channel, and Arc chapters are learning material for invariants and unsafe
 contracts, not a blanket recommendation to replace std.
 
-Source: [Rust Atomics and Locks, Spin Lock](https://mara.nl/atomics/locks.html);
-[Channels](https://mara.nl/atomics/channels.html);
-[Arc](https://mara.nl/atomics/arc.html).
+Source: [Rust Atomics and Locks, Spin Lock](https://mara.nl/atomics/building-spinlock.html);
+[Channels](https://mara.nl/atomics/building-channels.html);
+[Arc](https://mara.nl/atomics/building-arc.html).
 
 ### 9.2 Keep blocking work off async executor threads
 
@@ -482,7 +482,7 @@ provably short, non-blocking, and compatible with the runtime. Otherwise use an
 async-aware lock and preserve cancellation/ownership semantics.
 
 This boundary is an engineering rule derived from the blocking behavior of the
-OS primitives described in [Rust Atomics and Locks, Chapter 8](https://mara.nl/atomics/operating-system-primitives.html).
+OS primitives described in [Rust Atomics and Locks, Chapter 8](https://mara.nl/atomics/os-primitives.html).
 
 ### 9.3 Account for contention and cache lines
 
@@ -491,7 +491,7 @@ reader/writer skew. A lock-free algorithm can still be slower under contention,
 and a store that appears slow in a profile may be the point where a pipeline
 stall becomes visible.
 
-Source: [Rust Atomics and Locks, processor and caching](https://mara.nl/atomics/understanding-the-processor.html);
+Source: [Rust Atomics and Locks, processor and caching](https://mara.nl/atomics/hardware.html);
 [SIMD guide, machine-code analysis](https://rust-lang.github.io/packed_simd/perf-guide/prof/mca.html).
 
 ## 10. Rayon and task granularity
@@ -528,7 +528,7 @@ the inner layer as a scalar or SIMD kernel. Avoid tiny Rayon tasks around a
 single vector operation; avoid nested pools that oversubscribe CPUs.
 
 Source: [Rayon parallel iterators](https://docs.rs/rayon/latest/rayon/iter/index.html);
-[Matklad SIMD chunking](https://matklad.github.io/2023/04/09/can-you-trust-a-compiler-to-optimize-your-code.html#simd).
+[Matklad SIMD chunking](https://matklad.github.io/2023/04/09/can-you-trust-a-compiler-to-optimize-your-code.html#SIMD).
 
 ### 10.5 Respect non-threaded targets and dyn limitations
 
@@ -537,7 +537,7 @@ ParallelIterator is not dyn-compatible by design, so represent runtime
 polymorphism outside the parallel iterator pipeline.
 
 Source: [Rayon targets without threading](https://docs.rs/rayon/latest/rayon/#targets-without-threading);
-[dyn compatibility](https://docs.rs/rayon/latest/rayon/iter/index.html#dyn-compatibility).
+[dyn compatibility](https://docs.rs/rayon/latest/rayon/iter/trait.ParallelIterator.html#dyn-compatibility).
 
 ## 11. Rustc IR, monomorphization, and queries
 
@@ -565,7 +565,7 @@ time. Use dynamic dispatch where the boundary is truly dynamic and measure
 LTO/codegen-unit trade-offs.
 
 Source: [Rustc Guide, code generation](https://rustc-dev-guide.rust-lang.org/overview.html#code-generation);
-[Matklad, static calls](https://matklad.github.io/2023/04/09/can-you-trust-a-compiler-to-optimize-your-code.html#impossible-and-possible).
+[Matklad, static calls](https://matklad.github.io/2023/04/09/can-you-trust-a-compiler-to-optimize-your-code.html#Impossible-and-Possible).
 
 ### 11.4 Model compiler caches as queries, not a linear pass list
 
