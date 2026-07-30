@@ -26,9 +26,9 @@ Before a net-new or materially redesigned surface, state a compact internal or
 user-visible read:
 
 ```text
-Surface: [product / brand / content-heavy]
+Surface: [operate / persuade / read / experience]
 Audience: [specific people and context]
-Primary job: [task, judgment, or understanding]
+Primary job: [task, decision/action, understanding, or encounter/exploration]
 Direction: [one primary direction plus an optional secondary influence]
 Expression: [restrained / balanced / expressive]
 Density: [sparse / normal / dense / data-heavy]

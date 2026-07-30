@@ -71,7 +71,8 @@ one decoration with another.
   the first viewport. Match type scale to copy length and available measure.
 - Display tracking is crushed until glyph shapes or word recognition suffer.
 - An italic serif hero is used as shorthand for premium or editorial quality.
-  Keep it when the editorial or brand register genuinely owns that voice.
+  Keep it when the chosen direction or accepted visual system genuinely owns
+  that voice.
 - Monospace is used to make an unrelated product appear technical rather than
   for code, identifiers, aligned data, or a documented brand voice.
 - One familiar font is blamed for generic output even though hierarchy, role,
