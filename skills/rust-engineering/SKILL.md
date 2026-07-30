@@ -2,20 +2,22 @@
 name: rust-engineering
 description: >-
   Implement, refactor, and review Rust crates and workspaces with explicit
-  ownership, API, error, concurrency, unsafe, and maintainability contracts.
-  Use for Rust source changes, Cargo projects, lifetime or cloning decisions,
-  public Rust APIs, async Rust, unsafe code, FFI, numeric conversions, or the
-  Rust-depth findings inside a code review that pr-review owns. Do not use for
-  behavior-preserving ports, dependency-only updates, test-only work,
-  documentation-only work, or merely running existing repository checks when a
-  narrower skill owns the task.
+  architecture, ownership, API, error, concurrency, unsafe, memory, and
+  performance contracts. Use for Rust source changes, Cargo projects,
+  lifetime or cloning decisions, public Rust APIs, crate/workspace boundaries,
+  async Rust, unsafe code, FFI, allocation and data-layout choices, profiling,
+  SIMD, atomics, parallelism, numeric conversions, or Rust-depth findings
+  inside a code review that pr-review owns. Do not use for behavior-preserving
+  ports, dependency-only updates, test-only work, documentation-only work, or
+  merely running existing repository checks when a narrower skill owns the task.
 ---
 
 # Rust Engineering
 
-Write Rust that makes ownership, failure, concurrency, and safety understandable
-to the next maintainer. Prefer repository evidence and semantic types over
-universal thresholds, clever compression, or speculative optimization.
+Write Rust that makes architecture, ownership, failure, concurrency, safety,
+and performance reasoning understandable to the next maintainer. Prefer
+repository evidence and semantic types over universal thresholds, clever
+compression, or speculative optimization.
 
 ## Establish the Contract
 
@@ -29,14 +31,26 @@ universal thresholds, clever compression, or speculative optimization.
    stronger MSRV, lint set, runtime, crate, or performance target.
 3. Read [Ownership and API design](references/ownership-and-api-design.md) for
    borrowing, newtypes, parsing, trait boundaries, and abstraction choices.
-4. Read [Naming and readability](references/naming-and-readability.md) for
+4. Read [Architecture and boundaries](references/architecture-and-boundaries.md)
+   when the task changes crate/module structure, public interfaces, services,
+   domain types, persistence, async boundaries, or project organization.
+5. Read [Naming and readability](references/naming-and-readability.md) for
    semantic names, Unicode-safe text handling, constants, comments, and
    maintainable control flow.
-5. Read [Errors and concurrency](references/errors-and-concurrency.md) when the
+6. Read [Errors and concurrency](references/errors-and-concurrency.md) when the
    change can fail, panic, spawn work, block, hold a lock, or be cancelled.
-6. Read [Unsafe and FFI](references/unsafe-and-ffi.md) for every unsafe block,
+7. Read [Performance and profiling](references/performance-and-memory.md)
+   when the task makes a runtime, build-time, binary-size, profiling, or
+   benchmark claim.
+8. Read [Memory and data layout](references/memory-and-data-layout.md) when
+   choosing collections, allocation strategies, representations, alignment,
+   cache layout, boxing, integer widths, or binary-size techniques.
+9. Read [SIMD and parallelism](references/simd-and-parallelism.md) when the
+   task involves auto-vectorization, portable SIMD, intrinsics, target
+   features, atomics, Rayon, thread pools, or CPU-heavy async work.
+10. Read [Unsafe and FFI](references/unsafe-and-ffi.md) for every unsafe block,
    unsafe trait implementation, raw pointer, foreign call, or ABI boundary.
-7. Read [Quality and review](references/quality-and-review.md) before declaring
+11. Read [Quality and review](references/quality-and-review.md) before declaring
    the change ready. Route focused test design to `software-testing`, technical
    documentation to `tech-docs`, and execution of established checks to
    `software-validation`.
@@ -55,11 +69,21 @@ universal thresholds, clever compression, or speculative optimization.
   documentation, or a focused assertion message.
 - Keep public interfaces smaller than their implementation burden, but add a
   trait, generic, macro, or adapter only for demonstrated variation or reuse.
+- Make crate and module boundaries carry dependency direction, stability
+  promises, and explicit negative invariants; keep I/O and serialization at
+  the boundary when a pure core improves testing or incremental computation.
 - Preserve readable control flow. Prefer explicit matches and small helpers when
   combinator chains obscure error, ownership, or early-return behavior.
 - Profile before optimizing. Do not choose integer widths, collection layouts,
   boxing, inlining, LTO, allocation strategies, or copying thresholds from a
   generic size rule.
+- Treat a performance change as a measurement contract: record workload,
+  platform, toolchain, build profile, baseline, metric, and the evidence that
+  identified the bottleneck. Keep specialized SIMD or target-feature paths
+  behind a safe fallback and a documented dispatch contract.
+- Derive atomic ordering from a happens-before argument. Treat Rayon chunking,
+  async blocking work, queue bounds, and shutdown as resource and lifecycle
+  contracts rather than throughput folklore.
 - Scope suppressions narrowly. Explain why a local `allow`, `expect`, unsafe
   operation, or manual `Send`/`Sync` is sound and when it can be removed.
 
@@ -82,8 +106,8 @@ performance claims explicitly.
   skill owns port execution and parity, while a post-parity Rust idiom pass on
   the ported code comes here.
 - Route module and service boundary decisions for a Rust workspace to
-  `software-architecture`; this skill implements Rust quality within an agreed
-  boundary.
+  `software-architecture`; read the Rust-specific architecture reference and
+  implement Rust quality within the agreed boundary.
 - Route test selection and implementation to `software-testing`; this skill owns
   the Rust contracts the tests must protect.
 - Route rustdoc and contributor documentation to `tech-docs`.

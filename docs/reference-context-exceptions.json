@@ -1,6 +1,14 @@
 {
   "version": 1,
   "exceptions": {
+    "skills/rust-engineering/references/architecture-and-boundaries.md": {
+      "defaults": ["ownership-and-api-design.md", "errors-and-concurrency.md"],
+      "reason": "Comprehensive Rust architecture casebook retained for cross-cutting workspace and production-boundary work; ordinary API and failure tasks load the focused references first."
+    },
+    "skills/rust-engineering/references/simd-and-parallelism.md": {
+      "defaults": ["performance-and-memory.md", "unsafe-and-ffi.md"],
+      "reason": "Deep CPU, SIMD, atomics, and scheduling reference retained for specialist optimization; routine profiling and unsafe reviews load the focused references first."
+    },
     "skills/effective-web/references/fundamentals.md": {
       "defaults": ["fundamentals-core.md"],
       "reason": "Historical design and motion appendix; focused design, accessibility, and motion routes load smaller modules first."

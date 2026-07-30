@@ -9,9 +9,9 @@ contracts remain understandable under change.**
 
 Rust Engineering gives agents a strict but evidence-led standard for Rust
 implementation and review. It favors semantic types, explicit failure and
-ownership, Unicode-safe text handling, bounded concurrency, written unsafe
-proofs, repository-native linting, and measured optimization over universal
-thresholds or borrow-checker workarounds.
+ownership, clear crate boundaries, Unicode-safe text handling, bounded
+concurrency, written unsafe proofs, repository-native linting, and measured
+optimization over universal thresholds or borrow-checker workarounds.
 
 ## What It Can Deliver
 
@@ -21,6 +21,9 @@ thresholds or borrow-checker workarounds.
 - typed error and panic boundaries with actionable context
 - cancellation-aware async work, backpressure, and owned task lifecycles
 - focused unsafe, FFI, and manual `Send`/`Sync` reviews
+- crate/workspace architecture with explicit boundaries and invariants
+- evidence-led profiling, allocation and data-layout decisions
+- SIMD, target-feature dispatch, atomics, and data-parallel Rust
 - Rust-depth review findings, grounded in edition, MSRV, features, and CI
   policy, for a code review owned by PR Review
 
@@ -43,6 +46,13 @@ and public error semantics.
 Refactor this async worker so concurrency, cancellation, backpressure, and
 shutdown ownership are explicit.
 
+Investigate this Rust hot path with benchmarks and profiling, then decide
+whether the bottleneck is allocation, layout, dispatch, synchronization, or
+code generation before changing it.
+
+Design a portable SIMD kernel with a scalar fallback, runtime CPU-feature
+dispatch, and a reviewable unsafe contract.
+
 Design a safe Rust wrapper around this C API and document the invariants that
 make each unsafe operation sound.
 
@@ -52,6 +62,20 @@ workarounds, or unexplained buffer and timeout values.
 
 See [SKILL.md](SKILL.md) for the workflow, operating rules, and routing
 boundaries.
+
+## Deep References
+
+The main skill stays concise and loads only the focused reference needed by the
+task:
+
+- [Architecture and boundaries](references/architecture-and-boundaries.md)
+- [Performance and profiling](references/performance-and-memory.md)
+- [Memory and data layout](references/memory-and-data-layout.md)
+- [SIMD and parallelism](references/simd-and-parallelism.md)
+- [Ownership and API design](references/ownership-and-api-design.md)
+- [Errors and concurrency](references/errors-and-concurrency.md)
+- [Unsafe and FFI](references/unsafe-and-ffi.md)
+- [Quality and review](references/quality-and-review.md)
 
 ## Install This Skill
 
@@ -89,9 +113,9 @@ dalo sync
 ## Scope
 
 This skill does not impose one async runtime, error crate, test library, lint
-set, MSRV, edition, allocation strategy, or performance threshold. It does not
-authorize unrelated cleanup, dependency additions, public API breaks, or unsafe
-optimizations.
+set, MSRV, edition, allocation strategy, SIMD API, or performance threshold.
+It does not authorize unrelated cleanup, dependency additions, public API
+breaks, or unsafe optimizations.
 
 ## About Sebastian Software
 
