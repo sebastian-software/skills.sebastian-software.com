@@ -1,19 +1,17 @@
 ---
 name: effective-web
 description: >-
-  Diagnose, design, build, review, and improve user-facing web experiences:
-  marketing sites, content pages, landing pages, web apps, dashboards, and
-  React components. Covers UI/UX direction, layout, typography, color,
-  components, forms, tables, accessibility, motion, internationalization
-  (i18n) implementation, interface copy, loading and error states, auth UX,
-  CSS architecture, frontend SEO and AI search, AI-assisted interface design,
-  browser performance, frontend-only surprising behavior, frontend testing,
-  React architecture and component APIs, SVG graphics (icons, paths,
-  animation, textures), print stylesheets, paged media, and web-to-print
-  output. Not for: backend-only work, infrastructure or deployment,
-  general-purpose writing, print production unrelated to HTML and CSS, or
-  locale-specific punctuation, quotation, spacing, and language-level
-  typographic rules (locale-typography skill).
+  Design, build, review, and improve browser-facing experiences: marketing and
+  content sites, web apps, dashboards, React components, UI/UX, layout,
+  typography, color, forms, tables, accessibility, motion, i18n, interface
+  copy, states, auth UX, CSS, frontend SEO and AI search, browser performance
+  and testing, React architecture, SVG, and HTML/CSS print. Use only when the
+  requested outcome is the design, implementation, review, or verification of
+  a browser experience. Do not use merely because a task mentions the web, a
+  website, URL, browser, or HTML. Not for general browsing, internet or source
+  research, repository or catalog evaluation, fact-finding, backend-only work,
+  infrastructure or deployment, general writing, non-web print, or
+  locale-specific typography.
 ---
 
 # Effective Web
@@ -21,6 +19,10 @@ description: >-
 Treat the web experience as one system. Route each request to the smallest
 relevant guidance set, then check the result across design, implementation,
 accessibility, performance, and verification boundaries.
+
+Treat a website, URL, browser, or HTML document as input evidence, not as a
+trigger by itself. Load this skill only when the deliverable designs, changes,
+reviews, or verifies a browser-facing experience.
 
 ## Workflow
 
@@ -61,7 +63,7 @@ Modernization. Add focused routes only as the work crosses those concerns.
 | Organize cascade layers, tokens, scoping, browser support, or CSS tooling | [CSS Architecture](references/route-css.md) |
 | Improve metadata, structured data, crawlability, previews, or AI search | [Frontend SEO and AI Search](references/route-seo.md) |
 | Choose unit, component, visual, browser, or E2E coverage and CI strategy | [Frontend Testing](references/route-testing.md) |
-| Diagnose Core Web Vitals, images, caching, resource loading, or perceived speed | [Web Performance](references/route-performance.md) |
+| Diagnose Core Web Vitals, images, caching, resource loading, animation cost, memory growth, or perceived speed | [Web Performance](references/route-performance.md) |
 | Decide React server/client boundaries, state placement, hydration, or rendering | [React Architecture](references/route-react-architecture.md) |
 | Design reusable React APIs, composition, state ownership, refs, or interop | [React Components](references/route-react-components.md) |
 | Build, style, animate, optimize, or make accessible SVG icons and illustrations | [SVG Graphics](references/route-svg.md) |
@@ -70,6 +72,16 @@ Modernization. Add focused routes only as the work crosses those concerns.
 
 ## Routing Boundaries
 
+- Keep general internet research, source or corpus analysis, repository or
+  catalog evaluation, recommendations, and fact-finding outside this skill
+  when the requested deliverable is an answer or report rather than a
+  browser-facing experience. A live website may be evidence inside an owned
+  experience review; its URL alone does not make the task Effective Web work.
+- Route capture and translation of supplied websites, HTML, screenshots,
+  prototypes, or videos into an evidence-backed visual and interaction
+  specification to `reference-analysis`; return here for browser implementation
+  and verification. Route comparison of the result against those sources for
+  copying and provenance risk to `originality-review`.
 - Route product discovery, strategy, outcome, scope, prioritization, quality-bar,
   and release decisions to `product-management`; return here to design,
   implement, and verify the resulting browser experience.

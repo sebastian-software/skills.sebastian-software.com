@@ -12,8 +12,10 @@ progress, or adds an earned moment of brand character without slowing users down
 3. Choose CSS, Web Animations, per-frame JavaScript, or a library from the
    required capability and execution model.
 4. Prefer compositor-friendly properties and verify costly effects.
-5. Keep product transitions short and predictable.
-6. Respect `prefers-reduced-motion` and provide equivalent state clarity without animation.
+5. For looping, canvas, WebGL, or long-lived motion, verify that offscreen,
+   hidden-document, and unmounted work stops at its owning lifecycle.
+6. Keep product transitions short and predictable.
+7. Respect `prefers-reduced-motion` and provide equivalent state clarity without animation.
 
 ## Rules
 
@@ -37,3 +39,6 @@ progress, or adds an earned moment of brand character without slowing users down
   horizontal sequences, and scroll snap; read [scroll-feedback.md](scroll-feedback.md)
   for back-to-top, scroll-driven feedback, and large lists.
 - [motion-interaction.md](motion-interaction.md) - motion principles, timing, and reduced-motion rules.
+- [animation-runtime-performance.md](animation-runtime-performance.md) -
+  offscreen work, RAF and canvas loops, cleanup, route cycles, and runtime
+  evidence; load it for sustained load, jank, memory growth, or lifecycle risk.

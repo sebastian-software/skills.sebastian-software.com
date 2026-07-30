@@ -1,0 +1,4 @@
+interface:
+  display_name: "Reference Analysis"
+  short_description: "Turn visual references into usable specifications"
+  default_prompt: "Use $reference-analysis to turn these references into an evidence-backed implementation specification."

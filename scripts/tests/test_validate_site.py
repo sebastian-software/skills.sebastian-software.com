@@ -147,6 +147,38 @@ class VisibleSkillInventoryTests(unittest.TestCase):
         self.assertEqual(VALIDATOR.visible_skill_inventory(html), [("one", "One")])
 
 
+class SkillCardStructureValidationTests(unittest.TestCase):
+    def test_accepts_balanced_sibling_skill_cards(self) -> None:
+        parser = VALIDATOR.SiteParser()
+        parser.feed(
+            '<article data-skill="one"></article>'
+            '<article data-skill="two"></article>'
+        )
+        failures: list[str] = []
+
+        VALIDATOR.validate_skill_card_structure(parser, failures)
+
+        self.assertEqual(failures, [])
+
+    def test_rejects_nested_and_unclosed_skill_cards(self) -> None:
+        parser = VALIDATOR.SiteParser()
+        parser.feed(
+            '<article data-skill="one">'
+            '<article data-skill="two"></article>'
+        )
+        failures: list[str] = []
+
+        VALIDATOR.validate_skill_card_structure(parser, failures)
+
+        self.assertEqual(
+            failures,
+            [
+                "site skill cards must not be nested inside other skill cards",
+                "every site skill-card article must have a closing tag",
+            ],
+        )
+
+
 class ComparisonInventoryValidationTests(unittest.TestCase):
     inventory = [
         ("one/skills", "https://github.com/one/skills"),

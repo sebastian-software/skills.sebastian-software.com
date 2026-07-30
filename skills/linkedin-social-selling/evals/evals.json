@@ -39,6 +39,11 @@
       "name": "route-post-drafting-inside-an-engagement",
       "prompt": "Build the LinkedIn acquisition system and draft the first two posts inside the same engagement. Keep the post-writing method in the social-selling skill so no handoff is needed.",
       "expected": "Uses linkedin-social-selling to establish audience, offer, content roles, evidence, production, and measurement; passes a grounded brief to linkedin-posts for the actual ideas and drafts; and reviews the resulting posts against the acquisition path instead of maintaining a second post-writing doctrine."
+    },
+    {
+      "name": "handoff-cross-platform-content-program",
+      "prompt": "Extend the approved LinkedIn content system to X and Instagram. Copy each LinkedIn post unchanged so the strategy and platform execution stay in one skill.",
+      "expected": "Keeps buyer, offer, evidence, content role, and measurement strategy in linkedin-social-selling; hands cross-platform expression to create-social-content and LinkedIn-specific copy to linkedin-posts; and rejects unchanged cross-posting as the default."
     }
   ],
   "activation": [

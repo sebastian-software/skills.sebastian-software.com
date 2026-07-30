@@ -6,7 +6,8 @@ description: >-
   when the user mentions a LinkedIn post, LinkedIn content, LinkedIn idea,
   social media post for LinkedIn, post engagement, or content calendar for
   LinkedIn. Route engagement-to-pipeline diagnosis and acquisition strategy to
-  linkedin-social-selling.
+  linkedin-social-selling. Route non-LinkedIn, platform-unspecified, and
+  multi-platform social content to create-social-content.
 ---
 
 # LinkedIn Posts
@@ -64,6 +65,10 @@ source evidence, offer connection, language, and review owner, treat that as the
 strategy handoff. Do not reopen settled acquisition strategy before drafting.
 If those inputs are missing and the request depends on pipeline strategy rather
 than a standalone post, route that discovery to `linkedin-social-selling`.
+
+If `create-social-content` already established a shared idea, evidence boundary,
+voice, and cross-platform purpose, consume that brief and compose the LinkedIn
+version without reopening settled choices.
 
 ### 1. Topic & Goal
 - What do you want to post about?
@@ -227,6 +232,10 @@ post concepts.
 
 ## Routing Boundaries
 
+- Use `create-social-content` for non-LinkedIn, platform-unspecified, and
+  multi-platform social content. When a multi-platform set includes LinkedIn,
+  consume its shared idea, evidence, voice, and claim brief here and return the
+  LinkedIn expression without forcing the other channels into LinkedIn form.
 - Route durable audience, voice, tone, form-of-address, terminology, claim, and
   channel decisions to `decision-records`.
 - Route target-buyer, offer, profile, network, outreach, funnel, and pipeline

@@ -121,6 +121,13 @@ Define tasks from research situations and desired progress, not instructions
 that reveal the interface. Include realistic content, existing state, time
 pressure or interruptions where relevant, and at least one non-happy path.
 
+Author representative data or media when production material is unavailable and
+the prototype needs it to expose density, hierarchy, or behavior. Label it
+synthetic wherever it could be mistaken for evidence, track what must be
+replaced, and never fabricate customers, prices, benchmarks, capabilities, or
+outcomes. Missing production material reduces confidence in claims; it should
+not force the design into a timid generic composition.
+
 Observe comprehension, prediction, action, hesitation, recovery, and the
 participant's explanation of what changed. Distinguish:
 
@@ -141,6 +148,14 @@ to the audience, purpose, and design brief. Avoid generic mood words that cannot
 help distinguish a decision. Also name qualities that would send the wrong
 signal.
 
+Source possible directions from the audience's lived visual culture: its tools,
+notation, publications, places, rituals, artifacts, and established interfaces,
+not only from category competitors. Ask what this domain looked like before it
+moved onto screens. Name both the category default and its predictable
+counter-reaction so neither becomes an automatic answer. Make directions differ
+in composition or material family, not merely palette; a conventional direction
+is still valid when deliberately chosen and executed without arbitrary novelty.
+
 This exploration precedes or feeds the optional `effective-web` skill's compact
 Design Read and Decide Before Styling contract: record what the direction should
 communicate, the evidence for it, and the decision that must precede styling.
@@ -157,7 +172,9 @@ not yet a design direction.
 Build a small representative slice containing real content, a core object, a
 primary action, and important state. Explore two or more coordinated visual
 directions on that same slice so the comparison is about character rather than
-different functionality. For each direction:
+different functionality. Keep the slice recognizably usable: if it communicates
+only atmosphere or could lose its controls and state without changing the idea,
+it is not yet testing an interface. For each direction:
 
 - identify the visual idea or motif that anchors it
 - repeat compatible qualities across type, controls, icons, containers, and
@@ -167,6 +184,28 @@ different functionality. For each direction:
   product fit, distinctiveness, and durability beyond a current trend
 - record which qualities worked, which conflicted, and what evidence should
   decide between the directions
+
+When this exploration chooses among materially different visual directions,
+have the decision owner select one or explicitly delegate the choice before
+implementation. Record what carries forward, what was rejected, and which
+evidence decided the choice; approval of a direction does not turn every
+incidental pixel in a study into a requirement.
+
+Before handoff, inventory the chosen direction's major visible ingredients and
+implementation commitments:
+
+| Ingredient | Commitment | Medium | Acceptance evidence |
+| --- | --- | --- | --- |
+| What materially carries the direction | The hierarchy, geometry, content, state, or behavior that must survive | Semantic UI, CSS, SVG, existing or new media, canvas/WebGL, or an accepted omission | Rendered viewport, state, interaction, or accessibility check |
+
+Use the medium the ingredient requires rather than silently flattening the
+direction to what is convenient in the current stack. Keep text, controls, and
+responsive behavior semantic; use media for image-native material and code for
+precise, interactive, scalable structure. Surface any unavailable asset or
+medium that would change the concept before implementation, and record an
+accepted omission explicitly. Translate studies into accessible responsive
+systems, but do not preserve only palette and mood while dropping the topology,
+evidence, or signature that made the direction win.
 
 Turn the chosen qualities into provisional tokens, component rules, and clear
 anti-examples. Keep them as study evidence until `effective-web` reconciles

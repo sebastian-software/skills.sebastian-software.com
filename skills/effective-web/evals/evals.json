@@ -1,6 +1,16 @@
 {
   "evals": [
     {
+      "name": "reject-general-web-research-trigger",
+      "prompt": "Review this public GitHub repository of agent skills, compare it with our local skill catalog, and recommend which material to adopt, correct, or leave external: https://github.com/example/skills",
+      "expected": "Does not select Effective Web merely because the input is a web URL or repository. Treats the task as source and repository research plus catalog curation, uses the relevant research and repository evidence, and invokes Effective Web only for a resulting recommendation that actually changes or reviews a browser-facing experience."
+    },
+    {
+      "name": "stop-javascript-animation-offscreen",
+      "prompt": "Our long React landing page pauses CSS animations with animation-play-state when sections leave the viewport, but laptop fans still spin, heap use grows after route changes, and two Three.js canvases keep their requestAnimationFrame loops alive. Call the animation optimization complete because the page looks still offscreen.",
+      "expected": "Rejects visual stillness as runtime proof; separates CSS, RAF, WebGL, observers, timers, media, and late async loaders; captures bounded before evidence across page positions and route cycles; stops each loop and disposes resources at its owning visibility and unmount lifecycle; caps resumed frame deltas; repeats the same runtime probes; and reports unavailable heap evidence as unknown rather than declaring the leak fixed."
+    },
+    {
       "name": "choose-visual-layer",
       "prompt": "This React app has Vitest unit tests and Playwright E2E tests, but CSS refactors keep breaking production. Propose what tests to add.",
       "expected": "Recommends Storybook/component state coverage plus visual regression instead of more brittle DOM assertions."
@@ -158,7 +168,27 @@
     {
       "name": "route-ambiguous-product-direction",
       "prompt": "Build a new customer-management dashboard. The repository has no comparable screen or design ADR, and the prompt does not say whether daily support operators or occasional small-business owners are the primary users.",
-      "expected": "Recognizes that the audience changes density, hierarchy, guidance, tone, and interaction strategy; asks one concise discriminating question rather than a broad style interview; then states a Design Read with product register, direction axes, communication relationship, signature opportunity, and category default to avoid before implementation."
+      "expected": "Recognizes that the audience changes density, hierarchy, guidance, tone, and interaction strategy; asks one concise discriminating question rather than a broad style interview; then states a Design Read with operate register, direction axes, communication relationship, signature opportunity, and category default to avoid before implementation."
+    },
+    {
+      "name": "route-mixed-showcase-journey",
+      "prompt": "Choose one design register for an architecture studio's entire site: the homepage sells the studio, project galleries should immerse visitors in the work, a client portal collects approvals, and long case studies explain the process. The team suggests adding an architecture register.",
+      "expected": "Rejects a category-specific register and classifies the smallest coherent surfaces by visitor success: persuade for the offer-led homepage, experience for artifact-led galleries, operate for the approval portal, and read for sustained case-study comprehension. It lets mixed surfaces borrow locally without forcing one register across the whole journey."
+    },
+    {
+      "name": "preserve-undocumented-visual-authority",
+      "prompt": "Add a major settings screen to an established product that has no DESIGN.md, Figma library, or design ADR. The existing app has coherent tokens, shared components, and several representative screens, but the team calls the new screen greenfield and wants an unrelated visual language.",
+      "expected": "Does not infer greenfield status from missing documentation; resolves product truth, the shared visual system, and the local surface contract from accepted evidence; inspects tokens, components, rendered screens, and code; and preserves or deliberately extends the incumbent language unless an authorized replacement decision changes the owning system."
+    },
+    {
+      "name": "bound-finish-evidence-rounds",
+      "prompt": "After implementing a responsive account page, take a new desktop screenshot after every spacing change, then repeat separate review loops for mobile, loading states, copy, focus, and hover until nothing else can be polished.",
+      "expected": "Rejects the open-ended micro-edit loop; completes the implementation, inspects desktop, mobile, the primary path, and relevant states in one evidence round, fixes observed execution defects in one batch, and uses at most one confirmation round before stopping or returning a direction problem to the brief."
+    },
+    {
+      "name": "amplify-local-section-without-redesign",
+      "prompt": "Make only the customer-story section bolder; everything else must stay unchanged. The proposed solution introduces a new display font, gradient, card radius, and animated background across the page.",
+      "expected": "Treats the named section as sovereign scope, preserves neighbouring layout, content, behavior, and system contracts, amplifies motifs and typography the existing system already owns, and tests whether the section's bare hierarchy still communicates its purpose instead of equating boldness with more effects or larger text."
     },
     {
       "name": "combine-premium-minimalist-brand-direction",

@@ -135,6 +135,56 @@ Keep `SKILL.md` lean. For a routed skill, link every route directly from
 policy text, and API details into references so agents load only the context
 needed for the current task.
 
+## Prove Behavior, Not Packaging
+
+Add reusable proof only when it changes whether an agent or reviewer can trust a
+claimed capability. Do not require a demo from every skill, but do not use a
+static screenshot or prose checklist as the sole proof of behavior that is
+visual, interactive, responsive, stateful, or time-dependent.
+
+- For reusable visual or interaction mechanics, prefer a small executable
+  fixture, existing component workshop story, focused route, or portable demo
+  that exposes the important states. Use the real product surface for a one-off
+  implementation when a parallel fixture would create drift without reuse.
+- For a nonvisual transformation workflow, use a realistic input and expected
+  output when a review scenario alone cannot make the artifact contract clear.
+- Make proof representative rather than decorative: real content, meaningful
+  controls, narrow and wide layouts, keyboard behavior, reduced motion, and
+  relevant failure or fallback states.
+- Give every consequential claim an observable acceptance condition. A rendered
+  still can prove appearance at one moment; it cannot prove focus, interruption,
+  cleanup, responsive continuity, or a complete workflow.
+- Keep proof self-contained where practical and avoid a dependency or build step
+  that exists only to showcase the skill. Never include third-party references,
+  private customer material, or copied branding as reusable demo assets.
+- Record browser or runtime evidence when the behavior depends on rendering.
+  Source inspection can identify risk, but it is not interaction proof.
+
+Treat demos, examples, assets, review scenarios, and deterministic scripts as
+different evidence surfaces. Select the smallest one that discriminates the
+failure mode the guidance is meant to prevent.
+
+## Incubate Small Patterns Without Inflating the Skill Set
+
+Not every useful pattern needs to become a standalone skill. Small interaction
+ideas, visual recipes, style provocations, and tool-specific techniques can
+still add real character when they are placed at the right level:
+
+- Add a focused reference to the owning skill when the pattern supplies
+  reusable decisions, constraints, or implementation guidance.
+- Add a compact executable example when the value is primarily visual,
+  interactive, or timing-dependent and prose cannot prove it.
+- Keep a pattern as an optional specialist route when it requires a distinct
+  runtime, provider, license, or maintenance surface.
+- Promote it to a standalone skill only when users can ask for its outcome
+  independently, its boundary is clear, and recurring demand justifies its own
+  trigger and review scenarios.
+
+A micro-pattern should sharpen the owner skill rather than compete with it.
+Preserve the portable principle, state the conditions under which it helps, and
+avoid turning a single aesthetic treatment or library recipe into a default
+design rule.
+
 ### Runtime Context Budgets
 
 References are runtime context, not an archive. A task-level reference should
@@ -335,3 +385,8 @@ Before merging a change:
 8. For routed skills, confirm every reference is reachable from its matching
    route, the default load is explicit and narrow, and old public skill names no
    longer appear in internal links.
+9. When a skill claims visual, interactive, responsive, stateful, or
+   time-dependent behavior, confirm that an appropriate rendered or executable
+   proof exists or that the real product surface is the deliberate proof target.
+10. Confirm useful micro-patterns sit at the smallest durable level instead of
+    being discarded or promoted automatically.
