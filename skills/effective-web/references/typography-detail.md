@@ -25,5 +25,5 @@ measure, spacing, numeric data, headings, or rich display copy.
   mode, loading fallback, and long localized strings.
 
 For punctuation and spacing rules of a specific language, route the decision to
-`locale-typography`. For editorial and display edge cases, consult the [deep
+`effective-writing`. For editorial and display edge cases, consult the [deep
 typography appendix](typography.md).

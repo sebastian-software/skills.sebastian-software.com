@@ -21,10 +21,17 @@ dalo sync
 dalo doctor
 ```
 
-Replace `effective-web` with another skill name, or select several names in one
-command. Catalog selections are pinned. New skills in the repository remain
-inactive until explicitly selected and approved. Review selected skills before
-granting the source-qualified approval.
+Replace `effective-web` with another discipline name — `effective-product`,
+`effective-engineering`, `effective-delivery`, `effective-writing`, or
+`effective-marketing` — or select several names in one command. Catalog
+selections are pinned. New skills in the repository remain inactive until
+explicitly selected and approved. Review selected skills before granting the
+source-qualified approval.
+
+If you pinned a pre-consolidation slug such as `pr-review` or
+`nonfiction-writing`, that selection still resolves to a deprecation stub for
+one release window. Re-pin it to the discipline that absorbed it using
+[MIGRATION.md](../MIGRATION.md), then drop the old selection.
 
 ## Sync and Review
 

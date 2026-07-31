@@ -10,89 +10,25 @@ description: >-
   languages without sounding like a generic technology brand.
 ---
 
-# Product Naming
+# Product Naming (superseded)
 
-Create names from a clear product strategy, then test them as real identifiers.
-Keep creative generation separate from evidence-backed screening so attractive
-ideas do not receive invented domain, linguistic, or legal certainty.
+This skill is superseded by `effective-product`. It remains installable for one
+release window so existing selections keep resolving, and it carries no
+guidance of its own.
 
-## Workflow
+Load `effective-product` and take the route that absorbed this work:
 
-1. Build the naming brief before generating candidates:
-   - product, audience, problem, promise, category, and alternatives
-   - desired character and associations
-   - geographic and language scope
-   - spoken, written, search, domain, and app-store contexts
-   - legal entity, product, or feature name
-   - hard constraints, exclusions, and decision owner
-2. If the product thesis or target user is unresolved, route that decision to
-   `product-management`; naming cannot repair unclear positioning.
-3. Choose two to four relevant name territories. Load [Name generation](references/name-generation.md)
-   for territories, sound, form, and anti-patterns.
-4. Generate a deliberately broad longlist without making availability claims.
-   Include different structures and explain the intended association in one
-   sentence each.
-5. Apply the fast filter: relevance, distinctiveness, pronunciation, spelling,
-   memorability, unwanted meaning, category confusion, and team constraints.
-6. Research only the surviving candidates. Load [Screening and verification](references/screening-and-verification.md)
-   for current domain, search, language, trademark, and handle checks.
-7. Score evidence transparently and retain three to six finalists. State
-   unknowns and required professional clearance.
-8. Test finalists with representative speakers in realistic situations: hearing
-   the name once, spelling it, recalling it later, searching for it, and using it
-   in a sentence.
-9. Recommend a top choice plus a credible fallback after the spoken-name test.
-10. Record the decision, rejected alternatives, verification date, reservation
-    actions, and conditions that would reopen the choice with `decision-records`
-    when the repository uses ADRs or another durable decision convention.
+> Product and Feature Naming (references/route-naming.md)
 
-## Operating Rules
+Every reference that lived here moved with it, unchanged.
 
-- Prefer a distinctive, human-feeling name over a generic stack of category
-  terms, technology abbreviations, or fashionable suffixes.
-- Treat pronunciation and spelling after hearing the name as hard product
-  requirements when word of mouth, sales calls, podcasts, or international use
-  matter.
-- Check the actual language set. Do not claim “works globally” from English-only
-  intuition or an AI-generated translation.
-- Keep cultural origin and intended meaning honest. Do not fabricate etymology
-  for an invented word.
-- Separate registrability, availability, and desirability. A free domain does
-  not make a name safe or strategically strong; a parked domain does not prove
-  the corresponding trademark is unavailable.
-- Never report domain, handle, company, product, or trademark status without a
-  current check and dated source. Search-result snippets alone are insufficient.
-- Describe trademark research as preliminary screening, not legal clearance.
-  Recommend qualified counsel before commercial commitment when the stakes
-  warrant it.
-- Do not purchase domains, reserve handles, file marks, or contact owners unless
-  the user explicitly authorizes that external action.
+Install the successor:
 
-## Default Deliverable
-
-For a full naming assignment, return:
-
-1. Naming brief and unresolved questions
-2. Name territories and rationale
-3. Shortlist table with pronunciation, meaning, fit, risks, and evidence status
-4. Current domain, usage, language, and preliminary trademark findings
-5. Ranked recommendation with tradeoffs, not a winner by score alone
-6. Spoken-name test and representative-user validation plan
-7. Legal, registration, and reservation next steps
+```sh
+npx skills add sebastian-software/skills.sebastian-software.com --skill effective-product
+```
 
 ## Routing Boundaries
 
-- Use `product-management` to resolve audience, product thesis, differentiation,
-  or portfolio architecture before naming.
-- Use `consultant-profile` when naming is part of an individual consultant's
-  positioning rather than a product or business identity.
-- Hand post-selection messaging and launch work to a product marketing
-  specialist; use a brand specialist only when one is available.
-- Use `web-legal-compliance` for website disclosures and jurisdiction-specific
-  launch requirements; it does not replace trademark counsel.
-- Use `originality-review` when a produced identity or campaign must be
-  compared with supplied visual and verbal references. Keep trademark
-  similarity and clearance with this skill's preliminary screening and
-  qualified counsel.
-- Use `decision-records` to preserve a durable naming choice, the rejected
-  alternatives, and conditions that would reopen it.
+- Route every request that previously landed here to `effective-product`.
+- Do not answer from this stub. It states the handoff and nothing else.

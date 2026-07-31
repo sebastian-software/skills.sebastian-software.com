@@ -1,111 +1,33 @@
 [← Sebastian Software Skills](../../README.md)
 
-# Product Marketing
+# Product Marketing — moved
 
-[![Maintained by Sebastian Software](https://img.shields.io/badge/Maintained%20by-Sebastian%20Software-0f172a.svg)](https://oss.sebastian-software.com/)
+**This skill has moved into [effective-marketing](../effective-marketing/README.md).**
 
-**Turn real product and customer evidence into a position the market can
-understand, claims it can trust, and a launch the team can learn from.**
+`product-marketing` is a deprecation stub. It stays installable for one release window so
+existing selections keep resolving, then it is removed. It contains no guidance:
+the workflow, references, and review scenarios all moved to `effective-marketing`.
 
-Product Marketing helps agents connect segmentation, category choices,
-positioning, messaging, proof, launch readiness, sales enablement, and market
-learning. It keeps product facts, market interpretation, message expression,
-and channel execution separate so confident copy cannot manufacture certainty.
+**Where it went:** Positioning and Segmentation, Messaging and Proof, Launch and Sales Enablement, and Market Learning
 
-## What It Can Deliver
+See [MIGRATION.md](../../MIGRATION.md) for the complete old-to-new mapping.
 
-- an evidence-backed segment and category recommendation
-- positioning options with alternatives, tradeoffs, and non-goals
-- a message hierarchy and claim-to-proof register
-- a launch scope, readiness review, sequence, and ownership map
-- sales discovery, narrative, demonstration, objection, and proof guidance
-- a win/loss review that includes non-decisions and selection limits
-- adoption analysis across first value, repeated value, and retained use
-- a decision loop for changing the position, message, proof, or channel
-
-## Use It When
-
-Use this skill when a product direction is stable enough to explain to a
-market, but the team still needs to decide which segment and category context
-matter, what it can truthfully claim, how to coordinate a launch, what sales
-needs, or what market response should change next.
-
-## Example Prompts
-
-```text
-Turn these interview notes, product constraints, and usage outcomes into two
-positioning options. Keep unsupported differentiation and customer language
-explicit.
-
-Audit this messaging hierarchy. Trace every outcome and comparison claim to
-product behavior and customer proof, then qualify or remove what outruns it.
-
-Plan a staged launch for this product update, including audience, readiness,
-sales enablement, proof gaps, operational owners, and stop or expand rules.
-
-Review these win, loss, no-decision, and adoption records. Tell us whether the
-evidence supports changing the segment, position, message, proof, or channel.
-```
-
-See [SKILL.md](SKILL.md) for the agent-facing workflow, evidence rules, routes,
-and handoff boundaries.
-
-## Install This Skill
+## Install the successor
 
 ```sh
-npx skills add sebastian-software/skills.sebastian-software.com --skill product-marketing
+npx skills add sebastian-software/skills.sebastian-software.com --skill effective-marketing
 ```
 
-Or follow the [DALO setup guide](../../docs/dalo.md) and select it explicitly:
+Or follow the [DALO setup guide](../../docs/dalo.md):
 
 ```sh
-dalo init
-dalo target link codex
-dalo source add-catalog sebastian https://github.com/sebastian-software/skills.sebastian-software.com.git
-dalo source select sebastian product-marketing
-dalo approve skill sebastian:product-marketing
+dalo source select sebastian effective-marketing
+dalo approve skill sebastian:effective-marketing
 dalo sync
 ```
 
-## Related Skills
-
-- [Market Research](../market-research/README.md) executes customer, buyer,
-  win/loss, market, alternative, and source research, then returns evidence and
-  limits without deciding the position or message.
-- [Product Management](../product-management/README.md) supplies the product
-  thesis, target user, scope, quality bar, release decision, and verified
-  product evidence that positioning must not invent.
-- [Pricing and Packaging](../pricing-and-packaging/README.md) owns price
-  research, value metrics, models, packages, discounts, trials, and customer
-  migrations; Product Marketing communicates approved commercial choices.
-- [Marketing Writing](../marketing-writing/README.md) turns an approved
-  audience, position, message, claim-and-proof register, offer, and action into
-  persuasive commercial copy without silently changing the strategy.
-- [Nonfiction Writing](../nonfiction-writing/README.md) turns a stable message
-  and proof brief into credible articles, thought leadership, editorial case
-  studies, and public project narratives.
-- [Social Content](../create-social-content/README.md) adapts an approved
-  position, message, launch, or proof point into non-LinkedIn and
-  multi-platform social expression.
-- [Effective Web](../effective-web/README.md) implements and verifies the
-  resulting landing pages, product pages, forms, analytics, and experiments.
-- [Originality Review](../originality-review/README.md) audits a produced
-  campaign or experience against supplied references before Product Marketing
-  corrects its claims, proof, message, or campaign brief.
-- [LinkedIn Social Selling](../linkedin-social-selling/README.md) adapts the
-  approved position and message to LinkedIn relationships, content, and
-  pipeline.
-- [Web Legal Compliance](../web-legal-compliance/README.md) scopes current
-  requirements for claims, testimonials, endorsements, direct marketing,
-  consent, tracking, disclosures, and online sales.
-
-## Scope
-
-This skill does not invent product evidence, customer quotations, market facts,
-differentiation, or certainty. It does not replace product strategy, pricing
-research, legal advice, finished editorial work, web implementation, or
-commercial copywriting, or channel-specific operation; those handoffs remain
-with the related owners.
+If you previously selected `product-marketing`, drop that selection when you add the
+successor.
 
 ## About Sebastian Software
 

@@ -1,4 +1,0 @@
-interface:
-  display_name: "Product Management"
-  short_description: "Review and make evidence-led product decisions"
-  default_prompt: "Use $product-management to review the available product evidence and produce the appropriate focused decision, audit, or learning plan."

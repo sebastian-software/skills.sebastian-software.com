@@ -160,6 +160,24 @@ def require(condition: bool, message: str, failures: list[str]) -> None:
         failures.append(message)
 
 
+def deprecated_skills() -> set[str]:
+    """Return superseded slugs that stay installable but get no site card.
+
+    Deprecation stubs carry no guidance; the site lists them in the migration
+    table on the repository side rather than in the visible inventory, so they
+    are excluded from card parity, filter counts, and the hero numbers.
+    """
+    registry = ROOT / "docs" / "deprecated-skills.json"
+    if not registry.is_file():
+        return set()
+    try:
+        payload = json.loads(registry.read_text(encoding="utf-8"))
+    except json.JSONDecodeError:
+        return set()
+    deprecated = payload.get("deprecated") if isinstance(payload, dict) else None
+    return set(deprecated) if isinstance(deprecated, dict) else set()
+
+
 def validate_skill_card_structure(parser: SiteParser, failures: list[str]) -> None:
     require(
         not parser.nested_skill_cards,
@@ -563,10 +581,16 @@ def main() -> int:
     comparisons_parser.feed(comparisons_html)
 
     skill_files = sorted((ROOT / "skills").glob("*/SKILL.md"))
-    expected_skills = sorted(path.parent.name for path in skill_files)
+    deprecated = deprecated_skills()
+    published_skills = [
+        skill_file
+        for skill_file in skill_files
+        if skill_file.parent.name not in deprecated
+    ]
+    expected_skills = sorted(path.parent.name for path in published_skills)
     reference_count = sum(
         len(list((skill_file.parent / "references").rglob("*.md")))
-        for skill_file in skill_files
+        for skill_file in published_skills
         if (skill_file.parent / "references").is_dir()
     )
     json_ld = extract_json_ld(html)

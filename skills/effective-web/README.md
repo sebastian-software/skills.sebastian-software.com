@@ -7,11 +7,23 @@
 **Give your agent one coherent standard for designing, building, reviewing, and
 improving production web experiences.**
 
-Effective Web turns broad requests like “make this interface better” into a
-routed workflow with explicit guidance for design, implementation,
-accessibility, performance, and verification. It covers marketing sites,
-content pages, web applications, dashboards, React components, and browser-based
-print output without forcing every task through one oversized prompt.
+Effective Web is one of six disciplines in this collection. It turns broad
+requests like “make this interface better” into a routed workflow with explicit
+guidance for design, implementation, accessibility, performance, and
+verification. It covers marketing sites, content pages, web applications,
+dashboards, React components, and browser-based print output without forcing
+every task through one oversized prompt.
+
+It also owns three concerns that arrive with a browser experience rather than
+inside it: turning supplied websites, screenshots, prototypes, and videos into
+an evidence-backed specification; auditing produced work against those
+references for source overlap and asset provenance; and scoping
+jurisdiction-aware web compliance from Impressum to consent and online-sales
+disclosures.
+
+It absorbed the former `reference-analysis`, `originality-review`, and
+`web-legal-compliance` skills. See [MIGRATION.md](../../MIGRATION.md) for the
+full collection mapping.
 
 ## Why Effective Web
 
@@ -19,10 +31,10 @@ Frontend quality rarely fails in only one discipline. A visually polished page
 can still have weak semantics, broken focus order, expensive loading, unclear
 states, fragile responsive behavior, or an API that makes future changes harder.
 
-Effective Web treats those concerns as one system. Its 24 routed intents across
-22 route files and 115 reference documents let an agent load the smallest useful
-guidance set, then
-check the result across the boundaries that matter before calling it done.
+Effective Web treats those concerns as one system. Its 28 routed intents across
+26 route files and 131 reference documents let an agent load the smallest useful
+guidance set, then check the result across the boundaries that matter before
+calling it done.
 
 ## What It Covers
 
@@ -34,6 +46,7 @@ check the result across the boundaries that matter before calling it done.
 | Frontend engineering | CSS architecture, browser support, React architecture, component APIs, rendering boundaries, interoperability, and frontend testing |
 | Discovery and speed | Frontend SEO, structured data, AI search visibility, Core Web Vitals, resource loading, images, caching, and perceived performance |
 | Visual systems | SVG icons, illustrations, paths, animation, noise, grain, organic textures, print stylesheets, paged media, and web-to-print |
+| References and risk | Reference capture and specification, originality and provenance audits, and jurisdiction-aware compliance for the EU/EEA, UK, Canada, and the United States |
 
 ## Use It For
 
@@ -100,35 +113,26 @@ dalo sync
 See the collection's [installation guide](../../README.md#installation) for the
 complete setup and the difference between selective catalogs and team sources.
 
-## Related Skills
+## Related Disciplines
 
-- [Effective Workflow](../effective-workflow/README.md) coordinates wider
-  repository work and hands browser-facing design, implementation, and
-  verification to this skill.
-- [Product Management](../product-management/README.md) establishes the product
-  outcome, scope, and quality bar before interface implementation.
-- [Product Design](../product-design/README.md) shapes evidence into a problem
-  model, interaction system, structure, and prototype before implementation.
-- [Reference Analysis](../reference-analysis/README.md) converts supplied
-  websites, HTML, screenshots, prototypes, and videos into traceable
-  specifications before implementation.
-- [Originality Review](../originality-review/README.md) checks the produced
-  experience against its references for source overlap and provenance risk.
-- [Marketing Writing](../marketing-writing/README.md) owns persuasive
+- [Effective Product](../effective-product/README.md) establishes the product
+  outcome, scope, and quality bar, shapes evidence into a problem model,
+  interaction system, structure, and prototype before implementation, and
+  preserves durable design and architecture choices as decision records.
+- [Effective Marketing](../effective-marketing/README.md) owns persuasive
   homepage, landing-page, product, service, pricing, sales, launch, and campaign
-  prose before this skill implements and verifies the experience.
-- [Nonfiction Writing](../nonfiction-writing/README.md) owns articles,
-  explainers, editorial case studies, thought leadership, and public project
-  prose before this skill implements and verifies the browser experience.
-- [Locale Typography](../locale-typography/README.md) handles locale-specific
-  punctuation, spacing, quotations, numbers, dates, and visible prose.
-- [Web Legal Compliance](../web-legal-compliance/README.md) establishes legal,
-  privacy, disclosure, and consent requirements before frontend implementation.
-- [Decision Records](../decision-records/README.md) preserves durable design and
-  architecture choices that should survive future sessions and contributors.
-- [Software Validation](../software-validation/README.md) runs existing
-  repository-native quality gates when execution and reporting, rather than
-  frontend evidence design, is the requested outcome.
+  prose, plus funnel diagnosis and experiment design, before this discipline
+  implements and verifies the experience.
+- [Effective Writing](../effective-writing/README.md) owns articles, explainers,
+  editorial case studies, thought leadership, and public project prose, and
+  handles locale-specific punctuation, spacing, quotations, numbers, and dates
+  in visible prose.
+- [Effective Delivery](../effective-delivery/README.md) coordinates wider
+  repository work, runs the repository's existing quality gates, reviews the
+  resulting pull requests, and owns technical documentation.
+- [Effective Engineering](../effective-engineering/README.md) owns system
+  architecture, data models, and non-frontend TypeScript and Rust depth behind
+  the browser experience.
 
 ## Scope
 

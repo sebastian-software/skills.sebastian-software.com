@@ -1,97 +1,33 @@
 [← Sebastian Software Skills](../../README.md)
 
-# LinkedIn Posts
+# LinkedIn Posts — moved
 
-[![Maintained by Sebastian Software](https://img.shields.io/badge/Maintained%20by-Sebastian%20Software-0f172a.svg)](https://oss.sebastian-software.com/)
+**This skill has moved into [effective-marketing](../effective-marketing/README.md).**
 
-**Find worthwhile LinkedIn ideas and turn them into specific, readable posts
-for a defined audience, voice, and goal.**
+`linkedin-posts` is a deprecation stub. It stays installable for one release window so
+existing selections keep resolving, then it is removed. It contains no guidance:
+the workflow, references, and review scenarios all moved to `effective-marketing`.
 
-LinkedIn Posts helps agents brainstorm, plan, and write professional content
-without defaulting to generic hooks, recycled engagement formulas, or an
-emoji-heavy imitation of “LinkedIn voice.” Its idea library contains 86 prompts
-across 10 categories, loaded selectively for the current topic.
+**Where it went:** LinkedIn Posts (references/route-linkedin-posts.md)
 
-## What It Can Deliver
+See [MIGRATION.md](../../MIGRATION.md) for the complete old-to-new mapping.
 
-- focused post ideas for a topic, audience, or goal
-- content pillars and balanced content mixes
-- practical editorial calendars
-- text posts, document/carousel concepts, polls, videos, and infographics
-- hook and structure alternatives
-- a finished post plus optional engagement and visual suggestions
-- adaptations to an established personal or company voice
-- technical posts that preserve verified behavior, terminology, and constraints
-
-## Idea Coverage
-
-The bundled idea library spans company and project updates, education,
-engagement, industry insights, careers, networking, personal stories,
-professional development, recognition, and tools. Prompts are neutral topic
-cues to develop into original, evidence-led posts.
-
-## Example Prompts
-
-```text
-Give me ten LinkedIn post ideas about lessons from modernizing a legacy
-frontend. Avoid generic hot takes.
-
-Turn these rough notes into a concise post for engineering leaders in my normal
-voice.
-
-Create a six-week content calendar that balances expertise, project evidence,
-professional perspective, and conversation starters.
-
-Rewrite this draft with a stronger opening and clearer rhythm without adding
-fake vulnerability, invented results, or engagement bait.
-```
-
-See [SKILL.md](SKILL.md) for the idea routes, discovery questions, writing
-principles, formats, cadence, and output structure.
-
-## Install This Skill
+## Install the successor
 
 ```sh
-npx skills add sebastian-software/skills.sebastian-software.com --skill linkedin-posts
+npx skills add sebastian-software/skills.sebastian-software.com --skill effective-marketing
 ```
 
-Or follow the [DALO setup guide](../../docs/dalo.md) and select it explicitly:
+Or follow the [DALO setup guide](../../docs/dalo.md):
 
 ```sh
-dalo init
-dalo target link codex
-dalo source add-catalog sebastian https://github.com/sebastian-software/skills.sebastian-software.com.git
-dalo source select sebastian linkedin-posts
-dalo approve skill sebastian:linkedin-posts
+dalo source select sebastian effective-marketing
+dalo approve skill sebastian:effective-marketing
 dalo sync
 ```
 
-## Related Skills
-
-- [Social Content](../create-social-content/README.md) owns non-LinkedIn,
-  platform-unspecified, and multi-platform social work; LinkedIn Posts composes
-  the LinkedIn version from its shared idea, evidence, and voice brief.
-- [LinkedIn Social Selling](../linkedin-social-selling/README.md) establishes
-  the target buyer, offer, profile, network, funnel, and commercial context;
-  LinkedIn Posts consumes that brief without duplicating the strategy.
-- [Consultant Profile](../consultant-profile/README.md) supplies credible
-  positioning, project evidence, and professional narrative.
-- [Tech Docs](../tech-docs/README.md) verifies repository-derived technical
-  behavior, terminology, examples, and controlled-language requirements before
-  they are adapted to a post.
-- [Nonfiction Writing](../nonfiction-writing/README.md) owns standalone
-  long-form technical articles that can later be introduced on LinkedIn.
-- [Metro English](../metro-english/README.md) adapts drafts to a more natural,
-  relaxed US professional voice where appropriate.
-- [Decision Records](../decision-records/README.md) preserves durable audience,
-  voice, terminology, claim, and channel decisions.
-
-## Scope
-
-The skill writes LinkedIn content; it does not invent personal experiences,
-customer evidence, outcomes, opinions, or a commercial strategy that has not
-been established. End-to-end acquisition work belongs in LinkedIn Social
-Selling.
+If you previously selected `linkedin-posts`, drop that selection when you add the
+successor.
 
 ## About Sebastian Software
 

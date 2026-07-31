@@ -7,7 +7,7 @@ values at one level.
 
 If no direction has been accepted yet and the task needs competing experience
 concepts rather than a compact implementation brief, use the visual-character
-exploration in the `product-design` skill's structure-and-prototyping reference
+exploration in the `effective-product` skill's structure-and-prototyping reference
 (when that skill is installed) first. Translate the chosen evidence and
 qualities into the Design Read below; do not invent a separate browser-only
 direction.
@@ -177,7 +177,7 @@ Examples:
 
 Read accepted ADRs before selecting a new direction. When a project establishes
 or changes a durable register, audience relationship, direction, density,
-motion, depth, or cross-channel communication choice, use `decision-records` to
+motion, depth, or cross-channel communication choice, use `effective-product` to
 record the rationale, rejected options, consequences, and review triggers.
 
 Keep exact colours, spacing, radii, durations, component props, phrase libraries,

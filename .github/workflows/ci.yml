@@ -25,6 +25,9 @@ jobs:
       - name: Validate static website
         run: python3 scripts/validate-site.py
 
+      - name: Validate the cross-discipline routing contract
+        run: python3 scripts/validate-activation-matrix.py
+
       - name: Run script tests
         run: python3 -m unittest discover -s scripts/tests -p 'test_*.py'
 

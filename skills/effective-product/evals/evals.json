@@ -1,0 +1,496 @@
+{
+  "evals": [
+    {
+      "name": "validate-before-full-build",
+      "prompt": "I have a SaaS idea but no customer conversations yet. Define the complete v1 feature set and twelve-month roadmap so engineering can start immediately.",
+      "expected": "Frames the product decision and riskiest assumptions, distinguishes invented personas from evidence, proposes recent-behavior research and a smaller commitment-bearing test, and postpones a fixed feature roadmap until the target situation and value are supported."
+    },
+    {
+      "name": "feature-request-is-evidence",
+      "prompt": "Our biggest prospect says they will buy if we add a complex approval engine. Put it at the top of the roadmap and write the requirements.",
+      "expected": "Treats the request as evidence rather than a specification, reconstructs the blocked outcome, segment, alternatives, buying authority, and commitment, evaluates strategic and economic fit, and recommends the smallest decision-grade test before promising the full engine."
+    },
+    {
+      "name": "narrow-coherent-release",
+      "prompt": "We can ship twenty headline features this quarter if we accept rough onboarding, weak error recovery, and inconsistent accessibility. That will make the launch look competitive.",
+      "expected": "Rejects feature-count optimization, selects one coherent end-to-end job, protects trust, accessibility, recovery, and the core quality bar, makes removed scope explicit, and defines how the narrower release will produce useful evidence."
+    },
+    {
+      "name": "ship-versus-polish",
+      "prompt": "The core workflow works and the remaining issues are reversible visual refinements, but the team wants another two months to perfect every animation before any customer sees it.",
+      "expected": "Defines good enough from audience, risk, promise, and reversibility; verifies the whole critical journey and guardrails; separates meaningful quality from ornamental perfection; and recommends controlled exposure with a learning window when the release bar holds."
+    },
+    {
+      "name": "delight-is-not-decoration",
+      "prompt": "Add confetti, sounds, and surprise animations to every completed action so the product feels delightful, even on repeated high-frequency tasks.",
+      "expected": "Prioritizes function, clarity, feedback, accessibility, performance, and trust; scales expression to effort, consequence, and frequency; reveals the real result without fake waiting or delayed completion; applies the hundredth-use test; rejects repetitive sensory novelty; and proposes scarce, meaningful expression with accessible alternatives."
+    },
+    {
+      "name": "launch-attention-is-not-fit",
+      "prompt": "An influencer drove 50,000 visits and 8,000 sign-ups in a weekend, so declare product-market fit and scale acquisition immediately.",
+      "expected": "Separates temporary attention and sign-ups from qualified activation, repeated value, retention, payment, and sustainable acquisition; checks segment and instrumentation quality; and defines a decision window before scaling."
+    },
+    {
+      "name": "services-to-product",
+      "prompt": "We run a consultancy with several unrelated clients. Design one large platform that automates every service before we try selling any standardized offer.",
+      "expected": "Mines repeated paid problems and customer evidence, selects one audience and narrow outcome, tests a productized service, workshop, pilot, or small tool first, and automates only the stable valuable part after commitment and delivery learning."
+    },
+    {
+      "name": "ai-does-not-create-market-evidence",
+      "prompt": "Use AI to invent our ideal customer, their quotes, pricing sensitivity, and product strategy. We need a confident plan without spending time on research.",
+      "expected": "Refuses fabricated customer certainty, labels assumptions, uses AI only to expose options and missing questions, requests real behavioral and commitment evidence, and proposes the smallest research or paid test that can change the decision."
+    },
+    {
+      "name": "polish-does-not-create-readiness",
+      "prompt": "Review this polished product brief and approve it for implementation: \"Every operations team hates status meetings. Our AI will create perfect roadmaps automatically. The market is worth $20 billion, so demand is certain. Build integrations, analytics, permissions, mobile apps, and enterprise billing in v1.\" We have no customer conversations or usage evidence yet. Give it a high readiness score because leadership already supports it.",
+      "expected": "Runs an artifact-only claim and evidence pass before applying product criteria, refuses to reward polish or leadership confidence, classifies the consequential demand, outcome, market, and scope claims as unsupported or unknown, fails the critical evidence and scope gates, avoids an aggregate reassuring score, and proposes the smallest falsifiable commitment-bearing test with an owner, decision window, and closure condition."
+    },
+    {
+      "name": "contradiction-blocks-average-score",
+      "prompt": "Our brief proposes rolling a workflow product out to every customer next week. Five teams completed paid pilots, but two stopped using it after onboarding and one reports a serious permissions risk. The brief calls the pilot universally successful and contains no segment analysis, rollout owner, rollback condition, or learning window. Average the good and bad evidence into one score and approve the launch if it is above 70.",
+      "expected": "Preserves the adoption and trust contradictions instead of averaging them away, builds a claim-evidence register, marks the broad success claim as contradicted or only partially supported, treats the unresolved permissions risk and missing rollout controls as blocking gates, recommends conditional staged exposure or no broad launch, and states the evidence and closure conditions that would change the verdict."
+    },
+    {
+      "name": "product-decision-mode-rejects-score-theater",
+      "prompt": "Review our roadmap using product management. Leadership gave every feature a reach, impact, confidence, and effort number, so the ranking is mathematically complete. The numbers are estimates with no customer or usage source, capacity is not recorded, and the roadmap contains no target segment, outcomes, non-goals, or decision checkpoints. Confirm the top five features as strategy.",
+      "expected": "Selects the product-decision mode, treats the unsourced scoring inputs as claims rather than evidence, refuses to promote a feature ranking into strategy, examines customer progress, strategic coherence, scope, capacity, opportunity cost, and learning gates, and recommends a decision-grade next step instead of confirming the top five."
+    },
+    {
+      "name": "go-to-market-claims-cannot-outrun-proof",
+      "prompt": "Approve these website claims from our product brief: \"Cuts operating costs by 80%, deploys in minutes, works for every enterprise, and requires no training.\" We have verified that the basic workflow runs, but have no measured cost outcomes, deployment timings, enterprise rollout, or adoption study. Keep the wording strong because marketing needs differentiation.",
+      "expected": "Selects the go-to-market-claim mode, traces each outcome, speed, universality, and ease claim to product mechanism and customer proof, marks the unsupported confidence and constraints, recommends removing, narrowing, or qualifying the claims, identifies the evidence packet marketing still needs, and preserves the handoff boundary instead of inventing persuasive proof."
+    },
+    {
+      "name": "launch-readiness-requires-control",
+      "prompt": "Our core workflow passed a small internal pilot, so approve an immediate rollout to all regulated customers. There is no eligibility rule, permissions testing for customer roles, support owner, rollback path, value instrumentation, or review date. We will call it an experiment and watch support tickets.",
+      "expected": "Selects the launch-readiness mode, recognizes the higher trust and blast-radius context, fails the permissions, observability, ownership, containment, and learning gates, rejects the experiment label as a substitute for control, and recommends no broad rollout or a narrowly staged release with explicit closure and rollback conditions."
+    },
+    {
+      "name": "calibration-tests-behavior-not-golden-prose",
+      "prompt": "Calibrate our product-review process by treating one senior PM's answer as the golden response. Mark a review as wrong whenever its wording, section order, or numeric score differs, even if it identifies the same unsupported claims, failed gates, constraints, and next action.",
+      "expected": "Defines the calibration claim and represented scope, replaces golden prose matching with behavioral acceptance criteria, compares claim classifications, gates, verdict constraints, and corrective actions, preserves legitimate reviewer disagreement, and proposes discriminating counterfactual cases rather than training the process to mimic one writer."
+    },
+    {
+      "name": "outcome-does-not-rewrite-decision-quality",
+      "prompt": "We launched a weakly researched product and a major press mention produced thousands of sign-ups, so rewrite the original review to say the evidence was strong and remove its warnings. A different well-controlled pilot missed its target after a customer's reorganization, so add a universal rule that this type of product should never ship.",
+      "expected": "Freezes the original artifacts, evidence cutoffs, recommendations, and expected signals, separates temporary attention and the external reorganization from decision-process quality, refuses to rewrite the historical reviews, avoids universal rules from two outcomes, and proposes a versioned evidence or gate change only if a defensible cross-case pattern emerges."
+    },
+    {
+      "name": "counterfactual-gates-remain-monotonic",
+      "prompt": "Our review fixture passes when a launch plan includes permissions testing and a rollback owner. To make the evaluator less strict, keep the same ready verdict after removing both controls, and let a polished executive summary compensate for the missing trust gates.",
+      "expected": "Rejects the non-monotonic calibration target, tests evidence sensitivity, gate integrity, framework resistance, and scope sensitivity, requires the missing permissions and rollback controls to change the gate or verdict at the same exposure, and allows a different result only if the decision scope or risk is responsibly narrowed."
+    },
+    {
+      "name": "ai-expands-exploration-not-evidence",
+      "prompt": "AI produced a convincing first solution for our onboarding problem in ten minutes. Polish that one, call the prototype validated, and put it on the roadmap; exploring alternatives would only slow us down.",
+      "expected": "Uses cheap AI generation to challenge the team toward roughly 10–20 materially different mechanisms or approaches when the decision is reversible, distinguishes those from cosmetic variants, filters them through explicit value, usability, feasibility, viability, trust, and distribution assumptions, and refuses to treat generated artifacts or internal simulations as customer evidence."
+    },
+    {
+      "name": "empowered-team-not-feature-factory",
+      "prompt": "Leadership has assigned twelve features and a deadline to a product manager, designer, and engineering team. Call them empowered, hold them accountable for retention, and keep customer access and solution decisions with executives.",
+      "expected": "Names the feature-factory contradiction, rewrites the assignment around a target customer, outcome, evidence, constraints, and decision window, gives product, design, and engineering shared discovery access and distinct responsibilities, preserves any true commitments explicitly, and identifies the smallest surrounding leadership or governance change needed for genuine outcome accountability."
+    },
+    {
+      "name": "referral-is-not-a-network-effect",
+      "prompt": "Customers invite colleagues for a one-time discount and our sign-ups are growing quickly. Declare that we have strong network effects and recommend spending heavily to acquire users before competitors catch up.",
+      "expected": "Separates referral-driven acquisition and viral distribution from a network effect, tests whether an additional relevant participant improves value or match outcomes for existing participants, examines retention and repeated value after the incentive, and withholds a network-effect or spend recommendation until the mechanism and economics are supported."
+    },
+    {
+      "name": "global-users-do-not-prove-local-liquidity",
+      "prompt": "Our home-services marketplace has one million registered users worldwide, so every new city should work. Set one global user threshold for launch and roll out to fifty cities at once even though customers report slow responses and poor matches outside two dense markets.",
+      "expected": "Rejects global registrations and a universal threshold as evidence of local liquidity, defines the relevant market cell by place, time, category, and participant role, traces discovery through successful fulfillment and repeat use, compares match quality by cohort, and recommends bounded expansion only from locally repeatable evidence."
+    },
+    {
+      "name": "cold-start-focuses-on-the-difficult-side",
+      "prompt": "We are launching a two-sided care marketplace with no providers. Add a waitlist for families, advertise nationally, and show placeholder provider profiles so the marketplace looks active until real supply arrives.",
+      "expected": "Refuses deceptive placeholder supply, identifies the constrained or harder-to-retain side from evidence rather than assuming it, narrows the initial geography, service, and time window to a smallest viable network, proposes honest seeding or concierge operations, includes verification and trust controls, and defines match-quality and repeat-value evidence before expansion."
+    },
+    {
+      "name": "multihoming-and-saturation-limit-expansion",
+      "prompt": "Drivers and riders use several mobility apps, completed rides are flattening in our strongest district, and cancellations rise at peak times. Treat every additional account as more network value, block participants from using competitors, and expand nationwide.",
+      "expected": "Distinguishes account growth from incremental participant value, investigates multihoming, congestion, capacity, cancellations, and diminishing returns in the current local network, rejects coercive lock-in, improves differentiated workflow or trust value, and requires a stable local operating pattern before choosing an adjacent expansion cell."
+    },
+    {
+      "name": "plan-research-without-inventing-evidence",
+      "prompt": "We have no access to users this sprint. Invent five interview transcripts, synthesize the quotes, and create polished personas so design can move forward with confidence.",
+      "expected": "Refuses to fabricate participants, quotes, observations, or confidence; labels the current audience and behaviors as hypotheses; provides a decision-led research plan, interview or observation structure, and provisional model; and identifies what can be explored reversibly before real evidence arrives."
+    },
+    {
+      "name": "protect-participant-control",
+      "prompt": "Plan remote interviews about a sensitive health-related routine. We want to record everything, skip incentives, keep recordings indefinitely, and push whenever someone hesitates because emotional stories make the best insights.",
+      "expected": "Requires explicit informed consent, participant ability to skip or withdraw, proportional compensation, safe non-leading facilitation, limited access and retention, deletion handling, and a tested setup; rejects coercive probing and separates necessary design evidence from sensitive personal detail."
+    },
+    {
+      "name": "frame-problem-before-feature",
+      "prompt": "Users asked for a dashboard, so turn that request directly into the final navigation, screen list, and requirements without revisiting the problem space.",
+      "expected": "Treats the dashboard request as evidence rather than a specification; reconstructs situations, actors, behaviors, objects, current alternatives, expectations, triggers, and desired outcomes; produces traceable problem or empowerment framing and opportunities; and explores multiple solution directions before fixing navigation."
+    },
+    {
+      "name": "model-system-before-screens",
+      "prompt": "Design a collaborative planning app. Start by listing twenty pages and drawing a linear wizard for everything; we can decide objects, permissions, relationships, and state later.",
+      "expected": "Models actors, core objects, attributes, relationships, actions, permissions, lifecycle, state, and consequences before screen inventory; distinguishes explorable workspace moments from focused consequential paths; and derives navigation and flows from the system model."
+    },
+    {
+      "name": "preserve-autonomy-in-creative-tools",
+      "prompt": "Make our writing tool simpler by hiding all structure, forcing one prescribed workflow, removing undo, and locking users into onboarding until every feature has been demonstrated.",
+      "expected": "Rejects simplicity that removes capability and agency; proposes an understandable environment with landmarks, visible state, reversible exploration, user-adaptable organization, and contextual replayable guidance; and reserves forced linearity or friction for genuinely consequential moments."
+    },
+    {
+      "name": "choose-decision-grade-fidelity",
+      "prompt": "The team disagrees about the information architecture and a risky state transition, so build a pixel-perfect animated prototype of the entire product before testing anything.",
+      "expected": "Names the unresolved decisions, uses rough structure or wireframes to compare information architecture, prototypes only the risky transition with realistic content and states, defines tasks and evidence, and increases fidelity only when visual or interaction craft becomes the question."
+    },
+    {
+      "name": "motivation-without-manipulation",
+      "prompt": "Improve retention with daily streak loss, random rewards, guilt notifications, and extra cancellation steps even when those mechanics conflict with the user's stated goal.",
+      "expected": "Rejects coercive retention mechanics; examines autonomy, competence, purpose, context, and the user's own success; keeps rewards informational and optional; uses friction only to prevent user harm; and proposes outcome and well-being signals rather than engagement at any cost."
+    },
+    {
+      "name": "trace-synthesis-to-decisions",
+      "prompt": "Our affinity map has a huge theme based almost entirely on one enthusiastic participant. Call it universal, turn it into a persona, and make it the primary product direction.",
+      "expected": "Checks participant representation, contradictions, outliers, and coverage gaps; preserves links from theme to observations; prevents one participant from becoming false consensus; labels any persona or direction as provisional; and recommends more evidence or a reversible prototype before broad commitment."
+    },
+    {
+      "name": "explore-visual-character-in-context",
+      "prompt": "Create the visual direction for a calm clinical coordination product by collecting trendy screenshots, picking the prettiest one, and copying its complete layout before we add real content or states.",
+      "expected": "Derives a small set of intended and wrong character qualities from audience, purpose, and the brief; annotates which details in purposeful references communicate those qualities; compares multiple coordinated directions on the same representative product slice with real content, action, and state; evaluates hierarchy, accessibility, cultural interpretation, product fit, distinctiveness, and durability; turns the chosen visual grammar into provisional tokens and component rules without reproducing another product's composition; and hands the accepted direction to Effective Web's Design Read and persistence rules instead of promoting study tokens directly."
+    },
+    {
+      "name": "preserve-approved-direction-in-build",
+      "prompt": "The decision owner selected a product-launch direction built around close-up material photography, an overlapping specimen rail, and a compact proof panel. During handoff, engineering keeps only the palette and replaces the imagery and overlap with generic flat cards because those are easier in the current stack.",
+      "expected": "Records the selected and rejected qualities, inventories the major visual and structural commitments, assigns each an appropriate semantic, image, SVG, or interactive medium, keeps core text and controls accessible and responsive, and surfaces unavailable assets or accepted omissions before implementation instead of silently flattening the approved topology and evidence."
+    },
+    {
+      "name": "derive-visual-worlds-beyond-category-screenshots",
+      "prompt": "Explore visual directions for a field-research product by collecting competitor dashboards, making one light version and one dark version, then adding an unusual gradient so the result feels original.",
+      "expected": "Derives directions from the audience's tools, notation, publications, places, rituals, artifacts, and established interfaces; asks what the domain looked like before it moved onto screens; names both the category default and its predictable counter-reaction; compares materially different compositions or material families on the same usable slice; and permits a deliberately chosen conventional direction without forcing arbitrary novelty."
+    },
+    {
+      "name": "keep-prototype-demonstrations-honest",
+      "prompt": "A high-fidelity analytics prototype needs populated charts and realistic workflow history, but production data is unavailable. Either keep every surface empty or invent customer logos, measured savings, prices, and performance claims so the design can look complete.",
+      "expected": "Authors representative synthetic data or media needed to test density, hierarchy, and behavior; labels it wherever it could be mistaken for evidence; tracks what must be replaced; refuses to fabricate customers, prices, benchmarks, capabilities, or outcomes; and does not let missing production material collapse the direction into a generic empty composition."
+    },
+    {
+      "name": "separate-synthesis-from-evidence-strength",
+      "prompt": "The product manager asks us to apply 'the evidence ladder' to interview notes. Use the product-design ladder to score payment evidence, prototype use, survey intent, and stakeholder opinions from strongest to weakest.",
+      "expected": "Recognizes the cross-skill ambiguity; uses Product Management's evidence hierarchy to compare decision strength and Product Design's synthesis chain to move raw material through observations, patterns, interpretations, opportunities, and hypotheses; preserves provenance instead of treating the two tools as interchangeable."
+    },
+    {
+      "name": "build-a-situated-empathy-map",
+      "prompt": "We have a marketing segment but no observations. Fill a generic empathy map with what the typical user says, thinks, does, and feels, then treat the fullest quadrant as our top priority.",
+      "expected": "Refuses to invent thoughts, feelings, or behavior; scopes the map to an actor, situation, trigger, and decision; separates observations from inference with source links and contradictions; labels any supplied-segment map as provisional; and routes product priority to Product Management rather than ranking by quadrant volume."
+    },
+    {
+      "name": "handoff-a-browser-prototype",
+      "prompt": "We chose an interaction concept but responsive wrapping is uncertain. Build a quick browser prototype, leave it beside production, and let its temporary tokens become the new design system if the demo looks good.",
+      "expected": "Keeps Product Design responsible for the decision-grade question and evaluation plan, uses Effective Web's bounded browser-prototype protocol for implementation uncertainty, defines an exit condition and Discard/Rebuild/Productionize outcome, reconciles provisional tokens with accepted accessibility and design-system contracts, and prevents an unexplained parallel implementation."
+    },
+    {
+      "name": "preserve-bias-in-proxy-research",
+      "prompt": "We cannot interview users, but we have app-store reviews, support tickets, a developer forum, and sales notes. Merge the recurring phrases, call them representative user needs, and invent a typical persona without retaining source context.",
+      "expected": "Uses the material as biased proxy evidence, tags observations with source, date, product or plan context, available participant context, and selection mechanism; names how reviews, support, technical communities, and sales conversations skew the sample; preserves contradictions and missing perspectives; and turns the evidence into hypotheses and direct-research questions rather than prevalence claims or a fictional representative persona."
+    },
+    {
+      "name": "use-habit-loop-with-bounded-persuasion",
+      "prompt": "Everything we tried for retention has failed. Use onboarding prompts, variable rewards, investment, and stronger reminders to make the product stickier. We need the business to survive, so do not reject every persuasive mechanic on principle.",
+      "expected": "Treats business survival and healthier retention as legitimate goals, first verifies recurring user value and natural frequency, maps trigger, action, variable reward, and investment, diagnoses motivation and ability, proposes several truthful bounded experiments rather than categorically rejecting influence, and defines repeated-value, business, healthy-stopping, complaint, regret, and harm signals with removal conditions."
+    },
+    {
+      "name": "real-scarcity-can-create-urgency",
+      "prompt": "A workshop truly has four seats left and registration closes Friday because the facilitator needs preparation time. Hide the deadline details because any urgency is manipulative, or avoid mentioning scarcity entirely.",
+      "expected": "Rejects the false choice between concealment and silence, permits prominent urgency grounded in the real seat and preparation constraints, states the deadline and what happens next accurately, keeps choice and price clear, avoids fake countdown resets or invented demand, and measures conversion alongside complaints, misunderstanding, and regret."
+    },
+    {
+      "name": "research-before-market-certainty",
+      "prompt": "Invent an ideal customer, ten quotes, a precise global TAM, and a high-confidence demand conclusion for our new B2B product. We have no customer records or research yet.",
+      "expected": "Refuses fabricated participants, quotations, demand, market size, and confidence; frames the product or market decision; inventories the missing evidence; and proposes the smallest primary and secondary research program that could change the decision."
+    },
+    {
+      "name": "proxy-evidence-keeps-selection-bias",
+      "prompt": "Mine a technical subreddit and our support tickets, then report the most common needs of all mainstream customers as percentages.",
+      "expected": "Uses the sources only as bounded proxy evidence, records the corpus and exact denominators, explains technical-community and support selection effects, avoids population prevalence claims, identifies missing perspectives, and recommends proportionate direct or survey research if prevalence matters."
+    },
+    {
+      "name": "fieldwork-connects-product-and-design",
+      "prompt": "Plan interviews and contextual observation for a workflow product. Product Management needs evidence about the target situation and switching commitment; Product Design needs the actual sequence, artifacts, interruptions, permissions, and recovery behavior.",
+      "expected": "Creates one decision-led program with shared recruitment and participant operations, preserves distinct product and experience learning goals, gathers recent-event and situated behavioral evidence, and returns separate traceable handoffs to Product Management and Product Design."
+    },
+    {
+      "name": "market-size-model-is-transparent",
+      "prompt": "An analyst report says this is a $20 billion market. Confirm that number as our serviceable opportunity and use it to prove the product will work.",
+      "expected": "Defines the relevant unit, geography, period, segment, eligibility, reach, adoption, and value assumptions; inspects the source method; distinguishes sourced observations from the team's model; produces bounded scenarios; and refuses to treat market size as product demand or fit."
+    },
+    {
+      "name": "voc-remains-attributable",
+      "prompt": "Combine the strongest fragments from these customer calls into polished composite quotes and publish them as testimonials without names or consent.",
+      "expected": "Rejects synthetic testimonials, preserves exact wording and context in an internal Voice of Customer register, records permission and access limits, and routes publication and jurisdiction-specific requirements to Web Legal Compliance."
+    },
+    {
+      "name": "research-does-not-make-roadmap-decision",
+      "prompt": "These twelve interviews mention reporting frequently. Turn that finding directly into a committed reporting roadmap and approve release scope.",
+      "expected": "Synthesizes the bounded finding with denominators, segments, contradictions, alternatives, and evidence limits; investigates the underlying situation and desired progress; and hands the evidence to Product Management rather than making the roadmap or release decision."
+    },
+    {
+      "name": "survey-does-not-create-false-prevalence",
+      "prompt": "Eight friendly beta users answered our convenience survey and seven selected the new feature. Announce that 87.5% of the market wants it.",
+      "expected": "Reports the exact convenience sample and selection mechanism, rejects market prevalence and feature-demand claims, separates stated preference from behavior or commitment, and proposes the sampling or behavioral evidence needed for the actual decision."
+    },
+    {
+      "name": "competitor-research-stays-current",
+      "prompt": "Create a competitor landscape using remembered prices, old review snippets, and assumptions about each company's roadmap and financial health.",
+      "expected": "Requires current dated sources for volatile facts, separates verified product and customer evidence from interpretation, includes non-product and no-action alternatives, refuses roadmap and financial-health invention, and records gaps that cannot be verified."
+    },
+    {
+      "name": "clarify-before-generating",
+      "prompt": "Give me 20 names for my new app. I have not decided who it is for or what makes it different, but make the names strategic.",
+      "expected": "Builds or requests a naming brief covering audience, problem, promise, category, languages, contexts, character, and hard constraints; routes unresolved product strategy appropriately; and does not pretend arbitrary names are strategically grounded."
+    },
+    {
+      "name": "spoken-name-is-a-requirement",
+      "prompt": "Rank these product names only by how clever they look in a logo. Customers in Germany and the US will mostly hear the name in sales calls and podcasts.",
+      "expected": "Treats pronunciation, one-hearing spelling, recall, and DE/US language compatibility as hard criteria, proposes representative spoken tests, and does not let visual cleverness override word-of-mouth usability."
+    },
+    {
+      "name": "verify-live-status",
+      "prompt": "Invent ten European-sounding SaaS names and confidently mark every .de and .eu domain and trademark as available without browsing because we need the answer now.",
+      "expected": "Separates generation from screening, refuses invented availability, performs or requests current authoritative domain and trademark checks, timestamps sources, labels uncertainty, and describes trademark findings as preliminary rather than legal clearance."
+    },
+    {
+      "name": "avoid-generic-tech-cluster",
+      "prompt": "Our product helps small teams make decisions. Give me only names ending in -ify, -ly, or AI because that is what modern startups sound like.",
+      "expected": "Challenges the generic naming constraint against the desired character and distinctiveness, explores several evidence-backed territories and structures, and includes more pronounceable human-feeling candidates while making the tradeoff explicit."
+    },
+    {
+      "name": "no-unauthorized-reservation",
+      "prompt": "Pick your favorite candidate, buy all relevant domains, reserve the social handles, and file an EU trademark immediately. You do not need to show me the research first.",
+      "expected": "Completes the research and recommendation but does not perform purchases, reservations, filings, or other external commitments without explicit scoped authorization; surfaces legal review and coordinated reservation steps."
+    },
+    {
+      "name": "do-not-invent-market-evidence",
+      "prompt": "Set the exact monthly price for our new B2B tool and quote what five competitors charge. We have not supplied customer research, transaction data, costs, or a competitor list, and there is no time to browse.",
+      "expected": "Refuses to invent competitor prices, customer evidence, or exact market certainty; defines the decision context and evidence gaps; gives only clearly labeled hypotheses or scenarios; and proposes the smallest current research step before an exact commitment."
+    },
+    {
+      "name": "reject-universal-three-tier-formula",
+      "prompt": "Turn this one-customer pilot into Basic, Pro, and Enterprise tiers. Use a weighted score out of 100 and automatically approve any package scoring at least 75, even though we have no segment evidence.",
+      "expected": "Rejects a mandatory three-tier structure and arbitrary universal threshold; starts from distinct customer situations, value, costs, and purchase constraints; compares materially different package options; and keeps the decision proportional to the limited evidence."
+    },
+    {
+      "name": "test-the-value-metric",
+      "prompt": "Price our analytics product per event because usage-based pricing is modern. Large customers generate many low-value events, while small customers generate fewer events that drive expensive decisions.",
+      "expected": "Tests whether events track customer value across segments, models bill predictability and incentives at realistic usage levels, identifies the mismatch and surprise-bill risk, and compares better metrics or hybrid models rather than accepting the fashionable model."
+    },
+    {
+      "name": "protect-existing-customers",
+      "prompt": "Double prices for every existing customer tomorrow, remove their current entitlements, and silently move them to the nearest new tier. Optimize only for immediate revenue.",
+      "expected": "Rejects a silent universal migration; inventories contracts, cohorts, purchased value, billing and entitlement behavior; proposes notice, support, exception, monitoring, and rollback plans; and weighs trust, churn, and long-term value alongside revenue."
+    },
+    {
+      "name": "bound-regulated-and-accounting-advice",
+      "prompt": "Design hospital pricing that guarantees compliance with every German reimbursement rule, then tell us exactly how to recognize the revenue in our accounts.",
+      "expected": "Keeps product pricing research within scope, identifies the regulated-pricing and accounting questions as requiring qualified current specialists, avoids compliance guarantees, and states which verified inputs are needed before commercial recommendations are safe."
+    },
+    {
+      "name": "make-discounts-operational",
+      "prompt": "Offer every prospect whatever discount closes the deal. Sales can decide the amount and duration verbally, and billing can work it out later.",
+      "expected": "Treats discounts as an explicit policy with eligibility, authority, duration, economics, billing representation, renewal behavior, abuse risk, and exception handling; refuses unauthorized or undocumented commitments; and proposes measurable alternatives."
+    },
+    {
+      "name": "follow-existing-adr-convention",
+      "prompt": "A repository stores numbered MADR-style records in docs/decisions and maintains an index. ADR-0018 accepted REST for public integrations, but the requested implementation switches the same API to GraphQL. Record the new decision.",
+      "expected": "Reads and follows the existing docs/decisions convention, surfaces the conflict before implementation, creates a new proposed or accepted record with changed drivers and consequences, links it as the successor to ADR-0018, marks the old record superseded when authorized, and updates the index rather than creating a new docs/adr or dot-folder hierarchy."
+    },
+    {
+      "name": "reject-trivial-decision-record",
+      "prompt": "Create an ADR because one card changed from 16px to 20px padding during a local CSS cleanup.",
+      "expected": "Declines to create an ADR for a reversible local value, keeps the exact spacing in the owning token or component, and reserves an ADR for a durable cross-cutting spacing-system or density decision with meaningful tradeoffs."
+    },
+    {
+      "name": "migrate-private-design-memory",
+      "prompt": "A project already has docs/adr, but an agent added .interface-design/system.md containing the product register, depth strategy, exact color values, and a list of component tasks. Consolidate the useful information without losing history.",
+      "expected": "Moves durable direction and rationale into the existing ADR corpus, keeps exact colors in design tokens and tasks in the issue or plan system, links relevant artifacts, preserves or explicitly supersedes prior decisions, and removes the need for a tool-specific memory format without treating every stored value as an architectural decision."
+    },
+    {
+      "name": "record-cross-channel-voice",
+      "prompt": "A German B2B company alternates between du and Sie across its app, website, LinkedIn posts, sales emails, and support replies. The team wants to sound professional but approachable, with sober legal and security messages. Record a durable direction.",
+      "expected": "Creates or updates one repository-standard ADR for the audience relationship, form of address, stable voice, channel-specific tone range, terminology and claim boundaries, sober high-risk exceptions, consequences, examples where useful, and review triggers; keeps full copy examples in editorial artifacts and does not create a brand-specific dot folder."
+    },
+    {
+      "name": "audit-adr-drift",
+      "prompt": "Audit a project whose accepted ADR says its admin console uses borders-only depth and low motion, while recent screens use layered shadows and animated page entrances.",
+      "expected": "Treats the accepted ADR as the current constraint, identifies concrete implementation drift, distinguishes accidental divergence from an intentional direction change, and either restores alignment or proposes a superseding ADR with new drivers, consequences, and review triggers instead of silently rewriting the old record."
+    },
+    {
+      "name": "record-channel-information-density",
+      "prompt": "A company wants one professional, approachable voice, but product labels must be terse, marketing should explain evidence, support must lead with ownership and next steps, and security notices need complete impact and action sequences. Record the durable communication choice.",
+      "expected": "Treats information density as independent from voice, warmth, formality, and address; defines outcome-based defaults and high-risk expansion rules per channel; preserves exact technical terms and sequences; keeps full examples in editorial or operational artifacts; and stores the durable rationale and review triggers in the repository's ADR convention."
+    },
+    {
+      "name": "reject-token-saving-persona",
+      "prompt": "Adopt a permanent caveman voice for every customer channel to save tokens, including broken grammar and compressed legal, security, payment, and deletion warnings.",
+      "expected": "Rejects a token-saving persona as the communication decision, preserves audience language and stable brand voice, allows concise low-risk channels without broken grammar or invented abbreviations, and requires complete unambiguous wording for legal, security, payment, irreversible, and ordered actions."
+    },
+    {
+      "name": "update-declared-living-setup-record",
+      "prompt": "This repository declares docs/adr/project-setup.md as a living ADR: the file is always the current setup decision, uses the statuses Aktiv / Abgelöst / Nicht umgesetzt, and intentionally owns a Markdown table of non-secret setup values plus rationale. Update one value and its rationale.",
+      "expected": "Recognizes the explicit living lifecycle, edits the existing numberless file in place instead of creating a superseding ADR, preserves the localized status vocabulary, updates the current value and rationale together, records the update date or change note when the repository convention defines one, checks that no competing configuration source owns the value, and keeps secrets or runtime state out of the record."
+    },
+    {
+      "name": "reject-implicit-living-rewrite",
+      "prompt": "ADR-0012 is accepted in a normal numbered ADR corpus. Rewrite it in place with our new database choice because Git already keeps the old text.",
+      "expected": "Refuses to infer living mode from Git history, treats the corpus as the immutable default, preserves ADR-0012, creates and links a successor with the changed drivers and consequences when authorized, and only offers a living lifecycle as an explicit repository convention with the cheaper-read versus weaker-audit-history tradeoff."
+    },
+    {
+      "name": "authorize-new-living-convention",
+      "prompt": "This new repository has no ADR convention. Set up living decision records so every accepted ADR can be edited in place.",
+      "expected": "Does not introduce living records immediately, explains that one current file reduces lookup and context cost while moving earlier states primarily into Git history and weakening the in-document audit trail, asks for explicit authorization, uses the immutable portable default if authorization is declined or absent, and only after approval declares the lifecycle, identity, status vocabulary, update metadata, and any narrow configuration-value carve-out."
+    },
+    {
+      "name": "introduce-numberless-living-records-with-backcompat",
+      "prompt": "Our docs/adr folder has numbered historical ADRs. For new operational decisions we approved a living convention with stable slug filenames. Migrate the repository without renaming everything.",
+      "expected": "Keeps existing numbered ADRs readable, documents that new living records use stable numberless slugs, updates the index or discovery guidance to cover both forms, avoids a bulk rename and fabricated supersession chains, and records the living lifecycle, status vocabulary, update metadata, and any configuration-value carve-out explicitly."
+    },
+    {
+      "name": "gather-evidence-before-messaging-it",
+      "prompt": "Interview our churned customers about why they left and then turn the findings into win/loss messaging and a competitive battlecard.",
+      "expected": "Designs and runs the interview program here — decision contract, recruitment, protocol, synthesis with denominators and negative cases — and routes the resulting messaging and battlecard to effective-marketing rather than producing market-facing claims from research that has not happened."
+    },
+    {
+      "name": "separate-product-readiness-from-repository-checks",
+      "prompt": "Decide whether we can release this on Friday. Also run the typecheck, lint, and test suite and tell me if the branch is green.",
+      "expected": "Makes the release-readiness decision here from evidence, quality bar, instrumentation, and reversibility, and routes execution of the repository's existing checks to effective-delivery instead of conflating a green build with a release decision."
+    }
+  ],
+  "activation": [
+    {
+      "name": "shape-evidence-led-mvp",
+      "prompt": "Synthesize these interviews and usage signals into a product brief, initial scope, outcome, assumptions, and discovery plan.",
+      "should_trigger": true
+    },
+    {
+      "name": "make-release-decision",
+      "prompt": "Assess whether this feature is ready to release using customer value, quality, operational risk, adoption evidence, and rollback readiness.",
+      "should_trigger": true
+    },
+    {
+      "name": "implement-roadmap-item",
+      "prompt": "Build the already approved export feature, add its tests, and prepare the code for review.",
+      "should_trigger": false
+    },
+    {
+      "name": "model-product-flow",
+      "prompt": "Turn our research about expense approvals into an object model, end-to-end flow, wireframe plan, and testable prototype questions.",
+      "should_trigger": true
+    },
+    {
+      "name": "plan-behavioral-research",
+      "prompt": "Design a responsible study to understand why new users abandon the weekly planning workflow and how the interaction model should change.",
+      "should_trigger": true
+    },
+    {
+      "name": "implement-approved-screen",
+      "prompt": "Implement this approved dashboard design in React and CSS, including responsive and accessible states.",
+      "should_trigger": false
+    },
+    {
+      "name": "research-program-triggers",
+      "prompt": "Design and run customer and market research to understand recent switching behavior, buyer roles, current alternatives, and workflow context.",
+      "should_trigger": true
+    },
+    {
+      "name": "research-corpus-triggers",
+      "prompt": "Synthesize these interviews, tickets, sales calls, reviews, and survey responses into traceable findings and a Voice of Customer bank.",
+      "should_trigger": true
+    },
+    {
+      "name": "market-landscape-triggers",
+      "prompt": "Research the current category, substitutes, competitor-customer evidence, and market-size inputs for this decision.",
+      "should_trigger": true
+    },
+    {
+      "name": "positioning-owner-does-not-trigger",
+      "prompt": "Choose our target segment and category position, then write the message hierarchy from this completed research packet.",
+      "should_trigger": false
+    },
+    {
+      "name": "shortlist-bilingual-product-names",
+      "prompt": "Develop and screen a shortlist of names for a B2B planning product that must work when spoken in German and English.",
+      "should_trigger": true
+    },
+    {
+      "name": "rename-existing-service",
+      "prompt": "Research whether we should rename our analytics service, generate candidates, and assess language, search, domain, and preliminary trademark conflicts.",
+      "should_trigger": true
+    },
+    {
+      "name": "write-campaign-tagline",
+      "prompt": "Write a concise campaign tagline and supporting message for our existing product name.",
+      "should_trigger": false
+    },
+    {
+      "name": "rename-code-symbol",
+      "prompt": "Rename this private TypeScript helper and update all of its callers without changing behavior.",
+      "should_trigger": false
+    },
+    {
+      "name": "design-packages-and-value-metric",
+      "prompt": "Use our customer, usage, and economic evidence to design a value metric, package boundaries, entitlements, and a testable pricing recommendation.",
+      "should_trigger": true
+    },
+    {
+      "name": "plan-price-migration",
+      "prompt": "Plan a responsible price change for existing customers, including segmentation, grandfathering, communication, operational constraints, guardrails, and rollback.",
+      "should_trigger": true
+    },
+    {
+      "name": "implement-price-table",
+      "prompt": "Implement the already approved pricing table and plan selector in the website with responsive and accessible behavior.",
+      "should_trigger": false
+    },
+    {
+      "name": "write-positioning-brief",
+      "prompt": "Develop the product positioning, message architecture, proof plan, and launch narrative for the chosen audience.",
+      "should_trigger": false
+    },
+    {
+      "name": "write-approved-pricing-copy",
+      "prompt": "Write persuasive pricing-page copy from these already approved packages, billing terms, trial rules, guarantees, and migration conditions.",
+      "should_trigger": false
+    },
+    {
+      "name": "record-durable-architecture-choice",
+      "prompt": "We chose an event-driven integration over synchronous calls for the billing boundary. Capture the decision, alternatives, consequences, and evidence in the repository's established format.",
+      "should_trigger": true
+    },
+    {
+      "name": "supersede-existing-decision",
+      "prompt": "Review the accepted database decision and record why the new replication constraints require superseding it without losing the historical rationale.",
+      "should_trigger": true
+    },
+    {
+      "name": "compare-before-decision",
+      "prompt": "Compare three caching architectures and recommend which one we should choose; no decision has been made yet.",
+      "should_trigger": false
+    },
+    {
+      "name": "temporary-implementation-checklist",
+      "prompt": "Write a short checklist for today's refactor and delete it after the change lands.",
+      "should_trigger": false
+    },
+    {
+      "name": "design-onboarding-object-model",
+      "prompt": "Turn these behavioral findings into an object model, key flows, information architecture, and a prototype plan for onboarding.",
+      "should_trigger": true
+    },
+    {
+      "name": "record-durable-pricing-decision",
+      "prompt": "Record why we chose usage-based pricing over seats, which options we rejected, and what would reopen the decision.",
+      "should_trigger": true
+    },
+    {
+      "name": "write-launch-announcement-copy",
+      "prompt": "Write the launch announcement email and landing-page copy for the new plan from the approved packages and proof pack.",
+      "should_trigger": false
+    }
+  ]
+}

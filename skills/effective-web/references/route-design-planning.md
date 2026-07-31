@@ -38,7 +38,7 @@ Intent](../SKILL.md#route-by-intent) to Design Review and Modernization.
    specify uncertainty, review, cancellation, recovery, and a non-AI path.
 7. Produce a compact brief and route implementation details through the focused
    Effective Web routes. Record durable design decisions through
-   `decision-records`.
+   `effective-product`.
 
 ## Rules
 

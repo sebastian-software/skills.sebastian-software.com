@@ -117,7 +117,7 @@ Do not ban individual words, em dashes, short sentences, humour, or informal
 address. Evaluate density and repetition in the relevant language. Rewrite
 generic copy with concrete nouns, verbs, evidence, limits, and recovery paths
 while preserving intentional `du`/`Sie`, formality, proximity, and terminology.
-Record durable voice changes through `decision-records`; keep phrase libraries
+Record durable voice changes through `effective-product`; keep phrase libraries
 and campaign copy in their editorial owners.
 
 ## Review Sequence

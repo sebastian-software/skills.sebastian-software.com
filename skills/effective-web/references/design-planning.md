@@ -43,7 +43,7 @@ signature, and category default to avoid.
 
 When the visual direction, object model, or interaction concept is still open
 and the work needs materially different experience alternatives, route that
-decision-grade exploration to the `product-design` skill's
+decision-grade exploration to the `effective-product` skill's
 structure-and-prototyping reference (when that skill is installed).
 Bring the chosen qualities, rejected directions, and evidence back into the
 Design Read before implementation.
@@ -121,10 +121,10 @@ hypothesis, focus, non-goals, fidelity, and exit condition before building it.
 Use realistic semantics and enough representative content to test the behavior,
 but keep the artifact reversible and intentionally cheaper than production.
 
-The `product-design` skill owns prototype strategy when the team is still
+The `effective-product` skill owns prototype strategy when the team is still
 choosing the experience model, direction, or fidelity. This browser protocol
 owns a bounded implementation probe under accepted intent. If the probe changes
-the product or interaction concept, return to `product-design` instead of
+the product or interaction concept, return to `effective-product` instead of
 silently expanding the implementation experiment.
 
 Create a small local prototype autonomously when it stays within the accepted
@@ -428,7 +428,7 @@ specific enough to shape UI.
 
 When the brief establishes or changes a durable register, audience relationship,
 direction, density, motion, depth, or cross-channel communication choice, use
-`decision-records` to record its rationale, alternatives, consequences, and
+`effective-product` to record its rationale, alternatives, consequences, and
 review triggers. Keep exact token values and copy libraries in their owning
 artifacts. Do not create an `effective-web` or design-specific dot folder.
 

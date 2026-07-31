@@ -1,0 +1,150 @@
+# Discovery and Evidence
+
+Use discovery to reduce decision risk, not to produce ceremonial interviews or
+to confirm an idea the team has already chosen.
+
+## Frame the decision
+
+Write the decision before collecting more data:
+
+- What choice will the evidence change?
+- Which user and situation are in scope?
+- What is currently believed, and why?
+- What would disconfirm the belief?
+- By when must the team decide?
+
+Record evidence with its source, date, segment, context, and confidence. Keep
+customer language separate from the team's diagnosis.
+
+## Find a viable market and situation
+
+Evaluate an initial market or segment by:
+
+- familiarity and credible access
+- a repeated, consequential struggle
+- motivation and authority to act
+- ability and willingness to pay
+- affordable ways to reach and support the buyer
+- enough similar customers to support the business
+- founder or team fit with the people and problem
+
+Do not choose a segment only because it is large. A smaller reachable group with
+urgent progress and clear buying authority may be the better initial wedge.
+
+## Describe the job and buying context
+
+Study the progress a person is trying to make, not only the task they perform.
+Capture:
+
+- triggering event and prior state
+- desired functional, social, and emotional progress
+- obstacles, anxieties, and switching costs
+- current workarounds and competing alternatives, including doing nothing
+- people involved in choosing, paying, adopting, and blocking
+- the path from first awareness to actual commitment
+- the result that would make the switch worthwhile
+
+When the decision requires a focused research program, pass the decision,
+target situation, uncertainty, evidence standard, and deadline to
+the research route; use it for recruitment, fieldwork, participant operations,
+market and source research, and traceable synthesis. Use the design research and modeling routes for
+the recent-event and neutral-probing baseline when the decision also needs
+situated observation, empathy maps, personas, design-context synthesis, or an
+experience-model handoff.
+This reference owns the product-decision deltas: reconstruct what happened
+before, during, and after the buying or adoption decision, probe commitment,
+alternatives, and willingness to pay, and grade the result with the evidence
+ladder below.
+
+## Use an evidence ladder
+
+Treat evidence roughly from stronger to weaker for a product decision:
+
+1. repeated use, renewal, payment, switching, or operational adoption of the
+   actual product
+2. a meaningful pre-product commitment, such as a paid pilot, deposit,
+   pre-order, letter of intent, or migration effort
+3. observed behavior and documented outcomes in the target situation
+4. specific accounts of recent past behavior from strong-fit participants
+5. repeated support, sales, search, or community patterns with known context
+6. prototype use without a meaningful commitment
+7. wait-list sign-ups, survey preferences, compliments, and stated intent
+8. stakeholder opinion, analogy, market-size claims, and AI-generated personas
+
+The ladder is not a substitute for judgment. Check sample bias, segment fit,
+incentives, and whether the evidence addresses the actual decision.
+
+## Test before scaling commitment
+
+Choose the cheapest test that can invalidate the riskiest assumption:
+
+- manual or concierge delivery
+- productized service or paid pilot
+- prototype observed in a realistic task
+- narrow landing page with a meaningful commitment
+- pre-order, deposit, letter of intent, or migration exercise when appropriate
+- a small working slice measured through first and repeated value
+
+Define the threshold and stop rule before collecting results. A landing-page
+conversion can support a message hypothesis; it does not prove retention,
+delivery feasibility, or willingness to adopt a finished product.
+
+## Exploit cheap exploration without faking evidence
+
+AI can make idea generation, critique, simulation, interface variants,
+feasibility spikes, and rough prototypes dramatically cheaper. Spend some of
+that gain on breadth before convergence.
+
+For an important, still-reversible decision, use **10–20 materially different
+approaches in a week** as a deliberate challenge. This is a tempo heuristic,
+not a universal performance target. Count different mechanisms, workflows,
+service models, channels, constraints, or value propositions—not cosmetic
+variations of one preferred answer.
+
+Move the portfolio through progressively more expensive filters:
+
+1. Generate approaches from different assumptions and perspectives.
+2. State the value, usability, feasibility, business, trust, and distribution
+   assumption each approach exposes.
+3. Eliminate contradictions and obvious constraint failures through critique,
+   pre-mortems, calculations, technical spikes, or policy review.
+4. Prototype only the approaches that can answer a specific remaining question.
+5. Put the strongest distinct options in front of real behavior, commitment, or
+   operational evidence.
+6. Commit only when the evidence matches the consequence and reversibility of
+   the decision.
+
+Teams may explore fewer options when the solution space is narrow, the decision
+is urgent and irreversible, or generating another option costs more than
+testing the current uncertainty. They may explore more when AI and reusable
+components make alternatives nearly free. In every case, internal simulations
+and convincing prototypes remain option evidence—not customer, market, or
+retention evidence.
+
+## Move from services to a product
+
+For a consultancy or freelancer, start with evidence already available:
+
+1. List repeated customer problems, desired outcomes, objections, and manual
+   work across past engagements.
+2. Find a narrow result that can be delivered consistently to the same type of
+   buyer.
+3. Test a recurring service, retainer, workshop, template, or small tool before
+   committing to a large software product.
+4. Learn how customers respond to benefits, scope, price, onboarding, and
+   renewal while delivery is still flexible.
+5. Automate only the stable, valuable part of the process.
+
+Prefer a coherent family of offers for one audience over unrelated products
+that each require a new market and distribution system.
+
+## Quality Check
+
+- Is the research attached to a real decision and target situation?
+- Are past behavior and commitment distinguished from stated preference?
+- Does the evidence include non-users, churned users, failures, or alternatives?
+- Can the team name what would falsify the current product thesis?
+- Is the next test smaller than building the proposed solution?
+- Did cheap generation widen the option set before the team converged?
+- Are materially different approaches distinguished from cosmetic variants?
+- Are confidential data, consent, and participant expectations protected?

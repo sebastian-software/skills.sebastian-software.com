@@ -16,145 +16,26 @@ description: >-
   software-architecture); or load, soak, stress, and capacity methodology.
 ---
 
-# Software Testing
+# Software Testing (superseded)
 
-Turn a concrete behavior, invariant, failure mode, or regression risk into the
-smallest reliable evidence the repository can support. Test the mechanism that
-decides the behavior directly, then preserve every real boundary that matters
-to the claim.
+This skill is superseded by `effective-engineering`. It remains installable for one
+release window so existing selections keep resolving, and it carries no
+guidance of its own.
 
-## Workflow
+Load `effective-engineering` and take the route that absorbed this work:
 
-1. Read scoped instructions and discover the repository's test layout,
-   commands, frameworks, fixtures, helpers, environments, and nearby examples.
-   Follow those conventions unless they cannot observe the risk. Do not add a
-   test runner, assertion library, crate, or coverage target merely because a
-   generic recipe prefers one.
-2. State the claim before selecting a test: the behavior or invariant to
-   protect, the input or state that exercises it, the observable result, and
-   the failure it must distinguish. Separate a known fact from an assumption
-   about a dependency, race, authorization model, or production environment.
-3. Choose the narrowest evidence layer that can observe the real risk. Read
-   [Select test evidence](references/select-test-evidence.md) for a behavior
-   and risk model, properties, snapshots, replays, negative proof, and
-   verification of the test itself.
-4. Make the decision-carrying mechanism directly testable before considering a
-   double. Read [Modularity and testability](references/modularity-and-testability.md)
-   when policy, transformation, validation, calculation, state transition, or
-   protocol choice is entangled with I/O or framework wiring.
-5. Load the focused boundary guidance when it applies:
-   - API, service, database, migration, isolation, asynchronous, retry,
-     queue, callback, failure-path, or focused performance-regression work: read
-     [Services, data, and async](references/services-data-and-async.md).
-   - Microbenchmark, comparative benchmark, bounded end-to-end performance
-     workflow, benchmark interpretation, or publishable performance claim:
-     read [Benchmark methodology](references/benchmark-methodology.md).
-   - Command invocation, configuration, stdout or stderr, exit behavior, or
-     filesystem side effects: read [CLI contracts](references/cli-contracts.md).
-   - Rust-native test placement, public-API coverage, doctests, or opt-in live
-     smoke evidence: read [Rust testing](references/rust-testing.md).
-6. Use the test-double ladder deliberately:
-   1. Extract and test the cohesive mechanism directly with real values.
-   2. At the remaining outer boundary, prefer the real local implementation,
-      fixture, replay, or focused integration environment.
-   3. Use a contract-faithful fake only when the real boundary is not sensibly
-      executable. A reusable fake should ideally run through the same relevant
-      contract tests as the real implementation; it must not invent convenient
-      behavior. Supplying a clock, configuration, seed, or random value is
-      ordinary input design, not mocking.
-   4. Use an interaction-verifying or behavior-simulating mock only as a last
-      exception for a genuinely unavailable, destructive, credentialed,
-      nondeterministic, or prohibitively slow boundary. State why a direct
-      test, real component, fixture, replay, or focused integration test could
-      not preserve the contract. Keep it at the outermost boundary and assert
-      interactions only when the interaction is itself the contract.
+> Focused Testing (references/route-testing.md) and Benchmark Methodology
+> (references/route-benchmarks.md)
 
-   A growing mock graph is a stop signal: improve the production seam instead
-   of simulating another collaborator.
-7. Make state explicit. Reuse repository-native fixtures and helpers; control
-   identity, time, randomness, concurrency, external data, credentials, and
-   cleanup whenever they could change the result. Exercise meaningful failure
-   paths, not just the happy path.
-8. Prove discrimination when practical. For new behavior, observe the focused
-   failure before implementing it when that fits the repository. For an
-   existing fix, reproduce the regression, temporarily reverse or mutate the
-   relevant behavior, or use equivalent targeted negative proof. Do not delete
-   sound implementation work merely to reenact a test-first ritual.
-9. Run the narrow test first, then the relevant broader repository check.
-   Report what ran, skipped credentials or live dependencies, and any remaining
-   evidence gap honestly.
+Every reference that lived here moved with it, unchanged.
 
-## Operating Rules
+Install the successor:
 
-- Prefer a test of observable behavior over coverage percentage, assertion
-  count, mock call choreography, or a generic test-pyramid label. One behavior
-  can need several related assertions; one assertion can be insufficient.
-- Preserve each boundary whose actual behavior makes the claim true: real
-  authorization, serialization, schema, transaction, process, timeout, or
-  protocol semantics should not disappear behind a unit mock.
-- Keep side-effecting orchestration thin. If an adapter adds no decision or
-  invariant, protect it through the nearest meaningful integration or smoke
-  boundary rather than adding a ceremonial mock-heavy unit test.
-- A scoped extraction that exposes a cohesive rule, transformation, or state
-  transition is in scope. Do not turn a focused test request into a broad
-  redesign that changes runtime responsibilities or major system boundaries;
-  identify and route that design problem instead.
-- Diagnose flakes by locating the uncontrolled time, ordering, shared state,
-  cleanup, external dependency, or hidden retry. Do not hide the cause behind
-  sleeps, retries, loosened assertions, or an arbitrary timeout.
-- A focused performance-regression guard for a concrete function or service
-  path is in scope when the environment and target are explicit. Prefer a
-  trend or relative threshold on shared CI when an absolute number would be
-  brittle. For broader repository-native benchmark experiments and claims,
-  load the benchmark methodology reference. Do not claim load, soak, stress,
-  or capacity methodology.
-- TypeScript and Rust are the primary ecosystems for this skill. Follow local
-  conventions in other languages; do not use their presence to prescribe a
-  language-specific stack.
+```sh
+npx skills add sebastian-software/skills.sebastian-software.com --skill effective-engineering
+```
 
 ## Routing Boundaries
 
-- Route data models, datastore selection, transaction and consistency
-  guarantees, replication, partitioning, stream semantics, and data-evolution
-  strategy to `data-systems`. This skill owns focused executable evidence for
-  the agreed invariant, concurrent behavior, migration, retry, or failure
-  contract.
-- Route browser, component, visual, accessibility, browser E2E, browser
-  performance, and an overall frontend testing strategy to `effective-web`.
-  Route by primary mission, not artifact type: a browser feature belongs there
-  even when it contains pure logic. An independent shared library or a
-  server-side domain contract belongs here. For server actions and API routes,
-  `effective-web` owns the UX and browser workflow while this skill owns the
-  domain rule and service contract.
-- Route repository-wide coverage audits, risk prioritization, and broad test
-  improvement planning to `codebase-improvement`.
-- Route discovery and execution of an existing repository's established test,
-  typecheck, lint, build, documentation, or combined quality commands to
-  `software-validation`. Return here when new or repaired test evidence is the
-  requested outcome.
-- Route PR-scoped adequacy and merge judgment to `pr-review`.
-- Route testing-strategy design — the test-pyramid shape, coverage goals, and
-  which risks get which test types — plus contract design, system quality
-  scenarios, performance targets, workload scenarios, capacity planning, and
-  broader architectural redesign to `software-architecture`. This skill
-  implements focused tests against an agreed strategy or contract, including
-  consumer-driven contract tests, and owns repository-native benchmark
-  methodology against a named performance question. No first-party skill
-  currently claims new load, soak, or stress execution methodology; state that
-  boundary instead of inventing a tool or traffic model. Route execution of an
-  established benchmark, load, soak, or stress command to
-  `software-validation`.
-- Route migration parity, differential evidence, and compatibility work to
-  `port-codebases`.
-- Route Rust implementation, ownership, API, unsafe, and idiom decisions beyond
-  the minimal testability extraction to `rust-engineering`; this skill owns the
-  test design and any small testability refactor.
-- Route non-frontend TypeScript type, module, async, and error implementation
-  decisions beyond the minimal testability extraction to
-  `typescript-engineering`; this skill owns the test design and any small
-  testability refactor.
-- Route substantive runtime or service implementation decisions to the
-  appropriate engineering capability. This skill owns the test design and any
-  small testability refactor, not the surrounding delivery workflow.
-- Leave orchestration, worktrees, commits, approvals, and delivery flow to the
-  calling workflow.
+- Route every request that previously landed here to `effective-engineering`.
+- Do not answer from this stub. It states the handoff and nothing else.

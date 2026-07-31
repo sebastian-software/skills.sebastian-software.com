@@ -1,115 +1,33 @@
 [← Sebastian Software Skills](../../README.md)
 
-# Nonfiction Writing
+# Nonfiction Writing — moved
 
-[![Maintained by Sebastian Software](https://img.shields.io/badge/Maintained%20by-Sebastian%20Software-0f172a.svg)](https://oss.sebastian-software.com/)
+**This skill has moved into [effective-writing](../effective-writing/README.md).**
 
-**Turn ideas and evidence into clear, credible, persuasive prose without losing
-the author's voice.**
+`nonfiction-writing` is a deprecation stub. It stays installable for one release window so
+existing selections keep resolving, then it is removed. It contains no guidance:
+the workflow, references, and review scenarios all moved to `effective-writing`.
 
-Nonfiction Writing helps agents plan, draft, revise, and critique articles,
-essays, newsletters, reports, thought leadership, content marketing, case
-studies, professional narratives, engineering blog posts, technical articles,
-and public project pages. It joins long-form craft with legitimate commercial
-interest while keeping claims, quotations, examples, outcomes, and technical
-behavior tied to real source material. It can also audit formulaic or
-AI-sounding prose through observable patterns without guessing who wrote it.
+**Where it went:** Structure and Story, Prose and Revision, Human Voice Editing, Persuasive Nonfiction, and Technical Subject Matter
 
-## What It Can Deliver
+See [MIGRATION.md](../../MIGRATION.md) for the complete old-to-new mapping.
 
-- focused theses, outlines, leads, transitions, and endings
-- complete articles, essays, newsletters, and explanatory pieces
-- technical articles and project pages with stable terminology and natural prose
-- thought leadership and content marketing with credible persuasive structure
-- editorial case studies and professional narratives
-- structural, evidentiary, voice, and line-level revisions
-- minimal edits that remove formulaic patterns without flattening the author
-- evidence-based pattern audits without AI-authorship scores or guesses
-- prioritized critiques that distinguish errors, tradeoffs, and preferences
-
-## Use It When
-
-Use this skill when notes must become a coherent factual piece, a draft needs
-stronger structure or cleaner prose, an author's real voice should survive
-editing, or informative writing should also demonstrate expertise and support
-a commercial next step. It can work alone or supply prose craft inside a
-channel-specific first-party workflow.
-
-## Example Prompts
-
-```text
-Turn these workshop notes into a 1,500-word article for product leaders. Make a
-clear argument, preserve my direct voice, and flag any proof we still need.
-
-Revise this essay for structure, rhythm, and clarity without flattening its
-personal tone or changing the facts.
-
-Audit this draft for formulaic or AI-sounding patterns. Quote the evidence and
-suggest the smallest useful fix, but do not rewrite it or guess who wrote it.
-
-Write a useful thought-leadership article that demonstrates our approach and
-ends with a credible invitation to talk—without turning every paragraph into a
-sales pitch.
-
-Convert these supplied project facts and measured outcomes into a case study.
-Do not invent customer quotes or imply results beyond the measurement window.
-
-Turn these verified architecture notes into an article for engineering leaders.
-Keep the technical terms and constraints exact without making it read like a
-manual or defaulting to simplified language.
-```
-
-See [SKILL.md](SKILL.md) for the workflow, evidence rules, writing routes,
-revision passes, and routing boundaries.
-
-## Install This Skill
+## Install the successor
 
 ```sh
-npx skills add sebastian-software/skills.sebastian-software.com --skill nonfiction-writing
+npx skills add sebastian-software/skills.sebastian-software.com --skill effective-writing
 ```
 
-Or follow the [DALO setup guide](../../docs/dalo.md) and select it explicitly:
+Or follow the [DALO setup guide](../../docs/dalo.md):
 
 ```sh
-dalo init
-dalo target link codex
-dalo source add-catalog sebastian https://github.com/sebastian-software/skills.sebastian-software.com.git
-dalo source select sebastian nonfiction-writing
-dalo approve skill sebastian:nonfiction-writing
+dalo source select sebastian effective-writing
+dalo approve skill sebastian:effective-writing
 dalo sync
 ```
 
-## Related Skills
-
-- [Marketing Writing](../marketing-writing/README.md) owns homepages, landing
-  pages, product and service pages, pricing pages, campaigns, launches, sales
-  assets, marketing emails, and marketing-specific copy revision.
-- [Social Content](../create-social-content/README.md) turns a finished article,
-  newsletter, case study, or other source into evidence-consistent,
-  platform-native social content.
-- [LinkedIn Posts](../linkedin-posts/README.md) owns LinkedIn-specific ideas,
-  formats, cadence, and engagement context.
-- [Consultant Profile](../consultant-profile/README.md) selects and structures
-  professional evidence and positioning before the prose is written.
-- [Tech Docs](../tech-docs/README.md) derives technical facts and documentation
-  from implemented software contracts and owns controlled-language standards;
-  Nonfiction Writing keeps editorial structure and public voice.
-- [Effective Web](../effective-web/README.md) owns interface copy and the
-  surrounding browser experience; commercial page prose passes through
-  Marketing Writing first.
-- [Locale Typography](../locale-typography/README.md) applies locale-specific
-  punctuation and typographic conventions.
-- [Metro English](../metro-english/README.md) owns the relaxed US professional
-  register for short internal team communication.
-
-## Scope
-
-This skill creates and improves factual prose from supplied or verifiable
-material. It does not invent experience, evidence, quotations, testimonials,
-citations, outcomes, product behavior, or independent editorial endorsement,
-and a pattern audit does not establish whether AI wrote a text. The skill does
-not replace commercial copywriting, channel strategy, technical verification,
-controlled-language documentation, or interface implementation.
+If you previously selected `nonfiction-writing`, drop that selection when you add the
+successor.
 
 ## About Sebastian Software
 

@@ -1,4 +1,0 @@
-interface:
-  display_name: "Rust Engineering"
-  short_description: "Build, review, and optimize readable Rust"
-  default_prompt: "Use $rust-engineering to implement or review Rust with explicit architecture, ownership, safety, and evidence-based performance."

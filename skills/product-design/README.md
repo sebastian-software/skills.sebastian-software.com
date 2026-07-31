@@ -1,105 +1,33 @@
 [← Sebastian Software Skills](../../README.md)
 
-# Product Design
+# Product Design — moved
 
-[![Maintained by Sebastian Software](https://img.shields.io/badge/Maintained%20by-Sebastian%20Software-0f172a.svg)](https://oss.sebastian-software.com/)
+**This skill has moved into [effective-product](../effective-product/README.md).**
 
-**Turn product evidence into an understandable system, purposeful environment,
-and testable experience.**
+`product-design` is a deprecation stub. It stays installable for one release window so
+existing selections keep resolving, then it is removed. It contains no guidance:
+the workflow, references, and review scenarios all moved to `effective-product`.
 
-This skill connects research, problem framing, interaction modeling,
-information architecture, prototyping, and design craft. It chooses artifacts
-because they resolve a decision—not because a standard process says every
-project needs another workshop or canvas.
+**Where it went:** Design Research and Problem Framing, Solution Modeling and Prototyping, and Behavioral and Retention Design
 
-## What It Can Deliver
+See [MIGRATION.md](../../MIGRATION.md) for the complete old-to-new mapping.
 
-- provisional and evidence-updated design briefs
-- research plans, behavioral interview scripts, and synthesis structures
-- problem-space, expectation, and mental-model documentation
-- problem, empowerment, opportunity, and How Might We framing
-- object, relationship, moment, flow, journey, and navigation models
-- thumbnail, wireframe, prototype, test, and delivery plans
-- purposeful visual-reference studies and in-context character explorations
-- autonomy, learnability, motivation, and interaction-risk reviews
-- habit-loop, behavioral-design, engagement, and retention experiments
-
-## Use It When
-
-Use Product Design when the product direction is sufficiently clear to shape
-an experience, but the objects, structure, interaction model, or design
-direction are not. It is also useful earlier when research and problem framing
-must prevent a team from polishing the wrong solution.
-
-## Example Prompts
-
-```text
-Turn these interview observations into a traceable problem-space model and two
-distinct design directions without inventing findings.
-
-Model this collaborative product as objects, relationships, permissions,
-states, moments, and recoverable actions before we draw screens.
-
-Review this onboarding and reward loop for learnability, autonomy, and
-manipulative engagement mechanics.
-
-Our retention attempts are not working. Map the current trigger, action, reward,
-and investment loop, then propose stronger but truthful behavioral experiments
-that can improve both repeated user value and the business.
-
-Review this real limited-inventory flow. Use urgency clearly without turning
-true scarcity into misleading pressure, and define both conversion and harm
-signals.
-
-Choose the smallest prototype that can test our navigation model and the risky
-state transition in this workflow.
-```
-
-See [SKILL.md](SKILL.md) for the routed workflow, operating principles,
-routing boundaries, and default deliverable.
-
-## Install This Skill
+## Install the successor
 
 ```sh
-npx skills add sebastian-software/skills.sebastian-software.com --skill product-design
+npx skills add sebastian-software/skills.sebastian-software.com --skill effective-product
 ```
 
-Or follow the [DALO setup guide](../../docs/dalo.md) and select it explicitly:
+Or follow the [DALO setup guide](../../docs/dalo.md):
 
 ```sh
-dalo init
-dalo target link codex
-dalo source add-catalog sebastian https://github.com/sebastian-software/skills.sebastian-software.com.git
-dalo source select sebastian product-design
-dalo approve skill sebastian:product-design
+dalo source select sebastian effective-product
+dalo approve skill sebastian:effective-product
 dalo sync
 ```
 
-## Related Skills
-
-- [Market Research](../market-research/README.md) owns broader recruitment,
-  fieldwork, participant operations, market and source research, and the shared
-  evidence handoff into experience work.
-- [Product Management](../product-management/README.md) decides strategy,
-  audience, outcomes, viability, scope, prioritization, and release direction.
-- [Effective Web](../effective-web/README.md) specifies and implements the
-  browser experience with accessibility, performance, and verification.
-- [Reference Analysis](../reference-analysis/README.md) turns supplied visual
-  and interactive references into traceable specifications before Product
-  Design decides how they should influence the experience.
-- [Originality Review](../originality-review/README.md) compares a produced
-  result with its source references for overlap and provenance risk.
-- [Decision Records](../decision-records/README.md) preserves durable design
-  decisions, tradeoffs, and reopening conditions.
-- [Web Legal Compliance](../web-legal-compliance/README.md) handles privacy,
-  consent, tracking, and jurisdiction-specific web obligations.
-
-## Scope
-
-This skill shapes experience from supplied or bounded design evidence. It does
-not manufacture participants, observations, usability results, or product-
-market certainty, and it hands broader research programs and participant
-operations to Market Research rather than absorbing them.
+If you previously selected `product-design`, drop that selection when you add the
+successor.
 
 ## About Sebastian Software
 

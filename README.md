@@ -7,21 +7,26 @@
 **Open-source skills for the professional judgment that capable AI agents still
 need to do dependable product and software work.**
 
-33 practice-built skills and 273 focused references for market research,
-product decisions, reference analysis, originality review, web experiences,
-codebase improvement, delivery, engineering leadership, reliable data systems,
-go-to-market positioning, persuasive marketing writing, professional
-communication, and web compliance.
+Six disciplines, one quality bar:
+6 practice-built skills and 326 focused references
+covering product decisions and research, browser experiences, software
+architecture and code, repository and team delivery, nonfiction prose, and
+go-to-market work.
 
-Use one skill when an agent needs deeper judgment for a specific job, or combine
-several in your own downstream agent stack. Each skill turns repeated
-professional practice into an explicit workflow with evidence requirements,
-boundaries, and verification checks.
+Install one discipline when an agent needs deeper judgment for a domain, or
+combine several in your own downstream agent stack. Each discipline turns
+repeated professional practice into an explicit workflow with evidence
+requirements, boundaries, and verification checks — and routes internally so an
+agent loads the one reference the task needs.
+
+> **Migrating from the old 33-skill layout?** Every old slug still installs for
+> one release window and redirects to its discipline. The complete mapping is in
+> [MIGRATION.md](MIGRATION.md).
 
 ## Quick Start
 
-Install the skill that matches the work. `effective-web` is a useful starting
-point for broad frontend tasks:
+Install the discipline that matches the work. `effective-web` is a useful
+starting point for broad frontend tasks:
 
 ```sh
 npx skills add sebastian-software/skills.sebastian-software.com --skill effective-web
@@ -34,11 +39,11 @@ Audit this dashboard, fix the highest-impact accessibility and responsive
 issues, and verify the result.
 ```
 
-The skill tells a compatible agent what to inspect, which specialist guidance
-to load, where its authority stops, and what evidence is needed before the task
-is complete.
+The discipline tells a compatible agent what to inspect, which route and
+references to load, where its authority stops, and what evidence is needed
+before the task is complete.
 
-Install all 33 skills only when you want the complete first-party collection:
+Install all six only when you want the complete first-party collection:
 
 ```sh
 npx skills add sebastian-software/skills.sebastian-software.com --all
@@ -47,32 +52,46 @@ npx skills add sebastian-software/skills.sebastian-software.com --all
 Selective installation also works with [DALO](#installation) when selections
 should be pinned and shared across multiple agent targets.
 
-## Find the Right Skill
+## The Six Disciplines
+
+| # | Discipline | One-line story | Routes |
+| --- | --- | --- | --- |
+| 01 | [`effective-product`](skills/effective-product/) | Decide what to build and how it should work | 10 |
+| 02 | [`effective-web`](skills/effective-web/) | Build the browser experience as one system | 26 |
+| 03 | [`effective-engineering`](skills/effective-engineering/) | Design and write the software itself | 9 |
+| 04 | [`effective-delivery`](skills/effective-delivery/) | Move repositories and teams forward safely | 9 |
+| 05 | [`effective-writing`](skills/effective-writing/) | Prose that people trust and act on | 7 |
+| 06 | [`effective-marketing`](skills/effective-marketing/) | Take verified value to market | 12 |
+
+## Find the Right Discipline
 
 Start with the job you need done rather than the repository taxonomy.
 
 | When you need to… | Start with… |
-| --- | --- | --- |
-| Plan, conduct, and synthesize traceable customer and market research for product, design, or go-to-market decisions | [`market-research`](skills/market-research/) |
-| Turn incomplete evidence into product direction, scope, or a durable decision | [`product-management`](skills/product-management/), [`product-design`](skills/product-design/), [`decision-records`](skills/decision-records/) |
-| Turn websites, HTML, screenshots, prototypes, or videos into a traceable specification—or audit the result against those sources | [`reference-analysis`](skills/reference-analysis/), [`originality-review`](skills/originality-review/) |
-| Research what to charge, what to charge for, and how to package or change an offer | [`pricing-and-packaging`](skills/pricing-and-packaging/) |
-| Turn stable product evidence into positioning, messages, proof, launch choices, and market learning | [`product-marketing`](skills/product-marketing/) |
-| Turn an approved position, offer, proof, and reader state into persuasive commercial copy | [`marketing-writing`](skills/marketing-writing/) |
-| Diagnose a funnel constraint and design a trustworthy experiment or low-traffic learning plan | [`conversion-optimization`](skills/conversion-optimization/) |
-| Design, build, review, or improve a production web experience | [`effective-web`](skills/effective-web/), [`locale-typography`](skills/locale-typography/), [`web-legal-compliance`](skills/web-legal-compliance/) |
-| Diagnose a repository or data system and choose the highest-leverage next move | [`codebase-improvement`](skills/codebase-improvement/), [`software-architecture`](skills/software-architecture/), [`data-systems`](skills/data-systems/) |
-| Take an authorized software change through implementation and verification | [`effective-workflow`](skills/effective-workflow/), [`software-testing`](skills/software-testing/), [`software-validation`](skills/software-validation/) |
-| Clarify ownership, delegation, decision paths, or team load around the work | [`engineering-management`](skills/engineering-management/) |
-| Review, document, modernize, or port an existing codebase | [`pr-review`](skills/pr-review/), [`tech-docs`](skills/tech-docs/), [`smart-dependency-updater`](skills/smart-dependency-updater/), [`port-codebases`](skills/port-codebases/) |
-| Turn expertise into credible editorial content and professional communication | [`nonfiction-writing`](skills/nonfiction-writing/), [`create-social-content`](skills/create-social-content/), [`consultant-profile`](skills/consultant-profile/), [`linkedin-social-selling`](skills/linkedin-social-selling/), [`linkedin-posts`](skills/linkedin-posts/), [`metro-english`](skills/metro-english/) |
+| --- | --- |
+| Plan, conduct, and synthesize traceable customer and market research | [`effective-product`](skills/effective-product/) |
+| Turn incomplete evidence into product direction, scope, or a durable decision | [`effective-product`](skills/effective-product/) |
+| Model the experience: research, problem framing, objects, flows, IA, prototypes | [`effective-product`](skills/effective-product/) |
+| Decide what to charge, how to package it, or what to name it | [`effective-product`](skills/effective-product/) |
+| Design, build, review, or improve a production web experience | [`effective-web`](skills/effective-web/) |
+| Turn websites, screenshots, prototypes, or videos into a traceable specification, or audit the result against those sources | [`effective-web`](skills/effective-web/) |
+| Scope Impressum, privacy, consent, and online-sales disclosures across jurisdictions | [`effective-web`](skills/effective-web/) |
+| Choose system boundaries, data models, or consistency guarantees | [`effective-engineering`](skills/effective-engineering/) |
+| Write or review server-side TypeScript or Rust, or protect behavior with a test | [`effective-engineering`](skills/effective-engineering/) |
+| Diagnose a repository, prioritize improvements, or plan a risky legacy change | [`effective-delivery`](skills/effective-delivery/) |
+| Review a pull request, update dependencies, port a codebase, or run the repo's checks | [`effective-delivery`](skills/effective-delivery/) |
+| Write technical documentation, or clarify ownership and team load around the work | [`effective-delivery`](skills/effective-delivery/) |
+| Turn expertise into credible articles, essays, or editorial case studies | [`effective-writing`](skills/effective-writing/) |
+| Make an internal message sound human, or fix locale typography | [`effective-writing`](skills/effective-writing/) |
+| Position an offer, write commercial copy, or diagnose a funnel | [`effective-marketing`](skills/effective-marketing/) |
+| Create social or LinkedIn content, or position a consultant profile | [`effective-marketing`](skills/effective-marketing/) |
 
-`effective-workflow` coordinates the path from an unclear software request to a
-verified handoff while leaving specialist depth with its first-party owners.
-The broadest specialist skill, `effective-web`, routes work across UI/UX, CSS,
-React, components, forms, tables, accessibility, internationalization,
-interface copy, auth and error states, frontend SEO and AI search, performance,
-testing, SVG, motion, textures, print stylesheets, and web-to-print.
+`effective-delivery` coordinates the path from an unclear software request to a
+verified handoff while leaving specialist depth with the other disciplines. The
+broadest discipline, `effective-web`, routes work across UI/UX, CSS, React,
+components, forms, tables, accessibility, internationalization, interface copy,
+auth and error states, frontend SEO and AI search, performance, testing, SVG,
+motion, textures, print stylesheets, and web-to-print.
 
 ## What the Skills Add
 
@@ -115,67 +134,24 @@ first- and third-party sources belong in a separate downstream agent stack.
 That keeps each skill independently useful and prevents one public source
 repository from silently deciding how a user's complete environment behaves.
 
-## Skills
+## Disciplines
 
-### Product and design
-
-| Skill | Focus |
+| Discipline | Focus |
 | --- | --- |
-| [`market-research`](skills/market-research/) | Decision-led customer and market research across program design, recruitment, fieldwork, source work, synthesis, and cross-functional evidence handoffs. |
-| [`product-management`](skills/product-management/) | Evidence-led discovery, product strategy, empowered teams, AI-era exploration, scope, product quality, release decisions, and learning loops. |
-| [`product-design`](skills/product-design/) | Evidence-led research synthesis, problem framing, interaction and object modeling, habit and retention design, prototyping, autonomy, and design delivery. |
-| [`reference-analysis`](skills/reference-analysis/) | Evidence-backed capture and translation of websites, HTML, screenshots, prototypes, and videos into portable design and implementation specifications. |
-| [`originality-review`](skills/originality-review/) | Paired-evidence audits of source overlap, distinctive combinations, asset provenance, and relevant repository history without unsupported legal conclusions. |
-| [`product-naming`](skills/product-naming/) | Strategic name generation, multilingual spoken-name testing, live conflict research, and evidence-backed shortlists. |
+| [`effective-product`](skills/effective-product/) | Decision-led customer and market research, discovery, strategy, scope and release decisions, design research and modeling, behavioral and retention design, pricing and packaging, product naming, and Architecture Decision Records. |
+| [`effective-web`](skills/effective-web/) | Routed web design and engineering across UI/UX, CSS, React, accessibility, SEO, performance, testing, SVG, motion, and web-to-print, plus reference capture and specification, originality and provenance audits, and jurisdiction-aware web compliance. |
+| [`effective-engineering`](skills/effective-engineering/) | System architecture and operability, data models and consistency guarantees, server-side TypeScript and Rust depth, focused non-frontend tests, and repository-native benchmark methodology. |
+| [`effective-delivery`](skills/effective-delivery/) | Workflow orchestration, repository audits and root-cause investigation, behavior-preserving ports, pull-request review and upkeep, dependency portfolios, repository validation, technical documentation, and engineering leadership. |
+| [`effective-writing`](skills/effective-writing/) | Structure and prose craft for articles, essays, and editorial case studies, evidence-based AI-pattern audits, natural US team English for internal messages, and locale typography for thirteen European languages. |
+| [`effective-marketing`](skills/effective-marketing/) | Positioning and segmentation, messaging and proof, launch and sales enablement, market learning, commercial copywriting, conversion optimization, social and LinkedIn content, and consultant profile positioning. |
 
-### Web design and engineering
-
-| Skill | Focus |
-| --- | --- |
-| [`effective-web`](skills/effective-web/) | Routed web design and engineering guidance across UI/UX, CSS, React, accessibility, SEO, performance, testing, SVG, motion, and web-to-print. |
-| [`locale-typography`](skills/locale-typography/) | Locale-aware punctuation, spacing, quotes, dashes, numbers, dates, currency, and formatting for 26 European and North American locales. |
-| [`web-legal-compliance`](skills/web-legal-compliance/) | Evidence-backed website disclosures, privacy, and consent surfaces across the EU/EEA, UK, Canada, and the United States. |
-
-### Engineering and delivery
-
-| Skill | Focus |
-| --- | --- |
-| [`effective-workflow`](skills/effective-workflow/) | Lean, repository-native orchestration from understanding through authorized change and focused verification to a review-ready handoff. |
-| [`codebase-improvement`](skills/codebase-improvement/) | Read-only root-cause investigation, repository audits, leverage-based prioritization, executable plans, and focused improvements. |
-| [`decision-records`](skills/decision-records/) | Repository-native ADR creation, supersession, review, and drift control for durable cross-functional decisions. |
-| [`port-codebases`](skills/port-codebases/) | Resource-aware, behavior-preserving ports across languages, runtimes, frameworks, platforms, and major APIs. |
-| [`pr-review`](skills/pr-review/) | Human, impact-led PR review, maintenance, feedback resolution, and CI recovery. |
-| [`rust-engineering`](skills/rust-engineering/) | Strict, readable Rust implementation and review across ownership, errors, concurrency, unsafe code, and FFI. |
-| [`smart-dependency-updater`](skills/smart-dependency-updater/) | Evidence-backed dependency selection, introduction, update portfolios, local adaptation, validation, and PR delivery. |
-| [`software-architecture`](skills/software-architecture/) | Evidence-led system boundaries, operability, architecture tradeoffs, and evolutionary migration paths. |
-| [`data-systems`](skills/data-systems/) | Evidence-led data models, storage choices, consistency guarantees, distribution tradeoffs, and safe data evolution. |
-| [`software-testing`](skills/software-testing/) | Focused non-frontend test and repository-native benchmark design, implementation, and verification. |
-| [`software-validation`](skills/software-validation/) | Repository-native discovery and execution of existing typecheck, lint, test, benchmark, load, build, package, and documentation gates with explicit evidence gaps. |
-| [`tech-docs`](skills/tech-docs/) | Repository-native READMEs, guides, API and CLI references, migration notes, ASD-STE100 English, tekom-style rule-based German, code documentation, examples, and verification. |
-| [`typescript-engineering`](skills/typescript-engineering/) | Strict, honest server-side and general TypeScript implementation and review across types, modules, async, errors, and tooling contracts. |
-| [`engineering-management`](skills/engineering-management/) | Evidence-led responsibilities, delegation, coaching, decision paths, team design, cognitive load, and product-engineering collaboration. |
-
-### Positioning, marketing, and communication
-
-| Skill | Focus |
-| --- | --- |
-| [`pricing-and-packaging`](skills/pricing-and-packaging/) | Evidence-led pricing research, value metrics, models, packages, trials, discounts, and existing-customer changes. |
-| [`product-marketing`](skills/product-marketing/) | Evidence-led positioning, messaging, proof, launch planning, sales enablement, and win/loss and adoption learning. |
-| [`marketing-writing`](skills/marketing-writing/) | Evidence-led persuasive paths, emotional and behavioral framing, commercial copywriting, and marketing-specific copy revision. |
-| [`conversion-optimization`](skills/conversion-optimization/) | Evidence-led funnel diagnosis, research synthesis, ethical experiments, low-traffic learning, guardrails, and result decisions. |
-| [`nonfiction-writing`](skills/nonfiction-writing/) | Clear, credible articles, essays, newsletters, thought leadership, editorial case studies, public project prose, and revision. |
-| [`create-social-content`](skills/create-social-content/) | Evidence-led posts, replies, threads, captions, voice adaptation, repetition checks, and platform-native social content across X, Threads, Bluesky, Instagram, Mastodon, and multi-platform work. |
-| [`consultant-profile`](skills/consultant-profile/) | Consultant profiles, CVs, case studies, project selection, career narratives, and positioning. |
-| [`linkedin-social-selling`](skills/linkedin-social-selling/) | Evidence-led B2B LinkedIn positioning, profile, network, content, conversations, lead magnets, funnels, and measurement. |
-| [`linkedin-posts`](skills/linkedin-posts/) | LinkedIn ideas, formats, calendars, and post writing for a defined audience, voice, and goal. |
-| [`metro-english`](skills/metro-english/) | Natural metropolitan US team English for Slack, GitHub, Linear, PR notes, and other professional communication. |
-
-The broad web domain uses the memorable `effective-web` identity. Specialist
-skills use descriptive, portable names without a repository-specific prefix.
+All six share one naming grammar and one internal architecture: a lean
+`SKILL.md` with a `## Route by Intent` table, and a flat `references/` directory
+where each route is a file that names the smallest guidance set for the task.
 
 ## How the Collection Is Built
 
-Every public skill lives directly below `skills/`:
+Every public discipline lives directly below `skills/`:
 
 ```text
 skills/<name>/
@@ -201,9 +177,15 @@ model-quality gate. When behavior evidence is needed, use the documented
 [manual review-scenario workflow](docs/review-scenarios.md) to record a
 human-gradeable result with its runtime and evidence.
 
-The hand-maintained catalog website lives in `site/`. Adding a skill also means
-adding its site card and inventory metadata, then running both repository
+The hand-maintained catalog website lives in `site/`. Adding a discipline also
+means adding its site card and inventory metadata, then running both repository
 validators documented in [`docs/authoring-skills.md`](docs/authoring-skills.md).
+
+Superseded slugs stay installable for one release window as deprecation stubs
+listed in [`docs/deprecated-skills.json`](docs/deprecated-skills.json). A stub
+keeps its original frontmatter so existing selections and triggers still
+resolve, carries no guidance, and is exempt from the full anatomy above and from
+the site inventory. See [MIGRATION.md](MIGRATION.md).
 
 The repository contains the skills themselves: no installer, vendored
 third-party snapshots, generated distribution tree, or dependency lockfiles.
@@ -230,10 +212,11 @@ dalo sync
 dalo doctor
 ```
 
-Replace `effective-web` with another skill name, or pass several names to
+Replace `effective-web` with another discipline name, or pass several names to
 `dalo source select`. Catalog selections are pinned, and newly added repository
 skills do not become active automatically. Review selected skills before
-granting the source-qualified approval.
+granting the source-qualified approval. If you pinned a pre-consolidation slug,
+re-pin it to its discipline using [MIGRATION.md](MIGRATION.md).
 
 ### Quick install with skills.sh
 

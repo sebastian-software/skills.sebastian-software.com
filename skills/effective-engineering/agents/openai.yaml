@@ -1,0 +1,4 @@
+interface:
+  display_name: "Effective Engineering"
+  short_description: "Design and write the software itself"
+  default_prompt: "Use $effective-engineering to design architecture or data, write TypeScript or Rust, or protect behavior with tests."

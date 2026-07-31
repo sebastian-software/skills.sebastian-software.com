@@ -1,88 +1,33 @@
 [← Sebastian Software Skills](../../README.md)
 
-# Product Naming
+# Product Naming — moved
 
-[![Maintained by Sebastian Software](https://img.shields.io/badge/Maintained%20by-Sebastian%20Software-0f172a.svg)](https://oss.sebastian-software.com/)
+**This skill has moved into [effective-product](../effective-product/README.md).**
 
-**Generate names creatively, then test them as real identifiers before falling
-in love with the shortlist.**
+`product-naming` is a deprecation stub. It stays installable for one release window so
+existing selections keep resolving, then it is removed. It contains no guidance:
+the workflow, references, and review scenarios all moved to `effective-product`.
 
-Product Naming gives agents a rigorous process for naming products, software,
-services, companies, features, and internal initiatives. It is especially
-useful when a name must travel well between German, English, and other European
-languages without collapsing into generic technology-brand vocabulary.
+**Where it went:** Product and Feature Naming (references/route-naming.md)
 
-## What It Can Deliver
+See [MIGRATION.md](../../MIGRATION.md) for the complete old-to-new mapping.
 
-- a decision-ready naming brief
-- distinct creative territories and a deliberately broad longlist
-- pronunciation, spelling, memorability, and unwanted-meaning checks
-- multilingual spoken-name and language screening
-- live search, domain, app-store, and category-conflict research
-- preliminary trademark screening with explicit uncertainty
-- a scored shortlist with evidence, risks, and a recommended next step
-
-## Use It When
-
-Use this skill for a new name, a rename, an unclear shortlist, or a candidate
-that needs real-world scrutiny. Creative generation and availability research
-remain separate so attractive ideas do not receive invented legal or domain
-certainty.
-
-## Example Prompts
-
-```text
-Create a naming brief and shortlist for this B2B product. The name must be easy
-to say and spell in both German and US English.
-
-Research these six candidates for language problems, search conflicts, domains,
-app-store confusion, and preliminary trademark risk.
-
-Our current shortlist sounds like generic AI startups. Develop four more
-distinct naming territories and explain the strategic tradeoffs.
-
-Turn the final naming decision and rejected alternatives into a durable record.
-```
-
-See [SKILL.md](SKILL.md) for the complete generation, screening, research, and
-shortlisting workflow.
-
-## Install This Skill
+## Install the successor
 
 ```sh
-npx skills add sebastian-software/skills.sebastian-software.com --skill product-naming
+npx skills add sebastian-software/skills.sebastian-software.com --skill effective-product
 ```
 
-Or follow the [DALO setup guide](../../docs/dalo.md) and select it explicitly:
+Or follow the [DALO setup guide](../../docs/dalo.md):
 
 ```sh
-dalo init
-dalo target link codex
-dalo source add-catalog sebastian https://github.com/sebastian-software/skills.sebastian-software.com.git
-dalo source select sebastian product-naming
-dalo approve skill sebastian:product-naming
+dalo source select sebastian effective-product
+dalo approve skill sebastian:effective-product
 dalo sync
 ```
 
-## Related Skills
-
-- [Product Management](../product-management/README.md) resolves the audience,
-  product thesis, differentiation, and portfolio architecture before naming.
-- [Consultant Profile](../consultant-profile/README.md) handles the positioning
-  of an individual expert or consultant.
-- [Decision Records](../decision-records/README.md) preserves the chosen name,
-  rejected alternatives, and conditions that should reopen the decision.
-- [Web Legal Compliance](../web-legal-compliance/README.md) covers website and
-  launch disclosures after a name is selected.
-- [Originality Review](../originality-review/README.md) compares a produced
-  identity or campaign with supplied visual and verbal references; it does not
-  replace trademark clearance.
-
-## Scope
-
-The skill provides preliminary screening, not trademark clearance, legal
-advice, guaranteed domain availability, or a substitute for specialist brand
-and linguistic review in high-risk markets.
+If you previously selected `product-naming`, drop that selection when you add the
+successor.
 
 ## About Sebastian Software
 

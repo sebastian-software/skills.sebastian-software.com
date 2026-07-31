@@ -12,120 +12,25 @@ description: >-
   consultant-profile.
 ---
 
-# LinkedIn Social Selling
+# LinkedIn Social Selling (superseded)
 
-Build a coherent path from a specific buyer problem to a useful conversation.
-Treat profile, content, network, messages, offer, and funnel as one learning
-system rather than independent growth hacks.
+This skill is superseded by `effective-marketing`. It remains installable for one
+release window so existing selections keep resolving, and it carries no
+guidance of its own.
 
-## Workflow
+Load `effective-marketing` and take the route that absorbed this work:
 
-1. Define the requested result: audit, positioning brief, profile plan,
-   outreach sequence, content system, funnel specification, experiment plan,
-   or end-to-end acquisition strategy.
-2. Establish the commercial evidence. Read [Positioning and offer](references/positioning-and-offer.md)
-   unless the target buyer, problem, proof, first-step offer, and larger offer
-   are already explicit. Mark assumptions; never invent customer language,
-   testimonials, metrics, or case-study outcomes.
-3. Map the current path:
+> LinkedIn Social Selling (references/route-linkedin-selling.md)
 
-   ```text
-   target buyer -> profile or content -> relationship signal -> conversation
-                -> useful next step -> qualified meeting -> opportunity
-   ```
+Every reference that lived here moved with it, unchanged.
 
-   Identify the weakest transition instead of prescribing activity everywhere.
-4. Load only the matching route:
-   - [Inbound profile](references/inbound-profile.md) for the acquisition
-     overlay: target-buyer path, campaign proof, Featured choices, calls to
-     action, and downstream measurement. Use `consultant-profile` for
-     field-level profile content and professional evidence.
-   - [Network and conversations](references/network-and-conversations.md) for
-     prospect discovery, connection routines, welcome messages, outreach,
-     follow-up, qualification, and meeting transitions.
-   - [Content system](references/content-system.md) for content roles, source
-     evidence, production, distribution, and measurement. Route actual post
-     ideas, calendars, formats, and drafting through `linkedin-posts`.
-   - [Lead magnet and funnel](references/lead-magnet-and-funnel.md) for opt-in
-     assets, landing and delivery paths, booking, CRM handoff, and conversion
-     experiments.
-5. Produce the smallest useful artifact. Preserve the user's natural voice and
-   language. Separate strategy, copy, implementation, assumptions, and tests so
-   each can be reviewed independently.
-6. Define a baseline, one bottleneck hypothesis, one change, a decision window,
-   and the downstream metric that decides whether to keep the change.
+Install the successor:
 
-## Operating Rules
-
-- Read accepted ADRs and existing brand or editorial guidance before defining
-  audience relationship, form of address, voice, tone, vocabulary, or claims.
-  When the work establishes or changes a durable cross-channel communication
-  direction, use `decision-records` to preserve the rationale and channel
-  exceptions instead of creating a LinkedIn-specific memory file.
-- Start with real customer evidence. Use interviews, sales notes, case studies,
-  offers, objections, content responses, and pipeline data before persona
-  stereotypes or generic best practices.
-- Prefer a specific human buyer in a recognizable situation over a broad
-  industry label or an abstract company avatar.
-- Treat trust as cumulative. Align the promise and proof across headline,
-  profile, content, messages, lead magnet, landing page, and meeting.
-- Pass approved technical terminology, verified behavior, material conditions,
-  and unresolved evidence gaps unchanged to the profile, post, article, and
-  landing-page owner. Do not simplify them into a stronger commercial promise.
-- Optimize for qualified conversations and commercial learning, not impressions,
-  follower count, connection volume, or meetings without fit.
-- Keep outreach human, relevant, and low-volume enough to personalize and
-  answer well. Do not recommend scraping, deceptive personalization, unsolicited
-  mass automation, engagement pods, or behavior that evades platform limits.
-- Do not disguise a pitch as research, a survey, a compliment, or a personal
-  message. Make intent proportionate to the relationship and allow a clean no.
-- Treat cadence numbers, character limits, image dimensions, search filters,
-  profile fields, algorithm claims, API capabilities, and platform policies as
-  volatile. Verify current official LinkedIn guidance before making them a
-  requirement.
-- Distinguish source-derived practice from a guaranteed platform effect. Frame
-  tactics as hypotheses to test with the user's audience and sales cycle.
-- Respect privacy, consent, advertising, and direct-marketing rules. Minimize
-  collected data and define retention, access, and handoff before adding forms,
-  pixels, enrichment, or automation.
-
-## Default Deliverable
-
-For an end-to-end request, return:
-
-1. Commercial evidence and missing facts
-2. Target buyer, problem, promise, proof, and first-step offer
-3. Profile and content role in the acquisition path
-4. Network and conversation motions with copy examples
-5. Lead-magnet or booking path only when justified
-6. Weekly operating rhythm and ownership
-7. Funnel-stage scorecard
-8. First three prioritized experiments with stop or keep criteria
+```sh
+npx skills add sebastian-software/skills.sebastian-software.com --skill effective-marketing
+```
 
 ## Routing Boundaries
 
-- Use `decision-records` to record or supersede durable positioning, audience,
-  voice, tone, terminology, evidence, and cross-channel communication choices.
-- Use `linkedin-posts` for actual post ideation, calendars, formats, drafting,
-  and rewriting, including posts inside an end-to-end social-selling
-  engagement. Pass it the audience, content role, evidence, and commercial
-  intent established here.
-- Use `create-social-content` when the content program spans LinkedIn and other
-  social platforms or the target platform remains open. Pass it the same
-  approved audience, evidence, offer connection, and claim boundaries; keep
-  LinkedIn-only expression with `linkedin-posts`.
-- Use `consultant-profile` for professional evidence, field-level profile
-  content, project history, biography, and cross-channel profile consistency;
-  then return to the inbound-profile route for the acquisition overlay.
-- Use `product-marketing` for cross-channel segmentation, category choice,
-  positioning, messaging, proof, launches, and market learning; return here to
-  adapt the approved direction to LinkedIn relationships, content, and pipeline.
-- Use `effective-web` to design, implement, or test landing pages, forms,
-  analytics delivery, accessibility, performance, and responsive behavior.
-- Use `product-management` when the target user, customer problem, product
-  promise, evidence, scope, or release decision is not yet stable enough to
-  support positioning and channel work.
-- Use `web-legal-compliance` before implementing tracking, consent, lead forms,
-  email capture, testimonials, endorsements, or multi-jurisdiction campaigns.
-- Use `locale-typography` for locale-specific visible prose after the message is
-  approved.
+- Route every request that previously landed here to `effective-marketing`.
+- Do not answer from this stub. It states the handoff and nothing else.
