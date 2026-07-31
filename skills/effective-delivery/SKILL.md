@@ -4,8 +4,9 @@ description: >-
   Move an existing repository and the team around it forward: coordinate
   multi-stage software work from an unclear request to a verified, review-ready
   handoff; audit codebases, explain surprising behavior, and prioritize
-  improvements; plan and execute behavior-preserving ports across languages,
-  runtimes, and frameworks; review and maintain pull requests across providers;
+  improvements; plan and execute behavior-preserving ports and rewrites across
+  languages, runtimes, and frameworks, including rewriting an existing library
+  in another language; review and maintain pull requests across providers;
   research, group, and implement dependency changes; discover and run
   repository-native validation checks and report the evidence; design and verify
   technical documentation from READMEs and guides to API references, migration

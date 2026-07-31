@@ -115,19 +115,61 @@ during execution. Stubs work today and are the documented fallback either way.
   research versus messaging; writing a test versus running the suite; reviewing
   a PR versus reviewing an API design; German UI punctuation versus frontend
   work.
-- Description length is the live risk. Five of six descriptions sit between 878
-  and 1021 characters, above the roughly 750 characters `effective-web` had
+- Description length remains the live risk. Five of six descriptions sit between
+  878 and 1023 characters, above the roughly 750 characters `effective-web` had
   proven and near the 1024-character repository limit. Verify rendering in
-  Claude Code, Codex, and DALO before relying on the full trigger text.
+  Claude Code, Codex, and DALO before relying on the full trigger text. Trimming
+  to fit that limit already caused one routing defect (see below), so treat a
+  future trim as a behavior change, not as copy editing.
+- Routing is now covered by a contract rather than by review alone.
+  `docs/activation-matrix.json` pairs 41 realistic requests with their owning
+  discipline, including at least one per superseded slug and three controls that
+  no discipline should claim. `scripts/validate-activation-matrix.py` fails CI
+  when a superseded slug loses its coverage, when one prompt gets two owners, or
+  when a discipline falls below three cases.
 - Both validators now understand deprecation stubs, and the three byte-identical
   `worktree-safety.md` copies merged into one shared file with a uniqueness
   guard replacing the previous three-way sync check.
 
+## Behavioral Evidence
+
+The six descriptions were reviewed blind against the routing matrix: an agent
+received only the six frontmatter descriptions and the 41 prompts in shuffled
+order — no case names, no expected owners, no route tables — and picked one
+skill per request or `none`. Three models ran each round.
+
+| Round | Descriptions under test | Result |
+| --- | --- | --- |
+| 1 | as first written | 40/41, 40/41, 41/41 |
+| 2 | after the research fix | 41/41, 41/41, 40/41 |
+| 3 | after the port fix | 41/41, 41/41 |
+
+Round 1 found a real defect. `effective-product` lost the words "win/loss" and
+"churn interviews" while its description was trimmed under the 1024-character
+limit, and `effective-marketing` kept "win/loss and adoption learning". Two of
+three models therefore routed "interview our lost deals and synthesize what we
+learn" to marketing — the exact boundary this ADR's alternatives section calls
+structural. The fix restores the fieldwork verbs to `effective-product` and adds
+an explicit reverse handoff to `effective-marketing`.
+
+Round 2's single miss was a weaker model reading "rewrite this C library in
+Rust" as Rust work rather than as a behavior-preserving port. The wording now
+names rewriting an existing library in another language; round 3 confirms it.
+
+What this does not establish: the runs use a subagent as a proxy for a host's
+skill-selection step, not the real mechanism, and they show the six descriptions
+in isolation rather than beside a user's other installed skills. It is evidence
+about description discrimination, not proof of production activation.
+
 ## Validation and Review Triggers
 
-`python3 scripts/validate-readmes.py`, `python3 scripts/validate-site.py`, and
+`python3 scripts/validate-readmes.py`, `python3 scripts/validate-site.py`,
+`python3 scripts/validate-activation-matrix.py`, and
 `python3 -m unittest discover -s scripts/tests -p 'test_*.py'` must pass, with
 route-level reference totals inside the 900-line budget.
+
+Re-run the blind routing review whenever a description changes, a discipline
+gains a route that shifts a boundary, or a stub is removed at sunset.
 
 Revisit when: telemetry or issue traffic shows old-name installs have stopped,
 at which point the stubs and `docs/deprecated-skills.json` can be removed; a

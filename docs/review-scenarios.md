@@ -17,6 +17,32 @@ Use the smallest review mode that answers the current question:
 All modes record human-reviewed evidence without claiming automatic semantic
 grading.
 
+## Review Cross-Discipline Routing
+
+`docs/activation-matrix.json` is the routing contract between the six
+disciplines. Each case pairs a realistic request with the discipline that should
+own it, plus control cases that no discipline should claim. Every superseded
+slug in `docs/deprecated-skills.json` must be covered by a case whose owner is
+its successor, so a consolidation cannot silently drop an absorbed trigger.
+
+`python3 scripts/validate-activation-matrix.py` enforces that structure in CI.
+It does not run a model.
+
+To review the routing behaviorally, build a blind input containing only the six
+frontmatter descriptions and the matrix prompts — no case names, no expected
+owners, no route tables — and ask an agent to pick one skill per request or
+`none`. Shuffle the prompts so their order cannot leak the grouping by owner.
+Run more than one model: a weaker model exposes descriptions that only work when
+the reader is already generous.
+
+Record the model, the prompt set, the picks, and every mismatch against the
+matrix. A mismatch is evidence about the description, not about the request:
+the useful output is which words moved the decision. Treat a disagreement
+between models on the same case as a boundary that needs sharper wording, even
+when the majority is right.
+
+Attach the record to the pull request rather than committing raw model output.
+
 ## Review Activation
 
 Add should-trigger and should-not-trigger cases to the skill's `activation`

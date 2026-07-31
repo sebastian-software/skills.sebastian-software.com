@@ -3,18 +3,18 @@ name: effective-marketing
 description: >-
   Take a verified product or professional offer to market: positioning,
   segmentation, category choice, message architecture, claims and proof,
-  launches, sales enablement, win/loss and adoption learning; persuasive
-  marketing copy for homepages, landing pages, product and pricing pages,
-  campaigns, sales pages, emails, headlines, and calls to action; funnel
-  diagnosis, conversion audits, and ethical experiment design with guardrails;
-  social content for X or Twitter, Threads, Bluesky, Instagram, and Mastodon;
-  LinkedIn posts, content calendars, and B2B social-selling systems from
-  profile visit to qualified meeting; and consultant CVs, LinkedIn profiles,
-  bios, project narratives, and case study selection. Use for positioning
-  briefs, claim reviews, launch plans, funnel drop-off, A/B test design, social
-  or LinkedIn content, or profile positioning. Do not invent customer evidence,
-  market certainty, or differentiation. Route long-form prose to
-  effective-writing and page implementation to effective-web.
+  launches, sales enablement, and what gathered win/loss and adoption evidence
+  changes; persuasive copy for homepages, landing pages, product and pricing
+  pages, campaigns, sales pages, emails, headlines, and calls to action; funnel
+  diagnosis, conversion audits, and ethical experiment design; social content
+  for X, Threads, Bluesky, Instagram, and Mastodon; LinkedIn posts, content
+  calendars, and B2B social-selling systems from profile visit to qualified
+  meeting; and consultant CVs, LinkedIn profiles, and bios. Use for positioning
+  briefs, claim reviews, launch plans, funnel drop-off, A/B tests, social or
+  LinkedIn content, or profile positioning. Do not invent customer evidence,
+  market certainty, or differentiation. Route running customer, buyer,
+  win/loss, or churn interviews to effective-product, long-form prose to
+  effective-writing, and page implementation to effective-web.
 ---
 
 # Effective Marketing

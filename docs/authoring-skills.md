@@ -32,6 +32,16 @@ discipline's routing table. Promote a new discipline only when its verbs,
 evidence, and deliverables are genuinely different from all six, and record that
 decision as an ADR.
 
+A discipline description is behavior, not copy. `docs/activation-matrix.json`
+records which discipline should own which request, and
+`scripts/validate-activation-matrix.py` fails CI when that contract breaks.
+Changing a description — including shortening one to fit the 1024-character
+limit — can move a boundary silently, so re-run the blind routing review in
+[review-scenarios.md](review-scenarios.md) afterwards. That review has already
+caught one real defect: trimming `effective-product` dropped the words
+"win/loss" and "churn interviews", which sent customer-interview requests to
+`effective-marketing`.
+
 Superseded slugs stay installable for one release window as deprecation stubs
 registered in `docs/deprecated-skills.json`. A stub keeps its original
 frontmatter so existing selections and triggers still resolve, carries a
@@ -425,7 +435,8 @@ Before merging a change:
    behavior evidence is needed.
 4. When adding a skill, add its `site/index.html` card and inventory metadata.
 5. Run `python3 scripts/validate-readmes.py`,
-   `python3 scripts/validate-site.py`, and
+   `python3 scripts/validate-site.py`,
+   `python3 scripts/validate-activation-matrix.py`, and
    `python3 -m unittest discover -s scripts/tests -p 'test_*.py'`.
 6. Run the repository's DALO CI smoke test.
 7. Check that `dalo status` reports no inventory warnings or duplicate slots.
