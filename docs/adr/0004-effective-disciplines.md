@@ -136,13 +136,17 @@ during execution. Stubs work today and are the documented fallback either way.
 The six descriptions were reviewed blind against the routing matrix: an agent
 received only the six frontmatter descriptions and the 41 prompts in shuffled
 order — no case names, no expected owners, no route tables — and picked one
-skill per request or `none`. Three models ran each round.
+skill per request or `none`.
 
-| Round | Descriptions under test | Result |
-| --- | --- | --- |
-| 1 | as first written | 40/41, 40/41, 41/41 |
-| 2 | after the research fix | 41/41, 41/41, 40/41 |
-| 3 | after the port fix | 41/41, 41/41 |
+Runtime: Claude Code subagents, provider-default sampling, models
+`claude-opus-5`, `claude-sonnet-5`, and `claude-haiku-4-5-20251001`.
+Regenerate the input with `scripts/build-routing-review-input.py`.
+
+| Round | Descriptions under test | Opus 5 | Sonnet 5 | Haiku 4.5 |
+| --- | --- | --- | --- | --- |
+| 1 | as first written | 40/41 | 40/41 | 41/41 |
+| 2 | after the research fix | 41/41 | 41/41 | 40/41 |
+| 3 | after the port fix | not run | 41/41 | 41/41 |
 
 Round 1 found a real defect. `effective-product` lost the words "win/loss" and
 "churn interviews" while its description was trimmed under the 1024-character
@@ -156,10 +160,41 @@ Round 2's single miss was a weaker model reading "rewrite this C library in
 Rust" as Rust work rather than as a behavior-preserving port. The wording now
 names rewriting an existing library in another language; round 3 confirms it.
 
-What this does not establish: the runs use a subagent as a proxy for a host's
-skill-selection step, not the real mechanism, and they show the six descriptions
-in isolation rather than beside a user's other installed skills. It is evidence
-about description discrimination, not proof of production activation.
+What this does not establish:
+
+- The runs use a subagent as a proxy for a host's skill-selection step, not the
+  real mechanism. `docs/model-evaluation-2026-07-29.md` used a stronger method
+  for the previous layout — fresh ephemeral Codex sessions against the actually
+  installed catalog, recording which skills' full instructions were invoked.
+  This review does not meet that bar.
+- No GPT runtime was exercised. Every recorded round is Claude-only, even though
+  the collection ships `agents/openai.yaml` for each skill and the previous
+  evaluation used Codex CLI with `gpt-5.6-sol`. Repeat the review there before
+  relying on the result across hosts.
+- The descriptions were shown in isolation, not beside a user's other installed
+  skills and not beside the deprecation stubs.
+
+It is evidence about description discrimination, not proof of production
+activation.
+
+### Description context budget
+
+The previous evaluation recorded Codex shortening descriptions once the
+installed catalog exceeded its 2% description context budget. The consolidation
+improves that materially after sunset and worsens it during the window:
+
+| State | Skills | Description bytes | Versus before |
+| --- | --- | --- | --- |
+| 33 skills, before | 33 | 20,542 | — |
+| 6 disciplines, after sunset | 6 | 5,906 | 29% |
+| 6 disciplines plus 32 stubs | 38 | 25,679 | 125% |
+
+Keeping the stubs' original descriptions verbatim is what makes existing
+triggers resolve, and it is also what pushes the catalog 25% past its previous
+size. A host that truncates on that budget will truncate more during the
+deprecation window than it did before, which is an argument for a shorter window
+rather than for shortening the stub descriptions — shortening them would defeat
+their only purpose.
 
 ## Validation and Review Triggers
 

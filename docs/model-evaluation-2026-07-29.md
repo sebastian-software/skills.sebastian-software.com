@@ -4,6 +4,16 @@ This record checks natural skill activation and fresh with/without-skill behavio
 after the current-model guidance review. It is a representative sample, not a
 claim that every scenario has been executed on every model.
 
+> **Superseded layout.** This evaluation predates the six-discipline
+> consolidation recorded in [ADR 0004](adr/0004-effective-disciplines.md). The
+> skill names in its tables — `effective-workflow`, `software-validation`,
+> `software-testing`, `linkedin-posts`, `linkedin-social-selling`, and
+> `web-legal-compliance` — are now deprecation stubs; see
+> [MIGRATION.md](../MIGRATION.md). The record is kept unedited because its
+> method and findings remain the reference for how a GPT runtime is exercised.
+> The equivalent review has **not** yet been repeated on a GPT runtime for the
+> new layout.
+
 ## Runtime and Method
 
 - GPT runtime: Codex CLI 0.146.0, `gpt-5.6-sol`, provider-default sampling.
