@@ -1,0 +1,4 @@
+interface:
+  display_name: "Effective Marketing"
+  short_description: "Take verified value to market"
+  default_prompt: "Use $effective-marketing to position, message, write, distribute, or measure a market-facing offer from real evidence."

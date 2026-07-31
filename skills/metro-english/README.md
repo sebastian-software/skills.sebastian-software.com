@@ -1,91 +1,33 @@
 [← Sebastian Software Skills](../../README.md)
 
-# Metro English
+# Metro English — moved
 
-[![Maintained by Sebastian Software](https://img.shields.io/badge/Maintained%20by-Sebastian%20Software-0f172a.svg)](https://oss.sebastian-software.com/)
+**This skill has moved into [effective-writing](../effective-writing/README.md).**
 
-**Make professional English sound like a smart teammate wrote it quickly but
-carefully: direct, natural, warm enough, and free of corporate or AI varnish.**
+`metro-english` is a deprecation stub. It stays installable for one release window so
+existing selections keep resolving, then it is removed. It contains no guidance:
+the workflow, references, and review scenarios all moved to `effective-writing`.
 
-Metro English rewrites German or stiff English into relaxed US metropolitan
-team language for Slack, GitHub, Linear, pull requests, async updates, and
-internal communication. The target is polished casual with a little startup
-energy, not slang and not manufactured friendliness.
+**Where it went:** Metro English (references/route-metro-english.md)
 
-## What It Changes
+See [MIGRATION.md](../../MIGRATION.md) for the complete old-to-new mapping.
 
-- removes ceremony, filler, inflated transitions, and AI-shaped phrasing
-- uses direct verbs, natural contractions, and varied sentence rhythm
-- makes requests and disagreement clear without becoming cold
-- preserves useful uncertainty and avoids fake confidence
-- adapts tone to Slack, issue comments, PR reviews, async updates, and
-  docs-adjacent notes
-- audits short internal messages for concrete generated-sounding patterns
-  without guessing authorship
-- translates German team messages by intent rather than word-for-word syntax
-
-## Example Prompts
-
-```text
-Rewrite this German update as natural English for our US Slack channel.
-
-Make this pull-request comment sound less formal and more human without
-weakening the technical concern.
-
-Remove the AI tone from this Linear comment and keep it concise.
-
-Tell me which parts of this Slack update sound generated. Quote the patterns,
-but do not rewrite the message or guess whether AI wrote it.
-
-Turn this blunt rejection into a clear teammate response that explains the real
-blocker and the next useful step.
-```
-
-The skill includes before-and-after patterns for formal reviews, stiff Slack
-updates, AI-ish issue comments, German team notes, and messages that became too
-blunt. See [SKILL.md](SKILL.md) for the voice target, channel presets, rewrite
-rules, and output format.
-
-## Install This Skill
+## Install the successor
 
 ```sh
-npx skills add sebastian-software/skills.sebastian-software.com --skill metro-english
+npx skills add sebastian-software/skills.sebastian-software.com --skill effective-writing
 ```
 
-Or follow the [DALO setup guide](../../docs/dalo.md) and select it explicitly:
+Or follow the [DALO setup guide](../../docs/dalo.md):
 
 ```sh
-dalo init
-dalo target link codex
-dalo source add-catalog sebastian https://github.com/sebastian-software/skills.sebastian-software.com.git
-dalo source select sebastian metro-english
-dalo approve skill sebastian:metro-english
+dalo source select sebastian effective-writing
+dalo approve skill sebastian:effective-writing
 dalo sync
 ```
 
-## Related Skills
-
-- [PR Review](../pr-review/README.md) provides the complete technical and
-  operational workflow around pull-request feedback.
-- [LinkedIn Posts](../linkedin-posts/README.md) handles public professional posts
-  with audience, format, and content goals.
-- [Consultant Profile](../consultant-profile/README.md) creates the underlying
-  profile narrative and claims before channel-specific rewriting.
-- [Nonfiction Writing](../nonfiction-writing/README.md) owns general, public,
-  and long-form prose audits and voice-preserving editorial revision.
-- [Locale Typography](../locale-typography/README.md) applies punctuation,
-  spacing, quotation, number, date, and currency conventions after rewriting.
-- [Tech Docs](../tech-docs/README.md) owns durable technical documentation and
-  controlled technical English such as ASD-STE100; Metro English keeps the team
-  conversation around that work.
-
-## Scope
-
-Metro English changes voice, rhythm, and clarity. It does not change facts,
-technical meaning, commitments, established terminology, or durable house-style
-decisions without explicit authority. It is not a controlled-language or
-technical-documentation standard, and its pattern audit cannot determine
-whether AI wrote a message.
+If you previously selected `metro-english`, drop that selection when you add the
+successor.
 
 ## About Sebastian Software
 

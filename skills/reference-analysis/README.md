@@ -1,94 +1,33 @@
 [← Sebastian Software Skills](../../README.md)
 
-# Reference Analysis
+# Reference Analysis — moved
 
-[![Maintained by Sebastian Software](https://img.shields.io/badge/Maintained%20by-Sebastian%20Software-0f172a.svg)](https://oss.sebastian-software.com/)
+**This skill has moved into [effective-web](../effective-web/README.md).**
 
-**Turn websites, screenshots, HTML, prototypes, and videos into specifications
-that another person or agent can actually implement and verify.**
+`reference-analysis` is a deprecation stub. It stays installable for one release window so
+existing selections keep resolving, then it is removed. It contains no guidance:
+the workflow, references, and review scenarios all moved to `effective-web`.
 
-Reference Analysis captures the relevant evidence, separates observation from
-interpretation, and describes portable layout, visual, interaction, motion,
-responsive, accessibility, and performance contracts. It supports faithful
-reconstruction when reuse is authorized and reference-informed design when the
-target must remain original.
+**Where it went:** Reference Analysis (references/route-reference-analysis.md)
 
-## What It Can Deliver
+See [MIGRATION.md](../../MIGRATION.md) for the complete old-to-new mapping.
 
-- a dated source and capture registry
-- a timestamped motion and interaction breakdown
-- an evidence-backed structure and visual-system specification
-- a responsive and input-mode contract with explicit unknown ranges
-- an asset and implementation-mechanism register
-- a portable-grammar versus source-specific-exclusion matrix
-- acceptance checks that distinguish observed behavior from hypotheses
-
-## Use It When
-
-Use this skill when a live page, local HTML file, screenshot, screen recording,
-video, prototype, or mixed reference pack must become a design or implementation
-brief. It is especially useful when the reference is dynamic, long, edited,
-partly inaccessible, or easy to imitate superficially without understanding its
-states and behavior.
-
-## Example Prompts
-
-```text
-Analyze this screen recording and produce a timestamped implementation
-specification for its scroll sequence, transitions, responsive assumptions, and
-reduced-motion fallback.
-
-Compare these three reference sites. Extract the visual and interaction grammar
-we can reuse without copying their brands, copy, assets, or complete layouts.
-
-Turn this exported HTML and the rendered page into a component, state, motion,
-and acceptance specification. Mark anything the source does not prove.
-
-Capture this long lazy-loaded page reliably and document which evidence supports
-each section of the implementation brief.
-```
-
-See [SKILL.md](SKILL.md) for the complete evidence, extraction, specification,
-verification, and handoff workflow.
-
-## Install This Skill
+## Install the successor
 
 ```sh
-npx skills add sebastian-software/skills.sebastian-software.com --skill reference-analysis
+npx skills add sebastian-software/skills.sebastian-software.com --skill effective-web
 ```
 
-Or follow the [DALO setup guide](../../docs/dalo.md) and select it explicitly:
+Or follow the [DALO setup guide](../../docs/dalo.md):
 
 ```sh
-dalo init
-dalo target link codex
-dalo source add-catalog sebastian https://github.com/sebastian-software/skills.sebastian-software.com.git
-dalo source select sebastian reference-analysis
-dalo approve skill sebastian:reference-analysis
+dalo source select sebastian effective-web
+dalo approve skill sebastian:effective-web
 dalo sync
 ```
 
-## Related Skills
-
-- [Product Design](../product-design/README.md) turns research and product
-  evidence into a problem model, experience structure, and chosen direction;
-  Reference Analysis supplies inspectable source evidence.
-- [Effective Web](../effective-web/README.md) implements and verifies the
-  accepted specification in the browser.
-- [Originality Review](../originality-review/README.md) compares a produced
-  result against its references for source overlap and provenance risk.
-- [Product Marketing](../product-marketing/README.md) owns market position,
-  campaign claims, audience, and proof rather than inferring them from a
-  reference's visible execution.
-- [Decision Records](../decision-records/README.md) preserves an accepted
-  reference-derived direction when it becomes a durable project decision.
-
-## Scope
-
-The skill is not general internet research, competitor strategy, legal
-clearance, product discovery, or frontend implementation. It does not treat
-access to a reference as permission to reproduce its identity, content, code,
-or assets.
+If you previously selected `reference-analysis`, drop that selection when you add the
+successor.
 
 ## About Sebastian Software
 

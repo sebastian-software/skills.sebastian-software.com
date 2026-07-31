@@ -30,7 +30,94 @@ MAX_DESCRIPTION_LENGTH = 1024
 SKILL_LINE_LIMIT = 300
 REFERENCE_LINE_LIMIT = 500
 ROUTE_CONTEXT_REPORT_LIMIT = 900
-WORKTREE_SAFETY_SKILLS = ("pr-review", "smart-dependency-updater", "port-codebases")
+DEPRECATED_REGISTRY = "docs/deprecated-skills.json"
+
+
+def load_deprecated_skills(errors: list[str]) -> dict[str, dict[str, str]]:
+    """Load the superseded slugs that stay installable for one release window.
+
+    A deprecated stub keeps its original frontmatter so existing selections and
+    triggers still resolve, but it carries no guidance. It is therefore exempt
+    from the full skill anatomy (review scenarios, agent metadata, the public
+    README contract) and from the root inventory, and it is listed in
+    MIGRATION.md instead of receiving a site card.
+    """
+    registry = REPOSITORY_ROOT / DEPRECATED_REGISTRY
+    if not registry.is_file():
+        return {}
+
+    try:
+        payload = json.loads(registry.read_text(encoding="utf-8"))
+    except json.JSONDecodeError as error:
+        errors.append(f"{DEPRECATED_REGISTRY}: invalid JSON: {error.msg}")
+        return {}
+
+    deprecated = payload.get("deprecated") if isinstance(payload, dict) else None
+    if not isinstance(deprecated, dict):
+        errors.append(f"{DEPRECATED_REGISTRY}: 'deprecated' must be an object")
+        return {}
+
+    entries: dict[str, dict[str, str]] = {}
+    for name, details in deprecated.items():
+        if not isinstance(details, dict) or set(details) != {"route", "successor"}:
+            errors.append(
+                f"{DEPRECATED_REGISTRY}: {name!r} must contain exactly successor and route"
+            )
+            continue
+        if not (SKILLS_ROOT / name / "SKILL.md").is_file():
+            errors.append(
+                f"{DEPRECATED_REGISTRY}: {name!r} has no skills/{name}/SKILL.md; "
+                "remove the entry when the stub is deleted"
+            )
+            continue
+        entries[name] = details
+    return entries
+
+
+def validate_deprecation_stub(
+    skill_directory: Path, successor: str, skill_names: set[str], errors: list[str]
+) -> None:
+    """Require a stub to redirect rather than carry guidance."""
+    name = skill_directory.name
+    if successor not in skill_names:
+        errors.append(
+            f"{DEPRECATED_REGISTRY}: {name!r} names successor {successor!r}, "
+            "which is not a first-party skill directory"
+        )
+        return
+
+    skill_text = (skill_directory / "SKILL.md").read_text(encoding="utf-8")
+    if f"`{successor}`" not in skill_text:
+        errors.append(f"skills/{name}/SKILL.md: stub must name `{successor}`")
+
+    readme_text = (skill_directory / "README.md").read_text(encoding="utf-8")
+    for label, fragment in (
+        ("successor README link", f"../{successor}/README.md"),
+        ("migration table link", "../../MIGRATION.md"),
+        ("successor install command", f"--skill {successor}"),
+    ):
+        if fragment not in readme_text:
+            errors.append(f"skills/{name}/README.md: missing {label}")
+
+
+def validate_worktree_safety_uniqueness(skills_root: Path, errors: list[str]) -> None:
+    """Require one shared worktree-safety contract across the collection.
+
+    The three former copies were merged into a single file; a reintroduced copy
+    must stay byte-identical rather than drifting silently.
+    """
+    paths = sorted(skills_root.glob("*/references/worktree-safety.md"))
+    if len(paths) < 2:
+        return
+
+    baseline = paths[0]
+    baseline_bytes = baseline.read_bytes()
+    for path in paths[1:]:
+        if path.read_bytes() != baseline_bytes:
+            errors.append(
+                f"{path.relative_to(skills_root.parent)}: must be byte-identical "
+                f"to {baseline.relative_to(skills_root.parent)}"
+            )
 
 
 def github_anchor(heading: str) -> str:
@@ -518,26 +605,6 @@ def validate_reference_orphans(skill_directory: Path, errors: list[str]) -> None
             )
 
 
-def validate_worktree_safety_sync(skills_root: Path, errors: list[str]) -> None:
-    """Require the shared worktree-safety contracts to stay byte-identical."""
-    paths = [
-        skills_root / name / "references" / "worktree-safety.md"
-        for name in WORKTREE_SAFETY_SKILLS
-    ]
-    existing = [path for path in paths if path.is_file()]
-    if len(existing) < 2:
-        return
-
-    baseline = existing[0]
-    baseline_bytes = baseline.read_bytes()
-    for path in existing[1:]:
-        if path.read_bytes() != baseline_bytes:
-            errors.append(
-                f"{path.relative_to(skills_root.parent)}: must be byte-identical "
-                f"to {baseline.relative_to(skills_root.parent)}"
-            )
-
-
 def validate_evals(skill_directory: Path, errors: list[str]) -> None:
     """Validate unrun review-scenario fixtures without executing model behavior."""
     relative = skill_directory.relative_to(REPOSITORY_ROOT)
@@ -727,6 +794,12 @@ def main() -> int:
     root_text = root_readme.read_text(encoding="utf-8")
     skill_directories = sorted(path.parent for path in SKILLS_ROOT.glob("*/SKILL.md"))
     skill_names = {skill_directory.name for skill_directory in skill_directories}
+    deprecated = load_deprecated_skills(errors)
+    published = [
+        skill_directory
+        for skill_directory in skill_directories
+        if skill_directory.name not in deprecated
+    ]
 
     markdown_files = [root_readme]
     for skill_directory in skill_directories:
@@ -741,8 +814,6 @@ def main() -> int:
         if references_directory.is_dir():
             markdown_files.extend(sorted(references_directory.rglob("*.md")))
         text = readme.read_text(encoding="utf-8")
-        validate_evals(skill_directory, errors)
-        validate_skill_metadata(skill_directory, errors)
         validate_frontmatter(skill_directory, errors)
         validate_skill_body_conventions(skill_directory, errors)
         validate_reference_context_budgets(
@@ -755,12 +826,21 @@ def main() -> int:
         validate_isolated_skill_runtime_links(skill_directory, errors)
         validate_first_party_skill_references(skill_directory, skill_names, errors)
         validate_reference_orphans(skill_directory, errors)
+
+        if name in deprecated:
+            validate_deprecation_stub(
+                skill_directory, deprecated[name]["successor"], skill_names, errors
+            )
+            continue
+
+        validate_evals(skill_directory, errors)
+        validate_skill_metadata(skill_directory, errors)
         validate_required_readme_fragments(name, text, errors)
 
         if f"skills/{name}/" not in root_text:
             errors.append(f"README.md: skill {name} is not linked")
 
-    validate_worktree_safety_sync(SKILLS_ROOT, errors)
+    validate_worktree_safety_uniqueness(SKILLS_ROOT, errors)
 
     if reference_context_reports:
         print("Reference context report:")
@@ -769,8 +849,8 @@ def main() -> int:
 
     validate_root_inventory_sentence(
         root_text,
-        len(skill_directories),
-        count_references(skill_directories),
+        len(published),
+        count_references(published),
         errors,
     )
 
@@ -792,8 +872,9 @@ def main() -> int:
 
     print(
         f"Public documentation and review-scenario schema validation passed: "
-        f"{len(skill_directories)} skill READMEs, {len(markdown_files)} public "
-        "Markdown files, all required links present; model behavior is not executed"
+        f"{len(published)} skill READMEs plus {len(deprecated)} deprecation stubs, "
+        f"{len(markdown_files)} public Markdown files, all required links present; "
+        "model behavior is not executed"
     )
     return 0
 

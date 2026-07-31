@@ -1,4 +1,0 @@
-interface:
-  display_name: "Originality Review"
-  short_description: "Audit source overlap and creative provenance"
-  default_prompt: "Use $originality-review to audit this work against its references and report evidence-backed originality risks."

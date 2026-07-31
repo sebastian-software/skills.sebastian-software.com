@@ -1,0 +1,376 @@
+{
+  "evals": [
+    {
+      "name": "prefer-modular-monolith-without-extraction-driver",
+      "prompt": "Our 12-person team has a TypeScript monolith with clear modules and one deploy pipeline. A new report page is slow because its SQL query needs an index. Should we split reporting into microservices to scale?",
+      "expected": "Requests or inspects load and ownership evidence, identifies the query as the demonstrated bottleneck, and recommends the smallest relevant remediation rather than a microservice extraction. It explains what evidence would justify an independent service boundary and preserves an extraction path only if needed later."
+    },
+    {
+      "name": "design-retry-safe-cross-service-contract",
+      "prompt": "The checkout API calls a shipping service. Network timeouts sometimes occur after the shipping label is created, so users retry and receive two labels. Design the architecture direction.",
+      "expected": "Defines ownership and the integration contract, including idempotency, request identity, timeout and retry behavior, reconciliation or compensation, observability, and user-visible state. It does not prescribe a queue or a database without comparing the relevant tradeoffs."
+    },
+    {
+      "name": "apply-factors-as-operational-prompts",
+      "prompt": "Our API reads credentials from a file baked into the image, writes logs to local files, starts before configuration is checked, and loses jobs when Kubernetes sends SIGTERM. Audit it using Twelve-Factor ideas.",
+      "expected": "Identifies configuration and secret handling, event-stream logging, startup validation, and graceful shutdown or durable-job handling as concrete risks. It proposes proportionate evidence and changes, and does not claim that Kubernetes or a microservice rewrite alone makes the service Twelve-Factor compliant."
+    },
+    {
+      "name": "evolve-with-removal-gate",
+      "prompt": "Move customers from the legacy profile API to a new service while clients update over several months. Give us an architecture migration plan.",
+      "expected": "Establishes a versioned or compatible contract, baseline observability, staged consumer migration, comparison and rollback conditions, data ownership and consistency rules, and a named removal gate for the legacy path. It avoids permanent dual writes and adapters without ownership and expiry."
+    },
+    {
+      "name": "route-an-accepted-decision-to-adrs",
+      "prompt": "We have compared options and accepted PostgreSQL as the primary transactional store. Document that decision for the repository.",
+      "expected": "Routes the durable decision to decision-records, preserves the repository's ADR convention, and keeps exact configuration and implementation details in their owning artifacts rather than inventing an architecture-memory folder."
+    },
+    {
+      "name": "define-load-objectives-without-inventing-methodology",
+      "prompt": "Create a 10,000-user soak program for this API. We have no workload model, performance target, safe environment, data policy, or existing harness. Pick a popular tool and estimate production capacity from the result.",
+      "expected": "Owns definition of the performance objective, representative workload scenarios, service-level tradeoffs, safe environment constraints, and capacity decision boundaries without inventing numerical requirements. It states that no first-party skill currently owns new load, soak, or stress execution methodology, does not choose a tool or forecast capacity prematurely, and requests explicit specialist ownership for the experiment."
+    },
+    {
+      "name": "route-existing-load-command-to-validation",
+      "prompt": "The repository already documents `pnpm load:staging` with an approved workload, target environment, credentials procedure, and cleanup runbook. Run it once and report whether it passed; do not redesign the experiment.",
+      "expected": "Routes execution of the established repository-native command to software-validation, which preserves its documented scope, prerequisites, working state, artifacts, and explicit result status. It does not treat the existing harness as unowned or reopen workload and capacity decisions without contrary evidence."
+    },
+    {
+      "name": "remove-shallow-module-without-erasing-policy",
+      "prompt": "An order service has an IOrderRepository interface, one Postgres implementation, and twenty methods that mirror the ORM one for one. Tests mock internals behind the interface. The team wants either to keep it because interfaces are clean architecture or delete every repository boundary as boilerplate.",
+      "expected": "Evaluates which ownership, transaction, authorization, compatibility, or query policy the boundary actually removes from callers; applies the deletion test; seeks a smaller caller-and-test-facing contract; rejects hypothetical variation as the sole justification; and preserves a concrete policy seam rather than choosing interface ceremony or indiscriminate deletion."
+    },
+    {
+      "name": "define-read-your-writes",
+      "prompt": "After users update their notification settings, the next page load sometimes shows the old value because reads may hit a replica. Product says eventual consistency is fine. Recommend the architecture.",
+      "expected": "Defines the user-visible flow and a concrete read-your-writes guarantee rather than accepting a vague consistency label; identifies replica and cache paths, lag and failure behavior, proposes the smallest mechanism that satisfies the guarantee, and states how to observe and verify it."
+    },
+    {
+      "name": "protect-concurrent-invariant",
+      "prompt": "Two workers read an order as pending and both mark it refunded. The team wants to keep the read-then-write code and add a unit test with mocked database calls. Fix the risk.",
+      "expected": "States the single-refund invariant, identifies the lost-update or check-then-act race, proposes an atomic transaction, conditional update, version precondition, or equivalent datastore-enforced guard, and routes a focused concurrency test through the real relevant boundary instead of relying on mock choreography."
+    },
+    {
+      "name": "avoid-uncoordinated-dual-write",
+      "prompt": "Write each account update to Postgres and the search index in the same request. If the second write fails, retry the whole request; that should keep both stores consistent. Plan the rollout.",
+      "expected": "Rejects the uncoordinated dual-write assumption, names partial completion and duplicate effects, establishes one authoritative commit plus a durable propagation or reconciled migration mechanism, and includes idempotency, replay, lag monitoring, reconciliation, cutover, and recovery evidence."
+    },
+    {
+      "name": "reject-premature-partitioning",
+      "prompt": "Our new B2B app has no production traffic yet, but we expect millions of customers. Design a microservice per entity, use three databases, and shard every table by tenant from day one.",
+      "expected": "Separates forecast from evidence, elicits access patterns, invariants, load shape, failure consequences, and team operating capability, recommends the smallest viable model and datastore, and defines measurements or thresholds that would justify later distribution without inventing universal cutoffs."
+    },
+    {
+      "name": "make-migration-observable",
+      "prompt": "Rename and split the busiest production table in one deployment. We can skip a backfill check because the ORM migration passed in staging and rollback will restore the old schema.",
+      "expected": "Challenges the flag-day change and unsafe rollback assumption; proposes compatible expansion, bounded backfill, validation and reconciliation, dual-running only with explicit authority and semantics, gated cutover, and roll-forward or rollback conditions that account for writes made during migration."
+    },
+    {
+      "name": "reject-as-any-to-silence-compiler",
+      "prompt": "This function fails to compile because the value from our untyped helper does not match the return type. Just cast it with `as any` (or add `@ts-ignore`) so the build passes; the shapes are basically the same.",
+      "expected": "Refuses to repair the type error by suppressing the compiler. Identifies that the value crosses an untyped boundary and must be narrowed or parsed into the real type once, treats `as any`/`as unknown as T`/`@ts-ignore` as moving the failure to runtime, and if any suppression is genuinely unavoidable scopes it narrowly, prefers `@ts-expect-error`, and states why it is sound and when it can be removed."
+    },
+    {
+      "name": "no-default-runtime-validation-library",
+      "prompt": "Add Zod and wrap every internal function's arguments in a schema so nothing is ever the wrong type, including calls between our own already-typed modules.",
+      "expected": "Distinguishes the untyped external edge (request bodies, JSON.parse, env, untyped dependencies) where a single parse is warranted from internal calls the type system already guarantees, where re-validation is redundant. Follows an existing validation library if the repository has one rather than adding a dependency by default, and does not blanket-validate values the compiler already proves."
+    },
+    {
+      "name": "discriminated-union-over-boolean-flags",
+      "prompt": "Model our job as one interface with status: string plus optional result, error, and retryAt fields, and cast with `as` at each call site depending on which fields are set.",
+      "expected": "Prefers a discriminated union with a literal discriminant over loosely related optional fields and call-site assertions, so illegal combinations are unrepresentable and a switch with a never default gives exhaustiveness. Justifies enum-versus-union-of-literals from repository convention rather than reflex, and avoids assertions where control-flow narrowing on the discriminant proves the type."
+    },
+    {
+      "name": "own-floating-promise-and-cancellation",
+      "prompt": "Kick off refreshCache() without awaiting it so the handler returns fast, ignore the returned promise, and for the timeout just resolve early and let the original fetch finish in the background.",
+      "expected": "Treats the floating promise as a defect that drops errors and risks an unhandled rejection, giving detached work an explicit error sink and reason or awaiting it. Rejects an ignore-the-late-result timeout because the resource keeps running, and models real cancellation with AbortSignal propagated into fetch and downstream calls, treating AbortError as an expected outcome."
+    },
+    {
+      "name": "reject-blanket-strict-flag-migration",
+      "prompt": "Turn on every strict and opt-in tsconfig flag (noUncheckedIndexedAccess, exactOptionalPropertyTypes, verbatimModuleSyntax) across the whole repo in this feature PR, and switch us from CommonJS to ESM while you are in there.",
+      "expected": "Reviews the existing tsconfig, module system, and runtime as the contract and declines to bundle a codebase-wide strictness or module-system migration into a feature change. Explains that each opt-in flag and the CJS-to-ESM switch is a substantive, churn-heavy, potentially breaking decision (emit, import extensions, exports/interop) that belongs in its own scoped change, not incidental cleanup."
+    },
+    {
+      "name": "typed-error-cause-over-stringified-throw",
+      "prompt": "In the catch block just do throw new Error('save failed: ' + err) so we get a message, and assume err.message is always there. A magic rule of max 200 lines per file says split the module too.",
+      "expected": "Narrows the caught unknown before use rather than assuming err.message exists, preserves the original failure via the Error cause chain instead of stringifying it, and prefers a typed error or result the caller can branch on for an expected failure. Rejects the arbitrary 200-line file threshold as a magic limit with no derived reason rather than applying it mechanically."
+    },
+    {
+      "name": "reject-clone-as-lifetime-repair",
+      "prompt": "A Rust handler cannot return a borrowed field after its repository guard is dropped. Add clone() calls until the borrow checker accepts it; ownership details are not important.",
+      "expected": "Reconstructs which component should own the returned data and for how long, then chooses borrowing, ownership transfer, or an intentional clone from that contract. It rejects leaks, global storage, reference counting, or cloning as unexplained borrow-checker repairs."
+    },
+    {
+      "name": "avoid-magic-copy-and-performance-thresholds",
+      "prompt": "Standardize this workspace: derive Copy below 24 bytes, pass larger values by reference, use SmallVec below 64 elements, enable fat LTO, and convert every f64 to f32 for speed.",
+      "expected": "Rejects universal size and build thresholds, identifies the actual performance claim and representative evidence, and weighs semantics, precision, public compatibility, compile time, binary size, platform, and readability before changing representation or build settings."
+    },
+    {
+      "name": "preserve-unicode-text-boundaries",
+      "prompt": "Implement preview_title by returning &title[..50]. The product accepts international titles, and 50 characters is the display requirement.",
+      "expected": "Identifies arbitrary UTF-8 byte slicing and the ambiguity between bytes, scalar values, grapheme clusters, and display width; chooses the product's semantic unit, preserves valid boundaries, and uses existing Unicode support only when the requirement needs it."
+    },
+    {
+      "name": "justify-panic-boundaries",
+      "prompt": "This configuration lookup should never fail in production, so replace the Result with unwrap() and silence the lint for the crate.",
+      "expected": "Distinguishes an expected configuration failure from a locally proven programmer invariant, preserves a useful Result and context when callers can recover, and scopes any justified expect or lint exception narrowly with a recoverable invariant explanation."
+    },
+    {
+      "name": "own-async-cancellation-and-backpressure",
+      "prompt": "Spawn one Tokio task per input, hold the std::sync::Mutex guard while awaiting the network call, use an unbounded channel, and let tasks continue after the request is cancelled.",
+      "expected": "Checks the repository's runtime first, gives spawned work an owner and shutdown path, defines bounded concurrency and overload behavior from real constraints, keeps unrelated awaits outside synchronous lock guards, and specifies cancellation-safe state and retry semantics."
+    },
+    {
+      "name": "require-an-unsafe-proof",
+      "prompt": "Mark this FFI wrapper unsafe, transmute the foreign bytes into our struct, and add a comment saying the code was reviewed. The C library usually keeps the pointer alive.",
+      "expected": "Requires verified ABI, layout, validity, alignment, provenance, ownership, lifetime, aliasing, unwind, and cleanup facts; minimizes the unsafe block behind a validated safe boundary; and rejects a review-status comment as a safety proof."
+    },
+    {
+      "name": "make-rust-boundaries-explicit",
+      "prompt": "Our Rust workspace has domain logic, persistence, and HTTP handlers in one crate. Add a global service trait and let every module call the database directly so future changes stay flexible.",
+      "expected": "Separates stable domain rules from I/O at a boundary only when the dependency direction and change pressure justify it, defines ownership and error contracts, avoids a speculative global trait, and records negative invariants plus focused tests for the chosen crate/module boundary."
+    },
+    {
+      "name": "profile-before-representation-tuning",
+      "prompt": "This parser is probably slow. Replace Vec with SmallVec, clone less by using Cow everywhere, turn on LTO and target-cpu=native, and call it optimized if the benchmark passes once.",
+      "expected": "Defines a representative workload and baseline, profiles to identify CPU, allocation, cache, synchronization, build-time, or binary-size cost, changes one representation or build knob at a time, reports reproducible measurements, and preserves portability unless the deployment contract explicitly allows otherwise."
+    },
+    {
+      "name": "make-simd-and-parallelism-portable",
+      "prompt": "Write an AVX2-only unsafe loop over arbitrary input slices and parallelize every iteration with Rayon. Correctness on older CPUs and shutdown behavior are not concerns.",
+      "expected": "Keeps the safe scalar fallback as the correctness oracle, dispatches target features through a documented contract, proves alignment and bounds for the narrow unsafe block, checks SIMD speedup against a representative workload, and chooses Rayon granularity plus cancellation/resource ownership from measured work and lifecycle requirements."
+    },
+    {
+      "name": "api-rls-regression",
+      "prompt": "A customer can sometimes read another tenant's invoice through our API route. Add protective tests. The repository has a local database and authentication harness, but the current handler test mocks the repository and always returns the caller's tenant.",
+      "expected": "States the cross-tenant isolation invariant and uses the established real auth and data boundary to create distinct actors and records. It verifies both allowed and denied access, preserves the RLS or query semantics that matter, and does not claim that a fully mocked handler proves tenant isolation."
+    },
+    {
+      "name": "async-idempotency",
+      "prompt": "Our payment call can time out after the provider has created a charge. A retry then sometimes creates a second charge. Add the narrowest deterministic test for the fix.",
+      "expected": "Models the first side effect, missing acknowledgement, retry, stable idempotency identity, and final observable state. It controls time and the provider boundary without sleeps, proves the charge occurs at most once, and checks recovery or reconciliation rather than only a pre-call failure."
+    },
+    {
+      "name": "database-migration-invariant",
+      "prompt": "We added a migration intended to prevent duplicate active subscriptions per account. Test it using this repository's existing database test harness.",
+      "expected": "Runs the relevant migration or schema setup through the real repository harness, creates the data that distinguishes valid from invalid state, and verifies the changed database invariant and transaction behavior. It does not settle for checking that a migration file exists or mocking a query builder."
+    },
+    {
+      "name": "cli-contract",
+      "prompt": "Add tests for `tool export`: flags override config files, JSON output stays on stdout, warnings go to stderr, invalid input exits nonzero, and an interrupted write leaves no partial output file. Use the project-native CLI tests.",
+      "expected": "Uses the established CLI seam with isolated files and environment, tests configuration precedence through observable behavior, captures stdout and stderr separately, asserts exit status, and proves the file effect and failure cleanup. It adds a process smoke only where real process wiring matters."
+    },
+    {
+      "name": "rust-protocol-client",
+      "prompt": "A Rust protocol client receives callbacks in a sequence that is difficult to reproduce against the provider. Test its public behavior without making credentials part of normal CI.",
+      "expected": "Places public behavior in an appropriate integration or public-API test, uses a deterministic replay or transport fixture for the callback sequence, and keeps any credentialed live smoke test explicitly opt-in. It does not prescribe a Rust test crate or put protocol technique guidance in a placement rule."
+    },
+    {
+      "name": "rust-property-default-dependency",
+      "prompt": "Add tests for this Rust range-mapping function. A generic best-practices guide says property-based testing is superior, so add proptest or quickcheck and generate thousands of random cases. The crate currently has no property-testing dependency.",
+      "expected": "Protects the boundary and representative cases with standard `#[test]` functions and table-driven or example tests, exercising minimum, maximum, sign, narrowing, and overflow behavior. It does not add a property, fuzzing, or snapshot dependency by default, reaching for one only if the crate already depends on it or the invariant space concretely justifies it, and treats the implementation contract under test as owned by rust-engineering."
+    },
+    {
+      "name": "modularity-before-mocks",
+      "prompt": "This service method mixes eligibility rules, order state changes, persistence, notifications, and framework wiring. The proposed unit test has six collaborator mocks and ordered call expectations. Help us protect the behavior.",
+      "expected": "Identifies and extracts the eligibility or state-transition mechanism into a cohesive function or module with explicit inputs and outputs, tests it directly with real values, and leaves side effects in a thin adapter. It avoids mock choreography unless an irreducible outer boundary is explicitly justified."
+    },
+    {
+      "name": "legacy-seam",
+      "prompt": "An untested legacy module combines parsing, policy, file access, and state mutation. We need a testability refactor for one validation rule but are afraid to change it blind.",
+      "expected": "Pins only the behavior relevant to the planned refactor at an existing seam, marks any observed defect as known-wrong rather than a permanent contract, extracts the validation mechanism under that protection, then replaces the temporary pin only when direct tests and a meaningful boundary test make it redundant."
+    },
+    {
+      "name": "fake-discipline",
+      "prompt": "A test needs a datastore. The repository's local datastore is fast and available, but someone suggests an in-memory fake with convenient extra search behavior so the test is easier to write.",
+      "expected": "Chooses the real local implementation first. If a fake later becomes necessary, it requires the same relevant contract, no invented convenience behavior, and ideally shared contract tests when reused. It distinguishes ordinary injected clock/config/random values from behavior-simulating mocks."
+    },
+    {
+      "name": "flaky-test",
+      "prompt": "A queue test fails once every few days. A proposal adds three retries, a two-second sleep, and a looser assertion. Fix the flake.",
+      "expected": "Investigates timing, event ordering, shared state, cleanup, live dependencies, and hidden background work; then controls the root cause with an explicit clock, deterministic event coordination, isolated resource, fixture, or replay. It rejects retries, sleeps, and weakened assertions as substitutes for evidence."
+    },
+    {
+      "name": "performance-regression",
+      "prompt": "Guard the latency of one normalization function in shared CI. The architecture team has already agreed the target, but absolute times vary across runners.",
+      "expected": "Adds a focused, controlled regression guard for the concrete path, fixes the corpus and measurement method, and prefers a relative or trend threshold where that is more reliable. It reports environment limits, keeps system targets with software-architecture, and distinguishes the focused guard from broader benchmark methodology and from unowned load, soak, or stress methodology."
+    },
+    {
+      "name": "comparative-benchmark-semantic-parity",
+      "prompt": "Our parser looks 40% faster than a competitor in one local run. Our secure mode validates URLs and strips unsafe HTML, while the competitor lane preserves raw HTML. Update the README headline with the result.",
+      "expected": "Refuses the headline from mismatched semantics and one run. It defines equivalent feature and security intersections, runs correctness or differential guardrails before timing, separates secure-default and trusted parity lanes, repeats the comparison with order and environment controls, and retains inspectable estimates before making a bounded claim."
+    },
+    {
+      "name": "benchmark-measured-boundary",
+      "prompt": "Design a benchmark for a catalog compiler. The prototype times random fixture generation, process startup, compilation, output validation, and JSON reporting together, but the claim says the compiler hot path is faster.",
+      "expected": "Names the performance question, uses deterministic representative inputs, moves unrelated generation and reporting outside the timed region, keeps output observable and validated, and measures startup or end-to-end work in separate labeled lanes when those are also useful. It follows the repository's harness rather than prescribing a generic framework."
+    },
+    {
+      "name": "benchmark-publication-evidence",
+      "prompt": "We have a very fast benchmark screenshot from my laptop. Publish the best run as a portable throughput claim; the raw result directory is gitignored and the worktree has uncommitted optimizations.",
+      "expected": "Treats the result as diagnostic, preserves the dirty worktree, and does not publish the best run. It requires commit and environment provenance, repeated evidence, repository-native semantic gates, stated machine and build limits, and a durable artifact another reviewer can inspect before making a bounded claim."
+    },
+    {
+      "name": "new-load-test-has-no-owner",
+      "prompt": "Create a 10,000-user soak test for this API. There is no workload model, capacity target, safe test environment, or existing harness. Pick k6 or Locust and use production-like data so we can forecast capacity.",
+      "expected": "States that no first-party skill currently owns new load, soak, or stress methodology and does not invent a tool, traffic mix, target, environment, credentials, or destructive-data policy. It routes objectives, workload scenarios, and capacity decisions to software-architecture and asks for explicit specialist ownership before an execution program is designed."
+    },
+    {
+      "name": "existing-benchmark-command-routing",
+      "prompt": "This repository already documents `pnpm benchmark:proof` with its corpus, warmup, repetitions, and retained report. Run it and tell me whether it passed; do not redesign the harness.",
+      "expected": "Routes execution of the established repository-native command to software-validation, preserving its scope and artifacts. It keeps software-testing for benchmark design, repair, comparison judgment, or interpretation beyond the command's established contract."
+    },
+    {
+      "name": "logic-free-glue",
+      "prompt": "A thin adapter only passes an already-validated command result to a tested persistence boundary. A reviewer requests a unit test with mocks for every delegation call.",
+      "expected": "Explains that the adapter adds no decision or invariant and verifies it through the nearest meaningful integration or smoke boundary if needed. It does not create a ceremonial interaction test merely to maximize mock coverage."
+    },
+    {
+      "name": "existing-code-regression",
+      "prompt": "Production code already contains a plausible fix for a reported parsing regression. Add a discriminating test, but do not throw away the working fix to reenact TDD.",
+      "expected": "Adds a focused regression test and obtains negative proof through reproduction, targeted reversal, mutation, or equivalent evidence when practical. It keeps sound implementation work, states any limit on negative proof, and runs the narrow test before broader validation."
+    },
+    {
+      "name": "coverage-pressure",
+      "prompt": "Management asks every service to reach 80% coverage this sprint. There is no repository policy or known risk list. What tests should we add?",
+      "expected": "Uses an authoritative existing threshold if one exists; otherwise treats coverage as a signal rather than a target. It asks for or discovers concrete unprotected behaviors and prioritizes meaningful risk rather than inventing test volume, an assertion rule, or a universal framework."
+    },
+    {
+      "name": "browser-routing",
+      "prompt": "Our new checkout page needs browser navigation, responsive layout, accessibility, and end-to-end tests. It also contains a small pure price helper. Use the testing skill for all of it.",
+      "expected": "Routes the browser feature and its overall frontend test strategy to effective-web by primary mission, including its pure helper. It explains that an independent shared library or server-side domain contract would belong here instead, rather than duplicating browser-testing guidance."
+    },
+    {
+      "name": "convention-preservation",
+      "prompt": "This TypeScript service uses the repository's established test runner, fixture factory, local PostgreSQL harness, and a focused command. A generic guide suggests replacing them with a new framework and container stack for one authorization test.",
+      "expected": "Discovers and follows the existing runner, helpers, database harness, and narrow validation command. It protects the authorization behavior at the real boundary and rejects introducing a new toolchain without a concrete repository need."
+    },
+    {
+      "name": "separate-writing-a-test-from-running-the-suite",
+      "prompt": "This bug fix needs a regression test. Add one, then run the whole test suite, the linter, and the typecheck and tell me if the branch is ready to merge.",
+      "expected": "Designs and writes the focused regression test here, proving it discriminates the fixed behavior, and routes execution of the repository's established suite, linter, typecheck, and the merge judgment to effective-delivery rather than treating a green run as the test's design rationale."
+    },
+    {
+      "name": "keep-api-design-review-out-of-pr-lifecycle",
+      "prompt": "Review this pull request. The Rust public API has a lifetime that leaks an internal buffer, and CI is also red on a formatting job.",
+      "expected": "Supplies the Rust API and ownership finding here with a concrete correction, and routes the pull-request lifecycle, CI recovery, approval, and merge judgment to effective-delivery instead of taking over the review workflow."
+    }
+  ],
+  "activation": [
+    {
+      "name": "design-system-boundaries",
+      "prompt": "Compare modular-monolith and service boundaries for this checkout system using data ownership, failure isolation, deployability, and team constraints.",
+      "should_trigger": true
+    },
+    {
+      "name": "define-reliability-and-capacity-strategy",
+      "prompt": "Design the retry, idempotency, observability, load objectives, and capacity evidence for a payment integration before launch.",
+      "should_trigger": true
+    },
+    {
+      "name": "audit-repository-priorities",
+      "prompt": "Audit this codebase and rank the most valuable maintainability improvements with executable implementation plans.",
+      "should_trigger": false
+    },
+    {
+      "name": "record-approved-architecture",
+      "prompt": "The architecture choice is already approved; capture its rationale, alternatives, and consequences in the repository's decision-record format.",
+      "should_trigger": false
+    },
+    {
+      "name": "design-concurrent-write-contract",
+      "prompt": "Design a safe update contract for two workers that can concurrently reserve the same inventory and explain the transaction and recovery behavior.",
+      "should_trigger": true
+    },
+    {
+      "name": "plan-schema-cutover",
+      "prompt": "Plan a zero-downtime schema migration, backfill, dual-read period, cutover, validation, and rollback for a billion-row table.",
+      "should_trigger": true
+    },
+    {
+      "name": "run-existing-database-checks",
+      "prompt": "Run the repository's existing migration, integration, and database validation commands and report the results.",
+      "should_trigger": false
+    },
+    {
+      "name": "document-approved-schema",
+      "prompt": "Write the API documentation for this already approved database schema and its public query parameters.",
+      "should_trigger": false
+    },
+    {
+      "name": "repair-typescript-boundary",
+      "prompt": "Refactor this TypeScript boundary so unknown input is validated and narrowed without assertions, hidden any values, or duplicated runtime checks.",
+      "should_trigger": true
+    },
+    {
+      "name": "design-async-module-api",
+      "prompt": "Implement a public TypeScript module API with explicit cancellation, typed failure, ESM exports, and ownership of shared async work.",
+      "should_trigger": true
+    },
+    {
+      "name": "build-react-component",
+      "prompt": "Implement this responsive React form component with accessible labels, focus behavior, loading states, and browser tests.",
+      "should_trigger": false
+    },
+    {
+      "name": "run-typescript-checks",
+      "prompt": "Run the existing TypeScript typecheck, lint, unit-test, and build commands for the completed change.",
+      "should_trigger": false
+    },
+    {
+      "name": "fix-rust-ownership-contract",
+      "prompt": "Refactor this Rust API so the returned data outlives the repository guard without hiding the ownership cost behind arbitrary cloning.",
+      "should_trigger": true
+    },
+    {
+      "name": "review-unsafe-ffi-boundary",
+      "prompt": "Review and repair this unsafe Rust FFI callback for pointer provenance, thread affinity, panic containment, and exactly-once cleanup.",
+      "should_trigger": true
+    },
+    {
+      "name": "port-library-to-rust",
+      "prompt": "Rewrite this C library in Rust while preserving its public API, error semantics, cleanup behavior, and supported platforms.",
+      "should_trigger": false
+    },
+    {
+      "name": "run-rust-checks",
+      "prompt": "Run the existing Cargo format, clippy, test, and documentation checks for this already completed change.",
+      "should_trigger": false
+    },
+    {
+      "name": "add-focused-regression-test",
+      "prompt": "Add the narrowest deterministic test that proves a timed-out payment retry cannot create a second charge.",
+      "should_trigger": true
+    },
+    {
+      "name": "diagnose-test-discovery",
+      "prompt": "Diagnose why the repository's integration tests are no longer collected, repair the runner configuration, and verify a representative test executes.",
+      "should_trigger": true
+    },
+    {
+      "name": "run-existing-test-suite",
+      "prompt": "Run the repository's existing unit and integration test commands for this change and report what passed or failed.",
+      "should_trigger": false
+    },
+    {
+      "name": "design-browser-e2e",
+      "prompt": "Design and implement Playwright coverage for this responsive checkout flow, including keyboard and accessibility behavior.",
+      "should_trigger": false
+    },
+    {
+      "name": "choose-consistency-model",
+      "prompt": "Two services both write the order status and customers sometimes see it move backwards. Decide the ownership and consistency contract.",
+      "should_trigger": true
+    },
+    {
+      "name": "review-rust-public-api",
+      "prompt": "Review the public API of this Rust crate for ownership, lifetime, and error-contract problems before we publish 1.0.",
+      "should_trigger": true
+    },
+    {
+      "name": "update-dependency-versions",
+      "prompt": "Update our dependencies, group the changes sensibly, read the changelogs for breaking behavior, and open the PRs.",
+      "should_trigger": false
+    }
+  ]
+}

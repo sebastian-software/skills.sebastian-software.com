@@ -1,13 +1,21 @@
 # RFC 0001: Consolidate the Collection into Six Effective Disciplines
 
-- Status: Draft
+- Status: Accepted and executed
 - Date: 2026-07-31
 - Revised: 2026-07-31 — incorporates `market-research` and
   `marketing-writing`, added on `main` the same day (33 skills, 273
   references)
 - Deciders: Sebastian Werner
-- Outcome artifact: on acceptance, record the decision as an ADR in
-  `docs/adr/` and treat this RFC as the detailed execution plan.
+- Outcome artifact: recorded as
+  [ADR 0004](../adr/0004-effective-disciplines.md); the migration table is in
+  [MIGRATION.md](../../MIGRATION.md).
+
+> **Execution note.** The consolidation shipped as one change rather than the
+> stacked per-discipline PRs described under Migration Sequencing. The
+> resulting shape is 6 disciplines, 73 routes, and 326 references — four more
+> routes than projected here, because four route groups exceeded the 900-line
+> context budget once their references pooled and were split instead of
+> registered as exceptions. ADR 0004 records the full list of deviations.
 
 ## Summary
 

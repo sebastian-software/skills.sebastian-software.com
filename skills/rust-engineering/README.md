@@ -1,121 +1,33 @@
 [← Sebastian Software Skills](../../README.md)
 
-# Rust Engineering
+# Rust Engineering — moved
 
-[![Maintained by Sebastian Software](https://img.shields.io/badge/Maintained%20by-Sebastian%20Software-0f172a.svg)](https://oss.sebastian-software.com/)
+**This skill has moved into [effective-engineering](../effective-engineering/README.md).**
 
-**Write and review Rust whose ownership, failure, concurrency, and safety
-contracts remain understandable under change.**
+`rust-engineering` is a deprecation stub. It stays installable for one release window so
+existing selections keep resolving, then it is removed. It contains no guidance:
+the workflow, references, and review scenarios all moved to `effective-engineering`.
 
-Rust Engineering gives agents a strict but evidence-led standard for Rust
-implementation and review. It favors semantic types, explicit failure and
-ownership, clear crate boundaries, Unicode-safe text handling, bounded
-concurrency, written unsafe proofs, repository-native linting, and measured
-optimization over universal thresholds or borrow-checker workarounds.
+**Where it went:** Rust Engineering (references/route-rust.md) and its architecture, performance, and unsafe siblings
 
-## What It Can Deliver
+See [MIGRATION.md](../../MIGRATION.md) for the complete old-to-new mapping.
 
-- Rust implementations with deliberate borrowing, consumption, and cloning
-- public APIs that encode useful domain distinctions without speculative traits
-- readable naming, constants, comments, and control flow
-- typed error and panic boundaries with actionable context
-- cancellation-aware async work, backpressure, and owned task lifecycles
-- focused unsafe, FFI, and manual `Send`/`Sync` reviews
-- crate/workspace architecture with explicit boundaries and invariants
-- evidence-led profiling, allocation and data-layout decisions
-- SIMD, target-feature dispatch, atomics, and data-parallel Rust
-- Rust-depth review findings, grounded in edition, MSRV, features, and CI
-  policy, for a code review owned by PR Review
-
-## Use It When
-
-Use this skill while implementing, refactoring, or reviewing Rust crates and
-workspaces, especially around ownership, lifetimes, public APIs, numeric
-conversion, async execution, unsafe code, or FFI.
-
-It does not replace the owner skills for pull-request lifecycle and merge
-judgment, test design, rustdoc, dependency updates, repository-wide audits,
-behavior-preserving ports, or execution of existing checks.
-
-## Example Prompts
-
-```text
-Review this Rust parser for ownership, Unicode boundaries, numeric conversion,
-and public error semantics.
-
-Refactor this async worker so concurrency, cancellation, backpressure, and
-shutdown ownership are explicit.
-
-Investigate this Rust hot path with benchmarks and profiling, then decide
-whether the bottleneck is allocation, layout, dispatch, synchronization, or
-code generation before changing it.
-
-Design a portable SIMD kernel with a scalar fallback, runtime CPU-feature
-dispatch, and a reviewable unsafe contract.
-
-Design a safe Rust wrapper around this C API and document the invariants that
-make each unsafe operation sound.
-
-Implement this Rust API without adding speculative traits, clone-based lifetime
-workarounds, or unexplained buffer and timeout values.
-```
-
-See [SKILL.md](SKILL.md) for the workflow, operating rules, and routing
-boundaries.
-
-## Deep References
-
-The main skill stays concise and loads only the focused reference needed by the
-task:
-
-- [Architecture and boundaries](references/architecture-and-boundaries.md)
-- [Performance and profiling](references/performance-and-memory.md)
-- [Memory and data layout](references/memory-and-data-layout.md)
-- [SIMD and parallelism](references/simd-and-parallelism.md)
-- [Ownership and API design](references/ownership-and-api-design.md)
-- [Errors and concurrency](references/errors-and-concurrency.md)
-- [Unsafe and FFI](references/unsafe-and-ffi.md)
-- [Quality and review](references/quality-and-review.md)
-
-## Install This Skill
+## Install the successor
 
 ```sh
-npx skills add sebastian-software/skills.sebastian-software.com --skill rust-engineering
+npx skills add sebastian-software/skills.sebastian-software.com --skill effective-engineering
 ```
 
-Or follow the [DALO setup guide](../../docs/dalo.md) and select it explicitly:
+Or follow the [DALO setup guide](../../docs/dalo.md):
 
 ```sh
-dalo init
-dalo target link codex
-dalo source add-catalog sebastian https://github.com/sebastian-software/skills.sebastian-software.com.git
-dalo source select sebastian rust-engineering
-dalo approve skill sebastian:rust-engineering
+dalo source select sebastian effective-engineering
+dalo approve skill sebastian:effective-engineering
 dalo sync
 ```
 
-## Related Skills
-
-- [PR Review](../pr-review/README.md) owns pull-request lifecycle, approval, CI
-  recovery, and merge judgment; this skill supplies the Rust-depth findings
-  inside a review.
-- [Software Testing](../software-testing/README.md) owns focused Rust test design
-  and implementation against the contracts established here.
-- [Tech Docs](../tech-docs/README.md) owns rustdoc, examples, and contributor
-  documentation.
-- [Software Validation](../software-validation/README.md) discovers and runs
-  the repository's established Rust checks.
-- [Smart Dependency Updater](../smart-dependency-updater/README.md) owns crate
-  selection, feature changes, and version updates.
-- [Port Codebases](../port-codebases/README.md) owns behavior-preserving moves
-  into or out of Rust.
-
-## Scope
-
-This skill does not impose one async runtime, error crate, test library, lint
-set, MSRV, edition, allocation strategy, SIMD API, or performance threshold.
-It does not authorize unrelated cleanup, dependency additions, public API
-breaks, or unsafe optimizations.
+If you previously selected `rust-engineering`, drop that selection when you add the
+successor.
 
 ## About Sebastian Software
 

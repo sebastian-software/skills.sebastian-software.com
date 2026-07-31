@@ -1,94 +1,33 @@
 [← Sebastian Software Skills](../../README.md)
 
-# Pricing and Packaging
+# Pricing and Packaging — moved
 
-[![Maintained by Sebastian Software](https://img.shields.io/badge/Maintained%20by-Sebastian%20Software-0f172a.svg)](https://oss.sebastian-software.com/)
+**This skill has moved into [effective-product](../effective-product/README.md).**
 
-**Make pricing decisions that customers can understand, the product can
-support, and the available evidence can actually justify.**
+`pricing-and-packaging` is a deprecation stub. It stays installable for one release window so
+existing selections keep resolving, then it is removed. It contains no guidance:
+the workflow, references, and review scenarios all moved to `effective-product`.
 
-Pricing and Packaging helps agents connect customer value, buying behavior,
-product economics, and operating constraints. It covers research, value
-metrics, pricing models, packages, trials, discounts, and existing-customer
-changes without reaching for a universal formula or a decorative three-tier
-table.
+**Where it went:** Pricing and Packaging (references/route-pricing.md)
 
-## What It Can Deliver
+See [MIGRATION.md](../../MIGRATION.md) for the complete old-to-new mapping.
 
-- a decision-specific pricing evidence register
-- a willingness-to-pay and competitor research plan
-- candidate value metrics with customer and business tradeoffs
-- modeled subscription, usage, seat, outcome, or hybrid options
-- packages and entitlements tied to distinct customer needs
-- explicit discount, trial, and exception policies
-- an existing-customer migration and communication plan
-- a test plan with guardrails, decision rules, and rollback conditions
-
-## Use It When
-
-Use this skill when launching a new paid offer, revisiting an existing price,
-choosing what to charge for, designing packages, setting trial or discount
-policy, or moving existing customers to a new commercial model.
-
-## Example Prompts
-
-```text
-Compare seat-based, usage-based, and hybrid pricing for this product using the
-evidence we have. Make the unknowns and required research explicit.
-
-Design packages for these three customer situations without assuming that we
-need three tiers or hiding essential value behind arbitrary feature fences.
-
-Plan a price increase for existing customers, including cohorts, notices,
-contract constraints, support readiness, exceptions, monitoring, and rollback.
-
-Review this competitor-pricing spreadsheet. Separate dated facts from inference
-and propose the smallest research step before we commit to exact prices.
-```
-
-See [SKILL.md](SKILL.md) for the complete evidence, model, package, and rollout
-workflow.
-
-## Install This Skill
+## Install the successor
 
 ```sh
-npx skills add sebastian-software/skills.sebastian-software.com --skill pricing-and-packaging
+npx skills add sebastian-software/skills.sebastian-software.com --skill effective-product
 ```
 
-Or follow the [DALO setup guide](../../docs/dalo.md) and select it explicitly:
+Or follow the [DALO setup guide](../../docs/dalo.md):
 
 ```sh
-dalo init
-dalo target link codex
-dalo source add-catalog sebastian https://github.com/sebastian-software/skills.sebastian-software.com.git
-dalo source select sebastian pricing-and-packaging
-dalo approve skill sebastian:pricing-and-packaging
+dalo source select sebastian effective-product
+dalo approve skill sebastian:effective-product
 dalo sync
 ```
 
-## Related Skills
-
-- [Product Management](../product-management/README.md) resolves the target
-  customer, product promise, strategy, and viability assumptions that pricing
-  depends on.
-- [Product Marketing](../product-marketing/README.md) turns approved pricing
-  choices into positioning, messages, proof, launch, and sales-enablement
-  requirements.
-- [Marketing Writing](../marketing-writing/README.md) expresses approved
-  prices, packages, billing terms, trials, guarantees, and migration conditions
-  without redesigning them through copy.
-- [Decision Records](../decision-records/README.md) preserves an approved
-  pricing choice, its tradeoffs, migration policy, and reopening conditions.
-- [Web Legal Compliance](../web-legal-compliance/README.md) handles
-  jurisdiction-aware disclosures, privacy, consent, and website requirements
-  around presenting or testing an offer.
-
-## Scope
-
-The skill supports professional product and commercial decision-making, not
-tax, accounting, revenue-recognition, antitrust, regulated-pricing, or
-jurisdiction-specific contract advice. Exact market facts and platform
-capabilities require current verification.
+If you previously selected `pricing-and-packaging`, drop that selection when you add the
+successor.
 
 ## About Sebastian Software
 

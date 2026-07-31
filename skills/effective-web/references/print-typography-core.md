@@ -126,5 +126,5 @@ Choose one convention — never combine spacing and indentation:
 Use `–` (en dash) for ranges, `×` (`&times;`) for dimensions, `−` (`&minus;`)
 for subtraction, `…` for ellipsis, `'` (U+2019) for apostrophe, and a narrow
 no-break space (U+202F, `&#8239;`) between numbers and units. Locale-specific
-quotation marks, dashes, and spacing route to `locale-typography` — see
+quotation marks, dashes, and spacing route to `effective-writing` — see
 [print-locale.md](print-locale.md).

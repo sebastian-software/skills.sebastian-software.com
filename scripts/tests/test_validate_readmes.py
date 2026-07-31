@@ -628,7 +628,7 @@ class ReferenceOrphanTests(unittest.TestCase):
         self.assertIn("skills/example/references/loop.md: orphaned reference", errors[0])
 
 
-class WorktreeSafetySyncTests(unittest.TestCase):
+class WorktreeSafetyUniquenessTests(unittest.TestCase):
     def setUp(self) -> None:
         self.temporary_directory = tempfile.TemporaryDirectory()
         self.skills_root = Path(self.temporary_directory.name) / "skills"
@@ -642,39 +642,39 @@ class WorktreeSafetySyncTests(unittest.TestCase):
         references.mkdir(parents=True)
         (references / "worktree-safety.md").write_text(content, encoding="utf-8")
 
+    def test_accepts_the_single_shared_contract(self) -> None:
+        self.write_contract("effective-delivery", "# Worktree Safety\n")
+        errors: list[str] = []
+
+        VALIDATOR.validate_worktree_safety_uniqueness(self.skills_root, errors)
+
+        self.assertEqual(errors, [])
+
     def test_accepts_byte_identical_contracts(self) -> None:
-        for skill in VALIDATOR.WORKTREE_SAFETY_SKILLS:
+        for skill in ("effective-delivery", "effective-engineering"):
             self.write_contract(skill, "# Worktree Safety\n\nShared contract.\n")
         errors: list[str] = []
 
-        VALIDATOR.validate_worktree_safety_sync(self.skills_root, errors)
+        VALIDATOR.validate_worktree_safety_uniqueness(self.skills_root, errors)
 
         self.assertEqual(errors, [])
 
     def test_reports_divergent_contracts(self) -> None:
-        self.write_contract("pr-review", "# Worktree Safety\n")
-        self.write_contract("smart-dependency-updater", "# Worktree Safety\n")
-        self.write_contract("port-codebases", "# Worktree Safety, but different\n")
+        self.write_contract("effective-delivery", "# Worktree Safety\n")
+        self.write_contract("effective-engineering", "# Worktree Safety\n")
+        self.write_contract("effective-web", "# Worktree Safety, but different\n")
         errors: list[str] = []
 
-        VALIDATOR.validate_worktree_safety_sync(self.skills_root, errors)
+        VALIDATOR.validate_worktree_safety_uniqueness(self.skills_root, errors)
 
         self.assertEqual(
             errors,
             [
-                "skills/port-codebases/references/worktree-safety.md: "
+                "skills/effective-web/references/worktree-safety.md: "
                 "must be byte-identical to "
-                "skills/pr-review/references/worktree-safety.md"
+                "skills/effective-delivery/references/worktree-safety.md"
             ],
         )
-
-    def test_skips_when_fewer_than_two_contracts_exist(self) -> None:
-        self.write_contract("pr-review", "# Worktree Safety\n")
-        errors: list[str] = []
-
-        VALIDATOR.validate_worktree_safety_sync(self.skills_root, errors)
-
-        self.assertEqual(errors, [])
 
 
 class SkillBodyConventionTests(unittest.TestCase):

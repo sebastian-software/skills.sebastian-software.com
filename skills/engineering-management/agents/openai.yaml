@@ -1,4 +1,0 @@
-interface:
-  display_name: "Engineering Management"
-  short_description: "Lead healthy product engineering systems"
-  default_prompt: "Use $engineering-management to diagnose this team system and propose a responsible management change."
