@@ -30,7 +30,12 @@ MAX_DESCRIPTION_LENGTH = 1024
 SKILL_LINE_LIMIT = 300
 REFERENCE_LINE_LIMIT = 500
 ROUTE_CONTEXT_REPORT_LIMIT = 900
-WORKTREE_SAFETY_SKILLS = ("pr-review", "smart-dependency-updater", "port-codebases")
+WORKTREE_SAFETY_SKILLS = (
+    "issue-autopilot",
+    "pr-review",
+    "smart-dependency-updater",
+    "port-codebases",
+)
 
 
 def github_anchor(heading: str) -> str:
