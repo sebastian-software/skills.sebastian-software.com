@@ -1,4 +1,4 @@
-<!-- Synced copy. Identical files live in skills/pr-review, skills/smart-dependency-updater, skills/port-codebases — apply changes to all three. -->
+<!-- Synced copy. Identical files live in skills/issue-autopilot, skills/pr-review, skills/smart-dependency-updater, and skills/port-codebases — apply changes to all four. -->
 
 # Worktree Safety
 

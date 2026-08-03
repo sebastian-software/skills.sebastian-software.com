@@ -1,0 +1,4 @@
+interface:
+  display_name: "Issue Autopilot"
+  short_description: "Discover and operate live issue queues"
+  default_prompt: "Use $issue-autopilot to discover and rank the unspecified project issue queue, process the next actionable issue, and keep queue-owned PR state in sync."

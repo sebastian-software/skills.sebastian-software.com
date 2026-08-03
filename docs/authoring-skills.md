@@ -354,6 +354,7 @@ runtime or private receipt file.
 
 | Skill | Worktree behavior | Local safety owner |
 | --- | --- | --- |
+| `issue-autopilot` | Creates one isolated worktree per selected queue item; delegates implementation, validation, staging, commit, push, and PR repair without merging | [`issue-autopilot/references/worktree-safety.md`](../skills/issue-autopilot/references/worktree-safety.md) |
 | `pr-review` | Creates or adopts a PR worktree; writes, validates, stages, commits, pushes, rebases when authorized, and removes workflow-created worktrees | [`pr-review/references/worktree-safety.md`](../skills/pr-review/references/worktree-safety.md) |
 | `smart-dependency-updater` | Creates or adopts one worktree per dependency PR group; writes manifests and lockfiles, validates, stages, commits, pushes, publishes, and cleans up owned worktrees | [`smart-dependency-updater/references/worktree-safety.md`](../skills/smart-dependency-updater/references/worktree-safety.md) |
 | `port-codebases` | Creates or adopts isolated worktrees for port shards; writes, validates, stages, checkpoints, integrates, and cleans up owned shard worktrees | [`port-codebases/references/worktree-safety.md`](../skills/port-codebases/references/worktree-safety.md) |
