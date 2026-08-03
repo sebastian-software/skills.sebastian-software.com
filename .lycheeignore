@@ -20,7 +20,7 @@ https?://www\.solcom\.de/.*
 # Remove the entry once the branch is merged. An exception left behind stops the
 # link check from ever verifying that route again, which is how a genuinely
 # broken link would slip through unnoticed.
-https://github\.com/sebastian-software/skills\.sebastian-software\.com/tree/main/skills/create-social-content
+https://github\.com/sebastian-software/skills\.sebastian-software\.com/tree/main/skills/issue-autopilot
 
 # These live primary sources reject, reset, or time out on GitHub Actions'
 # link-check traffic.
@@ -35,6 +35,11 @@ https://www\.gesetze-im-internet\.de/tdddg/
 https://www\.cai\.gouv\.qc\.ca/
 https://europass\.europa\.eu/en/create-europass-cv
 https://portal\.education\.lu/zls
+
+# 2026-08-03: MLA Style Center returns 403 to GitHub Actions while the source
+# remains reachable to normal browsers. Keep this exclusion scoped to the exact
+# cited page so other MLA links still receive automated verification.
+https://style\.mla\.org/quotation-in-title-or-heading/
 
 # 2026-07-29: the ISO and ANSI standards stores return 403 to GitHub Actions
 # after retries. Keep the official citations for human readers; the automated
