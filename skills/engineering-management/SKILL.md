@@ -3,9 +3,10 @@ name: engineering-management
 description: >-
   Lead product, design, and engineering teams through clear responsibilities,
   delegation, coaching, decision paths, meeting systems, team design, and
-  sustainable cognitive load. Use when a team has unclear ownership, overloaded
-  leaders, weak one-to-ones, coordination drag, recurring decision stalls, or a
-  proposed reorganization that needs evidence and safeguards.
+  sustainable cognitive load, including transitions to AI-assisted work. Use
+  when a team has unclear ownership, overloaded leaders, weak one-to-ones,
+  coordination drag, recurring decision stalls, AI resistance or role
+  uncertainty, or a proposed reorganization that needs evidence and safeguards.
 ---
 
 # Engineering Management
@@ -65,7 +66,7 @@ Load only the references needed for the decision:
 - Use
   [product-engineering-collaboration.md](references/product-engineering-collaboration.md)
   for product-design-engineering responsibilities, discovery, technical
-  leadership, planning, and delivery collaboration.
+  leadership, planning, delivery collaboration, and AI-assisted transitions.
 
 When several routes apply, diagnose the management system first. Add the people
 or team-design route only for the decisions it owns.

@@ -26,7 +26,11 @@ handoffs.
 - empowered-team and product-operating-model recommendations
 - AI-assisted exploration portfolios with evidence and commitment gates
 - prioritization decisions and outcome-oriented roadmaps
+- initiative gates that decide whether to start, delegate, park, or reject a
+  substantial idea before allocating capacity
 - feature-request and quality-bar reviews
+- AI-era selection and subtraction decisions that protect whole-product
+  coherence when implementation becomes cheap
 - release, experiment, adoption, retention, and post-launch recommendations
 - plans for turning service expertise into a repeatable product
 
@@ -46,6 +50,10 @@ recommendation.
 Review this roadmap and identify where output commitments have replaced product
 outcomes.
 
+Run this proposed initiative through a decision gate. Show its leverage,
+evidenced constraint, timing, displaced work, and smallest reversible test,
+then recommend start, delegate, park, or reject.
+
 Audit this polished product brief for decision readiness. Trace every important
 claim to supplied evidence and tell me what blocks approval.
 
@@ -64,6 +72,9 @@ inventing demand we have not validated.
 Our team keeps accepting the first plausible AI-generated solution. Design an
 exploration cadence that gets us to materially different options quickly
 without confusing prototypes with customer evidence.
+
+AI can build twelve plausible features this week. Decide which, if any, belong
+in the product and use subtraction to preserve one coherent experience.
 
 Turn this executive feature list into an empowered-team brief with an outcome,
 constraints, shared product-design-engineering responsibilities, and honest

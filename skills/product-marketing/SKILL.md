@@ -4,7 +4,9 @@ description: >-
   Develop, review, and improve evidence-led product positioning, segmentation,
   category choices, messaging, proof, launches, sales enablement, and market
   learning. Use for positioning briefs, message architecture, claim and proof
-  reviews, launch plans, sales narratives or battlecards, win/loss analysis,
+  reviews, launch plans, distribution choices grounded in unit economics and
+  touch requirements, build-versus-distribution diagnoses, services-to-product
+  scaling choices, sales narratives or battlecards, win/loss analysis,
   adoption learning, or cross-functional go-to-market alignment. Use when a
   team must turn stable product and customer evidence into market-facing
   choices without inventing customer language, differentiation, or certainty.
@@ -24,6 +26,8 @@ channel execution separately reviewable.
    - category decision
    - message or claim system
    - launch and sales-enablement plan
+   - distribution motion or build-versus-distribution diagnosis
+   - services-to-product scaling choice
    - win/loss or adoption review
 2. Establish the evidence boundary. Separate:
    - verified product behavior, constraints, and customer outcomes
@@ -50,7 +54,8 @@ channel execution separately reviewable.
      calls to action, and proof gaps.
    - [Launch and enablement](references/launch-and-enablement.md) for launch
      scope, readiness, sequencing, ownership, sales enablement, competitive
-     context, rollout guardrails, and measurement.
+     context, rollout guardrails, measurement, distribution-motion selection,
+     build-versus-distribution diagnosis, and services-to-product scaling.
    - [Market learning](references/market-learning.md) for win/loss work,
      adoption analysis, interviews, evidence synthesis, and decisions about
      changing the segment, position, message, proof, or channel.

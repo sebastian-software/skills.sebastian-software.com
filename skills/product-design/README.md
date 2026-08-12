@@ -21,6 +21,7 @@ project needs another workshop or canvas.
 - object, relationship, moment, flow, journey, and navigation models
 - thumbnail, wireframe, prototype, test, and delivery plans
 - purposeful visual-reference studies and in-context character explorations
+- AI-era direction selection, subtraction, and coherence reviews
 - autonomy, learnability, motivation, and interaction-risk reviews
 - habit-loop, behavioral-design, engagement, and retention experiments
 
@@ -53,6 +54,10 @@ signals.
 
 Choose the smallest prototype that can test our navigation model and the risky
 state transition in this workflow.
+
+AI generated twenty polished directions. Compare them on one representative
+slice, choose a coherent direction, and explain what should be rejected or
+removed rather than combining every attractive fragment.
 ```
 
 See [SKILL.md](SKILL.md) for the routed workflow, operating principles,

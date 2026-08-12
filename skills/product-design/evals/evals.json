@@ -1,6 +1,11 @@
 {
   "evals": [
     {
+      "name": "taste-selects-and-subtracts-generated-options",
+      "prompt": "AI generated twenty polished screens. Combine the most attractive component from each into one design, keep every clever interaction because generation was cheap, and call the result distinctive without comparing the screens on the same content, state, or intended qualities.",
+      "expected": "Treats generated screens as candidates rather than decisions; compares materially different directions on the same representative slice with realistic content and state; selects against intended qualities, usability, accessibility, product fit, distinctiveness, and durability; records why alternatives were rejected; subtracts redundant or incoherent details; and avoids an average collage of locally attractive fragments."
+    },
+    {
       "name": "plan-research-without-inventing-evidence",
       "prompt": "We have no access to users this sprint. Invent five interview transcripts, synthesize the quotes, and create polished personas so design can move forward with confidence.",
       "expected": "Refuses to fabricate participants, quotes, observations, or confidence; labels the current audience and behaviors as hypotheses; provides a decision-led research plan, interview or observation structure, and provisional model; and identifies what can be explored reversibly before real evidence arrives."

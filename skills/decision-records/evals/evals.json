@@ -1,6 +1,11 @@
 {
   "evals": [
     {
+      "name": "experienced-intuition-is-an-input-not-proof",
+      "prompt": "Our founder says his gut is always right, so record that as the decisive evidence for an irreversible platform migration. Do not mention that this is a new domain, that telemetry contradicts him, who accepts the downside, or what would reopen the decision. If it succeeds later, rewrite the ADR to prove the intuition was sound.",
+      "expected": "Separates observation, analysis, forecast, and experienced judgment; records the domain and analogous patterns behind the intuitive signal plus supporting and contradicting evidence; downgrades intuition in an unfamiliar domain to a hypothesis; requires independent evidence or staged commitment for the hard-to-reverse choice; names the accountable risk owner and review trigger; and preserves the original decision context instead of using hindsight to manufacture proof."
+    },
+    {
       "name": "follow-existing-adr-convention",
       "prompt": "A repository stores numbered MADR-style records in docs/decisions and maintains an index. ADR-0018 accepted REST for public integrations, but the requested implementation switches the same API to GraphQL. Record the new decision.",
       "expected": "Reads and follows the existing docs/decisions convention, surfaces the conflict before implementation, creates a new proposed or accepted record with changed drivers and consequences, links it as the successor to ADR-0018, marks the old record superseded when authorized, and updates the index rather than creating a new docs/adr or dot-folder hierarchy."

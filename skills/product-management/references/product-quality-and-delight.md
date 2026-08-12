@@ -57,6 +57,28 @@ feel useful or quietly satisfying after novelty has worn off. Rewarding
 exploration may reveal optional depth, but required capability must remain
 discoverable without finding a surprise.
 
+## Treat Taste as Repeated Product Judgment
+
+Lower implementation cost changes what is feasible; it does not decide what is
+valuable, coherent, or worth maintaining. Use AI to widen the set of materially
+different mechanisms, then select against the target progress, product thesis,
+non-goals, experience intention, and evidence. Generated options are candidates,
+not product decisions.
+
+Prefer a smaller coherent product to an accumulation of cheap features and
+settings. For every proposed element ask:
+
+- Which customer decision or progress does it enable?
+- What breaks if it is removed?
+- Does another mechanism already serve the same purpose?
+- What explanation, choice, cognitive load, and maintenance does it add?
+- Does it strengthen or weaken the whole journey and product character?
+
+Taste becomes durable differentiation when these selection and subtraction
+judgments are repeated and encoded in principles, examples, review, and the
+delivered system. A single attractive interface or generated feature is easy to
+copy; a coherent sequence of choices is harder to reproduce.
+
 ## Decide when good enough is good enough
 
 Define the bar from audience, promise, risk, frequency, reversibility, and

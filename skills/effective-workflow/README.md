@@ -18,9 +18,12 @@ documentation, dependencies, architecture, ports, decisions, and PR review.
   and external delivery actions
 - repository-native plans, tests, documentation, Git conventions, and handoffs
 - before-and-after evidence for refactors and regression evidence for bug fixes
+- material-ambiguity checks before consequential delegation or implementation
+- proportionate plan-before-mutation gates for high-impact AI-assisted work
 - selective coordination of only the specialist skills the current task needs
-- capability- and cost-aware routing across available models and agents instead
-  of assuming one model should own every stage
+- proactive work graphs, critical-path analysis, and safe parallel fronts
+- capability- and cost-aware assignment instead of assuming one model should
+  own every stage or giving the strongest model every mechanical task
 - compact delegation receipts that preserve exact evidence without returning a
   transcript of every search or tool call
 - bounded delegation topologies that never silently weaken read-only access,
@@ -43,8 +46,10 @@ sequencing is needed.
 ## Example Prompts
 
 ```text
-Take this bug from diagnosis through a minimal fix, regression evidence, and a
-review-ready handoff. Do not push or open a PR.
+Take this cross-cutting bug from diagnosis through a minimal fix, regression
+evidence, and a review-ready handoff. Resolve consequential ambiguity,
+decompose it proactively, and parallelize only independent work. Do not push or
+open a PR.
 
 Implement issue #42 using the repository's existing plan and conventions. Run
 the relevant checks, review the final diff, then commit and open a PR.
@@ -65,7 +70,8 @@ See [SKILL.md](SKILL.md) for the four-stage workflow and its authority model.
 | Diagnosis and clarification | Preserve read-only diagnosis and resolve only choices that block a safe next step. |
 | Implementation intent | Use natural-language routes and sequence understand, change, verify, and deliver only as far as the task needs. |
 | Specialist judgment | Delegate frontend, testing, validation, documentation, dependency, review, architecture, decision, and port depth to their owners. Use a disclosed repository-led fallback where no language specialist exists. |
-| Delegation | Match model capability to judgment and execution risk; give bounded owners explicit authority, deliberate execution topology, and compact result contracts without weakening isolation or evidence to save cost. |
+| Execution topology | Build a dependency graph, identify the critical path and safe parallel front, match model capability and cost to each item, and keep integration within review capacity. |
+| Delegation | Give bounded owners explicit authority and compact result contracts without weakening isolation, evidence, or safety to gain speed. |
 | Pragmatic restraint | Understand the owning flow, then prefer no new work, repository reuse, standard-library or native capability, an installed dependency, and finally the smallest cohesive implementation. |
 | Mixed repositories | Route each affected domain independently; distinguish product code, tooling, documentation, generated output, and vendored content before delegating. |
 | Plans and progress | Reuse repository-native issues, plans, branches, commits, CI, and pull requests instead of creating a parallel workflow store. |

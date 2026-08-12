@@ -128,6 +128,24 @@ Choose the narrowest supported conclusion:
 “Intended,” “decision required,” and “insufficient evidence” are legitimate
 results. Do not manufacture a defect or cause to make the report feel complete.
 
+## Choose the Intervention Level
+
+Classify the supported cause before recommending action:
+
+- **Ground / local:** one defect violates a clear contract at an isolated seam.
+  Correct that seam and add the narrow evidence that protects it.
+- **Middle / system:** recurring symptoms share a policy, ownership, boundary,
+  test, or workflow cause. Correct the shared mechanism instead of patching each
+  manifestation.
+- **Cloud / direction:** the intended outcome, product assumption, or
+  architecture direction is missing or wrong. Obtain the owning decision before
+  prescribing code.
+
+Move upward only when evidence connects the symptom to that level. Do not turn
+every local bug into a transformation program, and do not repeatedly patch a
+shared cause. After selecting the level, recommend the smallest intervention
+that can resolve the cause and prove the result there.
+
 ## Return the Smallest Useful Result
 
 Adapt to repository conventions while covering:

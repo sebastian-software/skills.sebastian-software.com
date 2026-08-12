@@ -16,6 +16,8 @@ marketing, security, operational, and communication choices.
 
 - proposed or accepted ADRs that follow the repository's convention
 - clear context, decision drivers, considered options, and consequences
+- explicit separation of observations, analysis, forecasts, and experienced
+  judgment when intuition materially affects a choice
 - supersession that preserves accepted history
 - an opt-in living-record lifecycle for repositories where one mutable file is
   intentionally the current decision
@@ -46,6 +48,10 @@ vocabulary and its intentionally owned configuration table.
 
 Decide whether this local refactor deserves an ADR or should remain in the pull
 request explanation.
+
+Our experienced operator's intuition contradicts the current analysis on this
+hard-to-reverse decision. Record the signal, counterevidence, accepted risk,
+staged commitment, and reopening condition without calling intuition proof.
 ```
 
 See [SKILL.md](SKILL.md) for the lifecycle, default convention, and operating

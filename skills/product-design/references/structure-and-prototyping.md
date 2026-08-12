@@ -50,7 +50,16 @@ For each direction check:
 - whether the environment supports exploration or intentionally narrows focus
 - whether the design factors and visual character are already legible
 
-Discard directions for explicit reasons and carry useful fragments forward.
+Discard directions for explicit reasons. Carry a useful fragment forward only
+when it strengthens the chosen direction's shared interaction and visual logic;
+do not assemble a statistically average collage from the best-looking part of
+every generated option.
+
+Selection is design work. Record why the chosen direction fits the intended
+qualities, what the rejected directions would have optimized instead, and which
+elements can be removed without losing comprehension, agency, state, or
+character. Cheap generation should increase breadth and permit sharper
+subtraction, not turn every plausible detail into product surface.
 
 ## Use wireframes to specify behavior
 

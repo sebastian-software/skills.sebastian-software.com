@@ -1,6 +1,11 @@
 {
   "evals": [
     {
+      "name": "strategic-control-is-not-automatic-vertical-integration",
+      "prompt": "This billing capability is mission-critical, so build the database, payment rails, infrastructure, and every dependency ourselves. Reject all proprietary software as unsafe and accept every open-source package as controllable; do not compare failure recovery, data portability, internal expertise, lifecycle cost, substitutes, or exit paths.",
+      "expected": "Identifies the specific control required by differentiation, failure impact, recovery authority, data, compliance, operability, and switching risk; compares realistic in-house, open-source, managed, and integrated options across total lifecycle and opportunity cost; recognizes that control may live in owned contracts, data, observability, fallback, and a tested exit path; and rejects automatic vertical integration as well as proprietary-is-unsafe and open-source-is-maintainable assumptions."
+    },
+    {
       "name": "prefer-modular-monolith-without-extraction-driver",
       "prompt": "Our 12-person team has a TypeScript monolith with clear modules and one deploy pipeline. A new report page is slow because its SQL query needs an index. Should we split reporting into microservices to scale?",
       "expected": "Requests or inspects load and ownership evidence, identifies the query as the demonstrated bottleneck, and recommends the smallest relevant remediation rather than a microservice extraction. It explains what evidence would justify an independent service boundary and preserves an extraction path only if needed later."

@@ -18,6 +18,11 @@ and channel execution separate so confident copy cannot manufacture certainty.
 - positioning options with alternatives, tradeoffs, and non-goals
 - a message hierarchy and claim-to-proof register
 - a launch scope, readiness review, sequence, and ownership map
+- a distribution-motion choice grounded in economics, trust, touch, and
+  downstream value
+- a diagnosis of whether feature work is avoiding a distribution or activation
+  constraint
+- a services-to-product scaling map that preserves valuable human work
 - sales discovery, narrative, demonstration, objection, and proof guidance
 - a win/loss review that includes non-decisions and selection limits
 - adoption analysis across first value, repeated value, and retained use
@@ -45,6 +50,10 @@ sales enablement, proof gaps, operational owners, and stop or expand rules.
 
 Review these win, loss, no-decision, and adoption records. Tell us whether the
 evidence supports changing the segment, position, message, proof, or channel.
+
+We can build far more than before, but demand and adoption are flat. Diagnose
+whether another feature or a different route to market has the higher marginal
+value, then propose the smallest evidence-producing test.
 ```
 
 See [SKILL.md](SKILL.md) for the agent-facing workflow, evidence rules, routes,

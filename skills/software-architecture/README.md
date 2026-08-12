@@ -17,6 +17,8 @@ without mistaking diagrams or fashionable patterns for a decision.
 - evidence-led system and boundary assessments
 - architecture options with concrete quality-attribute tradeoffs
 - service, module, data ownership, and integration contract directions
+- build-versus-buy and strategic-control decisions across in-house, open-source,
+  managed, and vertically integrated options
 - operational design using relevant Twelve-Factor practices
 - non-frontend testing-strategy direction: test-pyramid shape, coverage goals,
   and which risks get which test types
@@ -49,6 +51,10 @@ shutdown, and production configuration before we implement it.
 
 Use Twelve-Factor principles to identify which parts of this worker deployment
 are unsafe, and recommend only the changes justified by the system.
+
+Decide whether this mission-critical capability should be built, bought, based
+on open source, or vertically integrated. Identify what we actually need to
+control and require a credible failure and exit path.
 ```
 
 See [SKILL.md](SKILL.md) for the workflow, operating rules, and routing

@@ -3,6 +3,16 @@
 Use scope to make a product coherent and learnable. Do not turn prioritization
 into a ranking contest detached from strategy, evidence, and capacity.
 
+## Contents
+
+- [Define the smallest coherent product](#define-the-smallest-coherent-product)
+- [Evaluate feature requests](#evaluate-feature-requests)
+- [Prioritize decisions, not scores](#prioritize-decisions-not-scores)
+- [Gate a new initiative](#gate-a-new-initiative-before-allocating-capacity)
+- [Set a contextual quality tier](#set-a-contextual-quality-tier)
+- [Build an outcome roadmap](#build-an-outcome-roadmap)
+- [Negotiate scope constructively](#negotiate-scope-constructively)
+
 ## Define the smallest coherent product
 
 Start with one target user, triggering situation, and job. Include the complete
@@ -46,6 +56,23 @@ Use a scoring method only as a conversation aid. Consider:
 
 Show the inputs and uncertainty. A precise score built from invented numbers is
 less useful than a transparent tradeoff.
+
+## Gate a new initiative before allocating capacity
+
+Before promoting a substantial idea into execution, establish:
+
+- the user or business outcome and compounding leverage it could create;
+- the evidenced bottleneck, risk, or opportunity it addresses;
+- why now, what concretely happens if it waits, and when the opportunity expires;
+- which authority, asset, relationship, or capability makes the team suited to it;
+- capacity, dependencies, displaced work, maintenance, and opportunity cost; and
+- the smallest reversible action that can test the decisive assumption.
+
+Choose `start`, `delegate`, `park with a review trigger`, or `reject with a
+reason`. Do not require every question to produce a ceremonial yes, use current
+motivation as proof of value, or let a parking lot become an unreviewed backlog.
+An initiative may proceed with uncertainty when its owner accepts the bounded
+risk and the next step produces decision-relevant evidence.
 
 ## Set a contextual quality tier
 
