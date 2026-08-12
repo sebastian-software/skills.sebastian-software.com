@@ -16,9 +16,13 @@ human consequences visible together.
 
 - responsibility and decision-right maps
 - management-system and meeting audits
+- coordination-medium choices for asynchronous, synchronous, paired, workshop,
+  and in-person work
 - one-to-one, coaching, feedback, and delegation plans
 - team-boundary and cognitive-load diagnoses
 - product-design-engineering working agreements
+- evidence-led transitions to AI-assisted work with explicit human decisions,
+  bounded pilots, safeguards, and request-to-operation measures
 - small, reversible organizational experiments with safeguards
 - review plans that combine delivery, quality, and human signals
 
@@ -37,6 +41,10 @@ and design the smallest delegation change that preserves necessary control.
 Review our recurring meetings and decision paths. Keep the governance we
 actually need, but remove delay and duplicated attendance.
 
+Our remote team has recurring tacit-knowledge and trust problems. Decide which
+work needs documents, calls, pairing, workshops, or in-person collaboration
+without imposing a universal office or meetup cadence.
+
 Two teams share three specialists and both miss commitments. Determine whether
 the problem is team boundaries, cognitive load, capacity, or unclear priority
 before recommending a reorganization.
@@ -44,6 +52,10 @@ before recommending a reorganization.
 Clarify how product, design, engineering management, and technical leadership
 should collaborate on discovery and delivery without creating a feature
 factory.
+
+Help this engineering team adopt AI agents without turning generated output
+into a productivity quota or leaving architecture and acceptance decisions
+unowned.
 ```
 
 See [SKILL.md](SKILL.md) for the evidence model, workflow, safeguards, routing

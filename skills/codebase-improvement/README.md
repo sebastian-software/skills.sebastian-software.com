@@ -34,6 +34,9 @@ The workflow can examine correctness, security, performance, testing,
 architecture, dependencies, documentation, developer experience, unnecessary
 complexity, and stale improvement work. Findings include concrete evidence,
 impact, confidence, scope, and a practical correction instead of vague advice.
+It can also distinguish a local fix from a shared-system correction or a
+direction decision, and use repeated agent divergence as evidence of missing
+repository contracts without blaming either model or code prematurely.
 
 ## Example Prompts
 
@@ -56,6 +59,10 @@ causes, report what the evidence rules out, and stop before implementing.
 Plan a safe change to this untested billing module. Preserve the behavior we
 depend on, mark the known defect explicitly, and keep preparatory refactoring
 separate from the business-rule correction.
+
+Three agents implemented the same bounded change in incompatible ways. Check
+whether the repository has a missing or conflicting contract before proposing
+another prompt rule.
 ```
 
 See [SKILL.md](SKILL.md) for the evidence model, artifact boundaries, safety

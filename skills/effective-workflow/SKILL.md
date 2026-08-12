@@ -1,13 +1,14 @@
 ---
 name: effective-workflow
 description: >-
-  Coordinate multi-stage or mixed-domain software work from an unclear request
-  through an authorized change, focused verification, and a review-ready
-  handoff. Use when a task spans diagnosis, implementation, validation, review,
-  or delivery and needs sequencing across repository-native workflows and
-  first-party specialist skills. Prefer the matching specialist directly for
-  an already narrow documentation, dependency, test, review, architecture,
-  port, or frontend request.
+  Coordinate multi-stage, mixed-domain, or multi-agent software work from an
+  unclear request through an authorized change, focused verification, and a
+  review-ready handoff. Use when a task spans diagnosis, implementation,
+  validation, review, or delivery and needs proactive decomposition,
+  ambiguity reduction, capability- and cost-aware delegation, or sequencing
+  across repository-native workflows and first-party specialist skills. Prefer
+  the matching specialist directly for an already narrow documentation,
+  dependency, test, review, architecture, port, or frontend request.
 ---
 
 # Effective Workflow
@@ -85,6 +86,13 @@ issue, or decision convention. Do not add a skill-specific debt marker.
   that block a safe implementation.
 - Decide whether a saved plan is useful. Use one for multi-step or risky work
   when the repository or user calls for it; skip it for a small, clear change.
+- Before delegation or mutation, challenge ambiguity that could change
+  behavior, data, security, compatibility, scope, or acceptance. Resolve routine
+  details from repository evidence; when credible interpretations materially
+  diverge, present them with consequences and obtain the owning decision.
+- For nontrivial work, identify decisions that unblock later work, independent
+  investigations, shared-state collisions, objective evidence, and the critical
+  path. Do not wait for the caller to partition work agents can organize.
 - Establish a relevant before baseline for behavior-preserving work. Record an
   already-red baseline instead of attributing old failures to the new change.
 
@@ -93,22 +101,30 @@ issue, or decision convention. Do not add a skill-specific debt marker.
 - Invoke the appropriate first-party owner when available and treat its domain
   rules as authoritative. Pass it the outcome, scope, repository evidence,
   constraints, and expected handoff.
-- Do not assume one model or session must own every stage. When the host
-  supports model or agent selection, reserve the strongest suitable capability
-  for ambiguity-heavy, high-impact judgment. Route bounded, reversible
-  execution to faster or lower-cost workers only when the handoff is
-  self-contained and verification is objective.
-- For delegated work, define a compact result contract and return boundary.
-  Prefer outcome, evidence, and blocker over process narration; keep
-  safety-critical or ambiguous information in normal explicit prose. Read
+- When an agent will produce production code, keep the accountable human or
+  owning team responsible for the problem, material architecture, data,
+  security, compatibility, and acceptance choices. Resolve consequential
+  choices before generation.
+- For ambiguity-heavy or high-impact work, require a reviewable implementation
+  plan before mutation and compare it with the accepted outcome, exclusions,
+  repository constraints, and evidence plan. Keep this gate proportionate.
+- Shape nontrivial work into a dependency graph and active parallel front. Read
   [Routing and selective installation](references/routing-and-fallbacks.md)
-  for the delegation contract.
+  for work-graph, model-selection, and delegation contracts.
+- When model or agent selection exists, match each item to ambiguity, impact,
+  context breadth, repetition, objective verifiability, cost, and latency. Use
+  the strongest suitable capability for consequential judgment and the least
+  costly sufficient worker for bounded execution. Never invent tiers.
+- Limit parallel work by independence, state isolation, integration and review
+  capacity, slots, and budget. Integrate each completed front, then update the
+  graph; keep tightly coupled judgment in one context.
+- Give delegated work a compact outcome, authority, evidence, and return
+  contract. Prefer result and blocker over process narration.
 - Treat delegated authority, isolation, and tool limits as enforceable
   contracts. Stop or disclose the downgrade and request a decision when the
   runtime cannot honor them; never continue silently with broader capability.
-- Keep work in the caller when context loss, capability mismatch, or
-  coordination cost outweighs delegation. Never invent unavailable model tiers
-  or let price weaken authority, evidence, review depth, or safety.
+- Do not let delegation volume, speed, or price weaken authority, evidence,
+  safety, or the integrator's ability to judge the combined work.
 - Implement only the agreed surface. Do not expand a fix into cleanup, a docs
   task into product behavior, or a dependency update into unrelated migration.
 - Follow repository-native files, commands, branches, issues, tests, and docs.
@@ -121,6 +137,9 @@ issue, or decision convention. Do not add a skill-specific debt marker.
 - Match evidence to the claim: reproduce and guard a bug, compare a refactor
   baseline, exercise a feature's acceptance path, validate documentation
   examples and links, or check dependency and port compatibility.
+- Treat generated code, agent confidence, and plan conformance as inputs, not
+  completion evidence. Verify behavior, failure modes, and repository
+  integration independently of who or what wrote the change.
 - Use `software-validation` when available to discover, deduplicate, execute,
   and report the repository's established check surface; keep specialist owners
   responsible for designing any new evidence the change requires.

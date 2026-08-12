@@ -63,6 +63,52 @@ Do not average blocking readiness gaps into an overall reassuring score. Mark
 the launch `ready`, `conditionally ready`, `not ready`, or `insufficient
 evidence` for the declared exposure.
 
+## Choose the Distribution Motion from Economics and Trust
+
+Start with the actual constraint, not a universal channel sequence. Establish:
+
+- price, gross margin, retention, payback boundary, and confidence in each;
+- buyer effort, required trust, implementation risk, and human-touch needs;
+- full acquisition, sales, onboarding, support, and delivery cost and capacity;
+- existing audience, relationships, partners, product surfaces, and other
+  credible access advantages; and
+- downstream conversion, adoption, retention, and operational signals.
+
+Compare only plausible motions: high-touch sales, product-led acquisition,
+demand capture, partners, founder trust, content, paid distribution, or public
+relations. Name the function of each: founder-led work can transfer trust and
+return direct evidence but creates concentration risk; product content can
+support independent understanding and discovery; paid channels can capture
+demand or amplify a proven response but do not manufacture value; public
+relations can concentrate attention around real news, proof, or a customer
+moment. Do not copy another company's sequence, staffing ratio, or spend split.
+Test the smallest credible motion and scale only when conversion, retention,
+capacity, and economics support it.
+
+## Diagnose Whether Building Is Avoiding Distribution
+
+When feature work dominates, identify the current constraint across readiness,
+reach, comprehension, evaluation, commitment, activation, retention, capacity,
+and economics. Define the minimum route to market: audience and situation,
+current alternative and promise, explanation and action, a way to reach people
+and capture response, owners, and decision evidence.
+
+Compare the marginal value of more engineering with distribution, activation,
+and market learning. Distinguish a true product gap from feature accumulation;
+route the former to `product-management`, otherwise prioritize the missing
+market path. State the observable imbalance without diagnosing leadership
+motives. Compare headcount, budget, and attention with the evidenced constraint,
+not with a copied company ratio.
+
+## Turn Services into a Scaling System
+
+Map the steps whose effort grows roughly with each customer. For every step,
+choose deliberately whether to preserve it as valuable human service,
+standardize it, automate it, productize it, deliver it through partners, or
+remove it. Protect the customer knowledge and relationships the service
+produces. Choose the scaling mechanism from evidence; do not assume that
+building an audience, adding software, or removing people is always the answer.
+
 ## Select the launch scope and sequence
 
 Choose the smallest exposure that can test the intended position and value

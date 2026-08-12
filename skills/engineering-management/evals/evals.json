@@ -1,6 +1,16 @@
 {
   "evals": [
     {
+      "name": "coordination-medium-follows-the-work",
+      "prompt": "Remote teams always lose trust and tacit knowledge, so require everyone to fly to headquarters every quarter. Treat attendance as commitment, invite the entire organization, skip a defined outcome, and ignore disability, caregiving, timezone, travel, concentration, and environmental costs.",
+      "expected": "Diagnoses whether the actual need is information transfer, asynchronous review, convergence, tacit-knowledge transfer, co-creation, conflict, trust repair, or relationship building; chooses the least costly medium with sufficient richness; gives any in-person work a named outcome, necessary participants, prepared inputs, equitable access, durable output, and review signal; and rejects universal cadence and presence as a commitment proxy."
+    },
+    {
+      "name": "ai-transition-changes-the-work-system",
+      "prompt": "Roll out coding agents to the whole engineering team next week. Track lines of generated code, require everyone to hit a 10x productivity target, and use the pilot to identify people who resist AI. Let each agent make architecture and acceptance decisions so managers do not become a bottleneck.",
+      "expected": "Treats adoption as a work-system transition; establishes a request-to-operation baseline including quality, review, rework, incidents, correction cost, and people impact; separates bounded agent execution from accountable human decisions; uses a representative, reversible pilot with objective evidence and safeguards; develops framing, review, testing, and escalation skills; includes skeptics without shaming or inferring ability; and rejects unsupported multipliers, output quotas, and employment decisions from the pilot."
+    },
+    {
       "name": "delegation-needs-authority-and-feedback",
       "prompt": "Our engineering manager wants to delegate architecture decisions to senior engineers but will still approve every choice, can reverse decisions without explanation, and has not shared constraints. Write a delegation plan and call the team empowered.",
       "expected": "Refuses the empowerment label, clarifies the decision boundary, constraints, escalation conditions, information access, authority, and review cadence, and separates coaching checkpoints from hidden approval."

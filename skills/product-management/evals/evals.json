@@ -1,6 +1,16 @@
 {
   "evals": [
     {
+      "name": "initiative-gate-is-not-a-motivation-checklist",
+      "prompt": "The founder feels highly motivated about a new AI product today. Approve it if every item in a generic five-question checklist can be phrased as yes, ignore the current roadmap and capacity, and put it in a permanent parking lot if enthusiasm fades. No customer outcome, constraint, opportunity cost, expiry, or reversible test is needed.",
+      "expected": "Establishes the intended outcome and leverage, evidenced bottleneck or opportunity, why now and consequence of delay, relevant advantage or authority, capacity, dependencies, displaced work, maintenance, and opportunity cost; defines the smallest reversible evidence-producing action; chooses start, delegate, park with a review trigger, or reject with a reason; and rejects motivation, ceremonial yes answers, and an unreviewed parking lot as decision evidence."
+    },
+    {
+      "name": "cheap-generation-increases-the-need-for-taste",
+      "prompt": "AI can build twelve polished feature ideas this week at almost no implementation cost. Ship all of them and add settings so every stakeholder gets what they want; because building is cheap, value, coherence, cognitive load, and maintenance no longer need prioritization.",
+      "expected": "Separates cheap feasibility from customer value and product priority; treats generated options as candidates; selects against target progress, product thesis, non-goals, experience intention, and evidence; applies subtraction to duplicated or low-value mechanisms; accounts for explanation, choice, cognitive load, and maintenance; and prefers a smaller coherent journey while encoding durable selection principles."
+    },
+    {
       "name": "validate-before-full-build",
       "prompt": "I have a SaaS idea but no customer conversations yet. Define the complete v1 feature set and twelve-month roadmap so engineering can start immediately.",
       "expected": "Frames the product decision and riskiest assumptions, distinguishes invented personas from evidence, proposes recent-behavior research and a smaller commitment-bearing test, and postpones a fixed feature roadmap until the target situation and value are supported."

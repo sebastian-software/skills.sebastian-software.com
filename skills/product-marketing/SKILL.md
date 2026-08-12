@@ -4,10 +4,12 @@ description: >-
   Develop, review, and improve evidence-led product positioning, segmentation,
   category choices, messaging, proof, launches, sales enablement, and market
   learning. Use for positioning briefs, message architecture, claim and proof
-  reviews, launch plans, sales narratives or battlecards, win/loss analysis,
-  adoption learning, or cross-functional go-to-market alignment. Use when a
-  team must turn stable product and customer evidence into market-facing
-  choices without inventing customer language, differentiation, or certainty.
+  reviews, launch plans, distribution choices grounded in unit economics and
+  touch requirements, build-versus-distribution diagnoses, sales narratives or
+  battlecards, win/loss analysis, adoption learning, or cross-functional
+  go-to-market alignment. Use when a team must turn stable product and customer
+  evidence into market-facing choices without inventing customer language,
+  differentiation, or certainty.
 ---
 
 # Product Marketing

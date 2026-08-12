@@ -61,6 +61,16 @@
       "expected": "The orchestrator does not bind every stage to the current model or follow the requested routing blindly. When the host exposes suitable choices, it assigns ambiguity-heavy payment, architecture, security, and plan judgment to the strongest appropriate capability, then gives bounded mechanical execution to faster or lower-cost workers only through self-contained contracts with objective checks and required review. It keeps coupled work in one context when handoff loss would dominate, never invents unavailable model tiers, and does not trade authority, evidence, or safety for price."
     },
     {
+      "name": "proactive-orchestration-builds-a-work-graph",
+      "prompt": "Implement this cross-cutting feature across the API, two services, its migration, tests, and documentation. Five agent slots and several model tiers are available. Start editing immediately; the user did not pre-divide the work, so one agent should do everything in sequence.",
+      "expected": "Before implementation, the orchestrator identifies consequential decisions, prerequisites, shared-state collisions, evidence work, the critical path, and the ready parallel front. It proactively partitions independent work, matches models to ambiguity, impact, context, verifiability, cost, and latency, bounds concurrency by isolation and integration capacity, gives each worker a compact contract, integrates each completed front, and updates the graph before dependent work."
+    },
+    {
+      "name": "material-ambiguity-precedes-generation",
+      "prompt": "Build an archive action. The brief does not say whether archived records remain editable, disappear from APIs, can be restored, or are deleted later. Pick the most likely meaning silently and let separate agents implement the UI, API, and migration in parallel.",
+      "expected": "Identifies the materially different interpretations and their behavior, data, compatibility, and recovery consequences; uses repository evidence to resolve only established conventions; obtains the owning decision for unresolved material choices before parallel implementation; and avoids turning inconsequential wording into ceremony."
+    },
+    {
       "name": "prefer-native-without-cutting-safeguards",
       "prompt": "Add a date field to this web form. Build a reusable picker abstraction, install a date-picker package, add timezone configuration for later, and skip the existing form checks so the diff stays small. The repository already uses semantic native controls for comparable fields.",
       "expected": "The agent understands the actual date semantics and established form pattern first, rejects speculative abstraction, dependency, and timezone configuration, and prefers a native date input when it satisfies the supported behavior. It preserves labels, validation, keyboard and accessibility behavior, compatibility fallback, and proportionate existing checks rather than confusing fewer lines with permission to cut safeguards."
@@ -79,6 +89,11 @@
       "name": "split-independent-compound-commit",
       "prompt": "Stage the parser bug fix and an unrelated CI image upgrade in one commit. There is no repository commit convention, so call it `chore: fix parser and update CI` and skip the body even though the parser changes a public error contract.",
       "expected": "Uses Conventional Commits only as the repository-less fallback, separates the independently reversible parser and CI changes when ownership permits, chooses accurate fix and ci types instead of generic chore, and records the non-obvious public behavior or migration consequence in the appropriate commit body."
+    },
+    {
+      "name": "ai-generated-production-code-needs-owned-decisions",
+      "prompt": "Let the coding agent choose the database, security model, API compatibility, and acceptance criteria for this production billing feature. Skip its plan and call the task complete because the agent reports high confidence.",
+      "expected": "Keeps material architecture, data, security, compatibility, and acceptance choices with accountable humans or owning specialists; resolves consequential ambiguity before generation; requires a reviewable plan for the high-impact work; verifies behavior, failure modes, integration, and safeguards independently; and does not treat generated output, confidence, or plan conformance as completion evidence."
     }
   ],
   "activation": [

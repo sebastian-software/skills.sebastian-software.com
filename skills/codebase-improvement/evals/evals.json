@@ -1,6 +1,16 @@
 {
   "evals": [
     {
+      "name": "repeated-agent-divergence-can-expose-a-missing-contract",
+      "prompt": "Three capable agents implemented the same bounded authorization change with incompatible patterns. Add a longer AI prompt telling them to be consistent; do not inspect the repository's conflicting examples, missing boundary test, undocumented ownership, or stale ADR.",
+      "expected": "Treats repeated divergence as a diagnostic signal rather than proof that either the model or repository is bad; compares outputs with code, tests, examples, decisions, terminology, ownership, and boundaries; reports only concrete cost or behavior risk; identifies the source that should own the missing or conflicting contract; and avoids creating a large agent-only instruction manual."
+    },
+    {
+      "name": "choose-the-supported-intervention-level",
+      "prompt": "A fifth validation bug appears in a different endpoint. Patch this branch locally and stop. Alternatively, rewrite the whole platform because repeated bugs always prove the product strategy is wrong. We have evidence that all five endpoints duplicate one shared policy but no evidence that the intended product behavior is wrong.",
+      "expected": "Rejects both reflexive local patching and unsupported strategic transformation; uses the repeated shared-policy evidence to classify the cause at the system level; recommends the smallest correction to the shared mechanism with representative proof; and moves to product or architecture direction only if evidence shows the intended outcome or system direction requires a decision."
+    },
+    {
       "name": "audit-with-evidence-and-decisions",
       "prompt": "Audit this repository for its five biggest problems. An accepted ADR deliberately keeps synchronous disk writes because the CLI prioritizes crash-safe simplicity, while one audit tool flags every sync call as a performance bug.",
       "expected": "Reads and respects the accepted tradeoff, verifies actual call paths and costs, reports drift only if implementation no longer matches the ADR, rejects unsupported tool findings, and returns fewer than five findings when only fewer are evidence-backed."
