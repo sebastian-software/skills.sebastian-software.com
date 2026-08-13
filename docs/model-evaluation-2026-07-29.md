@@ -11,8 +11,8 @@ claim that every scenario has been executed on every model.
 > `web-legal-compliance` — are now deprecation stubs; see
 > [MIGRATION.md](../MIGRATION.md). The record is kept unedited because its
 > method and findings remain the reference for how a GPT runtime is exercised.
-> The equivalent review has **not** yet been repeated on a GPT runtime for the
-> new layout.
+> The equivalent review for the new layout is recorded in
+> [Model Evaluation — 2026-08-13](model-evaluation-2026-08-13.md).
 
 ## Runtime and Method
 

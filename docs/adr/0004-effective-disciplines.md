@@ -145,10 +145,10 @@ Runtime: Claude Code subagents, provider-default sampling, models
 `claude-opus-5`, `claude-sonnet-5`, and `claude-haiku-4-5-20251001`.
 Regenerate the input with `scripts/build-routing-review-input.py`.
 
-The recorded rounds cover the original 41 prompts. The later Issue Queue
-Autopilot case and seven preservation cases added during the branch refresh have
-not received an equivalent blind model run; issue #215 tracks a full rerun on a
-GPT runtime against the current catalog, including deprecation stubs.
+The recorded Claude rounds cover the original 41 prompts. A later
+[GPT installed-catalog review](../model-evaluation-2026-08-13.md) covers the
+current 49-case matrix, including Issue Queue Autopilot, the preservation cases,
+and all deprecation stubs.
 
 | Round | Descriptions under test | Opus 5 | Sonnet 5 | Haiku 4.5 |
 | --- | --- | --- | --- | --- |
@@ -168,19 +168,16 @@ Round 2's single miss was a weaker model reading "rewrite this C library in
 Rust" as Rust work rather than as a behavior-preserving port. The wording now
 names rewriting an existing library in another language; round 3 confirms it.
 
-What this does not establish:
+What these Claude rounds alone do not establish:
 
 - The runs use a subagent as a proxy for a host's skill-selection step, not the
   real mechanism. `docs/model-evaluation-2026-07-29.md` used a stronger method
   for the previous layout — fresh ephemeral Codex sessions against the actually
   installed catalog, recording which skills' full instructions were invoked.
   This review does not meet that bar.
-- No GPT runtime was exercised. Every recorded round is Claude-only, even though
-  the collection ships `agents/openai.yaml` for each skill and the previous
-  evaluation used Codex CLI with `gpt-5.6-sol`. Repeat the review there before
-  relying on the result across hosts.
-- The descriptions were shown in isolation, not beside a user's other installed
-  skills and not beside the deprecation stubs.
+- They do not exercise a GPT runtime or the installed catalog. The follow-up
+  review does both and records 48/49 final activation decisions, one remaining
+  clarification-only miss, and the actual description truncation.
 
 It is evidence about description discrimination, not proof of production
 activation.
@@ -194,8 +191,8 @@ improves that materially after sunset and worsens it during the window:
 | State | Skills | Description bytes | Versus before |
 | --- | --- | --- | --- |
 | 34 skills, before | 34 | 21,196 | — |
-| 6 disciplines, after sunset | 6 | 5,746 | 27% |
-| 6 disciplines plus 33 stubs | 39 | 26,756 | 126% |
+| 6 disciplines, after sunset | 6 | 5,801 | 27% |
+| 6 disciplines plus 33 stubs | 39 | 26,811 | 126% |
 
 Keeping the stubs' original descriptions verbatim is what makes existing
 triggers resolve, and it is also what pushes the catalog 26% past its previous
