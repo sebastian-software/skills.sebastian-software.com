@@ -8,7 +8,9 @@ trace showed its full `SKILL.md` being read.
 ## Runtime and Method
 
 - Runtime: Codex CLI 0.147.0, `gpt-5.6-sol`, provider-default sampling.
-- Base revision: `b6a53285f50038500736aa47fecc8a6eb4ad3b89` (`main`).
+- Baseline revision: `b6a53285f50038500736aa47fecc8a6eb4ad3b89`
+  (`main`). Later targeted reruns used the separate catalog snapshot recorded
+  below.
 - Prompt set: the 49 `prompt` values in
   [`activation-matrix.json`](activation-matrix.json), unchanged and in the
   seeded order produced by `scripts/build-routing-review-input.py`.
@@ -17,7 +19,8 @@ trace showed its full `SKILL.md` being read.
   the answer-key SHA-256 was
   `eadeb4c2752292ab7f9acae1abc958de35571f1e80b871765965269b194253d4`.
 - Catalog: the six current disciplines and all 33 deprecation stubs were
-  symlinked from that revision into an isolated `.agents/skills` directory.
+  symlinked into an isolated `.agents/skills` directory. Round 1 used the
+  baseline revision; round 2 used the retained Effective Writing change.
   Normal user skills were disabled by exact path; apps and plugins were
   disabled. Five bundled Codex system skills remained visible.
 - Isolation: one fresh `--ephemeral`, `--ignore-user-config`,
@@ -35,12 +38,31 @@ trace showed its full `SKILL.md` being read.
   supplied no project artifact; those attempts failed in the read-only,
   network-restricted environment and did not affect activation grading.
 
+### Catalog provenance by round
+
+The scored rounds are tied to immutable Git objects. A tree ID identifies all
+39 catalog directories, while the blob ID makes the only changed skill file
+explicit.
+
+| Round | Prompts run | Catalog source | `skills/` tree | Effective Writing blob |
+| --- | --- | --- | --- | --- |
+| 1 | all 49 | `b6a53285f50038500736aa47fecc8a6eb4ad3b89` | `a4efb32314aac7015dbb94736f7b905f7ad4715e` | `8bb820bf397053328d062b659c8e21d5db076b09` |
+| 2 | positions 15 and 40 | catalog bytes committed in `aa48692ae222ba7c32f5187c5ae6fb468b30e87a` | `ade2f2ac2cb348d90afa7fbb41222644794525b7` | `6c7a7f61217d283624a218311f857c049ae664aa` |
+
+A later exploratory rerun of position 15 moved Slack and team-message terms
+within the Effective Writing description. That working-tree-only catalog was
+reverted without preserving its exact source as a Git object. Its trace is
+therefore not exactly reproducible, and it is excluded from the scored result.
+The observation is retained below only because the model named the relevant
+voice and typography rules yet still did not load a `SKILL.md`. Future
+experiments must persist the catalog tree before invoking the model.
+
 The original stub-inclusive blind input was 34,766 bytes over 180 lines, with
 SHA-256
 `68083fde2d27152d4095a616392d3d69a6a513657ae79ebdbc23a592805bce83`.
-It is a reproducible catalog snapshot; installed-catalog sessions received its
-skill metadata naturally and one unchanged matrix prompt at a time rather than
-receiving the whole classifier document.
+It is a reproducible snapshot of the round 1 catalog metadata; installed-
+catalog sessions received that metadata naturally and one unchanged matrix
+prompt at a time rather than receiving the whole classifier document.
 
 ## Results
 
@@ -55,14 +77,18 @@ the request referred to missing source material:
 Effective Writing's description already covered both artifacts, but the
 runtime exposed only the first 448 characters. A narrow change moved the rule
 that missing source text is still an activation into that visible prefix.
-Round 2 then activated `effective-writing` for `draft-article-from-notes`, but
-`humanize-team-update` still clarified without reading a skill. A third round
-put its Slack/team-message terms into the visible prefix; Codex explicitly said
-it would use the Metro English and German typography rules, yet still read no
-`SKILL.md`. That experimental reorder was reverted because it did not change
-activation.
+Round 2, against the catalog tree recorded above, then activated
+`effective-writing` for `draft-article-from-notes`, but
+`humanize-team-update` still clarified without reading a skill. The later
+unscored exploratory rerun put its Slack/team-message terms into the visible
+prefix; Codex explicitly said it would use the Metro English and German
+typography rules, yet still read no `SKILL.md`. That experimental reorder was
+reverted because it did not change activation.
 
-Final result: **48/49 (98.0%)**. The retained source change is the one supported
+Cumulative scored result: **48/49 (98.0%)**. This combines the 47 round 1
+passes with both targeted round 2 observations: position 40 changed to a pass,
+while position 15 remained a miss. It is not a claim that all 49 prompts were
+rerun against the round 2 tree. The retained source change is the one supported
 by the successful article rerun: missing source text or notes did not prevent
 Effective Writing activation in that repeated case. The remaining mismatch is
 recorded rather than papered over. Its trace is consistent with a host shortcut
@@ -77,7 +103,11 @@ semicolons. Manual trace review found the four missing discipline reads and the
 parser was corrected before any routing conclusion was drawn. That was a
 telemetry-parser defect, not four model mismatches.
 
-## Final Picks and Invocation Evidence
+## Cumulative Picks and Invocation Evidence
+
+Rows other than positions 15 and 40 report round 1. Position 40 reports its
+round 2 pass; position 15 reports its round 2 miss. The unreproducible
+exploratory rerun does not contribute to this table.
 
 | # | Case | Expected | Full instructions invoked | Pick | Result |
 | ---: | --- | --- | --- | --- | --- |
@@ -160,9 +190,13 @@ shasum -a 256 docs/activation-matrix.json /tmp/routing-review.md \
   /tmp/routing-key.json
 ```
 
-For installed-catalog activation, create a temporary directory containing
-`.agents/skills/<slug>` symlinks to every current `skills/<slug>` directory.
-Run one unchanged matrix prompt per process from that directory:
+For installed-catalog activation, check out the catalog source named in the
+provenance table: use `b6a53285f50038500736aa47fecc8a6eb4ad3b89` for
+round 1 and `aa48692ae222ba7c32f5187c5ae6fb468b30e87a` for round 2.
+Verify the corresponding `skills/` tree ID with `git rev-parse
+<revision>:skills`, then create a temporary directory containing
+`.agents/skills/<slug>` symlinks to all 39 directories from that checkout. Run
+one unchanged matrix prompt per process from the temporary directory:
 
 ```sh
 codex --ask-for-approval never exec \
@@ -183,12 +217,18 @@ codex --ask-for-approval never exec \
 Expand `skills.config` to one exact-path exclusion for every normal user skill;
 do not disable the temporary worktree-linked copies. Inspect each JSONL command
 event for full `SKILL.md` reads, deduplicate started/completed events, and keep
-the answer key outside the model session.
+the answer key outside the model session. Run all 49 prompts for round 1; the
+recorded round 2 reran only seeded positions 15 and 40. The later exploratory
+position-15 catalog cannot be reproduced exactly because its intermediate
+source was not persisted and is not part of the scored evidence.
 
 ## Limitations
 
 - This is one run per prompt on one GPT model and one Codex CLI version. It does
   not establish stability across sampling, versions, providers, or hosts.
+- The 48/49 score is cumulative across a full baseline round and two targeted
+  post-change reruns, not a second full-matrix run against the retained final
+  catalog tree.
 - The installed catalog isolates this repository's transition state rather
   than reproducing a user's unrelated third-party skills. Five bundled system
   skills remained visible, so it is not literally a 39-entry global catalog.

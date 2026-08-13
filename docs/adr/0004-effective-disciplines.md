@@ -176,8 +176,9 @@ What these Claude rounds alone do not establish:
   installed catalog, recording which skills' full instructions were invoked.
   This review does not meet that bar.
 - They do not exercise a GPT runtime or the installed catalog. The follow-up
-  review does both and records 48/49 final activation decisions, one remaining
-  clarification-only miss, and the actual description truncation.
+  review does both and records a cumulative 48/49 result across its baseline
+  round and two targeted post-change reruns, one remaining clarification-only
+  miss, and the actual description truncation.
 
 It is evidence about description discrimination, not proof of production
 activation.
