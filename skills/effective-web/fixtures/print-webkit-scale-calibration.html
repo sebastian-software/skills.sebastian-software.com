@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>WebKit print scale calibration</title>
+    <style>
+      :root { font: 16px/1.4 system-ui, sans-serif; }
+
+      @page {
+        size: A4 portrait;
+        margin: 20mm;
+      }
+
+      body { margin: 0; color: #000; background: #f3f3f3; }
+      .case {
+        box-sizing: border-box;
+        width: 210mm;
+        min-height: 297mm;
+        margin: 10mm auto;
+        padding: 20mm;
+        background: #fff;
+      }
+      .print-document { box-sizing: border-box; width: 170mm; max-width: none; }
+      .case--narrow .print-document { width: 140mm; }
+      .print-document__measure { max-inline-size: 140mm; }
+      .samples { display: grid; gap: 4mm; margin: 6mm 0; padding: 0; list-style: none; }
+      .sample { display: grid; gap: 1mm; }
+      .bar { display: block; height: 4mm; background: #000; }
+      .mm { width: 25.4mm; }
+      .inch { width: 1in; }
+      .pt { width: 72pt; }
+      .px { width: 96px; }
+      .rem { width: 6rem; }
+      .control { width: 90px; }
+
+      @media print {
+        body { background: #fff; }
+        .case {
+          width: auto;
+          min-height: auto;
+          margin: 0;
+          padding: 0;
+          break-after: page;
+        }
+        .case:last-child { break-after: auto; }
+      }
+    </style>
+  </head>
+  <body>
+    <section class="case case--narrow" aria-labelledby="narrow-title">
+      <main class="print-document">
+        <div class="print-document__measure">
+          <h1 id="narrow-title">Narrow document: 140mm outer width</h1>
+          <p>On native Safari this intentionally narrow outer wrapper exposes the legacy automatic print scale.</p>
+          <ul class="samples" aria-label="Vector length samples">
+            <li class="sample"><span>25.4mm — expected 72pt</span><span class="bar mm"></span></li>
+            <li class="sample"><span>1in — expected 72pt</span><span class="bar inch"></span></li>
+            <li class="sample"><span>72pt — expected 72pt</span><span class="bar pt"></span></li>
+            <li class="sample"><span>96px — expected 72pt</span><span class="bar px"></span></li>
+            <li class="sample"><span>6rem at 16px root — expected 72pt</span><span class="bar rem"></span></li>
+            <li class="sample"><span>90px control — expected 67.5pt</span><span class="bar control"></span></li>
+          </ul>
+        </div>
+      </main>
+    </section>
+
+    <section class="case" aria-labelledby="mitigated-title">
+      <main class="print-document">
+        <div class="print-document__measure">
+          <h1 id="mitigated-title">Mitigated: 170mm physical outer width</h1>
+          <p>The outer width is A4 210mm minus the two 20mm @page margins. The inner reading measure stays narrow.</p>
+          <ul class="samples" aria-label="Vector length samples">
+            <li class="sample"><span>25.4mm — expected 72pt</span><span class="bar mm"></span></li>
+            <li class="sample"><span>1in — expected 72pt</span><span class="bar inch"></span></li>
+            <li class="sample"><span>72pt — expected 72pt</span><span class="bar pt"></span></li>
+            <li class="sample"><span>96px — expected 72pt</span><span class="bar px"></span></li>
+            <li class="sample"><span>6rem at 16px root — expected 72pt</span><span class="bar rem"></span></li>
+            <li class="sample"><span>90px control — expected 67.5pt</span><span class="bar control"></span></li>
+          </ul>
+        </div>
+      </main>
+    </section>
+  </body>
+</html>
