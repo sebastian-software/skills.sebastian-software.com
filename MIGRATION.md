@@ -1,8 +1,8 @@
 [← Sebastian Software Skills](README.md)
 
-# Migration: 33 Skills → 6 Effective Disciplines
+# Migration: 34 Skills → 6 Effective Disciplines
 
-This collection consolidated its 33 first-party skills into six top-level
+This collection consolidated its 34 first-party skills into six top-level
 discipline skills that share one naming grammar and one internal architecture.
 No guidance was deleted. Every absorbed `SKILL.md` body became a route reference
 inside its discipline, and every `references/` file moved with it.
@@ -34,6 +34,7 @@ recorded in [ADR 0004](docs/adr/0004-effective-disciplines.md).
 | `decision-records` | `effective-product` | Decision Records |
 | `effective-workflow` | `effective-delivery` | Workflow Orchestration |
 | `engineering-management` | `effective-delivery` | Engineering Leadership |
+| `issue-autopilot` | `effective-delivery` | Issue Queue Autopilot |
 | `linkedin-posts` | `effective-marketing` | LinkedIn Posts |
 | `linkedin-social-selling` | `effective-marketing` | LinkedIn Social Selling |
 | `locale-typography` | `effective-writing` | Locale Typography |
@@ -98,10 +99,12 @@ Files kept their names except where pooling made them ambiguous:
 - `pr-review/references/voice.md` → `review-voice.md`
 - `pr-review/references/voice-examples.md` → `review-voice-examples.md`
 - `smart-dependency-updater/references/workflow.md` → `dependency-workflow.md`
+- `issue-autopilot/references/*.md` → `issue-*.md`
+- `issue-autopilot/scripts/rank_issues.py` → `effective-delivery/scripts/rank_issues.py`
 
-The three byte-identical copies of `worktree-safety.md` in `port-codebases`,
-`pr-review`, and `smart-dependency-updater` merged into one shared file in
-`effective-delivery`.
+The four byte-identical copies of `worktree-safety.md` in `issue-autopilot`,
+`port-codebases`, `pr-review`, and `smart-dependency-updater` merged into one
+shared file in `effective-delivery`.
 
 ## Routes that were split
 

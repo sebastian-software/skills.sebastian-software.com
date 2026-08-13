@@ -35,6 +35,10 @@
       "successor": "effective-delivery",
       "route": "Engineering Leadership (references/route-leadership.md)"
     },
+    "issue-autopilot": {
+      "successor": "effective-delivery",
+      "route": "Issue Queue Autopilot (references/route-issue-autopilot.md)"
+    },
     "linkedin-posts": {
       "successor": "effective-marketing",
       "route": "LinkedIn Posts (references/route-linkedin-posts.md)"

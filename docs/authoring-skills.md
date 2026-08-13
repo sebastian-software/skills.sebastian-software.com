@@ -409,6 +409,7 @@ contract: [`effective-delivery/references/worktree-safety.md`](../skills/effecti
 | Route | Worktree behavior |
 | --- | --- |
 | PR Review and Upkeep | Creates or adopts a PR worktree; writes, validates, stages, commits, pushes, rebases when authorized, and removes workflow-created worktrees |
+| Issue Queue Autopilot | Creates one isolated worktree per selected queue item; delegates implementation, validation, staging, commit, push, and PR repair without merging |
 | Dependency Updates | Creates or adopts one worktree per dependency PR group; writes manifests and lockfiles, validates, stages, commits, pushes, publishes, and cleans up owned worktrees |
 | Behavior-Preserving Ports | Creates or adopts isolated worktrees for port shards; writes, validates, stages, checkpoints, integrates, and cleans up owned shard worktrees |
 | Workflow Orchestration | Coordinates delivery but provides no worktree creation, staging, commit, or cleanup recipe; requires the selected route to apply the shared contract |

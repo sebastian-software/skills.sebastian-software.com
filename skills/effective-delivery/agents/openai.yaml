@@ -1,4 +1,4 @@
 interface:
   display_name: "Effective Delivery"
   short_description: "Move repositories and teams forward safely"
-  default_prompt: "Use $effective-delivery to audit, port, review, update, validate, document, or coordinate work on this repository."
+  default_prompt: "Use $effective-delivery to audit, port, review, update, validate, document, coordinate, or operate a delegated issue queue for this repository."

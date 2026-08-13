@@ -3,6 +3,15 @@
 Use this reference to reason about system direction without treating a diagram
 or a named pattern as proof of a good design.
 
+## Contents
+
+- [Establish the Decision Frame](#establish-the-decision-frame)
+- [Map Boundaries and Contracts](#map-boundaries-and-contracts)
+- [Evaluate Module Depth](#evaluate-module-depth)
+- [Compare Options](#compare-options)
+- [Plan Evolution](#plan-evolution)
+- [Evidence and Communication](#evidence-and-communication)
+
 ## Establish the Decision Frame
 
 Write the smallest useful frame before proposing a structure:
@@ -64,6 +73,27 @@ measure depth by implementation-line count or hide a broad, surprising
 interface behind the word “module.”
 
 ## Compare Options
+
+### Choose the strategic control surface
+
+For build, buy, open-source, managed-service, or vertically integrated options,
+decide what the organization must control rather than assuming it must own every
+implementation. Inspect:
+
+- whether the capability differentiates the product or merely supports it;
+- failure impact, diagnosis and recovery authority, and supplier response;
+- data ownership, portability, interface stability, and switching path;
+- security, privacy, compliance, availability, and jurisdiction constraints;
+- total acquisition, integration, operation, support, migration, and exit cost;
+- internal expertise, attention, opportunity cost, and time to useful evidence;
+- concentration risk, roadmap dependence, and credible substitutes.
+
+Control may mean owning the implementation, or instead owning the contract,
+data, observability, fallback, and tested exit path. Prefer open source or
+in-house work when its concrete control properties justify their lifecycle
+cost; prefer a supplier when it preserves the required control more cheaply.
+Do not equate proprietary with unsafe, open source with maintainable, or
+vertical integration with advantage without project-specific evidence.
 
 Compare only realistic options, often including retaining or simplifying the
 current shape. Use decision drivers rather than a generic scorecard:

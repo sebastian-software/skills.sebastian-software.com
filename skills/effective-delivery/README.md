@@ -11,8 +11,8 @@ lifecycle work around code that already exists: coordinating a vague request
 into a verified handoff, auditing and diagnosing, porting across languages and
 runtimes, reviewing and maintaining pull requests, researching and grouping
 dependency updates, running the repository's own checks and reporting the
-evidence honestly, writing documentation that matches the implementation, and
-leading the people doing all of it.
+evidence honestly, writing documentation that matches the implementation,
+operating a delegated live issue queue, and leading the people doing all of it.
 
 It keeps authority levels distinct: analysis is not implementation,
 implementation is not delivery, and an available tool is not permission to use
@@ -20,10 +20,10 @@ it.
 
 It replaces the former `effective-workflow`, `codebase-improvement`,
 `port-codebases`, `pr-review`, `smart-dependency-updater`, `software-validation`,
-`tech-docs`, and `engineering-management` skills. See
+`tech-docs`, `issue-autopilot`, and `engineering-management` skills. See
 [MIGRATION.md](../../MIGRATION.md) for the full mapping.
 
-## Nine Routes
+## Ten Routes
 
 | Route | Owns |
 | --- | --- |
@@ -32,6 +32,7 @@ It replaces the former `effective-workflow`, `codebase-improvement`,
 | Behavior-Preserving Ports | migration contracts, parity evidence, shard execution |
 | PR Review and Upkeep | review ladder, merge judgment, feedback, CI recovery |
 | Review Provider Access | adapters, GitHub CLI recipes, caller-owned handoff |
+| Issue Queue Autopilot | delegated queue discovery, ranking, isolated implementation, PR reconciliation, monitoring |
 | Dependency Updates | portfolio grouping, changelog research, adoption, PRs |
 | Repository Validation | command discovery, safe execution, honest result states |
 | Technical Documentation | READMEs, references, migrations, rustdoc, controlled language |
@@ -45,6 +46,8 @@ It replaces the former `effective-workflow`, `codebase-improvement`,
 - migration contracts, equivalence oracles, and port execution profiles
 - pull-request reviews that name the blocking risk and the optional suggestion
 - dependency portfolios grouped by one reviewer question each
+- evidence-ranked issue queues, isolated implementations, and reversible
+  readiness state without merging PRs
 - validation reports with explicit `PASSED`, `FAILED`, `SKIPPED`, and `TIMEOUT`
   states per category
 - READMEs, task guides, API and CLI references, and migration notes derived from
@@ -71,6 +74,9 @@ Catch up on my review queue: decide what is merge-ready and leave the reviews.
 
 Research our outdated dependencies, group the compatible ones, and prepare
 focused upgrade PRs with reviewer-grade bodies.
+
+Work through my unassigned issue queue one item at a time, keep queue-owned PRs
+review-ready, and do not merge them.
 
 Validate this branch. Tell me exactly which checks ran, which were skipped, and
 what that leaves unproven.

@@ -118,8 +118,6 @@ def validate_worktree_safety_uniqueness(skills_root: Path, errors: list[str]) ->
                 f"{path.relative_to(skills_root.parent)}: must be byte-identical "
                 f"to {baseline.relative_to(skills_root.parent)}"
             )
-
-
 def github_anchor(heading: str) -> str:
     """Return the GitHub-style anchor used by the headings in this repository."""
     heading = re.sub(r"<[^>]+>", "", heading).strip().lower()

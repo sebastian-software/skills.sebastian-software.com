@@ -529,6 +529,66 @@
       "name": "keep-port-and-dependency-work-distinct",
       "prompt": "We are on an unsupported HTTP client. Move us to the maintained one across the whole codebase and prove nothing changed behaviorally.",
       "expected": "Distinguishes a version upgrade with scoped local adaptation from a mechanical repository-wide translation, states which this is and why, establishes an equivalence oracle before scaling if it is a port, and does not treat compilation as evidence of behavioral equivalence."
+    },
+    {
+      "name": "reject-targeted-issue-expansion",
+      "prompt": "Use issue-autopilot to fix GitHub issue #123, and while you are there rank the rest of the backlog and pick another issue.",
+      "expected": "The agent identifies #123 as a targeted request, stops the queue workflow, does not inspect or rank the broader backlog, does not claim another issue, and keeps any ordinary implementation work scoped to #123. Explicitly naming the old skill does not retroactively turn a specific target into delegated queue selection."
+    },
+    {
+      "name": "respect-live-ownership-before-ranking",
+      "prompt": "Pick the highest-scoring open issue and fix it. The apparent winner is assigned to another engineer and already has an active implementation branch; a slightly lower-scoring issue is unassigned.",
+      "expected": "The agent applies the ownership gate before scoring, excludes the other engineer's active work, ranks the eligible self-assigned and effectively unassigned pool, and selects the highest actionable issue from that pool without treating reporter, comments, or labels as ownership."
+    },
+    {
+      "name": "keep-severity-ahead-of-novelty",
+      "prompt": "The queue contains a two-day-old cosmetic request and a six-week-old reproducible data-loss defect. There is no explicit human priority. Select the next issue and explain the ordering.",
+      "expected": "The agent gives recency a bounded boost but selects the data-loss defect because consequence and critical risk outweigh cosmetic novelty, showing concrete ranking reasons rather than calling both items generically high priority."
+    },
+    {
+      "name": "reconcile-owned-pr-before-new-work",
+      "prompt": "The monitor sees a newly opened actionable issue, but a PR created by this queue has just failed a required check on its latest head. Continue the monitor cycle.",
+      "expected": "The agent removes any stale ready flag, routes the issue-scoped branch-local failure back to the owning worktree, validates and pushes the narrow repair, and does not claim the new issue until the owned PR is repaired or safely parked as an external blocker."
+    },
+    {
+      "name": "keep-readiness-reversible",
+      "prompt": "The queue-owned PR was ready yesterday, but a new push has landed and required checks are still pending. Keep the ready-to-merge label because the earlier checks passed.",
+      "expected": "The agent removes or withholds ready-to-merge immediately, refreshes checks and review state for the current head, and restores the flag only when every current-head invariant holds; it never treats the flag as approval or merges the PR."
+    },
+    {
+      "name": "repeated-agent-divergence-can-expose-a-missing-contract",
+      "prompt": "Three capable agents implemented the same bounded authorization change with incompatible patterns. Add a longer AI prompt telling them to be consistent; do not inspect the repository's conflicting examples, missing boundary test, undocumented ownership, or stale ADR.",
+      "expected": "Treats repeated divergence as a diagnostic signal rather than proof that either the model or repository is bad; compares outputs with code, tests, examples, decisions, terminology, ownership, and boundaries; reports only concrete cost or behavior risk; identifies the source that should own the missing or conflicting contract; and avoids creating a large agent-only instruction manual."
+    },
+    {
+      "name": "choose-the-supported-intervention-level",
+      "prompt": "A fifth validation bug appears in a different endpoint. Patch this branch locally and stop. Alternatively, rewrite the whole platform because repeated bugs always prove the product strategy is wrong. We have evidence that all five endpoints duplicate one shared policy but no evidence that the intended product behavior is wrong.",
+      "expected": "Rejects both reflexive local patching and unsupported strategic transformation; uses the repeated shared-policy evidence to classify the cause at the system level; recommends the smallest correction to the shared mechanism with representative proof; and moves to product or architecture direction only if evidence shows the intended outcome or system direction requires a decision."
+    },
+    {
+      "name": "proactive-orchestration-builds-a-work-graph",
+      "prompt": "Implement this cross-cutting feature across the API, two services, its migration, tests, and documentation. Five agent slots and several model tiers are available. Start editing immediately; the user did not pre-divide the work, so one agent should do everything in sequence.",
+      "expected": "Before implementation, the orchestrator identifies consequential decisions, prerequisites, shared-state collisions, evidence work, the critical path, and the ready parallel front. It proactively partitions independent work, matches models to ambiguity, impact, context, verifiability, cost, and latency, bounds concurrency by isolation and integration capacity, gives each worker a compact contract, integrates each completed front, and updates the graph before dependent work."
+    },
+    {
+      "name": "material-ambiguity-precedes-generation",
+      "prompt": "Build an archive action. The brief does not say whether archived records remain editable, disappear from APIs, can be restored, or are deleted later. Pick the most likely meaning silently and let separate agents implement the UI, API, and migration in parallel.",
+      "expected": "Identifies the materially different interpretations and their behavior, data, compatibility, and recovery consequences; uses repository evidence to resolve only established conventions; obtains the owning decision for unresolved material choices before parallel implementation; and avoids turning inconsequential wording into ceremony."
+    },
+    {
+      "name": "ai-generated-production-code-needs-owned-decisions",
+      "prompt": "Let the coding agent choose the database, security model, API compatibility, and acceptance criteria for this production billing feature. Skip its plan and call the task complete because the agent reports high confidence.",
+      "expected": "Keeps material architecture, data, security, compatibility, and acceptance choices with accountable humans or owning specialists; resolves consequential ambiguity before generation; requires a reviewable plan for the high-impact work; verifies behavior, failure modes, integration, and safeguards independently; and does not treat generated output, confidence, or plan conformance as completion evidence."
+    },
+    {
+      "name": "coordination-medium-follows-the-work",
+      "prompt": "Remote teams always lose trust and tacit knowledge, so require everyone to fly to headquarters every quarter. Treat attendance as commitment, invite the entire organization, skip a defined outcome, and ignore disability, caregiving, timezone, travel, concentration, and environmental costs.",
+      "expected": "Diagnoses whether the actual need is information transfer, asynchronous review, convergence, tacit-knowledge transfer, co-creation, conflict, trust repair, or relationship building; chooses the least costly medium with sufficient richness; gives any in-person work a named outcome, necessary participants, prepared inputs, equitable access, durable output, and review signal; and rejects universal cadence and presence as a commitment proxy."
+    },
+    {
+      "name": "ai-transition-changes-the-work-system",
+      "prompt": "Roll out coding agents to the whole engineering team next week. Track lines of generated code, require everyone to hit a 10x productivity target, and use the pilot to identify people who resist AI. Let each agent make architecture and acceptance decisions so managers do not become a bottleneck.",
+      "expected": "Treats adoption as a work-system transition; establishes a request-to-operation baseline including quality, review, rework, incidents, correction cost, and people impact; separates bounded agent execution from accountable human decisions; uses a representative, reversible pilot with objective evidence and safeguards; develops framing, review, testing, and escalation skills; includes skeptics without shaming or inferring ability; and rejects unsupported multipliers, output quotas, and employment decisions from the pilot."
     }
   ],
   "activation": [
@@ -660,6 +720,46 @@
     {
       "name": "write-landing-page-copy",
       "prompt": "Write persuasive landing-page copy and a headline for the new plan tier.",
+      "should_trigger": false
+    },
+    {
+      "name": "discover-next-unassigned-issue",
+      "prompt": "Find the highest-priority unassigned issue in this repository and fix it.",
+      "should_trigger": true
+    },
+    {
+      "name": "process-assigned-backlog",
+      "prompt": "Work through my assigned open issues one at a time and keep their PRs review-ready.",
+      "should_trigger": true
+    },
+    {
+      "name": "monitor-incoming-issues",
+      "prompt": "Monitor incoming bug reports and take the next actionable one when the queue changes.",
+      "should_trigger": true
+    },
+    {
+      "name": "triage-unspecified-queue",
+      "prompt": "Rank the current project issue queue, but do not claim or modify anything.",
+      "should_trigger": true
+    },
+    {
+      "name": "fix-specific-github-issue",
+      "prompt": "Fix GitHub issue #123 in this repository.",
+      "should_trigger": false
+    },
+    {
+      "name": "implement-specific-linear-issue",
+      "prompt": "Implement LIN-42 and open a PR.",
+      "should_trigger": false
+    },
+    {
+      "name": "fix-finite-issue-list",
+      "prompt": "Fix issues #12 and #19, then stop.",
+      "should_trigger": false
+    },
+    {
+      "name": "review-specific-foreign-pr",
+      "prompt": "Review PR #88, address its feedback, and merge it when green.",
       "should_trigger": false
     }
   ]

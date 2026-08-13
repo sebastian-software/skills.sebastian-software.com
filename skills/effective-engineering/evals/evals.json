@@ -254,6 +254,11 @@
       "name": "keep-api-design-review-out-of-pr-lifecycle",
       "prompt": "Review this pull request. The Rust public API has a lifetime that leaks an internal buffer, and CI is also red on a formatting job.",
       "expected": "Supplies the Rust API and ownership finding here with a concrete correction, and routes the pull-request lifecycle, CI recovery, approval, and merge judgment to effective-delivery instead of taking over the review workflow."
+    },
+    {
+      "name": "strategic-control-is-not-automatic-vertical-integration",
+      "prompt": "This billing capability is mission-critical, so build the database, payment rails, infrastructure, and every dependency ourselves. Reject all proprietary software as unsafe and accept every open-source package as controllable; do not compare failure recovery, data portability, internal expertise, lifecycle cost, substitutes, or exit paths.",
+      "expected": "Identifies the specific control required by differentiation, failure impact, recovery authority, data, compliance, operability, and switching risk; compares realistic in-house, open-source, managed, and integrated options across total lifecycle and opportunity cost; recognizes that control may live in owned contracts, data, observability, fallback, and a tested exit path; and rejects automatic vertical integration as well as proprietary-is-unsafe and open-source-is-maintainable assumptions."
     }
   ],
   "activation": [

@@ -3,18 +3,17 @@ name: effective-delivery
 description: >-
   Move an existing repository and the team around it forward: coordinate
   multi-stage software work from an unclear request to a verified, review-ready
-  handoff; audit codebases, explain surprising behavior, and prioritize
-  improvements; plan and execute behavior-preserving ports and rewrites across
-  languages, runtimes, and frameworks, including rewriting an existing library
-  in another language; review and maintain pull requests across providers;
-  research, group, and implement dependency changes; discover and run
-  repository-native validation checks and report the evidence; design and verify
-  technical documentation from READMEs and guides to API references, migration
-  notes, and controlled language; and lead product, design, and engineering
-  teams with clear responsibilities and sustainable load. Use when the task
-  operates on a repository, a change, a pull request, dependencies,
-  documentation, checks, or team responsibilities. Do not use to design or write
-  new system code depth or browser experiences.
+  handoff; audit codebases, diagnose surprising behavior, and prioritize
+  improvements; plan or execute behavior-preserving ports and rewrites across
+  languages, runtimes, and frameworks; review and maintain pull requests;
+  choose, research, and update dependencies; run repository-native validation;
+  write or
+  verify technical documentation; autonomously discover, rank, process,
+  reconcile, or monitor an unspecified live issue queue; and clarify engineering
+  responsibilities and sustainable load. Use when the task operates on an
+  existing repository, change, pull request, dependencies, documentation,
+  checks, a delegated issue queue, or team coordination. Do not use for system
+  code depth or browser experiences.
 ---
 
 # Effective Delivery
@@ -56,6 +55,7 @@ and comment conventions.
 | Plan or execute a behavior-preserving port across languages, runtimes, frameworks, platforms, storage engines, or major APIs | [Behavior-Preserving Ports](references/route-porting.md) |
 | Review a pull request, act on review feedback, fix findings, recover CI, or keep a branch current | [PR Review and Upkeep](references/route-review.md) |
 | Select a provider adapter, use the GitHub CLI recipes, or return a caller-owned review handoff | [Review Provider Access](references/route-review-access.md) |
+| Discover, rank, process, reconcile, or monitor an unspecified live issue queue when the user delegates target selection | [Issue Queue Autopilot](references/route-issue-autopilot.md) |
 | Add, choose, update, or group external dependencies; assess changelog impact; create dependency PRs | [Dependency Updates](references/route-dependencies.md) |
 | Discover and run the repository's established typecheck, lint, format, test, build, benchmark, or documentation checks and report the evidence | [Repository Validation](references/route-validation.md) |
 | Write or verify READMEs, guides, API and CLI references, migration notes, JSDoc, TSDoc, rustdoc, examples, or controlled-language documentation | [Technical Documentation](references/route-docs.md) |
@@ -116,3 +116,7 @@ removes a Git worktree applies one shared
   security, or crisis support when those concerns determine the action.
 - Do not invent repository workflow, delivery authority, or project-specific
   policy absent from the host repository or the user's request.
+- Treat a named issue, PR, tracker key, URL, exact title, or finite issue list as
+  targeted work. Never expand it into backlog discovery or autonomous queue
+  selection; the Issue Queue Autopilot route applies only when selection itself
+  is delegated or an existing queue-owned run is being continued.

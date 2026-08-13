@@ -83,6 +83,19 @@ Inspect setup accuracy, feedback-loop speed, local/CI parity, configuration
 discovery, error messages, logs, runbooks, and whether routine work has one
 discoverable path.
 
+### Agent divergence as repository evidence
+
+When several agents repeatedly implement the same bounded task differently,
+compare their decisions with code, tests, examples, ADRs, terminology, ownership,
+and module boundaries before merely tuning prompts. Concrete divergence can
+expose a missing or conflicting contract, undocumented standard, weak
+observation point, or architecture that relies on tacit knowledge.
+
+Report this only when the divergence creates a verified cost or behavior risk.
+One poor generation does not prove the repository is at fault. Correct the
+source that should own the truth—code, test, accepted decision, documentation,
+or boundary—rather than accumulating a large agent-only instruction manual.
+
 ### Documentation and decision drift
 
 Report documentation only when absence or staleness creates a concrete cost.

@@ -4,9 +4,10 @@
 
 **This skill has moved into [effective-delivery](../effective-delivery/README.md).**
 
-`engineering-management` is a deprecation stub. It stays installable for one release window so
-existing selections keep resolving, then it is removed. It contains no guidance:
-the workflow, references, and review scenarios all moved to `effective-delivery`.
+`engineering-management` is a deprecation stub. It stays installable for one
+release window so existing selections keep resolving, then it is removed. It
+contains no guidance: the workflow, references, and review scenarios all moved
+to `effective-delivery`.
 
 **Where it went:** Engineering Leadership (references/route-leadership.md)
 
@@ -26,8 +27,8 @@ dalo approve skill sebastian:effective-delivery
 dalo sync
 ```
 
-If you previously selected `engineering-management`, drop that selection when you add the
-successor.
+If you previously selected `engineering-management`, drop that selection when you
+add the successor.
 
 ## About Sebastian Software
 

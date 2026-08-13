@@ -1,34 +1,33 @@
 [← Sebastian Software Skills](../../README.md)
 
-# Product Marketing — moved
+# Issue Autopilot — moved
 
-**This skill has moved into [effective-marketing](../effective-marketing/README.md).**
+**This skill has moved into [effective-delivery](../effective-delivery/README.md).**
 
-`product-marketing` is a deprecation stub. It stays installable for one release
+`issue-autopilot` is a deprecation stub. It stays installable for one release
 window so existing selections keep resolving, then it is removed. It contains no
-guidance: the workflow, references, and review scenarios all moved to
-`effective-marketing`.
+guidance: the workflow, references, helper, and review scenarios all moved to
+`effective-delivery`.
 
-**Where it went:** Positioning and Segmentation, Messaging and Proof, Launch and
-Sales Enablement, and Market Learning
+**Where it went:** Issue Queue Autopilot (references/route-issue-autopilot.md)
 
 See [MIGRATION.md](../../MIGRATION.md) for the complete old-to-new mapping.
 
 ## Install the successor
 
 ```sh
-npx skills add sebastian-software/skills.sebastian-software.com --skill effective-marketing
+npx skills add sebastian-software/skills.sebastian-software.com --skill effective-delivery
 ```
 
 Or follow the [DALO setup guide](../../docs/dalo.md):
 
 ```sh
-dalo source select sebastian effective-marketing
-dalo approve skill sebastian:effective-marketing
+dalo source select sebastian effective-delivery
+dalo approve skill sebastian:effective-delivery
 dalo sync
 ```
 
-If you previously selected `product-marketing`, drop that selection when you add
+If you previously selected `issue-autopilot`, drop that selection when you add
 the successor.
 
 ## About Sebastian Software

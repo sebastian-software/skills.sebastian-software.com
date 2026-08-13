@@ -4,9 +4,10 @@
 
 **This skill has moved into [effective-engineering](../effective-engineering/README.md).**
 
-`software-architecture` is a deprecation stub. It stays installable for one release window so
-existing selections keep resolving, then it is removed. It contains no guidance:
-the workflow, references, and review scenarios all moved to `effective-engineering`.
+`software-architecture` is a deprecation stub. It stays installable for one
+release window so existing selections keep resolving, then it is removed. It
+contains no guidance: the workflow, references, and review scenarios all moved
+to `effective-engineering`.
 
 **Where it went:** Software Architecture (references/route-architecture.md)
 
@@ -26,8 +27,8 @@ dalo approve skill sebastian:effective-engineering
 dalo sync
 ```
 
-If you previously selected `software-architecture`, drop that selection when you add the
-successor.
+If you previously selected `software-architecture`, drop that selection when you
+add the successor.
 
 ## About Sebastian Software
 

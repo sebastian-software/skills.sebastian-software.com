@@ -141,6 +141,12 @@
       "covers": ["engineering-management"]
     },
     {
+      "name": "operate-unspecified-issue-queue",
+      "prompt": "Work through my unassigned issue queue one item at a time, keep the resulting pull requests review-ready, and do not merge them.",
+      "owner": "effective-delivery",
+      "covers": ["issue-autopilot"]
+    },
+    {
       "name": "draft-article-from-notes",
       "prompt": "Turn these workshop notes into a 1,500-word article for product leaders. Make a clear argument and preserve my direct voice.",
       "owner": "effective-writing",

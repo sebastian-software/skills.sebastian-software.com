@@ -5,6 +5,8 @@
 - Revised: 2026-07-31 — incorporates `market-research` and
   `marketing-writing`, added on `main` the same day (33 skills, 273
   references)
+- Updated: 2026-08-13 — incorporates `issue-autopilot`, added after acceptance
+  and absorbed during branch refresh
 - Deciders: Sebastian Werner
 - Outcome artifact: recorded as
   [ADR 0004](../adr/0004-effective-disciplines.md); the migration table is in
@@ -12,10 +14,11 @@
 
 > **Execution note.** The consolidation shipped as one change rather than the
 > stacked per-discipline PRs described under Migration Sequencing. The
-> resulting shape is 6 disciplines, 73 routes, and 326 references — four more
-> routes than projected here, because four route groups exceeded the 900-line
-> context budget once their references pooled and were split instead of
-> registered as exceptions. ADR 0004 records the full list of deviations.
+> resulting shape is 6 disciplines, 74 routes, and 331 references — five more
+> routes than projected here. Four route groups exceeded the 900-line context
+> budget once their references pooled and were split instead of registered as
+> exceptions; the later `issue-autopilot` skill became the final route. ADR 0004
+> records the full list of deviations.
 
 ## Summary
 

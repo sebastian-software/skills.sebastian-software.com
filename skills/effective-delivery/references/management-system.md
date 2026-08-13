@@ -3,6 +3,16 @@
 Use this reference for responsibility maps, decision paths, meeting systems,
 operating cadence, and feedback loops.
 
+## Contents
+
+- [Diagnose from Work, Not Titles](#diagnose-from-work-not-titles)
+- [Design Responsibility](#design-responsibility)
+- [Review a Decision Path](#review-a-decision-path)
+- [Design Meetings as Tools](#design-meetings-as-tools)
+- [Choose the Coordination Medium](#choose-the-coordination-medium-from-the-work)
+- [Establish a Management Cadence](#establish-a-management-cadence)
+- [Measure Carefully](#measure-carefully)
+
 ## Diagnose from Work, Not Titles
 
 Trace one consequential item from intent through decision, execution, and
@@ -69,6 +79,21 @@ stated.
 
 Do not optimize only for meeting hours. A canceled coordination point can
 create longer waits, private rework, or risk shifted to less powerful people.
+
+## Choose the coordination medium from the work
+
+Diagnose whether the work needs information transfer, asynchronous review,
+rapid convergence, tacit-knowledge transfer, ambiguous co-creation, conflict
+resolution, trust repair, or relationship building. Choose the least costly
+medium that preserves the necessary richness: a durable document, asynchronous
+comments, a call, pairing, a workshop, or in-person collaboration.
+
+Use in-person time only with a named outcome, necessary participants, prepared
+inputs, an accessible and equitable location and schedule, and a durable output
+or follow-up owner. Account for travel, caregiving, disability, timezone,
+environmental, and concentration costs. Do not prescribe a universal onsite
+cadence or treat physical presence as evidence of commitment. Review whether
+the chosen medium reduced delay, misunderstanding, rework, or relationship risk.
 
 ## Establish a Management Cadence
 

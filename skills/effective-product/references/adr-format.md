@@ -67,6 +67,24 @@ Only `Context`, `Decision`, and `Consequences` are essential in an established
 minimal format. Include drivers, options, validation, and references when they
 preserve reasoning that would otherwise be lost. Omit empty ceremonial sections.
 
+## Separate Evidence, Forecast, and Experienced Judgment
+
+When a decision includes intuition or tacit pattern recognition, record:
+
+- the relevant domain and analogous situations behind the signal;
+- the concrete concern or opportunity it points to;
+- observations and explicit analysis that support or contradict it;
+- the forecast or assumption being made and current confidence;
+- who accepts the consequence if the judgment is wrong; and
+- the smallest evidence, reversible step, or review trigger that can test it.
+
+Treat experienced judgment as a legitimate decision input, not as measured
+evidence. In an unfamiliar domain, downgrade intuition to a hypothesis. For a
+high-impact or difficult-to-reverse choice, seek independent evidence or stage
+the commitment; if the authorized owner proceeds despite unresolved conflict,
+record that accepted risk plainly. Do not rewrite later outcomes as proof that
+the original judgment was well founded.
+
 ## Lifecycle Modes
 
 Use the repository's declared lifecycle. When none exists, use the immutable

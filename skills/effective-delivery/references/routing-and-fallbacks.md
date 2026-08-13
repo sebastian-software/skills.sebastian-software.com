@@ -38,16 +38,23 @@ analysis, implementation guidance, evidence standard, and domain boundaries.
 5. Parallelize only owner scopes with cleanly separable files, state, and
    validation surfaces. Otherwise sequence them explicitly.
 
-## Combine Owners Deliberately
+## Design the Work Graph Before Assigning Owners
 
-1. Select the minimum owner set that covers the accepted outcome.
-2. Order dependencies explicitly. For example, settle architecture before
-   documenting it; reproduce a defect before implementing its regression guard;
-   adapt a dependency before verifying affected docs.
-3. Give each owner only the artifacts and questions it needs. Do not ask every
-   owner to review the whole task.
-4. Reconcile overlapping outputs at the orchestration layer. Do not let one
-   owner silently broaden another owner's scope.
+1. Represent consequential decisions, investigations, implementation units,
+   integration, and evidence as work items. Add prerequisite, ambiguity, and
+   shared-state edges instead of treating a checklist as automatically parallel.
+2. Identify the critical path and current parallel front: items whose inputs
+   are ready and whose state, authority, and evidence surfaces do not conflict.
+3. Classify each item by ambiguity, impact, context breadth, repetition,
+   objective verifiability, cost, and latency. Keep synthesis with one integrator.
+4. When choices exist, assign the strongest suitable model to consequential
+   judgment and the least costly sufficient model to bounded, reversible,
+   objectively checked execution. Never weaken evidence or safety for price.
+5. Bound parallelism by ready independent items, enforceable isolation,
+   integration and review capacity, runtime slots, and budget. More workers are
+   harmful when their output cannot be judged or merged safely.
+6. After each front, integrate evidence, resolve contradictions, and update the
+   graph before launching dependent work.
 
 ## Give Delegation a Compact Return Contract
 
@@ -70,13 +77,9 @@ Prefer compact, task-specific receipts:
 - review work: impact, location, evidence, and smallest credible correction;
 - research work: conclusion, primary source, revision or date, and uncertainty.
 
-Choose the execution shape deliberately:
-
-- use one owner for one bounded result;
-- parallelize only independent scopes with separate state and evidence;
-- chain tasks only when a later task requires an earlier artifact; and
-- bound fan-out, recursion, turns, and returned context to the smallest useful
-  level.
+Use one owner for one bounded result. Bound fan-out, recursion, turns, and
+returned context to the smallest shape that shortens the critical path without
+overloading integration.
 
 Preserve the complete receipt or artifact when the parent summary omits detail.
 Treat declared read-only access, worktree isolation, and tool limits as

@@ -62,7 +62,9 @@ and the routed `effective-web` architecture:
 - Four routes were split rather than registered as context exceptions, because
   their pooled references exceeded the 900-line route budget: consultant profile
   into three, Rust into four, PR review into two, and testing into testing plus
-  benchmarks. Total routes: 73 rather than the projected 69.
+  benchmarks. `issue-autopilot`, added after this RFC was accepted, became the
+  tenth Effective Delivery route when the migration branch caught up with
+  `main`. Total routes: 74 rather than the projected 69.
 - LinkedIn social-selling references took the `linkedin-` prefix alongside the
   LinkedIn post references, and locale-typography references took a `locale-`
   prefix, because their original names (`content-system.md`,
@@ -103,8 +105,8 @@ during execution. Stubs work today and are the documented fallback either way.
 
 ## Consequences
 
-- Marketing surface changes from "33 skills with a filter bar" to "six
-  disciplines, 73 routes, 326 references" — a product story rather than a
+- Marketing surface changes from "34 skills with a filter bar" to "six
+  disciplines, 74 routes, 331 references" — a product story rather than a
   catalog story. The root README, homepage inventory, cards, filter counts,
   structured data, and Open Graph copy all move with it.
 - Granular installation of a single small skill is gone by design. "Install one
@@ -115,21 +117,22 @@ during execution. Stubs work today and are the documented fallback either way.
   research versus messaging; writing a test versus running the suite; reviewing
   a PR versus reviewing an API design; German UI punctuation versus frontend
   work.
-- Description length remains the live risk. Five of six descriptions sit between
-  878 and 1023 characters, above the roughly 750 characters `effective-web` had
+- Description length remains the live risk. Four of six descriptions sit between
+  970 and 1023 characters, above the roughly 750 characters `effective-web` had
   proven and near the 1024-character repository limit. Verify rendering in
   Claude Code, Codex, and DALO before relying on the full trigger text. Trimming
   to fit that limit already caused one routing defect (see below), so treat a
   future trim as a behavior change, not as copy editing.
 - Routing is now covered by a contract rather than by review alone.
-  `docs/activation-matrix.json` pairs 41 realistic requests with their owning
+  `docs/activation-matrix.json` pairs 42 realistic requests with their owning
   discipline, including at least one per superseded slug and three controls that
   no discipline should claim. `scripts/validate-activation-matrix.py` fails CI
   when a superseded slug loses its coverage, when one prompt gets two owners, or
   when a discipline falls below three cases.
-- Both validators now understand deprecation stubs, and the three byte-identical
-  `worktree-safety.md` copies merged into one shared file with a uniqueness
-  guard replacing the previous three-way sync check.
+- Both validators now understand deprecation stubs. The byte-identical
+  `worktree-safety.md` copies, including the later Issue Autopilot copy, merged
+  into one shared file with a uniqueness guard replacing the previous sync
+  check.
 
 ## Behavioral Evidence
 
@@ -185,12 +188,12 @@ improves that materially after sunset and worsens it during the window:
 
 | State | Skills | Description bytes | Versus before |
 | --- | --- | --- | --- |
-| 33 skills, before | 33 | 20,542 | — |
-| 6 disciplines, after sunset | 6 | 5,906 | 29% |
-| 6 disciplines plus 32 stubs | 38 | 25,679 | 125% |
+| 34 skills, before | 34 | 21,196 | — |
+| 6 disciplines, after sunset | 6 | 5,746 | 27% |
+| 6 disciplines plus 33 stubs | 39 | 26,756 | 126% |
 
 Keeping the stubs' original descriptions verbatim is what makes existing
-triggers resolve, and it is also what pushes the catalog 25% past its previous
+triggers resolve, and it is also what pushes the catalog 26% past its previous
 size. A host that truncates on that budget will truncate more during the
 deprecation window than it did before, which is an argument for a shorter window
 rather than for shortening the stub descriptions — shortening them would defeat

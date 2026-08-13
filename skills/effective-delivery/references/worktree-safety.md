@@ -1,4 +1,4 @@
-<!-- Synced copy. Identical files live in skills/pr-review, skills/smart-dependency-updater, skills/port-codebases — apply changes to all three. -->
+<!-- Shared contract for every Effective Delivery route that uses Git worktrees. -->
 
 # Worktree Safety
 

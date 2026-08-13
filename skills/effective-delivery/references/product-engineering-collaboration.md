@@ -93,6 +93,34 @@ Look for:
 Choose the smallest working agreement or decision-right change that addresses
 the observed failure. Include a review date and affected-party feedback.
 
+## Lead a Transition to AI-Assisted Work
+
+Treat AI adoption as a change to the work system, roles, and feedback loops, not
+as a tool rollout or a contest over who produces more output.
+
+1. Baseline the complete path from request to safe operation: delivery time,
+   quality, review load, incidents, rework, and the experience of affected
+   people. Include evaluation, correction, and retraining cost.
+2. Decide which bounded execution agents may perform and which problem,
+   architecture, risk, acceptance, and accountability decisions remain with
+   people or named owners.
+3. Inspect the system that agents expose: undocumented standards, ambiguous
+   handoffs, missing tests, overloaded reviewers, and architecture that depends
+   on tacit knowledge.
+4. Classify work by consequence, reversibility, and objective evidence. Do not
+   classify people's potential by age, tenure, enthusiasm, or skepticism.
+5. Run a bounded, representative pilot with an accountable owner, explicit
+   constraints, a reviewable plan for risky work, and evidence independent of
+   the agent's confidence.
+6. Measure request-to-operation outcomes rather than generated code, messages,
+   or task volume. Develop problem framing, specification, decomposition,
+   architecture, testing, agent review, and escalation skills.
+7. Invite skeptics to identify failure modes and safeguards. Do not shame
+   reluctance, impose unsupported productivity multipliers or output quotas, or
+   use a pilot alone for employment decisions.
+8. Review the evidence with affected people, adjust responsibilities and
+   controls, and reevaluate tools when capabilities materially change.
+
 ## Deliverable
 
 Return the shared outcome, distinct responsibilities, decision rights,

@@ -7,7 +7,8 @@ description: >-
   voice decision, or recorded rationale; when a cross-cutting technical,
   product, design, content, marketing, security, operational, or process choice
   must remain understandable across people, tools, and agent sessions; or when
-  another skill identifies a decision whose undocumented rationale would
+  experienced judgment and explicit analysis conflict in a durable decision; or
+  when another skill identifies a decision whose undocumented rationale would
   otherwise drift. Preserve existing repository conventions and do not create
   skill-specific dot folders or private memory formats.
 ---
@@ -15,8 +16,8 @@ description: >-
 # Decision Records (superseded)
 
 This skill is superseded by `effective-product`. It remains installable for one
-release window so existing selections keep resolving, and it carries no
-guidance of its own.
+release window so existing selections keep resolving, and it carries no guidance
+of its own.
 
 Load `effective-product` and take the route that absorbed this work:
 

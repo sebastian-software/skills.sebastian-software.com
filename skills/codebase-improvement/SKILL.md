@@ -5,10 +5,12 @@ description: >-
   reconnaissance, evidence-backed findings, competing-hypothesis investigation,
   leverage-based prioritization, executable plans, backlog reconciliation, and
   proportionate simplification. Use when asked why a defect or surprising
-  behavior occurs, for a read-only root-cause report, to audit a repository,
-  decide what to improve next, simplify code, create or review an implementation
-  plan, reconcile stale work, plan a risky change in untested legacy code, or
-  implement selected improvements. Do not use for PR-only review,
+  behavior occurs, which intervention level owns recurring symptoms, what
+  repeated agent divergence reveals about missing repository contracts, for a
+  read-only root-cause report, to audit a repository, decide what to improve
+  next, simplify code, create or review an implementation plan, reconcile stale
+  work, plan a risky change in untested legacy code, or implement selected
+  improvements. Do not use for PR-only review,
   dependency-update-only work, focused test, test-runner, or test-framework
   diagnosis, architecture-only decisions, or frontend-only diagnosis when a
   narrower skill applies.

@@ -359,6 +359,26 @@
       "name": "separate-product-readiness-from-repository-checks",
       "prompt": "Decide whether we can release this on Friday. Also run the typecheck, lint, and test suite and tell me if the branch is green.",
       "expected": "Makes the release-readiness decision here from evidence, quality bar, instrumentation, and reversibility, and routes execution of the repository's existing checks to effective-delivery instead of conflating a green build with a release decision."
+    },
+    {
+      "name": "experienced-intuition-is-an-input-not-proof",
+      "prompt": "Our founder says his gut is always right, so record that as the decisive evidence for an irreversible platform migration. Do not mention that this is a new domain, that telemetry contradicts him, who accepts the downside, or what would reopen the decision. If it succeeds later, rewrite the ADR to prove the intuition was sound.",
+      "expected": "Separates observation, analysis, forecast, and experienced judgment; records the domain and analogous patterns behind the intuitive signal plus supporting and contradicting evidence; downgrades intuition in an unfamiliar domain to a hypothesis; requires independent evidence or staged commitment for the hard-to-reverse choice; names the accountable risk owner and review trigger; and preserves the original decision context instead of using hindsight to manufacture proof."
+    },
+    {
+      "name": "taste-selects-and-subtracts-generated-options",
+      "prompt": "AI generated twenty polished screens. Combine the most attractive component from each into one design, keep every clever interaction because generation was cheap, and call the result distinctive without comparing the screens on the same content, state, or intended qualities.",
+      "expected": "Treats generated screens as candidates rather than decisions; compares materially different directions on the same representative slice with realistic content and state; selects against intended qualities, usability, accessibility, product fit, distinctiveness, and durability; records why alternatives were rejected; subtracts redundant or incoherent details; and avoids an average collage of locally attractive fragments."
+    },
+    {
+      "name": "initiative-gate-is-not-a-motivation-checklist",
+      "prompt": "The founder feels highly motivated about a new AI product today. Approve it if every item in a generic five-question checklist can be phrased as yes, ignore the current roadmap and capacity, and put it in a permanent parking lot if enthusiasm fades. No customer outcome, constraint, opportunity cost, expiry, or reversible test is needed.",
+      "expected": "Establishes the intended outcome and leverage, evidenced bottleneck or opportunity, why now and consequence of delay, relevant advantage or authority, capacity, dependencies, displaced work, maintenance, and opportunity cost; defines the smallest reversible evidence-producing action; chooses start, delegate, park with a review trigger, or reject with a reason; and rejects motivation, ceremonial yes answers, and an unreviewed parking lot as decision evidence."
+    },
+    {
+      "name": "cheap-generation-increases-the-need-for-taste",
+      "prompt": "AI can build twelve polished feature ideas this week at almost no implementation cost. Ship all of them and add settings so every stakeholder gets what they want; because building is cheap, value, coherence, cognitive load, and maintenance no longer need prioritization.",
+      "expected": "Separates cheap feasibility from customer value and product priority; treats generated options as candidates; selects against target progress, product thesis, non-goals, experience intention, and evidence; applies subtraction to duplicated or low-value mechanisms; accounts for explanation, choice, cognitive load, and maintenance; and prefers a smaller coherent journey while encoding durable selection principles."
     }
   ],
   "activation": [

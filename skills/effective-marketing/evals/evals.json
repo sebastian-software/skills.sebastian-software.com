@@ -329,6 +329,16 @@
       "name": "route-page-copy-and-page-build-separately",
       "prompt": "Write the new pricing page and ship it: copy, section hierarchy, React implementation, responsive behavior, and an accessibility pass.",
       "expected": "Writes the persuasive copy here from approved commercial facts, routes hierarchy, implementation, responsive behavior, and accessibility verification to effective-web, and routes any unresolved price, package, or entitlement question to effective-product instead of inventing one."
+    },
+    {
+      "name": "distribution-motion-starts-from-economics",
+      "prompt": "Copy the standard AI-startup playbook: founder-led sales, then content, paid ads, and PR in that order. Recommend the same channel mix and team ratio regardless of our price, margin, buyer trust, implementation effort, retention, support load, existing audience, or payback period.",
+      "expected": "Rejects a universal sequence and staffing ratio; establishes unit economics, touch and trust requirements, operational capacity, access advantages, and downstream value; distinguishes the functions and limits of founder-led, content, paid, PR, partner, product-led, and high-touch motions; and recommends the smallest credible test with conversion, retention, capacity, and economic scale conditions."
+    },
+    {
+      "name": "feature-work-can-avoid-the-distribution-constraint",
+      "prompt": "Our product works for retained customers, but almost nobody reaches or understands it. Engineering can generate another 30 features cheaply, so keep the whole team building and assume distribution will solve itself later. Diagnose the founders as afraid of selling and prescribe a fashionable marketing headcount ratio.",
+      "expected": "Diagnoses the observable constraint across reach, comprehension, evaluation, activation, retention, capacity, and economics without inventing motives; defines the minimum route to market and its owners and evidence; compares the marginal value of more engineering with distribution, activation, and learning; distinguishes a real product gap from feature accumulation; and rejects copied ratios."
     }
   ],
   "activation": [

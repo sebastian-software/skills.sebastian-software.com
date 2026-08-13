@@ -8,7 +8,7 @@
 need to do dependable product and software work.**
 
 Six disciplines, one quality bar:
-6 practice-built skills and 326 focused references
+6 practice-built skills and 331 focused references
 covering product decisions and research, browser experiences, software
 architecture and code, repository and team delivery, nonfiction prose, and
 go-to-market work.
@@ -19,7 +19,7 @@ repeated professional practice into an explicit workflow with evidence
 requirements, boundaries, and verification checks — and routes internally so an
 agent loads the one reference the task needs.
 
-> **Migrating from the old 33-skill layout?** Every old slug still installs for
+> **Migrating from the old 34-skill layout?** Every old slug still installs for
 > one release window and redirects to its discipline. The complete mapping is in
 > [MIGRATION.md](MIGRATION.md).
 
@@ -59,7 +59,7 @@ should be pinned and shared across multiple agent targets.
 | 01 | [`effective-product`](skills/effective-product/) | Decide what to build and how it should work | 10 |
 | 02 | [`effective-web`](skills/effective-web/) | Build the browser experience as one system | 26 |
 | 03 | [`effective-engineering`](skills/effective-engineering/) | Design and write the software itself | 9 |
-| 04 | [`effective-delivery`](skills/effective-delivery/) | Move repositories and teams forward safely | 9 |
+| 04 | [`effective-delivery`](skills/effective-delivery/) | Move repositories and teams forward safely | 10 |
 | 05 | [`effective-writing`](skills/effective-writing/) | Prose that people trust and act on | 7 |
 | 06 | [`effective-marketing`](skills/effective-marketing/) | Take verified value to market | 12 |
 
@@ -79,6 +79,7 @@ Start with the job you need done rather than the repository taxonomy.
 | Choose system boundaries, data models, or consistency guarantees | [`effective-engineering`](skills/effective-engineering/) |
 | Write or review server-side TypeScript or Rust, or protect behavior with a test | [`effective-engineering`](skills/effective-engineering/) |
 | Diagnose a repository, prioritize improvements, or plan a risky legacy change | [`effective-delivery`](skills/effective-delivery/) |
+| Discover, prioritize, process, or monitor an unspecified live issue queue | [`effective-delivery`](skills/effective-delivery/) |
 | Review a pull request, update dependencies, port a codebase, or run the repo's checks | [`effective-delivery`](skills/effective-delivery/) |
 | Write technical documentation, or clarify ownership and team load around the work | [`effective-delivery`](skills/effective-delivery/) |
 | Turn expertise into credible articles, essays, or editorial case studies | [`effective-writing`](skills/effective-writing/) |
@@ -141,7 +142,7 @@ repository from silently deciding how a user's complete environment behaves.
 | [`effective-product`](skills/effective-product/) | Decision-led customer and market research, discovery, strategy, scope and release decisions, design research and modeling, behavioral and retention design, pricing and packaging, product naming, and Architecture Decision Records. |
 | [`effective-web`](skills/effective-web/) | Routed web design and engineering across UI/UX, CSS, React, accessibility, SEO, performance, testing, SVG, motion, and web-to-print, plus reference capture and specification, originality and provenance audits, and jurisdiction-aware web compliance. |
 | [`effective-engineering`](skills/effective-engineering/) | System architecture and operability, data models and consistency guarantees, server-side TypeScript and Rust depth, focused non-frontend tests, and repository-native benchmark methodology. |
-| [`effective-delivery`](skills/effective-delivery/) | Workflow orchestration, repository audits and root-cause investigation, behavior-preserving ports, pull-request review and upkeep, dependency portfolios, repository validation, technical documentation, and engineering leadership. |
+| [`effective-delivery`](skills/effective-delivery/) | Workflow orchestration, repository audits and root-cause investigation, behavior-preserving ports, pull-request review and upkeep, delegated issue queues, dependency portfolios, repository validation, technical documentation, and engineering leadership. |
 | [`effective-writing`](skills/effective-writing/) | Structure and prose craft for articles, essays, and editorial case studies, evidence-based AI-pattern audits, natural US team English for internal messages, and locale typography for thirteen European languages. |
 | [`effective-marketing`](skills/effective-marketing/) | Positioning and segmentation, messaging and proof, launch and sales enablement, market learning, commercial copywriting, conversion optimization, social and LinkedIn content, and consultant profile positioning. |
 

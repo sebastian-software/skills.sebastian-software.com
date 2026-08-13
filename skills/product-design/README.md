@@ -4,11 +4,13 @@
 
 **This skill has moved into [effective-product](../effective-product/README.md).**
 
-`product-design` is a deprecation stub. It stays installable for one release window so
-existing selections keep resolving, then it is removed. It contains no guidance:
-the workflow, references, and review scenarios all moved to `effective-product`.
+`product-design` is a deprecation stub. It stays installable for one release
+window so existing selections keep resolving, then it is removed. It contains no
+guidance: the workflow, references, and review scenarios all moved to
+`effective-product`.
 
-**Where it went:** Design Research and Problem Framing, Solution Modeling and Prototyping, and Behavioral and Retention Design
+**Where it went:** Design Research and Problem Framing, Solution Modeling and
+Prototyping, and Behavioral and Retention Design
 
 See [MIGRATION.md](../../MIGRATION.md) for the complete old-to-new mapping.
 
