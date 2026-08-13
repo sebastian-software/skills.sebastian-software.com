@@ -76,7 +76,7 @@ Investigate separate rules for children, online marketplaces, health,
 financial services, education, employment, housing, credit, alcohol, gambling,
 and other regulated sectors. For accessibility, establish the entity, service,
 jurisdiction, current legal authority, and risk with qualified counsel; route
-technical remediation to `effective-web`.
+technical remediation to the relevant implementation route in this skill.
 
 ## Starting Sources
 

@@ -79,6 +79,9 @@ living records.
   source of truth and are expected to change together.
 - State uncertainty and missing evidence. A `proposed` record may contain open
   questions; an `accepted` record must make the chosen direction unambiguous.
+- Keep observation, analysis, forecast, and experienced judgment distinguishable.
+  Record a consequential intuitive signal without promoting it to evidence or
+  erasing it merely because its pattern cannot yet be fully articulated.
 - Use concrete language and project nouns. Avoid ceremony, fictional consensus,
   and generic claims such as "best practice" without a project-specific driver.
 - Never record secrets, personal data, credentials, or private incident details

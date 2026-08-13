@@ -103,10 +103,10 @@ Prototype the uncertain part and enough surrounding context for it to be
 credible. Avoid building every screen at high fidelity when the decision
 depends on one model, transition, or state change.
 
-the design research and modeling routes owns the decision-grade question, fidelity choice, realistic
+The design research and modeling routes own the decision-grade question, fidelity choice, realistic
 task, and evaluation plan. When the uncertainty is specifically browser layout,
 responsive behavior, input, or implementation under already accepted intent,
-use the optional `effective-web` skill. Its bounded browser protocol means:
+use `effective-web`. Its bounded browser protocol means:
 build the smallest representative browser slice, record whether to `Discard`,
 `Rebuild`, or `Productionize` it, and carry that conclusion back into the design
 brief and prototype findings; do not leave a parallel browser artifact.
@@ -165,10 +165,10 @@ counter-reaction so neither becomes an automatic answer. Make directions differ
 in composition or material family, not merely palette; a conventional direction
 is still valid when deliberately chosen and executed without arbitrary novelty.
 
-This exploration precedes or feeds the optional `effective-web` skill's compact
+This exploration precedes or feeds `effective-web`'s compact
 Design Read and Decide Before Styling contract: record what the direction should
 communicate, the evidence for it, and the decision that must precede styling.
-the design research and modeling routes compares materially different experience directions;
+The design research and modeling routes compare materially different experience directions;
 `effective-web` carries the accepted direction into browser structure and
 implementation constraints, then checks persistence and drift when later work
 would erode that direction.
@@ -220,7 +220,7 @@ Turn the chosen qualities into provisional tokens, component rules, and clear
 anti-examples. Keep them as study evidence until `effective-web` reconciles
 them with accepted design-system, accessibility, responsive, and implementation
 contracts. Persist durable choices through the repository's decision convention
-or the optional the decision-records route: record the context, decision, and
+or the Decision Records route: record the context, decision, and
 consequences rather than allowing a prototype token set to become an
 undocumented parallel system. The delivered direction must fit this product
 rather than reproduce another product's composition.

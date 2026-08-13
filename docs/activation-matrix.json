@@ -15,6 +15,12 @@
       "covers": ["product-design"]
     },
     {
+      "name": "select-generated-design-direction",
+      "prompt": "AI generated twelve polished onboarding directions. Compare materially different options on the same realistic slice, choose one coherent direction, and remove details that do not serve the intended qualities.",
+      "owner": "effective-product",
+      "covers": []
+    },
+    {
       "name": "design-churn-interview-program",
       "prompt": "Design a churn interview program: recruit ten departed customers, write the protocol, and synthesize the findings into Jobs to Be Done.",
       "owner": "effective-product",
@@ -37,6 +43,12 @@
       "prompt": "Record why we chose usage-based pricing over seats, which options we rejected, and what would reopen the decision.",
       "owner": "effective-product",
       "covers": ["decision-records"]
+    },
+    {
+      "name": "record-intuition-without-promoting-it",
+      "prompt": "Our experienced founder's intuition conflicts with the explicit evidence for this hard-to-reverse platform choice. Record the durable decision without erasing either input or pretending intuition is proof.",
+      "owner": "effective-product",
+      "covers": []
     },
     {
       "name": "fix-dashboard-accessibility",
@@ -63,10 +75,22 @@
       "covers": ["web-legal-compliance"]
     },
     {
+      "name": "scope-marketing-endorsement-disclosures",
+      "prompt": "Audit the testimonials, affiliate links, influencer endorsements, and marketing claims on this website and identify the disclosures the browser experience needs.",
+      "owner": "effective-web",
+      "covers": []
+    },
+    {
       "name": "decide-service-boundary",
       "prompt": "Should billing stay inside the monolith or become its own service? Argue from our actual load, ownership, and failure consequences.",
       "owner": "effective-engineering",
       "covers": ["software-architecture"]
+    },
+    {
+      "name": "choose-strategic-control-boundary",
+      "prompt": "Decide whether this mission-critical billing capability should be built in-house, based on open source, bought as a managed service, or vertically integrated. Identify what we actually need to control and the exit path.",
+      "owner": "effective-engineering",
+      "covers": []
     },
     {
       "name": "fix-conflicting-status-writes",
@@ -99,10 +123,22 @@
       "covers": ["effective-workflow"]
     },
     {
+      "name": "coordinate-ai-generated-production-code",
+      "prompt": "Have agents implement this high-impact production change, but keep architecture, data, security, compatibility, and acceptance decisions accountable and verify the generated result independently.",
+      "owner": "effective-delivery",
+      "covers": []
+    },
+    {
       "name": "rank-repository-improvements",
       "prompt": "Audit this repository and rank the five highest-leverage improvements with the evidence for each.",
       "owner": "effective-delivery",
       "covers": ["codebase-improvement"]
+    },
+    {
+      "name": "diagnose-repeated-agent-divergence",
+      "prompt": "Three capable agents implemented the same authorization rule differently. Diagnose which repository contract, example, ownership boundary, decision, or test is missing before changing the prompt.",
+      "owner": "effective-delivery",
+      "covers": []
     },
     {
       "name": "port-library-preserving-behavior",
@@ -175,6 +211,12 @@
       "prompt": "Choose our target segment and category position from this evidence, then build the message hierarchy and name the proof gaps.",
       "owner": "effective-marketing",
       "covers": ["product-marketing"]
+    },
+    {
+      "name": "select-distribution-motion",
+      "prompt": "Choose whether this offer needs founder-led sales, partners, content, paid acquisition, product-led growth, or high-touch delivery from its economics, trust, support load, and access advantages. Diagnose whether more feature work is avoiding the distribution constraint.",
+      "owner": "effective-marketing",
+      "covers": []
     },
     {
       "name": "write-homepage-hero",

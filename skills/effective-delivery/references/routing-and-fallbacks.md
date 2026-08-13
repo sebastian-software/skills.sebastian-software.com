@@ -17,7 +17,7 @@ owners, or the preferred owner may not be installed.
 | System boundary or evolutionary architecture | `effective-engineering` | Drivers, quality scenarios, tradeoffs, operability, and migration |
 | Durable cross-functional decision | `effective-product` | Repository-native ADR lifecycle and drift control |
 | Port or compatibility migration | the porting route | Behavior contract, parity evidence, execution profile, and handoff |
-| Product, design, legal, locale, or communication concern | `effective-product`, `effective-product`, `effective-web`, `effective-writing`, or the matching communication owner | Domain outcome and evidence without expanding orchestration |
+| Product, design, legal, locale, or communication concern | `effective-product`, `effective-web`, `effective-writing`, `effective-marketing`, or the matching communication owner | Domain outcome and evidence without expanding orchestration |
 
 The orchestrator selects and sequences owners. Each owner controls its own
 analysis, implementation guidance, evidence standard, and domain boundaries.

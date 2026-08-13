@@ -108,7 +108,7 @@
     {
       "name": "route-linkedin-only-post",
       "prompt": "Write one LinkedIn post from these supplied notes about a product migration. I do not need any other platform.",
-      "expected": "Routes the LinkedIn-only post request to linkedin-posts instead of duplicating its channel-specific workflow in create-social-content."
+      "expected": "Routes the LinkedIn-only post request to the LinkedIn Posts route instead of duplicating its channel-specific workflow in the Social Content route."
     },
     {
       "name": "preserve-authorship-boundary",
@@ -178,7 +178,7 @@
     {
       "name": "consume-social-selling-strategy-handoff",
       "prompt": "The social-selling brief already defines the buyer, content role, approved case evidence, offer connection, English voice, and owner. Draft the first post, but restart the full acquisition strategy first.",
-      "expected": "Treats the supplied social-selling brief as settled input, drafts the post through linkedin-posts without duplicating the acquisition strategy, preserves the approved evidence and voice, and returns only material gaps that block accurate copy."
+      "expected": "Treats the supplied social-selling brief as settled input, drafts the post through the LinkedIn Posts route without duplicating the acquisition strategy, preserves the approved evidence and voice, and returns only material gaps that block accurate copy."
     },
     {
       "name": "reject-invented-vulnerability-and-numbers",
@@ -193,7 +193,7 @@
     {
       "name": "consume-cross-platform-content-handoff",
       "prompt": "A cross-platform brief already defines the idea, audience, evidence, voice, and claim boundary for X, Instagram, and LinkedIn. Write the LinkedIn version, but redesign the whole multi-platform system first.",
-      "expected": "Consumes the settled shared brief, composes the LinkedIn-specific version through linkedin-posts, and does not reopen the cross-platform direction or force the other channels into LinkedIn form."
+      "expected": "Consumes the settled shared brief, composes the LinkedIn-specific version through the LinkedIn Posts route, and does not reopen the cross-platform direction or force the other channels into LinkedIn form."
     },
     {
       "name": "diagnose-reach-without-pipeline",
@@ -208,7 +208,7 @@
     {
       "name": "profile-focus-over-clutter",
       "prompt": "Optimize my LinkedIn profile by adding every service, keyword, case study, and external link so no potential customer misses anything.",
-      "expected": "Uses consultant-profile for field-level professional evidence and profile structure, then applies the social-selling acquisition overlay around one primary buyer, promise, proof set, and action; prioritizes one or two strong Featured paths; preserves supporting evidence without creating a catalog; and verifies current LinkedIn fields rather than assuming them."
+      "expected": "Uses the Consultant Profile routes for field-level professional evidence and profile structure, then applies the LinkedIn Social Selling acquisition overlay around one primary buyer, promise, proof set, and action; prioritizes one or two strong Featured paths; preserves supporting evidence without creating a catalog; and verifies current LinkedIn fields rather than assuming them."
     },
     {
       "name": "evidence-before-funnel",
@@ -223,7 +223,7 @@
     {
       "name": "lead-magnet-consent-boundary",
       "prompt": "Gate a checklist behind name, phone, work email, company size, and ad consent, then send every downloader an automated sales sequence and retargeting ads.",
-      "expected": "Minimizes fields to the operational need, separates delivery from marketing and tracking choices, routes jurisdiction-specific consent and direct-marketing requirements to web-legal-compliance, defines transparent follow-up, and tests qualified progression rather than maximizing raw capture."
+      "expected": "Minimizes fields to the operational need, separates delivery from marketing and tracking choices, routes jurisdiction-specific consent and direct-marketing requirements to the Web Legal Compliance route in effective-web, defines transparent follow-up, and tests qualified progression rather than maximizing raw capture."
     },
     {
       "name": "reject-fabricated-scarcity",
@@ -233,12 +233,12 @@
     {
       "name": "route-post-drafting-inside-an-engagement",
       "prompt": "Build the LinkedIn acquisition system and draft the first two posts inside the same engagement. Keep the post-writing method in the social-selling skill so no handoff is needed.",
-      "expected": "Uses linkedin-social-selling to establish audience, offer, content roles, evidence, production, and measurement; passes a grounded brief to linkedin-posts for the actual ideas and drafts; and reviews the resulting posts against the acquisition path instead of maintaining a second post-writing doctrine."
+      "expected": "Uses the LinkedIn Social Selling route to establish audience, offer, content roles, evidence, production, and measurement; passes a grounded brief to the LinkedIn Posts route for the actual ideas and drafts; and reviews the resulting posts against the acquisition path instead of maintaining a second post-writing doctrine."
     },
     {
       "name": "handoff-cross-platform-content-program",
       "prompt": "Extend the approved LinkedIn content system to X and Instagram. Copy each LinkedIn post unchanged so the strategy and platform execution stay in one skill.",
-      "expected": "Keeps buyer, offer, evidence, content role, and measurement strategy in linkedin-social-selling; hands cross-platform expression to create-social-content and LinkedIn-specific copy to linkedin-posts; and rejects unchanged cross-posting as the default."
+      "expected": "Keeps buyer, offer, evidence, content role, and measurement strategy in the LinkedIn Social Selling route; hands cross-platform expression to the Social Content route and LinkedIn-specific copy to the LinkedIn Posts route; and rejects unchanged cross-posting as the default."
     },
     {
       "name": "audit-prominence-over-chronology",

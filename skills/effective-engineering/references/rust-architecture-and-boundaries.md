@@ -35,7 +35,7 @@ Do not invent a stronger MSRV, a new runtime, a new crate, a target guarantee,
 or a performance budget because a design article used one. Tie each decision to
 the repository's actual contract.
 
-**Source:** [The Rust Programming Language – Packages, Crates, and Modules](https://doc.rust-lang.org/stable/book/ch07-00-managing-growing-projects-with-packages-crates-and-modules.html), [Effective Rust – Dependencies and Tooling](https://www.effective-rust.com/), and the parent skill's [Quality and Review](typescript-quality-and-review.md).
+**Source:** [The Rust Programming Language – Packages, Crates, and Modules](https://doc.rust-lang.org/stable/book/ch07-00-managing-growing-projects-with-packages-crates-and-modules.html), [Effective Rust – Dependencies and Tooling](https://www.effective-rust.com/), and the parent skill's [Quality and Review](rust-quality-and-review.md).
 
 ### 1.2 State the boundary in one paragraph
 

@@ -2,16 +2,18 @@
 name: effective-engineering
 description: >-
   Design and write the software itself: software and system architecture,
-  service and module boundaries, quality attributes, operational readiness,
-  testing strategy; data models, datastores, transactions, consistency,
+  service and module boundaries, build-versus-buy and strategic-control choices,
+  quality attributes, operational readiness, testing strategy; data models,
+  datastores, transactions, consistency,
   replication, partitioning, batch and streaming pipelines, schema evolution and
   data migrations; server-side and shared-library TypeScript type, module,
   async, and error contracts; Rust crates, ownership, APIs, unsafe code,
   concurrency, and performance; and focused non-frontend tests, regression
-  guards, and benchmark methodology. Use for architecture options, database and
-  event-model decisions, writing or reviewing TypeScript or Rust, protecting
-  behavior with tests, or designing benchmarks. Do not use for browser-facing
-  work, for repository lifecycle workflows such as audits, ports, reviews,
+  guards, and benchmark methodology. Use for architecture options, control and
+  sourcing boundaries, database and event-model decisions, writing or reviewing
+  TypeScript or Rust, protecting behavior with tests, or designing benchmarks.
+  Do not use for browser-facing work, for repository lifecycle workflows such
+  as audits, ports, reviews,
   dependency updates, or validation runs, or for frontend testing.
 ---
 

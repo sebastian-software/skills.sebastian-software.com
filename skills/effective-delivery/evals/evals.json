@@ -13,7 +13,7 @@
     {
       "name": "bug-fix-requires-regression-evidence",
       "prompt": "Fix the retry bug that charges a customer twice after a timeout. Keep the intervention minimal and tell me when it is done.",
-      "expected": "The agent establishes a reproduction or broken invariant, routes non-frontend test design to software-testing when available, implements only the authorized fix, proves discrimination with regression evidence, runs relevant repository checks, and reports any remaining payment or concurrency risk."
+      "expected": "The agent establishes a reproduction or broken invariant, routes non-frontend test design to effective-engineering, implements only the authorized fix, proves discrimination with regression evidence, runs relevant repository checks, and reports any remaining payment or concurrency risk."
     },
     {
       "name": "missing-owner-degrades-honestly",
@@ -28,7 +28,7 @@
     {
       "name": "mixed-change-loads-only-needed-owners",
       "prompt": "Upgrade the HTTP client, adapt the one affected call site, update its migration note, and leave the change ready for review. The repository also contains unrelated frontend and Rust packages.",
-      "expected": "The agent coordinates smart-dependency-updater and tech-docs, plus focused test or review ownership only where the affected surface requires it; it does not preload or duplicate every available specialist, touch unrelated packages, or invent a fixed multi-agent role registry."
+      "expected": "The agent coordinates the Dependency Updates and Technical Documentation routes, plus focused test or review ownership only where the affected surface requires it; it does not preload or duplicate every available specialist, touch unrelated packages, or invent a fixed multi-agent role registry."
     },
     {
       "name": "mixed-repository-routes-each-owned-surface",
@@ -118,7 +118,7 @@
     {
       "name": "diagnose-intended-behavior-mistaken-for-bug",
       "prompt": "Investigate why the CLI refuses to overwrite an existing export. The accepted ADR says exports are append-only to prevent accidental loss, the implementation and tests enforce that rule, but an old README example implies overwrite is allowed.",
-      "expected": "Classifies the behavior as accepted/by-design rather than a defect, cites the ADR, code, tests, and stale README as observations, preserves the rejected implementation-bug hypothesis when useful, recommends exactly one repository-native documentation correction through tech-docs, and does not change code or docs."
+      "expected": "Classifies the behavior as accepted/by-design rather than a defect, cites the ADR, code, tests, and stale README as observations, preserves the rejected implementation-bug hypothesis when useful, recommends exactly one repository-native correction through the Technical Documentation route, and does not change code or docs."
     },
     {
       "name": "compare-competing-investigation-hypotheses",
@@ -143,7 +143,7 @@
     {
       "name": "legacy-change-finds-effect-and-seam",
       "prompt": "Plan a change to an untested invoice retry module. Start by adding a generic repository layer and rewriting the whole package so it becomes testable; we have not traced which path creates the second ledger entry or what callers observe.",
-      "expected": "Rejects the broad rewrite, traces the entry point through the narrow mutation and caller-visible effects, identifies the closest discriminating observation point, chooses the smallest existing or local seam, and routes focused test implementation to software-testing."
+      "expected": "Rejects the broad rewrite, traces the entry point through the narrow mutation and caller-visible effects, identifies the closest discriminating observation point, chooses the smallest existing or local seam, and routes focused test implementation to effective-engineering."
     },
     {
       "name": "known-defect-is-not-frozen-as-contract",
@@ -433,12 +433,12 @@
     {
       "name": "route-test-runner-repair",
       "prompt": "The repository's established test command now discovers zero tests after a runner configuration migration. Diagnose and repair discovery, then validate the repository.",
-      "expected": "Routes test discovery, runner, and framework diagnosis and repair to software-testing; software-validation may execute the established command and report its result but does not take ownership of designing or repairing missing test evidence."
+      "expected": "Routes test discovery, runner, and framework diagnosis and repair to effective-engineering; the Repository Validation route may execute the established command and report its result but does not take ownership of designing or repairing missing test evidence."
     },
     {
       "name": "run-established-performance-commands",
       "prompt": "The repository documents `cargo bench --bench parser` and `pnpm load:staging` as its approved performance checks. Run both, keep their raw result artifacts, and report the outcome without changing methodology.",
-      "expected": "Treats both commands as repository-native validation categories, confirms their prerequisites and authorized environment, executes each established command once at the documented scope, preserves generated artifacts and working state, and reports explicit terminal states. It routes benchmark redesign or interpretation to software-testing and workload, target, or capacity decisions to software-architecture."
+      "expected": "Treats both commands as repository-native validation categories, confirms their prerequisites and authorized environment, executes each established command once at the documented scope, preserves generated artifacts and working state, and reports explicit terminal states. It routes benchmark redesign or interpretation and workload, target, or capacity decisions to the matching effective-engineering routes."
     },
     {
       "name": "preserve-dirty-state-and-generated-diff",

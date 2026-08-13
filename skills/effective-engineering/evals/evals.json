@@ -23,7 +23,7 @@
     {
       "name": "route-an-accepted-decision-to-adrs",
       "prompt": "We have compared options and accepted PostgreSQL as the primary transactional store. Document that decision for the repository.",
-      "expected": "Routes the durable decision to decision-records, preserves the repository's ADR convention, and keeps exact configuration and implementation details in their owning artifacts rather than inventing an architecture-memory folder."
+      "expected": "Routes the durable decision to the Decision Records route in effective-product, preserves the repository's ADR convention, and keeps exact configuration and implementation details in their owning artifacts rather than inventing an architecture-memory folder."
     },
     {
       "name": "define-load-objectives-without-inventing-methodology",
@@ -33,7 +33,7 @@
     {
       "name": "route-existing-load-command-to-validation",
       "prompt": "The repository already documents `pnpm load:staging` with an approved workload, target environment, credentials procedure, and cleanup runbook. Run it once and report whether it passed; do not redesign the experiment.",
-      "expected": "Routes execution of the established repository-native command to software-validation, which preserves its documented scope, prerequisites, working state, artifacts, and explicit result status. It does not treat the existing harness as unowned or reopen workload and capacity decisions without contrary evidence."
+      "expected": "Routes execution of the established repository-native command to the Repository Validation route in effective-delivery, which preserves its documented scope, prerequisites, working state, artifacts, and explicit result status. It does not treat the existing harness as unowned or reopen workload and capacity decisions without contrary evidence."
     },
     {
       "name": "remove-shallow-module-without-erasing-policy",
@@ -168,7 +168,7 @@
     {
       "name": "rust-property-default-dependency",
       "prompt": "Add tests for this Rust range-mapping function. A generic best-practices guide says property-based testing is superior, so add proptest or quickcheck and generate thousands of random cases. The crate currently has no property-testing dependency.",
-      "expected": "Protects the boundary and representative cases with standard `#[test]` functions and table-driven or example tests, exercising minimum, maximum, sign, narrowing, and overflow behavior. It does not add a property, fuzzing, or snapshot dependency by default, reaching for one only if the crate already depends on it or the invariant space concretely justifies it, and treats the implementation contract under test as owned by rust-engineering."
+      "expected": "Protects the boundary and representative cases with standard `#[test]` functions and table-driven or example tests, exercising minimum, maximum, sign, narrowing, and overflow behavior. It does not add a property, fuzzing, or snapshot dependency by default, reaching for one only if the crate already depends on it or the invariant space concretely justifies it, and treats the implementation contract under test as owned by the Rust routes."
     },
     {
       "name": "modularity-before-mocks",
@@ -193,7 +193,7 @@
     {
       "name": "performance-regression",
       "prompt": "Guard the latency of one normalization function in shared CI. The architecture team has already agreed the target, but absolute times vary across runners.",
-      "expected": "Adds a focused, controlled regression guard for the concrete path, fixes the corpus and measurement method, and prefers a relative or trend threshold where that is more reliable. It reports environment limits, keeps system targets with software-architecture, and distinguishes the focused guard from broader benchmark methodology and from unowned load, soak, or stress methodology."
+      "expected": "Adds a focused, controlled regression guard for the concrete path, fixes the corpus and measurement method, and prefers a relative or trend threshold where that is more reliable. It reports environment limits, keeps system targets with the Software Architecture route, and distinguishes the focused guard from broader benchmark methodology and from unowned load, soak, or stress methodology."
     },
     {
       "name": "comparative-benchmark-semantic-parity",
@@ -213,12 +213,12 @@
     {
       "name": "new-load-test-has-no-owner",
       "prompt": "Create a 10,000-user soak test for this API. There is no workload model, capacity target, safe test environment, or existing harness. Pick k6 or Locust and use production-like data so we can forecast capacity.",
-      "expected": "States that no first-party skill currently owns new load, soak, or stress methodology and does not invent a tool, traffic mix, target, environment, credentials, or destructive-data policy. It routes objectives, workload scenarios, and capacity decisions to software-architecture and asks for explicit specialist ownership before an execution program is designed."
+      "expected": "States that no first-party route currently owns new load, soak, or stress methodology and does not invent a tool, traffic mix, target, environment, credentials, or destructive-data policy. It routes objectives, workload scenarios, and capacity decisions to the Software Architecture route and asks for explicit specialist ownership before an execution program is designed."
     },
     {
       "name": "existing-benchmark-command-routing",
       "prompt": "This repository already documents `pnpm benchmark:proof` with its corpus, warmup, repetitions, and retained report. Run it and tell me whether it passed; do not redesign the harness.",
-      "expected": "Routes execution of the established repository-native command to software-validation, preserving its scope and artifacts. It keeps software-testing for benchmark design, repair, comparison judgment, or interpretation beyond the command's established contract."
+      "expected": "Routes execution of the established repository-native command to the Repository Validation route in effective-delivery, preserving its scope and artifacts. It keeps the Benchmark Methodology route responsible for benchmark design, repair, comparison judgment, or interpretation beyond the command's established contract."
     },
     {
       "name": "logic-free-glue",

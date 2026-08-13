@@ -86,6 +86,13 @@ or decision convention. Do not add a skill-specific debt marker.
 - Invoke the appropriate owner when available and treat its domain rules as
   authoritative. Pass it the outcome, scope, repository evidence, constraints,
   and expected handoff.
+- When an agent will produce production code, keep the accountable human or
+  owning team responsible for the problem, material architecture, data,
+  security, compatibility, and acceptance choices. Resolve consequential
+  choices before generation.
+- For ambiguity-heavy or high-impact work, require a reviewable implementation
+  plan before mutation and compare it with the accepted outcome, exclusions,
+  repository constraints, and evidence plan. Keep this gate proportionate.
 - Do not assume one model or session must own every stage. When the host
   supports model or agent selection, reserve the strongest suitable capability
   for ambiguity-heavy, high-impact judgment. Route bounded, reversible
@@ -114,6 +121,9 @@ or decision convention. Do not add a skill-specific debt marker.
 - Match evidence to the claim: reproduce and guard a bug, compare a refactor
   baseline, exercise a feature's acceptance path, validate documentation
   examples and links, or check dependency and port compatibility.
+- Treat generated code, agent confidence, and plan conformance as inputs, not
+  completion evidence. Verify behavior, failure modes, and repository
+  integration independently of who or what wrote the change.
 - Use the Validation route to discover, deduplicate, execute, and report the
   repository's established check surface; keep specialist owners responsible for
   designing any new evidence the change requires.

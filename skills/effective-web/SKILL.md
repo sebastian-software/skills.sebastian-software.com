@@ -1,20 +1,19 @@
 ---
 name: effective-web
 description: >-
-  Design, build, review, and improve browser-facing experiences: content sites,
-  web apps, dashboards, React components, UI/UX, layout, typography, color,
-  forms, tables, accessibility, motion, i18n, interface copy, states, auth UX,
-  CSS, frontend SEO and AI search, browser performance and testing, React
-  architecture, SVG, and HTML/CSS print. Also turn supplied websites,
-  screenshots, and videos into evidence-backed specifications, audit produced
-  work against its references for source overlap and provenance, and scope web
-  compliance such as Impressum, privacy and cookie notices, consent, and
-  online-sales disclosures. Use only when the outcome is the design,
-  implementation, review, verification, specification, audit, or compliance
-  surface of a browser experience. Do not use merely because a task mentions the
-  web, a URL, or HTML. Not for general browsing, internet or source research,
-  repository evaluation, fact-finding, backend-only work, infrastructure,
-  general writing, non-web print, or locale typography.
+  Design, build, review, and improve browser experiences: sites, web apps,
+  dashboards, React, UI/UX, layout, typography, color, forms, tables,
+  accessibility, motion, i18n, interface copy, states, auth UX, CSS, frontend SEO
+  and AI search, performance and testing, architecture, SVG, and HTML/CSS print.
+  Turn supplied websites, screenshots, and videos into evidence-backed
+  specifications; audit produced work for source overlap and provenance; and
+  scope web compliance including Impressum, privacy and cookie notices, consent,
+  online sales, and marketing or endorsement disclosures. Use only when the
+  outcome is the design, implementation, review, verification, specification,
+  audit, or compliance surface of a browser experience. Do not use merely because
+  a task mentions the web, a URL, or HTML. Not for general browsing, source
+  research, repository evaluation, fact-finding, backend-only work,
+  infrastructure, general writing, non-web print, or locale typography.
 ---
 
 # Effective Web

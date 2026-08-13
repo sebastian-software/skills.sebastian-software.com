@@ -1,20 +1,18 @@
 ---
 name: effective-product
 description: >-
-  Decide what to build and how the product should work, on gathered rather than
-  invented evidence. Run the research itself: customer, buyer, win/loss, and
-  churn interviews, surveys, observation, review and community mining, and
-  market landscapes, synthesized into Voice of Customer, Jobs to Be Done,
-  personas, and market sizing. Then decide: discovery, evidence review,
-  strategy, outcomes, scope, prioritization, roadmaps, release decisions,
-  marketplaces and network effects, operating models; design research, problem
-  framing, object and journey modeling, information architecture, wireframes,
-  prototypes, habit and retention loops; product and feature naming; pricing,
-  packaging, value metrics, tiers, trials; and Architecture Decision Records.
-  Use when evidence must be gathered or a product decision made: what, whether,
-  or for whom to build, how the experience should behave, what to charge, what
-  to name it, or how to record it. Do not use to implement the product, write
-  marketing copy, or operate a channel.
+  Decide what to build and how the product should work on gathered evidence. Run
+  customer, buyer, win/loss, and churn interviews, surveys, observation, review
+  and community mining, and market research; synthesize Voice of Customer, Jobs
+  to Be Done, personas, and market sizing. Use for discovery and evidence review;
+  strategy, outcomes, scope, priorities, roadmaps, releases, marketplaces,
+  network effects, and operating models; design research, problem framing,
+  objects, journeys, information architecture, prototypes, and retention;
+  naming; pricing, packaging, value metrics, tiers, and trials; and Architecture
+  Decision Records. Trigger when evidence must be gathered or a product decision
+  made; when experienced judgment conflicts with explicit analysis in a durable
+  decision; or when generated designs need selection and subtraction. Do not use
+  to implement the product, write marketing copy, or operate a channel.
 ---
 
 # Effective Product

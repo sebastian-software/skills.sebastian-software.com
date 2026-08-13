@@ -49,7 +49,7 @@ Load only the references needed for the decision:
   proposals.
 - [product-engineering-collaboration.md](product-engineering-collaboration.md)
   for product-design-engineering responsibilities, discovery, technical
-  leadership, planning, and delivery collaboration.
+  leadership, planning, delivery collaboration, and AI-assisted transitions.
 
 When several apply, diagnose the management system first. Add the people or
 team-design reference only for the decisions it owns.

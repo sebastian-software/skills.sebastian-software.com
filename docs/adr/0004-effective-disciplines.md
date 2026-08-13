@@ -124,7 +124,7 @@ during execution. Stubs work today and are the documented fallback either way.
   to fit that limit already caused one routing defect (see below), so treat a
   future trim as a behavior change, not as copy editing.
 - Routing is now covered by a contract rather than by review alone.
-  `docs/activation-matrix.json` pairs 42 realistic requests with their owning
+  `docs/activation-matrix.json` pairs 49 realistic requests with their owning
   discipline, including at least one per superseded slug and three controls that
   no discipline should claim. `scripts/validate-activation-matrix.py` fails CI
   when a superseded slug loses its coverage, when one prompt gets two owners, or
@@ -144,6 +144,11 @@ skill per request or `none`.
 Runtime: Claude Code subagents, provider-default sampling, models
 `claude-opus-5`, `claude-sonnet-5`, and `claude-haiku-4-5-20251001`.
 Regenerate the input with `scripts/build-routing-review-input.py`.
+
+The recorded rounds cover the original 41 prompts. The later Issue Queue
+Autopilot case and seven preservation cases added during the branch refresh have
+not received an equivalent blind model run; issue #215 tracks a full rerun on a
+GPT runtime against the current catalog, including deprecation stubs.
 
 | Round | Descriptions under test | Opus 5 | Sonnet 5 | Haiku 4.5 |
 | --- | --- | --- | --- | --- |

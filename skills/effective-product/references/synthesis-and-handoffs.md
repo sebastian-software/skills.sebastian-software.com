@@ -98,7 +98,7 @@ replace them.
 
 ## Connect findings to owners
 
-### Product Management
+### Product decisions
 
 Return:
 
@@ -107,10 +107,10 @@ Return:
 - market access, authority, viability inputs, and important unknowns
 - product-thesis, scope, quality, or distribution assumptions challenged
 
-the discovery, strategy, and scope routes decides target market, product thesis, outcomes, scope,
+The discovery, strategy, and scope routes decide target market, product thesis, outcomes, scope,
 priorities, roadmap, release, and product experiments.
 
-### Product Design
+### Product design
 
 Return:
 
@@ -119,10 +119,10 @@ Return:
 - sequence, coordination, state, permission, error, and recovery observations
 - contrasting patterns and realistic tasks for modeling or prototyping
 
-the design research and modeling routes decides problem framing, design principles, objects,
+The design research and modeling routes decide problem framing, design principles, objects,
 relationships, flows, interaction models, prototypes, and usability response.
 
-### Product Marketing
+### Product marketing
 
 Return:
 
@@ -134,11 +134,11 @@ Return:
 `effective-marketing` decides segment, category, positioning, message, claims,
 proof, launch, sales enablement, and channel learning.
 
-### Pricing and Packaging
+### Pricing and packaging
 
 Return the value situations, buying roles, alternatives, usage or outcome
 measures, budget process, switching constraints, and observed commercial
-commitments. the pricing route owns willingness-to-pay method, value
+commitments. The pricing route owns willingness-to-pay method, value
 metric, price, packages, discounts, trials, and migrations.
 
 ## Deliver a decision-ready synthesis

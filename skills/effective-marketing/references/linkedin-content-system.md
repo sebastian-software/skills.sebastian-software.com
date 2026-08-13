@@ -49,8 +49,8 @@ or video when that medium carries the idea well.
 ## Hand off post creation
 
 This reference owns content-system strategy: roles, source evidence, the
-production loop, distribution, and measurement. The optional the LinkedIn posts route
-skill owns post ideas, calendars, format choice, hooks, structure, hashtags, and
+production loop, distribution, and measurement. The LinkedIn Posts route owns
+post ideas, calendars, format choice, hooks, structure, hashtags, and
 copy. Without it, use the brief below as the minimum drafting contract and keep
 each post tied to an evidence source, content role, buyer situation, and useful
 next step.

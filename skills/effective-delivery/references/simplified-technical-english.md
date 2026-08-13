@@ -19,8 +19,8 @@ document structure, hazard severity, or product behavior.
 
 - Use `effective-writing` for relaxed Slack, GitHub, Linear, PR, and internal team
   communication.
-- Use the general the docs route workflow for clear technical English when no
-  controlled-language standard applies.
+- Use the Technical Documentation route workflow for clear technical English
+  when no controlled-language standard applies.
 - Use this reference when ASD-STE100 or another explicit controlled-English
   contract applies.
 

@@ -57,12 +57,12 @@ exhaustive questionnaire. For each area, know why the answer could change a
 decision.
 
 When the interview must support market, commitment, viability, or product-scope
-decisions, apply the discovery, strategy, and scope routes discovery discipline: name the decision,
-the uncertainty, the evidence needed, and the resulting commitment. This
-reference owns the shared recent-event and neutral-probing baseline below, plus
-design-context inquiry and synthesis: behavior, environment, artifacts,
+decisions, apply the relevant discovery, strategy, or scope route: name the
+decision, the uncertainty, the evidence needed, and the resulting commitment.
+This reference owns the shared recent-event and neutral-probing baseline below,
+plus design-context inquiry and synthesis: behavior, environment, artifacts,
 expectations, mental models, and implications for the experience. Use the
-optional the discovery, strategy, and scope routes when the work also needs its dedicated
+discovery, strategy, and scope routes when the work also needs dedicated
 product-decision guidance.
 
 - Start with ordinary context and recent routines.

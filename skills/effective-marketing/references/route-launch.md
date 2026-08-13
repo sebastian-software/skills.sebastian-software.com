@@ -1,7 +1,9 @@
 # Route: Launch and Sales Enablement
 
 Use this route for launch scope, readiness, sequencing, ownership, sales
-enablement, competitive context, rollout guardrails, and measurement.
+enablement, competitive context, rollout guardrails, measurement,
+distribution-motion selection, build-versus-distribution diagnosis, and
+services-to-product scaling.
 
 ## Read
 

@@ -11,7 +11,7 @@ Name:
 - the artifact and decision it is meant to support
 - the accountable audience and decision window
 - the product stage, exposure, reversibility, and important risks
-- the matching product-management route whose criteria apply
+- the matching product route whose criteria apply
 
 If the decision or artifact is unclear, state the smallest useful review scope
 instead of silently choosing one.
@@ -25,7 +25,7 @@ First run an artifact-only baseline:
 3. Preserve contradictions, missing provenance, and uncertainty.
 4. Do not repair the argument or import expected product language yet.
 
-Then calibrate against the matching product-management guidance:
+Then calibrate against the matching product guidance:
 
 1. Test whether the evidence addresses the actual decision.
 2. Apply the relevant discovery, strategy, scope, quality, shipping, or

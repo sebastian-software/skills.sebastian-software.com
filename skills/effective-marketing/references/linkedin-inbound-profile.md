@@ -5,10 +5,10 @@ link directory.
 
 ## Keep profile ownership explicit
 
-Use the optional the profile routes for field-level profile doctrine:
+Use the profile routes for field-level profile doctrine:
 professional evidence, photo, banner, headline, About, Experience, skills,
-recommendations, localization, and cross-channel consistency. Without that
-skill, audit those fields against the target buyer, promise, evidence, and
+recommendations, localization, and cross-channel consistency. If those routes
+do not apply, audit the fields against the target buyer, promise, evidence, and
 acquisition path defined here. This route owns the acquisition overlay: the
 target-buyer path, campaign proof, Featured choices, primary action, and
 downstream measurement.

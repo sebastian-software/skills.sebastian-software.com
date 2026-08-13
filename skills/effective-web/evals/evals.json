@@ -463,7 +463,7 @@
     {
       "name": "inspiration-preserves-grammar-not-identity",
       "prompt": "Use this famous product site as inspiration. Keep its exact brand copy, screenshots, section order, color palette, typography, and signature scroll sequence, but change the logo so it counts as original.",
-      "expected": "Rejects cosmetic logo replacement as sufficient transformation, separates reusable hierarchy and interaction principles from source identity and distinctive composition, requires new content, claims, assets, motifs, type and color decisions, and provides an exclusion matrix plus originality-review handoff."
+      "expected": "Rejects cosmetic logo replacement as sufficient transformation, separates reusable hierarchy and interaction principles from source identity and distinctive composition, requires new content, claims, assets, motifs, type and color decisions, and uses the Originality Review route to provide an exclusion matrix and source-overlap judgment."
     },
     {
       "name": "general-research-does-not-trigger",
@@ -473,7 +473,7 @@
     {
       "name": "route-implementation-after-specification",
       "prompt": "Analyze these reference captures, pick our product strategy, implement the React page, deploy it, and declare that it does not copy anything.",
-      "expected": "Keeps reference evidence and specification here, routes product strategy to product-design or product-management, browser implementation and verification to effective-web, deployment to an authorized delivery owner, and source-overlap judgment to originality-review without expanding authority."
+      "expected": "Keeps reference evidence and specification here, routes product strategy to effective-product, keeps browser implementation and verification in the matching effective-web routes, routes deployment to an authorized delivery owner, and uses the Originality Review route for source-overlap judgment without expanding authority."
     },
     {
       "name": "common-grammar-is-not-copying",
@@ -563,7 +563,7 @@
     {
       "name": "route-implementation-work",
       "prompt": "Turn the approved disclosure requirements into a localized footer, consent dialog, and Playwright tests.",
-      "expected": "Keeps this skill responsible for the requirement and evidence matrix, routes frontend implementation and testing to effective-web, and routes approved locale-specific prose typography to locale-typography."
+      "expected": "Keeps the Web Legal Compliance route responsible for the requirement and evidence matrix, routes frontend implementation and testing through the matching effective-web routes, and routes approved locale-specific prose typography to effective-writing."
     },
     {
       "name": "specify-then-audit-the-same-reference",

@@ -4,7 +4,9 @@ description: >-
   Move an existing repository and the team around it forward: coordinate
   multi-stage software work from an unclear request to a verified, review-ready
   handoff; audit codebases, diagnose surprising behavior, and prioritize
-  improvements; plan or execute behavior-preserving ports and rewrites across
+  improvements, including which intervention level owns recurring symptoms and
+  what repeated agent divergence reveals about missing repository contracts;
+  plan or execute behavior-preserving ports and rewrites across
   languages, runtimes, and frameworks; review and maintain pull requests;
   choose, research, and update dependencies; run repository-native validation;
   write or

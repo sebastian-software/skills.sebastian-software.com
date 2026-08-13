@@ -72,9 +72,9 @@ Replace them with real evidence: client context, role, deliverable, constraint, 
 ### Natural Idiomatic English
 
 Apply this register directly for LinkedIn, About sections, and international
-variants. Do not invoke the `effective-writing` skill for this: it is scoped to
-internal team channels (Slack, issues, PRs), not public profile content. The
-register itself:
+variants. Do not invoke the Metro English route in `effective-writing` for this:
+that route is scoped to internal team channels such as Slack, issues, and PRs,
+not public profile content. The register itself:
 
 - prefer plain verbs over corporate verbs
 - use contractions when they fit the channel

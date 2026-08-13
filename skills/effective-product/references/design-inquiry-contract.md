@@ -41,6 +41,10 @@ as ceremony.
   safety, or one known outcome matters.
 - Let hierarchy, layout, language, behavior, and visual character communicate
   the purpose of the environment. Craft is part of function.
+- Treat generated designs as candidates, not decisions. Compare materially
+  different directions on the same representative slice, select for intended
+  qualities and whole-system coherence, record rejections, and subtract details
+  whose only justification is that they were cheap to generate.
 - Make consequential state visible and actions recoverable. People learn by
   acting and observing results; defensive users do not explore.
 - Treat behavioral influence as a design responsibility, not an automatic

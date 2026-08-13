@@ -95,10 +95,10 @@ and capture response, owners, and decision evidence.
 
 Compare the marginal value of more engineering with distribution, activation,
 and market learning. Distinguish a true product gap from feature accumulation;
-route the former to `product-management`, otherwise prioritize the missing
-market path. State the observable imbalance without diagnosing leadership
-motives. Compare headcount, budget, and attention with the evidenced constraint,
-not with a copied company ratio.
+route the former to the relevant `effective-product` route, otherwise prioritize
+the missing market path. State the observable imbalance without diagnosing
+leadership motives. Compare headcount, budget, and attention with the evidenced
+constraint, not with a copied company ratio.
 
 ## Turn Services into a Scaling System
 

@@ -9,6 +9,8 @@ learning routes. Read it once per decision, then load the matching route.
 - category decision
 - message or claim system
 - launch and sales-enablement plan
+- distribution motion or build-versus-distribution diagnosis
+- services-to-product scaling choice
 - win/loss or adoption review
 
 ## Establish the evidence boundary

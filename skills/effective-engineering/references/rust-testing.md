@@ -48,7 +48,7 @@ Select boundary evidence from the demonstrated risk:
   behavior rather than assuming the default feature set represents the crate;
 - reach for property tests, fuzzing, Miri, sanitizers, or concurrency
   exploration only when the repository supports the tool and the risk justifies
-  it; the Rust routes owns the unsafe and FFI proof discipline those tools
+  it; the Rust routes own the unsafe and FFI proof discipline those tools
   verify.
 
 Do not add a property, snapshot, mock, async, or unsafe-testing dependency by

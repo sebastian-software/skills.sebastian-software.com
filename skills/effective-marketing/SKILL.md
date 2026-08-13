@@ -2,19 +2,19 @@
 name: effective-marketing
 description: >-
   Take a verified product or professional offer to market: positioning,
-  segmentation, category choice, message architecture, claims and proof,
-  launches, sales enablement, and what gathered win/loss and adoption evidence
-  changes; persuasive copy for homepages, landing pages, product and pricing
-  pages, campaigns, sales pages, emails, headlines, and calls to action; funnel
-  diagnosis, conversion audits, and ethical experiment design; social content
-  for X, Threads, Bluesky, Instagram, and Mastodon; LinkedIn posts, content
-  calendars, and B2B social-selling systems from profile visit to qualified
-  meeting; and consultant CVs, LinkedIn profiles, and bios. Use for positioning
-  briefs, claim reviews, launch plans, funnel drop-off, A/B tests, social or
-  LinkedIn content, or profile positioning. Do not invent customer evidence,
-  market certainty, or differentiation. Route running customer, buyer,
-  win/loss, or churn interviews to effective-product, long-form prose to
-  effective-writing, and page implementation to effective-web.
+  segmentation, category choice, messaging, claims and proof, launches, sales
+  enablement, distribution choices grounded in economics and touch,
+  build-versus-distribution diagnoses, services-to-product scaling, and learning
+  from gathered win/loss and adoption evidence; persuasive page, campaign,
+  sales, and email copy; funnel diagnosis, conversion audits, and ethical
+  experiments; social and LinkedIn content and B2B acquisition systems; and
+  consultant CVs, profiles, and bios. Use for positioning or claim reviews,
+  launch or distribution plans,
+  services-to-product choices, funnel drop-off, A/B tests, social or LinkedIn
+  content, or profile positioning. Do not invent customer evidence, market
+  certainty, or differentiation. Route customer, buyer, win/loss, or churn
+  fieldwork to effective-product, long-form prose to effective-writing, and page
+  implementation to effective-web.
 ---
 
 # Effective Marketing
@@ -57,7 +57,7 @@ Mark material gaps or work within them honestly.
 | --- | --- |
 | Choose a target segment, alternative, category, or positioning; write a positioning brief | [Positioning and Segmentation](references/route-positioning.md) |
 | Build a message architecture, check claims against proof, adapt to an audience, or find proof gaps | [Messaging and Proof](references/route-messaging.md) |
-| Plan launch scope, readiness, sequencing, ownership, sales enablement, or rollout guardrails | [Launch and Sales Enablement](references/route-launch.md) |
+| Plan launch scope, readiness, sequencing, ownership, sales enablement, distribution motion, build-versus-distribution diagnosis, services-to-product scaling, or rollout guardrails | [Launch and Sales Enablement](references/route-launch.md) |
 | Run win/loss or adoption analysis and decide whether the segment, position, message, or channel must change | [Market Learning](references/route-market-learning.md) |
 | Write or revise homepage, landing, product, service, pricing, campaign, launch, sales, or email copy, headlines, and calls to action | [Marketing Copywriting](references/route-copywriting.md) |
 | Diagnose funnel drop-off, design an ethical experiment, or judge a test result | [Conversion Optimization](references/route-conversion.md) |

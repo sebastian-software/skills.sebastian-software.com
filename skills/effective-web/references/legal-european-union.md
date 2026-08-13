@@ -85,7 +85,8 @@ check the national implementation (such as Germany's BFSG), any EEA
 incorporation timing, and product- or service-specific transition provisions.
 Also check the Web Accessibility Directive for public-sector bodies and the
 applicable sector or service scope. Keep the legal applicability analysis here
-and route technical accessibility implementation to `effective-web`.
+and hand technical accessibility implementation to the relevant implementation
+route in this skill.
 
 Also investigate when relevant:
 

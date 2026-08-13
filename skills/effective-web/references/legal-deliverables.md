@@ -74,4 +74,5 @@ Test both content and behavior:
 
 Separate findings into legal-content changes, product or process changes,
 frontend implementation, and counsel decisions. Route frontend work to
-`effective-web` with the precise requirement and acceptance criteria.
+the relevant browser implementation route in this skill with the precise
+requirement and acceptance criteria.
