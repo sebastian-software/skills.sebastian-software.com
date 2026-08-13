@@ -1,4 +1,0 @@
-interface:
-  display_name: "Nonfiction Writing"
-  short_description: "Write and audit clear, human nonfiction"
-  default_prompt: "Use $nonfiction-writing to write or audit clear, human prose without inventing facts or guessing authorship."

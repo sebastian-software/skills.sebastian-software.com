@@ -7,6 +7,15 @@ https?://([a-z0-9-]+\.)?xing\.com.*
 # skills/web-legal-compliance/references/canada.md are unverified by tooling and
 # need a human to confirm them.
 https?://laws-lois\.justice\.gc\.ca/.*
+# 2026-07-31: both URLs time out after 45s from GitHub runners and from a local
+# checker on a separate network path, with zero link errors reported alongside
+# them, so the check can neither confirm nor refute them. The two Polish
+# citations in skills/effective-writing/references/locale-polish.md are
+# unverified by tooling and need a human to confirm them. They predate the
+# six-discipline consolidation; only their path changed. Narrow entries rather
+# than a host pattern, so a future working gov.pl citation is still checked.
+https://www\.gov\.pl/web/nauka/nowe-zasady-pisowni--prostsza-bardziej-spojna-ortografia
+https://www\.gov\.pl/web/redakcyjne-abc/rekomendacje-jezykowe-redakcji-centralnej
 https?://help\.malt\.com/.*
 https?://www\.malt\.com/.*
 https?://support\.upwork\.com/.*
@@ -20,7 +29,15 @@ https?://www\.solcom\.de/.*
 # Remove the entry once the branch is merged. An exception left behind stops the
 # link check from ever verifying that route again, which is how a genuinely
 # broken link would slip through unnoticed.
-https://github\.com/sebastian-software/skills\.sebastian-software\.com/tree/main/skills/issue-autopilot
+
+# 2026-07-31: RFC 0001 consolidates the collection into six disciplines. These
+# five routes are created by that change and cannot resolve on main until it
+# merges. Remove all five entries once the consolidation lands.
+https://github\.com/sebastian-software/skills\.sebastian-software\.com/tree/main/skills/effective-product
+https://github\.com/sebastian-software/skills\.sebastian-software\.com/tree/main/skills/effective-engineering
+https://github\.com/sebastian-software/skills\.sebastian-software\.com/tree/main/skills/effective-delivery
+https://github\.com/sebastian-software/skills\.sebastian-software\.com/tree/main/skills/effective-writing
+https://github\.com/sebastian-software/skills\.sebastian-software\.com/tree/main/skills/effective-marketing
 
 # These live primary sources reject, reset, or time out on GitHub Actions'
 # link-check traffic.

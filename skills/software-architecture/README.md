@@ -1,105 +1,34 @@
 [← Sebastian Software Skills](../../README.md)
 
-# Software Architecture
+# Software Architecture — moved
 
-[![Maintained by Sebastian Software](https://img.shields.io/badge/Maintained%20by-Sebastian%20Software-0f172a.svg)](https://oss.sebastian-software.com/)
+**This skill has moved into [effective-engineering](../effective-engineering/README.md).**
 
-**Turn an architectural question into a system direction that remains
-buildable, operable, and reversible.**
+`software-architecture` is a deprecation stub. It stays installable for one
+release window so existing selections keep resolving, then it is removed. It
+contains no guidance: the workflow, references, and review scenarios all moved
+to `effective-engineering`.
 
-Software Architecture helps agents assess, design, review, and evolve software
-systems. It makes boundaries, data and integration contracts, operational
-requirements, quality attributes, tradeoffs, and migration paths explicit
-without mistaking diagrams or fashionable patterns for a decision.
+**Where it went:** Software Architecture (references/route-architecture.md)
 
-## What It Can Deliver
+See [MIGRATION.md](../../MIGRATION.md) for the complete old-to-new mapping.
 
-- evidence-led system and boundary assessments
-- architecture options with concrete quality-attribute tradeoffs
-- service, module, data ownership, and integration contract directions
-- build-versus-buy and strategic-control decisions across in-house, open-source,
-  managed, and vertically integrated options
-- operational design using relevant Twelve-Factor practices
-- non-frontend testing-strategy direction: test-pyramid shape, coverage goals,
-  and which risks get which test types
-- incremental migration, compatibility, rollback, and removal plans
-- durable decision inputs ready for the repository's ADR convention
-
-## Use It When
-
-Use this skill for system-level questions: whether a boundary should be a
-module or service; how data ownership, events, retries, and failure behavior
-should work; what operational model makes a service reliable; or how to evolve
-an existing architecture without a risky rewrite.
-
-The Twelve-Factor App methodology is an important input for deployable SaaS
-services, especially configuration, dependencies, release separation,
-stateless processes, observability, and lifecycle handling. It does not by
-itself decide the domain model or service topology.
-
-## Example Prompts
-
-```text
-Assess whether this modular monolith should extract its report-generation
-workflow, using our current failure and scaling evidence.
-
-Design the data ownership and retry-safe integration between billing and order
-fulfilment. Explain the tradeoffs and the migration sequence.
-
-Review this architecture proposal for deployability, observability, graceful
-shutdown, and production configuration before we implement it.
-
-Use Twelve-Factor principles to identify which parts of this worker deployment
-are unsafe, and recommend only the changes justified by the system.
-
-Decide whether this mission-critical capability should be built, bought, based
-on open source, or vertically integrated. Identify what we actually need to
-control and require a credible failure and exit path.
-```
-
-See [SKILL.md](SKILL.md) for the workflow, operating rules, and routing
-boundaries.
-
-## Install This Skill
+## Install the successor
 
 ```sh
-npx skills add sebastian-software/skills.sebastian-software.com --skill software-architecture
+npx skills add sebastian-software/skills.sebastian-software.com --skill effective-engineering
 ```
 
-Or follow the [DALO setup guide](../../docs/dalo.md) and select it explicitly:
+Or follow the [DALO setup guide](../../docs/dalo.md):
 
 ```sh
-dalo init
-dalo target link codex
-dalo source add-catalog sebastian https://github.com/sebastian-software/skills.sebastian-software.com.git
-dalo source select sebastian software-architecture
-dalo approve skill sebastian:software-architecture
+dalo source select sebastian effective-engineering
+dalo approve skill sebastian:effective-engineering
 dalo sync
 ```
 
-## Related Skills
-
-- [Decision Records](../decision-records/README.md) records a durable accepted
-  architecture direction and its rationale.
-- [Codebase Improvement](../codebase-improvement/README.md) investigates
-  observed repository behavior, prioritizes improvements, and turns approved
-  work into delivery plans; this skill owns unresolved system direction.
-- [Port Codebases](../port-codebases/README.md) manages behavior-preserving
-  migrations across languages, runtimes, frameworks, and platforms.
-- [Effective Web](../effective-web/README.md) owns frontend and React
-  architecture detail.
-- [Software Testing](../software-testing/README.md) designs and implements
-  focused tests against the testing strategy agreed here, and owns
-  repository-native microbenchmark, comparative benchmark, and bounded workflow
-  benchmark methodology after this skill establishes the performance question
-  and system-level target.
-
-## Scope
-
-This skill does not replace specialist security, privacy, compliance, capacity,
-cost, or incident work. It does not authorize changes to source, infrastructure,
-cloud resources, secrets, deployments, or ADRs during an assessment-only
-request.
+If you previously selected `software-architecture`, drop that selection when you
+add the successor.
 
 ## About Sebastian Software
 

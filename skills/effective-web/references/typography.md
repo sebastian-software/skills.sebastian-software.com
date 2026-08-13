@@ -453,15 +453,15 @@ Figure styles split into two groups:
 Use the correct typographic marks:
 - **Hyphen** (-) connects words: "five-dollar"
 - **En dash** (\u2013) replaces "to": "6\u20135 p.m."
-- **Em dash** (\u2014) can indicate a break in thought; route its use and spacing to `locale-typography` for the target locale while preserving an established house style
-- **Quotation marks** \u2014 mark selection is locale-specific and belongs to the `locale-typography` skill (English curly \u201c \u201d \u2018 \u2019, German \u201e \u201c \u00bb \u00ab, French \u00ab \u00bb, and others differ); implement the chosen marks with CSS `quotes` and `:lang()` rather than hardcoding one language's glyphs. Straight marks (' ") remain for code only.
+- **Em dash** (\u2014) can indicate a break in thought; route its use and spacing to `effective-writing` for the target locale while preserving an established house style
+- **Quotation marks** \u2014 mark selection is locale-specific and belongs to the `effective-writing` skill (English curly \u201c \u201d \u2018 \u2019, German \u201e \u201c \u00bb \u00ab, French \u00ab \u00bb, and others differ); implement the chosen marks with CSS `quotes` and `:lang()` rather than hardcoding one language's glyphs. Straight marks (' ") remain for code only.
 
 **Additional typographic marks:**
 - **Proper minus** (`&minus;` / −) for negative numbers — not a hyphen
 - **Proper ellipsis** (`&hellip;` / …) — one character, not three dots
 - **Multiplication** (`&times;` / ×) — not the letter x
 - **Non-breaking space** (`&nbsp;`) — between values and units (100 km), initials (J. K. Rowling), and between last two words of headings (prevents widows)
-- **Dash and quotation spacing** — use `locale-typography` for the target locale, preserve an established house style, and do not add breaking thin spaces for visual effect
+- **Dash and quotation spacing** — use `effective-writing` for the target locale, preserve an established house style, and do not add breaking thin spaces for visual effect
 
 ## Prevent Faux Bold and Italic
 

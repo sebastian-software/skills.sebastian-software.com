@@ -4,6 +4,51 @@ Skills are focused instruction packages. A skill may route a cohesive domain to
 multiple workflows, but it must remain understandable from `SKILL.md` without
 loading every bundled resource into context.
 
+## The Discipline Pattern
+
+The collection ships six top-level discipline skills — `effective-product`,
+`effective-web`, `effective-engineering`, `effective-delivery`,
+`effective-writing`, and `effective-marketing`. They share one naming grammar
+(`effective-<discipline>`) and one internal architecture:
+
+1. `SKILL.md` stays at or below 300 lines: frontmatter trigger, a short
+   workflow, a `## Route by Intent` table, operating rules, and
+   `## Routing Boundaries`.
+2. Every route is a `references/route-<intent>.md` file linked directly from
+   `SKILL.md`. References stay one level deep in a flat directory.
+3. A route normally exposes at most 900 direct-reference lines, and a single
+   reference stays at or below 500 lines unless registered in
+   `docs/reference-context-exceptions.json`. Split a route rather than
+   registering an exception when the material is genuinely two intents.
+4. Cross-discipline handoffs live in `## Routing Boundaries` and name only the
+   six disciplines. A handoff between two routes inside one discipline is an
+   in-skill cross-link, not a boundary line.
+5. Where several routes share one contract — an evidence register, a revision
+   sequence, a decision framing — put it in one shared reference that those
+   routes load, instead of repeating it per route.
+
+Do not add a seventh top-level skill for a capability that fits an existing
+discipline's routing table. Promote a new discipline only when its verbs,
+evidence, and deliverables are genuinely different from all six, and record that
+decision as an ADR.
+
+A discipline description is behavior, not copy. `docs/activation-matrix.json`
+records which discipline should own which request, and
+`scripts/validate-activation-matrix.py` fails CI when that contract breaks.
+Changing a description — including shortening one to fit the 1024-character
+limit — can move a boundary silently, so re-run the blind routing review in
+[review-scenarios.md](review-scenarios.md) afterwards. That review has already
+caught one real defect: trimming `effective-product` dropped the words
+"win/loss" and "churn interviews", which sent customer-interview requests to
+`effective-marketing`.
+
+Superseded slugs stay installable for one release window as deprecation stubs
+registered in `docs/deprecated-skills.json`. A stub keeps its original
+frontmatter so existing selections and triggers still resolve, carries a
+redirect body and nothing else, and is exempt from the anatomy below, from the
+root README inventory, and from site card parity. See
+[MIGRATION.md](../MIGRATION.md).
+
 ## Required Structure
 
 First-party skills live directly under `skills/`:
@@ -24,20 +69,25 @@ Every public skill requires `README.md`, `SKILL.md`, `evals/evals.json`, and
 `agents/openai.yaml`. Add the other directories when they serve a clear purpose.
 Do not add external snapshots or generated copies.
 
-### Language-Specific Engineering Skills
+### Language Depth Is a Route, Not a Skill
 
-Add a dedicated language engineering skill only where the generic engineering and
-testing skills demonstrably miss agent failure modes specific to that language —
-for example borrow-checker workarounds and written unsafe-proof discipline in
-Rust, which `rust-engineering` owns. TypeScript has its own recurring failure
-modes — casting away type errors, defensive `any`, floating promises, and
-cargo-cult strictness — so `typescript-engineering` owns server-side and general
-TypeScript depth. Frontend and browser-facing TypeScript stays with
-`effective-web`, and TypeScript test evidence stays with `software-testing`; the
-dedicated skill does not absorb those. When a new language skill is justified,
-give it reciprocal `## Routing Boundaries` lines with the generic skills so a
-review, test, or port hands the language-depth findings in and keeps lifecycle,
-merge, and delivery ownership out.
+Language-specific depth belongs to `effective-engineering` as a route, not to a
+standalone skill. Add one only where the generic architecture and testing routes
+demonstrably miss agent failure modes specific to that language — for example
+borrow-checker workarounds and written unsafe-proof discipline in Rust, which
+the Rust routes own, or casting away type errors, defensive `any`, floating
+promises, and cargo-cult strictness in TypeScript.
+
+Frontend and browser-facing TypeScript stays with `effective-web`, and test
+evidence stays with the Focused Testing route; a language route does not absorb
+those. Give every new language route reciprocal cross-links with the
+architecture and testing routes so a review, test, or port hands the
+language-depth findings in and keeps lifecycle, merge, and delivery ownership
+with `effective-delivery`.
+
+Naming note: language routes deliberately avoid the `effective-<language>` form.
+It would collide with the well-known "Effective TypeScript" and "Effective C++"
+book titles that are the cultural source of the naming pattern.
 
 ## Human-Facing `README.md`
 
@@ -238,7 +288,8 @@ dot folder, memory file, or private schema.
   tradeoffs, consequences, and review triggers.
 - Preserve accepted history. Supersede decisions instead of silently rewriting
   them to match current implementation.
-- Route ADR creation, review, and lifecycle details through `decision-records`.
+- Route ADR creation, review, and lifecycle details through the decision-records
+  route in `effective-product`.
 
 ## Keep Findings, Plans, and Decisions Distinct
 
@@ -256,7 +307,7 @@ make every skill create `plans/`, a private dot folder, or a custom debt ledger.
 When no convention exists and the user explicitly asks to save a plan, use plain
 Markdown under `docs/plans/`; create an index only when several plans require
 ordering. Route repository audits, plan creation, complexity review, and backlog
-reconciliation through `codebase-improvement`.
+reconciliation through the audit route in `effective-delivery`.
 
 ## Review Scenarios (Unrun)
 
@@ -352,20 +403,26 @@ exists, state what the current skill does and does not cover, then stop.
 Keep every independently installed owner safe without requiring a shared
 runtime or private receipt file.
 
-| Skill | Worktree behavior | Local safety owner |
-| --- | --- | --- |
-| `issue-autopilot` | Creates one isolated worktree per selected queue item; delegates implementation, validation, staging, commit, push, and PR repair without merging | [`issue-autopilot/references/worktree-safety.md`](../skills/issue-autopilot/references/worktree-safety.md) |
-| `pr-review` | Creates or adopts a PR worktree; writes, validates, stages, commits, pushes, rebases when authorized, and removes workflow-created worktrees | [`pr-review/references/worktree-safety.md`](../skills/pr-review/references/worktree-safety.md) |
-| `smart-dependency-updater` | Creates or adopts one worktree per dependency PR group; writes manifests and lockfiles, validates, stages, commits, pushes, publishes, and cleans up owned worktrees | [`smart-dependency-updater/references/worktree-safety.md`](../skills/smart-dependency-updater/references/worktree-safety.md) |
-| `port-codebases` | Creates or adopts isolated worktrees for port shards; writes, validates, stages, checkpoints, integrates, and cleans up owned shard worktrees | [`port-codebases/references/worktree-safety.md`](../skills/port-codebases/references/worktree-safety.md) |
-| `effective-workflow` | Coordinates delivery but provides no worktree creation, staging, commit, or cleanup recipe | Requires the selected delivery owner to apply its local contract |
-| `software-testing`, `tech-docs`, `codebase-improvement` | Mention worktree or delivery state only as caller-owned context or a planning boundary | No direct Git worktree mutation |
+All worktree-mutating work now lives in `effective-delivery` and shares one
+contract: [`effective-delivery/references/worktree-safety.md`](../skills/effective-delivery/references/worktree-safety.md).
 
-When a skill gains the ability to create, adopt, write in, stage from, commit in,
-push from, integrate from, or remove a worktree, update this inventory and give
-that skill a local contract covering Git identity, absolute execution root,
-dirty and staged state, collisions, resume revalidation, explicit per-command
-working directories, narrow staging, and cleanup ownership.
+| Route | Worktree behavior |
+| --- | --- |
+| PR Review and Upkeep | Creates or adopts a PR worktree; writes, validates, stages, commits, pushes, rebases when authorized, and removes workflow-created worktrees |
+| Issue Queue Autopilot | Creates one isolated worktree per selected queue item; delegates implementation, validation, staging, commit, push, and PR repair without merging |
+| Dependency Updates | Creates or adopts one worktree per dependency PR group; writes manifests and lockfiles, validates, stages, commits, pushes, publishes, and cleans up owned worktrees |
+| Behavior-Preserving Ports | Creates or adopts isolated worktrees for port shards; writes, validates, stages, checkpoints, integrates, and cleans up owned shard worktrees |
+| Workflow Orchestration | Coordinates delivery but provides no worktree creation, staging, commit, or cleanup recipe; requires the selected route to apply the shared contract |
+| Codebase Audit, Technical Documentation, Repository Validation | Mention worktree or delivery state only as caller-owned context or a planning boundary; no direct Git worktree mutation |
+
+The other five disciplines perform no Git worktree mutation. When any skill
+gains the ability to create, adopt, write in, stage from, commit in, push from,
+integrate from, or remove a worktree, update this inventory and point it at the
+shared contract covering Git identity, absolute execution root, dirty and staged
+state, collisions, resume revalidation, explicit per-command working
+directories, narrow staging, and cleanup ownership. A second copy of that file
+anywhere in the collection must stay byte-identical;
+`scripts/validate-readmes.py` enforces that.
 
 ## Review
 
@@ -379,7 +436,8 @@ Before merging a change:
    behavior evidence is needed.
 4. When adding a skill, add its `site/index.html` card and inventory metadata.
 5. Run `python3 scripts/validate-readmes.py`,
-   `python3 scripts/validate-site.py`, and
+   `python3 scripts/validate-site.py`,
+   `python3 scripts/validate-activation-matrix.py`, and
    `python3 -m unittest discover -s scripts/tests -p 'test_*.py'`.
 6. Run the repository's DALO CI smoke test.
 7. Check that `dalo status` reports no inventory warnings or duplicate slots.

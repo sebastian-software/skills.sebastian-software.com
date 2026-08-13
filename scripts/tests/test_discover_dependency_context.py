@@ -12,7 +12,7 @@ ROOT = Path(__file__).resolve().parents[2]
 SCRIPT = (
     ROOT
     / "skills"
-    / "smart-dependency-updater"
+    / "effective-delivery"
     / "scripts"
     / "discover_dependency_context.py"
 )

@@ -1,0 +1,178 @@
+# Route: Workflow Orchestration
+
+Coordinate the path from intent to evidence. Let repository instructions and the
+specialist routes own how the work is done; own what should happen next, which
+authority applies, and what must be true before completion.
+
+Use this route when a task spans diagnosis, implementation, validation, review,
+or delivery. For an already narrow documentation, dependency, test, review,
+architecture, port, or frontend request, go straight to that route or
+discipline.
+
+## Start from the Host and Repository
+
+1. Inspect the repository instructions, current state, relevant artifacts, and
+   available skills or tools before choosing a workflow.
+2. Restate the requested outcome, material constraints, and authorized scope.
+   Infer routine details from local evidence; ask only when a missing choice
+   would materially change the result or authority.
+3. Preserve unrelated work and repository-native conventions. Do not create an
+   orchestration config, hidden directory, plan store, label system, role
+   registry, or status marker.
+4. Keep analysis-only requests read-only. Treat diagnosis, implementation, and
+   delivery as separate authority levels even when the likely fix is obvious.
+
+## Select the Smallest Route
+
+Classify the immediate need before acting:
+
+- answer or explain: inspect enough evidence and report without mutation;
+- diagnose: reproduce or trace the cause, then stop unless a fix is authorized;
+- plan: use the repository's existing issue, plan, or decision conventions;
+- build or fix: implement the narrowest authorized behavior change;
+- refactor: establish a before baseline, preserve behavior, and compare after;
+- documentation, dependency update, port, architecture, test, or review: hand
+  specialist judgment to the matching owner;
+- deliver: commit, push, open a pull request, update a tracker, deploy, or merge
+  only when the user already authorized that external mutation.
+
+When ownership spans more than one domain or an optional skill may be missing,
+read [Routing and selective installation](routing-and-fallbacks.md). Load only
+the owners needed for the current stage; do not preload the catalog.
+
+## Prefer the Smallest Sufficient Change
+
+Minimize only after understanding the requested behavior and tracing the owning
+flow. Before adding new code, configuration, abstraction, or dependencies,
+check in this order:
+
+1. the work is necessary for the accepted outcome;
+2. an established repository pattern or implementation already owns it;
+3. the language standard library or native platform covers it;
+4. an already-installed dependency covers it without distorting the design;
+5. otherwise, add the smallest cohesive implementation at the owning seam.
+
+The shortest diff is not the goal when it patches a symptom, hides risk, or
+pushes complexity into callers. Never simplify away trust-boundary validation,
+data-loss protection, security, accessibility, required compatibility, useful
+error handling, or evidence proportionate to the change.
+
+When plausible paths materially differ in public behavior, data, authority,
+operational cost, reversibility, or scope, present the smallest useful set of
+options with tradeoffs and a recommendation. Ask for the decision only when it
+changes the authorized outcome. For ordinary reversible choices, follow the
+repository's conventional path and proceed.
+
+If a deliberate shortcut has a real ceiling, record the ceiling and the
+observable trigger for revisiting it in the repository's normal comment, issue,
+or decision convention. Do not add a skill-specific debt marker.
+
+## Work from Understand to Deliver
+
+### 1. Understand
+
+- Identify the observable outcome and acceptance evidence, not merely the
+  requested file edit.
+- Inspect before proposing. For a defect, separate symptom, reproduction,
+  likely cause, and confidence. For an unclear feature, resolve only the choices
+  that block a safe implementation.
+- Decide whether a saved plan is useful. Use one for multi-step or risky work
+  when the repository or user calls for it; skip it for a small, clear change.
+- Establish a relevant before baseline for behavior-preserving work. Record an
+  already-red baseline instead of attributing old failures to the new change.
+
+### 2. Change
+
+- Invoke the appropriate owner when available and treat its domain rules as
+  authoritative. Pass it the outcome, scope, repository evidence, constraints,
+  and expected handoff.
+- When an agent will produce production code, keep the accountable human or
+  owning team responsible for the problem, material architecture, data,
+  security, compatibility, and acceptance choices. Resolve consequential
+  choices before generation.
+- For ambiguity-heavy or high-impact work, require a reviewable implementation
+  plan before mutation and compare it with the accepted outcome, exclusions,
+  repository constraints, and evidence plan. Keep this gate proportionate.
+- Do not assume one model or session must own every stage. When the host
+  supports model or agent selection, reserve the strongest suitable capability
+  for ambiguity-heavy, high-impact judgment. Route bounded, reversible
+  execution to faster or lower-cost workers only when the handoff is
+  self-contained and verification is objective.
+- For delegated work, define a compact result contract and return boundary.
+  Prefer outcome, evidence, and blocker over process narration; keep
+  safety-critical or ambiguous information in normal explicit prose. Read
+  [Routing and selective installation](routing-and-fallbacks.md) for the
+  delegation contract.
+- Treat delegated authority, isolation, and tool limits as enforceable
+  contracts. Stop or disclose the downgrade and request a decision when the
+  runtime cannot honor them; never continue silently with broader capability.
+- Keep work in the caller when context loss, capability mismatch, or
+  coordination cost outweighs delegation. Never invent unavailable model tiers
+  or let price weaken authority, evidence, review depth, or safety.
+- Implement only the agreed surface. Do not expand a fix into cleanup, a docs
+  task into product behavior, or a dependency update into unrelated migration.
+- Follow repository-native files, commands, branches, issues, tests, and docs.
+  Never require a project to adopt this route's internal mechanics.
+- If an owner is unavailable, use the selective-install contract rather than
+  recreating that owner's handbook inside this workflow.
+
+### 3. Verify
+
+- Match evidence to the claim: reproduce and guard a bug, compare a refactor
+  baseline, exercise a feature's acceptance path, validate documentation
+  examples and links, or check dependency and port compatibility.
+- Treat generated code, agent confidence, and plan conformance as inputs, not
+  completion evidence. Verify behavior, failure modes, and repository
+  integration independently of who or what wrote the change.
+- Use the Validation route to discover, deduplicate, execute, and report the
+  repository's established check surface; keep specialist owners responsible for
+  designing any new evidence the change requires.
+- Run the narrow check first, then the relevant established repository checks.
+  Review the changed surface in proportion to user impact, reversibility,
+  security, data, concurrency, and release risk.
+- Run a subtraction pass over the final diff: remove speculative files,
+  dependencies, configuration, wrappers, duplicated behavior, and options that
+  do not serve the accepted outcome. Preserve every requirement and safeguard.
+- Distinguish new failures from pre-existing failures. Report skipped checks,
+  missing credentials, unavailable services, and remaining uncertainty.
+
+Read [Evidence and delivery](evidence-and-delivery.md) when choosing a baseline,
+review depth, or completion proof.
+
+### 4. Deliver
+
+- Leave the working state understandable and review-ready even when no external
+  delivery action was authorized.
+- Before any commit or remote mutation, recheck the diff, unrelated work, target
+  repository, branch, and requested completion action.
+- When a route creates or adopts a worktree, apply the
+  [worktree safety](worktree-safety.md) contract for repository, location,
+  staging, resume, and cleanup. Do not substitute an orchestrator-owned ledger.
+- Use the host's available Git, forge, CI, and review capabilities. Do not
+  assume every harness can push, comment, resolve threads, merge, or deploy.
+- Finish with a concise handoff: outcome, important files or behavior, evidence
+  run, skipped or failing checks, delivery state, and remaining risk.
+
+## Keep the Orchestrator Lean
+
+- Keep a specialist route to a short selection rule and handoff contract. Move
+  no frontend, testing, documentation, dependency, architecture, port, product,
+  legal, language, or PR-review checklist into this route.
+- Add no setup scripts, generated distribution, fixed commands, internal memory,
+  caches, counters, locks, or automatic tracker mutations.
+- Prefer normal-language intent over a separate command vocabulary.
+
+## Completion Standard
+
+Call the work complete only when the authorized outcome is present, relevant
+evidence supports it, the changed surface has been reviewed at the right depth,
+and the handoff says what was done, skipped, or remains. Do not equate a clean
+diff, a passing narrow test, a created pull request, or an available delivery
+tool with completion by itself.
+
+## Cross-links
+
+- Domain-specific implementation, evidence design, and durable decisions belong
+  to the selected route or discipline; this route only coordinates the handoff.
+- Do not use this route to invent repository workflow, delivery authority, or
+  project-specific policy absent from the host repository or user request.

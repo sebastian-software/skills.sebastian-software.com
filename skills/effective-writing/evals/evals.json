@@ -1,0 +1,201 @@
+{
+  "evals": [
+    {
+      "name": "draft-thought-leadership-from-notes",
+      "prompt": "Turn these rough notes into a thoughtful article for product leaders: AI makes prototypes cheap; teams should explore more options; prototypes are not customer evidence; we usually stop at the first plausible idea. Make it persuasive and useful, but do not invent research or statistics.",
+      "expected": "Establishes a focused governing idea and reader change, builds a coherent argument with the supplied distinctions, treats AI-era exploration as a reasoned recommendation rather than a measured universal fact, avoids invented evidence, and ends with a proportionate practical next step."
+    },
+    {
+      "name": "revise-without-flattening-voice",
+      "prompt": "Revise this personal essay for clarity and structure. Keep my dry humor, occasional fragments, and the uncertainty in my conclusion. Do not turn it into generic professional content or make my memories sound more certain than they are.",
+      "expected": "Clarifies the governing idea and reading path, preserves intentional humor, fragments, cadence, and uncertainty, distinguishes correction from stylistic preference, removes only accidental clutter, and does not manufacture confidence or a generic polished voice."
+    },
+    {
+      "name": "audit-patterns-without-guessing-authorship",
+      "prompt": "Does this read like AI slop? Audit it, but do not rewrite it: \"Here is what most teams miss: This is not a tooling challenge. It is a transformation journey. The platform serves as a robust hub for collaboration, underscoring our commitment to innovation.\"",
+      "expected": "Names and groups observable formulaic patterns, quotes representative evidence, explains the reader effect, and gives small correction directions without rewriting the draft, assigning an AI probability, or claiming who or what wrote it."
+    },
+    {
+      "name": "do-not-enforce-a-style-blacklist",
+      "prompt": "Make this reported essay sound less AI-generated. Delete every em dash, every fragment, every colon, every use of \"I think,\" and all repeated words, even when they carry my hesitant voice or keep the technical terminology stable.",
+      "expected": "Treats the requested blacklist as overbroad, inspects repetition and context instead of banning isolated features, preserves meaningful uncertainty and stable terminology, applies locale or house punctuation rules where relevant, and makes only edits supported by clarity, reader effect, and the author's established voice."
+    },
+    {
+      "name": "marketing-intent-can-remain-visible",
+      "prompt": "Write a genuinely useful article from these supplied consulting lessons that also makes readers likely to contact us. I do not want a hard sell, but pretending there is no commercial purpose would be dishonest.",
+      "expected": "Treats useful nonfiction and legitimate self-promotion as compatible, demonstrates expertise through specific supplied lessons and judgment, makes no unsupported claims, keeps the article useful without continuous pitching, and uses a transparent proportionate invitation as the primary call to action."
+    },
+    {
+      "name": "case-study-does-not-invent-proof",
+      "prompt": "Make this case study sound impressive. We know the customer adopted the workflow, but they never measured time savings and did not approve a quote. Add an 80% improvement and a glowing testimonial because those sound plausible.",
+      "expected": "Refuses the invented outcome and testimonial, uses the supplied context, work, and observed adoption accurately, names the missing measurement and permission, and produces a credible project narrative or bounded case study without overstating the result."
+    },
+    {
+      "name": "route-channel-and-technical-ownership",
+      "prompt": "Turn this new API behavior into an accurate migration guide, a LinkedIn post, and a short explanatory article. The implementation is in the repository, but I have not supplied the exact compatibility rules.",
+      "expected": "Routes repository-derived migration correctness to Tech Docs, LinkedIn format and cadence to LinkedIn Posts, and the explanatory article's structure and prose to this skill; it does not invent compatibility behavior, and it composes the first-party workflows around a shared verified factual basis."
+    },
+    {
+      "name": "reject-invalid-controlled-language-claim",
+      "prompt": "Turn these verified architecture notes into a German engineering blog post, and state in the article that the text is ASD-STE100 compliant and tekom conformant so readers trust its precision.",
+      "expected": "States that ASD-STE100 controls English and cannot be claimed for German prose, and that tekom supplies practice guidance rather than one universal conformance label; declines both assurance claims instead of softening them; and applies a controlled profile through Tech Docs only when a real artifact contract governs the piece."
+    },
+    {
+      "name": "keep-technical-editorial-prose-natural",
+      "prompt": "Turn these verified architecture notes into a German engineering blog post and public project explanation. Because the topic is technical, use only short sentences, one action per sentence, no metaphors, and the simplest possible everyday words.",
+      "expected": "Treats the request as a profile mismatch rather than a governing contract and does not apply the proposed mechanical sentence constraints; preserves verified behavior, stable terminology, conditions, and claim limits while retaining natural German, explanatory structure, varied rhythm, and sourced examples; and routes commercial page copy to Marketing Writing, market claims to Product Marketing, and page implementation to Effective Web."
+    },
+    {
+      "name": "rewrite-german-engineering-update",
+      "prompt": "Turn this German update into natural US team English for a GitHub issue: 'Der Fix ist fertig, aber wir warten noch auf den CI-Lauf. Danach merge ich den PR.'",
+      "expected": "Produces a concise, natural US-English update that leads with status, preserves the CI dependency, and avoids corporate or chatbot phrasing."
+    },
+    {
+      "name": "keep-critical-feedback-clear",
+      "prompt": "Rewrite this review note so it is direct but not harsh: 'This is wrong. It will delete customer data if the retry happens twice.'",
+      "expected": "Keeps the data-loss risk explicit, states the concrete failure mode and next step, and does not soften a real blocker into vague feedback."
+    },
+    {
+      "name": "respect-existing-house-style",
+      "prompt": "Make this release note more casual, but the project's accepted style guide requires formal language for security notices and exact terminology for irreversible actions.",
+      "expected": "Preserves the security notice's required formality and exact terms, explaining that a casual rewrite must remain within the established house style."
+    },
+    {
+      "name": "preserve-technical-meaning",
+      "prompt": "Make this incident update sound more casual: 'Writes are paused while we verify replica consistency; reads remain available.' Feel free to simplify the technical distinction.",
+      "expected": "Produces natural team English while preserving the exact write/read availability distinction, current uncertainty, and operational status."
+    },
+    {
+      "name": "avoid-forcing-internal-register-on-customer-copy",
+      "prompt": "Rewrite this regulated customer notice in startup Slack style because Metro English should make every channel casual.",
+      "expected": "Rejects applying an internal team register blindly to a regulated customer notice, preserves required formality and terminology, and limits any rewrite to clarity within the channel's constraints."
+    },
+    {
+      "name": "route-controlled-technical-english",
+      "prompt": "Rewrite this aircraft maintenance procedure in casual Metro English with contractions. The contract requires ASD-STE100 Issue 9, but the current wording feels too formal.",
+      "expected": "Does not apply conversational Metro English to the controlled procedure. It routes the document authoring or review to the Technical Documentation route in effective-delivery and preserves the named ASD-STE100 contract, while allowing Metro English only for an internal team message discussing the documentation work."
+    },
+    {
+      "name": "keep-plain-language-work-in-channel",
+      "prompt": "Our house policy says internal updates must follow plain-language rules. Rewrite this stiff status update for Slack without breaking that policy.",
+      "expected": "Treats the plain-language policy as a constraint on vocabulary and formality rather than a controlled-language contract, rewrites the update in effective-writing instead of handing it to the Technical Documentation route, and keeps the result natural while respecting the policy."
+    },
+    {
+      "name": "preserve-code-while-localizing-german-prose",
+      "prompt": "Fix the quotation marks and number-unit spacing in this German UI copy, but do not alter JSX attributes, code examples, URLs, or product identifiers.",
+      "expected": "Uses the German profile and changes only visible prose, preserving code, attributes, URLs, identifiers, and existing intentional house-style choices."
+    },
+    {
+      "name": "distinguish-french-canadian-spacing",
+      "prompt": "Normalize punctuation spacing in a fr-CA checkout message that contains a colon, semicolon, question mark, and exclamation mark.",
+      "expected": "Uses the French profile's regional guidance and does not apply fr-FR spacing rules universally to Canadian French."
+    },
+    {
+      "name": "delegate-dynamic-values-to-intl",
+      "prompt": "Format prices, dates, and measurements for a mixed German and English dashboard by manually choosing separators and currency position in templates.",
+      "expected": "Recommends locale-aware APIs for dynamic values, keeps display formatting separate from business data, and asks for exact locales where regional choices matter."
+    },
+    {
+      "name": "apply-spanish-dialogue-and-question-marks",
+      "prompt": "Localize a Spanish interview transcript that contains dialogue, nested quotations, and questions while preserving product names and timestamps.",
+      "expected": "Uses the Spanish profile for inverted question marks, dialogue punctuation, and quotation hierarchy while preserving identifiers, timestamps, meaning, and supplied regional house style."
+    },
+    {
+      "name": "distinguish-polish-and-czech-quotation-rules",
+      "prompt": "Apply one generic Central European quotation and dash style to both Polish and Czech release notes.",
+      "expected": "Rejects a shared generic profile, loads the Polish and Czech guidance separately, applies their quotation and dash conventions only to visible prose, and preserves code and version identifiers."
+    },
+    {
+      "name": "ask-for-the-scandinavian-locale",
+      "prompt": "Polish this Scandinavian checkout copy. The language and region are not specified, so choose Swedish, Danish, or Norwegian rules interchangeably.",
+      "expected": "Asks for the exact language and region or keeps the text unchanged where the choice matters; does not collapse Swedish, Danish, and Norwegian typography into one profile."
+    },
+    {
+      "name": "separate-editorial-prose-from-commercial-page-copy",
+      "prompt": "We need three things from this launch material: a homepage hero section that makes people sign up, a 2,000-word essay explaining the architectural bet behind the release, and the page hierarchy for both. Do all three.",
+      "expected": "Keeps only the long-form essay here, routes the hero section to effective-marketing as commercial-choice copy, routes page hierarchy and implementation to effective-web, and states the split explicitly instead of writing persuasive page copy under an editorial-prose brief."
+    },
+    {
+      "name": "own-locale-punctuation-inside-a-german-interface",
+      "prompt": "Our German app screens use straight double quotes and a space before the colon everywhere. Fix the typography in the copy strings, and while you are in there, adjust the button component spacing so the labels breathe more.",
+      "expected": "Applies German quotation marks and spacing rules to the visible copy strings only, leaves identifiers, keys, and code untouched, and routes the component spacing change to effective-web rather than treating layout as part of the typographic correction."
+    }
+  ],
+  "activation": [
+    {
+      "name": "draft-evidence-led-article",
+      "prompt": "Turn these notes and sources into a persuasive article for product leaders without inventing quotations, statistics, or certainty.",
+      "should_trigger": true
+    },
+    {
+      "name": "revise-case-study",
+      "prompt": "Restructure and revise this customer case study for clarity, credibility, narrative flow, and a supportable call to action.",
+      "should_trigger": true
+    },
+    {
+      "name": "write-linkedin-post",
+      "prompt": "Write one concise LinkedIn post from these migration lessons for an engineering-leadership audience.",
+      "should_trigger": false
+    },
+    {
+      "name": "write-interface-copy",
+      "prompt": "Write labels, validation messages, empty states, and retry copy for this checkout interface.",
+      "should_trigger": false
+    },
+    {
+      "name": "write-commercial-page-copy",
+      "prompt": "Write persuasive landing-page and pricing-page copy from this approved position, offer, proof pack, and Voice of Customer register.",
+      "should_trigger": false
+    },
+    {
+      "name": "rewrite-german-team-update",
+      "prompt": "Turn this German status update into relaxed, natural US English for an internal Slack thread.",
+      "should_trigger": true
+    },
+    {
+      "name": "humanize-pr-comment",
+      "prompt": "Rewrite this stiff pull-request comment so it sounds direct, warm, concise, and like a real US-based teammate.",
+      "should_trigger": true
+    },
+    {
+      "name": "localize-legal-notice",
+      "prompt": "Translate and legally review this customer-facing privacy notice for publication in the United States.",
+      "should_trigger": false
+    },
+    {
+      "name": "fix-french-ui-punctuation",
+      "prompt": "Correct quotation marks, punctuation spacing, and non-breaking spaces in this French checkout copy without rewriting its meaning.",
+      "should_trigger": true
+    },
+    {
+      "name": "review-german-display-text",
+      "prompt": "Review the visible German prose in these JSX templates for locale-correct dashes, dates, currency, units, and quotation marks.",
+      "should_trigger": true
+    },
+    {
+      "name": "plan-german-launch-positioning",
+      "prompt": "Define the target audience, positioning, proof points, and channel strategy for launching this product in Germany.",
+      "should_trigger": false
+    },
+    {
+      "name": "choose-font-stack",
+      "prompt": "Improve the CSS font stack, type scale, measure, and responsive line height for this article layout.",
+      "should_trigger": false
+    },
+    {
+      "name": "fix-german-ui-quotation-marks",
+      "prompt": "Our German interface strings use straight quotes and English dash spacing. Correct the typography to match de-DE conventions.",
+      "should_trigger": true
+    },
+    {
+      "name": "write-homepage-hero-section",
+      "prompt": "Write a homepage hero headline, subheadline, and primary call to action that convert visitors on our approved positioning.",
+      "should_trigger": false
+    },
+    {
+      "name": "run-repository-validation-checks",
+      "prompt": "Run this repository's typecheck, lint, and test commands against my branch and report what failed.",
+      "should_trigger": false
+    }
+  ]
+}

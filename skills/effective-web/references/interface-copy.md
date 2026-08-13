@@ -12,7 +12,7 @@ the current state without changing the underlying voice accidentally.
 When interface work establishes or changes a durable choice such as `du` versus
 `Sie`, approachable versus distant, professional versus casual, claim strength,
 or terminology across product, marketing, support, and social surfaces, use
-`decision-records`. Keep complete copy examples in editorial artifacts rather
+`effective-product`. Keep complete copy examples in editorial artifacts rather
 than turning the ADR into a phrase library.
 
 ## Be Concise

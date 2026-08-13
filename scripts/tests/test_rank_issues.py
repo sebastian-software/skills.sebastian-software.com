@@ -9,7 +9,7 @@ from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parents[2]
-SCRIPT = ROOT / "skills" / "issue-autopilot" / "scripts" / "rank_issues.py"
+SCRIPT = ROOT / "skills" / "effective-delivery" / "scripts" / "rank_issues.py"
 NOW = "2026-08-03T12:00:00Z"
 
 

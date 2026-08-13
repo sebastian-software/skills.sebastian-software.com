@@ -15,7 +15,7 @@ Use this skill for words inside product UI: labels, helper text, empty states, h
    to check repeated cadence, manufactured contrast, unsupported claims, and
    redundant language without banning individual words or punctuation.
 7. Check text expansion, localization, accessibility names, and cross-channel
-   consistency. Use `decision-records` when the work changes a durable
+   consistency. Use `effective-product` when the work changes a durable
    communication direction.
 
 ## Rules

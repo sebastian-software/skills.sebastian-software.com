@@ -1,14 +1,14 @@
 # Print Locale Integration
 
 Use this reference to integrate reviewed locale typography into print CSS and
-web-to-print pipelines. `locale-typography` owns language-level choices for
+web-to-print pipelines. `effective-writing` owns language-level choices for
 quotation marks, punctuation spacing, dashes, numbers, and non-breaking
 spaces; do not duplicate or infer those rules here.
 
 ## Choose the Locale Before Styling
 
 Set the document language on the printed HTML and route visible prose to
-`locale-typography` for the matching profile. Preserve an established,
+`effective-writing` for the matching profile. Preserve an established,
 reviewed house style when it intentionally differs from a locale default.
 
 ```html
@@ -22,7 +22,7 @@ CSS or a template.
 ## CSS Quotation Integration
 
 Use the CSS `quotes` property only after selecting the quotation system from
-the matching `locale-typography` profile. Keep the locale values in the source
+the matching `effective-writing` profile. Keep the locale values in the source
 of truth instead of copying per-locale tables into print styles.
 
 ```css
@@ -49,11 +49,11 @@ attribute values, and locale-specific punctuation incorrectly.
 When preprocessing is necessary, use a locale-aware tool with an explicit
 locale, limit it to rendered prose, and review the output before publishing.
 Keep transformations such as quote direction, dash style, and spacing in the
-`locale-typography` profile or an explicit project house-style rule.
+`effective-writing` profile or an explicit project house-style rule.
 
 ## Temporary Portuguese Rules
 
-`locale-typography` has a reviewed `es-ES` profile. It does not yet contain
+`effective-writing` has a reviewed `es-ES` profile. It does not yet contain
 profiles for `pt-PT` or `pt-BR`, so keep the following existing print rules as
 explicit, temporary exceptions until equivalent profiles are added there:
 
@@ -63,7 +63,7 @@ explicit, temporary exceptions until equivalent profiles are added there:
 | `pt-BR` | `“…”`, then `‘…’` | Spaced em dash | `1.234,56`; `R$` before with no space |
 
 For a new Portuguese requirement, obtain a reviewed locale or house-style
-decision and add the durable rule to `locale-typography` rather than extending
+decision and add the durable rule to `effective-writing` rather than extending
 this temporary table.
 
 ## Print Verification

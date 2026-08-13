@@ -93,7 +93,7 @@ when the mode allows it and the user contract remains intact.
 - Verify installed packages and versions before importing. Do not migrate a
   framework or styling stack merely to achieve a visual refresh.
 - Record durable adoption or replacement of an owning design system through
-  `decision-records`; keep exact tokens and component APIs in the system itself.
+  `effective-product`; keep exact tokens and component APIs in the system itself.
 
 ## Modernization Order
 
@@ -120,7 +120,7 @@ If the proposed design requires changing a protected contract:
 2. Explain the smallest compatible option and the broader change option.
 3. Obtain explicit authority for the broader scope when it materially changes
    the requested outcome.
-4. Use `decision-records` when the change establishes a durable new direction,
+4. Use `effective-product` when the change establishes a durable new direction,
    audience relationship, information architecture, design-system ownership,
    or cross-channel communication rule.
 5. Track migration tasks, owners, rollout, and status in the project's issue or

@@ -1,17 +1,19 @@
 ---
 name: effective-web
 description: >-
-  Design, build, review, and improve browser-facing experiences: marketing and
-  content sites, web apps, dashboards, React components, UI/UX, layout,
-  typography, color, forms, tables, accessibility, motion, i18n, interface
-  copy, states, auth UX, CSS, frontend SEO and AI search, browser performance
-  and testing, React architecture, SVG, and HTML/CSS print. Use only when the
-  requested outcome is the design, implementation, review, or verification of
-  a browser experience. Do not use merely because a task mentions the web, a
-  website, URL, browser, or HTML. Not for general browsing, internet or source
-  research, repository or catalog evaluation, fact-finding, backend-only work,
-  infrastructure or deployment, general writing, non-web print, or
-  locale-specific typography.
+  Design, build, review, and improve browser experiences: sites, web apps,
+  dashboards, React, UI/UX, layout, typography, color, forms, tables,
+  accessibility, motion, i18n, interface copy, states, auth UX, CSS, frontend SEO
+  and AI search, performance and testing, architecture, SVG, and HTML/CSS print.
+  Turn supplied websites, screenshots, and videos into evidence-backed
+  specifications; audit produced work for source overlap and provenance; and
+  scope web compliance including Impressum, privacy and cookie notices, consent,
+  online sales, and marketing or endorsement disclosures. Use only when the
+  outcome is the design, implementation, review, verification, specification,
+  audit, or compliance surface of a browser experience. Do not use merely because
+  a task mentions the web, a URL, or HTML. Not for general browsing, source
+  research, repository evaluation, fact-finding, backend-only work,
+  infrastructure, general writing, non-web print, or locale typography.
 ---
 
 # Effective Web
@@ -69,6 +71,9 @@ Modernization. Add focused routes only as the work crosses those concerns.
 | Build, style, animate, optimize, or make accessible SVG icons and illustrations | [SVG Graphics](references/route-svg.md) |
 | Create SVG noise, grain, paper, clouds, organic surfaces, or filter effects | [SVG Textures](references/route-textures.md) |
 | Build print stylesheets, paged media, printable documents, or web-to-print output | [Print Design](references/route-print.md) |
+| Turn a supplied website, screenshot, recording, prototype, or reference pack into an evidence-backed visual and interaction specification | [Reference Analysis](references/route-reference-analysis.md) |
+| Compare produced work with its references for source overlap, distinctive combination, and asset provenance, and decide release risk | [Originality Review](references/route-originality.md) |
+| Scope Impressum and operator disclosures, privacy and cookie notices, consent and tracking, or online-sales information across jurisdictions | [Web Legal Compliance](references/route-compliance.md) |
 
 ## Routing Boundaries
 
@@ -77,46 +82,40 @@ Modernization. Add focused routes only as the work crosses those concerns.
   when the requested deliverable is an answer or report rather than a
   browser-facing experience. A live website may be evidence inside an owned
   experience review; its URL alone does not make the task Effective Web work.
-- Route capture and translation of supplied websites, HTML, screenshots,
-  prototypes, or videos into an evidence-backed visual and interaction
-  specification to `reference-analysis`; return here for browser implementation
-  and verification. Route comparison of the result against those sources for
-  copying and provenance risk to `originality-review`.
-- Route product discovery, strategy, outcome, scope, prioritization, quality-bar,
-  and release decisions to `product-management`; return here to design,
-  implement, and verify the resulting browser experience.
-- Route research synthesis, problem framing, object and interaction modeling,
-  information architecture, and decision-grade prototyping to `product-design`;
-  return here for browser specification, implementation, and verification.
-- Route Impressum, legal notices, privacy and cookie notice requirements,
-  online-sales disclosures, and multi-jurisdiction compliance analysis to
-  `web-legal-compliance`; return here for the resulting frontend implementation
-  and verification work.
-- Route locale-specific punctuation, quotation, spacing, and language-level
-  typographic rules to `locale-typography`.
+- Route product discovery, strategy, outcome, scope, prioritization,
+  quality-bar, and release decisions, plus research synthesis, problem framing,
+  object and interaction modeling, information architecture, and decision-grade
+  prototyping, to `effective-product`; return here for browser specification,
+  implementation, and verification. Durable design-system and interaction
+  decisions are recorded there as ADRs.
 - Route market segmentation, positioning, messaging, proof, launch planning,
-  and campaign strategy to `product-marketing`; return here to implement and
-  verify the resulting web experience. Use Interface Copy only for language
-  embedded in that experience.
-- Route persuasive homepage, landing-page, product, service, pricing, sales,
-  launch, and campaign prose to `marketing-writing`; return here for page
-  hierarchy, interface copy, accessibility, implementation, and browser
-  verification. Interface Copy owns labels, errors, states, and product
+  campaign strategy, and persuasive homepage, landing-page, product, service,
+  pricing, sales, launch, and campaign prose to `effective-marketing`; return
+  here for page hierarchy, interface copy, accessibility, implementation, and
+  browser verification. Interface Copy owns labels, errors, states, and product
   interaction language rather than the commercial argument.
-- Route articles, explainers, editorial case studies, thought leadership, and
-  public project prose, including technical subject matter, to
-  `nonfiction-writing`; return here for page hierarchy, interface copy,
-  accessibility, implementation, and browser verification.
 - Route funnel diagnosis, conversion research, experiment design, and ship,
-  iterate, or stop decisions to `conversion-optimization`; return here to build
-  and verify the variants it approves. A page that converts poorly is a
-  measurement and evidence question before it is a layout question.
-- Route non-frontend TypeScript engineering depth — server-side and
-  shared-library type, module, async, error, and tooling contracts — to
-  `typescript-engineering`; keep browser-facing TypeScript here.
-- Keep backend-only architecture, infrastructure, deployment, load testing, and
-  security audits, and non-web desktop publishing outside this skill unless
-  they directly constrain the browser-facing result.
+  iterate, or stop decisions to `effective-marketing`; return here to build and
+  verify the variants it approves. A page that converts poorly is a measurement
+  and evidence question before it is a layout question.
+- Route articles, explainers, editorial case studies, thought leadership, and
+  public project prose, including technical subject matter, and locale-specific
+  punctuation, quotation, spacing, and language-level typographic rules, to
+  `effective-writing`; return here for page hierarchy, interface copy,
+  accessibility, implementation, and browser verification.
+- Route non-frontend engineering depth — system architecture, data models,
+  server-side and shared-library TypeScript and Rust contracts, non-frontend
+  test design, and benchmark methodology — to `effective-engineering`; keep
+  browser-facing TypeScript and frontend test design here.
 - Route execution-only requests for existing repository typecheck, lint, test,
-  build, documentation, or combined quality gates to `software-validation`.
-  Keep frontend and browser test design, diagnosis, and evidence selection here.
+  build, documentation, or combined quality gates, plus repository audits,
+  ports, pull-request review, dependency updates, and technical documentation,
+  to `effective-delivery`. Keep frontend and browser test design, diagnosis, and
+  evidence selection here.
+- Keep general internet research, competitor strategy, unauthorized
+  reproduction, backend-only architecture, infrastructure, deployment, load
+  testing, security audits, and non-web desktop publishing outside this skill
+  unless they directly constrain the browser-facing result.
+- Compliance work here is legal information and implementation support, not a
+  legal opinion; copyright, trademark, plagiarism, and license clearance require
+  a qualified specialist.

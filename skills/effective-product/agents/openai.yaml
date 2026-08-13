@@ -1,0 +1,4 @@
+interface:
+  display_name: "Effective Product"
+  short_description: "Decide what to build and how it works"
+  default_prompt: "Use $effective-product to gather evidence and make a product, design, pricing, naming, or decision-record call."

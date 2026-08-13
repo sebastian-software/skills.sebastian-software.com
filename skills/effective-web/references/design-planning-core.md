@@ -40,7 +40,7 @@ classify it as greenfield, preserve, or overhaul and read
 [redesign-preservation.md](redesign-preservation.md); visual modernization does
 not authorize a content rewrite, framework migration, or contract change. When
 the experience model or direction is still open, route decision-grade
-exploration to the `product-design` skill and bring the chosen qualities back.
+exploration to the `effective-product` skill and bring the chosen qualities back.
 
 If a missing answer would materially change layout, interaction, or
 communication, ask **one** concise discriminating question; otherwise state a
@@ -134,7 +134,7 @@ direction, primary user/action, register-specific signature, layout strategy,
 interaction model, required states, content, context adaptation, browser
 evidence, constraints, anti-goals) in concrete nouns — the full template is in
 the appendix. Record durable register/direction/communication decisions through
-`decision-records`.
+`effective-product`.
 
 Then check readiness — mark each as `ready`, `clarify`, or `change direction`:
 register fit, primary action, hierarchy, state coverage, interaction risk,

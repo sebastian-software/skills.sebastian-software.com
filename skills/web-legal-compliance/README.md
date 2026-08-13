@@ -1,92 +1,33 @@
 [← Sebastian Software Skills](../../README.md)
 
-# Web Legal Compliance
+# Web Legal Compliance — moved
 
-[![Maintained by Sebastian Software](https://img.shields.io/badge/Maintained%20by-Sebastian%20Software-0f172a.svg)](https://oss.sebastian-software.com/)
+**This skill has moved into [effective-web](../effective-web/README.md).**
 
-**Turn “make this website compliant” into a jurisdiction-aware, evidence-backed
-work product instead of generic boilerplate.**
+`web-legal-compliance` is a deprecation stub. It stays installable for one release window so
+existing selections keep resolving, then it is removed. It contains no guidance:
+the workflow, references, and review scenarios all moved to `effective-web`.
 
-Web Legal Compliance helps agents scope, research, draft, and review the legal
-surfaces of websites, web apps, online stores, and digital services across the
-EU and EEA, the United Kingdom, Canada and its provinces, and the United States
-and its states.
+**Where it went:** Web Legal Compliance (references/route-compliance.md)
 
-## What It Can Deliver
+See [MIGRATION.md](../../MIGRATION.md) for the complete old-to-new mapping.
 
-- a jurisdiction and obligation map
-- an operator, audience, transaction, and data-flow questionnaire
-- issue inventories and implementation reviews
-- page and disclosure maps
-- legal notice or Impressum drafts with explicit placeholders
-- privacy, cookie, consent, and tracking requirements
-- online-sales, marketing, endorsement, and testimonial disclosures
-- counsel-ready briefs that separate facts, assumptions, and open questions
-
-## Why It Works Differently
-
-Legal text is the visible result of operational facts and decisions. The skill
-therefore establishes the operator, places of establishment, targeted markets,
-audience, transactions, data flows, marketing channels, publishing model, and
-regulated activities before drafting. Unknown facts stay unknown instead of
-being filled with plausible-looking inventions.
-
-## Example Prompts
-
-```text
-Audit this SaaS website's disclosures and consent flow for customers in the EU,
-UK, Canada, and California.
-
-Create a questionnaire and placeholder-based legal-notice draft for this German
-company; do not invent missing registration or contact details.
-
-Review whether our cookie banner behavior matches the claims in the privacy and
-cookie notices.
-
-Prepare a counsel-ready brief for launching this online service in the United
-States and Canada, including unresolved business facts.
-```
-
-See [SKILL.md](SKILL.md) for the evidence workflow, regional routes, consent
-guidance, operating rules, and deliverables.
-
-## Install This Skill
+## Install the successor
 
 ```sh
-npx skills add sebastian-software/skills.sebastian-software.com --skill web-legal-compliance
+npx skills add sebastian-software/skills.sebastian-software.com --skill effective-web
 ```
 
-Or follow the [DALO setup guide](../../docs/dalo.md) and select it explicitly:
+Or follow the [DALO setup guide](../../docs/dalo.md):
 
 ```sh
-dalo init
-dalo target link codex
-dalo source add-catalog sebastian https://github.com/sebastian-software/skills.sebastian-software.com.git
-dalo source select sebastian web-legal-compliance
-dalo approve skill sebastian:web-legal-compliance
+dalo source select sebastian effective-web
+dalo approve skill sebastian:effective-web
 dalo sync
 ```
 
-## Related Skills
-
-- [Effective Web](../effective-web/README.md) implements and verifies footer
-  navigation, forms, consent UI, accessibility, and frontend behavior after the
-  requirements are established.
-- [Locale Typography](../locale-typography/README.md) applies locale-specific
-  visible-prose rules after wording and target locales are approved.
-- [Product Management](../product-management/README.md) aligns product scope,
-  markets, and release decisions with unresolved compliance constraints.
-- [Decision Records](../decision-records/README.md) preserves durable consent,
-  tracking, and disclosure decisions where appropriate.
-- [Originality Review](../originality-review/README.md) audits source overlap
-  and asset provenance without treating that risk report as legal clearance.
-
-## Scope
-
-This skill does not replace qualified legal advice. Penetration testing,
-security architecture, records of processing, vendor contracts, tax advice,
-employment law, and corporate filings remain outside its scope unless they
-directly determine a web disclosure.
+If you previously selected `web-legal-compliance`, drop that selection when you add the
+successor.
 
 ## About Sebastian Software
 

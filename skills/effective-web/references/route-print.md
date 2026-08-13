@@ -30,7 +30,7 @@ results without pretending that browsers provide every DTP capability.
 | Layout | [print-layout.md](print-layout.md) — layers, reset, @page, simulation, grid, fragmentation |
 | Web Print CSS | [print-web-basics.md](print-web-basics.md) — start for ordinary web pages; add [print-web-content.md](print-web-content.md) for links, images, tables, and code, or [print-web-layout.md](print-web-layout.md) for paper-specific reading order |
 | Page Features | [print-page-features.md](print-page-features.md) — headers/footers, counters, bleed, links, element styles |
-| Locale | [print-locale.md](print-locale.md) — integrate reviewed locale rules into print CSS; route language-level rules to `locale-typography` and follow its verification and safe-preprocessing requirements |
+| Locale | [print-locale.md](print-locale.md) — integrate reviewed locale rules into print CSS; route language-level rules to `effective-writing` and follow its verification and safe-preprocessing requirements |
 
 ## Print vs. Screen
 
@@ -73,7 +73,7 @@ results without pretending that browsers provide every DTP capability.
 - Books: use `text-indent: 1em` on `p + p` (not `margin-bottom`) for paragraph separation
 - Choose body faces with low-to-medium stroke contrast and open apertures — high contrast (Bodoni) for display only
 - Choose body faces by legibility at the target point size, glyph coverage, licensing/availability, and fit with the artifact's hierarchy; Georgia, Charter, Palatino, and Times New Roman are context-dependent options, not a universal ranking
-- Quotation marks, dashes, number formatting, and spacing rules vary by locale — route them to `locale-typography`; use `quotes: auto` only after verifying the rendered locale result, and preprocess only rendered prose with an explicit locale
+- Quotation marks, dashes, number formatting, and spacing rules vary by locale — route them to `effective-writing`; use `quotes: auto` only after verifying the rendered locale result, and preprocess only rendered prose with an explicit locale
 
 ## Colors
 
