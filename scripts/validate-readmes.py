@@ -30,76 +30,6 @@ MAX_DESCRIPTION_LENGTH = 1024
 SKILL_LINE_LIMIT = 300
 REFERENCE_LINE_LIMIT = 500
 ROUTE_CONTEXT_REPORT_LIMIT = 900
-DEPRECATED_REGISTRY = "docs/deprecated-skills.json"
-
-
-def load_deprecated_skills(errors: list[str]) -> dict[str, dict[str, str]]:
-    """Load the superseded slugs that stay installable for one release window.
-
-    A deprecated stub keeps its original frontmatter so existing selections and
-    triggers still resolve, but it carries no guidance. It is therefore exempt
-    from the full skill anatomy (review scenarios, agent metadata, the public
-    README contract) and from the root inventory, and it is listed in
-    MIGRATION.md instead of receiving a site card.
-    """
-    registry = REPOSITORY_ROOT / DEPRECATED_REGISTRY
-    if not registry.is_file():
-        return {}
-
-    try:
-        payload = json.loads(registry.read_text(encoding="utf-8"))
-    except json.JSONDecodeError as error:
-        errors.append(f"{DEPRECATED_REGISTRY}: invalid JSON: {error.msg}")
-        return {}
-
-    deprecated = payload.get("deprecated") if isinstance(payload, dict) else None
-    if not isinstance(deprecated, dict):
-        errors.append(f"{DEPRECATED_REGISTRY}: 'deprecated' must be an object")
-        return {}
-
-    entries: dict[str, dict[str, str]] = {}
-    for name, details in deprecated.items():
-        if not isinstance(details, dict) or set(details) != {"route", "successor"}:
-            errors.append(
-                f"{DEPRECATED_REGISTRY}: {name!r} must contain exactly successor and route"
-            )
-            continue
-        if not (SKILLS_ROOT / name / "SKILL.md").is_file():
-            errors.append(
-                f"{DEPRECATED_REGISTRY}: {name!r} has no skills/{name}/SKILL.md; "
-                "remove the entry when the stub is deleted"
-            )
-            continue
-        entries[name] = details
-    return entries
-
-
-def validate_deprecation_stub(
-    skill_directory: Path, successor: str, skill_names: set[str], errors: list[str]
-) -> None:
-    """Require a stub to redirect rather than carry guidance."""
-    name = skill_directory.name
-    if successor not in skill_names:
-        errors.append(
-            f"{DEPRECATED_REGISTRY}: {name!r} names successor {successor!r}, "
-            "which is not a first-party skill directory"
-        )
-        return
-
-    skill_text = (skill_directory / "SKILL.md").read_text(encoding="utf-8")
-    if f"`{successor}`" not in skill_text:
-        errors.append(f"skills/{name}/SKILL.md: stub must name `{successor}`")
-
-    readme_text = (skill_directory / "README.md").read_text(encoding="utf-8")
-    for label, fragment in (
-        ("successor README link", f"../{successor}/README.md"),
-        ("migration table link", "../../MIGRATION.md"),
-        ("successor install command", f"--skill {successor}"),
-    ):
-        if fragment not in readme_text:
-            errors.append(f"skills/{name}/README.md: missing {label}")
-
-
 def validate_worktree_safety_uniqueness(skills_root: Path, errors: list[str]) -> None:
     """Require one shared worktree-safety contract across the collection.
 
@@ -792,12 +722,6 @@ def main() -> int:
     root_text = root_readme.read_text(encoding="utf-8")
     skill_directories = sorted(path.parent for path in SKILLS_ROOT.glob("*/SKILL.md"))
     skill_names = {skill_directory.name for skill_directory in skill_directories}
-    deprecated = load_deprecated_skills(errors)
-    published = [
-        skill_directory
-        for skill_directory in skill_directories
-        if skill_directory.name not in deprecated
-    ]
 
     markdown_files = [root_readme]
     for skill_directory in skill_directories:
@@ -825,12 +749,6 @@ def main() -> int:
         validate_first_party_skill_references(skill_directory, skill_names, errors)
         validate_reference_orphans(skill_directory, errors)
 
-        if name in deprecated:
-            validate_deprecation_stub(
-                skill_directory, deprecated[name]["successor"], skill_names, errors
-            )
-            continue
-
         validate_evals(skill_directory, errors)
         validate_skill_metadata(skill_directory, errors)
         validate_required_readme_fragments(name, text, errors)
@@ -847,8 +765,8 @@ def main() -> int:
 
     validate_root_inventory_sentence(
         root_text,
-        len(published),
-        count_references(published),
+        len(skill_directories),
+        count_references(skill_directories),
         errors,
     )
 
@@ -870,7 +788,7 @@ def main() -> int:
 
     print(
         f"Public documentation and review-scenario schema validation passed: "
-        f"{len(published)} skill READMEs plus {len(deprecated)} deprecation stubs, "
+        f"{len(skill_directories)} skill READMEs, "
         f"{len(markdown_files)} public Markdown files, all required links present; "
         "model behavior is not executed"
     )

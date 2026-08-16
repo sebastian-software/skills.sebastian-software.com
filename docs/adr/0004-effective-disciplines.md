@@ -2,6 +2,7 @@
 
 - Status: Accepted
 - Date: 2026-07-31
+- Amended: 2026-08-16 — compatibility stubs removed early in issue #217
 - Execution plan: [RFC 0001](../rfc/0001-effective-disciplines.md)
 - Migration table: [MIGRATION.md](../../MIGRATION.md)
 
@@ -57,6 +58,9 @@ and the routed `effective-web` architecture:
    redirect body and nothing else, and is exempt from the full skill anatomy,
    the root README inventory, and site card parity.
 
+The transition in item 5 ended on 2026-08-16. All 33 stub directories and the
+registry were removed; only the six disciplines remain installable.
+
 ### Deviations from the RFC
 
 - Four routes were split rather than registered as context exceptions, because
@@ -100,8 +104,8 @@ untouched.
 
 ### Name aliases instead of stub directories
 
-Deferred. Whether the skills CLI or DALO supports aliases was not established
-during execution. Stubs work today and are the documented fallback either way.
+Rejected at sunset. The migration table is the durable compatibility aid; old
+names no longer resolve through aliases or redirect-only directories.
 
 ## Consequences
 
@@ -110,7 +114,8 @@ during execution. Stubs work today and are the documented fallback either way.
   catalog story. The root README, homepage inventory, cards, filter counts,
   structured data, and Open Graph copy all move with it.
 - Granular installation of a single small skill is gone by design. "Install one
-  discipline" replaces "install one small skill"; DALO selections re-pin once.
+  discipline" replaces "install one small skill"; pinned DALO selections using
+  an old slug must be re-pinned before the next sync.
 - Six broad descriptions carry more trigger surface than 33 narrow ones. Merged
   eval suites plus new cross-discipline disambiguation cases guard the sharpest
   boundaries: hero copy versus editorial prose versus page implementation;
@@ -125,11 +130,11 @@ during execution. Stubs work today and are the documented fallback either way.
   future trim as a behavior change, not as copy editing.
 - Routing is now covered by a contract rather than by review alone.
   `docs/activation-matrix.json` pairs 49 realistic requests with their owning
-  discipline, including at least one per superseded slug and three controls that
-  no discipline should claim. `scripts/validate-activation-matrix.py` fails CI
-  when a superseded slug loses its coverage, when one prompt gets two owners, or
-  when a discipline falls below three cases.
-- Both validators now understand deprecation stubs. The byte-identical
+  discipline, preserving representative absorbed intents and three controls
+  that no discipline should claim. `scripts/validate-activation-matrix.py`
+  fails CI when one prompt gets two owners or a discipline falls below three
+  cases.
+- The stub-specific validator branches were removed at sunset. The byte-identical
   `worktree-safety.md` copies, including the later Issue Autopilot copy, merged
   into one shared file with a uniqueness guard replacing the previous sync
   check.
@@ -148,7 +153,15 @@ Regenerate the input with `scripts/build-routing-review-input.py`.
 The recorded Claude rounds cover the original 41 prompts. A later
 [GPT installed-catalog review](../model-evaluation-2026-08-13.md) covers the
 current 49-case matrix, including Issue Queue Autopilot, the preservation cases,
-and all deprecation stubs.
+and the transition-period deprecation stubs. A post-sunset review uses only the
+six-discipline catalog.
+
+The 2026-08-16 post-sunset blind classifier review ran all 49 cases against the
+six descriptions with Codex CLI 0.147.0. `gpt-5.6-terra` scored 49/49;
+`gpt-5.6-sol` scored 48/49, routing the German interface-typography case to
+`effective-web` instead of `effective-writing`. The mismatch is a remaining
+browser-surface versus visible-prose boundary to watch, not evidence that an
+absorbed intent disappeared with its old slug.
 
 | Round | Descriptions under test | Opus 5 | Sonnet 5 | Haiku 4.5 |
 | --- | --- | --- | --- | --- |
@@ -195,12 +208,12 @@ improves that materially after sunset and worsens it during the window:
 | 6 disciplines, after sunset | 6 | 5,801 | 27% |
 | 6 disciplines plus 33 stubs | 39 | 26,811 | 126% |
 
-Keeping the stubs' original descriptions verbatim is what makes existing
+During the transition, keeping the stubs' original descriptions verbatim was
+what made existing
 triggers resolve, and it is also what pushes the catalog 26% past its previous
 size. A host that truncates on that budget will truncate more during the
-deprecation window than it did before, which is an argument for a shorter window
-rather than for shortening the stub descriptions — shortening them would defeat
-their only purpose.
+deprecation window than it did before. Completing the sunset restores the
+current catalog to 5,801 description bytes, 27% of the pre-consolidation size.
 
 ## Validation and Review Triggers
 
@@ -209,13 +222,13 @@ their only purpose.
 `python3 -m unittest discover -s scripts/tests -p 'test_*.py'` must pass, with
 route-level reference totals inside the 900-line budget.
 
-Re-run the blind routing review whenever a description changes, a discipline
-gains a route that shifts a boundary, or a stub is removed at sunset.
+Re-run the blind routing review whenever a description changes or a discipline
+gains a route that shifts a boundary. The stub-removal trigger was satisfied on
+2026-08-16 as part of issue #217.
 
-Revisit when: telemetry or issue traffic shows old-name installs have stopped,
-at which point the stubs and `docs/deprecated-skills.json` can be removed; a
-discipline's routes still mirror old skill boundaries rather than user intent
-after real use; or a harness truncates a discipline description, which would
+Revisit when: a discipline's routes still mirror old skill boundaries rather
+than user intent after real use; or a harness truncates a discipline
+description, which would
 force shorter triggers ahead of the planned Phase 2 content re-slicing.
 
 Phase 2 remains out of scope here: unifying `rust-testing.md` with the Rust

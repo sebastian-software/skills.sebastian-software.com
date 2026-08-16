@@ -1,5 +1,9 @@
 # Model Evaluation — 2026-08-13
 
+> **Pre-sunset catalog.** This evaluation intentionally records the transition
+> catalog with 33 compatibility stubs. Those stubs were removed on 2026-08-16;
+> the result remains evidence for the migration period, not the current catalog.
+
 This record repeats the six-discipline activation review on a GPT runtime. It
 uses the stronger installed-catalog method requested by issue #215: each prompt
 ran in a fresh Codex session, and a skill counted as invoked only when the JSONL
@@ -179,10 +183,11 @@ to selection.
 
 ## Reproduction
 
-Generate the exact classifier view and answer key:
+Generate the current six-discipline classifier view and answer key. The original
+stub-inclusive input is tied to the baseline revision recorded above:
 
 ```sh
-python3 scripts/build-routing-review-input.py --include-deprecated \
+python3 scripts/build-routing-review-input.py \
   > /tmp/routing-review.md
 python3 scripts/build-routing-review-input.py --key \
   > /tmp/routing-key.json

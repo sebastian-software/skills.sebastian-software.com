@@ -60,6 +60,11 @@ jobs:
           )
 
           dalo source add-catalog sebastian "$GITHUB_WORKSPACE"
+          if dalo source select sebastian pr-review > "$RUNNER_TEMP/old-slug.stdout" 2> "$RUNNER_TEMP/old-slug.stderr"; then
+            echo "ERROR: removed pre-consolidation slug pr-review is still selectable" >&2
+            exit 1
+          fi
+          grep -F 'skill `sebastian:pr-review` was not found' "$RUNNER_TEMP/old-slug.stderr"
           dalo source select sebastian "${first_party_skills[@]}"
           dalo approve source sebastian
           dalo --json status > "$RUNNER_TEMP/status.json"

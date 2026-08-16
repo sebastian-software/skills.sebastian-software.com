@@ -19,9 +19,9 @@ repeated professional practice into an explicit workflow with evidence
 requirements, boundaries, and verification checks — and routes internally so an
 agent loads the one reference the task needs.
 
-> **Migrating from the old 34-skill layout?** Every old slug still installs for
-> one release window and redirects to its discipline. The complete mapping is in
-> [MIGRATION.md](MIGRATION.md).
+> **Migrating from the old 34-skill layout?** The compatibility stubs were
+> removed on 2026-08-16. Re-pin old selections to one of the six disciplines
+> using the complete mapping in [MIGRATION.md](MIGRATION.md).
 
 ## Quick Start
 
@@ -182,11 +182,9 @@ The hand-maintained catalog website lives in `site/`. Adding a discipline also
 means adding its site card and inventory metadata, then running both repository
 validators documented in [`docs/authoring-skills.md`](docs/authoring-skills.md).
 
-Superseded slugs stay installable for one release window as deprecation stubs
-listed in [`docs/deprecated-skills.json`](docs/deprecated-skills.json). A stub
-keeps its original frontmatter so existing selections and triggers still
-resolve, carries no guidance, and is exempt from the full anatomy above and from
-the site inventory. See [MIGRATION.md](MIGRATION.md).
+The 33 superseded slugs were removed on 2026-08-16 after the transition to six
+disciplines. [MIGRATION.md](MIGRATION.md) remains the authoritative old-to-new
+mapping; only the six disciplines are installable from this repository.
 
 The repository contains the skills themselves: no installer, vendored
 third-party snapshots, generated distribution tree, or dependency lockfiles.
@@ -216,8 +214,10 @@ dalo doctor
 Replace `effective-web` with another discipline name, or pass several names to
 `dalo source select`. Catalog selections are pinned, and newly added repository
 skills do not become active automatically. Review selected skills before
-granting the source-qualified approval. If you pinned a pre-consolidation slug,
-re-pin it to its discipline using [MIGRATION.md](MIGRATION.md).
+granting the source-qualified approval. A pinned pre-consolidation slug no
+longer exists upstream: `dalo source refresh sebastian --check` reports it as
+`selected_removed` while preserving the current pin. Re-pin it to its discipline
+using [MIGRATION.md](MIGRATION.md), then sync again.
 
 ### Quick install with skills.sh
 

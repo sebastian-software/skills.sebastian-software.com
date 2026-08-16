@@ -42,12 +42,10 @@ caught one real defect: trimming `effective-product` dropped the words
 "win/loss" and "churn interviews", which sent customer-interview requests to
 `effective-marketing`.
 
-Superseded slugs stay installable for one release window as deprecation stubs
-registered in `docs/deprecated-skills.json`. A stub keeps its original
-frontmatter so existing selections and triggers still resolve, carries a
-redirect body and nothing else, and is exempt from the anatomy below, from the
-root README inventory, and from site card parity. See
-[MIGRATION.md](../MIGRATION.md).
+The 33 pre-consolidation compatibility stubs were removed on 2026-08-16. Do not
+reintroduce aliases or redirect-only skill directories: the public catalog is
+the six disciplines, and [MIGRATION.md](../MIGRATION.md) preserves the old-name
+mapping for users who need to re-pin a selection.
 
 ## Required Structure
 

@@ -66,12 +66,10 @@ def parse_description(text: str) -> str | None:
     return " ".join(description) or None
 
 
-def published_skills(deprecated: set[str]) -> list[tuple[str, str]]:
+def published_skills() -> list[tuple[str, str]]:
     skills: list[tuple[str, str]] = []
     for path in sorted(SKILLS_ROOT.glob("*/SKILL.md")):
         name = path.parent.name
-        if name in deprecated:
-            continue
         description = parse_description(path.read_text(encoding="utf-8"))
         if description:
             skills.append((name, description))
@@ -85,21 +83,8 @@ def main() -> int:
         action="store_true",
         help="emit the answer key instead of the blind input",
     )
-    parser.add_argument(
-        "--include-deprecated",
-        action="store_true",
-        help=(
-            "also list the deprecation stubs, reproducing what a host sees during "
-            "the deprecation window rather than after sunset"
-        ),
-    )
     arguments = parser.parse_args()
-
-    deprecated_payload = json.loads(
-        (REPOSITORY_ROOT / "docs" / "deprecated-skills.json").read_text(encoding="utf-8")
-    )
-    deprecated = set(deprecated_payload["deprecated"])
-    listed = published_skills(set() if arguments.include_deprecated else deprecated)
+    listed = published_skills()
 
     matrix = json.loads(
         (REPOSITORY_ROOT / "docs" / "activation-matrix.json").read_text(encoding="utf-8")

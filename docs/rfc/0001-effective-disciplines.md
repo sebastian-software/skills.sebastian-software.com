@@ -7,6 +7,8 @@
   references)
 - Updated: 2026-08-13 — incorporates `issue-autopilot`, added after acceptance
   and absorbed during branch refresh
+- Sunset completed: 2026-08-16 — the 33 compatibility stubs and their registry
+  were removed early in issue #217
 - Deciders: Sebastian Werner
 - Outcome artifact: recorded as
   [ADR 0004](../adr/0004-effective-disciplines.md); the migration table is in
@@ -18,7 +20,8 @@
 > routes than projected here. Four route groups exceeded the 900-line context
 > budget once their references pooled and were split instead of registered as
 > exceptions; the later `issue-autopilot` skill became the final route. ADR 0004
-> records the full list of deviations.
+> records the full list of deviations. The stub plan below is retained as the
+> historical migration design; its sunset completed on 2026-08-16.
 
 ## Summary
 

@@ -21,9 +21,9 @@ grading.
 
 `docs/activation-matrix.json` is the routing contract between the six
 disciplines. Each case pairs a realistic request with the discipline that should
-own it, plus control cases that no discipline should claim. Every superseded
-slug in `docs/deprecated-skills.json` must be covered by a case whose owner is
-its successor, so a consolidation cannot silently drop an absorbed trigger.
+own it, plus control cases that no discipline should claim. The cases preserve
+representative intents from the pre-consolidation catalog even though those old
+slugs have been removed, so an absorbed trigger cannot disappear silently.
 
 `python3 scripts/validate-activation-matrix.py` enforces that structure in CI.
 It does not run a model.
@@ -38,10 +38,6 @@ python3 scripts/build-routing-review-input.py --key > /tmp/routing-key.json
 The input carries only the published descriptions and the shuffled prompts — no
 case names, no expected owners, no route tables. The shuffle is seeded, so two
 runs stay comparable. Keep the key away from whatever answers the prompts.
-
-Add `--include-deprecated` to reproduce what a host sees while deprecation stubs
-are still installed, which is a different and harder catalog than the one after
-sunset.
 
 Run more than one model, and run at least one on each host the collection
 targets. A weaker model exposes descriptions that only work when the reader is
