@@ -30,15 +30,6 @@ https?://www\.solcom\.de/.*
 # link check from ever verifying that route again, which is how a genuinely
 # broken link would slip through unnoticed.
 
-# 2026-07-31: RFC 0001 consolidates the collection into six disciplines. These
-# five routes are created by that change and cannot resolve on main until it
-# merges. Remove all five entries once the consolidation lands.
-https://github\.com/sebastian-software/skills\.sebastian-software\.com/tree/main/skills/effective-product
-https://github\.com/sebastian-software/skills\.sebastian-software\.com/tree/main/skills/effective-engineering
-https://github\.com/sebastian-software/skills\.sebastian-software\.com/tree/main/skills/effective-delivery
-https://github\.com/sebastian-software/skills\.sebastian-software\.com/tree/main/skills/effective-writing
-https://github\.com/sebastian-software/skills\.sebastian-software\.com/tree/main/skills/effective-marketing
-
 # These live primary sources reject, reset, or time out on GitHub Actions'
 # link-check traffic.
 https://www\.mckinsey\.com/careers/interviewing
