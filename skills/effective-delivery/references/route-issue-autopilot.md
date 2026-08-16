@@ -34,10 +34,6 @@ For a targeted request:
 2. Route a named software change through Workflow Orchestration and standalone PR
    maintenance through PR Review and Upkeep, plus only the domain disciplines the
    target requires.
-3. If the user explicitly names `$issue-autopilot` for a new specific target,
-   explain briefly that its queue automation does not apply, then keep the work
-   scoped to the named target. Never expand that request into a queue run.
-
 Do not infer authorization for autopilot from nearby conversation about issues,
 from an open issue page, or from repository state. Selection must be delegated in
 the current request or inherited from a demonstrable active autopilot run.

@@ -1,300 +1,251 @@
 {
-  "version": 1,
-  "note": "Cross-discipline routing contract. Each case is a realistic request and the discipline that should own it. Every superseded slug in docs/deprecated-skills.json must be covered by at least one case whose owner is its successor, so a consolidation cannot silently drop an absorbed trigger. Owner 'none' marks a control that no discipline should claim. scripts/validate-activation-matrix.py checks the structure; docs/review-scenarios.md describes how to run the cases against a model and record the result.",
+  "version": 2,
+  "note": "Cross-discipline routing contract for the six-skill catalog. Each case is a realistic request and the discipline that should own it; the set preserves representative intents from the pre-consolidation catalog after the old slugs were removed. Owner 'none' marks a control that should not activate a discipline.",
   "cases": [
     {
       "name": "prioritize-release-scope",
       "prompt": "We have three competing feature requests and no clear priority. Decide what goes into the next release and what explicitly does not.",
-      "owner": "effective-product",
-      "covers": ["product-management"]
+      "owner": "effective-product"
     },
     {
       "name": "model-onboarding-experience",
       "prompt": "Turn these behavioral findings into an object model, the key flows, an information architecture, and a prototype plan for onboarding.",
-      "owner": "effective-product",
-      "covers": ["product-design"]
+      "owner": "effective-product"
     },
     {
       "name": "select-generated-design-direction",
       "prompt": "AI generated twelve polished onboarding directions. Compare materially different options on the same realistic slice, choose one coherent direction, and remove details that do not serve the intended qualities.",
-      "owner": "effective-product",
-      "covers": []
+      "owner": "effective-product"
     },
     {
       "name": "design-churn-interview-program",
       "prompt": "Design a churn interview program: recruit ten departed customers, write the protocol, and synthesize the findings into Jobs to Be Done.",
-      "owner": "effective-product",
-      "covers": ["market-research"]
+      "owner": "effective-product"
     },
     {
       "name": "name-a-feature-bilingually",
       "prompt": "We need a name for this feature that works in German and English and is still spellable after somebody hears it once.",
-      "owner": "effective-product",
-      "covers": ["product-naming"]
+      "owner": "effective-product"
     },
     {
       "name": "replace-gamed-seat-pricing",
       "prompt": "Customers are gaming our per-seat pricing. Give me two or three value metrics with realistic billing scenarios and a migration path.",
-      "owner": "effective-product",
-      "covers": ["pricing-and-packaging"]
+      "owner": "effective-product"
     },
     {
       "name": "record-durable-decision",
       "prompt": "Record why we chose usage-based pricing over seats, which options we rejected, and what would reopen the decision.",
-      "owner": "effective-product",
-      "covers": ["decision-records"]
+      "owner": "effective-product"
     },
     {
       "name": "record-intuition-without-promoting-it",
       "prompt": "Our experienced founder's intuition conflicts with the explicit evidence for this hard-to-reverse platform choice. Record the durable decision without erasing either input or pretending intuition is proof.",
-      "owner": "effective-product",
-      "covers": []
+      "owner": "effective-product"
     },
     {
       "name": "fix-dashboard-accessibility",
       "prompt": "Audit this dashboard for accessibility and responsive problems, fix the highest-impact ones, and verify the result in the browser.",
-      "owner": "effective-web",
-      "covers": []
+      "owner": "effective-web"
     },
     {
       "name": "specify-reference-motion",
       "prompt": "Reverse-engineer the scroll motion and responsive behavior of this reference site into a specification we can implement.",
-      "owner": "effective-web",
-      "covers": ["reference-analysis"]
+      "owner": "effective-web"
     },
     {
       "name": "audit-page-against-references",
       "prompt": "Our new landing page is finished. Check it against the reference sites we drew from and tell me whether anything is too close.",
-      "owner": "effective-web",
-      "covers": ["originality-review"]
+      "owner": "effective-web"
     },
     {
       "name": "scope-jurisdiction-disclosures",
       "prompt": "We sell to Germany and California. Which operator disclosures, privacy notices, and consent requirements apply to our site?",
-      "owner": "effective-web",
-      "covers": ["web-legal-compliance"]
+      "owner": "effective-web"
     },
     {
       "name": "scope-marketing-endorsement-disclosures",
       "prompt": "Audit the testimonials, affiliate links, influencer endorsements, and marketing claims on this website and identify the disclosures the browser experience needs.",
-      "owner": "effective-web",
-      "covers": []
+      "owner": "effective-web"
     },
     {
       "name": "decide-service-boundary",
       "prompt": "Should billing stay inside the monolith or become its own service? Argue from our actual load, ownership, and failure consequences.",
-      "owner": "effective-engineering",
-      "covers": ["software-architecture"]
+      "owner": "effective-engineering"
     },
     {
       "name": "choose-strategic-control-boundary",
       "prompt": "Decide whether this mission-critical billing capability should be built in-house, based on open source, bought as a managed service, or vertically integrated. Identify what we actually need to control and the exit path.",
-      "owner": "effective-engineering",
-      "covers": []
+      "owner": "effective-engineering"
     },
     {
       "name": "fix-conflicting-status-writes",
       "prompt": "Two services write the same order status and customers sometimes see it move backwards. Decide the ownership and consistency contract.",
-      "owner": "effective-engineering",
-      "covers": ["data-systems"]
+      "owner": "effective-engineering"
     },
     {
       "name": "replace-unsound-type-cast",
       "prompt": "This `as unknown as T` cast is holding a boundary together. Replace it with a narrowing that actually proves the type, or tell me why it cannot be done.",
-      "owner": "effective-engineering",
-      "covers": ["typescript-engineering"]
+      "owner": "effective-engineering"
     },
     {
       "name": "review-rust-public-api",
       "prompt": "Review this crate's public API before 1.0. I care about lifetimes leaking internals and panic paths I have not documented.",
-      "owner": "effective-engineering",
-      "covers": ["rust-engineering"]
+      "owner": "effective-engineering"
     },
     {
       "name": "write-discriminating-regression-test",
       "prompt": "Add a regression test for this bug fix and show me that it actually fails against the old behavior.",
-      "owner": "effective-engineering",
-      "covers": ["software-testing"]
+      "owner": "effective-engineering"
     },
     {
       "name": "coordinate-vague-bug-report",
       "prompt": "Take this vague bug report through diagnosis, an authorized fix, focused verification, and a review-ready handoff.",
-      "owner": "effective-delivery",
-      "covers": ["effective-workflow"]
+      "owner": "effective-delivery"
     },
     {
       "name": "coordinate-ai-generated-production-code",
       "prompt": "Have agents implement this high-impact production change, but keep architecture, data, security, compatibility, and acceptance decisions accountable and verify the generated result independently.",
-      "owner": "effective-delivery",
-      "covers": []
+      "owner": "effective-delivery"
     },
     {
       "name": "rank-repository-improvements",
       "prompt": "Audit this repository and rank the five highest-leverage improvements with the evidence for each.",
-      "owner": "effective-delivery",
-      "covers": ["codebase-improvement"]
+      "owner": "effective-delivery"
     },
     {
       "name": "diagnose-repeated-agent-divergence",
       "prompt": "Three capable agents implemented the same authorization rule differently. Diagnose which repository contract, example, ownership boundary, decision, or test is missing before changing the prompt.",
-      "owner": "effective-delivery",
-      "covers": []
+      "owner": "effective-delivery"
     },
     {
       "name": "port-library-preserving-behavior",
       "prompt": "Rewrite this C library in Rust while preserving its public API and error semantics, and prove nothing changed behaviorally.",
-      "owner": "effective-delivery",
-      "covers": ["port-codebases"]
+      "owner": "effective-delivery"
     },
     {
       "name": "work-the-review-queue",
       "prompt": "Catch up on my review queue: check the open pull requests, decide what is merge-ready, and leave the reviews.",
-      "owner": "effective-delivery",
-      "covers": ["pr-review"]
+      "owner": "effective-delivery"
     },
     {
       "name": "prepare-dependency-portfolio",
       "prompt": "Research our outdated packages, group the compatible upgrades, and prepare focused dependency pull requests.",
-      "owner": "effective-delivery",
-      "covers": ["smart-dependency-updater"]
+      "owner": "effective-delivery"
     },
     {
       "name": "run-established-checks",
       "prompt": "Run this repository's existing typecheck, lint, and test commands against my branch and report exactly what passed or failed.",
-      "owner": "effective-delivery",
-      "covers": ["software-validation"]
+      "owner": "effective-delivery"
     },
     {
       "name": "write-migration-notes",
       "prompt": "Write the migration notes for this breaking API change, derived from the actual implementation and tests rather than the changelog.",
-      "owner": "effective-delivery",
-      "covers": ["tech-docs"]
+      "owner": "effective-delivery"
     },
     {
       "name": "diagnose-deploy-ownership",
       "prompt": "Two teams both think they own deploys and nothing ships on Fridays. Diagnose the system before proposing a reorganization.",
-      "owner": "effective-delivery",
-      "covers": ["engineering-management"]
+      "owner": "effective-delivery"
     },
     {
       "name": "operate-unspecified-issue-queue",
       "prompt": "Work through my unassigned issue queue one item at a time, keep the resulting pull requests review-ready, and do not merge them.",
-      "owner": "effective-delivery",
-      "covers": ["issue-autopilot"]
+      "owner": "effective-delivery"
     },
     {
       "name": "draft-article-from-notes",
       "prompt": "Turn these workshop notes into a 1,500-word article for product leaders. Make a clear argument and preserve my direct voice.",
-      "owner": "effective-writing",
-      "covers": ["nonfiction-writing"]
+      "owner": "effective-writing"
     },
     {
       "name": "audit-formulaic-prose",
       "prompt": "Audit this draft for formulaic, AI-sounding patterns. Quote the evidence, do not rewrite it, and do not guess who wrote it.",
-      "owner": "effective-writing",
-      "covers": []
+      "owner": "effective-writing"
     },
     {
       "name": "humanize-team-update",
       "prompt": "Rewrite this stiff German status note as a Slack update that sounds like a teammate wrote it, not a press release.",
-      "owner": "effective-writing",
-      "covers": ["metro-english"]
+      "owner": "effective-writing"
     },
     {
       "name": "correct-german-typography",
       "prompt": "Our German interface strings use straight quotes and English dash spacing. Correct the typography to match de-DE conventions without touching the keys.",
-      "owner": "effective-writing",
-      "covers": ["locale-typography"]
+      "owner": "effective-writing"
     },
     {
       "name": "choose-segment-and-position",
       "prompt": "Choose our target segment and category position from this evidence, then build the message hierarchy and name the proof gaps.",
-      "owner": "effective-marketing",
-      "covers": ["product-marketing"]
+      "owner": "effective-marketing"
     },
     {
       "name": "select-distribution-motion",
       "prompt": "Choose whether this offer needs founder-led sales, partners, content, paid acquisition, product-led growth, or high-touch delivery from its economics, trust, support load, and access advantages. Diagnose whether more feature work is avoiding the distribution constraint.",
-      "owner": "effective-marketing",
-      "covers": []
+      "owner": "effective-marketing"
     },
     {
       "name": "write-homepage-hero",
       "prompt": "Write a homepage hero headline, subheadline, and primary call to action from our approved positioning and proof pack.",
-      "owner": "effective-marketing",
-      "covers": ["marketing-writing"]
+      "owner": "effective-marketing"
     },
     {
       "name": "diagnose-checkout-dropoff",
       "prompt": "Signup drops 60% between the plan page and checkout. Diagnose it before proposing a test, and tell me if this is even an A/B test question.",
-      "owner": "effective-marketing",
-      "covers": ["conversion-optimization"]
+      "owner": "effective-marketing"
     },
     {
       "name": "adapt-writeup-for-social",
       "prompt": "Turn this migration write-up into posts for Mastodon and Bluesky without letting the social version claim more than the source supports.",
-      "owner": "effective-marketing",
-      "covers": ["create-social-content"]
+      "owner": "effective-marketing"
     },
     {
       "name": "write-single-linkedin-post",
       "prompt": "Write one LinkedIn post from these migration lessons for an engineering-leadership audience.",
-      "owner": "effective-marketing",
-      "covers": ["linkedin-posts"]
+      "owner": "effective-marketing"
     },
     {
       "name": "build-linkedin-pipeline",
       "prompt": "Build a LinkedIn acquisition system connecting positioning, profile, target accounts, outreach conversations, and qualified meetings.",
-      "owner": "effective-marketing",
-      "covers": ["linkedin-social-selling"]
+      "owner": "effective-marketing"
     },
     {
       "name": "audit-consultant-profile",
       "prompt": "Audit my consultant CV. What is my professional thesis, which projects should be signature, and what evidence is still missing?",
-      "owner": "effective-marketing",
-      "covers": ["consultant-profile"]
+      "owner": "effective-marketing"
     },
     {
       "name": "boundary-research-versus-messaging",
       "prompt": "Interview our lost deals about why they chose a competitor and synthesize what we learn.",
-      "owner": "effective-product",
-      "covers": []
+      "owner": "effective-product"
     },
     {
       "name": "boundary-test-design-versus-check-execution",
       "prompt": "Make sure this authorization rule is covered. Write the focused test that protects it.",
-      "owner": "effective-engineering",
-      "covers": []
+      "owner": "effective-engineering"
     },
     {
       "name": "boundary-pr-review-versus-api-review",
       "prompt": "Review pull request 184 and decide whether it is safe to merge.",
-      "owner": "effective-delivery",
-      "covers": []
+      "owner": "effective-delivery"
     },
     {
       "name": "boundary-editorial-versus-commercial-prose",
       "prompt": "Write a long-form essay explaining the architectural bet behind our new release for a technical audience.",
-      "owner": "effective-writing",
-      "covers": []
+      "owner": "effective-writing"
     },
     {
       "name": "control-general-knowledge",
       "prompt": "Explain the difference between TCP and UDP.",
-      "owner": "none",
-      "covers": []
+      "owner": "none"
     },
     {
       "name": "control-spreadsheet-task",
       "prompt": "Convert this CSV of sales figures into a pivot table and tell me which region grew fastest.",
-      "owner": "none",
-      "covers": []
+      "owner": "none"
     },
     {
       "name": "control-scheduling",
       "prompt": "What time is it in Tokyo right now, and is that a reasonable hour to call?",
-      "owner": "none",
-      "covers": []
+      "owner": "none"
     }
   ]
 }

@@ -29,9 +29,11 @@ explicitly selected and approved. Review selected skills before granting the
 source-qualified approval.
 
 If you pinned a pre-consolidation slug such as `pr-review` or
-`nonfiction-writing`, that selection still resolves to a deprecation stub for
-one release window. Re-pin it to the discipline that absorbed it using
-[MIGRATION.md](../MIGRATION.md), then drop the old selection.
+`nonfiction-writing`, it no longer exists upstream. DALO preserves the current
+catalog pin during `sync`; `dalo source refresh sebastian --check` reports the
+selection as `selected_removed` instead of silently advancing it. Re-pin the
+selection to the discipline that absorbed it using
+[MIGRATION.md](../MIGRATION.md), then sync again.
 
 ## Sync and Review
 

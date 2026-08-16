@@ -78,14 +78,15 @@ dalo approve skill sebastian:effective-delivery
 dalo sync
 ```
 
-**If you did not pin anything**, nothing breaks. Old slugs remain installable
-for one release window as deprecation stubs: each keeps its original frontmatter
-so existing triggers still resolve, and its body redirects to the discipline
-that absorbed it. The stubs contain no guidance.
+**If you did not pin anything**, nothing breaks: new discovery sees the six
+disciplines directly.
 
-**Stub sunset:** 2026-10-31, or one release cycle after the consolidation
-release, whichever is later. The registry lives in
-[`docs/deprecated-skills.json`](docs/deprecated-skills.json).
+**If you pinned an old slug**, re-pin it now. The 33 compatibility stubs and
+their registry were removed on 2026-08-16 after the six-discipline release had
+settled. New installs cannot select an old name. DALO preserves an existing
+catalog pin and reports the removed selection as `selected_removed` during
+`source refresh --check`; use the table above to choose the successor, update
+the selection, and run the manager's sync command again.
 
 ## Renamed reference files
 

@@ -8,7 +8,8 @@ claim that every scenario has been executed on every model.
 > consolidation recorded in [ADR 0004](adr/0004-effective-disciplines.md). The
 > skill names in its tables — `effective-workflow`, `software-validation`,
 > `software-testing`, `linkedin-posts`, `linkedin-social-selling`, and
-> `web-legal-compliance` — are now deprecation stubs; see
+> `web-legal-compliance` — were compatibility stubs until their removal on
+> 2026-08-16; see
 > [MIGRATION.md](../MIGRATION.md). The record is kept unedited because its
 > method and findings remain the reference for how a GPT runtime is exercised.
 > The equivalent review for the new layout is recorded in
