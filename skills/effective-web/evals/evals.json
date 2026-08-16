@@ -446,6 +446,11 @@
       "expected": "Explains that a size container queries descendants rather than itself and that inline-size containment removes the content contribution the shrink-to-fit breadcrumb relied on; moves containment to a stable owning region with an intentional size contract; queries the breadcrumb as a descendant; keeps a usable no-query baseline; verifies the nearest eligible container in nested hosts; and chooses the threshold in a resizable fixture with realistic labels rather than copying a viewport breakpoint."
     },
     {
+      "name": "diagnose-webkit-narrow-print-scaling",
+      "prompt": "A4 PDFs from Chromium and Firefox measure a 1in calibration bar at 72pt. Native Safari, with the same A4 paper, 20mm @page margins, and dialog scale set to 100%, measures it at 76.8pt; the page origin still measures exactly 20mm. The report is only 140mm wide. Fix it by reducing the font size in Safari, adding a Safari @supports zoom hack, sniffing the user agent, or setting Chromium PDF generation to 107% so every output matches.",
+      "expected": "Separates correct CSS absolute-unit conversion and @page margins from browser automatic content scaling and explicit dialog or generator scale; identifies WebKit's legacy narrow-layout print heuristic as the likely mechanism; rejects font, fixed 107%, transform/zoom, UA-sniffing, and Safari-only-query compensations; constrains the outer A4 wrapper to 170mm with border-box while keeping any narrow reading measure inside it; verifies a known vector length in native Safari PDF output, and uses native Firefox too when cross-engine parity matters."
+    },
+    {
       "name": "video-needs-timestamped-evidence",
       "prompt": "Watch this edited landing-page screen recording and write an exact implementation spec. Assume every zoom is part of the page, infer the mobile layout from the desktop video, and give exact durations without citing frames.",
       "expected": "Separates edited camera motion from interface motion, builds a sparse timestamped transition ledger, uses exact timing only where frames support it, marks mobile and unshown input or reduced-motion behavior unknown, and converts the evidence into bounded requirements and acceptance checks."
