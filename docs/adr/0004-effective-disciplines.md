@@ -3,7 +3,6 @@
 - Status: Accepted
 - Date: 2026-07-31
 - Amended: 2026-08-16 — compatibility stubs removed early in issue #217
-- Execution plan: [RFC 0001](../rfc/0001-effective-disciplines.md)
 - Migration table: [MIGRATION.md](../../MIGRATION.md)
 
 ## Context
@@ -52,28 +51,26 @@ and the routed `effective-web` architecture:
 4. Language depth is a route inside `effective-engineering`, not a standalone
    skill. This also avoids colliding with the "Effective TypeScript" and
    "Effective C++" book titles that are the cultural source of the pattern.
-5. Old slugs remain installable for one release window as deprecation stubs
-   registered in `docs/deprecated-skills.json`. Each keeps its original
-   frontmatter so existing selections and triggers still resolve, carries a
-   redirect body and nothing else, and is exempt from the full skill anatomy,
-   the root README inventory, and site card parity.
+5. To preserve existing selections during the transition, old slugs remained
+   installable for one release window as redirect-only compatibility stubs.
+   They kept their original frontmatter but no guidance and were excluded from
+   the published inventory.
 
 The transition in item 5 ended on 2026-08-16. All 33 stub directories and the
 registry were removed; only the six disciplines remain installable.
 
-### Deviations from the RFC
+### Execution Outcome
 
 - Four routes were split rather than registered as context exceptions, because
   their pooled references exceeded the 900-line route budget: consultant profile
   into three, Rust into four, PR review into two, and testing into testing plus
-  benchmarks. `issue-autopilot`, added after this RFC was accepted, became the
-  tenth Effective Delivery route when the migration branch caught up with
+  benchmarks. `issue-autopilot`, added after the decision was accepted, became
+  the tenth Effective Delivery route when the migration branch caught up with
   `main`. Total routes: 74 rather than the projected 69.
 - LinkedIn social-selling references took the `linkedin-` prefix alongside the
   LinkedIn post references, and locale-typography references took a `locale-`
   prefix, because their original names (`content-system.md`,
-  `implementation.md`, `german.md`) became ambiguous once pooled. The RFC's rule
-  5 already allows this.
+  `implementation.md`, `german.md`) became ambiguous once pooled.
 - Where several routes shared one contract, that contract became one shared
   reference rather than being repeated per route:
   `product-decision-contract.md`, `design-inquiry-contract.md`,
@@ -141,66 +138,46 @@ names no longer resolve through aliases or redirect-only directories.
 
 ## Behavioral Evidence
 
-The six descriptions were reviewed blind against the routing matrix: an agent
-received only the six frontmatter descriptions and the 41 prompts in shuffled
-order — no case names, no expected owners, no route tables — and picked one
-skill per request or `none`.
+The decision was tested at three levels because each establishes something
+different:
 
-Runtime: Claude Code subagents, provider-default sampling, models
-`claude-opus-5`, `claude-sonnet-5`, and `claude-haiku-4-5-20251001`.
-Regenerate the input with `scripts/build-routing-review-input.py`.
+1. `docs/activation-matrix.json` is the static ownership contract. CI checks
+   its shape and coverage but does not claim model correctness.
+2. A blind classifier receives only the published descriptions and shuffled
+   requests. It is useful for finding ambiguous boundaries, but it is a proxy
+   for host selection rather than activation proof.
+3. Installed-catalog activation runs each request in a fresh, read-only host
+   session. A skill counts as activated only when the trace shows its complete
+   `SKILL.md` being loaded; mentioning a skill name is insufficient.
 
-The recorded Claude rounds cover the original 41 prompts. A later
-[GPT installed-catalog review](../model-evaluation-2026-08-13.md) covers the
-current 49-case matrix, including Issue Queue Autopilot, the preservation cases,
-and the transition-period deprecation stubs. A post-sunset review uses only the
-six-discipline catalog.
+The reviews found three durable defects or constraints:
 
-The 2026-08-16 post-sunset blind classifier review ran all 49 cases against the
-six descriptions with Codex CLI 0.147.0. `gpt-5.6-terra` scored 49/49;
-`gpt-5.6-sol` scored 48/49, routing the German interface-typography case to
-`effective-web` instead of `effective-writing`. The mismatch is a remaining
-browser-surface versus visible-prose boundary to watch, not evidence that an
-absorbed intent disappeared with its old slug.
+- Trimming `effective-product` removed the fieldwork terms “win/loss” and
+  “churn interviews”, causing research requests to route to marketing. The
+  terms and reverse handoff were restored.
+- A request to rewrite a C library in Rust was initially read as Rust depth
+  rather than a behavior-preserving port. The delivery description now names
+  cross-language rewrites explicitly.
+- Installed-catalog runs showed that a host may truncate descriptions and may
+  answer a clarification request before loading a skill. Important triggers
+  therefore belong early in the description, but invocation cannot be forced
+  reliably through copy changes alone.
 
-| Round | Descriptions under test | Opus 5 | Sonnet 5 | Haiku 4.5 |
-| --- | --- | --- | --- | --- |
-| 1 | as first written | 40/41 | 40/41 | 41/41 |
-| 2 | after the research fix | 41/41 | 41/41 | 40/41 |
-| 3 | after the port fix | not run | 41/41 | 41/41 |
+The post-sunset blind review retained all 49 routing cases. One model classified
+all cases as intended; another disagreed only on German interface typography,
+choosing `effective-web` instead of `effective-writing`. That browser-surface
+versus visible-prose boundary remains a review trigger.
 
-Round 1 found a real defect. `effective-product` lost the words "win/loss" and
-"churn interviews" while its description was trimmed under the 1024-character
-limit, and `effective-marketing` kept "win/loss and adoption learning". Two of
-three models therefore routed "interview our lost deals and synthesize what we
-learn" to marketing — the exact boundary this ADR's alternatives section calls
-structural. The fix restores the fieldwork verbs to `effective-product` and adds
-an explicit reverse handoff to `effective-marketing`.
-
-Round 2's single miss was a weaker model reading "rewrite this C library in
-Rust" as Rust work rather than as a behavior-preserving port. The wording now
-names rewriting an existing library in another language; round 3 confirms it.
-
-What these Claude rounds alone do not establish:
-
-- The runs use a subagent as a proxy for a host's skill-selection step, not the
-  real mechanism. `docs/model-evaluation-2026-07-29.md` used a stronger method
-  for the previous layout — fresh ephemeral Codex sessions against the actually
-  installed catalog, recording which skills' full instructions were invoked.
-  This review does not meet that bar.
-- They do not exercise a GPT runtime or the installed catalog. The follow-up
-  review does both and records a cumulative 48/49 result across its baseline
-  round and two targeted post-change reruns, one remaining clarification-only
-  miss, and the actual description truncation.
-
-It is evidence about description discrimination, not proof of production
-activation.
+Raw run logs, per-model pick tables, transient catalog snapshots, and cumulative
+scores are evaluation artifacts rather than architecture decisions. Keep them
+with the pull request that produces them. The durable procedure lives in
+[Reviewing Skill Behavior](../review-scenarios.md).
 
 ### Description context budget
 
-The previous evaluation recorded Codex shortening descriptions once the
-installed catalog exceeded its 2% description context budget. The consolidation
-improves that materially after sunset and worsens it during the window:
+Installed-catalog review observed Codex shortening descriptions once the
+catalog exceeded its 2% description context budget. The transition catalog made
+that problem worse; the post-sunset catalog is materially smaller:
 
 | State | Skills | Description bytes | Versus before |
 | --- | --- | --- | --- |
@@ -208,12 +185,11 @@ improves that materially after sunset and worsens it during the window:
 | 6 disciplines, after sunset | 6 | 5,801 | 27% |
 | 6 disciplines plus 33 stubs | 39 | 26,811 | 126% |
 
-During the transition, keeping the stubs' original descriptions verbatim was
-what made existing
-triggers resolve, and it is also what pushes the catalog 26% past its previous
-size. A host that truncates on that budget will truncate more during the
-deprecation window than it did before. Completing the sunset restores the
-current catalog to 5,801 description bytes, 27% of the pre-consolidation size.
+During the transition, keeping the stubs' original descriptions verbatim made
+existing triggers resolve and pushed the catalog 26% past its previous size. A
+host that truncated on that budget therefore exposed less of each successor
+description. Completing the sunset restored the catalog to 5,801 description
+bytes, 27% of the pre-consolidation size.
 
 ## Validation and Review Triggers
 
@@ -226,12 +202,6 @@ Re-run the blind routing review whenever a description changes or a discipline
 gains a route that shifts a boundary. The stub-removal trigger was satisfied on
 2026-08-16 as part of issue #217.
 
-Revisit when: a discipline's routes still mirror old skill boundaries rather
-than user intent after real use; or a harness truncates a discipline
-description, which would
-force shorter triggers ahead of the planned Phase 2 content re-slicing.
-
-Phase 2 remains out of scope here: unifying `rust-testing.md` with the Rust
-quality references, regraining routes, deduplicating voice and prose guidance
-between the PR review voice and `effective-writing`, and tightening descriptions
-from eval telemetry.
+Revisit when real use shows that a discipline's routes still mirror old skill
+boundaries rather than user intent, or when a host truncates a current
+description enough to change activation.

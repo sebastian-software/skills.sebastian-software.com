@@ -7,8 +7,7 @@ discipline skills that share one naming grammar and one internal architecture.
 No guidance was deleted. Every absorbed `SKILL.md` body became a route reference
 inside its discipline, and every `references/` file moved with it.
 
-The rationale and execution plan are in
-[RFC 0001](docs/rfc/0001-effective-disciplines.md); the accepted decision is
+The rationale, alternatives, execution outcome, and lasting review triggers are
 recorded in [ADR 0004](docs/adr/0004-effective-disciplines.md).
 
 ## The six disciplines
