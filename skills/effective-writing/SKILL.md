@@ -2,14 +2,16 @@
 name: effective-writing
 description: >-
   Plan, write, revise, and critique nonfiction prose from supplied ideas and
-  evidence: articles, essays, newsletters, thought leadership, engineering blog
-  posts, technical articles, case studies, About pages, product descriptions,
-  and long-form homepage prose; evidence-based audits of formulaic,
+  evidence. Use even when source text or notes are missing; ask for them first.
+  Covers articles, essays, newsletters, thought
+  leadership, engineering blog posts, technical articles, case studies, About
+  pages, product descriptions, and long-form homepage prose; evidence-based
+  audits of formulaic,
   AI-sounding text without authorship claims; relaxed US metropolitan team
   English for Slack threads, issue comments, PR notes, and async updates; and
   locale-appropriate typography in visible prose for German, English, French,
-  and ten further European languages. Use to turn notes into a draft, improve
-  structure, clarity, voice, and rhythm, audit or humanize prose, turn stiff or
+  and ten further European languages. Use to improve structure, clarity, voice,
+  and rhythm, audit or humanize prose, turn stiff or
   German text into natural team English, or fix quotation marks, punctuation,
   spacing, numbers, dates, and hyphenation for a locale. Do not invent facts,
   statistics, or quotations. Route market positioning and claims to
