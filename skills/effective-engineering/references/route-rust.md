@@ -26,8 +26,8 @@ here, then load only the one the task needs.
    control flow.
 5. Read [Errors and concurrency](rust-errors-and-concurrency.md) when the change
    can fail, panic, spawn work, block, hold a lock, or be cancelled.
-6. Read [Quality and review](rust-quality-and-review.md) before declaring the
-   change ready.
+6. Read [Quality, review, and test evidence](rust-quality-and-review.md) before
+   declaring the change ready.
 
 Then take the sibling route that matches the work:
 
