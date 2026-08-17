@@ -55,20 +55,24 @@ the source but does not activate them during source registration, skill
 selection, approval, sync, or refresh.
 
 With a DALO version that supports source-backed instruction packs, inspect the
-available pack and explicitly enable it for the verified target files where it
-should apply:
+available packs and explicitly enable the ones that should apply to each
+verified target:
 
 ```sh
 dalo instructions enable sebastian:request-and-completion --target codex --target claude
+dalo instructions enable sebastian:documentation-truth --target codex --target claude
 dalo instructions list
 dalo doctor
 ```
 
-`request-and-completion` then becomes a DALO-owned managed block in Codex's and
-Claude's user-level instruction files. Content outside that block remains
-user-owned. The activation is source- and commit-bound; source drift requires
-review and explicit re-enablement rather than silently changing standing
-behavior.
+`request-and-completion` governs authority, autonomy, and terminal-state
+behavior. `documentation-truth` prevents prose shadows of code while preserving
+the distinct authority of requirements, decisions, domain language, runbooks,
+and verification evidence. Each enabled pack becomes a separate DALO-owned
+managed block in Codex's and Claude's user-level instruction files. Content
+outside those blocks remains user-owned. Activation is source- and commit-bound;
+source drift requires review and explicit re-enablement rather than silently
+changing standing behavior.
 
 Use an explicit file target when a DALO release or another agent does not yet
 provide a verified logical target mapping. Do not copy the pack into a project

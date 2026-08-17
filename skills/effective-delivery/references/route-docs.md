@@ -12,9 +12,11 @@ docs system.
    contribution guidance, terminology, language, implementation, tests, and
    repository-native validation commands relevant to the requested surface.
 2. Define the documentation job: audience, task or decision, entry point,
-   prerequisites, expected result, likely failure paths, and the interface or
-   behavior that is the source of truth. Ask only for gaps that cannot be
-   resolved from the repository.
+   prerequisites, expected result, likely failure paths, and the artifact that
+   owns each material claim. Ask only for gaps that cannot be resolved from the
+   repository. Do not assume every claim has the same kind of owner: code may
+   own executed behavior while requirements, decisions, domain language, or
+   operational recovery have separate authoritative surfaces.
 3. Choose the narrowest owning surface and read its reference:
    - README, setup, task, conceptual, or contributor guide: read
      [Guides and READMEs](guides-and-readmes.md).
@@ -41,6 +43,28 @@ docs system.
 6. Report the reader-facing improvement, files changed, checks run, and any
    remaining evidence gap or intentional limitation.
 
+## Prevent Documentation Creep
+
+Make a document earn its maintenance cost before adding it. Name the reader job
+it enables, find the existing owner of every material claim, and identify what
+the new surface contributes that the owner cannot: navigation, rationale,
+domain language, task sequence, safety, recovery, or required traceability. If
+none remains, improve or expose the owning artifact instead of adding prose.
+
+Avoid a Markdown shadow of the repository that restates modules, classes,
+functions, flags, defaults, or control flow for agents. Such a layer is not
+executable, usually cannot be tested against the implementation, consumes
+context, and becomes a competing source of truth. Prefer clear names and
+boundaries, types, schemas, generated help, tests, executable examples, and a
+short link-oriented repository map.
+
+For existing documentation, compare claims with their owners and classify each
+surface as keep, link, generate, move, update, or remove. Preserve concise
+onboarding, accepted rationale, requirements and traceability, domain
+definitions, safety contracts, runbooks, migrations, and recovery knowledge
+that code cannot own. Remove or supersede conflicting copies only under change
+authority; a read-only audit reports the smallest credible correction instead.
+
 ## Operating Rules
 
 - Preserve established language, terminology, information architecture,
@@ -57,6 +81,9 @@ docs system.
   review.
 - Prefer task completion and progressive disclosure over exhaustive prose.
   Keep quick-start material short and route advanced concerns to focused pages.
+- Link to or generate from an owning artifact instead of copying it. When a
+  necessary summary duplicates volatile facts, keep the duplication narrow and
+  use an established check or explicit change trigger to detect drift.
 - Document contracts, constraints, side effects, failure behavior, recovery,
   and non-obvious rationale. Do not paraphrase signatures or narrate obvious
   code merely to increase coverage.
