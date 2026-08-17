@@ -8,7 +8,7 @@
 need to do dependable product and software work.**
 
 Six disciplines, one quality bar:
-6 practice-built skills, 332 focused references, and 1 optional instruction pack
+6 practice-built skills, 333 focused references, and 1 optional instruction pack
 covering product decisions and research, browser experiences, software
 architecture and code, repository and team delivery, nonfiction prose, and
 go-to-market work, plus a standing request-and-completion contract that can be

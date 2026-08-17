@@ -3,7 +3,8 @@
 Turn a real idea, source, experience, or result into platform-native social
 content without inventing authority or flattening every channel into the same
 post. Covers X or Twitter, Threads, Bluesky, Instagram, Mastodon, and
-unspecified or multi-platform assignments.
+unspecified or multi-platform assignments, including bounded content programs
+and platform-strategy updates.
 
 For a LinkedIn-only post request, use **LinkedIn posts**
 instead. For a multi-platform set that includes LinkedIn, keep the shared idea,
@@ -35,6 +36,10 @@ evidence, and voice brief here and hand the LinkedIn expression to that route.
    request that depends on current platform behavior or exact limits. Treat
    platform mechanics as volatile and verify current official guidance before
    making an exact requirement consequential.
+   Read [X strategy playbook](x-strategy-playbook.md) for an X or Twitter
+   content strategy, cadence decision, algorithm-claim review, AI-assisted
+   content program, or update to an existing X playbook. Do not load the full
+   snapshot merely to draft one post when current mechanics are immaterial.
 5. Search available content history before claiming novelty. Search narrowly
    for the subject, hook, claim, anecdote, proof point, resource combination,
    and ending. A repeated belief is acceptable only when the new piece adds
@@ -75,6 +80,9 @@ evidence, and voice brief here and hand the LinkedIn expression to that route.
 - Prefer a concrete mechanism or example over a generic hook. Do not add
   outrage, false certainty, fake urgency, or engagement bait to compensate for
   thin source material.
+- Keep durable strategy, current code-backed mechanics, account observations,
+  tactical hypotheses, and superseded folklore distinguishable. A volatile
+  platform still benefits from a dated starting position.
 - Keep replies and comments proportional to the conversation. Do not turn every
   response into a miniature essay or unsolicited pitch.
 - Use calls to action only when the reader has an earned, relevant next step.

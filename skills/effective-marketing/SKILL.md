@@ -7,12 +7,14 @@ description: >-
   build-versus-distribution diagnoses, services-to-product scaling, and learning
   from gathered win/loss and adoption evidence; persuasive page, campaign,
   sales, and email copy; funnel diagnosis, conversion audits, and ethical
-  experiments; social and LinkedIn content and B2B acquisition systems; and
+  experiments; social strategy, X or Twitter and LinkedIn content, and B2B
+  acquisition systems; and
   consultant CVs, profiles, and bios. Use for positioning or claim reviews,
   launch or distribution plans,
-  services-to-product choices, funnel drop-off, A/B tests, social or LinkedIn
-  content, or profile positioning. Do not invent customer evidence, market
-  certainty, or differentiation. Route customer, buyer, win/loss, or churn
+  services-to-product choices, funnel drop-off, A/B tests, social strategy or
+  content, LinkedIn content, or profile positioning. Do not invent customer
+  evidence, market certainty, or differentiation. Route customer, buyer,
+  win/loss, or churn
   fieldwork to effective-product, long-form prose to effective-writing, and page
   implementation to effective-web.
 ---
@@ -61,7 +63,7 @@ Mark material gaps or work within them honestly.
 | Run win/loss or adoption analysis and decide whether the segment, position, message, or channel must change | [Market Learning](references/route-market-learning.md) |
 | Write or revise homepage, landing, product, service, pricing, campaign, launch, sales, or email copy, headlines, and calls to action | [Marketing Copywriting](references/route-copywriting.md) |
 | Diagnose funnel drop-off, design an ethical experiment, or judge a test result | [Conversion Optimization](references/route-conversion.md) |
-| Create posts, threads, replies, captions, or a series for X, Threads, Bluesky, Instagram, Mastodon, or several platforms | [Social Content](references/route-social.md) |
+| Plan a social content program or create posts, threads, replies, captions, or a series for X, Threads, Bluesky, Instagram, Mastodon, or several platforms | [Social Content](references/route-social.md) |
 | Find LinkedIn post ideas, write a LinkedIn post, or plan a LinkedIn content calendar | [LinkedIn Posts](references/route-linkedin-posts.md) |
 | Build a B2B LinkedIn acquisition system: profile strategy, networking, outreach, lead magnets, funnel, measurement | [LinkedIn Social Selling](references/route-linkedin-selling.md) |
 | Position a consultant CV, LinkedIn profile, bio, or project list; choose signature projects and structure | [Consultant Profile](references/route-profile.md) |

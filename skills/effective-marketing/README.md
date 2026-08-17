@@ -30,7 +30,7 @@ It replaces the former `product-marketing`, `marketing-writing`,
 | Market Learning | win/loss, adoption analysis, what changes the decision |
 | Marketing Copywriting | homepages, landing, product, pricing, campaign, sales, email |
 | Conversion Optimization | funnel diagnosis, experiment design, ship/stop decisions |
-| Social Content | X, Threads, Bluesky, Instagram, Mastodon, multi-platform |
+| Social Content | social programs; X, Threads, Bluesky, Instagram, Mastodon, multi-platform |
 | LinkedIn Posts | LinkedIn ideas, drafting, formats, content calendars |
 | LinkedIn Social Selling | profile-to-pipeline acquisition systems |
 | Consultant Profile | CVs, profiles, bios, signature projects, structure |
@@ -45,7 +45,8 @@ It replaces the former `product-marketing`, `marketing-writing`,
 - win/loss and adoption reviews that say what the market actually answered
 - homepage, landing, product, pricing, campaign, sales, and email copy
 - funnel diagnoses, experiment designs, and ship, iterate, or stop decisions
-- platform-native social content that adapts rather than truncates
+- platform-native social content and evidence-labelled X strategies that can
+  be updated without starting from zero
 - LinkedIn posts, calendars, and end-to-end social-selling systems
 - consultant profiles that sell a thesis instead of listing a career
 - interview plans that close the evidence gaps a profile still has
@@ -75,6 +76,10 @@ and every constraint that keeps the claims true.
 
 Turn this migration write-up into posts for LinkedIn and Mastodon. Do not make
 the social version claim more than the source supports.
+
+Build a four-week X content strategy from this audience, offer, source material,
+and account baseline. Separate durable principles, current platform mechanics,
+and the hypotheses we should test.
 
 Audit my consultant profile. What is my thesis, which projects should be
 signature, and what evidence is still missing?
