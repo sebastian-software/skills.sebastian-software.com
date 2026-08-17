@@ -158,6 +158,11 @@
       "owner": "effective-writing"
     },
     {
+      "name": "pressure-test-minto-pyramid",
+      "prompt": "Minto this board memo before rewriting it: identify the reader's question and governing answer, then pressure-test every supporting group for MECE and logical order.",
+      "owner": "effective-writing"
+    },
+    {
       "name": "audit-formulaic-prose",
       "prompt": "Audit this draft for formulaic, AI-sounding patterns. Quote the evidence, do not rewrite it, and do not guess who wrote it.",
       "owner": "effective-writing"

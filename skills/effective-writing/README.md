@@ -34,6 +34,7 @@ mapping.
 ## What It Can Deliver
 
 - focused theses, outlines, leads, transitions, and endings
+- Minto pyramids, MECE logic audits, and actionable restructuring plans
 - complete articles, essays, newsletters, and explanatory pieces
 - technical articles and project pages with stable terminology and natural prose
 - thought leadership and content marketing with credible persuasive structure
@@ -60,6 +61,10 @@ clear argument, preserve my direct voice, and flag any proof we still need.
 
 Revise this essay for structure, rhythm, and clarity without flattening its
 personal tone or changing the facts.
+
+Minto this proposal before rewriting it. Extract the reader's question and
+governing point, test every grouping for summary, logical kind, order, and MECE,
+then give me an executable restructuring plan without inventing evidence.
 
 Audit this draft for formulaic or AI-sounding patterns. Quote the evidence and
 suggest the smallest useful fix, but do not rewrite it or guess who wrote it.
