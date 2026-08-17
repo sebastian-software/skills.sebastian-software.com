@@ -203,6 +203,11 @@
       "owner": "effective-marketing"
     },
     {
+      "name": "plan-evidence-led-x-strategy",
+      "prompt": "Build a starting X content strategy from our audience, product evidence, founder voice, and account analytics, then separate durable guidance from current platform hypotheses.",
+      "owner": "effective-marketing"
+    },
+    {
       "name": "write-single-linkedin-post",
       "prompt": "Write one LinkedIn post from these migration lessons for an engineering-leadership audience.",
       "owner": "effective-marketing"

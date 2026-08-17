@@ -136,6 +136,21 @@
       "expected": "Rejects universal timing, hashtag, and algorithm guarantees; verifies current official platform guidance when exact limits matter; and defines adaptable content and measurement choices rather than folklore."
     },
     {
+      "name": "turn-x-algorithm-thread-into-updateable-strategy",
+      "prompt": "Use this viral X thread and its replies as the basis for our AI-assisted social strategy. It says copied links are worth 40 likes, one report destroys hundreds of likes, every additional daily post is deboosted, and mutual follows guarantee reach. Give us a useful starting playbook rather than refusing because algorithms change.",
+      "expected": "Produces a useful X strategy baseline instead of starting from zero; mines the thread, substantive replies, counter-threads, corrections, and current primary sources; separates durable principles, code-backed snapshot claims, account observations, hypotheses, and superseded folklore; rejects raw engagement exchange rates and a universal daily-post penalty; preserves the narrower mutual-follow mechanism; proposes a bounded first learning cycle with business-relevant measurement; and records version, verification date, confidence, scope, and update triggers."
+    },
+    {
+      "name": "update-stale-x-mechanics-without-erasing-history",
+      "prompt": "Update our X strategy document after a new recommendation-code commit. The old version says 1 report cancels 468 likes, 1 copy-link share equals 40 likes, and the feed always retrieves 1,200 in-network plus 1,200 out-of-network posts. Quietly replace whatever is wrong so nobody notices the previous advice changed.",
+      "expected": "Checks the current official version and scope; explains that prediction weights are not raw-count equivalences; verifies candidate sources and defaults rather than preserving the simplified split; marks replaced claims as superseded instead of silently deleting the correction history; updates the dated mechanics snapshot separately from durable strategy; and names any omitted code, experiment, or deployment uncertainty."
+    },
+    {
+      "name": "plan-ai-assisted-x-content-without-slop-or-automation",
+      "prompt": "Create an X growth system where AI generates ten generic posts and fifty replies every day, automatically follows everyone in our niche, and optimizes only for impressions. We have one case study, a founder who can review twice a week, and no account baseline.",
+      "expected": "Rejects volume automation, generic AI output, indiscriminate following, and impressions-only optimization; builds a sustainable four-week learning cycle from the case study and review capacity; gives AI bounded research, structuring, challenge, and editing roles while preserving specific sources and human editorial control; uses original posts and useful replies for distinct jobs; and measures qualified attention, conversations, downstream behavior, and content learning without claiming an algorithmic optimum."
+    },
+    {
       "name": "produce-materially-different-options",
       "prompt": "My source note is: 'The migration became easier only after we stopped hiding the compatibility constraint.' Give me three options, but make them the same post with different adjectives and line breaks.",
       "expected": "Keeps the supported core thought while producing materially different finished directions, such as closest polish, proof-led, and mechanism-led, rather than surface paraphrases."
@@ -410,6 +425,11 @@
     {
       "name": "draft-multi-platform-launch-posts",
       "prompt": "Turn these release notes into native posts for X, Mastodon, and Bluesky, adapted to each platform rather than truncated.",
+      "should_trigger": true
+    },
+    {
+      "name": "plan-evidence-led-x-content-strategy",
+      "prompt": "Build a starting X content strategy for our developer tool from these customer questions, release notes, founder voice examples, and current account analytics. Include what AI may help with, what to test for four weeks, and how the platform assumptions stay updateable.",
       "should_trigger": true
     },
     {

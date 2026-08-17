@@ -27,6 +27,10 @@ For threads, make the opening establish the governing idea and let later parts
 advance it. For replies, respond to the conversation rather than rewriting the
 speaker's standalone-post voice at smaller scale.
 
+For an X content program, cadence choice, algorithm-claim review, or strategy
+update, use the dated [X strategy playbook](x-strategy-playbook.md). Keep its
+durable baseline separate from the volatile implementation snapshot.
+
 ### Threads
 
 Use conversational context and natural continuity when they help. A post can
