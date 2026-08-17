@@ -8,13 +8,13 @@
     <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#14161d">
     <meta
       name="description"
-      content="Open-source skills that give AI agents practical judgment for dependable product, web, software delivery, and professional communication work."
+      content="Open-source skills and optional instruction packs that give AI agents practical judgment for dependable product and software work."
     >
     <meta property="og:type" content="website">
     <meta property="og:title" content="Sebastian Software Skills — Practical judgment for AI agents">
     <meta
       property="og:description"
-      content="6 practice-built skills and 333 focused references for dependable product, web, data systems, software delivery, engineering leadership, marketing, and professional communication work."
+      content="6 practice-built skills, 333 focused references, and 1 optional instruction pack for dependable product and software work."
     >
     <meta property="og:url" content="https://skills.sebastian-software.com/">
     <meta property="og:site_name" content="Sebastian Software Skills">
@@ -32,7 +32,7 @@
     <meta name="twitter:title" content="Sebastian Software Skills — Practical judgment for AI agents">
     <meta
       name="twitter:description"
-      content="6 practice-built skills and 333 focused references for dependable product, web, data systems, software delivery, engineering leadership, marketing, and professional communication work."
+      content="6 practice-built skills, 333 focused references, and 1 optional instruction pack for dependable product and software work."
     >
     <meta
       name="twitter:image"
@@ -56,7 +56,7 @@
         "@type": "CollectionPage",
         "name": "Sebastian Software Skills",
         "url": "https://skills.sebastian-software.com/",
-        "description": "Open-source skills that give AI agents practical judgment for dependable product, web, software delivery, and professional communication work.",
+        "description": "Open-source skills and optional instruction packs that give AI agents practical judgment for dependable product and software work.",
         "isPartOf": {
           "@type": "WebSite",
           "name": "Sebastian Software Open Source",
@@ -124,6 +124,7 @@
           <a href="#use-cases">Find a skill</a>
           <a href="#system">How they connect</a>
           <a href="#library">Skills</a>
+          <a href="#instructions">Instructions</a>
           <a href="#principles">Why these skills</a>
           <a href="#install">Install</a>
         </nav>
@@ -143,16 +144,16 @@
         <div class="hero-backdrop" aria-hidden="true"></div>
         <div class="shell hero-grid">
           <div class="hero-copy reveal">
-            <p class="eyebrow"><span>Open source</span> · First-party agent skills</p>
+            <p class="eyebrow"><span>Open source</span> · First-party agent guidance</p>
             <h1 id="hero-title">Give capable agents better <em>judgment.</em></h1>
             <p class="hero-intro">
-              Install focused workflows for the parts models tend to gloss over:
-              missing evidence, specialist tradeoffs, authority boundaries, and the
-              checks that make a result ready for review.
+              Install focused workflows and optional standing conventions for the
+              parts models tend to gloss over: missing evidence, specialist tradeoffs,
+              authority boundaries, and the checks that make a result ready for review.
             </p>
             <div class="hero-actions">
               <a class="button button-primary" href="#use-cases">Find the right discipline</a>
-              <a class="button button-secondary" href="#install">Install one discipline</a>
+              <a class="button button-secondary" href="#install">Install guidance</a>
             </div>
             <dl class="proof-row" aria-label="Collection facts">
               <div>
@@ -164,7 +165,7 @@
                 <dd>333</dd>
               </div>
               <div>
-                <dt>discipline needed to start</dt>
+                <dt>optional instruction packs</dt>
                 <dd>1</dd>
               </div>
             </dl>
@@ -719,20 +720,21 @@
         </div>
       </section>
 
-      <section class="landscape-teaser section" aria-labelledby="landscape-teaser-title">
+      <section class="landscape-teaser section" id="instructions" aria-labelledby="landscape-teaser-title">
         <div class="shell landscape-teaser-grid">
           <div class="reveal">
-            <p class="eyebrow">Clear source boundary</p>
-            <h2 id="landscape-teaser-title">Skills here. Composition elsewhere.</h2>
+            <p class="eyebrow">Two portable asset types</p>
+            <h2 id="landscape-teaser-title">Guidance here. Activation stays explicit.</h2>
           </div>
           <div class="landscape-teaser-copy reveal">
             <p>
-              This public repository owns Sebastian Software's first-party skills. It
-              does not vendor external skills or decide how an entire agent environment
-              should route them. Use a downstream agent stack or source manager for
-              external catalogs, precedence, named agents, and project instructions.
+              Skills provide task-triggered professional depth. Optional instruction
+              packs provide standing cross-task conventions such as request authority
+              and completion. Every skill still works alone; DALO or a downstream agent
+              stack decides which packs become active, where they are projected, and how
+              they coexist with external catalogs and project instructions.
             </p>
-            <a class="button button-primary" href="https://github.com/sebastian-software/skills.sebastian-software.com/blob/main/docs/dalo.md">See the selective setup</a>
+            <a class="button button-primary" href="https://github.com/sebastian-software/skills.sebastian-software.com/blob/main/README.md#collection-boundary">Read the collection boundary</a>
           </div>
         </div>
       </section>
@@ -775,10 +777,11 @@ dalo target link codex
 dalo source add-catalog sebastian https://github.com/sebastian-software/skills.sebastian-software.com.git
 dalo source select sebastian effective-web
 dalo approve skill sebastian:effective-web
-dalo sync</code>
+dalo sync
+dalo instructions enable sebastian:request-and-completion --target codex</code>
                 <button class="copy-button" type="button" data-copy-target="dalo-command" aria-label="Copy DALO setup commands"><span data-copy-label>Copy</span></button>
               </div>
-              <p class="method-note">Catalog selections stay pinned; new repository skills never activate silently.</p>
+              <p class="method-note">Skills and instruction packs activate separately. The final command requires a DALO release with source-backed packs.</p>
             </article>
           </div>
 
@@ -820,6 +823,7 @@ dalo sync</code>
         </div>
         <div class="footer-links" aria-label="Collection links">
           <a href="#library">Skills</a>
+          <a href="#instructions">Instructions</a>
           <a href="#principles">Why these skills</a>
           <a href="#install">Installation</a>
           <a href="https://github.com/sebastian-software/skills.sebastian-software.com">GitHub</a>

@@ -1,9 +1,10 @@
 # DALO Setup
 
-DALO can install a reviewed selection from this first-party skill catalog and
-link it into one or more agent targets. Composition with other repositories,
-team-wide precedence, and cross-catalog routing belong in a separate downstream
-agent stack rather than this source collection.
+DALO can install a reviewed selection from this first-party source and link it
+into one or more agent targets. The source contains independently installable
+skills and optional instruction packs. Composition with other repositories,
+team-wide precedence, cross-catalog routing, and the final active set belong in
+a separate downstream agent stack.
 
 ## Install Selected Skills
 
@@ -46,3 +47,29 @@ dalo source refresh sebastian
 
 `source refresh` reports upstream drift without advancing catalog pins or
 activating new skills. Review changed selections before accepting a future pin.
+
+## Enable Optional Instruction Packs
+
+Instruction packs are standing guidance, not skills. DALO discovers them from
+the source but does not activate them during source registration, skill
+selection, approval, sync, or refresh.
+
+With a DALO version that supports source-backed instruction packs, inspect the
+available pack and explicitly enable it for the verified target files where it
+should apply:
+
+```sh
+dalo instructions enable sebastian:request-and-completion --target codex --target claude
+dalo instructions list
+dalo doctor
+```
+
+`request-and-completion` then becomes a DALO-owned managed block in Codex's and
+Claude's user-level instruction files. Content outside that block remains
+user-owned. The activation is source- and commit-bound; source drift requires
+review and explicit re-enablement rather than silently changing standing
+behavior.
+
+Use an explicit file target when a DALO release or another agent does not yet
+provide a verified logical target mapping. Do not copy the pack into a project
+instruction file merely to bypass that capability boundary.

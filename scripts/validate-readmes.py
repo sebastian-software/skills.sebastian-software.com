@@ -30,6 +30,12 @@ MAX_DESCRIPTION_LENGTH = 1024
 SKILL_LINE_LIMIT = 300
 REFERENCE_LINE_LIMIT = 500
 ROUTE_CONTEXT_REPORT_LIMIT = 900
+INSTRUCTION_PACK_LINE_LIMIT = 200
+INSTRUCTION_PACK_ID = re.compile(r"^[A-Za-z0-9._-]+$")
+INSTRUCTION_PACK_VERSION = re.compile(r"^version:\s*(\d+\.\d+\.\d+)\s*$")
+INSTRUCTION_PACK_TOPICS = re.compile(r"^(?:topics|tags):\s*(.+?)\s*$")
+
+
 def validate_worktree_safety_uniqueness(skills_root: Path, errors: list[str]) -> None:
     """Require one shared worktree-safety contract across the collection.
 
@@ -623,6 +629,141 @@ def validate_evals(skill_directory: Path, errors: list[str]) -> None:
         )
 
 
+def validate_instruction_packs(errors: list[str]) -> list[Path]:
+    """Validate optional standing instruction packs and their review scenarios."""
+    instructions_root = REPOSITORY_ROOT / "instructions"
+    relative_root = instructions_root.relative_to(REPOSITORY_ROOT)
+    if not instructions_root.is_dir():
+        errors.append(f"{relative_root}: missing first-party instruction-pack directory")
+        return []
+
+    packs = sorted(instructions_root.glob("*.md"))
+    if not packs:
+        errors.append(f"{relative_root}: must contain at least one Markdown pack")
+        return []
+
+    nested_markdown = sorted(
+        path for path in instructions_root.rglob("*.md") if path.parent != instructions_root
+    )
+    for path in nested_markdown:
+        errors.append(
+            f"{path.relative_to(REPOSITORY_ROOT)}: instruction packs must be direct "
+            "children of instructions/"
+        )
+
+    evals_root = instructions_root / "evals"
+    pack_ids = {pack.stem for pack in packs}
+    for pack in packs:
+        relative = pack.relative_to(REPOSITORY_ROOT)
+        pack_id = pack.stem
+        text = pack.read_text(encoding="utf-8")
+        lines = text.splitlines()
+
+        if not INSTRUCTION_PACK_ID.fullmatch(pack_id) or pack_id in {".", ".."}:
+            errors.append(f"{relative}: filename stem is not a safe instruction-pack ID")
+
+        version_matches = [
+            match.group(1)
+            for line in lines[:5]
+            if (match := INSTRUCTION_PACK_VERSION.fullmatch(line.strip()))
+        ]
+        if len(version_matches) != 1:
+            errors.append(
+                f"{relative}: first five lines must contain exactly one semantic "
+                "'version: X.Y.Z' entry"
+            )
+
+        topic_matches = [
+            match.group(1)
+            for line in lines[:8]
+            if (match := INSTRUCTION_PACK_TOPICS.fullmatch(line.strip()))
+        ]
+        if len(topic_matches) != 1:
+            errors.append(
+                f"{relative}: first eight lines must contain exactly one comma-separated "
+                "topics: or tags: entry"
+            )
+        else:
+            topics = [topic.strip() for topic in topic_matches[0].split(",")]
+            if (
+                not topics
+                or any(not re.fullmatch(r"[a-z][a-z0-9-]*", topic) for topic in topics)
+                or len(topics) != len(set(topics))
+            ):
+                errors.append(
+                    f"{relative}: topics must be unique lowercase tokens separated by commas"
+                )
+
+        if re.search(r"^#\s+\S", text, re.MULTILINE) is None:
+            errors.append(f"{relative}: missing top-level Markdown heading")
+        if "<!-- dalo:start " in text or "<!-- dalo:end " in text:
+            errors.append(
+                f"{relative}: source packs must not contain DALO managed-block markers"
+            )
+        if len(lines) > INSTRUCTION_PACK_LINE_LIMIT:
+            errors.append(
+                f"{relative}: {len(lines)} lines exceeds the "
+                f"{INSTRUCTION_PACK_LINE_LIMIT}-line standing-context limit"
+            )
+
+        evals_file = evals_root / f"{pack_id}.json"
+        if not evals_file.is_file():
+            errors.append(f"{relative}: missing matching evals/{pack_id}.json")
+            continue
+        try:
+            payload = json.loads(evals_file.read_text(encoding="utf-8"))
+        except json.JSONDecodeError as error:
+            errors.append(
+                f"{evals_file.relative_to(REPOSITORY_ROOT)}: invalid JSON: {error.msg}"
+            )
+            continue
+        if not isinstance(payload, dict) or set(payload) != {"evals"}:
+            errors.append(
+                f"{evals_file.relative_to(REPOSITORY_ROOT)}: top-level keys must be "
+                "exactly ['evals']"
+            )
+            continue
+        evaluations = payload["evals"]
+        if not isinstance(evaluations, list) or not evaluations:
+            errors.append(
+                f"{evals_file.relative_to(REPOSITORY_ROOT)}: evals must be a non-empty array"
+            )
+            continue
+        names: set[str] = set()
+        for index, evaluation in enumerate(evaluations):
+            location = (
+                f"{evals_file.relative_to(REPOSITORY_ROOT)}: evals[{index}]"
+            )
+            if not isinstance(evaluation, dict) or set(evaluation) != {
+                "expected",
+                "name",
+                "prompt",
+            }:
+                errors.append(
+                    f"{location} keys must be exactly ['expected', 'name', 'prompt']"
+                )
+                continue
+            for field in ("name", "prompt", "expected"):
+                value = evaluation[field]
+                if not isinstance(value, str) or not value.strip():
+                    errors.append(f"{location}.{field} must be a non-empty string")
+            name = evaluation["name"]
+            if isinstance(name, str) and name.strip():
+                if name in names:
+                    errors.append(f"{location}.name duplicates {name!r}")
+                names.add(name)
+
+    if evals_root.is_dir():
+        for evals_file in sorted(evals_root.glob("*.json")):
+            if evals_file.stem not in pack_ids:
+                errors.append(
+                    f"{evals_file.relative_to(REPOSITORY_ROOT)}: orphaned instruction "
+                    "eval with no matching pack"
+                )
+
+    return packs
+
+
 def validate_skill_metadata(skill_directory: Path, errors: list[str]) -> None:
     """Validate canonical frontmatter and OpenAI-facing skill metadata."""
     name = skill_directory.name
@@ -688,6 +829,7 @@ def validate_root_inventory_sentence(
     root_text: str,
     skill_count: int,
     reference_count: int,
+    instruction_count: int,
     errors: list[str],
 ) -> None:
     """Tie the README inventory sentence to the computed filesystem counts.
@@ -696,15 +838,20 @@ def validate_root_inventory_sentence(
     skill and reference counts cannot silently drift from the repository.
     """
     expected = (
-        f"{skill_count} practice-built skills and "
-        f"{reference_count} focused references"
+        f"{skill_count} practice-built skills, "
+        f"{reference_count} focused references, and "
+        f"{instruction_count} optional instruction "
+        f"{'pack' if instruction_count == 1 else 'packs'}"
     )
     if expected not in root_text:
         sentence = re.search(
-            r"(\d+) practice-built skills and (\d+) focused references", root_text
+            r"(\d+) practice-built skills, (\d+) focused references, and "
+            r"(\d+) optional instruction packs?",
+            root_text,
         )
         found = (
-            f"found {sentence.group(1)} skills and {sentence.group(2)} references"
+            f"found {sentence.group(1)} skills, {sentence.group(2)} references, "
+            f"and {sentence.group(3)} instruction packs"
             if sentence
             else "the inventory sentence is missing"
         )
@@ -722,8 +869,9 @@ def main() -> int:
     root_text = root_readme.read_text(encoding="utf-8")
     skill_directories = sorted(path.parent for path in SKILLS_ROOT.glob("*/SKILL.md"))
     skill_names = {skill_directory.name for skill_directory in skill_directories}
+    instruction_packs = validate_instruction_packs(errors)
 
-    markdown_files = [root_readme]
+    markdown_files = [root_readme, *instruction_packs]
     for skill_directory in skill_directories:
         name = skill_directory.name
         readme = skill_directory / "README.md"
@@ -767,6 +915,7 @@ def main() -> int:
         root_text,
         len(skill_directories),
         count_references(skill_directories),
+        len(instruction_packs),
         errors,
     )
 
@@ -789,6 +938,7 @@ def main() -> int:
     print(
         f"Public documentation and review-scenario schema validation passed: "
         f"{len(skill_directories)} skill READMEs, "
+        f"{len(instruction_packs)} instruction packs, "
         f"{len(markdown_files)} public Markdown files, all required links present; "
         "model behavior is not executed"
     )
