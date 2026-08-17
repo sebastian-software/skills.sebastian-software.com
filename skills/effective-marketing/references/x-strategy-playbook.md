@@ -122,7 +122,7 @@ such as "one copied link equals 40 actual likes" or "one report cancels 468
 likes" are false count conversions. X added explicit comments warning against
 that interpretation in the
 [ranking parameters](https://github.com/xai-org/x-algorithm/blob/c65aa179db7bdd61e2c2821eac87f208a105c053/home-mixer/params/param.rs#L279-L355)
-and [README](https://github.com/xai-org/x-algorithm/blob/c65aa179db7bdd61e2c2821eac87f208a105c053/README.md#how-posts-are-scored).
+and [README](https://github.com/xai-org/x-algorithm/blob/c65aa179db7bdd61e2c2821eac87f208a105c053/README.md#scoring-and-ranking).
 
 Strategic implication: make posts worth sharing and discussing, but do not
 optimize to a fictional exchange rate or manufacture predicted actions.
@@ -186,7 +186,7 @@ Some visibility rules remove labeled posts only from out-of-network
 recommendations; other labels have broader effects. Do not collapse every reach
 change into "shadowbanning" or infer a label from impression counts alone. The
 repository explains the distinction between
-[scoring and filtering](https://github.com/xai-org/x-algorithm/blob/c65aa179db7bdd61e2c2821eac87f208a105c053/README.md#how-posts-are-filtered).
+[scoring and filtering](https://github.com/xai-org/x-algorithm/blob/c65aa179db7bdd61e2c2821eac87f208a105c053/README.md#filtering).
 
 The published enforcement rules include 30-day labels for detected
 `llm_slop_post` and `llm_slop_user` conditions. The post rule applies
