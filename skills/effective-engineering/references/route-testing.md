@@ -30,8 +30,9 @@ to the claim.
      [Services, data, and async](services-data-and-async.md).
    - Command invocation, configuration, stdout or stderr, exit behavior, or
      filesystem side effects: read [CLI contracts](cli-contracts.md).
-   - Rust-native test placement, public-API coverage, doctests, or opt-in live
-     smoke evidence: read [Rust testing](rust-testing.md).
+   - Rust-native test placement, public-API coverage, doctests, feature and
+     `cfg` coverage, or opt-in live smoke evidence: read
+     [Rust quality, review, and test evidence](rust-quality-and-review.md).
    - Microbenchmark, comparative benchmark, bounded end-to-end performance
      workflow, benchmark interpretation, or publishable performance claim: take
      the Benchmarks route.
