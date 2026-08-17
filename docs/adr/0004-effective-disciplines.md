@@ -188,7 +188,7 @@ print calibration stayed in Print, Minto analysis extended Structure and Story,
 interface review and color work deepened existing Delivery and Web routes, and
 the Rust testing cleanup unified a shared quality reference while preserving
 the Rust-implementation versus test-evidence intent boundary. The six skills'
-472 review scenarios and the 51-case activation matrix cover the current routes
+473 review scenarios and the 51-case activation matrix cover the current routes
 and their sharpest cross-discipline seams.
 
 A fresh blind classification of the 50-case catalog produced 50/50 intended
