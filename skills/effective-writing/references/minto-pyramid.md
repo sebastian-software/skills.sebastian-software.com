@@ -162,7 +162,7 @@ method should clarify the thinking rather than hide it inside presentation.
 - [Barbara Minto's official overview](https://barbaraminto.com/) defines the
   pyramid as ideas organized under a single point and describes SCQ as a way to
   identify the question in the reader's mind.
-- [McKinsey's interview with Barbara Minto](https://www.mckinsey.com/alumni/news-and-events/global-news/alumni-news/barbara-minto-mece-i-invented-it-so-i-get-to-say-how-to-pronounce-it.)
+- [McKinsey's interview with Barbara Minto](https://www.mckinsey.com/alumni/news-and-events/global-news/alumni-news/barbara-minto-mece-i-invented-it-so-i-get-to-say-how-to-pronounce-it)
   records the three logical rules: summarize upward, group like ideas, and order
   them logically, together with the MECE test.
 - [Pearson's overview of the third edition](https://www.pearson.com/en-gb/subject-catalog/p/the-pyramid-principle/P200000015259/9781292763255)
