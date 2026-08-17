@@ -1,19 +1,17 @@
 ---
 name: effective-web
 description: >-
-  Design, build, review, and improve browser experiences: sites, web apps,
+  Design, build, review, and verify browser experiences: sites, web apps,
   dashboards, React, UI/UX, layout, typography, color, forms, tables,
-  accessibility, motion, i18n, interface copy, states, auth UX, CSS, frontend SEO
-  and AI search, performance and testing, architecture, SVG, and HTML/CSS print.
-  Turn supplied websites, screenshots, and videos into evidence-backed
-  specifications; audit produced work for source overlap and provenance; and
-  scope web compliance including Impressum, privacy and cookie notices, consent,
-  online sales, and marketing or endorsement disclosures. Use only when the
-  outcome is the design, implementation, review, verification, specification,
-  audit, or compliance surface of a browser experience. Do not use merely because
-  a task mentions the web, a URL, or HTML. Not for general browsing, source
-  research, repository evaluation, fact-finding, backend-only work,
-  infrastructure, general writing, non-web print, or locale typography.
+  accessibility, motion, i18n, interface copy, states, auth UX, CSS, frontend
+  SEO and AI search, performance, frontend testing and architecture, SVG, and
+  HTML/CSS print. Turn websites, screenshots, and videos into evidence-backed
+  specifications; audit produced work for source overlap; and scope
+  browser-facing compliance such as operator, privacy, cookie, consent, sales,
+  endorsement, and marketing disclosures. Trigger only when the outcome is a
+  browser experience or its specification, audit, verification, or compliance
+  surface. Not for general browsing, research, repository evaluation, backend
+  work, infrastructure, general prose, non-web print, or locale typography.
 ---
 
 # Effective Web

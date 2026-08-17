@@ -1,22 +1,16 @@
 ---
 name: effective-marketing
 description: >-
-  Take a verified product or professional offer to market: positioning,
-  segmentation, category choice, messaging, claims and proof, launches, sales
-  enablement, distribution choices grounded in economics and touch,
-  build-versus-distribution diagnoses, services-to-product scaling, and learning
-  from gathered win/loss and adoption evidence; persuasive page, campaign,
-  sales, and email copy; funnel diagnosis, conversion audits, and ethical
-  experiments; social strategy, X or Twitter and LinkedIn content, and B2B
-  acquisition systems; and
-  consultant CVs, profiles, and bios. Use for positioning or claim reviews,
-  launch or distribution plans,
-  services-to-product choices, funnel drop-off, A/B tests, social strategy or
-  content, LinkedIn content, or profile positioning. Do not invent customer
-  evidence, market certainty, or differentiation. Route customer, buyer,
-  win/loss, or churn
-  fieldwork to effective-product, long-form prose to effective-writing, and page
-  implementation to effective-web.
+  Take a verified product or professional offer to market. Use for positioning,
+  segmentation, category, messaging, claims and proof; launches, sales
+  enablement, and distribution choices grounded in economics and trust;
+  services-to-product scaling; learning from gathered win/loss and adoption
+  evidence; commercial page, campaign, sales, email, and social copy; funnel
+  diagnosis, conversion audits, A/B tests, X or Twitter and LinkedIn strategy or
+  content, B2B acquisition, and consultant CVs or profiles. Do not invent
+  evidence or differentiation. Route customer, buyer, win/loss, and churn
+  fieldwork to effective-product; long-form editorial prose to
+  effective-writing; and browser implementation or compliance to effective-web.
 ---
 
 # Effective Marketing

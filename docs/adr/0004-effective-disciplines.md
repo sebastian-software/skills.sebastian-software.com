@@ -188,7 +188,7 @@ print calibration stayed in Print, Minto analysis extended Structure and Story,
 interface review and color work deepened existing Delivery and Web routes, and
 the Rust testing cleanup unified a shared quality reference while preserving
 the Rust-implementation versus test-evidence intent boundary. The six skills'
-466 review scenarios and the 50-case activation matrix cover the current routes
+473 review scenarios and the 51-case activation matrix cover the current routes
 and their sharpest cross-discipline seams.
 
 A fresh blind classification of the 50-case catalog produced 50/50 intended
@@ -217,6 +217,37 @@ existing triggers resolve and pushed the catalog 26% past its previous size. A
 host that truncated on that budget therefore exposed less of each successor
 description. Completing the sunset restored the catalog to 5,801 description
 bytes, 27% of the pre-consolidation size.
+
+### Description tightening review
+
+Issue #229 compared the descriptions at merge commit `0548c1e` with a tightened
+catalog. Sizes are the UTF-8 byte lengths of the folded YAML values consumed by
+the blind-routing input builder:
+
+| Discipline | Baseline bytes | Tightened bytes | Reduction |
+| --- | ---: | ---: | ---: |
+| Effective Delivery | 996 | 777 | 22.0% |
+| Effective Engineering | 959 | 770 | 19.7% |
+| Effective Marketing | 989 | 727 | 26.5% |
+| Effective Product | 917 | 846 | 7.7% |
+| Effective Web | 962 | 811 | 15.7% |
+| Effective Writing | 979 | 884 | 9.7% |
+| **Total** | **5,802** | **4,815** | **17.0%** |
+
+Three independently dispatched, answer-key-blind reviewer runs classified the
+51 shuffled requests against both catalogs in alternating A/B order. Catalog
+identity was visible; case names and intended owners were not. Every run
+retained all 51 intended owners for both catalogs. This establishes no
+regression on the current contract; it does not claim that shorter descriptions
+improve routing outside the reviewed cases.
+
+The trim preserves the behavior-carrying terms found by earlier reviews:
+`win/loss` and `churn interviews` remain early in Effective Product,
+`behavior-preserving ports` and cross-language rewrites remain explicit in
+Effective Delivery, and locale typography stays with Effective Writing rather
+than browser work. Prefer evidence-supported trigger coverage over a fixed
+smaller target, and keep treating every future description edit as an
+activation change requiring the same static and blind review.
 
 ## Validation and Review Triggers
 

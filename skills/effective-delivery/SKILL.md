@@ -1,21 +1,17 @@
 ---
 name: effective-delivery
 description: >-
-  Move an existing repository and the team around it forward: coordinate
-  multi-stage software work from an unclear request to a verified, review-ready
-  handoff; audit codebases, diagnose surprising behavior, and prioritize
-  improvements, including which intervention level owns recurring symptoms and
-  what repeated agent divergence reveals about missing repository contracts;
-  plan or execute behavior-preserving ports and rewrites across
-  languages, runtimes, and frameworks; review and maintain pull requests;
-  choose, research, and update dependencies; run repository-native validation;
-  write or
-  verify technical documentation; autonomously discover, rank, process,
-  reconcile, or monitor an unspecified live issue queue; and clarify engineering
-  responsibilities and sustainable load. Use when the task operates on an
-  existing repository, change, pull request, dependencies, documentation,
-  checks, a delegated issue queue, or team coordination. Do not use for system
-  code depth or browser experiences.
+  Move an existing repository or software change from an unclear request to a
+  verified, review-ready handoff. Use for codebase audits and ranked
+  improvements; diagnosis and coordinated fixes; pull-request review, upkeep,
+  and review queues; dependency research and upgrades; repository-native
+  checks; migration and technical documentation; behavior-preserving ports or
+  rewrites across languages, runtimes, and frameworks; autonomous issue queues;
+  multi-stage agent work; and engineering ownership or sustainable load. Also
+  diagnose recurring agent divergence as a missing repository contract.
+  Trigger on an existing repo, change, PR, dependency set, validation run,
+  delegated issue queue, or delivery system. Do not use for designing or
+  writing system code or browser experiences.
 ---
 
 # Effective Delivery
