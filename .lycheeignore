@@ -33,6 +33,10 @@ https?://www\.solcom\.de/.*
 # These live primary sources reject, reset, or time out on GitHub Actions'
 # link-check traffic.
 https://www\.mckinsey\.com/careers/interviewing
+# 2026-08-17: the article is reachable in normal browsers, but McKinsey closes
+# Lychee's GitHub-runner request with an HTTP/2 protocol error after retries.
+# Keep the exclusion scoped to the exact primary source.
+https://www\.mckinsey\.com/alumni/news-and-events/global-news/alumni-news/barbara-minto-mece-i-invented-it-so-i-get-to-say-how-to-pronounce-it
 https://tbrown\.org/11/
 https://doi\.org/10\.1177/154193120504900514
 https://www\.congress\.gov/
