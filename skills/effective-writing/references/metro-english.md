@@ -55,6 +55,13 @@ Use this for:
 When the user gives German source text, translate the meaning into natural team
 English instead of translating word by word.
 
+For PR reviews, Metro English owns phrasing only. Preserve supplied facts,
+severity, required-versus-optional meaning, reviewer audience, and decision.
+The PR-review route in `effective-delivery` owns finding validity, consequence,
+placement, blocking language, bot-versus-human reply behavior, publication, and
+the approve/request-changes decision. Do not infer or change those semantics
+while making the prose sound natural.
+
 ## Voice target
 
 Aim for:
@@ -145,16 +152,16 @@ Good patterns:
 
 ### PR review comments
 
-Sound like a teammate reviewing code, not a compliance bot. Be clear about
-severity. If it is blocking, say so plainly. If it is a suggestion, keep it
-light.
+Apply the PR ownership boundary above. Rewrite the supplied intent so it sounds
+like a teammate, not a compliance bot, without changing its consequence or
+required-versus-optional meaning.
 
 Good patterns:
 
-- "This looks good overall. One thing I'd change before merging: ..."
-- "Small suggestion, non-blocking: ..."
-- "I think this should be a request-change. The current path can ..."
-- "Nice cleanup. The part I'm less sure about is ..."
+- Supplied blocker: "One thing we need to fix before merging: ..."
+- Supplied optional note: "Small suggestion, totally optional: ..."
+- Supplied approval: "Nice cleanup. Approving."
+- Supplied uncertainty: "The part I'm less sure about is ..."
 
 ### Async updates
 
@@ -197,8 +204,8 @@ Input:
 > for users in the event that the request fails.
 
 Output:
-> This mostly looks right. I'd tighten the error path before merging, though. If
-> the request fails, users can end up with a pretty confusing state.
+> This mostly looks right. The error path can leave users in a pretty confusing
+> state when the request fails.
 
 ### Stiff Slack update
 

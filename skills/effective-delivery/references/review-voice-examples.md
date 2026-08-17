@@ -1,8 +1,9 @@
-# Voice Examples
+# PR Review Voice Examples
 
-Sample replies for the voice rules in SKILL.md. Use them as calibration, not as
-templates to copy verbatim — vary the phrasing so every comment sounds like the
-same person on a normal day, not a macro.
+These examples calibrate PR-specific severity, optionality, reviewer class, and
+decision language. They are not a second general prose guide. Apply the Metro
+English route in `effective-writing` for natural phrasing, and do not copy these
+examples as templates.
 
 **Asking for the missing ticket (step-1 gate, ticket-linking repo):**
 "Looks reasonable, but without a linked task I can't really tell what this is

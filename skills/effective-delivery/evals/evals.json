@@ -211,6 +211,11 @@
       "expected": "Acknowledges a concrete strength without using a praise sandwich, clearly requests changes for the reachable cross-tenant exposure, explains the consequence, asks for authorization before object access plus a protective regression test, and stays direct without attacking the author."
     },
     {
+      "name": "retain-pr-semantics-while-reusing-general-voice",
+      "prompt": "Use the team's general writing guidance to word this PR review. A human author introduced a reachable duplicate charge, which is blocking; a bot also suggested a purely stylistic rename. Write the review decision and both replies.",
+      "expected": "Uses effective-writing or repository conventions for natural phrasing without delegating review judgment to them; requests changes for the duplicate-charge consequence with a clear required action, treats the bot's style preference as optional or declines it in a short technical reply, gives the human author appropriately warm context, and preserves Delivery ownership of severity, reviewer-class behavior, and the review decision."
+    },
+    {
       "name": "critical-accessibility-can-block",
       "prompt": "Review a checkout PR where the new payment confirmation control is visually polished and well tested at the component level, but it is a div with only an onClick handler and cannot be focused or activated by keyboard. This is the only way to complete payment. Decide whether to approve and write the feedback.",
       "expected": "Treats the inaccessible primary flow as a material blocker despite accessibility being cross-cutting, names the keyboard consequence, requests a semantic interactive control and behavioral coverage, and still recognizes a real strength in the implementation."

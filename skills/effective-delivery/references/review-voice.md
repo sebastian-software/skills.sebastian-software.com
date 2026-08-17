@@ -1,30 +1,40 @@
-# Voice
+# PR Review Voice
 
-Sound like a real person on the team wrote it quickly but carefully. Lean on
-the `effective-writing` skill for PR review comments, issue comments, and async
-updates when it matches the repository. Strip AI tells, follow the repository's
-established language and communication conventions, and use concise
-professional English in the PR when none exist. Match the user's language in
-the private status summary.
+## General prose owner
 
-- **Inline, no label prefixes.** Put comments on the actual line; don't prefix
-  with `nit:` / `issue:` / `suggestion:`. Severity lives in the sentence —
-  "this is blocking for me because…" vs. "small thing, totally optional: …".
-- **Vary the phrasing.** Same person, not copy-paste. Don't let every comment
-  open the same way.
-- **Two-class tone.** Bot reviewers (anything ending in `[bot]` and the repo's
-  known review bots) get short, technical, pragmatic replies — just the
-  decision and the reason. Humans get a touch more: a little warmer, a little
-  fuller, genuinely friendly.
-- **Respectful and direct.** Comment on the code, never the person. Candid
-  without being harsh; pragmatic on small stuff. Write so the author feels
-  supported, not graded.
+Before writing public review text, load `effective-writing` and use its Metro
+English route when that skill is available and the register matches the
+repository. Metro English owns natural rhythm, warmth, plain wording, and the
+generic AI/corporate-pattern cleanup. Do not restate or maintain a second
+general prose blacklist here.
+
+Repository language and communication conventions override the Metro English
+default. When `effective-writing` is unavailable or does not match the
+repository, use its established conventions and fall back to concise,
+professional prose. Match the user's language in the private status summary.
+
+## PR-specific semantics
+
+Delivery retains the review decision and the meaning carried by the comment:
+
+- **Inline, no label prefixes.** Put a finding on the relevant changed line
+  when a stable anchor exists. Do not prefix it with `nit:`, `issue:`,
+  `suggestion:`, severity codes, confidence scores, or emoji. State the
+  severity through the consequence and required action.
+- **Blocking is explicit.** A request-changes review names what must change and
+  why the current behavior cannot merge. Natural wording must not soften a
+  material risk into an optional suggestion.
 - **Optional means optional.** Taste, naming alternatives, formatting, and
-  speculative refactors must be explicitly skippable and must not appear in a
-  request-changes review as required work.
-- Avoid common AI/corporate tells: no "crucial", "seamless", "I hope this
-  helps", forced rule-of-three, em-dash soup, bolded `**Label:**` bullets, or
-  emoji decoration.
+  speculative refactors are explicitly skippable or omitted. They never appear
+  as required work in a request-changes review.
+- **Bot and human replies differ.** Replies to reviewers ending in `[bot]` and
+  repository-known review bots are short and technical: decision plus reason.
+  Human replies can carry a little more context and warmth. The technical
+  decision does not change with the audience.
+- **Praise does not carry severity.** Recognize a concrete strength when it is
+  useful, but do not use a praise sandwich, hide a blocker behind compliments,
+  or manufacture praise for every finding.
 
-Calibrate against the sample replies in
-[voice examples](review-voice-examples.md).
+Calibrate these PR semantics against the specialized
+[review examples](review-voice-examples.md). Use Metro English, not this file,
+for general prose cleanup.
