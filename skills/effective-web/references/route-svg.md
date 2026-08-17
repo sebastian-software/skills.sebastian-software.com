@@ -47,8 +47,8 @@ procedural SVG filter textures.
   accessibility, styling, animation, optimization, and review checks.
 - [design-system-rules.md](design-system-rules.md) - reusable icon systems,
   tokens, masks, and visual effects.
-- [motion-interaction.md](motion-interaction.md) - timing, execution models,
-  earned delight, and reduced-motion behavior.
+- [Motion and Interaction](route-motion.md) - add this route for timing,
+  execution models, earned delight, and reduced-motion behavior.
 - [html-accessibility.md](html-accessibility.md) - names, roles, focus, keyboard,
   forced colors, and non-visual alternatives.
 

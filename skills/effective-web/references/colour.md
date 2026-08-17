@@ -28,26 +28,27 @@ Contrast = difference in perceived brightness between two colours (ratio 1:1 to 
 
 ### APCA (Accessible Perceptual Contrast Algorithm)
 
-Perceptual contrast method being developed for WCAG 3. It is not a WCAG 2.x
+APCA is an evolving perceptual contrast method and part of the developing
+[APCA Readability Criterion](https://readtech.org/ARC/). It is not a WCAG 2.x
 conformance method.
 
-**APCA Contrast Values:**
-- 90 - Preferred for body text (14px regular+)
-- 75 - Minimum for body text (18px regular+)
-- 60 - Minimum for other text (24px regular OR 16px bold+)
-- 45 - Minimum for large text (36px regular OR 24px bold+) and UI elements
-- 30 - Absolute minimum (placeholder text, disabled button text)
-- 15 - Minimum for non-text elements
-
-**Key differences from WCAG 2:**
-- No ratios - uses contrast numbers (higher = more contrast)
-- Value depends on text size AND weight
-- Swapping text/background colours affects contrast
-- Works better for dark interfaces
+**Use it without losing its semantics:**
+- Keep foreground text and background in their actual order. Positive Lc means
+  dark text on a light background; negative Lc means light text on a dark
+  background. Never swap the inputs merely to make the result positive.
+- Retain the sign when recording evidence. Compare magnitude only after the
+  polarity and intended pair are known.
+- Do not freeze one Lc number as a universal pass threshold. Current guidance
+  varies by use case, font size, weight, and font characteristics such as
+  x-height. Consult the current conforming calculator and
+  [ARC test methods](https://readtech.org/ARC/tests/visual-readability-contrast/)
+  for the combination being reviewed.
+- Recalculate the rendered foreground/background pair after every color,
+  opacity, font, or surface change.
 
 **Default:** Meet applicable WCAG 2.2 AA contrast requirements first. Use APCA
-as a supplementary perceptual check, especially for dark interfaces and
-text-size/weight decisions; do not substitute it for WCAG 2.x conformance.
+as supplementary readability evidence for the actual text and surface; do not
+substitute it for WCAG 2.x conformance.
 
 ## Don't Rely on Colour Alone to Convey Meaning
 
@@ -197,7 +198,10 @@ Avoid using for interactive elements to prevent conflicting meanings.
 
 ## Consider OKLCH for Modern Colour Systems
 
-OKLCH is a modern alternative to HSB/HSL that is "perceptually uniform" - equal numerical steps result in equal visual changes across all colours.
+OKLCH is a modern alternative to HSB/HSL whose coordinates are designed to be
+more perceptually useful. Equal numeric steps are a practical starting point,
+not a guarantee of equal visual changes across every hue, lightness, display,
+or gamut-mapped result.
 
 **The HSL Problem:**
 - 50% lightness in yellow looks much brighter than 50% in blue
@@ -205,11 +209,14 @@ OKLCH is a modern alternative to HSB/HSL that is "perceptually uniform" - equal 
 - Hard to create consistent palettes
 
 **OKLCH Benefits:**
-- Predictable lightness across all hues
+- More predictable lightness across hues than HSL
 - Better for generating colour variations
-- Easier to meet contrast requirements
-- Wide gamut support (P3 displays)
-- Browser support: Chrome 111+, Safari 15.4+, Firefox 113+
+- Easier to build candidate ramps, while contrast still has to be measured on
+  the actual rendered foreground/background pair
+- Can represent colours outside sRGB; provide the required fallback and inspect
+  the browser's gamut-mapped result on target displays
+- [Baseline widely available since May 2023](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Values/color_value/oklch);
+  still follow the project's browser-support and fallback policy
 
 ```css
 /* OKLCH: lightness (0-100%), chroma (0-0.4+), hue (0-360) */
@@ -432,7 +439,8 @@ Background:    oklch(13% 0.03 hue)
 
 **Tips:**
 - Increase contrast above WCAG minimum (dark interfaces harder to see)
-- Check with APCA for accuracy
+- Meet the WCAG 2.2 baseline; use APCA only as a supplementary readability
+  check with the actual polarity and current size/weight guidance
 - Start with white for Text strong
 - Gradually increase saturation, decrease brightness
 - Avoid pure black background

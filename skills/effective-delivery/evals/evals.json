@@ -589,6 +589,21 @@
       "name": "ai-transition-changes-the-work-system",
       "prompt": "Roll out coding agents to the whole engineering team next week. Track lines of generated code, require everyone to hit a 10x productivity target, and use the pilot to identify people who resist AI. Let each agent make architecture and acceptance decisions so managers do not become a bottleneck.",
       "expected": "Treats adoption as a work-system transition; establishes a request-to-operation baseline including quality, review, rework, incidents, correction cost, and people impact; separates bounded agent execution from accountable human decisions; uses a representative, reversible pilot with objective evidence and safeguards; develops framing, review, testing, and escalation skills; includes skeptics without shaming or inferring ability; and rejects unsupported multipliers, output quotas, and employment decisions from the pilot."
+    },
+    {
+      "name": "pr-delta-is-not-dirty-checkout",
+      "prompt": "Review PR #412. Its provider diff is eight commits from base to head. My checkout also contains one unrelated uncommitted CSS edit, so review only the dirty file and call that the PR scope.",
+      "expected": "Uses the provider's exact base/head pull-request delta, records its boundary and exclusions, and does not blend the unrelated local overlay into the submitted change. It may name the dirty state as a safety fact, but it neither lets that file shadow the eight-commit PR nor implies the unpushed edit is review evidence."
+    },
+    {
+      "name": "deleted-ui-signal-routes-with-origin-evidence",
+      "prompt": "A pull request replaces several text buttons with icons. The minus side removes accessible names and focus styles, but a new shared wrapper might replace them. Review the PR and decide whether this is a regression.",
+      "expected": "Reads the removed names and focus styles as leads, checks the new wrapper and base behavior before deciding, resolves the exact delta and relevant direct relationships, and hands the browser-facing candidates with intent and preview evidence to effective-web. It labels a finding Regression only when base correctness and missing replacement are demonstrated, otherwise records the evidence gap rather than treating deletion itself as proof."
+    },
+    {
+      "name": "pre-existing-interface-debt-does-not-block-change",
+      "prompt": "Review a small valid copy change in a legacy checkout component. The touched file has an old mobile overflow bug unrelated to the edited string. Require the author to redesign the component before approving this PR.",
+      "expected": "Classifies the unchanged overflow issue as Pre-existing, keeps it separate and mentions it only if consequential, does not attach blame to the copy edit or make legacy cleanup a merge condition, and bases the PR decision on Introduced and Regression findings. It may recommend a repository-native follow-up without expanding the current change."
     }
   ],
   "activation": [

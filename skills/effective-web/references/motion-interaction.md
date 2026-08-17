@@ -36,6 +36,12 @@ delay or obscure the user's task.
 
 ## Entry and Exit Animations
 
+- Do not replay an entrance merely because stable default content mounted. Tabs,
+  toggles, icons, and persistent chrome should normally render directly in their
+  initial state and animate only after a user- or system-driven state change.
+  Preserve an intentional first entrance for earned editorial, onboarding, or
+  loading moments; verify a full refresh separately from subsequent transitions
+  instead of applying one library flag indiscriminately.
 - Animate elements entering the top layer (dialogs, popovers, `[popover]`, `details`) from a hidden or `display: none` state using `@starting-style` together with `transition`, which defines the styles to transition *from* on first render. Support is recent (Chrome/Edge 117+, Safari 17.5+, Firefox 129+); the transition is simply skipped where unsupported, so treat it as progressive enhancement.
 - Transition an element to or from `display: none` by including `display` and `overlay` in the `transition-property` list and using `transition-behavior: allow-discrete`, so the element stays visible through its exit animation before being removed.
 - Animate height to or from `auto` only with the modern intrinsic-size sizing keywords (`interpolate-size: allow-keywords` on a root, or `calc-size()`); this is Chromium-only at present, so provide a fixed-height or cross-fade fallback elsewhere. Do not fake auto-height growth by animating `max-height` to a guessed pixel value — it produces eased delays and clipping.
@@ -64,6 +70,23 @@ delay or obscure the user's task.
   SVG morphing. Prefer a platform-native solution for basic transitions; reject
   a library that merely wraps CSS behavior while adding bundle and main-thread cost.
 - When animating color (state, theme, or accent shifts), keep text and its background within contrast requirements at every frame, not only at the endpoints, and suppress purely decorative color cycling under reduced motion.
+
+## Theme Changes
+
+- Treat a user- or system-selected theme change as one atomic state update unless
+  a deliberate transition has been designed and verified. Letting every
+  inherited `color`, background, border, shadow, and SVG transition at once
+  creates a smeared page and can pass through unreadable intermediate pairs.
+- When ordinary component transitions would animate the swap, prefer the theme
+  system's supported transition-suppression option. Otherwise apply a temporary
+  root state that disables only theme-sensitive transition properties, commit
+  the new token set, and remove that state immediately after the new styles have
+  painted. Verify cleanup after rapid toggles, OS-theme changes, hydration, and
+  exceptions that intentionally animate.
+- Avoid making a permanent universal `* { transition: none !important }` rule
+  part of the theme architecture. A temporary broad override is a last resort:
+  keep its lifetime bounded, include pseudo-elements, respect CSP, and prove it
+  cannot survive an exception or interrupted update.
 
 ## State Continuity
 
@@ -94,7 +117,15 @@ delay or obscure the user's task.
   measured and no unnecessary layout-property animation causing reflow?
 - Are durations short (≈150–250ms for UI state) and the easing appropriate (ease-out in, ease-in out)?
 - Can every in-progress animation be interrupted, reversed, or cancelled by user input?
+- Does stable default content avoid an accidental first-load entrance, while
+  intentional initial choreography still runs?
+- Does a theme change commit coherently without a page-wide color smear, stale
+  suppression state, or unreadable intermediate contrast?
 - Are View Transitions and scroll-driven animations feature-detected, reduced-motion-guarded, and functional when unsupported?
 - Do transitions preserve focus, scroll position, URL state, and semantic navigation?
 - Does any animation library add a capability the platform does not already
   provide, and has its execution model been verified under main-thread load?
+- When timing or easing remains hard to judge, inspect the transition with
+  DevTools slow-animation controls or a recorded timeline, then confirm the
+  correction again at normal speed and under reduced motion. Slow playback is
+  diagnostic evidence, not the shipped timing.

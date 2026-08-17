@@ -79,6 +79,44 @@ Before deciding anything, build the state through the selected access path:
   your scope yardstick in Mode B. Use the selected adapter for provider issues
   and a connected tracker tool for external tickets.
 
+## Establish the change boundary
+
+Review the provider's pull-request delta, not whichever files happen to be
+visible in the current checkout. Record the base and head refs or SHAs, the
+merge base when working locally, and any exclusions before judging the change.
+A dirty working tree is a separate local overlay: never blend it into a live PR
+review or imply that unpushed edits are part of the submitted change. When the
+user explicitly asks for a local branch plus uncommitted work, inspect both but
+name their file counts and evidence separately.
+
+Read additions, modifications, renames, and deletions. Removed safeguards,
+states, validation, labels, compatibility paths, or side effects are leads that
+the post-change tree can hide. Compare them with the base version and current
+replacement before calling them defects; deletion alone proves neither loss nor
+regression.
+
+Classify every supported finding by its relationship to the delta:
+
+- **Introduced:** the change creates a defect or leaves its stated outcome
+  incomplete.
+- **Regression:** the base demonstrably handled the case and the change weakens
+  or removes that behavior without an equivalent replacement.
+- **Pre-existing:** the issue is reachable in touched or related code but was
+  not caused by this change.
+
+Only Introduced and Regression findings determine the PR decision. Mention a
+consequential Pre-existing issue separately when the user benefits from knowing
+it; do not attach it to an unchanged line as if the author introduced it, spend
+the review on an unrelated legacy audit, or make its repair a merge condition.
+When origin is uncertain, gather the cheapest decisive base evidence or state
+the uncertainty instead of upgrading suspicion into Regression.
+
+Hold the change to its own stated intent. New variants, themes, strings,
+controls, or flows are incomplete when the diff or ticket requires relevant
+hover, focus, active, disabled, loading, empty, error, localized, or narrow
+states and the change provides only the default path. This is missing delivery
+inside the requested scope, not speculative scope expansion.
+
 ## Mode A — Reviewing others' PRs
 
 Reviews follow a fixed inspection order; severity still comes from impact, not
@@ -124,12 +162,28 @@ proportion to the changed surface. Not automatic blockers, but not exempt: an
 inaccessible core flow, an unbounded hot-path query, or silent data loss is a
 real merge risk.
 
+For a browser-facing change whose interface quality needs specialist judgment,
+hand the resolved delta to `effective-web`. Include the base/head identity,
+changed components or tokens, unmatched removed signals, relevant direct
+relationships from [Codebase context](codebase-context.md), the stated UI
+intent, preview availability, and the status evidence for candidate findings.
+`effective-web` owns the interface judgment and rendered verification;
+this route retains publication, merge-risk, provider, and final PR-decision
+authority. If the specialist is unavailable and the risk is material, disclose
+the missing review rather than recreating its handbook from memory.
+
 ### Find, then filter
 
 Complete the inspection before applying the publication threshold. Search every
 relevant rung for concrete, reachable defects; "material merge risk" is not a
 search filter. Then classify each supported finding as blocking, optional, or
 not worth publishing; discard taste and speculation.
+
+Consolidate one root cause into one finding even when it reaches several
+locations. Never suppress a blocker to meet an arbitrary finding count. When
+scope or context limits bind, state what was inspected and what was not; a
+declared partial review is more trustworthy than a compact report that implies
+complete coverage.
 
 ### Deciding
 
@@ -271,5 +325,8 @@ These exist because the cost of getting them wrong is high and hard to undo:
 - The design of new or repaired test evidence and language implementation depth
   inside a review belong to `effective-engineering`; this route judges whether a
   PR's evidence is enough to merge.
+- Browser-interface judgment and rendered UI verification inside a resolved
+  change scope belong to `effective-web`; this route supplies the delta and
+  finding-origin evidence, then owns the published PR decision.
 - Durable choices discovered during review are recorded through
   `effective-product` when the rationale must outlive the PR.

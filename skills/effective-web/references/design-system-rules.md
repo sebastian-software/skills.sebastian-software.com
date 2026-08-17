@@ -6,7 +6,12 @@ Use this reference for reusable design-system decisions that cut across colour, 
 
 ### Color spaces and token derivation
 
-- Author palettes and ramps in a perceptual color space (OKLCH or LCH) so equal numeric steps read as equal visual steps and lightness stays predictable across hues. Reduce chroma as colors approach white or black to avoid garish extremes.
+- Author palettes and ramps in a perceptual color space such as OKLCH or LCH
+  because its coordinates are a more useful starting point for visual spacing
+  than HSL. Do not treat equal numeric steps as a guarantee of equal perceived
+  steps: inspect every ramp, gamut-mapped result, and foreground/background
+  pair. Reduce chroma as colors approach white or black to avoid garish
+  extremes.
 - Define color pairs, not isolated colors. Every brand, surface, status, and accent token needs known foreground, border, focus, hover, active, disabled, and forced-colors behavior.
 - Derive related tokens (hover, active, disabled, tints, alpha variants) with relative color syntax (`oklch(from …)`) and `color-mix()` instead of hand-tuned hex or preprocessor math, so one base change cascades. Treat these as Baseline features (`color-mix()` since 2023, relative color syntax since 2024): ship a static fallback ahead of the derived value and gate non-baseline use behind `@supports`.
 - Pick the interpolation color space deliberately for gradients, transitions, and `color-mix()`. Interpolate in OKLCH or another perceptual space to avoid muddy or desaturated midpoints; sRGB interpolation through gray is the common cause of dead-looking gradients.
@@ -27,8 +32,11 @@ Use this reference for reusable design-system decisions that cut across colour, 
   for borders, icons, and underlines that carry meaning. Verify state
   visibility for buttons, inputs, and filters, not just static text.
 - Use APCA as a supplementary design and review check: its contrast value is
-  polarity-aware, and its guidance varies with text size and weight. It does
-  not replace applicable WCAG 2.x conformance requirements.
+  polarity-aware, and its evolving guidance varies with use case, text size,
+  weight, and font characteristics. Preserve the actual foreground/background
+  order: positive Lc represents dark text on a light background; negative Lc
+  represents light text on a dark background. It does not replace applicable
+  WCAG 2.x conformance requirements.
 - Treat `contrast-color()` as a Baseline-2026 convenience for picking black or
   white foregrounds, not an accessibility guarantee. Declare an explicit color
   before it when older targets matter, and verify the selected pair because

@@ -13,6 +13,8 @@ Do not use this skill as a source archive. Article-derived input has already bee
   preservation constraints.
 - Quality gates before shipping a frontend experience.
 - Deciding which focused Effective Web route should handle a specific problem.
+- Specialist interface judgment for a pull-request or branch delta whose Git
+  scope has already been resolved by `effective-delivery`.
 
 ## Route Specific Work
 
@@ -22,6 +24,12 @@ a narrow problem (layout, typography, color, components, forms, tables,
 accessibility, motion, SEO, CSS, i18n, copy, states, auth, print, performance,
 React, or testing) becomes the primary task, hand off to the matching focused
 route instead of expanding this one.
+
+When `effective-delivery` supplies a resolved change scope, read
+[Change-scoped interface review](change-scoped-interface-review.md) first. Keep
+Git/provider state and the final PR decision with that discipline; return
+browser-facing findings and verification rather than starting a second general
+code review.
 
 ## Review Workflow
 
@@ -71,4 +79,5 @@ another only when the work genuinely shifts concern.
 | Modernizing an existing experience under preserve/overhaul contracts (brand, IA, copy, analytics, accessibility) | [redesign-preservation.md](redesign-preservation.md) |
 | Reviewing generated UI and copy for defects, advisories, clusters, and accepted exceptions | [ui-antipatterns.md](ui-antipatterns.md) |
 | Running the final review gates before shipping | [ui-quality-gates.md](ui-quality-gates.md) |
+| Reviewing the interface effect of an already resolved pull-request or branch delta | [change-scoped-interface-review.md](change-scoped-interface-review.md) |
 | Attention budgets, satisficing, task grouping, perceptual hierarchy, conventions, mental models, and learnability | [cognitive-ux.md](cognitive-ux.md) |
