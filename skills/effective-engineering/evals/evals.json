@@ -16,6 +16,26 @@
       "expected": "Identifies configuration and secret handling, event-stream logging, startup validation, and graceful shutdown or durable-job handling as concrete risks. It proposes proportionate evidence and changes, and does not claim that Kubernetes or a microservice rewrite alone makes the service Twelve-Factor compliant."
     },
     {
+      "name": "close-over-system-tool-dependencies",
+      "prompt": "Our image worker shells out to whatever `convert` binary happens to be installed on each developer laptop and production VM. The README tells operators to install ImageMagick manually. Is that sufficient for a deterministic service?",
+      "expected": "Identifies the undeclared executable and version as part of the application's dependency closure, inspects the repository's existing build and runtime packaging before choosing a mechanism, and requires reproducible versioned availability across development and production. It does not assume a long-lived host, silently install software, or prescribe vendoring as the only valid solution."
+    },
+    {
+      "name": "separate-granular-deploy-configuration",
+      "prompt": "We keep production credentials in a committed YAML file and use one `APP_ENV=production` switch to select credentials, hostnames, feature behavior, and queue sizes. We now need three independent staging deploys. Redesign the configuration contract.",
+      "expected": "Separates deploy-varying values and secrets from code, distinguishes them from internal application structure, and defines granular typed controls with startup validation, explicit secret delivery, ownership, and safe defaults. It avoids multiplying named environment bundles and does not insist that every value or secret must be exposed as a plain environment variable."
+    },
+    {
+      "name": "preserve-immutable-release-and-admin-parity",
+      "prompt": "Our deploy uploads a build, then an operator SSHes into the server to patch one JavaScript file and runs a database migration from their laptop before restarting the app. Make this release process operable.",
+      "expected": "Separates build, release, and run; makes the release identifiable and immutable; keeps runtime startup minimal; and runs the migration as a versioned one-off process with the same code, configuration, and dependencies as the release. It includes compatible migration, audit, stop, and recovery conditions rather than treating a binary rollback as automatic data recovery."
+    },
+    {
+      "name": "assign-process-and-log-platform-ownership",
+      "prompt": "Our worker daemonizes, writes a PID file and rotating logs under `/var/log`, and exits immediately on SIGTERM even when a job is half complete. A platform sidecar currently scrapes those files. Clarify the application-platform contract.",
+      "expected": "Keeps the worker in the foreground under platform process management, emits a redacted structured event stream through the platform output contract, leaves collection and retention to the execution environment, and defines graceful shutdown plus durable retry or requeue behavior for in-flight jobs. It names which responsibilities remain application-owned and does not mistake a sidecar or platform label for evidence that the lifecycle is safe."
+    },
+    {
       "name": "evolve-with-removal-gate",
       "prompt": "Move customers from the legacy profile API to a new service while clients update over several months. Give us an architecture migration plan.",
       "expected": "Establishes a versioned or compatible contract, baseline observability, staged consumer migration, comparison and rollback conditions, data ownership and consistency rules, and a named removal gate for the legacy path. It avoids permanent dual writes and adapters without ownership and expiry."
