@@ -66,6 +66,11 @@
       "expected": "Keeps the data-loss risk explicit, states the concrete failure mode and next step, and does not soften a real blocker into vague feedback."
     },
     {
+      "name": "rewrite-pr-prose-without-owning-review-decision",
+      "prompt": "Make this PR note sound like a natural teammate and decide whether to approve or request changes: 'The retry path can submit the charge twice. This needs to be fixed before merge.'",
+      "expected": "Rewrites the supplied note in natural team English while preserving the explicit blocker and duplicate-charge consequence, but leaves finding validation and the approve/request-changes decision to the PR-review route in effective-delivery instead of treating Metro English as the review authority."
+    },
+    {
       "name": "respect-existing-house-style",
       "prompt": "Make this release note more casual, but the project's accepted style guide requires formal language for security notices and exact terminology for irreversible actions.",
       "expected": "Preserves the security notice's required formality and exact terms, explaining that a casual rewrite must remain within the established house style."

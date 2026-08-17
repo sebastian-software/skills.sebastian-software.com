@@ -268,10 +268,13 @@ and you can do it without further input, **do it**.
 
 ## Voice
 
-Read [Voice](review-voice.md) and its
-[examples](review-voice-examples.md) before writing PR comments. Keep feedback
-concise and professional, distinguish mandatory from optional work, and match
-the reviewer and audience.
+Read [PR review voice](review-voice.md) and its specialized
+[examples](review-voice-examples.md) before writing PR comments. This route
+retains severity, blocking language, optionality, placement, reviewer-class
+behavior, and the review decision. Load `effective-writing` and its Metro
+English route only for the general prose treatment when it is available and
+fits the repository; repository language and communication conventions still
+win.
 
 ## Verifying a change (only when it earns it)
 
