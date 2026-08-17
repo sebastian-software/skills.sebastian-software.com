@@ -11,6 +11,16 @@
       "expected": "Clarifies the governing idea and reading path, preserves intentional humor, fragments, cadence, and uncertainty, distinguishes correction from stylistic preference, removes only accidental clutter, and does not manufacture confidence or a generic polished voice."
     },
     {
+      "name": "minto-logic-audit-with-qualified-answer",
+      "prompt": "Minto this proposal before rewriting it. Our current recommendation is: Based on two pilots, extend the onboarding trial for one quarter while measuring retention. The notes cover adoption, support cost, implementation risk, and the fact that the sample is too small for a permanent rollout decision. Extract the pyramid, pressure-test the logic, and tell me how to restructure it.",
+      "expected": "Identifies the reader's decision question and preserves the recommendation's material qualification; makes each parent summarize logically alike, ordered children; distinguishes inductive reasons from any deductive chain; tests MECE relative to the decision and scope; keeps uncertainty and evidence gaps attached to the relevant branches; and returns an actionable pyramid and restructuring plan without fabricating proof, forcing exactly three branches, or rewriting the full proposal."
+    },
+    {
+      "name": "minto-bottom-up-discovery",
+      "prompt": "Build the Minto pyramid for these raw notes. I do not know the answer yet: renewal calls mention slow setup, admins complete setup faster after guided imports, support volume spikes in week one, and the team is debating better documentation versus an in-product flow.",
+      "expected": "Uses bottom-up grouping to discover a supportable governing point or a small set of unresolved candidate answers; separates observations from interpretations; names the reader question; checks summary, logical kind, order, and scope-relative MECE; identifies what evidence or decision is still missing; and does not stop solely because the initial answer was unknown or invent certainty from the notes."
+    },
+    {
       "name": "audit-patterns-without-guessing-authorship",
       "prompt": "Does this read like AI slop? Audit it, but do not rewrite it: \"Here is what most teams miss: This is not a tooling challenge. It is a transformation journey. The platform serves as a robust hub for collaboration, underscoring our commitment to innovation.\"",
       "expected": "Names and groups observable formulaic patterns, quotes representative evidence, explains the reader effect, and gives small correction directions without rewriting the draft, assigning an AI probability, or claiming who or what wrote it."
@@ -130,6 +140,11 @@
     {
       "name": "revise-case-study",
       "prompt": "Restructure and revise this customer case study for clarity, credibility, narrative flow, and a supportable call to action.",
+      "should_trigger": true
+    },
+    {
+      "name": "run-minto-pyramid-analysis",
+      "prompt": "Minto this board memo: extract the governing answer, pressure-test the supporting groups for MECE, and give me a restructuring plan before we rewrite it.",
       "should_trigger": true
     },
     {

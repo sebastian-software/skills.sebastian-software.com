@@ -9,12 +9,21 @@ shape of the piece rather than its sentences.
 1. [Nonfiction assignment, evidence, and revision](nonfiction-assignment.md) —
    the shared contract: mode, audience, evidence register, governing idea,
    revision passes, and deliverable.
-2. [Structure and story](structure-and-story.md) — the route's working guidance.
+2. Choose the focused guidance that matches the assignment:
+   - [Structure and story](structure-and-story.md) for general argument,
+     explanation, narrative, lead, sequence, transition, or ending work.
+   - [Minto Pyramid analysis](minto-pyramid.md) for an explicit Minto, pyramid,
+     MECE, answer-first, governing-thought, or logic pressure-test request.
+   Read both only when the assignment needs the pyramid inside a broader
+   narrative or editorial structure.
 
 ## Apply
 
 - Fix the governing idea before arranging sections. A structure problem that
   survives rearrangement is usually an unresolved thesis.
+- For a Minto analysis, identify the reader's question, make every parent a
+  summary of its children, keep sibling ideas logically alike and ordered, and
+  test MECE relative to the parent question and declared scope.
 - Give each section one job and make the relationship between paragraphs
   visible. Place context before the claims that depend on it.
 - Choose the sequence the argument or narrative actually needs. Chronology is a

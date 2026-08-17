@@ -1,20 +1,18 @@
 ---
 name: effective-writing
 description: >-
-  Plan, write, revise, and critique nonfiction prose from supplied ideas and
-  evidence. Use even when source text or notes are missing; ask for them first.
-  Covers articles, essays, newsletters, thought
-  leadership, engineering blog posts, technical articles, case studies, About
-  pages, product descriptions, and long-form homepage prose; evidence-based
-  audits of formulaic,
-  AI-sounding text without authorship claims; relaxed US metropolitan team
-  English for Slack threads, issue comments, PR notes, and async updates; and
-  locale-appropriate typography in visible prose for German, English, French,
-  and ten further European languages. Use to improve structure, clarity, voice,
-  and rhythm, audit or humanize prose, turn stiff or
-  German text into natural team English, or fix quotation marks, punctuation,
-  spacing, numbers, dates, and hyphenation for a locale. Do not invent facts,
-  statistics, or quotations. Route market positioning and claims to
+  Plan, structure, write, revise, and critique nonfiction prose from supplied
+  ideas and evidence. Use even when source text or notes are missing; ask for
+  them first. Covers articles, essays, newsletters, thought leadership,
+  technical articles, case studies, About pages, product descriptions, and
+  long-form homepage prose; Minto Pyramid, MECE, answer-first, and governing
+  thought analysis; evidence-based audits of formulaic, AI-sounding text without
+  authorship claims; relaxed US team English for Slack, issues, PRs, and async
+  updates; and locale typography for German, English, French, and ten further
+  European languages. Use to improve structure, clarity, voice, or rhythm,
+  humanize prose, adapt stiff or German text into natural team English, or fix
+  locale punctuation, spacing, numbers, dates, and hyphenation. Do not invent
+  facts, statistics, or quotations. Route market positioning and claims to
   effective-marketing and durable technical documentation to effective-delivery.
 ---
 
@@ -49,7 +47,7 @@ or revision unless the user asks.
 
 | User intent | Read |
 | --- | --- |
-| Set thesis and scope, order an argument or narrative, fix leads, transitions, or endings | [Structure and Story](references/route-structure.md) |
+| Set thesis and scope, run Minto Pyramid or MECE analysis, order an argument or narrative, fix leads, transitions, or endings | [Structure and Story](references/route-structure.md) |
 | Improve clarity, clutter, syntax, verbs, rhythm, or voice; run a multi-pass line edit | [Prose and Revision](references/route-prose.md) |
 | Make prose sound less generated, or report observable AI-writing patterns without an authorship guess | [Human Voice Editing](references/route-voice-audit.md) |
 | Write thought leadership, content marketing, editorial case studies, objections, proof, or a call to action | [Persuasive Nonfiction](references/route-persuasion.md) |
