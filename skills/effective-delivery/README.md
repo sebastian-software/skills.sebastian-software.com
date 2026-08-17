@@ -52,6 +52,8 @@ It replaces the former `effective-workflow`, `codebase-improvement`,
   states per category
 - READMEs, task guides, API and CLI references, and migration notes derived from
   the implementation
+- documentation-creep audits that keep one owner per claim, remove prose
+  shadows of code, and preserve rationale, domain language, and traceability
 - ASD-STE100 and controlled-technical-German documentation work
 - management interventions that are reversible, owned, and reviewed
 
@@ -83,6 +85,10 @@ what that leaves unproven.
 
 Write the migration notes for this breaking API change from the actual
 implementation and tests, not from the changelog.
+
+Audit this repository for documentation creep. Keep the useful rationale,
+glossary, runbooks, and navigation; identify prose that merely shadows the code;
+and classify each surface as keep, link, generate, move, update, or remove.
 
 Two teams both think they own deploys and nothing ships on Fridays. Diagnose the
 system before proposing a reorg.

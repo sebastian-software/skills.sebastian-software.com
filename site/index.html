@@ -14,7 +14,7 @@
     <meta property="og:title" content="Sebastian Software Skills — Practical judgment for AI agents">
     <meta
       property="og:description"
-      content="6 practice-built skills, 333 focused references, and 1 optional instruction pack for dependable product and software work."
+      content="6 practice-built skills, 333 focused references, and 2 optional instruction packs for dependable product and software work."
     >
     <meta property="og:url" content="https://skills.sebastian-software.com/">
     <meta property="og:site_name" content="Sebastian Software Skills">
@@ -32,7 +32,7 @@
     <meta name="twitter:title" content="Sebastian Software Skills — Practical judgment for AI agents">
     <meta
       name="twitter:description"
-      content="6 practice-built skills, 333 focused references, and 1 optional instruction pack for dependable product and software work."
+      content="6 practice-built skills, 333 focused references, and 2 optional instruction packs for dependable product and software work."
     >
     <meta
       name="twitter:image"
@@ -166,7 +166,7 @@
               </div>
               <div>
                 <dt>optional instruction packs</dt>
-                <dd>1</dd>
+                <dd>2</dd>
               </div>
             </dl>
           </div>
@@ -729,10 +729,11 @@
           <div class="landscape-teaser-copy reveal">
             <p>
               Skills provide task-triggered professional depth. Optional instruction
-              packs provide standing cross-task conventions such as request authority
-              and completion. Every skill still works alone; DALO or a downstream agent
-              stack decides which packs become active, where they are projected, and how
-              they coexist with external catalogs and project instructions.
+              packs provide standing cross-task conventions such as request authority,
+              completion, and documentation truth. Every skill still works alone; DALO
+              or a downstream agent stack decides which packs become active, where they
+              are projected, and how they coexist with external catalogs and project
+              instructions.
             </p>
             <a class="button button-primary" href="https://github.com/sebastian-software/skills.sebastian-software.com/blob/main/README.md#collection-boundary">Read the collection boundary</a>
           </div>
@@ -778,10 +779,11 @@ dalo source add-catalog sebastian https://github.com/sebastian-software/skills.s
 dalo source select sebastian effective-web
 dalo approve skill sebastian:effective-web
 dalo sync
-dalo instructions enable sebastian:request-and-completion --target codex</code>
+dalo instructions enable sebastian:request-and-completion --target codex
+dalo instructions enable sebastian:documentation-truth --target codex</code>
                 <button class="copy-button" type="button" data-copy-target="dalo-command" aria-label="Copy DALO setup commands"><span data-copy-label>Copy</span></button>
               </div>
-              <p class="method-note">Skills and instruction packs activate separately. The final command requires a DALO release with source-backed packs.</p>
+              <p class="method-note">Skills and instruction packs activate separately. The final commands require a DALO release with source-backed packs.</p>
             </article>
           </div>
 
