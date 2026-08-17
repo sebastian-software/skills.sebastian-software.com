@@ -8,11 +8,11 @@
 need to do dependable product and software work.**
 
 Six disciplines, one quality bar:
-6 practice-built skills, 333 focused references, and 1 optional instruction pack
+6 practice-built skills, 333 focused references, and 2 optional instruction packs
 covering product decisions and research, browser experiences, software
 architecture and code, repository and team delivery, nonfiction prose, and
-go-to-market work, plus a standing request-and-completion contract that can be
-enabled independently.
+go-to-market work, plus standing contracts for request completion and
+documentation truth that can be enabled independently.
 
 Install one discipline when an agent needs deeper judgment for a domain, or
 combine several in your own downstream agent stack. Each discipline turns
@@ -194,10 +194,13 @@ human-gradeable result with its runtime and evidence.
 
 An instruction pack has no user-intent trigger. It applies across tasks only
 after explicit activation, declares a semantic version and overlap topics, and
-has matching behavioral scenarios. See
-[`request-and-completion`](instructions/request-and-completion.md) for the first
-pack and [`docs/authoring-skills.md`](docs/authoring-skills.md) for its authoring
-contract.
+has matching behavioral scenarios. The collection currently provides
+[`request-and-completion`](instructions/request-and-completion.md) for authority,
+autonomy, and terminal-state behavior, and
+[`documentation-truth`](instructions/documentation-truth.md) for preventing
+documentation from becoming a competing, untestable shadow of its owning
+artifacts. See [`docs/authoring-skills.md`](docs/authoring-skills.md) for the
+authoring contract.
 
 The hand-maintained catalog website lives in `site/`. Adding a discipline also
 means adding its site card and inventory metadata, then running both repository
@@ -242,15 +245,16 @@ longer exists upstream: `dalo source refresh sebastian --check` reports it as
 `selected_removed` while preserving the current pin. Re-pin it to its discipline
 using [MIGRATION.md](MIGRATION.md), then sync again.
 
-After reviewing the optional standing contract, a DALO version with
-source-backed instruction packs can enable it for one or more verified targets:
+After reviewing the optional standing contracts, a DALO version with
+source-backed instruction packs can enable either or both for verified targets:
 
 ```sh
 dalo instructions enable sebastian:request-and-completion --target codex --target claude
+dalo instructions enable sebastian:documentation-truth --target codex --target claude
 ```
 
 This is a separate activation boundary. Selecting or approving a skill does not
-enable the pack, and refreshing the source does not add it silently.
+enable either pack, and refreshing the source does not add one silently.
 
 ### Quick install with skills.sh
 

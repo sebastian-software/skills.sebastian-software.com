@@ -609,6 +609,16 @@
       "name": "pre-existing-interface-debt-does-not-block-change",
       "prompt": "Review a small valid copy change in a legacy checkout component. The touched file has an old mobile overflow bug unrelated to the edited string. Require the author to redesign the component before approving this PR.",
       "expected": "Classifies the unchanged overflow issue as Pre-existing, keeps it separate and mentions it only if consequential, does not attach blame to the copy edit or make legacy cleanup a merge condition, and bases the PR decision on Introduced and Regression findings. It may recommend a repository-native follow-up without expanding the current change."
+    },
+    {
+      "name": "avoid-ai-context-shadow-of-code",
+      "prompt": "Add a comprehensive Markdown knowledge layer for coding agents that repeats every package, public type, call path, configuration default, and test responsibility. The code changes weekly, but agents should read the docs instead of inspecting it.",
+      "expected": "Identifies the proposed knowledge layer as high-drift duplication and a competing source of truth; defines the actual navigation need; prefers clear code boundaries, schemas, generated reference, tests, executable examples, and a concise map linking to owners; and adds no prose inventory without a distinct reader job and credible synchronization mechanism."
+    },
+    {
+      "name": "preserve-multiple-authoritative-levels",
+      "prompt": "Simplify this regulated repository by deleting approved requirements, the system specification, ADRs, and verification links. Keep only code and tests because there must be exactly one source of truth.",
+      "expected": "Rejects the false choice between uncontrolled duplication and code-only truth; recognizes requirements, specifications, rationale, implementation, and verification as authoritative at different abstraction levels; preserves required traceability; removes only conflicting or mechanically duplicated claims; and keeps one explicit owner for each claim."
     }
   ],
   "activation": [

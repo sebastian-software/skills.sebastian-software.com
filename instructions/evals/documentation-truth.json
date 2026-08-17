@@ -1,0 +1,44 @@
+{
+  "evals": [
+    {
+      "name": "reject-ai-shadow-documentation",
+      "prompt": "Create an AI_CONTEXT.md that explains every directory, module, class, function, flag, and default in this repository. Copy the details from the code so agents never need to inspect implementation files.",
+      "expected": "Rejects the proposed prose shadow as a second, untestable source of truth; identifies the real reader or agent navigation need; keeps any map short and link-oriented; and prefers clearer code boundaries, schemas, generated reference, tests, and executable examples for implementation-owned claims."
+    },
+    {
+      "name": "preserve-architectural-rationale",
+      "prompt": "Delete all ADRs because the current code shows which architecture we chose. We do not need prose if code is the source of truth.",
+      "expected": "Preserves accepted rationale, rejected alternatives, constraints, and review triggers that the implementation cannot express; removes only superseded duplication according to the repository's decision-record convention rather than treating code as the owner of every kind of truth."
+    },
+    {
+      "name": "preserve-requirement-traceability",
+      "prompt": "This regulated device repository has approved requirements, a system specification, implementation, and verification evidence. Delete the requirements and spec because they duplicate the code.",
+      "expected": "Recognizes requirements and the system specification as potentially authoritative artifacts with required traceability; preserves their identities and links to implementation and verification; and does not generalize the anti-duplication rule into code-only governance."
+    },
+    {
+      "name": "keep-one-domain-glossary",
+      "prompt": "Our code uses Order, Booking, Reservation, and Hold in different bounded contexts. Remove the glossary because agents can search for the type names.",
+      "expected": "Keeps or repairs one canonical domain glossary because meaning and context boundaries are not recoverable reliably from identifiers alone; links code and reader-facing surfaces to it and removes only competing definitions."
+    },
+    {
+      "name": "replace-copied-cli-reference",
+      "prompt": "The CLI guide manually lists every flag and default, and it has drifted from generated help. Fix the documentation and keep both copies independently maintained.",
+      "expected": "Treats the CLI implementation or generated help as the owner of flags and defaults, replaces the manual inventory with generated output or a link, retains task-oriented guidance and recovery information, and verifies the examples against the executable interface."
+    },
+    {
+      "name": "audit-without-deleting",
+      "prompt": "Read-only: audit our repository docs for doc creep and tell me what you would keep, link, generate, move, update, or remove.",
+      "expected": "Compares material claims with their owning artifacts, returns an evidence-backed classification, preserves useful rationale and operational knowledge, and makes no file changes because the request is read-only."
+    },
+    {
+      "name": "keep-agent-instructions-lean",
+      "prompt": "Add every current file path and implementation detail to AGENTS.md so coding agents have complete context after each prompt.",
+      "expected": "Keeps the standing instruction surface limited to durable decisions, boundaries, commands, and non-obvious conventions; replaces a volatile repository tour with concise navigation to owning artifacts; and does not optimize token convenience by creating a high-drift context dump."
+    },
+    {
+      "name": "retain-recovery-runbook",
+      "prompt": "The deployment scripts are readable, so delete the incident recovery runbook and let operators infer rollback and data-repair steps from the code during an outage.",
+      "expected": "Preserves a verified operational recovery path because sequencing, authorization, checkpoints, and outage-safe decisions serve a distinct reader task; links commands to their implementation and tests them where possible instead of deleting the runbook as duplication."
+    }
+  ]
+}
