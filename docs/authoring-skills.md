@@ -284,6 +284,13 @@ dot folder, memory file, or private schema.
 - Keep exact values and executable behavior in code, configuration, design
   tokens, editorial guides, or tests. The ADR owns direction, rationale,
   tradeoffs, consequences, and review triggers.
+- Treat RFCs and implementation plans as temporary delivery artifacts. After
+  execution, fold only lasting decisions, deviations, and consequences into the
+  accepted ADR, then remove the superseded proposal instead of maintaining two
+  competing histories.
+- Do not turn model-run logs, pick tables, or dated evaluation snapshots into
+  ADRs. Keep raw evidence with the pull request; update an ADR only when that
+  evidence changes a durable choice, constraint, or review trigger.
 - Preserve accepted history. Supersede decisions instead of silently rewriting
   them to match current implementation.
 - Route ADR creation, review, and lifecycle details through the decision-records
