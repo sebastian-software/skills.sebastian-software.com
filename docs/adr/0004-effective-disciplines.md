@@ -3,6 +3,7 @@
 - Status: Accepted
 - Date: 2026-07-31
 - Amended: 2026-08-16 — compatibility stubs removed early in issue #217
+- Reviewed: 2026-08-17 — Phase 2 route-boundary review in issue #227
 - Migration table: [MIGRATION.md](../../MIGRATION.md)
 
 ## Context
@@ -172,6 +173,32 @@ Raw run logs, per-model pick tables, transient catalog snapshots, and cumulative
 scores are evaluation artifacts rather than architecture decisions. Keep them
 with the pull request that produces them. The durable procedure lives in
 [Reviewing Skill Behavior](../review-scenarios.md).
+
+### Post-consolidation route-boundary review
+
+The Phase 2 review in issue #227 found no route seam that should be regrained.
+All 74 routes remain within the 900-line direct-reference budget. The four
+families split during consolidation — consultant profiles, Rust, pull-request
+review, and testing versus benchmarks — still separate materially different
+user intents and keep specialist context selective rather than preserving old
+installable-skill boundaries.
+
+Recent contributions exercised the structure without needing another route:
+print calibration stayed in Print, Minto analysis extended Structure and Story,
+interface review and color work deepened existing Delivery and Web routes, and
+the Rust testing cleanup unified a shared quality reference while preserving
+the Rust-implementation versus test-evidence intent boundary. The six skills'
+466 review scenarios and the 50-case activation matrix cover the current routes
+and their sharpest cross-discipline seams.
+
+A fresh blind classification of the 50-case catalog produced 50/50 intended
+picks on two models and 49/50 on a weaker model. Its only disagreement was the
+already-covered C-to-Rust port, which it assigned to Engineering instead of
+Delivery. The behavior-preserving Port route and activation owner remain the
+right user-intent boundary; the residual keyword bias is description-selection
+evidence for issue #229, not a reason to move or merge a route. The fresh run
+used Codex desktop because no Claude runtime was available; earlier cross-host
+rounds remain the evidence for the original 41-case catalog.
 
 ### Description context budget
 
