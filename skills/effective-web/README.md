@@ -32,7 +32,7 @@ can still have weak semantics, broken focus order, expensive loading, unclear
 states, fragile responsive behavior, or an API that makes future changes harder.
 
 Effective Web treats those concerns as one system. Its 28 routed intents across
-26 route files and 131 reference documents let an agent load the smallest useful
+26 route files and 132 reference documents let an agent load the smallest useful
 guidance set, then check the result across the boundaries that matter before
 calling it done.
 

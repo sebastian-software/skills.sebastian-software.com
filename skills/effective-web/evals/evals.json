@@ -579,6 +579,41 @@
       "name": "separate-compliance-facts-from-footer-implementation",
       "prompt": "Add a GDPR-compliant cookie banner and Impressum to our site this afternoon.",
       "expected": "Establishes operator facts, establishment, targeted markets, and actual tracking before drafting, marks unknown facts with conspicuous placeholders rather than inventing registration data, states that this is legal information rather than a legal opinion, and implements the consent UI and footer with accessibility and responsive verification once the requirements are known."
+    },
+    {
+      "name": "review-resolved-ui-change-not-whole-product",
+      "prompt": "Effective Delivery hands you a resolved PR delta: one shared surface token changed, 31 components consume it, and the PR promises improved dark-mode separation in compact tables. Review the interface effect. Do not turn this into a whole-product redesign.",
+      "expected": "Accepts Delivery's base/head and intent as the change boundary; inspects the changed token, direct consumers, and at most five risk-diverse representative rendered surfaces with an extra hop justified by the shared token; prioritizes compact tables and dark mode; states omitted consumer classes and unavailable evidence; treats unavailable rendering as Not reviewed rather than a defect or automatic merge block; and returns consolidated browser-interface findings to effective-delivery without redoing provider review or inventing a redesign."
+    },
+    {
+      "name": "classify-removed-interface-signal-from-base-evidence",
+      "prompt": "A PR replaces a labeled Close button with an icon. The diff removes aria-label=\"Close\"; the new SVG is decorative and the base preview proves the button had an accessible name. A separate low-contrast footer link in the touched file already existed. Review the UI change.",
+      "expected": "Reads the removed accessible-name signal as a lead, confirms no replacement, classifies the unnamed icon button as a Regression with exact source evidence, and treats the unchanged footer contrast issue as Pre-existing rather than part of the change verdict. It does not manufacture a visual claim when semantic source and base evidence already establish the regression."
+    },
+    {
+      "name": "find-incomplete-promised-interface-states",
+      "prompt": "The PR says it adds a compact destructive-action variant for dense tables. The default pointer state is implemented, but focus, keyboard activation, disabled/loading behavior, long translated labels, and narrow layouts are absent from the diff and fixture. Decide whether asking for them is scope creep.",
+      "expected": "Treats reachable states required by the promised compact destructive variant as incomplete accepted scope rather than speculative expansion, checks only states the component contract can reach, classifies supported omissions as Introduced, routes durable product-direction ambiguity back to its owner, and distinguishes absent verification from a confirmed defect where runtime evidence is required."
+    },
+    {
+      "name": "preserve-apca-polarity-and-context",
+      "prompt": "Our APCA calculator returns -72 for light text on a dark surface. Treat the negative value as a failure, swap foreground and background until it becomes positive, and use Lc 60 as a universal pass threshold for every font and text size.",
+      "expected": "Rejects swapping the actual pair; explains that negative Lc is the expected polarity for light text on a dark background while positive is dark-on-light; records the sign and evaluates magnitude only in that context; uses current guidance for the intended use, font size, weight, and relevant font characteristics rather than a frozen universal threshold; recalculates the rendered pair; and keeps WCAG 2.2 as the compliance baseline with APCA as supplementary evidence."
+    },
+    {
+      "name": "recalculate-oklch-contrast-beyond-lightness",
+      "prompt": "Fix a failing OKLCH text token by changing only L. Do not touch C or H and do not rerun contrast because chroma cannot affect contrast.",
+      "expected": "Treats lightness as a useful first adjustment rather than a mathematical guarantee; recalculates the actual rendered foreground/background pair after the change; inspects gamut mapping and fallbacks; meets the applicable WCAG 2.2 requirement and uses APCA only as supplementary evidence; and permits C or H changes when gamut, semantic state, brand recognition, or the resulting pair requires them."
+    },
+    {
+      "name": "design-dark-theme-as-semantic-remap",
+      "prompt": "Generate the dark theme by swapping palette steps 50 with 950, 100 with 900, and so on. Call it complete because OKLCH perceptual uniformity guarantees equal readability in both directions.",
+      "expected": "Rejects reversed palette indices as a finished dark theme and rejects perceptual uniformity as a readability guarantee; maps shared semantic roles to dark-specific surface, text, border, focus, status, interaction, and elevation tokens; tunes chroma and lightness for dark surroundings; measures every actual foreground/background and state pair against WCAG 2.2 with APCA only supplementary; and verifies light, dark, high-contrast or forced-colors, interaction, and supported display/gamut behavior."
+    },
+    {
+      "name": "polish-theme-and-icon-states-without-magic-values",
+      "prompt": "Polish a theme toggle whose entire page slowly smears between colors and whose 16px active icon becomes blurry. Apply universal exact shadow, outline, stroke, scale, and animation values everywhere so the UI feels premium.",
+      "expected": "Rejects universal aesthetic magic values; makes the theme swap atomic or temporarily suppresses only theme-sensitive transitions with verified cleanup; tests initial load, rapid and OS-driven changes, contrast, and reduced motion; uses the icon family's native render grid and coherent optical weight; allows an outline/filled active pair only as a consistent redundant state cue; and verifies the correction at real size and normal speed."
     }
   ],
   "activation": [

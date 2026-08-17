@@ -40,6 +40,9 @@ and motion model deliberately.
 - Use `vector-effect="non-scaling-stroke"` only when stroke weight should remain
   visually constant while geometry scales; ordinary icons usually benefit from
   strokes scaling with the artwork.
+- Test icons at the smallest size they actually render. Prefer the icon set's
+  native 16, 20, or 24px grid over fractional scaling that softens strokes, and
+  simplify artwork whose counters or interior lines collapse at that size.
 
 ## Shapes and Paths
 
@@ -64,6 +67,16 @@ and motion model deliberately.
 - Use `fill="currentColor"` or `stroke="currentColor"` for monochrome icons and
   semantic custom properties for multi-color graphics. Keep component state on
   the containing control and let the SVG inherit it.
+- Match an icon's optical weight to adjacent text without rewriting a coherent
+  icon family ad hoc. Use a supported stroke variant when the family provides
+  one; otherwise preserve its native stroke and adjust size, color, or emphasis.
+  Verify the pair at its real rendered size rather than deriving a universal
+  stroke width from font weight alone.
+- Reuse one geometry asset across ordinary color states and let `currentColor`
+  inherit hover, focus, disabled, and selected treatment. When the icon family
+  provides a deliberate outline/filled pair, a filled selected state can add a
+  useful cue; it must remain consistent across the surface and cannot be the
+  only indication of state.
 - Hide decorative inline SVG with `aria-hidden="true"`. For decorative `<img>`,
   use `alt=""`; do not repeat adjacent visible text through the accessibility tree.
 - Name an informative inline SVG with `role="img"` and `aria-labelledby` pointing
@@ -100,6 +113,9 @@ and motion model deliberately.
 
 - Is the chosen delivery mode justified by caching, styling, interaction, and reuse?
 - Does the SVG scale without clipping, distortion, layout shift, or optical drift?
+- Does each icon remain crisp and recognizable at its smallest real size, with
+  optical weight coherent with nearby text and the rest of its icon family?
 - Is it correctly hidden, concisely named, or accompanied by a fuller text alternative?
-- Do theme, hover, focus, disabled, reduced-motion, and forced-colors states work?
+- Do theme, hover, focus, selected, disabled, reduced-motion, and forced-colors
+  states work without duplicated state assets or a visual-only state cue?
 - Are paths readable and effects support-gated, maintainable, and measured?
