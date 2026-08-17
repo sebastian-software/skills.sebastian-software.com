@@ -1,18 +1,18 @@
 ---
 name: effective-product
 description: >-
-  Decide what to build and how the product should work on gathered evidence. Run
-  customer, buyer, win/loss, and churn interviews, surveys, observation, review
-  and community mining, and market research; synthesize Voice of Customer, Jobs
-  to Be Done, personas, and market sizing. Use for discovery and evidence review;
-  strategy, outcomes, scope, priorities, roadmaps, releases, marketplaces,
-  network effects, and operating models; design research, problem framing,
-  objects, journeys, information architecture, prototypes, and retention;
-  naming; pricing, packaging, value metrics, tiers, and trials; and Architecture
-  Decision Records. Trigger when evidence must be gathered or a product decision
-  made; when experienced judgment conflicts with explicit analysis in a durable
-  decision; or when generated designs need selection and subtraction. Do not use
-  to implement the product, write marketing copy, or operate a channel.
+  Decide what to build and how a product should work from gathered evidence. Use
+  for customer, buyer, win/loss, and churn interviews; surveys, observation,
+  review or community mining, market research, Voice of Customer, Jobs to Be
+  Done, personas, and market sizing; strategy, outcomes, scope, priorities,
+  roadmaps, releases, marketplaces, network effects, and operating models;
+  design research, problem framing, objects, journeys, information architecture,
+  prototypes, retention, and naming; pricing, packaging, value metrics, tiers,
+  and trials; and Architecture Decision Records. Trigger when evidence must be
+  gathered or a product decision made, when experienced judgment conflicts with
+  analysis in a durable decision, or when generated designs need selection and
+  subtraction. Do not implement products, write marketing copy, or operate
+  channels.
 ---
 
 # Effective Product

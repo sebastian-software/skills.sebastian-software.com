@@ -2,18 +2,17 @@
 name: effective-writing
 description: >-
   Plan, structure, write, revise, and critique nonfiction prose from supplied
-  ideas and evidence. Use even when source text or notes are missing; ask for
-  them first. Covers articles, essays, newsletters, thought leadership,
-  technical articles, case studies, About pages, product descriptions, and
-  long-form homepage prose; Minto Pyramid, MECE, answer-first, and governing
-  thought analysis; evidence-based audits of formulaic, AI-sounding text without
-  authorship claims; relaxed US team English for Slack, issues, PRs, and async
-  updates; and locale typography for German, English, French, and ten further
-  European languages. Use to improve structure, clarity, voice, or rhythm,
-  humanize prose, adapt stiff or German text into natural team English, or fix
-  locale punctuation, spacing, numbers, dates, and hyphenation. Do not invent
-  facts, statistics, or quotations. Route market positioning and claims to
-  effective-marketing and durable technical documentation to effective-delivery.
+  ideas and evidence; ask for missing source material first. Use for articles,
+  essays, newsletters, thought leadership, technical articles, case studies,
+  About pages, product descriptions, and long-form homepage prose; Minto
+  Pyramid, MECE, answer-first, and governing-thought analysis; evidence-based
+  audits of formulaic or AI-sounding text without authorship claims; natural US
+  team English for Slack, issues, PRs, and async updates; and locale typography
+  for German, English, French, and other European languages. Trigger on
+  structure, clarity, voice, rhythm, humanization, German-to-English team
+  rewrites, or locale punctuation, spacing, numbers, dates, and hyphenation. Do
+  not invent facts or quotations. Route market claims to effective-marketing
+  and durable technical documentation to effective-delivery.
 ---
 
 # Effective Writing
