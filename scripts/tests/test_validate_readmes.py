@@ -195,6 +195,106 @@ class EvalValidationTests(unittest.TestCase):
         )
 
 
+class InstructionPackValidationTests(unittest.TestCase):
+    def setUp(self) -> None:
+        self.temporary_directory = tempfile.TemporaryDirectory()
+        self.root = Path(self.temporary_directory.name)
+        self.instructions = self.root / "instructions"
+        self.evals = self.instructions / "evals"
+        self.evals.mkdir(parents=True)
+        self.original_root = VALIDATOR.REPOSITORY_ROOT
+        VALIDATOR.REPOSITORY_ROOT = self.root
+
+    def tearDown(self) -> None:
+        VALIDATOR.REPOSITORY_ROOT = self.original_root
+        self.temporary_directory.cleanup()
+
+    def write_pack(
+        self,
+        body: str = (
+            "version: 1.0.0\n"
+            "topics: authority, completion\n\n"
+            "# Request Contract\n\n"
+            "Finish the authorized work.\n"
+        ),
+        eval_payload: object | None = None,
+    ) -> None:
+        (self.instructions / "request-contract.md").write_text(body, encoding="utf-8")
+        if eval_payload is None:
+            eval_payload = {
+                "evals": [
+                    {
+                        "name": "finish-work",
+                        "prompt": "Do two requested things.",
+                        "expected": "Completes both or names an exact blocker.",
+                    }
+                ]
+            }
+        (self.evals / "request-contract.json").write_text(
+            json.dumps(eval_payload), encoding="utf-8"
+        )
+
+    def test_accepts_a_versioned_pack_with_matching_evals(self) -> None:
+        self.write_pack()
+        errors: list[str] = []
+
+        packs = VALIDATOR.validate_instruction_packs(errors)
+
+        self.assertEqual(errors, [])
+        self.assertEqual(packs, [self.instructions / "request-contract.md"])
+
+    def test_rejects_missing_metadata_and_managed_markers(self) -> None:
+        self.write_pack(
+            "# Request Contract\n\n"
+            "<!-- dalo:start request-contract -->\n"
+            "Finish it.\n"
+            "<!-- dalo:end request-contract -->\n"
+        )
+        errors: list[str] = []
+
+        VALIDATOR.validate_instruction_packs(errors)
+
+        self.assertTrue(any("version: X.Y.Z" in error for error in errors))
+        self.assertTrue(any("topics: or tags:" in error for error in errors))
+        self.assertTrue(any("managed-block markers" in error for error in errors))
+
+    def test_rejects_invalid_topics_and_eval_shape(self) -> None:
+        self.write_pack(
+            "version: 1.0.0\n"
+            "topics: Authority, completion, completion\n\n"
+            "# Request Contract\n",
+            {"evals": [{"name": "case", "prompt": "Prompt"}]},
+        )
+        errors: list[str] = []
+
+        VALIDATOR.validate_instruction_packs(errors)
+
+        self.assertTrue(any("unique lowercase tokens" in error for error in errors))
+        self.assertTrue(any("keys must be exactly" in error for error in errors))
+
+    def test_rejects_missing_and_orphaned_eval_files(self) -> None:
+        (self.instructions / "request-contract.md").write_text(
+            "version: 1.0.0\ntopics: authority\n\n# Request Contract\n",
+            encoding="utf-8",
+        )
+        (self.evals / "orphan.json").write_text(
+            json.dumps({"evals": []}), encoding="utf-8"
+        )
+        errors: list[str] = []
+
+        VALIDATOR.validate_instruction_packs(errors)
+
+        self.assertTrue(
+            any(
+                "missing matching evals/request-contract.json" in error
+                for error in errors
+            )
+        )
+        self.assertTrue(
+            any("orphaned instruction eval" in error for error in errors)
+        )
+
+
 class SkillMetadataValidationTests(unittest.TestCase):
     def setUp(self) -> None:
         self.temporary_directory = tempfile.TemporaryDirectory()

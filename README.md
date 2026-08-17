@@ -8,10 +8,11 @@
 need to do dependable product and software work.**
 
 Six disciplines, one quality bar:
-6 practice-built skills and 333 focused references
+6 practice-built skills, 332 focused references, and 1 optional instruction pack
 covering product decisions and research, browser experiences, software
 architecture and code, repository and team delivery, nonfiction prose, and
-go-to-market work.
+go-to-market work, plus a standing request-and-completion contract that can be
+enabled independently.
 
 Install one discipline when an agent needs deeper judgment for a domain, or
 combine several in your own downstream agent stack. Each discipline turns
@@ -50,7 +51,9 @@ npx skills add sebastian-software/skills.sebastian-software.com --all
 ```
 
 Selective installation also works with [DALO](#installation) when selections
-should be pinned and shared across multiple agent targets.
+should be pinned and shared across multiple agent targets. DALO can also enable
+the collection's optional instruction packs as standing guidance without making
+them a dependency of any skill.
 
 ## The Six Disciplines
 
@@ -94,7 +97,7 @@ components, forms, tables, accessibility, internationalization, interface copy,
 auth and error states, frontend SEO and AI search, performance, testing, SVG,
 motion, textures, print stylesheets, and web-to-print.
 
-## What the Skills Add
+## What the Collection Adds
 
 General models can generate plausible answers. Shipping good work requires more:
 knowing what evidence is missing, which tradeoff matters, what not to invent,
@@ -125,15 +128,19 @@ the external tools and credentials required to act on third-party systems.
 
 ## Collection Boundary
 
-This repository owns the public, first-party skills themselves. Their portable
-interface is a flat `skills/<name>/SKILL.md` layout that works with compatible
-agent environments and source managers.
+This repository owns Sebastian Software's public, first-party agent guidance:
+independently installable skills under `skills/` and optional standing
+instruction packs under `instructions/`.
 
-It intentionally does not define a universal agent setup. External catalogs,
-cross-catalog precedence, named agents, project instructions, and routing across
-first- and third-party sources belong in a separate downstream agent stack.
-That keeps each skill independently useful and prevents one public source
-repository from silently deciding how a user's complete environment behaves.
+Content ownership and activation stay separate. A skill remains complete when
+installed alone, and discovering this source never activates an instruction
+pack. DALO or another compatible manager owns explicit enablement and target
+projection. External catalogs, cross-catalog precedence, named agents,
+stack-specific routing, and the final choice of active instructions still
+belong in a downstream agent stack.
+
+The accepted boundary and activation contract are recorded in
+[ADR 0005](docs/adr/0005-first-party-instruction-packs.md).
 
 ## Disciplines
 
@@ -166,6 +173,13 @@ skills/<name>/
 └── scripts/      # optional deterministic helpers
 ```
 
+Standing cross-task conventions live separately from triggerable skills:
+
+```text
+instructions/<id>.md        # versioned provider-neutral instruction pack
+instructions/evals/<id>.json # unrun behavioral review scenarios
+```
+
 `README.md` explains the value, use cases, scope, installation, and related
 skills for people evaluating the skill on its own. `SKILL.md` is the agent-facing
 interface: its YAML frontmatter gives the skill a portable name and tells
@@ -178,6 +192,13 @@ model-quality gate. When behavior evidence is needed, use the documented
 [manual review-scenario workflow](docs/review-scenarios.md) to record a
 human-gradeable result with its runtime and evidence.
 
+An instruction pack has no user-intent trigger. It applies across tasks only
+after explicit activation, declares a semantic version and overlap topics, and
+has matching behavioral scenarios. See
+[`request-and-completion`](instructions/request-and-completion.md) for the first
+pack and [`docs/authoring-skills.md`](docs/authoring-skills.md) for its authoring
+contract.
+
 The hand-maintained catalog website lives in `site/`. Adding a discipline also
 means adding its site card and inventory metadata, then running both repository
 validators documented in [`docs/authoring-skills.md`](docs/authoring-skills.md).
@@ -186,10 +207,12 @@ The 33 superseded slugs were removed on 2026-08-16 after the transition to six
 disciplines. [MIGRATION.md](MIGRATION.md) remains the authoritative old-to-new
 mapping; only the six disciplines are installable from this repository.
 
-The repository contains the skills themselves: no installer, vendored
+The repository contains the first-party guidance itself: no installer, vendored
 third-party snapshots, generated distribution tree, or dependency lockfiles.
-Installation is handled by an Agent Skills-compatible manager such as
-[DALO](https://dalo.sh) or Vercel's [skills CLI](https://skills.sh/docs).
+Skill installation is handled by an Agent Skills-compatible manager such as
+[DALO](https://dalo.sh) or Vercel's [skills CLI](https://skills.sh/docs);
+instruction-pack projection requires a manager such as DALO that supports
+explicit managed instruction blocks.
 
 ## Installation
 
@@ -219,6 +242,16 @@ longer exists upstream: `dalo source refresh sebastian --check` reports it as
 `selected_removed` while preserving the current pin. Re-pin it to its discipline
 using [MIGRATION.md](MIGRATION.md), then sync again.
 
+After reviewing the optional standing contract, a DALO version with
+source-backed instruction packs can enable it for one or more verified targets:
+
+```sh
+dalo instructions enable sebastian:request-and-completion --target codex --target claude
+```
+
+This is a separate activation boundary. Selecting or approving a skill does not
+enable the pack, and refreshing the source does not add it silently.
+
 ### Quick install with skills.sh
 
 Vercel's [skills CLI](https://skills.sh/docs) is a lightweight alternative for
@@ -242,6 +275,9 @@ explanation.
 
 - Do not add article archives, source-review notes, or generic inspiration lists.
 - Group cohesive domains behind a clear router; keep unrelated work separate.
+- Put standing cross-task conventions with no independent trigger in an
+  instruction pack, and keep activation and stack-specific precedence outside
+  the source artifact.
 - Prefer practical rules, examples, and checks over broad advice.
 - Keep `SKILL.md` lean and move detail into `references/`.
 - Keep external source selection and cross-catalog precedence in a downstream

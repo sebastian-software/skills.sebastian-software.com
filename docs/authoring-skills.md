@@ -1,8 +1,9 @@
-# Authoring Skills
+# Authoring First-Party Agent Guidance
 
 Skills are focused instruction packages. A skill may route a cohesive domain to
 multiple workflows, but it must remain understandable from `SKILL.md` without
-loading every bundled resource into context.
+loading every bundled resource into context. Optional instruction packs hold
+standing cross-task conventions and follow a separate activation contract.
 
 ## The Discipline Pattern
 
@@ -66,6 +67,49 @@ skills/skill-name/
 Every public skill requires `README.md`, `SKILL.md`, `evals/evals.json`, and
 `agents/openai.yaml`. Add the other directories when they serve a clear purpose.
 Do not add external snapshots or generated copies.
+
+## Instruction Packs
+
+Use an instruction pack instead of a skill when all of these are true:
+
+- the rule should remain active across otherwise unrelated tasks;
+- it has no independently requestable outcome or useful activation trigger;
+- it governs agent conduct such as authority, completion, communication, or
+  orchestration rather than one professional discipline; and
+- it can be expressed provider-neutrally without assuming one model, tool name,
+  target path, or downstream catalog.
+
+First-party packs live directly under `instructions/` and use DALO's compact
+source format:
+
+```text
+version: 1.0.0
+topics: authority, completion
+
+# Request Contract
+```
+
+The filename stem is the stable pack ID. Declare one semantic `version:` entry
+in the first five lines and one comma-separated `topics:` or `tags:` entry in
+the first eight. Topics use unique lowercase tokens and make potential overlap
+visible; they do not establish precedence. Keep a pack at or below 200 lines so
+standing context remains cheaper than the task guidance it coordinates.
+
+Every pack requires matching unrun scenarios at
+`instructions/evals/<id>.json`. The file contains exactly one non-empty `evals`
+array whose entries have `name`, `prompt`, and `expected`. Cover the dangerous
+nearby behavior, not only the happy path: missing authority, silent partial
+completion, unsafe concurrency, unjustified external action, or a rule that
+overrides a more specific artifact contract.
+
+Packs contain canonical Markdown only. Never include DALO managed-block markers
+in the source. Discovery and source refresh are passive; activation must remain
+an explicit DALO or host action. A skill must stay complete without the pack and
+must not assume it is active. Put cross-catalog routing, target selection,
+precedence, and stack-specific exceptions in the downstream agent stack.
+
+The asset boundary is recorded in
+[ADR 0005](adr/0005-first-party-instruction-packs.md).
 
 ### Language Depth Is a Route, Not a Skill
 
@@ -454,3 +498,6 @@ Before merging a change:
    proof exists or that the real product surface is the deliberate proof target.
 10. Confirm useful micro-patterns sit at the smallest durable level instead of
     being discarded or promoted automatically.
+11. For an instruction pack, confirm its metadata and matching scenarios pass
+    `validate-readmes.py`, its rules remain provider-neutral, no skill depends on
+    it, and installation docs preserve explicit activation.

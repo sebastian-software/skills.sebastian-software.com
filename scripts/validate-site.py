@@ -44,6 +44,7 @@ EXPECTED_DALO_COMMANDS = (
     "dalo source select sebastian effective-web",
     "dalo approve skill sebastian:effective-web",
     "dalo sync",
+    "dalo instructions enable sebastian:request-and-completion --target codex",
 )
 EXPECTED_COMPARISON_SOURCES = (
     ("obra/superpowers", "https://github.com/obra/superpowers"),
@@ -569,6 +570,7 @@ def main() -> int:
         for skill_file in skill_files
         if (skill_file.parent / "references").is_dir()
     )
+    instruction_count = len(list((ROOT / "instructions").glob("*.md")))
     json_ld = extract_json_ld(html)
     visible_inventory = visible_skill_inventory(html)
     proof_values = proof_row_values(html)
@@ -723,14 +725,17 @@ def main() -> int:
         )
 
     require(
-        proof_values[:2] == [len(expected_skills), reference_count],
-        "hero skill and reference counts must match the repository inventory",
+        proof_values == [len(expected_skills), reference_count, instruction_count],
+        "hero skill, reference, and instruction-pack counts must match the "
+        "repository inventory",
         failures,
     )
     routes, effective_web_references = effective_web_inventory()
     validate_effective_web_stats(html, routes, effective_web_references, failures)
     require(
-        f"{len(expected_skills)} practice-built skills and {reference_count} focused references"
+        f"{len(expected_skills)} practice-built skills, {reference_count} focused "
+        f"references, and {instruction_count} optional instruction "
+        f"{'pack' if instruction_count == 1 else 'packs'}"
         in parser.og_description,
         "Open Graph description must match the repository inventory",
         failures,
@@ -882,6 +887,12 @@ def main() -> int:
     require(EXPECTED_SKILLS_COMMAND in html, "selective skills CLI command is missing", failures)
     for command in EXPECTED_DALO_COMMANDS:
         require(command in html, f"DALO command is missing: {command}", failures)
+    require(
+        "https://github.com/sebastian-software/skills.sebastian-software.com/tree/main/instructions"
+        in parser.links,
+        "site must link the first-party instruction-pack inventory",
+        failures,
+    )
 
     for url in (
         "https://oss.sebastian-software.com/",
