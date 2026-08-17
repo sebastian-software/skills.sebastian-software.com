@@ -888,9 +888,9 @@ def main() -> int:
     for command in EXPECTED_DALO_COMMANDS:
         require(command in html, f"DALO command is missing: {command}", failures)
     require(
-        "https://github.com/sebastian-software/skills.sebastian-software.com/tree/main/instructions"
+        "https://github.com/sebastian-software/skills.sebastian-software.com/blob/main/README.md#collection-boundary"
         in parser.links,
-        "site must link the first-party instruction-pack inventory",
+        "site must link the first-party guidance boundary",
         failures,
     )
 
