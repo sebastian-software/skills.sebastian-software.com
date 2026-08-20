@@ -65,6 +65,23 @@ https://www\.iso\.org/standard/78907\.html
 https://www\.iso\.org/standard/79077\.html
 https://webstore\.ansi\.org/industry/safety-standards/safety-signs-labels
 
+# 2026-08-20: the California legislative-information portal answers normal
+# browser traffic within about a second but intermittently exhausts the link
+# check's 40s timeout from GitHub runners (section 1798.140 failed the check on
+# the Twelve-Factor PR run of 2026-08-17 while its eight sibling citations
+# passed). List each cited section explicitly so a new or mistyped section
+# number in skills/effective-web/references/legal-united-states-california.md
+# still fails the check.
+https://leginfo\.legislature\.ca\.gov/faces/codes_displaySection\.xhtml\?sectionNum=22575\.&lawCode=BPC
+https://leginfo\.legislature\.ca\.gov/faces/codes_displaySection\.xhtml\?sectionNum=1798\.140\.&lawCode=CIV
+https://leginfo\.legislature\.ca\.gov/faces/codes_displaySection\.xhtml\?sectionNum=1798\.100\.&lawCode=CIV
+https://leginfo\.legislature\.ca\.gov/faces/codes_displaySection\.xhtml\?sectionNum=1798\.130\.&lawCode=CIV
+https://leginfo\.legislature\.ca\.gov/faces/codes_displaySection\.xhtml\?sectionNum=1798\.120\.&lawCode=CIV
+https://leginfo\.legislature\.ca\.gov/faces/codes_displaySection\.xhtml\?sectionNum=1798\.135\.&lawCode=CIV
+https://leginfo\.legislature\.ca\.gov/faces/codes_displaySection\.xhtml\?sectionNum=17602\.&lawCode=BPC
+https://leginfo\.legislature\.ca\.gov/faces/codes_displaySection\.xhtml\?sectionNum=1798\.83\.&lawCode=CIV
+https://leginfo\.legislature\.ca\.gov/faces/codes_displaySection\.xhtml\?sectionNum=631\.&lawCode=PEN
+
 # 2026-07-29: these exact editorial and Canadian government sources exhausted
 # the link check's timeout and retry budget. Keep the exclusions narrow so other
 # pages on the same hosts remain verifiable.
