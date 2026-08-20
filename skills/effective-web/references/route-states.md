@@ -2,6 +2,10 @@
 
 Use this skill for the states users see while work is pending, unavailable, failed, empty, partial, or complete.
 
+For the words inside those states — labels, messages, button text — use
+**Interface Copy** ([route-copy.md](route-copy.md)) instead. This route owns
+which states exist, their structure, and their behavior.
+
 ## Workflow
 
 1. List every state: initial, loading, empty, partial, success, validation error, network error, permission error, not found, fatal.
