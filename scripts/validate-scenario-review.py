@@ -19,6 +19,8 @@ SKILLS_ROOT = REPOSITORY_ROOT / "skills"
 RUNTIME_FIELDS = ("agent", "model", "sampling")
 ISOLATED_RUNTIME_FIELDS = (*RUNTIME_FIELDS, "isolation")
 RESULT_FIELDS = ("grading_evidence", "name", "response", "result")
+STRUCTURED_RESULT_FIELDS = ("expectations", "name", "response", "result")
+EXPECTATION_RESULT_FIELDS = ("grading_evidence", "index", "result")
 RESULT_VALUES = {"pass", "fail"}
 CONDITION_FIELDS = (
     "duration_ms",
@@ -27,6 +29,7 @@ CONDITION_FIELDS = (
     "response",
     "result",
 )
+STRUCTURED_CONDITION_FIELDS = (*CONDITION_FIELDS, "expectations")
 COMPARISON_RESULT_FIELDS = (
     "comparison",
     "name",
@@ -79,6 +82,43 @@ def load_scenarios(skill_directory: Path, errors: list[str]) -> set[str]:
     return names
 
 
+def load_expectation_counts(skill_directory: Path, errors: list[str]) -> dict[str, int]:
+    """Load the number of atomically graded expectations for each scenario."""
+    path = skill_directory / "evals" / "evals.json"
+    payload = load_json(path, str(path), errors)
+    evaluations = payload.get("evals") if isinstance(payload, dict) else None
+    if not isinstance(evaluations, list):
+        if payload is not None:
+            errors.append(f"{path}: evals must be an array")
+        return {}
+
+    counts: dict[str, int] = {}
+    for evaluation in evaluations:
+        if not isinstance(evaluation, dict):
+            continue
+        name = evaluation.get("name")
+        if not isinstance(name, str) or not name.strip():
+            continue
+        expectations = evaluation.get("expectations")
+        counts[name] = len(expectations) if isinstance(expectations, list) else 0
+    return counts
+
+
+def expectation_count(
+    name: str, scenario_expectation_counts: dict[str, int] | None
+) -> int:
+    if scenario_expectation_counts is None:
+        return 0
+    return scenario_expectation_counts.get(name, 0)
+
+
+def expectation_result_template(count: int) -> list[dict[str, object]]:
+    return [
+        {"index": index, "result": "", "grading_evidence": ""}
+        for index in range(1, count + 1)
+    ]
+
+
 def load_activation_cases(
     skill_directory: Path, errors: list[str]
 ) -> dict[str, bool]:
@@ -112,7 +152,11 @@ def load_activation_cases(
     return cases
 
 
-def review_template(skill: str, scenario_names: set[str]) -> dict[str, object]:
+def review_template(
+    skill: str,
+    scenario_names: set[str],
+    scenario_expectation_counts: dict[str, int] | None = None,
+) -> dict[str, object]:
     return {
         "skill": skill,
         "runtime": {
@@ -121,12 +165,23 @@ def review_template(skill: str, scenario_names: set[str]) -> dict[str, object]:
             "sampling": "replace with temperature, seed, and other relevant settings",
         },
         "results": [
-            {
-                "name": name,
-                "response": "",
-                "result": "",
-                "grading_evidence": "",
-            }
+            (
+                {
+                    "name": name,
+                    "response": "",
+                    "result": "",
+                    "expectations": expectation_result_template(
+                        expectation_count(name, scenario_expectation_counts)
+                    ),
+                }
+                if expectation_count(name, scenario_expectation_counts)
+                else {
+                    "name": name,
+                    "response": "",
+                    "result": "",
+                    "grading_evidence": "",
+                }
+            )
             for name in sorted(scenario_names)
         ],
     }
@@ -186,11 +241,53 @@ def comparison_template(skill: str, scenario_names: set[str]) -> dict[str, objec
     }
 
 
+def validate_expectation_results(
+    value: object, count: int, location: str, errors: list[str]
+) -> set[str] | None:
+    if not isinstance(value, list) or len(value) != count:
+        errors.append(f"{location} must contain exactly {count} expectation results")
+        return None
+    outcomes: set[str] = set()
+    recorded_indexes: set[int] = set()
+    for index, result in enumerate(value):
+        result_location = f"{location}[{index}]"
+        if not isinstance(result, dict) or set(result) != set(EXPECTATION_RESULT_FIELDS):
+            errors.append(
+                f"{result_location} keys must be exactly "
+                "['grading_evidence', 'index', 'result']"
+            )
+            continue
+        expectation_index = result["index"]
+        if (
+            not isinstance(expectation_index, int)
+            or isinstance(expectation_index, bool)
+            or expectation_index < 1
+            or expectation_index > count
+        ):
+            errors.append(f"{result_location}.index must be between 1 and {count}")
+        elif expectation_index in recorded_indexes:
+            errors.append(f"{result_location}.index duplicates {expectation_index}")
+        else:
+            recorded_indexes.add(expectation_index)
+        outcome = result["result"]
+        if not isinstance(outcome, str) or outcome not in RESULT_VALUES:
+            errors.append(f"{result_location}.result must be 'pass' or 'fail'")
+        else:
+            outcomes.add(outcome)
+        evidence = result["grading_evidence"]
+        if not isinstance(evidence, str) or not evidence.strip():
+            errors.append(f"{result_location}.grading_evidence must be a non-empty string")
+    if recorded_indexes != set(range(1, count + 1)):
+        errors.append(f"{location} must record every expectation index from 1 to {count}")
+    return outcomes
+
+
 def validate_review_report(
     payload: object,
     skill: str,
     scenario_names: set[str],
     require_failure: bool,
+    scenario_expectation_counts: dict[str, int] | None = None,
 ) -> tuple[list[str], dict[str, int]]:
     """Validate traceability fields, not the semantic quality of responses."""
     errors: list[str] = []
@@ -222,13 +319,11 @@ def validate_review_report(
     recorded_names: set[str] = set()
     for index, result in enumerate(results):
         location = f"report.results[{index}]"
-        if not isinstance(result, dict) or set(result) != set(RESULT_FIELDS):
-            errors.append(
-                f"{location} keys must be exactly "
-                "['grading_evidence', 'name', 'response', 'result']"
-            )
+        if not isinstance(result, dict):
+            errors.append(f"{location} must be an object")
             continue
-        name = result["name"]
+        name = result.get("name")
+        structured_count = 0
         if not isinstance(name, str) or not name.strip():
             errors.append(f"{location}.name must be a non-empty string")
         elif name not in scenario_names:
@@ -237,17 +332,46 @@ def validate_review_report(
             errors.append(f"{location}.name duplicates {name!r}")
         else:
             recorded_names.add(name)
+            structured_count = expectation_count(name, scenario_expectation_counts)
 
-        for field in ("response", "grading_evidence"):
-            value = result[field]
-            if not isinstance(value, str) or not value.strip():
-                errors.append(f"{location}.{field} must be a non-empty string")
+        expected_fields = (
+            STRUCTURED_RESULT_FIELDS if structured_count else RESULT_FIELDS
+        )
+        if set(result) != set(expected_fields):
+            expected = (
+                "['expectations', 'name', 'response', 'result']"
+                if structured_count
+                else "['grading_evidence', 'name', 'response', 'result']"
+            )
+            errors.append(f"{location} keys must be exactly {expected}")
+            continue
+
+        response = result["response"]
+        if not isinstance(response, str) or not response.strip():
+            errors.append(f"{location}.response must be a non-empty string")
 
         outcome = result["result"]
         if not isinstance(outcome, str) or outcome not in RESULT_VALUES:
             errors.append(f"{location}.result must be 'pass' or 'fail'")
         else:
             counts[outcome] += 1
+        if structured_count:
+            expectation_outcomes = validate_expectation_results(
+                result["expectations"], structured_count, f"{location}.expectations", errors
+            )
+            if (
+                isinstance(outcome, str)
+                and outcome in RESULT_VALUES
+                and expectation_outcomes is not None
+                and ((outcome == "pass") != (expectation_outcomes == {"pass"}))
+            ):
+                errors.append(
+                    f"{location}.result must be 'pass' only when every expectation passes"
+                )
+        else:
+            evidence = result["grading_evidence"]
+            if not isinstance(evidence, str) or not evidence.strip():
+                errors.append(f"{location}.grading_evidence must be a non-empty string")
 
     if require_failure and counts["fail"] == 0:
         errors.append("report must include at least one deliberately failed scenario")
@@ -510,6 +634,7 @@ def main() -> int:
 
     errors: list[str] = []
     scenarios = load_scenarios(directory, errors)
+    expectation_counts = load_expectation_counts(directory, errors)
     activation_cases: dict[str, bool] = {}
     if arguments.activation_template:
         activation_cases = load_activation_cases(directory, errors)
@@ -522,7 +647,11 @@ def main() -> int:
         if arguments.require_failure:
             print("--require-failure can only validate a --report", file=sys.stderr)
             return 2
-        print(json.dumps(review_template(arguments.skill, scenarios), indent=2))
+        print(
+            json.dumps(
+                review_template(arguments.skill, scenarios, expectation_counts), indent=2
+            )
+        )
         return 0
     if arguments.activation_template:
         if arguments.require_failure:
@@ -558,7 +687,11 @@ def main() -> int:
             )
         else:
             validation_errors, counts = validate_review_report(
-                payload, arguments.skill, scenarios, arguments.require_failure
+                payload,
+                arguments.skill,
+                scenarios,
+                arguments.require_failure,
+                expectation_counts,
             )
         errors.extend(validation_errors)
     else:

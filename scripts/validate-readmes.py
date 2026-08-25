@@ -573,10 +573,11 @@ def validate_evals(skill_directory: Path, errors: list[str]) -> None:
         if not isinstance(evaluation, dict):
             errors.append(f"{location} must be an object")
             continue
-        for field in ("name", "prompt", "expected"):
+        for field in ("name", "prompt"):
             value = evaluation.get(field)
             if not isinstance(value, str) or not value.strip():
                 errors.append(f"{location}.{field} must be a non-empty string")
+        validate_scenario_expectation_shape(evaluation, location, errors)
         name = evaluation.get("name")
         if isinstance(name, str) and name.strip():
             if name in names:
@@ -627,6 +628,36 @@ def validate_evals(skill_directory: Path, errors: list[str]) -> None:
             f"{relative}/evals/evals.json: activation must include at least one "
             "should-trigger and one should-not-trigger case"
         )
+
+
+def validate_scenario_expectation_shape(
+    evaluation: dict[object, object], location: str, errors: list[str]
+) -> None:
+    """Require one concise expectation or an atomically gradable expectation list."""
+    has_expected = "expected" in evaluation
+    has_expectations = "expectations" in evaluation
+    if has_expected and has_expectations:
+        errors.append(f"{location} must contain either 'expected' or 'expectations', not both")
+        return
+    if has_expected:
+        value = evaluation["expected"]
+        if not isinstance(value, str) or not value.strip():
+            errors.append(f"{location}.expected must be a non-empty string")
+        return
+    if not has_expectations:
+        errors.append(f"{location} must contain a non-empty 'expected' string or 'expectations' array")
+        return
+    expectations = evaluation["expectations"]
+    if not isinstance(expectations, list) or len(expectations) < 2:
+        errors.append(
+            f"{location}.expectations must be an array with at least two non-empty strings"
+        )
+        return
+    for expectation_index, expectation in enumerate(expectations):
+        if not isinstance(expectation, str) or not expectation.strip():
+            errors.append(
+                f"{location}.expectations[{expectation_index}] must be a non-empty string"
+            )
 
 
 def validate_instruction_packs(errors: list[str]) -> list[Path]:
@@ -734,19 +765,20 @@ def validate_instruction_packs(errors: list[str]) -> list[Path]:
             location = (
                 f"{evals_file.relative_to(REPOSITORY_ROOT)}: evals[{index}]"
             )
-            if not isinstance(evaluation, dict) or set(evaluation) != {
-                "expected",
-                "name",
-                "prompt",
-            }:
+            allowed_fields = {"expected", "expectations", "name", "prompt"}
+            if not isinstance(evaluation, dict) or not set(evaluation).issubset(
+                allowed_fields
+            ):
                 errors.append(
-                    f"{location} keys must be exactly ['expected', 'name', 'prompt']"
+                    f"{location} keys must be exactly one allowed expectation form: "
+                    "['expected', 'name', 'prompt'] or ['expectations', 'name', 'prompt']"
                 )
                 continue
-            for field in ("name", "prompt", "expected"):
+            for field in ("name", "prompt"):
                 value = evaluation[field]
                 if not isinstance(value, str) or not value.strip():
                     errors.append(f"{location}.{field} must be a non-empty string")
+            validate_scenario_expectation_shape(evaluation, location, errors)
             name = evaluation["name"]
             if isinstance(name, str) and name.strip():
                 if name in names:

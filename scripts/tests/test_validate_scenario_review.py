@@ -96,6 +96,69 @@ class ScenarioReviewReportTests(unittest.TestCase):
             ["good-case", "negative-control"],
         )
 
+    def test_template_and_report_track_each_structured_expectation(self) -> None:
+        expectation_counts = {"good-case": 2, "negative-control": 0}
+        template = VALIDATOR.review_template(
+            "example", self.scenarios, expectation_counts
+        )
+        structured = next(
+            result for result in template["results"] if result["name"] == "good-case"
+        )
+        structured["response"] = "Recorded response."
+        structured["result"] = "fail"
+        structured["expectations"] = [
+            {
+                "index": 1,
+                "result": "pass",
+                "grading_evidence": "The first criterion is present.",
+            },
+            {
+                "index": 2,
+                "result": "fail",
+                "grading_evidence": "The recovery condition is missing.",
+            },
+        ]
+
+        errors, counts = VALIDATOR.validate_review_report(
+            self.report([structured]),
+            "example",
+            self.scenarios,
+            require_failure=False,
+            scenario_expectation_counts=expectation_counts,
+        )
+
+        self.assertEqual(errors, [])
+        self.assertEqual(counts, {"pass": 0, "fail": 1})
+
+    def test_rejects_incomplete_structured_expectation_evidence(self) -> None:
+        result = {
+            "name": "good-case",
+            "response": "Recorded response.",
+            "result": "pass",
+            "expectations": [
+                {
+                    "index": 1,
+                    "result": "pass",
+                    "grading_evidence": "Only the first criterion was reviewed.",
+                }
+            ],
+        }
+
+        errors, _ = VALIDATOR.validate_review_report(
+            self.report([result]),
+            "example",
+            self.scenarios,
+            require_failure=False,
+            scenario_expectation_counts={"good-case": 2, "negative-control": 0},
+        )
+
+        self.assertEqual(
+            errors,
+            [
+                "report.results[0].expectations must contain exactly 2 expectation results",
+            ],
+        )
+
     def test_unedited_template_rows_fail_validation(self) -> None:
         template = VALIDATOR.review_template("example", self.scenarios)
         template["runtime"] = self.runtime

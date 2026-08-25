@@ -1,0 +1,86 @@
+name: Skill behavior gap
+description: Report incorrect activation or guidance with enough evidence to triage a real gap.
+title: "[skill-gap]: "
+labels: ["enhancement", "skill-content"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use this form when a first-party skill activated incorrectly or produced guidance that was wrong, outdated, or mismatched to repository evidence. Remove secrets, private prompts, customer data, and credentials before submitting.
+
+  - type: dropdown
+    id: discipline
+    attributes:
+      label: Affected discipline
+      options:
+        - effective-delivery
+        - effective-engineering
+        - effective-marketing
+        - effective-product
+        - effective-web
+        - effective-writing
+        - unsure
+    validations:
+      required: true
+
+  - type: input
+    id: route
+    attributes:
+      label: Affected route or reference
+      description: Name the route or reference when known.
+
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Minimal prompt or reproduction
+      description: Provide the smallest sanitized request that exposes the behavior.
+    validations:
+      required: true
+
+  - type: textarea
+    id: runtime
+    attributes:
+      label: Host, model, and skill revision
+      description: Include host and model/version; include the skill revision or commit when known.
+    validations:
+      required: true
+
+  - type: textarea
+    id: observed
+    attributes:
+      label: Observed response excerpt
+      description: Include only the relevant sanitized excerpt.
+    validations:
+      required: true
+
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Repository context and contract evidence
+      description: Name the repository convention, code, test, documentation, or other evidence that conflicts with the guidance.
+    validations:
+      required: true
+
+  - type: textarea
+    id: consequence
+    attributes:
+      label: Consequence or repeated cost
+      description: Explain the concrete harm, risk, or recurring work caused by the gap.
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior and workaround
+      description: Describe the expected guidance and any current workaround.
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: sanitized
+    attributes:
+      label: Privacy check
+      options:
+        - label: I removed secrets, private prompts, customer data, and credentials.
+          required: true

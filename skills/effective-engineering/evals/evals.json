@@ -8,7 +8,12 @@
     {
       "name": "design-retry-safe-cross-service-contract",
       "prompt": "The checkout API calls a shipping service. Network timeouts sometimes occur after the shipping label is created, so users retry and receive two labels. Design the architecture direction.",
-      "expected": "Defines ownership and the integration contract, including idempotency, request identity, timeout and retry behavior, reconciliation or compensation, observability, and user-visible state. It does not prescribe a queue or a database without comparing the relevant tradeoffs."
+      "expectations": [
+        "Defines ownership and a consumer-facing integration contract, including a stable request or idempotency identity.",
+        "Models timeout and retry behavior as uncertain completion rather than proof that the first label creation failed.",
+        "Names reconciliation or compensation, observability, and the user-visible state for a partial or duplicate outcome.",
+        "Does not prescribe a queue or database without comparing the demonstrated tradeoffs."
+      ]
     },
     {
       "name": "design-a-public-interface-without-rest-dogma",

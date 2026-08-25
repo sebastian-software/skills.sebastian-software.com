@@ -102,7 +102,8 @@ For every selected scenario:
 2. Start another fresh session with only that skill disabled.
 3. Keep the model, sampling settings, prompt, repository state, tools, and other
    installed skills the same.
-4. Grade each response independently against `expected`.
+4. Grade each response independently against `expected`, or each indexed item
+   in `expectations` when the scenario has independent criteria.
 5. Record duration and input/output tokens when the host exposes them; use
    `null` for any unavailable metric.
 6. Choose `with_skill`, `without_skill`, or `tie`, then explain the evidence for
@@ -127,10 +128,12 @@ skill loaded, provide each stored prompt unchanged, and record the actual
 response. Fill in the agent, model/version, and sampling/runtime settings that
 materially affect the result.
 
-Compare each response with that scenario's `expected` criteria. Record `pass`
-only when the response addresses the relevant judgment; record `fail` when it
-misses a required decision, evidence source, safety boundary, or tradeoff. The
-`grading_evidence` field must explain that result in concrete terms.
+Compare each response with that scenario's `expected` criteria. For a structured
+`expectations` scenario, record every expectation index as `pass` or `fail` with
+its own concrete `grading_evidence`; the overall result is `pass` only when all
+items pass. Record `fail` when a response misses a required decision, evidence
+source, safety boundary, or tradeoff. The validator checks complete traceability,
+not whether the grade is semantically correct.
 
 Reports contain only:
 

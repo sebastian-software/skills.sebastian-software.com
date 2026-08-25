@@ -412,6 +412,14 @@ high-cost behavior, or a description change that needs trigger evidence:
       "name": "reject-shortcut",
       "prompt": "A realistic request containing the tempting shortcut.",
       "expected": "The decision, evidence, and tradeoff a strong response must surface."
+    },
+    {
+      "name": "separate-independent-criteria",
+      "prompt": "A realistic request whose consequential criteria can fail independently.",
+      "expectations": [
+        "The first independently gradable behavior the response must exhibit.",
+        "The second independently gradable behavior the response must exhibit."
+      ]
     }
   ],
   "activation": [
@@ -430,9 +438,14 @@ high-cost behavior, or a description change that needs trigger evidence:
 ```
 
 Keep `name` stable and descriptive. Treat `prompt` as the user input and
-`expected` as manual review criteria, not a golden response string. CI validates
-only the fixture's JSON shape, non-empty fields, and unique names; it does not
-submit prompts to a model, score responses, or claim behavioral correctness.
+`expected` as manual review criteria, not a golden response string. Use exactly
+one concise `expected` string for a single criterion, or an `expectations`
+array of at least two independently gradable criteria. A scenario uses one form
+or the other, never both. Single-run review reports record a pass or fail plus
+evidence for every indexed structured expectation; the validator checks that
+the record is complete, not whether the human grade is correct. CI validates
+only fixture and report shape; it does not submit prompts to a model, score
+responses, or claim behavioral correctness.
 An `activation` set must include both should-trigger and should-not-trigger
 cases. Put the most confusable natural-language requests in that set rather
 than testing only explicit `$skill-name` invocation. A negative case means that

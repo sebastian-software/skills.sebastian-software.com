@@ -54,6 +54,59 @@ class EvalValidationTests(unittest.TestCase):
 
         self.assertEqual(errors, [])
 
+    def test_accepts_atomically_gradable_expectations(self) -> None:
+        self.write_evals(
+            {
+                "evals": [
+                    {
+                        "name": "separate-criteria",
+                        "prompt": "Handle two independently consequential outcomes.",
+                        "expectations": [
+                            "Preserves the first invariant.",
+                            "Names the recovery condition.",
+                        ],
+                    }
+                ]
+            }
+        )
+        errors: list[str] = []
+
+        VALIDATOR.validate_evals(self.skill, errors)
+
+        self.assertEqual(errors, [])
+
+    def test_rejects_ambiguous_or_under_specified_expectation_shapes(self) -> None:
+        self.write_evals(
+            {
+                "evals": [
+                    {
+                        "name": "both-forms",
+                        "prompt": "Prompt",
+                        "expected": "Legacy criterion.",
+                        "expectations": ["First.", "Second."],
+                    },
+                    {
+                        "name": "one-structured-item",
+                        "prompt": "Prompt",
+                        "expectations": ["Use expected for a single criterion."],
+                    },
+                ]
+            }
+        )
+        errors: list[str] = []
+
+        VALIDATOR.validate_evals(self.skill, errors)
+
+        self.assertEqual(
+            errors,
+            [
+                "skills/example/evals/evals.json: evals[0] must contain either "
+                "'expected' or 'expectations', not both",
+                "skills/example/evals/evals.json: evals[1].expectations must be an "
+                "array with at least two non-empty strings",
+            ],
+        )
+
     def test_accepts_activation_cases_with_positive_and_negative_examples(self) -> None:
         self.write_evals(
             {
@@ -270,7 +323,7 @@ class InstructionPackValidationTests(unittest.TestCase):
         VALIDATOR.validate_instruction_packs(errors)
 
         self.assertTrue(any("unique lowercase tokens" in error for error in errors))
-        self.assertTrue(any("keys must be exactly" in error for error in errors))
+        self.assertTrue(any("must contain a non-empty 'expected'" in error for error in errors))
 
     def test_rejects_missing_and_orphaned_eval_files(self) -> None:
         (self.instructions / "request-contract.md").write_text(
