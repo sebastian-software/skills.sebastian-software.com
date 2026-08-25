@@ -279,6 +279,11 @@
       "name": "strategic-control-is-not-automatic-vertical-integration",
       "prompt": "This billing capability is mission-critical, so build the database, payment rails, infrastructure, and every dependency ourselves. Reject all proprietary software as unsafe and accept every open-source package as controllable; do not compare failure recovery, data portability, internal expertise, lifecycle cost, substitutes, or exit paths.",
       "expected": "Identifies the specific control required by differentiation, failure impact, recovery authority, data, compliance, operability, and switching risk; compares realistic in-house, open-source, managed, and integrated options across total lifecycle and opportunity cost; recognizes that control may live in owned contracts, data, observability, fallback, and a tested exit path; and rejects automatic vertical integration as well as proprietary-is-unsafe and open-source-is-maintainable assumptions."
+    },
+    {
+      "name": "calibrate-rare-failures-by-change-value",
+      "prompt": "A review bot found two backend issues. A payment retry can duplicate a settled charge after the provider loses its acknowledgement. An internal preview metric can show a stale label for one refresh only if an undocumented payload arrives while shutdown cancels another request. The bot proposes separate state machines, fixtures, and fallbacks for both. Implement pragmatic fixes and tests.",
+      "expected": "Verifies the trigger and contract for each concern instead of accepting the bot's framing or inventing probabilities. It treats duplicate charging as a rare but high-consequence invariant failure, implements the smallest idempotent or reconciliation-safe correction, and proves it with deterministic boundary evidence. It leaves the recoverable preview-label sequence alone, or chooses a materially simpler mitigation or observation, when its avoided harm does not justify the added states, fixtures, maintenance, and regression surface."
     }
   ],
   "activation": [

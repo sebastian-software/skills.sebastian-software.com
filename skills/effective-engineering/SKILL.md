@@ -24,6 +24,15 @@ behavior.
 Prefer repository evidence over named patterns, ambient strictness fashions, and
 speculative optimization. Choose the smallest design the evidence supports.
 
+A technically imaginable failure is not yet a requirement. Before adding a
+branch, fallback, abstraction, or permanent test for it, establish reachability,
+affected behavior, consequence, relevant lifetime or repetition, and recovery
+from available evidence. Compare the avoided harm with the added implementation,
+cognitive, test, maintenance, and regression cost; do not invent probabilities.
+Leave speculative low-impact behavior alone when the mitigation costs more, but
+lower the evidence threshold at money, authorization, security, privacy, data
+integrity, destructive, irreversible, or regulated boundaries.
+
 ## Workflow
 
 1. Discover before judging: scoped instructions, manifests, configuration, CI,
@@ -63,9 +72,11 @@ speculative optimization. Choose the smallest design the evidence supports.
   only for a concrete named driver.
 - Make ownership singular. One component owns each mutable business fact; others
   get a contract, a projection, or an explicit write protocol.
-- Design contracts for failure: timeouts, retries, idempotency, ordering,
-  partial completion, degraded behavior, and compatibility are part of the
-  design once a flow crosses a process or network boundary.
+- Design contracts for consequential, supported failure modes: timeouts,
+  retries, idempotency, ordering, partial completion, degraded behavior, and
+  compatibility are part of the design once a flow crosses a process or network
+  boundary and the dependency contract, observed behavior, or risk warrants
+  them. Do not encode every imaginable undocumented combination.
 - Keep the type system and the compiler as contracts, not lints to silence.
   Justify every assertion, cast, suppression, and unsafe operation, and say when
   it can be removed.

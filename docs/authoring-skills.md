@@ -312,6 +312,42 @@ Normative specifications and compatibility data may change defaults. Practice
 material can improve workflows and examples. Experimental or single-source
 claims stay support-gated and never become unconditional defaults.
 
+## Calibrate Findings and Verification by Decision Value
+
+An automated reviewer, audit, or test generator can almost always produce one
+more candidate. Author guidance to improve the decision, not the amount of
+output. Before a skill turns a technically possible concern into requested
+work, make it establish:
+
+- evidence that the trigger is reachable under supported, observed, or
+  explicitly required behavior;
+- the consequence, affected boundary, reversibility, detectability, and
+  recovery path;
+- relevant exposure, repetition, and expected lifetime when repository or
+  product evidence supports them, without inventing probabilities; and
+- the complete remedy cost: implementation, branches and states, cognitive
+  load, fixtures, ongoing test and maintenance work, and regression risk.
+
+Prescribe a fix or durable test when its avoided harm or decision value
+outweighs that ownership cost, or when unresolved uncertainty at a
+high-consequence boundary itself requires evidence. Allow `no finding`, `no new
+test`, and `leave the code as-is` as successful outcomes when the evidence does
+not clear that threshold. Do not turn coverage, finding count, reviewer count,
+or exhaustive state enumeration into a proxy for quality.
+
+Keep the threshold asymmetric. Plausible failures involving authorization,
+security, privacy, money, data integrity, destructive or irreversible actions,
+required accessibility, or regulated behavior deserve scrutiny even when rare.
+Speculative, low-impact, recoverable behavior should not acquire a state
+machine, fallback, abstraction, or permanent test merely because a reviewer can
+describe it.
+
+Treat additional review passes as new searches, not independent votes. Add a
+specialist or another pass only for a distinct risk or demonstrated review gap;
+reconcile all candidates against the same evidence and publication threshold,
+deduplicate shared root causes, and accept a clean result without manufacturing
+comments.
+
 ## Persist Decisions in Shared ADRs
 
 When a skill needs to preserve durable project rationale, use the project's

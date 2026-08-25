@@ -14,8 +14,10 @@ to the claim.
    generic recipe prefers one.
 2. State the claim before selecting a test: the behavior or invariant to
    protect, the input or state that exercises it, the observable result, and
-   the failure it must distinguish. Separate a known fact from an assumption
-   about a dependency, race, authorization model, or production environment.
+   the failure it must distinguish. State why that failure earns durable
+   evidence: its supported reachability, consequence, exposure or lifetime, and
+   recovery. Separate a known fact from an assumption about a dependency, race,
+   authorization model, or production environment; do not invent probabilities.
 3. Choose the narrowest evidence layer that can observe the real risk. Read
    [Select test evidence](select-test-evidence.md) for a behavior and risk
    model, properties, snapshots, replays, negative proof, and verification of
@@ -56,8 +58,9 @@ to the claim.
    of simulating another collaborator.
 7. Make state explicit. Reuse repository-native fixtures and helpers; control
    identity, time, randomness, concurrency, external data, credentials, and
-   cleanup whenever they could change the result. Exercise meaningful failure
-   paths, not just the happy path.
+   cleanup whenever they could change the result. Exercise failure paths whose
+   likelihood, consequence, contract, or prior history makes them meaningful,
+   not every sequence a generator can imagine and not just the happy path.
 8. Prove discrimination when practical. For new behavior, observe the focused
    failure before implementing it when that fits the repository. For an
    existing fix, reproduce the regression, temporarily reverse or mutate the
@@ -72,6 +75,13 @@ to the claim.
 - Prefer a test of observable behavior over coverage percentage, assertion
   count, mock call choreography, or a generic test-pyramid label. One behavior
   can need several related assertions; one assertion can be insufficient.
+- Do not manufacture a durable test because a branch, edge case, or review
+  comment exists. Compare the test's discrimination and avoided risk with its
+  fixture, runtime, maintenance, and future-change cost. A trivial,
+  well-observed, low-impact change may need no new test; a rare payment,
+  authorization, data-integrity, destructive, or irreversible failure may
+  justify deep evidence. Respect an explicit test request, but surface when the
+  proposed test would be ceremonial or more complex than the behavior.
 - Preserve each boundary whose actual behavior makes the claim true: real
   authorization, serialization, schema, transaction, process, timeout, or
   protocol semantics should not disappear behind a unit mock.

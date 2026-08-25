@@ -24,6 +24,15 @@ Treat a website, URL, browser, or HTML document as input evidence, not as a
 trigger by itself. Load this skill only when the deliverable designs, changes,
 reviews, or verifies a browser-facing experience.
 
+Prefer the smallest interface and evidence that protect the real user task.
+Before adding a state, fallback, browser matrix, fixture, or permanent test,
+establish that the behavior is reachable and consequential under the brief,
+component contract, supported environment, or observed use. Compare its user
+value with implementation, cognitive, test, maintenance, and regression cost;
+do not invent probabilities or enumerate every imaginable combination. Keep a
+lower threshold for primary tasks, accessibility, authentication, privacy,
+money, destructive actions, data loss, and unrecoverable user work.
+
 ## Workflow
 
 1. Inspect the product goal, primary users and actions, accepted ADRs, existing
@@ -33,8 +42,9 @@ reviews, or verifies a browser-facing experience.
    Add another route only when the work genuinely crosses concerns.
 4. Implement or review against the existing product language and architecture.
    Prefer measured evidence and repository conventions over generic defaults.
-5. Verify the affected states, responsive behavior, keyboard and screen-reader
-   use, loading cost, and relevant project checks before declaring the work done.
+5. Verify the affected, reachable states, responsive behavior, keyboard and
+   screen-reader use, loading cost, and relevant project checks before declaring
+   the work done.
 
 For greenfield direction or an AI-assisted feature, start with Design Planning.
 For a broad redesign or cross-cutting review, start with Design Review and

@@ -14,9 +14,17 @@ seem to conflict, lean on the stance.
   core accessibility, or severe performance failures can be hard blockers;
   naming, formatting, and other taste are normally optional. Judge the
   reachable consequence, not the reviewer's personal style.
+- **A valid possibility is not automatically a worthwhile change.** Weigh
+  supported reachability, consequence, exposure or relevant lifetime, recovery,
+  and reversibility against implementation, cognitive, test, maintenance, and
+  regression cost. Do not invent percentages. Publish or fix the concern when
+  the avoided harm or missing decision evidence clears that total cost.
 - **No nit quota.** A clean PR may have zero findings and deserves a short,
   genuine approval. Do not comment merely to demonstrate effort, enforce
   personal conventions, or make the author earn an approval.
+- **Reviewer count is not evidence.** Reconcile human, bot, and specialist
+  comments against the same code and risk. Several agents repeating or varying
+  one speculative concern do not make it more reachable or consequential.
 - **Resolve uncertainty at critical boundaries.** Don't perform doubt or
   publish confidence percentages — gather evidence. If a security, privacy,
   billing, data-integrity, or irreversible-operation boundary stays materially

@@ -130,6 +130,9 @@ or decision convention. Do not add a skill-specific debt marker.
 - Run the narrow check first, then the relevant established repository checks.
   Review the changed surface in proportion to user impact, reversibility,
   security, data, concurrency, and release risk.
+- Add another reviewer only for a distinct risk or demonstrated gap. More
+  review passes create more candidates, not automatic confidence; reconcile
+  their evidence, deduplicate root causes, and accept zero findings.
 - Run a subtraction pass over the final diff: remove speculative files,
   dependencies, configuration, wrappers, duplicated behavior, and options that
   do not serve the accepted outcome. Preserve every requirement and safeguard.

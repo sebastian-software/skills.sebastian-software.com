@@ -24,6 +24,14 @@ Keep authority levels distinct. Analysis is not implementation, implementation
 is not delivery, and an available tool is not permission to use it. Treat
 diagnosis-only requests as read-only even when the fix looks obvious.
 
+Optimize for resolved risk, not activity. A technically possible concern earns
+work only when evidence supports its reachability and the avoided harm or
+decision value outweighs the implementation, cognitive, test, maintenance, and
+regression cost. Do not invent probabilities; allow a clean audit, approval with
+zero findings, or a deliberate decision not to change code. Keep a lower
+threshold for security, privacy, money, authorization, data integrity,
+destructive, irreversible, required accessibility, and regulated behavior.
+
 ## Workflow
 
 1. Inspect the repository instructions, current state, relevant artifacts, and

@@ -2,19 +2,30 @@
 
 Use this skill to choose, implement, or review frontend tests for browser-facing applications.
 
+Test the user-facing risk, not the available state space. A new test should
+either distinguish a consequential regression, protect a supported contract, or
+provide decision evidence worth its fixture, runtime, flake, and maintenance
+cost. Do not create a browser/theme/viewport/state Cartesian product or a test
+merely because a reviewer named an imaginable edge case. A trivial presentation
+change may need only the existing checks and one focused rendered inspection;
+rare failures in checkout, authentication, destructive actions, accessibility,
+or unrecoverable work can justify deeper coverage.
+
 ## Workflow
 
 1. Inspect the project stack: framework, package manager, existing test runners, Storybook, browser automation, CI, and current scripts.
-2. Choose the narrowest useful test layer:
+2. State the reachable behavior, user consequence, and failure the evidence
+   must distinguish; do not invent probability or traffic estimates.
+3. Choose the narrowest useful test layer:
    - pure logic: unit test,
    - component state or interaction: Storybook/Vitest/component test,
    - visible UI drift: visual regression,
    - integrated route or workflow: Playwright-style E2E,
    - static guarantees: linting, type checking, accessibility checks.
-3. Reuse existing fixtures and stories before inventing parallel setup.
-4. Stabilize browser tests before adding baselines: fixed viewport, deterministic data, mocked time/randomness, loaded fonts, disabled animations, and masked dynamic regions.
-5. Treat generated tests as drafts. Review locators, assertions, waits, and scope before committing.
-6. Make baseline updates explicit, reviewed, and tied to an intentional UI change.
+4. Reuse existing fixtures and stories before inventing parallel setup.
+5. Stabilize browser tests before adding baselines: fixed viewport, deterministic data, mocked time/randomness, loaded fonts, disabled animations, and masked dynamic regions.
+6. Treat generated tests as drafts. Review locators, assertions, waits, and scope before committing.
+7. Make baseline updates explicit, reviewed, and tied to an intentional UI change.
 
 ## Reference Files
 

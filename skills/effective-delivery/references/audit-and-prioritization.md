@@ -117,11 +117,12 @@ Use this shape for each finding:
 ### Short outcome-oriented title
 
 - Evidence: `path/file.ext:123` and the verified behavior
-- Impact: concrete failure, risk, cost, or blocked capability
+- Reachability: supported trigger, affected surface, and relevant exposure or lifetime without invented probabilities
+- Impact: concrete consequence, recovery, reversibility, risk, cost, or blocked capability
 - Effort: S, M, or L, including tests and migration work
 - Fix risk: LOW, MEDIUM, or HIGH, with the main regression surface
 - Confidence: HIGH, MEDIUM, or LOW, based on inspected evidence
-- Direction: a short fix sketch, not a complete implementation plan
+- Direction: the smallest credible correction and why its total ownership cost is proportionate, not a complete implementation plan
 ```
 
 Use exact locations and symbols. Explain why the issue matters and what a safe
@@ -142,7 +143,9 @@ Before presenting a finding:
 5. Downgrade uncertainty to an investigation item instead of prescribing a fix.
 
 Reject candidates that are by design, already fixed, based on stale line
-numbers, unsupported by evidence, or not worth the change risk. In a recurring
+numbers, unsupported by evidence, or whose avoided harm does not justify the
+implementation, cognitive, test, maintenance, and regression cost. Do not use
+invented percentages to force a decision. In a recurring
 audit or saved backlog, retain a concise rejected rationale so the same weak
 finding is not rediscovered repeatedly.
 
