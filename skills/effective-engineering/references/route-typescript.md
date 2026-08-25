@@ -35,6 +35,9 @@ TypeScript belongs to `effective-web`.
    format conventions the repository already owns.
 7. Read [Quality and review](typescript-quality-and-review.md) before declaring
    the change ready.
+8. Read [Source-verified external contracts](source-verified-external-contracts.md)
+   when a framework, runtime, dependency, or platform behavior materially
+   affects a consequential implementation or public contract.
 
 ## Implementation Rules
 

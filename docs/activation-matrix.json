@@ -93,6 +93,11 @@
       "owner": "effective-engineering"
     },
     {
+      "name": "design-public-api-contract",
+      "prompt": "Our warehouse service exposes an API to checkout, support tooling, and a partner. Define the request, outcome, error, retry, and compatibility contract without assuming a transport or versioning style.",
+      "owner": "effective-engineering"
+    },
+    {
       "name": "write-discriminating-regression-test",
       "prompt": "Add a regression test for this bug fix and show me that it actually fails against the old behavior.",
       "owner": "effective-engineering"
@@ -236,6 +241,11 @@
       "name": "boundary-pr-review-versus-api-review",
       "prompt": "Review pull request 184 and decide whether it is safe to merge.",
       "owner": "effective-delivery"
+    },
+    {
+      "name": "boundary-browser-api-versus-service-contract",
+      "prompt": "Design the browser-side data contract and loading states for this React checkout page, including how the UI handles a failed request.",
+      "owner": "effective-web"
     },
     {
       "name": "boundary-editorial-versus-commercial-prose",
