@@ -2,8 +2,8 @@
 name: effective-engineering
 description: >-
   Design and write software systems and focused non-frontend tests. Use for
-  architecture and service or module boundaries; build-versus-buy, strategic
-  control, quality attributes, and operational readiness; data models,
+  architecture and service or module boundaries, public API and event contracts;
+  build-versus-buy, strategic control, quality attributes, and operational readiness; data models,
   datastores, transactions, consistency, replication, pipelines, schema
   evolution, and migrations; TypeScript type, module, async, and error
   contracts; Rust crates, ownership, APIs, unsafe code, concurrency, and

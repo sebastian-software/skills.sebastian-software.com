@@ -403,6 +403,11 @@
       "should_trigger": true
     },
     {
+      "name": "design-public-api-contract",
+      "prompt": "Checkout, an internal support tool, and a partner must rely on the same order-status interface. Define the request or event, response or delivery, errors, retry safety, and compatibility promise without choosing REST or GraphQL by default.",
+      "should_trigger": true
+    },
+    {
       "name": "review-rust-public-api",
       "prompt": "Review the public API of this Rust crate for ownership, lifetime, and error-contract problems before we publish 1.0.",
       "should_trigger": true
