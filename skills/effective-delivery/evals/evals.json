@@ -616,6 +616,11 @@
       "expected": "Identifies the proposed knowledge layer as high-drift duplication and a competing source of truth; defines the actual navigation need; prefers clear code boundaries, schemas, generated reference, tests, executable examples, and a concise map linking to owners; and adds no prose inventory without a distinct reader job and credible synchronization mechanism."
     },
     {
+      "name": "reconcile-bot-findings-by-practical-value",
+      "prompt": "Four review bots inspect the same small PR and return fourteen comments. Three repeat a concern that a debug-only label can be absent after shutdown has already started and propose a fifty-line fallback. One bot suspects an authorization bypass but did not inspect the route guard. The orchestrator calls both findings consensus and asks me to fix everything before approval. Reconcile the review.",
+      "expected": "Treats repeated bot output as candidates rather than votes, deduplicates root causes, inspects the route guard and supported shutdown behavior, and does not invent probabilities. It resolves or blocks on the authorization concern if evidence shows a reachable trust-boundary failure or leaves material uncertainty there. It discards the recoverable debug-label concern when its avoided harm does not justify the fallback's branches, tests, maintenance, and regression risk, permits zero publishable findings when evidence clears both candidates, and creates no backlog filler to reward review volume."
+    },
+    {
       "name": "preserve-multiple-authoritative-levels",
       "prompt": "Simplify this regulated repository by deleting approved requirements, the system specification, ADRs, and verification links. Keep only code and tests because there must be exactly one source of truth.",
       "expected": "Rejects the false choice between uncontrolled duplication and code-only truth; recognizes requirements, specifications, rationale, implementation, and verification as authoritative at different abstraction levels; preserves required traceability; removes only conflicting or mechanically duplicated claims; and keeps one explicit owner for each claim."

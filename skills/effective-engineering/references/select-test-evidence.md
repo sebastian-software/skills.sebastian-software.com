@@ -15,15 +15,31 @@ Write a compact behavior model before building fixtures:
 | Observable result | What can a caller, collaborator, datastore, process, or user observe? |
 | Failure distinction | Which plausible wrong implementation should fail this test? |
 | Real boundary | Which auth, schema, serialization, transaction, clock, process, or protocol behavior makes the claim meaningful? |
+| Risk and test value | Why is this failure worth guarding, and will this evidence reduce more expected harm or uncertainty than it costs to own? |
 
 Keep the model small enough to guide one focused change. A vague request such
 as “increase coverage” is not a claim; inspect the uncovered risk or ask for a
 concrete behavior. Conversely, do not split one coherent claim into isolated
 assertions merely to satisfy an assertion-count rule.
 
+Use qualitative, evidence-backed calibration when exact probability or cost is
+unavailable. Consider reachability under supported behavior, consequence,
+affected users or data, repetition, relevant lifetime, detectability, recovery,
+and reversibility. Compare those with test setup, runtime, flake potential,
+maintenance, and the production complexity needed to create the seam. Do not
+invent percentages to make the comparison look precise.
+
 ## Select the Narrowest Honest Layer
 
 Start close to the decision, then widen only to preserve a real boundary.
+
+For a broader testing or review request, first decide whether a new durable test
+is warranted at all. Existing type, compiler, contract, focused manual, or
+integration evidence can be sufficient for a trivial low-risk change; record a
+material residual risk instead of adding ceremonial coverage. When the user
+explicitly requests a test, honor that outcome with the smallest discriminating
+evidence and explain if the originally proposed layer would add more machinery
+than value.
 
 - **Direct mechanism test:** a calculation, validation, parser, policy, state
   transition, or protocol decision can receive explicit inputs and return an

@@ -62,7 +62,9 @@ reachable focus, active, disabled, loading, content-length, theme, locale, and
 responsive states; a new string may require the product vocabulary and
 translation contract; a new flow may require reachable empty, error, retry, and
 permission states. Missing delivery inside accepted scope is not scope creep,
-but do not demand unreachable states, speculative features, or a redesign.
+but do not demand unreachable states, speculative features, an exhaustive
+cross-product, or a redesign. Require evidence that the state is reachable and
+its consequence justifies the implementation and verification cost.
 
 ## Match Evidence to the Claim
 

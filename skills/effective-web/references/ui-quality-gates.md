@@ -12,8 +12,8 @@ right issue. Mark each category as `blocked`, `risky`, or `acceptable`.
 | Responsive layout | Horizontal overflow, unusable mobile layout, clipped primary action, text that cannot fit | Awkward spacing, density, or ordering at one breakpoint | Continuous resize, short and narrow viewports, zoom, long text, and touch input work |
 | Performance | Implementation choice likely breaks LCP, INP, CLS, or interaction responsiveness | Heavy assets, expensive animation, or unbounded rendering need verification | Critical assets, layout stability, and interaction cost are handled |
 | Theming | Hard-coded colours break tokens, dark mode, contrast, or semantic state colours | Some one-off values need token consolidation | Tokens and semantic colours are used consistently |
-| State coverage | Missing empty, loading, error, success, disabled, or permission state for the core flow | Secondary states exist but need clearer copy or interaction detail | All states required by the brief are implemented in the real components |
-| Resilience | Perfect-data-only UI breaks with long text, empty values, permissions, offline/errors, or localisation | Some edge cases are known but bounded | Long text, missing data, error recovery, permission states, and i18n expansion are handled |
+| State coverage | Missing a reachable empty, loading, error, success, disabled, or permission state for the core flow | A consequential secondary state needs clearer copy or interaction detail | States required by the brief and real component contract are implemented |
+| Resilience | Supported or observed long text, empty values, permissions, offline/errors, or localisation break the primary task | A reachable secondary failure is known but bounded | Relevant long text, missing data, error recovery, permission, and i18n cases are handled |
 | Specificity | The UI could belong to any product in the category, or uses obvious generated-output patterns | Some details are specific but the main layout, media, or interaction model is still generic | The dominant design decisions follow the brief, audience, content, and register |
 
 ## Interpretation

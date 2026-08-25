@@ -4,14 +4,21 @@ Choose the smallest test layer that proves the user-facing risk. Each layer up t
 pyramid is slower, flakier, and more expensive to maintain, so push every assertion
 to the lowest layer that can still observe the behavior that matters.
 
+First decide whether durable automated coverage is warranted. Use the brief,
+supported component states, observed regression, primary task, and relevant
+accessibility or data consequence to establish reachability and impact. Compare
+the evidence gained with fixture, runtime, flake, and maintenance cost; do not
+invent probability estimates. Existing static coverage plus a focused rendered
+inspection can be sufficient for a trivial, low-risk visual edit.
+
 ## Working Rules
 
 - Use unit tests for pure logic: formatters, hooks, reducers, parsers, selectors,
   validation, and deterministic transformations. Assert inputs and outputs directly;
   do not mount a DOM to test a function.
-- Use component or Storybook tests for reusable UI states, interaction behavior,
-  rendered accessibility (roles, names, focus order), and visual state matrices
-  (loading, empty, error, disabled, long-content, RTL).
+- Use component or Storybook tests when reusable UI state, interaction behavior,
+  rendered accessibility (roles, names, focus order), or a representative
+  loading, empty, error, disabled, long-content, or RTL case carries the risk.
 - Use Vitest Browser Mode (or another real-browser component runner) instead of
   jsdom when a test depends on real layout, scrolling, focus, pointer events,
   `IntersectionObserver`, `ResizeObserver`, or computed styles. jsdom fakes these
@@ -20,9 +27,10 @@ to the lowest layer that can still observe the behavior that matters.
   z-index, or responsive breakpoints that assertions cannot economically describe.
 - Use E2E tests for critical integrated workflows that cross routing, network, auth,
   persistence, or backend boundaries — sign-in, checkout, the primary create/edit flow.
-- Use static checks (type checking, lint, `eslint-plugin-jsx-a11y`, dependency and
-  import rules) as the cheapest layer; they catch whole classes of bugs with zero
-  runtime cost, so run them first and treat them as required.
+- Run relevant established static checks (type checking, lint,
+  `eslint-plugin-jsx-a11y`, dependency and import rules) first because they can
+  catch whole classes cheaply. Do not add a tool or broad rule set merely
+  because execution is fast; its warning triage and maintenance still have cost.
 - Treat automated accessibility checks (axe-style scans) as a floor, not a proof of
   accessibility. For custom widgets, add manual keyboard and screen-reader verification of
   focus order, roles, and names.
@@ -35,6 +43,10 @@ to the lowest layer that can still observe the behavior that matters.
 - Do not test framework internals or third-party libraries; test your usage of them.
 - Do not duplicate one behavior across three layers. Pick the layer that owns it and
   delete the redundant coverage elsewhere.
+- Do not multiply themes, locales, viewport sizes, input methods, and browser
+  engines into an exhaustive matrix. Select representative combinations that
+  expose a named risk, and add a specific case when history or platform evidence
+  shows the dimensions interact.
 - Do not run every test across every browser engine by default. Run a targeted browser
   test on the specific path that is engine-sensitive instead of multiplying the whole
   suite across engines.
@@ -46,4 +58,4 @@ to the lowest layer that can still observe the behavior that matters.
 - Does it need real browser layout or events? -> Browser Mode component test.
 - Is the risk purely visual? -> visual regression on the component, not the page.
 - Does it span routes, network, or auth? -> a small, stable E2E test.
-- Could a type or lint rule catch it for free? -> prefer the static check.
+- Can an established type or lint rule catch it precisely? -> prefer that check.

@@ -179,6 +179,17 @@ relevant rung for concrete, reachable defects; "material merge risk" is not a
 search filter. Then classify each supported finding as blocking, optional, or
 not worth publishing; discard taste and speculation.
 
+A finding does not clear the publication threshold merely because the described
+sequence is technically possible. Establish the supported trigger, affected
+behavior, consequence, recovery or reversibility, and—when evidence permits—its
+exposure and relevant lifetime. Compare the avoided harm with the smallest
+credible fix's added branches, states, cognitive load, tests, maintenance, and
+regression surface. Do not invent numerical probabilities. Publish when action
+has positive decision value or unresolved uncertainty at a high-consequence
+boundary needs evidence; otherwise discard it. Money, authorization, security,
+privacy, data integrity, destructive operations, required accessibility, and
+regulated behavior keep a deliberately lower threshold even when rare.
+
 Consolidate one root cause into one finding even when it reaches several
 locations. Never suppress a blocker to meet an arbitrary finding count. When
 scope or context limits bind, state what was inspected and what was not; a
@@ -247,12 +258,18 @@ and you can do it without further input, **do it**.
    valid/correct, and is it in scope (a real bug or gap in this PR) or an extra
    beyond the linked ticket's intent?
 3. **Act:**
-   - Valid and in scope → fix it in a worktree, commit, push, and reply. Never
-     work in a dirty main checkout; before adopting or creating the worktree,
-     read [worktree safety](worktree-safety.md) and re-verify its run-local
-     receipt before the first write and after every resume or handoff.
-   - Valid but out of scope → reply kindly, point to a follow-up or issue rather
-     than growing the PR.
+   - Supported, in scope, and worth the total change cost → fix it in a
+     worktree, commit, push, and reply. Never work in a dirty main checkout;
+     before adopting or creating the worktree, read
+     [worktree safety](worktree-safety.md) and re-verify its run-local receipt
+     before the first write and after every resume or handoff.
+   - Technically possible but practically negligible, or made worse by the
+     proposed fix → decline it with the evidence and cost tradeoff. Do not add a
+     fallback, state machine, abstraction, or ceremonial test merely to satisfy
+     a bot comment.
+   - Supported but out of scope → reply kindly and point to a follow-up or issue
+     only when the residual risk is worth owning; do not grow the PR or create
+     backlog filler.
    - Wrong or a misunderstanding → reply with the clarification, respectfully.
 4. **CI:** check status. For a completed provider CI run that appears
    transiently flaky, rerun failed jobs once through the selected adapter. If
