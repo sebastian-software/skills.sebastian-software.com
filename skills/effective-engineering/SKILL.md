@@ -72,11 +72,11 @@ integrity, destructive, irreversible, or regulated boundaries.
   only for a concrete named driver.
 - Make ownership singular. One component owns each mutable business fact; others
   get a contract, a projection, or an explicit write protocol.
-- Design contracts for consequential, supported failure modes: timeouts,
-  retries, idempotency, ordering, partial completion, degraded behavior, and
-  compatibility are part of the design once a flow crosses a process or network
-  boundary and the dependency contract, observed behavior, or risk warrants
-  them. Do not encode every imaginable undocumented combination.
+- At every process or network boundary, assess failure contracts: timeouts,
+  retry safety, idempotency, ordering, partial completion, degraded behavior,
+  and compatibility. Define only the contracts warranted by the dependency
+  contract, observed behavior, or consequence; do not encode every imaginable
+  undocumented combination.
 - Keep the type system and the compiler as contracts, not lints to silence.
   Justify every assertion, cast, suppression, and unsafe operation, and say when
   it can be removed.

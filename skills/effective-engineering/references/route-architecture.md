@@ -83,9 +83,11 @@ place secrets or personal data in an architecture artifact.
 - Make ownership singular. One component or service owns each mutable business
   fact; other components receive a contract, projection, or explicit write
   protocol rather than sharing its storage by accident.
-- Design contracts for failure: timeouts, retries, idempotency, ordering,
-  partial completion, degraded behavior, and compatibility are part of the
-  architecture when a flow crosses a process or network boundary.
+- At every process or network boundary, assess failure contracts: timeouts,
+  retry safety, idempotency, ordering, partial completion, degraded behavior,
+  and compatibility. Define only the contracts warranted by the dependency
+  contract, observed behavior, or consequence; do not encode every imaginable
+  undocumented combination.
 - Distinguish architecture from implementation preference. A framework, queue,
   database, or pattern is a means, not the decision unless its properties are
   the durable tradeoff.
