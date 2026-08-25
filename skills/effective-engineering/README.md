@@ -18,11 +18,12 @@ It replaces the former `software-architecture`, `data-systems`,
 `typescript-engineering`, `rust-engineering`, and `software-testing` skills. See
 [MIGRATION.md](../../MIGRATION.md) for the full mapping.
 
-## Nine Routes
+## Ten Routes
 
 | Route | Owns |
 | --- | --- |
 | Software Architecture | boundaries, quality attributes, operability, testing strategy |
+| API and Interface Contracts | public request, response, event, error, compatibility, and retry contracts |
 | Data Systems | models, transactions, consistency, replication, migrations |
 | TypeScript Engineering | types, module APIs, async, typed errors, tsconfig |
 | Rust Engineering | ownership, public API, naming, errors, concurrency |
@@ -35,6 +36,7 @@ It replaces the former `software-architecture`, `data-systems`,
 ## What It Can Deliver
 
 - architecture assessments, options with real tradeoffs, and migration sequences
+- public API and event contracts with explicit consumer, compatibility, and recovery behavior
 - Twelve-Factor operability review that does not mandate a vendor or a container
 - non-frontend testing strategy derived from quality scenarios, not a pyramid
   ratio

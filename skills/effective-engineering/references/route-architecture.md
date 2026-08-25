@@ -29,6 +29,9 @@ design request unless explicitly asked.
   when the system is a service, API, worker, scheduled process, or deployment
   change. Treat the factors as operational design prompts, not a checklist that
   mandates containers, microservices, or a cloud vendor.
+- [Source-verified external contracts](source-verified-external-contracts.md)
+  when a framework, dependency, platform, or provider contract materially
+  affects the recommended architecture or its public behavior.
 
 ## Workflow
 

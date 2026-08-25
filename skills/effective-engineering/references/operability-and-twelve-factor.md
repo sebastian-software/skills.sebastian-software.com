@@ -71,6 +71,32 @@ For a consequential deployable unit, make these behaviors explicit:
   repairs from the same release contract. A database migration may require
   forward repair rather than binary rollback; say so before deploying it.
 
+## Start with Operating Questions
+
+For consequential production behavior, begin with the small set of questions an
+operator must answer during normal operation and failure. Add a signal only
+when it answers one of them or makes the answer actionable:
+
+| Operating question | Useful evidence |
+| --- | --- |
+| Are users experiencing a material failure or delay? | Outcome and latency signal at the user-facing boundary, segmented only by bounded dimensions that change response |
+| Which dependency, application path, or capacity limit explains it? | Correlated error, duration, saturation, and trace or event evidence with a stable operation and dependency identity |
+| Is work accumulating, being retried, or being lost? | Queue age or backlog, retry and terminal-failure counts, reconciliation state, and the owner of the recovery action |
+| Did a deploy, configuration, or migration change the behavior? | Release identity, configuration revision where safe, before/after comparison, and an explicit rollback or repair condition |
+
+Keep metric labels bounded. Put request IDs, account IDs, raw payload values,
+full paths, and other unbounded detail in appropriately protected logs, events,
+or traces rather than a metric dimension. Do not add a dashboard panel because a
+tool can emit it, and do not treat a correlation ID as proof that an operator can
+answer a question.
+
+An alert needs a named owner and action. Prefer a user symptom, exhausted
+capacity, durable-work risk, or violated recovery condition over a guessed
+infrastructure threshold. Exercise the telemetry path for a representative
+success, failure, and recovery case before claiming the system is observable:
+the intended signal must be emitted, retained by the chosen platform, reachable
+to the operator, and sufficient to choose the next action.
+
 ## Avoid Mechanical Compliance
 
 Do not force statelessness onto a system that has justified durable state;

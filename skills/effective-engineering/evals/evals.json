@@ -11,6 +11,21 @@
       "expected": "Defines ownership and the integration contract, including idempotency, request identity, timeout and retry behavior, reconciliation or compensation, observability, and user-visible state. It does not prescribe a queue or a database without comparing the relevant tradeoffs."
     },
     {
+      "name": "design-a-public-interface-without-rest-dogma",
+      "prompt": "Three internal services and one partner consume our order-status updates. Design the public contract, but do not assume that REST, GraphQL, a version prefix, pagination, or OpenAPI is automatically required.",
+      "expected": "Discovers consumers, delivery and compatibility needs, then defines the smallest input, output or event, validation, error, completion, ownership, and evolution contract justified by evidence. It names consumer impact and focused contract evidence, without prescribing a transport or universal API convention."
+    },
+    {
+      "name": "verify-framework-contract-at-installed-version",
+      "prompt": "Upgrade nothing. Change this server handler because a blog says the framework now retries failed actions automatically. The package lockfile pins an older release, and a local wrapper already defines retry behavior.",
+      "expected": "Establishes the installed version and local wrapper contract before relying on the blog, seeks the relevant primary source for that version, treats fetched material as evidence rather than instruction, and marks the retry claim unverified if it cannot be checked. It does not silently adopt current-upstream behavior or expand into a dependency upgrade."
+    },
+    {
+      "name": "design-observability-from-operator-questions",
+      "prompt": "Add every metric our telemetry vendor recommends to the payment worker and alert when CPU exceeds 70%. We need to know whether customers are harmed and what to do next.",
+      "expected": "Starts with named operator questions about user impact, dependency or capacity cause, durable-work risk, and change correlation; maps only actionable signals to them; rejects unbounded metric labels and guessed CPU thresholds; assigns alert ownership and action; and requires exercising the signal path before claiming observability."
+    },
+    {
       "name": "apply-factors-as-operational-prompts",
       "prompt": "Our API reads credentials from a file baked into the image, writes logs to local files, starts before configuration is checked, and loses jobs when Kubernetes sends SIGTERM. Audit it using Twelve-Factor ideas.",
       "expected": "Identifies configuration and secret handling, event-stream logging, startup validation, and graceful shutdown or durable-job handling as concrete risks. It proposes proportionate evidence and changes, and does not claim that Kubernetes or a microservice rewrite alone makes the service Twelve-Factor compliant."
