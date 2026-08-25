@@ -2,6 +2,11 @@
 
 Use this skill for words inside product UI: labels, helper text, empty states, headings, button text, status messages, and short-form explanation.
 
+For which states exist and how they behave — what appears while work is
+pending, failed, or empty, and how recovery works — use
+**Error and Loading States** ([route-states.md](route-states.md)) instead.
+This route owns the words inside those states.
+
 ## Workflow
 
 1. Read accepted ADRs and editorial guidance for audience relationship, form of
