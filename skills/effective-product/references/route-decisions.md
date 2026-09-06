@@ -63,8 +63,9 @@ living records.
 ## Operating Rules
 
 - Read accepted ADRs as constraints, not suggestions. When requested work
-  conflicts with one, surface the conflict before implementation and either
-  follow the record or explicitly supersede it with authorization.
+  conflicts with one, surface the conflict and follow the declared lifecycle.
+  Existing user authorization to change the decision is sufficient; ask only
+  when the required scope or authority is unresolved.
 - Preserve history according to the declared lifecycle. In the immutable
   default, do not rewrite an accepted record so that an old decision appears
   never to have existed. In an explicit living lifecycle, keep the current file

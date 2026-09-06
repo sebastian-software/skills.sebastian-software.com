@@ -4,7 +4,7 @@
 
 This collection consolidated its 34 first-party skills into six top-level
 discipline skills that share one naming grammar and one internal architecture.
-No guidance was deleted. Every absorbed `SKILL.md` body became a route reference
+No guidance was deleted during that consolidation. Every absorbed `SKILL.md` body became a route reference
 inside its discipline, and every `references/` file moved with it.
 
 The rationale, alternatives, execution outcome, and lasting review triggers are

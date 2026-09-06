@@ -7,17 +7,18 @@ gaps, problem statements, empowerment statements, and How Might We questions.
 
 ## Read
 
-1. [Design inquiry contract](design-inquiry-contract.md) — the shared framing,
-   evidence layers, and deliverable.
-2. Then the reference that matches the work:
-   - [Process and environments](process-and-environments.md) for briefs, process
-     choice, sensemaking, placemaking, autonomy, and fidelity.
-   - [Research and synthesis](research-and-synthesis.md) for research plans,
-     behavioral interviews, observation, desk research, affinity work, personas,
-     and empathy maps.
-   - [Problem framing](problem-framing.md) for problem-space models,
-     expectations, mental-model gaps, problem statements, empowerment
-     statements, and How Might We questions.
+Use [Design inquiry contract](design-inquiry-contract.md) when the design
+decision, evidence layers, or handoff still need framing. Reuse an established
+brief. For focused work, select the matching reference directly:
+
+- [Process and environments](process-and-environments.md) for briefs, process
+  choice, sensemaking, placemaking, autonomy, and fidelity.
+- [Research and synthesis](research-and-synthesis.md) for research plans,
+  behavioral interviews, observation, desk research, affinity work, personas,
+  and empathy maps.
+- [Problem framing](problem-framing.md) for problem-space models,
+  expectations, mental-model gaps, problem statements, empowerment
+  statements, and How Might We questions.
 
 ## Apply
 

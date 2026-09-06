@@ -13,10 +13,9 @@ well-understood component.
 
 ## Decision Sources and Design Read
 
-Before asking preference questions, read accepted ADRs, the existing design
-system, representative screens, content, and brand or editorial guidance. An
-accepted decision is a constraint until it is explicitly superseded; do not
-silently redesign around it.
+Reuse supplied project context and inspect relevant decisions, components,
+screens, content, or editorial guidance where evidence is missing. Preserve
+accepted constraints unless the user has authorized changing them.
 
 ## Design Intent and Browser Evidence
 
@@ -32,11 +31,11 @@ When browser evidence requires a different implementation:
   agreed divergence, and resulting behavior.
 - Show the behavior in a resizable browser example when a static screenshot
   cannot communicate the tradeoff.
-- Ask for approval when the change alters product intent, scope, content, or an
-  accepted decision. Do not use "the browser is the source of truth" as license
-  to make those changes silently.
+- Changes to product intent, scope, content, or accepted decisions need authority
+  from the user. Use authorization already provided; ask only when the change
+  exceeds it. Browser evidence alone does not supply that authority.
 
-For net-new or materially changed surfaces, use the compact Design Read from
+When the direction needs exploration, use the compact Design Read from
 [Design directions](design-directions.md): surface register, audience, primary
 job, primary direction, expression, density, motion, depth, communication,
 signature, and category default to avoid.
@@ -48,8 +47,8 @@ structure-and-prototyping reference (when that skill is installed).
 Bring the chosen qualities, rejected directions, and evidence back into the
 Design Read before implementation.
 
-For an existing experience, first classify the work as greenfield, preserve, or
-overhaul and read [Redesign preservation](redesign-preservation.md). Capture the
+When changing an existing visual or behavioral contract, use
+[Redesign preservation](redesign-preservation.md). Capture the
 smallest baseline that protects routes, information architecture, behavior,
 brand, communication, analytics, accessibility, SEO, and operational contracts
 affected by the work. Visual modernization does not silently authorize a content
@@ -440,7 +439,7 @@ The brief is ready when it answers:
 - What should be quiet?
 - What state is most likely to break the design?
 - Which existing components or tokens should be reused?
-- Which reference chapters should be loaded before implementation?
+- Which unresolved decisions need specialist evidence?
 
 If these answers are still vague, clarify before writing UI code. A precise
 brief is faster than rebuilding a generic first draft.
@@ -467,8 +466,8 @@ Mark each dimension as `ready`, `clarify`, or `change direction`:
 Interpretation:
 
 - **All ready:** implement the UI.
-- **Any clarify:** ask the smallest question that resolves the gap before
-  coding.
+- **Any clarify:** resolve the gap from available evidence or a reasonable
+  assumption; ask only if a consequential answer cannot be inferred.
 - **Any change direction:** revise the brief before styling. Do not implement a
   direction that already fails the register, primary action, or interaction
   model.

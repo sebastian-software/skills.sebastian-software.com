@@ -4,7 +4,9 @@ Use this route for the personality and boundaries layer, the language and
 persuasion pass, and localizing a profile into another market rather than
 translating it literally.
 
-## Read
+## Guidance by need
+
+Load only the reference needed for the requested pass:
 
 - [Personality and boundaries](personality-and-boundaries.md) — professional
   personality, opinionated positioning, limits, working style, design

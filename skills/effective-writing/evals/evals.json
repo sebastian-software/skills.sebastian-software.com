@@ -134,6 +134,11 @@
       "name": "own-locale-punctuation-inside-a-german-interface",
       "prompt": "Our German app screens use straight double quotes and a space before the colon everywhere. Fix the typography in the copy strings, and while you are in there, adjust the button component spacing so the labels breathe more.",
       "expected": "Applies German quotation marks and spacing rules to the visible copy strings only, leaves identifiers, keys, and code untouched, and routes the component spacing change to effective-web rather than treating layout as part of the typographic correction."
+    },
+    {
+      "name": "focused-edit-does-not-require-long-form-intake",
+      "prompt": "Tighten only this sentence for our engineering blog: “The team made the decision to postpone the migration because the rollback procedure had not yet been verified.” Keep the reason and uncertainty intact; return one sentence.",
+      "expected": "Returns one tightened sentence preserving the postponed migration and unverified rollback. Does not require a separate assignment brief, evidence register, structure audit, seven-pass report, or title and ending alternatives for a supplied sentence."
     }
   ],
   "activation": [

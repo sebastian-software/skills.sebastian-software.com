@@ -11,23 +11,21 @@ here, then load only the one the task needs.
 
 ## Establish the Contract
 
-1. Read scoped instructions, `Cargo.toml`, workspace configuration, CI, lint
-   policy, formatting configuration, relevant ADRs, public APIs, nearby tests,
-   and representative call sites. Discover the edition, MSRV, supported targets,
-   feature combinations, async runtime, and repository-native commands.
+1. Read scoped instructions and the affected code and tests. Check `Cargo.toml`,
+   toolchain policy, features, targets, public consumers, or accepted decisions
+   when they constrain the change. Use repository-native validation commands.
 2. State the changed behavior and boundaries: inputs, outputs, ownership,
    mutation, expected errors, possible panics, cancellation, ordering,
    concurrency, resource limits, and any safety invariant. Do not invent a
    stronger MSRV, lint set, runtime, crate, or performance target.
-3. Read [Ownership and API design](rust-ownership-and-api-design.md) for
-   borrowing, newtypes, parsing, trait boundaries, and abstraction choices.
-4. Read [Naming and readability](rust-naming-and-readability.md) for semantic
-   names, Unicode-safe text handling, constants, comments, and maintainable
-   control flow.
+3. Read [Ownership and API design](rust-ownership-and-api-design.md) when
+   borrowing, domain types, parsing, trait boundaries, or abstraction changes.
+4. Read [Naming and readability](rust-naming-and-readability.md) when deciding
+   semantic names, Unicode handling, policy constants, or unclear control flow.
 5. Read [Errors and concurrency](rust-errors-and-concurrency.md) when the change
    can fail, panic, spawn work, block, hold a lock, or be cancelled.
-6. Read [Quality, review, and test evidence](rust-quality-and-review.md) before
-   declaring the change ready.
+6. Read [Quality, review, and test evidence](rust-quality-and-review.md) when
+   Rust-specific review or verification choices need guidance.
 
 Then take the sibling route that matches the work:
 
@@ -39,38 +37,6 @@ Then take the sibling route that matches the work:
 - every unsafe block, unsafe trait implementation, raw pointer, foreign call, or
   ABI boundary; auto-vectorization, portable SIMD, intrinsics, target features,
   atomics, Rayon, or thread pools → Rust Unsafe and SIMD
-
-## Implementation Rules
-
-- Make invalid states difficult to represent when the domain distinction is
-  stable and valuable. Do not replace every primitive with a wrapper.
-- Borrow when the callee only observes data, consume when ownership transfer is
-  meaningful, and clone only when the duplicate ownership is intentional.
-- Use types and names to carry units, identity, state, and ownership. Replace a
-  repeated or policy-bearing literal with a named constant or configuration;
-  keep an obvious local literal local when naming it adds no meaning.
-- Return `Result` for expected failure. Panic only for a programmer error or a
-  locally proven invariant, and make that proof recoverable from code,
-  documentation, or a focused assertion message.
-- Keep public interfaces smaller than their implementation burden, but add a
-  trait, generic, macro, or adapter only for demonstrated variation or reuse.
-- Make crate and module boundaries carry dependency direction, stability
-  promises, and explicit negative invariants; keep I/O and serialization at
-  the boundary when a pure core improves testing or incremental computation.
-- Preserve readable control flow. Prefer explicit matches and small helpers when
-  combinator chains obscure error, ownership, or early-return behavior.
-- Profile before optimizing. Do not choose integer widths, collection layouts,
-  boxing, inlining, LTO, allocation strategies, or copying thresholds from a
-  generic size rule.
-- Treat a performance change as a measurement contract: record workload,
-  platform, toolchain, build profile, baseline, metric, and the evidence that
-  identified the bottleneck. Keep specialized SIMD or target-feature paths
-  behind a safe fallback and a documented dispatch contract.
-- Derive atomic ordering from a happens-before argument. Treat Rayon chunking,
-  async blocking work, queue bounds, and shutdown as resource and lifecycle
-  contracts rather than throughput folklore.
-- Scope suppressions narrowly. Explain why a local `allow`, `expect`, unsafe
-  operation, or manual `Send`/`Sync` is sound and when it can be removed.
 
 ## Review Output
 

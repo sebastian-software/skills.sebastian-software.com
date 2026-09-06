@@ -4,18 +4,15 @@ Use this route for thesis and scope decisions, leads, argument or narrative
 sequence, transitions, people and places, personal material, and endings — the
 shape of the piece rather than its sentences.
 
-## Read
+## Guidance
 
-1. [Nonfiction assignment, evidence, and revision](nonfiction-assignment.md) —
-   the shared contract: mode, audience, evidence register, governing idea,
-   revision passes, and deliverable.
-2. Choose the focused guidance that matches the assignment:
-   - [Structure and story](structure-and-story.md) for general argument,
-     explanation, narrative, lead, sequence, transition, or ending work.
-   - [Minto Pyramid analysis](minto-pyramid.md) for an explicit Minto, pyramid,
-     MECE, answer-first, governing-thought, or logic pressure-test request.
-   Read both only when the assignment needs the pyramid inside a broader
-   narrative or editorial structure.
+Choose [Structure and story](structure-and-story.md) for general structure,
+or [Minto Pyramid analysis](minto-pyramid.md) for an explicit pyramid, MECE,
+answer-first, or logic pressure-test request. Combine them only when the
+assignment needs both.
+
+Use [Assignment and evidence](nonfiction-assignment.md) only when a substantial
+piece needs briefing or source planning.
 
 ## Apply
 

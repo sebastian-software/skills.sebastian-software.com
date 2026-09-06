@@ -4,12 +4,13 @@ Use this route for engineering blog posts, technical articles, explainers,
 technical case studies, and public technical project pages — writing where
 correctness of the technical claim is part of the editorial job.
 
-## Read
+## Guidance
 
-1. [Nonfiction assignment, evidence, and revision](nonfiction-assignment.md) —
-   the shared contract, including the controlled-language check.
-2. [Technical subject-matter writing](technical-subject-matter.md) — the
-   route's working guidance.
+[Technical subject-matter writing](technical-subject-matter.md) covers source
+ownership, technical propositions, terminology, and editorial movement.
+
+Use [Assignment and evidence](nonfiction-assignment.md) only when a substantial
+piece needs briefing or source planning.
 
 ## Apply
 

@@ -12,8 +12,9 @@ any medium: Markdown, HTML, JSX, templates, UI copy, documents, and print.
 2. Preserve an established house style when it intentionally differs from the
    locale default. Preserve punctuation inside verbatim quotations unless the
    user asks to normalize it.
-3. Read [Shared rules](locale-shared-rules.md) and the relevant row in the
-   [locale matrix](locale-matrix.md).
+3. Consult [Shared rules](locale-shared-rules.md) when source protection,
+   character choices, line breaking, or locale-aware data need guidance. Use the
+   [locale matrix](locale-matrix.md) when the language-to-region mapping is unclear.
 4. Read only the matching language profile listed below. Load more than one
    profile only for mixed-language content.
 5. For web or application code, also read
@@ -43,8 +44,8 @@ ask for it. For low-risk work, state the assumed locale briefly and continue.
 - [Czech](locale-czech.md): `cs-CZ`
 - [Croatian](locale-croatian.md): `hr-HR`
 
-Load the matrix, the shared rules, and one profile. The full set is listed for
-selection, not as required reading.
+The language list is for selection. One matching profile normally suffices;
+load shared or implementation guidance only for the issues involved.
 
 ## Boundaries
 

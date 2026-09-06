@@ -6,16 +6,18 @@ instrumentation, experiments, post-launch review, and iteration.
 
 ## Read
 
-1. [Product decision contract](product-decision-contract.md) — the shared
-   evidence register, product path, and deliverable.
-2. Then the reference that matches the work:
-   - [Scope and prioritization](scope-and-prioritization.md) for initial
-     releases, feature requests, roadmaps, tradeoffs, and non-goals.
-   - [Product quality and delight](product-quality-and-delight.md) for quality
-     bars, first-use experience, trust, polish, meaningful delight, and
-     whole-journey reviews.
-   - [Shipping and learning](shipping-and-learning.md) for release readiness,
-     instrumentation, experiments, post-launch review, and iteration.
+Use [Product decision contract](product-decision-contract.md) when a broad
+decision needs shared framing, an evidence register, or a deliverable template.
+Reuse an established decision contract. For focused work, select the matching
+reference directly:
+
+- [Scope and prioritization](scope-and-prioritization.md) for initial
+  releases, feature requests, roadmaps, tradeoffs, and non-goals.
+- [Product quality and delight](product-quality-and-delight.md) for quality
+  bars, first-use experience, trust, polish, meaningful delight, and
+  whole-journey reviews.
+- [Shipping and learning](shipping-and-learning.md) for release readiness,
+  instrumentation, experiments, post-launch review, and iteration.
 
 ## Apply
 

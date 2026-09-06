@@ -38,24 +38,11 @@ to the claim.
    - Microbenchmark, comparative benchmark, bounded end-to-end performance
      workflow, benchmark interpretation, or publishable performance claim: take
      the Benchmarks route.
-6. Use the test-double ladder deliberately:
-   1. Extract and test the cohesive mechanism directly with real values.
-   2. At the remaining outer boundary, prefer the real local implementation,
-      fixture, replay, or focused integration environment.
-   3. Use a contract-faithful fake only when the real boundary is not sensibly
-      executable. A reusable fake should ideally run through the same relevant
-      contract tests as the real implementation; it must not invent convenient
-      behavior. Supplying a clock, configuration, seed, or random value is
-      ordinary input design, not mocking.
-   4. Use an interaction-verifying or behavior-simulating mock only as a last
-      exception for a genuinely unavailable, destructive, credentialed,
-      nondeterministic, or prohibitively slow boundary. State why a direct
-      test, real component, fixture, replay, or focused integration test could
-      not preserve the contract. Keep it at the outermost boundary and assert
-      interactions only when the interaction is itself the contract.
-
-   A growing mock graph is a stop signal: improve the production seam instead
-   of simulating another collaborator.
+6. When a test needs a double or production seam, read
+   [Modularity and testability](modularity-and-testability.md). It owns the
+   ladder from direct mechanism to real boundary, contract-faithful fake, and
+   exceptional outer mock. Preserve every real boundary that makes the claim
+   true; a growing mock graph calls for a better seam.
 7. Make state explicit. Reuse repository-native fixtures and helpers; control
    identity, time, randomness, concurrency, external data, credentials, and
    cleanup whenever they could change the result. Exercise failure paths whose

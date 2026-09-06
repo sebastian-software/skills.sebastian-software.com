@@ -12,14 +12,13 @@ Skip planning for a small change inside an existing, well-understood component.
 The goal is not an iterative polishing loop — it is choosing the right register,
 structure, and interaction model from the start.
 
-## Read Before Asking
+## Use Existing Context
 
-Read accepted ADRs, the design system, representative screens, content, and
-brand guidance first. An accepted decision is a constraint until explicitly
-superseded — do not silently redesign around it. Treat design artifacts as
-hypotheses about a responsive system, not complete specs; validate them against
-realistic content, viewports, inputs, and user settings, but keep accepted
-product/brand/design decisions binding.
+Reuse the brief and project evidence already available. Inspect relevant
+decisions, tokens, components, content, or rendered screens to resolve an actual
+gap. Preserve accepted constraints unless the user has authorized changing them.
+A design artifact still needs validation against the content, viewports, inputs,
+and settings affected by implementation.
 
 Resolve three layers without depending on particular filenames:
 
@@ -34,13 +33,11 @@ not make an existing product greenfield. Inspect tokens, components, rendered
 screens, and code. Keep product truth and global tokens out of the surface
 contract; promote local strategy only with evidence of cross-surface reuse.
 
-For net-new or materially changed surfaces run the compact Design Read from
-[design-directions.md](design-directions.md). For an existing experience, first
-classify it as greenfield, preserve, or overhaul and read
-[redesign-preservation.md](redesign-preservation.md); visual modernization does
-not authorize a content rewrite, framework migration, or contract change. When
-the experience model or direction is still open, route decision-grade
-exploration to the `effective-product` skill and bring the chosen qualities back.
+Use [design-directions.md](design-directions.md) when choosing a direction and
+[redesign-preservation.md](redesign-preservation.md) when an existing contract
+may change. A visual refresh alone does not authorize a content rewrite or
+framework migration. Use `effective-product` when the experience model needs
+exploration, then bring the chosen qualities back.
 
 If a missing answer would materially change layout, interaction, or
 communication, ask **one** concise discriminating question; otherwise state a
@@ -136,8 +133,7 @@ evidence, constraints, anti-goals) in concrete nouns — the full template is in
 the appendix. Record durable register/direction/communication decisions through
 `effective-product`.
 
-Then check readiness — mark each as `ready`, `clarify`, or `change direction`:
-register fit, primary action, hierarchy, state coverage, interaction risk,
-content realism, accessibility risk, design-system fit. All `ready` → implement;
-any `clarify` → ask the smallest resolving question; any `change direction` →
-revise the brief before styling. Do not score the design numerically.
+Implement when the direction and consequential constraints are clear. Resolve
+remaining gaps from available evidence or reasonable assumptions; ask only when
+a missing answer would materially change the result and cannot be inferred.
+Revise a contradictory brief before styling. Do not score the design numerically.

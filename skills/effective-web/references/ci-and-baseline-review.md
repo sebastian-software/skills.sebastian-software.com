@@ -6,11 +6,11 @@ baseline changes a reviewed decision rather than a silent overwrite.
 
 ## Stage ordering
 
-- Run the cheapest, most deterministic checks first and fail fast: type checking, lint
-  (including `jsx-a11y`), and unit tests before any browser is launched. Most defects die
-  here in seconds.
-- Run component/Storybook and visual tests next, then E2E last. Do not start a multi-minute
-  browser suite when a type error would have failed the build immediately.
+- Put cheap, deterministic required checks early in CI and fail fast where
+  later stages depend on them. Choose ordering or parallelism from actual cost
+  and dependencies; do not add missing test layers merely to fill a sequence.
+- A focused local browser inspection need not wait for unrelated static or unit
+  suites. Run the repository's required checks before completing the change.
 - Cache dependencies and browser binaries, and shard browser/E2E suites across parallel
   runners so wall-clock time stays bounded as the suite grows.
 
@@ -41,7 +41,7 @@ baseline changes a reviewed decision rather than a silent overwrite.
 
 ## Review checklist
 
-- Do static checks and unit tests run before browser suites and fail fast?
+- Do required checks fail fast without unnecessary dependencies between suites?
 - Are visual/E2E runs pinned to a container image matching the baselines?
 - Are baselines version-controlled and updated only via reviewed PR diffs?
 - Are diff images and traces retained as artifacts for failed runs?

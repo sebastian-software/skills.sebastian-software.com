@@ -61,7 +61,7 @@ them a dependency of any skill.
 | --- | --- | --- | --- |
 | 01 | [`effective-product`](skills/effective-product/) | Decide what to build and how it should work | 10 |
 | 02 | [`effective-web`](skills/effective-web/) | Build the browser experience as one system | 26 |
-| 03 | [`effective-engineering`](skills/effective-engineering/) | Design and write the software itself | 9 |
+| 03 | [`effective-engineering`](skills/effective-engineering/) | Design and write the software itself | 10 |
 | 04 | [`effective-delivery`](skills/effective-delivery/) | Move repositories and teams forward safely | 10 |
 | 05 | [`effective-writing`](skills/effective-writing/) | Prose that people trust and act on | 7 |
 | 06 | [`effective-marketing`](skills/effective-marketing/) | Take verified value to market | 12 |
@@ -99,32 +99,15 @@ motion, textures, print stylesheets, and web-to-print.
 
 ## What the Collection Adds
 
-General models can generate plausible answers. Shipping good work requires more:
-knowing what evidence is missing, which tradeoff matters, what not to invent,
-how far the user's authority extends, and what must be verified before calling
-the work done.
+Focused references capture domain decisions, known failure modes, and practical
+examples. Skills load that guidance when a task needs it. Root files route work;
+they do not require a full repository survey or repeat every reference's rules.
 
-The collection is designed around that gap:
-
-- **Practice-built:** guidance is distilled from engineering, design review,
-  product work, consulting, and repeated agent sessions.
-- **Outcome-oriented:** skills cover discovery, implementation, review, and
-  follow-through rather than stopping at generic advice.
-- **Evidence-led:** research, repository state, user data, and observed behavior
-  outrank confident assumptions.
-- **Progressively disclosed:** agents load the relevant route and references,
-  not the entire library for every request.
-- **Explicit about boundaries:** each skill states when it applies, what it must
-  not invent, and when a specialist or narrower workflow is needed.
-- **Portable and inspectable:** the public interface is plain `SKILL.md`, with
-  focused Markdown references and deterministic helpers where useful.
-- **First-party maintained:** external collections are not silently vendored or
-  renamed into this repository.
-
-This is a focused collection for digital product, web, software-delivery, and
-go-to-market work, not an attempt to cover every agent task. It does not replace
-qualified legal advice, dedicated security review, infrastructure expertise, or
-the external tools and credentials required to act on third-party systems.
+Install only the disciplines that help your work. Keep descriptions short enough
+to distinguish their scopes, and reassess instructions as models improve. A
+useful skill earns its context cost through better decisions, not more steps,
+more tests, or longer reports. See the [authoring guide](docs/authoring-skills.md)
+for the maintenance and review contract.
 
 ## Collection Boundary
 
@@ -141,21 +124,6 @@ belong in a downstream agent stack.
 
 The accepted boundary and activation contract are recorded in
 [ADR 0005](docs/adr/0005-first-party-instruction-packs.md).
-
-## Disciplines
-
-| Discipline | Focus |
-| --- | --- |
-| [`effective-product`](skills/effective-product/) | Decision-led customer and market research, discovery, strategy, scope and release decisions, design research and modeling, behavioral and retention design, pricing and packaging, product naming, and Architecture Decision Records. |
-| [`effective-web`](skills/effective-web/) | Routed web design and engineering across UI/UX, CSS, React, accessibility, SEO, performance, testing, SVG, motion, and web-to-print, plus reference capture and specification, originality and provenance audits, and jurisdiction-aware web compliance. |
-| [`effective-engineering`](skills/effective-engineering/) | System architecture and operability, data models and consistency guarantees, server-side TypeScript and Rust depth, focused non-frontend tests, and repository-native benchmark methodology. |
-| [`effective-delivery`](skills/effective-delivery/) | Workflow orchestration, repository audits and root-cause investigation, behavior-preserving ports, pull-request review and upkeep, delegated issue queues, dependency portfolios, repository validation, technical documentation, and engineering leadership. |
-| [`effective-writing`](skills/effective-writing/) | Structure and prose craft for articles, essays, and editorial case studies, evidence-based AI-pattern audits, natural US team English for internal messages, and locale typography for thirteen European languages. |
-| [`effective-marketing`](skills/effective-marketing/) | Positioning and segmentation, messaging and proof, launch and sales enablement, market learning, commercial copywriting, conversion optimization, social and LinkedIn content, and consultant profile positioning. |
-
-All six share one naming grammar and one internal architecture: a lean
-`SKILL.md` with a `## Route by Intent` table, and a flat `references/` directory
-where each route is a file that names the smallest guidance set for the task.
 
 ## How the Collection Is Built
 
@@ -211,7 +179,8 @@ disciplines. [MIGRATION.md](MIGRATION.md) remains the authoritative old-to-new
 mapping; only the six disciplines are installable from this repository.
 
 The repository contains the first-party guidance itself: no installer, vendored
-third-party snapshots, generated distribution tree, or dependency lockfiles.
+third-party snapshots, or generated distribution tree. The development lockfile
+pins tooling for repository checks.
 Skill installation is handled by an Agent Skills-compatible manager such as
 [DALO](https://dalo.sh) or Vercel's [skills CLI](https://skills.sh/docs);
 instruction-pack projection requires a manager such as DALO that supports

@@ -84,7 +84,10 @@ Retain:
 - context a new reader genuinely needs
 - repetition that creates structure or emotional force
 
-## Revise in passes
+## Revision passes
+
+Choose the passes that address the assignment. A full rewrite may need all; a
+focused sentence edit or rhythm pass does not.
 
 ### 1. Meaning
 

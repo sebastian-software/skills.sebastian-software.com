@@ -354,6 +354,16 @@
       "name": "feature-work-can-avoid-the-distribution-constraint",
       "prompt": "Our product works for retained customers, but almost nobody reaches or understands it. Engineering can generate another 30 features cheaply, so keep the whole team building and assume distribution will solve itself later. Diagnose the founders as afraid of selling and prescribe a fashionable marketing headcount ratio.",
       "expected": "Diagnoses the observable constraint across reach, comprehension, evaluation, activation, retention, capacity, and economics without inventing motives; defines the minimum route to market and its owners and evidence; compares the marginal value of more engineering with distribution, activation, and learning; distinguishes a real product gap from feature accumulation; and rejects copied ratios."
+    },
+    {
+      "name": "single-linkedin-post-keeps-requested-scope",
+      "prompt": "Write one short LinkedIn post for engineering leads from these notes: we delayed the migration because the rollback was not verified; rehearsing the rollback exposed a missing restore step; the rehearsal was useful even though it delayed release. Use a calm first-person plural voice. Return only the post, with no question or CTA.",
+      "expected": "Returns one grounded post in the supplied voice, preserving the delay and restore-step finding. Does not invent impact numbers or require category selection, intake questions, hook alternatives, an engagement-tips section, a visual suggestion, or a question/CTA ending."
+    },
+    {
+      "name": "one-profile-entry-does-not-trigger-full-audit",
+      "prompt": "Rewrite only this consultant-profile entry for a German staffing CV: “2023–2024, anonymous retail client, frontend lead for a three-person team; delivered a shared checkout component library.” No measured business outcomes are available. Keep the client anonymous and return one project entry.",
+      "expected": "Returns one German project entry preserving dates, anonymous retail context, lead role, team size, and shipped library. Does not invent business impact or client identity and does not require a full thesis, interview, thirteen-part profile audit, quote map, LinkedIn variants, or provider field inventory."
     }
   ],
   "activation": [

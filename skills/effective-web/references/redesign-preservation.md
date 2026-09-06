@@ -118,8 +118,8 @@ If the proposed design requires changing a protected contract:
 
 1. Name the conflict and affected users or downstream systems.
 2. Explain the smallest compatible option and the broader change option.
-3. Obtain explicit authority for the broader scope when it materially changes
-   the requested outcome.
+3. Use existing user authorization for the broader scope. Ask only when the
+   change materially exceeds that scope or the intended outcome is unresolved.
 4. Use `effective-product` when the change establishes a durable new direction,
    audience relationship, information architecture, design-system ownership,
    or cross-channel communication rule.

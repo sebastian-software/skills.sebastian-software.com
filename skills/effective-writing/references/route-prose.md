@@ -3,16 +3,18 @@
 Use this route for clarity, clutter, syntax, verbs, rhythm, voice, line
 editing, and multi-pass revision.
 
-## Read
+## Guidance
 
-1. [Nonfiction assignment, evidence, and revision](nonfiction-assignment.md) —
-   the shared contract, including the ordered revision passes.
-2. [Prose and revision](prose-and-revision.md) — the route's working guidance.
+[Prose and revision](prose-and-revision.md) contains voice, sentence, and
+revision guidance. Use only the passes relevant to the requested edit.
+
+Use [Assignment and evidence](nonfiction-assignment.md) only when a substantial
+piece needs briefing or source planning.
 
 ## Apply
 
-- Revise in separate passes. Mixing meaning, structure, and mechanics in one
-  sweep hides the changes that matter.
+- Scale revision to the request. Separate passes help a substantial rewrite;
+  a focused line edit does not need a full structural review.
 - Remove words that do no work; keep qualifications, personality, cadence, and
   evidence.
 - Prefer precise nouns and active verbs, and treat active voice as a default

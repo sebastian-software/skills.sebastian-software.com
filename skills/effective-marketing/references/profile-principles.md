@@ -28,7 +28,7 @@ The strongest sources converge on the same point: a consulting profile is not a 
 
 Do not treat reverse chronology as the only organizing principle. Chronology answers "what happened most recently?" A consultant profile must also answer "what proves this person's market value?"
 
-Use six layers:
+For a full profile, select the layers that help the target reader:
 
 1. **Positioning layer** - the profile thesis, capability pillars, and strongest buyer-facing proof.
 2. **Narrative layer** - the short professional through-line that explains how projects and capabilities connect.
@@ -336,12 +336,16 @@ Best when the consultant needs website, PDF, LinkedIn, staffing/marketplace, and
 
 ## Audit Checklist
 
+For a full-profile audit, use the relevant checks below. A focused edit does
+not need every pass, section, or channel variant.
+
 Check whether the profile:
 
 - states a clear consultant thesis in the first screen/page
 - runs source inventory and interview/completion mode when important project facts are missing
 - includes a short professional through-line when the project history has recurring themes or transferable experience
-- uses the language and persuasion pass from `language-and-persuasion.md`
+- uses the language and persuasion pass from `language-and-persuasion.md` when
+  tone or persuasion is part of the requested work
 - uses the personality and boundaries pass from `personality-and-boundaries.md` when working style, values, design background, or role-fit clarity matter
 - avoids reading like an anonymous staffing profile when direct buyer or interviewer trust matters
 - makes target clients and use cases obvious
