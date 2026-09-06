@@ -6,20 +6,22 @@ products.
 
 ## Read
 
-1. [Product decision contract](product-decision-contract.md) — the shared
-   evidence register, product path, and deliverable.
-2. Then the reference that matches the work:
-   - [Strategy and outcomes](strategy-and-outcomes.md) for product theses,
-     goals, differentiation, economics, and strategic choices.
-   - [Product operating model](product-operating-model.md) for empowered
-     cross-functional teams, discovery and delivery responsibilities,
-     high-integrity commitments, AI-era exploration tempo, and organizational
-     change away from feature-factory behavior.
-   - [Networked products](networked-products.md) for marketplaces, multi-sided
-     products, network-effect claims, cold starts, local liquidity, seeding,
-     multihoming, trust, expansion, and saturation.
-   - [Go-to-market handoff](go-to-market-handoff.md) when stable product
-     evidence must inform positioning, pricing, launch, channels, or sales.
+Use [Product decision contract](product-decision-contract.md) when a broad
+decision needs shared framing, an evidence register, or a deliverable template.
+Reuse an established decision contract. For focused work, select the matching
+reference directly:
+
+- [Strategy and outcomes](strategy-and-outcomes.md) for product theses,
+  goals, differentiation, economics, and strategic choices.
+- [Product operating model](product-operating-model.md) for empowered
+  cross-functional teams, discovery and delivery responsibilities,
+  high-integrity commitments, AI-era exploration tempo, and organizational
+  change away from feature-factory behavior.
+- [Networked products](networked-products.md) for marketplaces, multi-sided
+  products, network-effect claims, cold starts, local liquidity, seeding,
+  multihoming, trust, expansion, and saturation.
+- [Go-to-market handoff](go-to-market-handoff.md) when stable product
+  evidence must inform positioning, pricing, launch, channels, or sales.
 
 ## Apply
 

@@ -7,10 +7,9 @@ docs system.
 
 ## Workflow
 
-1. Discover the repository before choosing a document shape. Read scoped agent
-   instructions, existing READMEs and docs, navigation and generator config,
-   contribution guidance, terminology, language, implementation, tests, and
-   repository-native validation commands relevant to the requested surface.
+1. Read scoped instructions and the affected document and owning source.
+   Inspect navigation, generator config, contribution guidance, terminology,
+   and validation commands when the change depends on them.
 2. Define the documentation job: audience, task or decision, entry point,
    prerequisites, expected result, likely failure paths, and the artifact that
    owns each material claim. Ask only for gaps that cannot be resolved from the
@@ -45,25 +44,15 @@ docs system.
 
 ## Prevent Documentation Creep
 
-Make a document earn its maintenance cost before adding it. Name the reader job
-it enables, find the existing owner of every material claim, and identify what
-the new surface contributes that the owner cannot: navigation, rationale,
-domain language, task sequence, safety, recovery, or required traceability. If
-none remains, improve or expose the owning artifact instead of adding prose.
+Before adding prose, identify its reader job and owning artifact. Keep useful
+navigation, rationale, domain language, requirements, safety, recovery, and
+traceability; link to or generate mechanical facts from their owner. Update the
+existing canonical surface first. If a new surface contributes no distinct
+reader value, improve the owner instead.
 
-Avoid a Markdown shadow of the repository that restates modules, classes,
-functions, flags, defaults, or control flow for agents. Such a layer is not
-executable, usually cannot be tested against the implementation, consumes
-context, and becomes a competing source of truth. Prefer clear names and
-boundaries, types, schemas, generated help, tests, executable examples, and a
-short link-oriented repository map.
-
-For existing documentation, compare claims with their owners and classify each
-surface as keep, link, generate, move, update, or remove. Preserve concise
-onboarding, accepted rationale, requirements and traceability, domain
-definitions, safety contracts, runbooks, migrations, and recovery knowledge
-that code cannot own. Remove or supersede conflicting copies only under change
-authority; a read-only audit reports the smallest credible correction instead.
+For an existing-docs audit, classify affected surfaces as keep, link, generate,
+move, update, or remove after comparing their claims with current owners. Apply
+corrections within change authority; an answer-only audit reports them.
 
 ## Operating Rules
 
@@ -92,9 +81,6 @@ authority; a read-only audit reports the smallest credible correction instead.
 - Preserve secrets and production safety. Use explicit placeholders, safe test
   data, and non-destructive environments; never publish credentials or suggest
   a production mutation merely to prove an example.
-- Keep facts in their owning artifacts. Do not create a parallel documentation
-  inventory, audit ledger, or mandatory docs hierarchy when the repository does
-  not already use one.
 
 ## Cross-links
 

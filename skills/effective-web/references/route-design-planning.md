@@ -20,19 +20,18 @@ Intent](../SKILL.md#route-by-intent) to Design Review and Modernization.
 
 ## Planning Workflow
 
-1. Read accepted ADRs, product intent, representative screens, content, brand
-   guidance, design-system constraints, and available browser evidence.
+1. Reuse the supplied brief and established project context. Inspect relevant
+   decisions, screens, content, or system constraints where direction is unclear.
 2. Identify the primary user, job, action, failure modes, required states, and
    anti-goals. Ask one discriminating question only when the answer materially
    changes the direction.
-3. Select the surface register from [Design registers](design-registers.md),
-   then choose a primary direction and compatible axes from [Design
-   directions](design-directions.md).
+3. Use [Design registers](design-registers.md) when the surface purpose is
+   unresolved, or [Design directions](design-directions.md) when its visual
+   direction needs exploration. Preserve an established direction.
 4. Use [Cognitive UX](cognitive-ux.md) when attention, learnability, complex
    modes, unfamiliar concepts, or mental-model mismatch shape the experience.
-5. Follow [Design planning core](design-planning-core.md) to decide information
-   hierarchy, layout topology, interaction model, density, states, context
-   adaptation, and readiness before styling.
+5. Use [Design planning core](design-planning-core.md) for unresolved hierarchy,
+   layout, interaction, density, states, or adaptation decisions.
 6. For an AI-assisted feature, use [AI interface
    design](ai-interface-design.md) to choose the smallest fitting modality and
    specify uncertainty, review, cancellation, recovery, and a non-AI path.

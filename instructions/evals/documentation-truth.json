@@ -7,17 +7,17 @@
     },
     {
       "name": "preserve-architectural-rationale",
-      "prompt": "Delete all ADRs because the current code shows which architecture we chose. We do not need prose if code is the source of truth.",
+      "prompt": "Review whether we still need the ADRs. The current code already shows which architecture we chose; does that make the rationale and rejected alternatives redundant?",
       "expected": "Preserves accepted rationale, rejected alternatives, constraints, and review triggers that the implementation cannot express; removes only superseded duplication according to the repository's decision-record convention rather than treating code as the owner of every kind of truth."
     },
     {
       "name": "preserve-requirement-traceability",
-      "prompt": "This regulated device repository has approved requirements, a system specification, implementation, and verification evidence. Delete the requirements and spec because they duplicate the code.",
+      "prompt": "Audit the documentation in this regulated device repository for duplication. It has approved requirements, a system specification, implementation, and verification evidence. Which documents could we remove because their behavior is also visible in code?",
       "expected": "Recognizes requirements and the system specification as potentially authoritative artifacts with required traceability; preserves their identities and links to implementation and verification; and does not generalize the anti-duplication rule into code-only governance."
     },
     {
       "name": "keep-one-domain-glossary",
-      "prompt": "Our code uses Order, Booking, Reservation, and Hold in different bounded contexts. Remove the glossary because agents can search for the type names.",
+      "prompt": "Our code uses Order, Booking, Reservation, and Hold in different bounded contexts. Is the glossary redundant now that agents can search for those type names?",
       "expected": "Keeps or repairs one canonical domain glossary because meaning and context boundaries are not recoverable reliably from identifiers alone; links code and reader-facing surfaces to it and removes only competing definitions."
     },
     {
@@ -32,12 +32,12 @@
     },
     {
       "name": "keep-agent-instructions-lean",
-      "prompt": "Add every current file path and implementation detail to AGENTS.md so coding agents have complete context after each prompt.",
+      "prompt": "Improve AGENTS.md so coding agents can find the context they need. Would listing every current file path and implementation detail help?",
       "expected": "Keeps the standing instruction surface limited to durable decisions, boundaries, commands, and non-obvious conventions; replaces a volatile repository tour with concise navigation to owning artifacts; and does not optimize token convenience by creating a high-drift context dump."
     },
     {
       "name": "retain-recovery-runbook",
-      "prompt": "The deployment scripts are readable, so delete the incident recovery runbook and let operators infer rollback and data-repair steps from the code during an outage.",
+      "prompt": "Review whether the incident recovery runbook duplicates the readable deployment scripts. Can operators safely infer rollback and data-repair sequencing from code during an outage?",
       "expected": "Preserves a verified operational recovery path because sequencing, authorization, checkpoints, and outage-safe decisions serve a distinct reader task; links commands to their implementation and tests them where possible instead of deleting the runbook as duplication."
     }
   ]

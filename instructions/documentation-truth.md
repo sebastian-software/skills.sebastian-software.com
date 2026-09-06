@@ -1,97 +1,55 @@
-version: 1.0.0
+version: 1.1.0
 topics: documentation, source-of-truth, maintenance, context
 
 # Documentation Truth Contract
 
-Apply this contract whenever a task creates, changes, reviews, or removes
-documentation, comments, agent instructions, plans, specifications, examples,
-or repository maps. Domain guidance still decides the document's craft and
-audience. User, project, regulatory, and host instructions still decide what is
-required and what may be changed.
+Apply when working on documentation, comments, agent instructions, plans,
+specifications, examples, or repository maps. User, host, project, and regulatory
+requirements determine what may change.
 
-## Give Each Claim One Owning Artifact
+## Give Each Claim One Owner
 
-Identify the source that owns a claim before documenting it. Different kinds of
-truth can have different owners:
+| Claim | Owning artifact |
+| --- | --- |
+| Executed behavior, flags, defaults | Code/configuration, exposed by types, schemas, generated help, tests, or executable examples |
+| Requirements and external contracts | Approved requirements/specifications, traced to implementation where required |
+| Durable rationale and rejected alternatives | The repository's decision records |
+| Domain meaning | One glossary or domain model |
+| Operational recovery | The service's verified runbook |
+| Navigation | A short map linking to those owners |
 
-- Executed behavior belongs in code and configuration; tests, types, schemas,
-  generated help, and executable examples prove or expose that behavior.
-- Product requirements, external contracts, and regulated specifications may
-  be authoritative artifacts of their own. Preserve their identity and trace
-  them to implementation and verification where the project requires it.
-- Durable rationale and rejected alternatives belong in the repository's
-  decision-record convention.
-- Domain terms belong in one glossary or domain model used by the code and its
-  readers.
-- Operational procedures and recovery steps belong in the established runbook
-  closest to the owned service and its automation.
-- Navigation belongs in a short map that links to those owners.
+Code cannot replace rationale, domain meaning, requirements, or recovery
+sequencing. Preserve those when they serve a distinct reader task.
 
-Do not use “the code is the only truth” as a reason to erase requirements,
-safety obligations, contractual behavior, or rationale that code cannot own.
-The goal is one owner per claim, not one artifact type for every claim.
+## Keep Documentation Useful and Maintainable
 
-## Do Not Build a Prose Shadow of the Code
+Before adding prose, identify the reader's task and the contribution the owning
+artifact cannot make. Update the canonical surface first. Link to or generate
+mechanical inventories instead of copying them; when a duplicate is required,
+keep it narrow and define how drift is detected.
 
-Do not add Markdown that narrates modules, functions, types, flags, defaults, or
-control flow already expressed by the current implementation unless a defined
-reader task needs a stable abstraction over those details.
+Do not narrate every module, function, type, flag, or control path in a parallel
+Markdown hierarchy. Prefer discoverable names, contracts, generated references,
+and executable examples. Agent instructions should record non-obvious
+conventions and conditional pointers, not mandate a full repository tour before
+every edit.
 
-Prefer improving names, types, boundaries, tests, schemas, generated reference,
-or executable examples when they can make the contract discoverable and
-checkable. Keep agent instructions focused on decisions, boundaries, commands,
-and non-obvious repository conventions; do not turn them into a file-by-file
-tour that must be updated after every refactor.
+Keep temporary plans in the project's existing convention. Do not turn session
+notes into permanent architecture memory.
 
-## Make New Documentation Earn Its Maintenance Cost
+## Audit and Reduce Existing Prose
 
-Before adding a document or section:
+Compare affected claims with their owners. Keep useful rationale, vocabulary,
+requirements, onboarding, migration, and recovery guidance. Link or generate
+mechanical projections, move misplaced knowledge, and update or remove
+conflicting, redundant, or obsolete copies when the request authorizes changes.
+Read-only audits return findings without modifying files.
 
-1. Name its reader and the task, decision, or recovery path it enables.
-2. Find the existing owning artifact for every material claim.
-3. Explain what the proposed documentation contributes that its owner cannot:
-   navigation, rationale, domain language, task sequence, safety, recovery, or
-   a required traceability link.
-4. Link to or generate from an owner instead of copying it. If duplication is
-   unavoidable, keep it narrow and define how drift is detected.
-5. Update an existing canonical surface before creating a parallel hierarchy.
-6. If no reader job, distinct contribution, or credible maintenance path
-   remains, do not add the documentation.
+Audit claims rather than deleting to meet a file-count target. Required
+traceability, accepted ADR history, safety contracts, and runbooks remain useful
+even when implementation details can be read in code.
 
-Temporary plans and investigation notes must follow the repository's existing
-convention and must not quietly become permanent architecture memory.
-
-## Reduce Existing Documentation Creep Safely
-
-Audit claims, not file counts. Compare a document's material statements with
-their current owners, then classify each surface as:
-
-- **Keep:** it owns useful rationale, vocabulary, requirements, safety,
-  onboarding, migration, operation, or recovery knowledge.
-- **Link:** another artifact owns the claim and this surface only needs to
-  guide the reader there.
-- **Generate:** the material is a mechanical projection of code, schemas, help,
-  or another machine-readable owner.
-- **Move:** the content is useful but sits far from the contract it qualifies.
-- **Update or remove:** it duplicates, contradicts, or no longer serves a real
-  reader task.
-
-When change authority is present, remove or supersede conflicting copies in the
-same focused change. During answer-only or diagnosis-only work, report the
-conflict and smallest credible correction without mutating the repository.
-
-Do not delete material merely because it is prose. Preserve required
-requirements, ADRs, glossaries, safety contracts, runbooks, migration paths,
-and concise onboarding maps unless their owning contract has genuinely moved or
-expired.
-
-## Verify the Result
-
-- Check every retained behavioral claim against its owning implementation,
-  interface, requirement, or decision.
-- Run established docs builds, link checks, doctests, generated-reference
-  checks, and executable examples that apply.
-- Confirm the change leaves one discoverable owner for each affected claim and
-  no newly conflicting copy.
-- Report what became the source of truth, what documentation was added, linked,
-  generated, moved, updated, or removed, and what remains unverified.
+Verify changed behavioral claims and examples against their owners, check
+changed links, and run applicable repository documentation checks. Report the
+new owner only where it changed and disclose material verification gaps; a small
+edit does not need a full documentation inventory or report template.

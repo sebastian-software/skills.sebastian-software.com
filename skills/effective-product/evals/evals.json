@@ -379,6 +379,11 @@
       "name": "cheap-generation-increases-the-need-for-taste",
       "prompt": "AI can build twelve polished feature ideas this week at almost no implementation cost. Ship all of them and add settings so every stakeholder gets what they want; because building is cheap, value, coherence, cognitive load, and maintenance no longer need prioritization.",
       "expected": "Separates cheap feasibility from customer value and product priority; treats generated options as candidates; selects against target progress, product thesis, non-goals, experience intention, and evidence; applies subtraction to duplicated or low-value mechanisms; accounts for explanation, choice, cognitive load, and maintenance; and prefers a smaller coherent journey while encoding durable selection principles."
+    },
+    {
+      "name": "reuse-established-product-decision-contract",
+      "prompt": "The approved research brief and evidence register are attached. We need to choose between interviews and observation for this single unanswered question: how warehouse staff recover when the scanner loses connectivity. Recommend the method and next step from this context.",
+      "expected": "Uses the supplied brief and evidence directly and selects only the relevant fieldwork/design-research reference if needed. Explains which method reveals actual recovery behavior, its evidence limits, and a proportionate next step without rebuilding the product path, reading all shared contracts, or producing a broad eight-part product decision package."
     }
   ],
   "activation": [

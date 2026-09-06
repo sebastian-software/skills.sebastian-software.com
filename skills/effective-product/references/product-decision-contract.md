@@ -1,7 +1,8 @@
 # Product Decision Contract
 
 The shared contract behind the discovery, strategy, and scope-and-shipping
-routes. Read it once per decision, then load the matching route.
+routes. Use it when a broad decision needs framing; a focused question can use
+its subject reference directly.
 
 ## Name the decision and artifact
 

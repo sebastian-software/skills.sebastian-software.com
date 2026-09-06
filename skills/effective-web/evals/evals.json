@@ -619,6 +619,16 @@
       "name": "polish-theme-and-icon-states-without-magic-values",
       "prompt": "Polish a theme toggle whose entire page slowly smears between colors and whose 16px active icon becomes blurry. Apply universal exact shadow, outline, stroke, scale, and animation values everywhere so the UI feels premium.",
       "expected": "Rejects universal aesthetic magic values; makes the theme swap atomic or temporarily suppresses only theme-sensitive transitions with verified cleanup; tests initial load, rapid and OS-driven changes, contrast, and reduced motion; uses the icon family's native render grid and coherent optical weight; allows an outline/filled active pair only as a consistent redundant state cue; and verifies the correction at real size and normal speed."
+    },
+    {
+      "name": "reuse-established-design-context",
+      "prompt": "Implement the approved compact invoice toolbar. The brief, accepted direction, tokens, content, and reference screenshot are already supplied in this task. Only alignment and wrapping remain unresolved. Finish the implementation and open a PR.",
+      "expected": "Reuses the supplied direction and context, inspects only the relevant component/layout evidence, implements and verifies alignment and wrapping, and completes the authorized PR work. Does not reread an ADR/design-system/brand corpus, compare design registers, or request approval for the supplied direction."
+    },
+    {
+      "name": "scope-shared-css-verification-to-real-risk",
+      "prompt": "Fix the gap token used by our shared Button component. Existing Storybook stories already cover long labels, keyboard focus, loading, and both themes. The app preview is running, while the unrelated unit suite takes ten minutes. Complete the change and its required checks.",
+      "expected": "Reuses existing stories or the live preview for focused rendered inspection, can inspect the browser independently of unrelated checks, runs required repository checks before completion, and adds no duplicate fixture or exhaustive viewport/state suite without a concrete evidence gap. Continues if verification reveals a real defect."
     }
   ],
   "activation": [

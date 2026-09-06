@@ -6,14 +6,15 @@ fidelity choices, interactive prototypes, testing, and delivery.
 
 ## Read
 
-1. [Design inquiry contract](design-inquiry-contract.md) — the shared framing,
-   evidence layers, and deliverable.
-2. Then the reference that matches the work:
-   - [Solution modeling](solution-modeling.md) for feature canvases,
-     object-oriented UX, object relationships, moments, flows, and journeys.
-   - [Structure and prototyping](structure-and-prototyping.md) for information
-     architecture, thumbnails, wireframes, fidelity choices, interactive
-     prototypes, testing, and delivery.
+Use [Design inquiry contract](design-inquiry-contract.md) when the design
+decision, evidence layers, or handoff still need framing. Reuse an established
+brief. For focused work, select the matching reference directly:
+
+- [Solution modeling](solution-modeling.md) for feature canvases,
+  object-oriented UX, object relationships, moments, flows, and journeys.
+- [Structure and prototyping](structure-and-prototyping.md) for information
+  architecture, thumbnails, wireframes, fidelity choices, interactive
+  prototypes, testing, and delivery.
 
 ## Apply
 

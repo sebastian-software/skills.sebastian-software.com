@@ -1,46 +1,28 @@
 ---
 name: effective-writing
 description: >-
-  Plan, structure, write, revise, and critique nonfiction prose from supplied
-  ideas and evidence; ask for missing source material first. Use for articles,
-  essays, newsletters, thought leadership, technical articles, case studies,
-  About pages, product descriptions, and long-form homepage prose; Minto
-  Pyramid, MECE, answer-first, and governing-thought analysis; evidence-based
-  audits of formulaic or AI-sounding text without authorship claims; natural US
-  team English for Slack, issues, PRs, and async updates; and locale typography
-  for German, English, French, and other European languages. Trigger on
-  structure, clarity, voice, rhythm, humanization, German-to-English team
-  rewrites, or locale punctuation, spacing, numbers, dates, and hyphenation. Do
-  not invent facts or quotations. Route market claims to effective-marketing
-  and durable technical documentation to effective-delivery.
+  Write, structure, revise, or critique nonfiction articles, essays,
+  newsletters, technical explainers, and editorial case studies. Use for Minto
+  Pyramid/MECE structure, clarity and voice, AI-sounding prose audits, natural
+  US team English, German-to-English team rewrites, and locale typography.
+  Commercial-choice copy belongs to effective-marketing; repository-derived
+  technical documentation to effective-delivery. Do not infer AI authorship.
 ---
 
 # Effective Writing
 
-Prose that people trust and act on. Turn source material and intent into
-writing a particular reader can understand, believe, remember, and use — at
-article length, at Slack length, and down to the punctuation a locale expects.
+Choose the route from the requested artifact and editing mode. Read only the
+references needed for that task; use supplied material and an established brief
+without repeating an intake interview.
 
-Treat useful communication and legitimate self-promotion as compatible when
-claims remain specific and supportable.
+Preserve supported facts, qualifications, source attribution, and intentional
+voice. Ask for missing source material only when it blocks the requested work;
+never invent statistics, quotations, testimonials, experience, or product facts.
+Remove words that do no work without flattening cadence or meaning.
 
-## Workflow
-
-1. Name the artifact and its mode: plan, draft, rewrite, line edit, critique,
-   pattern audit, adaptation, or typographic correction. The mode decides the
-   route more reliably than the subject does.
-2. Name the reader, the channel, and the change the piece should produce.
-3. Select one primary route from the table. Read that route before acting.
-4. Load only the references the route names for this task. A route lists its
-   options; it does not prescribe reading all of them.
-5. Separate supplied facts from interpretation and from claims that still need
-   verification. Never invent statistics, quotations, citations, testimonials,
-   customer stories, personal experience, or product behavior.
-6. Return the requested artifact. Note material gaps or consequential editorial
-   choices only when they help the user judge or continue the work.
-
-For a pattern audit, return the report and stop. Do not continue into drafting
-or revision unless the user asks.
+Return the requested artifact. An audit-only request ends with findings; when
+the user also asks for revision, complete that revision. Report observable
+patterns in prose without claiming or estimating AI authorship.
 
 ## Route by Intent
 
@@ -54,58 +36,20 @@ or revision unless the user asks.
 | Rewrite a Slack message, issue or PR comment, async update, or stiff or German team note into natural US team English | [Metro English](references/route-metro-english.md) |
 | Fix quotation marks, punctuation spacing, dashes, apostrophes, numbers, dates, currency, or hyphenation for a locale | [Locale Typography](references/route-locale-typography.md) |
 
-The long-form routes share one contract —
-[assignment, evidence, and revision](references/nonfiction-assignment.md) —
-which each of them loads. Metro English and Locale Typography do not use it.
-
-## Operating Rules
-
-- Write for the reader without pretending the reader is passive. Make the
-  argument easy to follow, not difficult to question.
-- Prefer clear language to status language. Keep specialist terms when they are
-  accurate and useful; define or replace them when they merely signal expertise.
-- Remove words that do no work, but do not compress away qualifications,
-  personality, cadence, or evidence.
-- Make persuasive intent legible through relevance, proof, fair treatment of
-  uncertainty, and an appropriate next step. Marketing value does not excuse
-  inflated claims, fake urgency, or disguised advertising.
-- When editing, distinguish correction from preference. Preserve intentional
-  choices unless they obstruct meaning, violate a stated constraint, or weaken
-  the piece's purpose.
-- Never claim or estimate AI authorship. Report observable patterns and bound
-  the conclusion to the prose itself.
-- A controlled-language request made only because the subject is technical is a
-  profile mismatch. State the tradeoff, write natural prose, and switch only
-  when an artifact contract governs it.
-
 ## Routing Boundaries
 
-- Route homepages, landing pages, product, service, and pricing pages, campaign
-  and launch copy, sales pages, marketing emails, headlines, objection handling,
-  and calls to action to `effective-marketing`. Commercial-choice copy is
-  marketing; inform-and-explain prose is writing. Keep primarily editorial
-  articles, essays, reports, and thought leadership here even when they support
-  commercial goals.
-- Route audience, position, message, supported claims, proof, and market-facing
-  purpose to `effective-marketing` before drafting product narratives,
-  editorial case studies, or market-adjacent thought leadership.
-- Route LinkedIn-specific ideation, formats, cadence, and engagement context,
-  and non-LinkedIn or multi-platform social adaptation, to
-  `effective-marketing`. Pass the governing idea, evidence, terminology,
-  qualifications, and source attribution without letting the social version
-  claim more than the source supports.
-- Route career evidence, professional positioning, project narratives, and
-  profile facts to `effective-marketing`; write the resulting long-form prose
-  here.
-- Route durable technical documentation to `effective-delivery` when
-  correctness must be derived from a repository, public interface, executable
-  example, migration contract, documentation toolchain, or controlled-language
-  standard. Keep the governing idea, editorial structure, and public voice here
-  when the artifact remains an article or long-form page.
-- Route interface copy, page hierarchy, accessibility, localization UX, and the
-  implementation or verification of the surrounding browser experience to
-  `effective-web`. Locale-level language convention stays here in any medium.
-- Route discovery, strategy, and the recording of a durable communication
-  direction as an ADR to `effective-product`.
-- Correct language, not substance. Technical, legal, product, and documentation
-  correctness belongs to the owner of the underlying work.
+- `effective-marketing`: commercial-choice page, campaign, sales, email and
+  social copy, consultant positioning, and market claims/proof. Editorial
+  articles stay here even when they serve a commercial audience.
+- `effective-delivery`: technical documentation whose correctness depends on
+  repository behavior, interfaces, executable examples, migration contracts,
+  documentation tooling, or a controlled-language standard. Technical articles
+  and explainers stay here.
+- `effective-web`: interface copy, page hierarchy, accessibility, localization
+  UX, and browser implementation. Locale language conventions stay here.
+- `effective-product`: discovery, strategy, and durable communication decisions
+  recorded as ADRs.
+
+Correct language without silently changing the underlying technical, legal,
+product, or documentation contract. Use controlled language only when the
+artifact contract calls for it.

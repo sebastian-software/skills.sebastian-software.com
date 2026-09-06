@@ -4,18 +4,19 @@ Use this route when prose should sound less generated, when a minimal edit must
 preserve the writer's voice, or when the user wants observable patterns without
 an authorship guess.
 
-## Read
+## Guidance
 
-1. [Nonfiction assignment, evidence, and revision](nonfiction-assignment.md) —
-   the shared contract; note the pattern-audit deliverable in particular.
-2. [Human-voice editing and pattern audits](human-voice-editing.md) — the
-   pattern families, reader effects, and correction directions.
+[Human-voice editing and pattern audits](human-voice-editing.md) contains
+pattern families, reader effects, and correction directions.
+
+Use [Assignment and evidence](nonfiction-assignment.md) only when a substantial
+piece needs briefing or source planning.
 
 ## Apply
 
 - For an audit, return grouped and prioritized patterns with representative
-  quoted evidence, the reader effect, and the smallest useful correction. Then
-  stop; do not continue into drafting or revision unless asked.
+  quoted evidence, the reader effect, and the smallest useful correction. Revise
+  the text as well when the user requested both audit and revision.
 - Never claim or estimate AI authorship. Report observable patterns and bound
   the conclusion to the prose itself.
 - When editing rather than auditing, make the minimal change that removes the

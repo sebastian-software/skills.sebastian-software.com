@@ -7,13 +7,13 @@ mechanics, or retention problems.
 
 ## Read
 
-1. [Design inquiry contract](design-inquiry-contract.md) — the shared framing,
-   evidence layers, and deliverable.
-2. [Autonomy and motivation](autonomy-and-motivation.md) — always, when
-   behavioral mechanics are in scope.
-3. [Habit and retention design](habit-and-retention-design.md) — together with
-   autonomy and motivation for explicit habit loops, gamification, or a
-   retention problem.
+- [Autonomy and motivation](autonomy-and-motivation.md) for choice, influence,
+  progression, rewards, and informed control.
+- [Habit and retention design](habit-and-retention-design.md) for habit loops,
+  gamification, or retention diagnosis; apply the informed-choice boundaries
+  below to every mechanic.
+- [Design inquiry contract](design-inquiry-contract.md) when the decision,
+  evidence layers, or deliverable still need framing.
 
 ## Apply
 

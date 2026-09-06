@@ -1,8 +1,10 @@
 # UI Quality Gates
 
-Use these gates before calling UI implementation complete. They are not design
-scores. Scores hide severity and reward improving a number instead of fixing the
-right issue. Mark each category as `blocked`, `risky`, or `acceptable`.
+Use the categories relevant to the changed surface and its reachable user risks.
+Reuse existing evidence; a small presentation change may need only required
+repository checks and one focused rendered inspection. Mark assessed categories
+as `blocked`, `risky`, or `acceptable`, and distinguish unverified claims. These
+are severity judgments, not numerical design scores.
 
 ## Measurable UI Gate
 
@@ -25,8 +27,8 @@ right issue. Mark each category as `blocked`, `risky`, or `acceptable`.
 
 ## Accessibility as an operating capability
 
-Do not postpone accessibility to a final audit. Make it part of the delivery
-system at the cheapest useful layer:
+When improving the delivery system, build accessibility into the cheapest
+useful layer instead of treating it solely as a release audit:
 
 - Put semantic, keyboard, focus, contrast, motion, target-size, and naming
   requirements in component acceptance criteria and design-system contracts.
@@ -48,7 +50,8 @@ sticky behavior, advanced typography, motion, or another optional enhancement.
 The core must preserve the primary task, content, source order, focus order, and
 readable fallback when the enhancement is removed or unsupported.
 
-Before starting the enhancement pass, verify the core with:
+For changes that introduce or alter these behaviors, verify the affected core
+with the relevant probes:
 
 - Feature erasure and delayed or unavailable JavaScript where relevant.
 - Continuous resizing instead of a few named breakpoints, including shallow
@@ -66,8 +69,9 @@ before adding another patch.
 
 ## Reusable UI Fixtures
 
-Create a fixture in the same implementation task when changing global CSS,
-reusable components, or stateful layout and interaction behavior:
+Reuse existing stories, fixtures, or the real page to expose the changed
+behavior. Add or extend a fixture only when it makes a consequential regression
+reproducible and its maintenance cost is justified:
 
 - For global CSS, maintain a semantic kitchen sink with headings, prose, lists,
   forms, tables, media, selection, focus, hash targets, and uncommon elements.
@@ -83,38 +87,19 @@ reusable components, or stateful layout and interaction behavior:
 
 ## Final Execution Pass
 
-Use this pass after implementation, not as an open-ended polish loop. Its job is
-to catch execution mistakes in an otherwise correct direction.
+Inspect the rendered change against the brief and existing system. Combine the
+relevant viewport, content, state, keyboard, theme, and motion checks in one
+evidence round. Source review alone cannot establish layout or interaction
+quality; use the real page or an existing fixture where possible.
 
-Check:
+Fix observed defects and verify the fixes. Stop when the requested outcome and
+required checks pass; continue only for a new failure, change, or unresolved
+material risk. Reopen the direction only if the evidence contradicts the brief,
+and use existing user authorization for any resulting work within scope.
 
-- **Design-system fit:** no one-off colours, spacing, shadows, radius, icons, or
-  controls where project tokens/components already exist.
-- **Alignment and spacing:** related elements align, gaps follow the project
-  scale, and optical adjustments are intentional.
-- **State completeness:** loading, empty, error, success, disabled, focus, and
-  hover states are present where the component needs them.
-- **Copy consistency:** labels use the same nouns and verbs as the surrounding
-  product, button text says what happens, and errors explain recovery.
-- **Responsive execution:** long text, narrow viewports, touch targets, zoom,
-  and reduced motion are handled in the real UI.
-- **Layout stability:** images, embeds, loading indicators, and async content do
-  not shift the page unexpectedly.
-- **Web code details:** focus is not obscured by sticky UI, async updates are
-  announced when needed, form fields expose meaningful browser hints, and
-  stateful UI can be deep-linked when users need to share or return to it.
-
-Do not use this pass to change the design register, invent a new visual
-direction, or add decoration. If the pass reveals that the direction itself is
-wrong, return to the Design Readiness Check and revise the brief.
-
-Bound the complete finish cycle: finish implementation; inspect desktop, mobile,
-the primary path, and relevant states in one evidence round; fix all observed
-execution defects in one batch; confirm those fixes once; then stop. Do not use
-separate screenshot trips for checks one render can cover. If confirmation shows
-a direction problem, return to the brief or ask for a decision. Additional
-rounds require new material evidence or explicit user scope, not a general
-desire to polish.
+Report actionable findings at clickable `file:line` locations, with the user
+consequence and evidence. State any verification limit without replacing concrete
+findings with a general score.
 
 ## Generic Output Gate
 
@@ -163,38 +148,14 @@ Check:
   when they do not serve the primary action.
 - Font choices do not require unnecessary weights, families, or blocking loads.
 - The interface remains usable on slower mobile devices and weaker connections.
-- Large client-rendered lists, tables, feeds, or search results are virtualised,
-  paginated, or progressively loaded before they threaten scroll or input
-  responsiveness.
 
 If performance risk is visible in the design itself, fix the design decision.
 If performance risk depends on implementation details, measure before and after
 the change.
 
-## Visual Verification
-
-Inspect the rendered UI before calling it complete. Source review alone misses
-layout, colour, overflow, and interaction problems.
-
-Verify:
-
-- Desktop and mobile viewports.
-- The primary interaction path.
-- Long text, empty data, loading, error, and success states.
-- Keyboard focus order and visible focus rings.
-- Dark/light theme if the project supports both.
-- Motion behaviour with `prefers-reduced-motion`.
-- Screenshots or browser inspection when a dev server or static preview is
-  available.
-
-For a code audit, group findings by file and report the actionable issue at a
-clickable `file:line` location. Explain only the non-obvious tradeoff or fix;
-do not bury concrete defects under a generic score or long preamble.
-
 ## Code-Level Web Checks
 
-Run these checks when reviewing implementation code, especially React, Next.js,
-Vue, Svelte, or plain HTML/CSS:
+Check the implementation details affected by the change:
 
 - Use `<button>` for actions and `<a>`/router links for navigation. Do not use
   clickable `<div>`/`span` elements for primary interaction.
@@ -229,13 +190,9 @@ Vue, Svelte, or plain HTML/CSS:
   `translate="no"` when automatic translation would corrupt them; keep surrounding
   explanatory prose translatable.
 
-Do not treat a clean automated check as proof of visual quality. Automated
-checks catch measurable defects; rendered inspection catches whether the UI
-actually matches the brief.
-
 ## Use With Judgment
 
 This gate covers measurable quality. It does not replace design judgment. A UI
 can pass every measurable gate and still have the wrong register, weak
-hierarchy, or unclear primary action. Use the Design Readiness Check before
-implementation and this gate before completion.
+hierarchy, or unclear primary action. Revisit the brief when those problems
+appear; a link to planning guidance does not require another planning cycle.

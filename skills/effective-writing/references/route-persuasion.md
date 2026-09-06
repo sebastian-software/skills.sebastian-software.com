@@ -4,12 +4,13 @@ Use this route for thought leadership, content marketing, editorial case
 studies, professional narratives, objections, proof, and proportionate calls to
 action — persuasion carried by editorial prose rather than by a commercial page.
 
-## Read
+## Guidance
 
-1. [Nonfiction assignment, evidence, and revision](nonfiction-assignment.md) —
-   the shared contract, including the evidence register.
-2. [Persuasive nonfiction](persuasive-nonfiction.md) — the route's working
-   guidance.
+[Persuasive nonfiction](persuasive-nonfiction.md) covers argument, proof,
+case studies, and proportionate calls to action.
+
+Use [Assignment and evidence](nonfiction-assignment.md) only when a substantial
+piece needs briefing or source planning.
 
 ## Apply
 

@@ -7,46 +7,57 @@ standing cross-task conventions and follow a separate activation contract.
 
 ## The Discipline Pattern
 
-The collection ships six top-level discipline skills — `effective-product`,
-`effective-web`, `effective-engineering`, `effective-delivery`,
-`effective-writing`, and `effective-marketing`. They share one naming grammar
-(`effective-<discipline>`) and one internal architecture:
+The six disciplines use `effective-<discipline>` names and one architecture:
 
-1. `SKILL.md` stays at or below 300 lines: frontmatter trigger, a short
-   workflow, a `## Route by Intent` table, operating rules, and
-   `## Routing Boundaries`.
-2. Every route is a `references/route-<intent>.md` file linked directly from
-   `SKILL.md`. References stay one level deep in a flat directory.
-3. A route normally exposes at most 900 direct-reference lines, and a single
-   reference stays at or below 500 lines unless registered in
-   `docs/reference-context-exceptions.json`. Split a route rather than
-   registering an exception when the material is genuinely two intents.
-4. Cross-discipline handoffs live in `## Routing Boundaries` and name only the
-   six disciplines. A handoff between two routes inside one discipline is an
-   in-skill cross-link, not a boundary line.
-5. Where several routes share one contract — an evidence register, a revision
-   sequence, a decision framing — put it in one shared reference that those
-   routes load, instead of repeating it per route.
+- `SKILL.md` is a minimal router: short trigger, task selection, essential
+  standalone safeguards, `## Route by Intent`, and `## Routing Boundaries`.
+  The 300-line limit is a ceiling, not a target.
+- Every route is linked directly as `references/route-<intent>.md`. Keep the
+  reference directory flat and choose deeper material by the current task.
+- Keep each substantive rule at one owner within a skill. A router selects
+  guidance; it should not repeat the leaf's checklist. Shared contracts are
+  loaded when their decision is needed, not before every task in the domain.
+- Skills remain independently installable without optional instruction packs.
+  Keep necessary authority and safety boundaries locally, but state them once
+  at the level where they apply.
+- Name cross-discipline handoffs in `## Routing Boundaries`; use local links for
+  handoffs between routes of the same skill.
 
-Do not add a seventh top-level skill for a capability that fits an existing
-discipline's routing table. Promote a new discipline only when its verbs,
-evidence, and deliverables are genuinely different from all six, and record that
-decision as an ADR.
+Add a discipline only for an independently requestable outcome that does not
+fit the six existing owners, and record the choice as an ADR. Do not recreate
+pre-consolidation compatibility stubs; [MIGRATION.md](../MIGRATION.md) owns their
+mapping.
 
-A discipline description is behavior, not copy. `docs/activation-matrix.json`
-records which discipline should own which request, and
-`scripts/validate-activation-matrix.py` fails CI when that contract breaks.
-Changing a description — including shortening one to fit the 1024-character
-limit — can move a boundary silently, so re-run the blind routing review in
-[review-scenarios.md](review-scenarios.md) afterwards. That review has already
-caught one real defect: trimming `effective-product` dropped the words
-"win/loss" and "churn interviews", which sent customer-interview requests to
-`effective-marketing`.
+A description determines activation. Keep it as short as routing permits:
+state the outcome, a few discriminating triggers, and the nearest confusable
+boundary. Do not enumerate every leaf topic, repeat trigger instructions in
+several forms, or use “always use”/“must trigger” language to compete for work.
+The 1024-character format limit is not a writing target.
 
-The 33 pre-consolidation compatibility stubs were removed on 2026-08-16. Do not
-reintroduce aliases or redirect-only skill directories: the public catalog is
-the six disciplines, and [MIGRATION.md](../MIGRATION.md) preserves the old-name
-mapping for users who need to re-pin a selection.
+After changing descriptions, run the blind routing review in
+[review-scenarios.md](review-scenarios.md) against
+`docs/activation-matrix.json`. Static validation checks the contract's shape,
+not model behavior. Report unavailable host/model coverage honestly.
+
+### Calibrate Guidance to the Task
+
+Each instruction should change a decision the agent would otherwise get wrong.
+Remove generic encouragement, duplicate rules, mandatory full-repository reads,
+and fixed output/check sequences that add no task-specific value. Keep detailed
+recipes where a tool, protocol, or known failure needs exact steps.
+
+Use conditional doc pointers and proportionate verification. A typo fix does
+not need an architecture survey; passing checks need another run only after
+changes, failures, or new evidence justify it. Reuse available briefs and
+fixtures. Ask for missing information only when it changes the outcome or blocks
+work, and respect explicit user checkpoints.
+
+Define completion from the whole request. “Audit, fix, and open a PR” already
+includes implementation and publication authority; an audit-only request does
+not. Avoid generic review stops that interrupt an authorized workflow.
+
+These principles follow [Eric Provencher's guidance on skills and prompts](https://x.com/pvncher/status/2095991462416490862).
+Keep them model-neutral and verify behavior on the runtimes that use the skills.
 
 ## Required Structure
 
@@ -133,37 +144,23 @@ book titles that are the cultural source of the naming pattern.
 
 ## Human-Facing `README.md`
 
-Treat every independently installable skill as a small product. Its README is
-for people deciding whether the skill fits their work; do not duplicate the
-agent instructions from `SKILL.md`.
+Each skill README helps people choose and install that skill. Include:
 
-Each skill README must include:
+- an outcome-led value proposition, representative capabilities and prompts;
+- links to the collection README and local `SKILL.md`;
+- selective skills CLI and DALO installation commands;
+- honest scope and useful handoffs to other first-party skills;
+- [Sebastian Software open source](https://oss.sebastian-software.com/) and
+  [English consulting](https://sebastian-consulting.com/en);
+- `MIT — see the collection [LICENSE](../../LICENSE).`
 
-- a link back to the collection README
-- a specific, outcome-led value proposition
-- representative capabilities, use cases, and example prompts
-- a link to the local `SKILL.md` agent interface
-- selective installation commands for the skills CLI and DALO
-- an honest scope or boundary section
-- where a handoff matters, inline references to relevant first-party skills,
-  naming the owner and the handoff
-- the canonical Sebastian Software open-source and English consulting links
-- the portable license notice `MIT — see the collection [LICENSE](../../LICENSE).`
+Do not repeat the agent workflow or build generic cross-promotion lists. Name
+sibling skills inline in runtime guidance: selective installs do not include
+sibling files. Human-facing READMEs can link between skills.
 
-Use `https://oss.sebastian-software.com/` for Sebastian Software open source and
-`https://sebastian-consulting.com/en` for consulting. Keep related-skill
-references purposeful: explain where the workflow hands work to the other skill
-instead of building a generic cross-promotion list. In `SKILL.md` and
-`references/`, name related skills inline rather than linking into sibling
-directories, because selective installs do not include those files.
-
-Run `python3 scripts/validate-readmes.py` after adding or changing a README. CI
-requires one README per public skill and verifies collection links, agent
-interface links, selective install commands, Sebastian Software links, local
-Markdown paths, and Markdown anchors. When adding a skill, also add its card and
-inventory metadata to `site/index.html`, then run
-`python3 scripts/validate-site.py`. That validator requires the site inventory,
-filter counts, structured data, and public skill directory to agree.
+After README edits, run `python3 scripts/validate-readmes.py`. Skill inventory
+changes also require matching cards/metadata in `site/index.html` and
+`python3 scripts/validate-site.py`.
 
 ## `SKILL.md` Frontmatter
 
@@ -229,55 +226,25 @@ needed for the current task.
 
 ## Prove Behavior, Not Packaging
 
-Add reusable proof only when it changes whether an agent or reviewer can trust a
-claimed capability. Do not require a demo from every skill, but do not use a
-static screenshot or prose checklist as the sole proof of behavior that is
-visual, interactive, responsive, stateful, or time-dependent.
+Use the smallest proof that discriminates the failure mode:
 
-- For reusable visual or interaction mechanics, prefer a small executable
-  fixture, existing component workshop story, focused route, or portable demo
-  that exposes the important states. Use the real product surface for a one-off
-  implementation when a parallel fixture would create drift without reuse.
-- For a nonvisual transformation workflow, use a realistic input and expected
-  output when a review scenario alone cannot make the artifact contract clear.
-- Make proof representative rather than decorative: real content, meaningful
-  controls, narrow and wide layouts, keyboard behavior, reduced motion, and
-  relevant failure or fallback states.
-- Give every consequential claim an observable acceptance condition. A rendered
-  still can prove appearance at one moment; it cannot prove focus, interruption,
-  cleanup, responsive continuity, or a complete workflow.
-- Keep proof self-contained where practical and avoid a dependency or build step
-  that exists only to showcase the skill. Never include third-party references,
-  private customer material, or copied branding as reusable demo assets.
-- Record browser or runtime evidence when the behavior depends on rendering.
-  Source inspection can identify risk, but it is not interaction proof.
+- Existing app surfaces, fixtures, or component stories for visual,
+  interactive, responsive, stateful, or timing-dependent behavior. Add a
+  reusable fixture only when existing evidence cannot expose the contract.
+- Representative input/output for a nonvisual transformation.
+- A review scenario for consequential routing or judgment changes.
+- A deterministic script for mechanical contracts.
 
-Treat demos, examples, assets, review scenarios, and deterministic scripts as
-different evidence surfaces. Select the smallest one that discriminates the
-failure mode the guidance is meant to prevent.
+A screenshot proves appearance at one moment, not focus, interruption, cleanup,
+or a workflow. Record browser/runtime evidence when rendering matters. Keep
+examples self-contained where practical and exclude private material, copied
+branding, and dependencies added only for a decorative demo.
 
-## Incubate Small Patterns Without Inflating the Skill Set
+Small visual recipes and tool techniques belong in focused references or
+examples. A new route needs a distinct task; a new discipline needs its own
+outcome and activation boundary.
 
-Not every useful pattern needs to become a standalone skill. Small interaction
-ideas, visual recipes, style provocations, and tool-specific techniques can
-still add real character when they are placed at the right level:
-
-- Add a focused reference to the owning skill when the pattern supplies
-  reusable decisions, constraints, or implementation guidance.
-- Add a compact executable example when the value is primarily visual,
-  interactive, or timing-dependent and prose cannot prove it.
-- Keep a pattern as an optional specialist route when it requires a distinct
-  runtime, provider, license, or maintenance surface.
-- Promote it to a standalone skill only when users can ask for its outcome
-  independently, its boundary is clear, and recurring demand justifies its own
-  trigger and review scenarios.
-
-A micro-pattern should sharpen the owner skill rather than compete with it.
-Preserve the portable principle, state the conditions under which it helps, and
-avoid turning a single aesthetic treatment or library recipe into a default
-design rule.
-
-### Runtime Context Budgets
+## Runtime Context Budgets
 
 References are runtime context, not an archive. A task-level reference should
 normally stay at or below 500 lines; prefer a 150–350 line module when a task
@@ -300,99 +267,50 @@ the same baseline advice.
 
 ## Distill, Don't Archive
 
-This repository ships skills, not an intake log. When a source is useful, absorb
-its knowledge into an actionable rule, checklist item, or short example.
-
-- Write imperative guidance an agent can act on.
-- Remove source-review commentary and internal tracking notes.
-- Do not paste source material merely to preserve it.
-- Classify fast-moving platform guidance and keep experimental behavior gated.
-
-Normative specifications and compatibility data may change defaults. Practice
-material can improve workflows and examples. Experimental or single-source
-claims stay support-gated and never become unconditional defaults.
+Ship actionable guidance, not article archives, intake logs, external snapshots,
+or source-review commentary. Preserve useful knowledge as a decision rule or
+short example. Verify changing platform contracts against primary sources;
+experimental or single-source claims remain conditional rather than becoming
+universal defaults.
 
 ## Calibrate Findings and Verification by Decision Value
 
-An automated reviewer, audit, or test generator can almost always produce one
-more candidate. Author guidance to improve the decision, not the amount of
-output. Before a skill turns a technically possible concern into requested
-work, make it establish:
+A finding or permanent test needs evidence of reachable behavior, consequential
+impact, and a remedy worth its implementation and maintenance cost. Do not
+invent probabilities or reward finding count, coverage, reviewer count, or
+exhaustive state enumeration.
 
-- evidence that the trigger is reachable under supported, observed, or
-  explicitly required behavior;
-- the consequence, affected boundary, reversibility, detectability, and
-  recovery path;
-- relevant exposure, repetition, and expected lifetime when repository or
-  product evidence supports them, without inventing probabilities; and
-- the complete remedy cost: implementation, branches and states, cognitive
-  load, fixtures, ongoing test and maintenance work, and regression risk.
+Allow a clean audit, no new test, or unchanged code when speculative, recoverable
+risk does not justify more machinery. Lower the evidence threshold at security,
+authorization, privacy, money, data integrity, destructive actions, required
+accessibility, and regulated boundaries.
 
-Prescribe a fix or durable test when its avoided harm or decision value
-outweighs that ownership cost, or when unresolved uncertainty at a
-high-consequence boundary itself requires evidence. Allow `no finding`, `no new
-test`, and `leave the code as-is` as successful outcomes when the evidence does
-not clear that threshold. Do not turn coverage, finding count, reviewer count,
-or exhaustive state enumeration into a proxy for quality.
-
-Keep the threshold asymmetric. Plausible failures involving authorization,
-security, privacy, money, data integrity, destructive or irreversible actions,
-required accessibility, or regulated behavior deserve scrutiny even when rare.
-Speculative, low-impact, recoverable behavior should not acquire a state
-machine, fallback, abstraction, or permanent test merely because a reviewer can
-describe it.
-
-Treat additional review passes as new searches, not independent votes. Add a
-specialist or another pass only for a distinct risk or demonstrated review gap;
-reconcile all candidates against the same evidence and publication threshold,
-deduplicate shared root causes, and accept a clean result without manufacturing
-comments.
+Add a specialist or review pass for a distinct unresolved risk. Deduplicate
+shared root causes; repeated agreement is not independent evidence.
 
 ## Persist Decisions in Shared ADRs
 
-When a skill needs to preserve durable project rationale, use the project's
-Architecture Decision Record convention instead of inventing a skill-specific
-dot folder, memory file, or private schema.
+Follow the project's ADR convention for lasting rationale, alternatives,
+tradeoffs, and review triggers. Use plain Markdown under `docs/adr/` only when
+there is no convention and the decision merits a record. Accepted history is
+superseded, not silently rewritten.
 
-- Discover and follow existing ADR directories, templates, numbering, statuses,
-  and indexes before creating anything.
-- Use `docs/adr/` with plain Markdown only when the project has no convention and
-  the decision genuinely warrants a durable record.
-- Record cross-cutting technical, product, design, content, marketing,
-  communication, security, operational, and process choices when their rationale
-  must survive contributors, tools, channels, or sessions.
-- Keep exact values and executable behavior in code, configuration, design
-  tokens, editorial guides, or tests. The ADR owns direction, rationale,
-  tradeoffs, consequences, and review triggers.
-- Treat RFCs and implementation plans as temporary delivery artifacts. After
-  execution, fold only lasting decisions, deviations, and consequences into the
-  accepted ADR, then remove the superseded proposal instead of maintaining two
-  competing histories.
-- Do not turn model-run logs, pick tables, or dated evaluation snapshots into
-  ADRs. Keep raw evidence with the pull request; update an ADR only when that
-  evidence changes a durable choice, constraint, or review trigger.
-- Preserve accepted history. Supersede decisions instead of silently rewriting
-  them to match current implementation.
-- Route ADR creation, review, and lifecycle details through the decision-records
-  route in `effective-product`.
+Keep exact values and behavior in their owning code, configuration, tokens,
+guides, or tests. After executing a temporary RFC or plan, retain only lasting
+decisions and deviations in the accepted ADR. Keep raw model output and dated
+review logs with the PR, not as permanent source files. The decision-records
+route in `effective-product` owns ADR lifecycle details.
 
 ## Keep Findings, Plans, and Decisions Distinct
 
-Use the repository's shared artifacts according to what they own:
+Findings own evidence, impact, confidence, and possible corrections. Plans or
+issues own scope, sequencing, dependencies, and temporary status. ADRs own
+durable choices and rationale.
 
-- An audit finding owns verified evidence, impact, confidence, and a possible
-  correction.
-- An implementation plan or issue owns delivery scope, sequencing,
-  dependencies, verification, owners, and temporary status.
-- An ADR owns a durable choice, rationale, tradeoffs, consequences, and review
-  triggers.
-
-Discover existing issue trackers and plan directories before writing. Do not
-make every skill create `plans/`, a private dot folder, or a custom debt ledger.
-When no convention exists and the user explicitly asks to save a plan, use plain
-Markdown under `docs/plans/`; create an index only when several plans require
-ordering. Route repository audits, plan creation, complexity review, and backlog
-reconciliation through the audit route in `effective-delivery`.
+Discover existing trackers and plan directories. Do not create private ledgers
+or mandatory `plans/` hierarchies. If a user asks to save a plan and no convention
+exists, use `docs/plans/` and add an index only when several plans need ordering.
+The audit route in `effective-delivery` owns plan creation and reconciliation.
 
 ## Review Scenarios (Unrun)
 
@@ -485,29 +403,11 @@ exists, state what the current skill does and does not cover, then stop.
 
 ## Delivery Worktree Inventory
 
-Keep every independently installed owner safe without requiring a shared
-runtime or private receipt file.
-
-All worktree-mutating work now lives in `effective-delivery` and shares one
-contract: [`effective-delivery/references/worktree-safety.md`](../skills/effective-delivery/references/worktree-safety.md).
-
-| Route | Worktree behavior |
-| --- | --- |
-| PR Review and Upkeep | Creates or adopts a PR worktree; writes, validates, stages, commits, pushes, rebases when authorized, and removes workflow-created worktrees |
-| Issue Queue Autopilot | Creates one isolated worktree per selected queue item; delegates implementation, validation, staging, commit, push, and PR repair without merging |
-| Dependency Updates | Creates or adopts one worktree per dependency PR group; writes manifests and lockfiles, validates, stages, commits, pushes, publishes, and cleans up owned worktrees |
-| Behavior-Preserving Ports | Creates or adopts isolated worktrees for port shards; writes, validates, stages, checkpoints, integrates, and cleans up owned shard worktrees |
-| Workflow Orchestration | Coordinates delivery but provides no worktree creation, staging, commit, or cleanup recipe; requires the selected route to apply the shared contract |
-| Codebase Audit, Technical Documentation, Repository Validation | Mention worktree or delivery state only as caller-owned context or a planning boundary; no direct Git worktree mutation |
-
-The other five disciplines perform no Git worktree mutation. When any skill
-gains the ability to create, adopt, write in, stage from, commit in, push from,
-integrate from, or remove a worktree, update this inventory and point it at the
-shared contract covering Git identity, absolute execution root, dirty and staged
-state, collisions, resume revalidation, explicit per-command working
-directories, narrow staging, and cleanup ownership. A second copy of that file
-anywhere in the collection must stay byte-identical;
-`scripts/validate-readmes.py` enforces that.
+Worktree mutation belongs to `effective-delivery`. Its review, issue queue,
+dependency, porting, and orchestration routes apply one standalone
+[worktree safety contract](../skills/effective-delivery/references/worktree-safety.md).
+Keep creation, adoption, staging, integration, and cleanup rules there rather
+than copying them into every router.
 
 ## Review
 

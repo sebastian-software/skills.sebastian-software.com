@@ -4,8 +4,6 @@ Use this route to critique, modernize, polish, or quality-gate an existing
 experience. Evaluate hierarchy, clarity, coherence, interaction cost, cognitive
 load, preservation constraints, and whether the result is good enough to ship.
 
-Do not use this skill as a source archive. Article-derived input has already been distilled into rules, workflows, and references.
-
 ## Use First For
 
 - Overall UI reviews, product surface critiques, redesign direction, and visual polish.
@@ -33,11 +31,10 @@ code review.
 
 ## Review Workflow
 
-1. Read accepted ADRs and existing design, content, brand, and component-system
-   evidence before proposing a direction.
-2. For an existing experience, classify the work as greenfield, preserve, or
-   overhaul and read [Redesign preservation](redesign-preservation.md) before
-   changing visual or behavioral contracts.
+1. Reuse the accepted direction and project context; inspect design, content,
+   brand, or component evidence needed to judge the requested change.
+2. Use [Redesign preservation](redesign-preservation.md) when the work changes
+   an existing visual or behavioral contract. Follow the authorized scope.
 3. Identify the job-to-be-done, primary user, primary action, and failure modes.
 4. Read [Cognitive UX](cognitive-ux.md) when the task involves attention,
    learnability, complex modes, unfamiliar concepts, or a mismatch between the

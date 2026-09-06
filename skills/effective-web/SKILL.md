@@ -1,63 +1,37 @@
 ---
 name: effective-web
 description: >-
-  Design, build, review, and verify browser experiences: sites, web apps,
-  dashboards, React, UI/UX, layout, typography, color, forms, tables,
-  accessibility, motion, i18n, interface copy, states, auth UX, CSS, frontend
-  SEO and AI search, performance, frontend testing and architecture, SVG, and
-  HTML/CSS print. Turn websites, screenshots, and videos into evidence-backed
-  specifications; audit produced work for source overlap; and scope
-  browser-facing compliance such as operator, privacy, cookie, consent, sales,
-  endorsement, and marketing disclosures. Trigger only when the outcome is a
-  browser experience or its specification, audit, verification, or compliance
-  surface. Not for general browsing, research, repository evaluation, backend
-  work, infrastructure, general prose, non-web print, or locale typography.
+  Design, build, review, and test browser experiences: UI/UX, CSS, React,
+  accessibility, responsive layout, typography, forms, motion, i18n, interface
+  copy, auth, SEO, performance, SVG, and HTML/CSS print. Use also for
+  reference-site specifications, originality reviews, and web legal/consent
+  disclosures. A URL alone is not a trigger: general browsing, research
+  reports, repository audits, backend work, and non-web publishing are outside
+  this skill.
 ---
 
 # Effective Web
 
-Treat the web experience as one system. Route each request to the smallest
-relevant guidance set, then check the result across design, implementation,
-accessibility, performance, and verification boundaries.
+Choose the route for the browser outcome and load only the references needed
+for the affected behavior. Use Design Planning for a new direction and Design
+Review and Modernization for a broad redesign; add focused routes as needed.
 
-Treat a website, URL, browser, or HTML document as input evidence, not as a
-trigger by itself. Load this skill only when the deliverable designs, changes,
-reviews, or verifies a browser-facing experience.
+Work within the product language, supported browsers, and existing contracts.
+Preserve accessibility, privacy, authentication, and user data. Add states,
+fallbacks, fixtures, and tests for reachable behavior with meaningful user
+consequences; avoid speculative combinations.
 
-Prefer the smallest interface and evidence that protect the real user task.
-Before adding a state, fallback, browser matrix, fixture, or permanent test,
-establish that the behavior is reachable and consequential under the brief,
-component contract, supported environment, or observed use. Compare its user
-value with implementation, cognitive, test, maintenance, and regression cost;
-do not invent probabilities or enumerate every imaginable combination. Keep a
-lower threshold for primary tasks, accessibility, authentication, privacy,
-money, destructive actions, data loss, and unrecoverable user work.
-
-## Workflow
-
-1. Inspect the product goal, primary users and actions, accepted ADRs, existing
-   stack, local conventions, browser support, and available evidence.
-2. Select one primary route from the table. Read that route before acting.
-3. Load only the detailed references required by the route and current problem.
-   Add another route only when the work genuinely crosses concerns.
-4. Implement or review against the existing product language and architecture.
-   Prefer measured evidence and repository conventions over generic defaults.
-5. Verify the affected, reachable states, responsive behavior, keyboard and
-   screen-reader use, loading cost, and relevant project checks before declaring
-   the work done.
-
-For greenfield direction or an AI-assisted feature, start with Design Planning.
-For a broad redesign or cross-cutting review, start with Design Review and
-Modernization. Add focused routes only as the work crosses those concerns.
+Verify what the change can affect. Use browser evidence when rendering or
+interaction matters, and reuse existing fixtures and checks where sufficient.
+Complete authorized implementation and verification before handing back the
+result; report material evidence gaps.
 
 ## Route by Intent
 
 | User intent | Read |
 | --- | --- |
-| Plan a new experience or establish its register, hierarchy, direction, and interaction model | [Design Planning](references/route-design-planning.md) |
-| Critique, redesign, polish, or quality-gate an existing experience | [Design Review and Modernization](references/route-design.md) |
-| Modernize an existing site or app without losing brand, content, routes, analytics, or accessibility contracts | [Design Review and Modernization](references/route-design.md) |
-| Design an AI-assisted feature, choose chat versus structured UI, or expose uncertainty and control | [Design Planning](references/route-design-planning.md) |
+| Plan a new experience or AI-assisted feature: register, hierarchy, direction, and interaction model | [Design Planning](references/route-design-planning.md) |
+| Critique, redesign, modernize, polish, or quality-gate an existing experience | [Design Review and Modernization](references/route-design.md) |
 | Fix hierarchy, grids, spacing, responsive layout, or safe areas | [Layout and Spacing](references/route-layout.md) |
 | Improve type hierarchy, measure, rhythm, fallbacks, or font loading | [Typography](references/route-typography.md) |
 | Build palettes, semantic tokens, contrast, dark mode, or themes | [Color and Theming](references/route-color.md) |
@@ -85,45 +59,20 @@ Modernization. Add focused routes only as the work crosses those concerns.
 
 ## Routing Boundaries
 
-- Keep general internet research, source or corpus analysis, repository or
-  catalog evaluation, recommendations, and fact-finding outside this skill
-  when the requested deliverable is an answer or report rather than a
-  browser-facing experience. A live website may be evidence inside an owned
-  experience review; its URL alone does not make the task Effective Web work.
-- Route product discovery, strategy, outcome, scope, prioritization,
-  quality-bar, and release decisions, plus research synthesis, problem framing,
-  object and interaction modeling, information architecture, and decision-grade
-  prototyping, to `effective-product`; return here for browser specification,
-  implementation, and verification. Durable design-system and interaction
-  decisions are recorded there as ADRs.
-- Route market segmentation, positioning, messaging, proof, launch planning,
-  campaign strategy, and persuasive homepage, landing-page, product, service,
-  pricing, sales, launch, and campaign prose to `effective-marketing`; return
-  here for page hierarchy, interface copy, accessibility, implementation, and
-  browser verification. Interface Copy owns labels, errors, states, and product
-  interaction language rather than the commercial argument.
-- Route funnel diagnosis, conversion research, experiment design, and ship,
-  iterate, or stop decisions to `effective-marketing`; return here to build and
-  verify the variants it approves. A page that converts poorly is a measurement
-  and evidence question before it is a layout question.
-- Route articles, explainers, editorial case studies, thought leadership, and
-  public project prose, including technical subject matter, and locale-specific
-  punctuation, quotation, spacing, and language-level typographic rules, to
-  `effective-writing`; return here for page hierarchy, interface copy,
-  accessibility, implementation, and browser verification.
-- Route non-frontend engineering depth — system architecture, data models,
-  server-side and shared-library TypeScript and Rust contracts, non-frontend
-  test design, and benchmark methodology — to `effective-engineering`; keep
-  browser-facing TypeScript and frontend test design here.
-- Route execution-only requests for existing repository typecheck, lint, test,
-  build, documentation, or combined quality gates, plus repository audits,
-  ports, pull-request review, dependency updates, and technical documentation,
-  to `effective-delivery`. Keep frontend and browser test design, diagnosis, and
-  evidence selection here.
-- Keep general internet research, competitor strategy, unauthorized
-  reproduction, backend-only architecture, infrastructure, deployment, load
-  testing, security audits, and non-web desktop publishing outside this skill
-  unless they directly constrain the browser-facing result.
-- Compliance work here is legal information and implementation support, not a
-  legal opinion; copyright, trademark, plagiarism, and license clearance require
-  a qualified specialist.
+- `effective-product`: research, product direction, scope, interaction models,
+  information architecture, decision-grade prototypes, release decisions, and
+  durable design decisions recorded as ADRs.
+- `effective-marketing`: positioning, commercial page/campaign copy, funnel
+  diagnosis, and experiment decisions. Build and verify the chosen variants here;
+  interface labels, errors, and states stay here.
+- `effective-writing`: editorial articles and public prose, plus locale-level
+  punctuation and formatting. Layout and localization UX stay here.
+- `effective-engineering`: non-frontend system/data contracts, Rust, shared-library
+  TypeScript, focused non-frontend tests, and benchmark methodology.
+- `effective-delivery`: repository audits, ports, PR upkeep, dependencies,
+  technical documentation, and execution-only requests for established checks.
+
+General browsing or research does not belong here merely because it uses a URL.
+Backend infrastructure, deployment, load testing, dedicated security audits,
+and non-web publishing need other expertise. Legal and originality work here
+supports implementation; it does not establish legal clearance.

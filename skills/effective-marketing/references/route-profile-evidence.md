@@ -4,7 +4,10 @@ Use this route when profile data is missing or uncertain, when the work starts
 from a source inventory rather than a draft, or when a named intermediary or
 marketplace defines the fields the profile must fill.
 
-## Read
+## Guidance by need
+
+Load interview guidance for source gaps and the provider matrix only when a
+named provider is in scope:
 
 - [Interview and completion](interview-and-completion.md) — source inventory,
   gap analysis, interview questions, project completeness, and
@@ -40,9 +43,8 @@ marketplace defines the fields the profile must fill.
 ## Preserve truthfulness
 
 - Do not invent metrics, client claims, leadership scope, or outcomes.
-- If metrics are missing, use bounded qualitative evidence: "enterprise-scale",
-  "regulated banking environment", "multi-brand retail group",
-  "telecommunications customer platform", or similar factual context.
+- If metrics are missing, use supplied qualitative context. Do not infer scale,
+  regulation, or business impact merely because those labels sound credible.
 - Flag claims that need confirmation, client permission, or quote clearance
   before publishing.
 

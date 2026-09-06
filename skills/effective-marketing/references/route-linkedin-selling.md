@@ -40,8 +40,9 @@ system rather than independent growth hacks.
 5. Produce the smallest useful artifact. Preserve the user's natural voice and
    language. Separate strategy, copy, implementation, assumptions, and tests so
    each can be reviewed independently.
-6. Define a baseline, one bottleneck hypothesis, one change, a decision window,
-   and the downstream metric that decides whether to keep the change.
+6. When the request includes testing or program improvement, define a baseline,
+   bottleneck hypothesis, change, decision window, and downstream metric. A
+   focused message or profile task does not need an experiment plan.
 
 ## Operating Rules
 
@@ -88,7 +89,8 @@ For an end-to-end request, return:
 5. Lead-magnet or booking path only when justified
 6. Weekly operating rhythm and ownership
 7. Funnel-stage scorecard
-8. First three prioritized experiments with stop or keep criteria
+8. Prioritized learning steps with stop or keep criteria when evidence is
+   insufficient for a decision
 
 ## Cross-links
 

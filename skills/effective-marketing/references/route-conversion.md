@@ -6,45 +6,28 @@ user outcome and the business outcome together; a local metric increase is not
 success when it creates confusion, exclusion, regret, support burden, or
 downstream harm.
 
-## Workflow
+## Choose the phase
 
-1. Define the decision before choosing a test:
-   - eligible audience, entry condition, unit of analysis, and primary task
-   - funnel steps, completion event, time window, and downstream value
-   - business objective, user benefit, constraints, and decision authority
-   - current evidence, instrumentation limits, traffic, seasonality, and risk
-2. Audit the measurement boundary. Verify event meaning, eligibility,
-   denominators, identity, duplicate handling, exposure, attribution window,
-   missing data, and important segments. Do not diagnose from a percentage whose
-   population or event contract is unclear.
-3. Read [Diagnosis and research](diagnosis-and-research.md) to locate the
-   strongest evidenced bottleneck and synthesize behavioral data, customer
-   accounts, usability observation, support or sales signals, and journey
-   inspection without inventing intent.
-4. Turn evidence into a mechanism hypothesis: identify who encounters which
-   friction, uncertainty, objection, accessibility barrier, or mismatch; state
-   why it blocks valuable progress and what evidence could disconfirm it.
-5. Prefer the highest-consequence supported constraint over cosmetic novelty.
-   If the product, audience, position, offer, or instrumentation is the real
-   problem, route it to its owner rather than testing button styling around it.
-6. Read [Experiment design](experiment-design.md) to choose a proportionate
-   learning method, intervention, allocation, primary metric, guardrails, sample
-   and duration logic, quality checks, stop conditions, and implementation
-   handoff.
-7. When traffic or conversions cannot support a decision-worthy randomized
-   comparison, use qualitative task observation, targeted interviews, sequential
-   rollouts, repeated stable measurement windows, or transparent observational
-   analysis. State the weaker causal claim instead of inventing statistical
-   certainty.
-8. Route approved browser implementation and frontend verification to
-   `effective-web`. Validate instrumentation and exposure before relying on the
-   result; treat an experiment with broken measurement as inconclusive.
-9. Read [Measurement and decisions](measurement-and-decisions.md) to analyze
-   data quality, effect size and uncertainty, guardrails, novelty, segments,
-   practical value, and downstream outcomes before deciding to ship, iterate,
-   stop, revert, or investigate.
-10. Preserve the result, decision, evidence limits, affected cohorts, guardrail
-    effects, follow-up owner, and conditions that would reopen the decision.
+Use the supplied scope and evidence; do not repeat completed discovery. Load
+only what the requested phase needs:
+
+- [Diagnosis and research](diagnosis-and-research.md): locate a supported
+  bottleneck, distinguish observations from interpretations, and form a
+  mechanism hypothesis.
+- [Experiment design](experiment-design.md): choose an intervention, learning
+  method, allocation, metrics, guardrails, and decision logic before exposure.
+- [Measurement and decisions](measurement-and-decisions.md): judge data quality,
+  effect size, uncertainty, downstream outcomes, and the resulting decision.
+
+Verify the measurement boundary whenever the conclusion depends on it:
+eligibility, event meaning, denominator, exposure, identity, duplicate handling,
+attribution window, missing data, and material segments. Broken measurement
+makes the experiment inconclusive.
+
+Do not force low-traffic work into a randomized test. Use task observation,
+targeted interviews, sequential rollout, or transparent observational analysis
+when appropriate, with a correspondingly weaker causal claim. Route browser
+implementation and verification to `effective-web` when they are in scope.
 
 ## Operating Rules
 
@@ -71,18 +54,13 @@ downstream harm.
   accessibility correction, legal requirement, or severe user harm already has
   a clear decision.
 
-## Default Deliverable
+## Deliverable
 
-Return the smallest decision-ready package containing:
-
-1. funnel scope, eligible population, metric contracts, and evidence limits;
-2. quantified and qualitative diagnosis with the best-supported bottleneck;
-3. ranked mechanism hypotheses with evidence, unknowns, and disconfirming signs;
-4. selected intervention and why it outranks cosmetic or unrelated changes;
-5. learning method, allocation or sequence, duration logic, and quality checks;
-6. primary outcome, guardrails, downstream signals, and stop conditions;
-7. implementation and instrumentation handoff;
-8. ship, iterate, stop, revert, or investigate rule with evidence limits.
+Return the requested diagnosis, learning design, or result judgment with its
+evidence and decision limits. Add an implementation handoff, experiment plan,
+or follow-up owner only when relevant to that phase. For an end-to-end request,
+connect the supported bottleneck, mechanism, intervention, measurement,
+guardrails, and ship/iterate/stop decision.
 
 ## Cross-links
 

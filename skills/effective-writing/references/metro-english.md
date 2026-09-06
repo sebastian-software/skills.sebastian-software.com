@@ -5,10 +5,6 @@ clear, direct, warm enough, and a little loose. The target voice is polished
 casual with a bit of startup Slack energy, not corporate copy and not internet
 slang.
 
-Remove obvious AI writing patterns, then add human rhythm and judgment. The
-point is not to make the text fancy. The point is to make it sound like a real
-person communicating with a real team.
-
 ## Hard Boundary
 
 Before rewriting, stop when a named controlled-language contract governs the
@@ -38,22 +34,6 @@ artifact; surface the divergence when it could create cross-channel drift. Use
 the decision-record route in `effective-product` when the work establishes or
 changes a durable communication direction instead of creating a
 Metro-English-specific memory file.
-
-## What this route does
-
-Use this for:
-
-- Slack or chat messages
-- GitHub, GitLab, Linear, Jira, and issue comments
-- PR review comments and handoff notes
-- Async project updates
-- Short internal announcements
-- Quick feedback, nudges, and status replies
-- German-to-English rewrites for team communication
-- Stiff English that needs to sound more natural
-
-When the user gives German source text, translate the meaning into natural team
-English instead of translating word by word.
 
 For PR reviews, Metro English owns phrasing only. Preserve supplied facts,
 severity, required-versus-optional meaning, reviewer audience, and decision.
@@ -113,86 +93,17 @@ Avoid AI and corporate patterns:
 - em dash-heavy prose
 - generic upbeat endings like "exciting times ahead"
 
-Avoid sounding:
+## Channel differences
 
-- overly polished
-- performatively casual
-- passive-aggressive
-- sycophantic
-- like a press release
-- like a chatbot explaining its own work
-
-## Context presets
-
-### Slack or team chat
-
-Keep it compact. One short paragraph is usually enough. If there are actions,
-use 2-4 bullets. Use "quick" only when it actually fits.
-
-Good patterns:
-
-- "Quick heads-up: ..."
-- "I think we can keep this simple: ..."
-- "I'm blocked on ..."
-- "Can someone sanity-check ..."
-- "I'll take the first pass and post an update here."
-
-### Issue comments
-
-Be specific about the current state, the problem, and the next step. Avoid long
-setup. If the issue is not ready, say what is missing.
-
-Good patterns:
-
-- "I can reproduce this with ..."
-- "This looks like ..."
-- "I think the fix should live in ..."
-- "Let's split this from ..."
-- "I don't think this is part of this ticket."
-
-### PR review comments
-
-Apply the PR ownership boundary above. Rewrite the supplied intent so it sounds
-like a teammate, not a compliance bot, without changing its consequence or
-required-versus-optional meaning.
-
-Good patterns:
-
-- Supplied blocker: "One thing we need to fix before merging: ..."
-- Supplied optional note: "Small suggestion, totally optional: ..."
-- Supplied approval: "Nice cleanup. Approving."
-- Supplied uncertainty: "The part I'm less sure about is ..."
-
-### Async updates
-
-Lead with the actual status. Then add the blocker, decision, or next step. Do not
-bury the point under context.
-
-Good patterns:
-
-- "Status: ..."
-- "What's done: ..."
-- "What's left: ..."
-- "The decision we need is ..."
-- "I'll follow up once ..."
-
-### Docs-adjacent notes
-
-Stay natural, but be a little more durable than Slack. Keep contractions if they
-sound right. Avoid jokes or throwaway phrasing that will age badly.
-Use the technical-documentation route in `effective-delivery` instead when the
-artifact itself is a manual, API or CLI reference, controlled-language document,
-or normative technical procedure. Do not rewrite that controlled artifact here.
-Return a concise handoff or, when the documentation route is also active, apply
-it as the separate owner. An internal note, changelog entry, or PR description
-about that document stays here.
-
-Good patterns:
-
-- "This doc is the source of truth for ..."
-- "Keep this section focused on ..."
-- "If this changes, update ..."
-- "This is intentionally out of scope for now."
+- Slack or team chat: usually one short paragraph; use bullets for distinct
+  actions.
+- Issue comments: state the current problem, evidence, and next step.
+- PR review comments: preserve the supplied blocker, suggestion, approval, or
+  uncertainty. Phrasing must not change the review decision or consequence.
+- Async updates: lead with status, then the blocker, decision, or next step.
+- Docs-adjacent notes: keep language durable and accurate. Manuals, API/CLI
+  references, and normative procedures belong to `effective-delivery`; an
+  internal note or PR description about them stays here.
 
 ## Examples
 
@@ -256,18 +167,8 @@ return the concrete patterns and representative phrases that create that
 effect, plus a brief correction direction. Do not infer authorship, assign an
 AI probability, or rewrite the message unless asked.
 
-For a controlled technical-language request, return a short handoff that names
-the governing requirement and directs the artifact to the
-technical-documentation route in `effective-delivery`. Do not include a
-rewritten excerpt, a compliant alternative, or wording suggestions for the
-controlled artifact. Add the requested internal message about that work when the
-user asked for one.
-
-Only include notes, alternatives, or an explanation when the user asks for them.
-If the user asks for options, provide two:
-
-1. A polished casual version.
-2. A slightly looser Slack-style version.
+Include notes or alternatives when requested or needed to resolve a material
+ambiguity. Match the number and direction of variants to the user's request.
 
 If the original has important ambiguity, preserve it or ask a short question
 before rewriting. Do not invent facts, decisions, approvals, deadlines, or blame.

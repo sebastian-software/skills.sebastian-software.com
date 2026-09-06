@@ -6,21 +6,23 @@ existing artifact, recommendation, or claim set is ready to decide on.
 
 ## Read
 
-1. [Product decision contract](product-decision-contract.md) — the shared
-   evidence register, product path, and deliverable.
-2. Then the reference that matches the work:
-   - [Discovery and evidence](discovery-and-evidence.md) for market selection,
-     interviews, observation, Jobs to be Done, validation, and
-     service-to-product opportunities.
-   - [Evidence review](evidence-review.md) when reviewing an existing artifact,
-     recommendation, or claim set for decision readiness. Also load the route
-     that owns the artifact's subject.
-   - [Review modes](review-modes.md) after the evidence review when the artifact
-     supports a product decision, go-to-market claim set, or launch-readiness
-     decision.
-   - [Review calibration](review-calibration.md) for repeated or high-stakes
-     reviews, behavioral case design, counterfactual checks, and post-decision
-     outcome learning.
+Use [Product decision contract](product-decision-contract.md) when a broad
+decision needs shared framing, an evidence register, or a deliverable template.
+Reuse an established decision contract. For focused work, select the matching
+reference directly:
+
+- [Discovery and evidence](discovery-and-evidence.md) for market selection,
+  interviews, observation, Jobs to be Done, validation, and
+  service-to-product opportunities.
+- [Evidence review](evidence-review.md) when reviewing an existing artifact,
+  recommendation, or claim set for decision readiness. Add its subject route
+  only when domain-specific evidence needs interpretation.
+- [Review modes](review-modes.md) after the evidence review when the artifact
+  supports a product decision, go-to-market claim set, or launch-readiness
+  decision.
+- [Review calibration](review-calibration.md) for repeated or high-stakes
+  reviews, behavioral case design, counterfactual checks, and post-decision
+  outcome learning.
 
 ## Apply
 
