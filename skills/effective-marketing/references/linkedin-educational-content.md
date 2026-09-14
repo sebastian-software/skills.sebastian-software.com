@@ -1,4 +1,4 @@
-# Educational Content (8)
+# Educational Content (9)
 ID|Topic prompt
 
 11|A step-by-step guide to a task the audience struggles with, drawn from real project practice
@@ -9,3 +9,4 @@ ID|Topic prompt
 16|A process explained as a visual or document post: the stages, the handoffs, and where things break
 17|Key takeaways from a workshop, course, or conference session, condensed into what changed in daily work
 18|A persistent misconception in the field, why it survives, and what the evidence supports instead
+97|The evolution of a professional concept or technology: the constraints behind earlier choices and which assumptions still matter today

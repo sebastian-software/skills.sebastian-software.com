@@ -1,4 +1,4 @@
-# Personal Stories and Reflections (10)
+# Personal Stories and Reflections (11)
 ID|Topic prompt
 
 53|A career turning point: the decision, what it cost, and how it looks in hindsight
@@ -11,3 +11,4 @@ ID|Topic prompt
 60|A personal project shipped outside work and what it taught that the day job could not
 61|A strong opinion the author changed their mind about, and the evidence that did it
 62|What a cross-cultural or cross-industry experience revealed about the author's professional defaults
+94|A professional goal review comparing the original goal with progress, obstacles, changed priorities, and the next adjustment
