@@ -39,16 +39,16 @@ questionnaire before using supplied context.
 
 | Category | File | Count |
 |---|---|---|
-| Company & Project Updates | [linkedin-company-project-updates.md](linkedin-company-project-updates.md) | 10 |
-| Educational Content | [linkedin-educational-content.md](linkedin-educational-content.md) | 8 |
-| Engagement & Interaction | [linkedin-engagement-interaction.md](linkedin-engagement-interaction.md) | 10 |
+| Company & Project Updates | [linkedin-company-project-updates.md](linkedin-company-project-updates.md) | 12 |
+| Educational Content | [linkedin-educational-content.md](linkedin-educational-content.md) | 9 |
+| Engagement & Interaction | [linkedin-engagement-interaction.md](linkedin-engagement-interaction.md) | 11 |
 | Industry Insights | [linkedin-industry-insights.md](linkedin-industry-insights.md) | 10 |
-| Job & Career Opportunities | [linkedin-job-career-opportunities.md](linkedin-job-career-opportunities.md) | 6 |
-| Networking & Community | [linkedin-networking-community.md](linkedin-networking-community.md) | 8 |
-| Personal Stories & Reflections | [linkedin-personal-stories-reflections.md](linkedin-personal-stories-reflections.md) | 10 |
-| Professional Development | [linkedin-professional-development.md](linkedin-professional-development.md) | 10 |
+| Job & Career Opportunities | [linkedin-job-career-opportunities.md](linkedin-job-career-opportunities.md) | 7 |
+| Networking & Community | [linkedin-networking-community.md](linkedin-networking-community.md) | 10 |
+| Personal Stories & Reflections | [linkedin-personal-stories-reflections.md](linkedin-personal-stories-reflections.md) | 11 |
+| Professional Development | [linkedin-professional-development.md](linkedin-professional-development.md) | 12 |
 | Recognition & Appreciation | [linkedin-recognition-appreciation.md](linkedin-recognition-appreciation.md) | 6 |
-| Tools & Resources | [linkedin-tools-resources.md](linkedin-tools-resources.md) | 8 |
+| Tools & Resources | [linkedin-tools-resources.md](linkedin-tools-resources.md) | 10 |
 
 Entries use `ID|Topic prompt`. Develop original, evidence-led concepts rather
 than treating the cues as finished copy.

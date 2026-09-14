@@ -1,4 +1,4 @@
-# Job and Career Opportunities (6)
+# Job and Career Opportunities (7)
 ID|Topic prompt
 
 39|A hiring announcement that describes the actual problems the new person will work on
@@ -7,3 +7,4 @@ ID|Topic prompt
 42|A referral request that gives the network enough signal to know who would genuinely fit
 43|An internship or entry-level opening framed around what the person will learn and ship
 44|A look inside the hiring process: what the team evaluates and how candidates can prepare
+98|A specific change to recruiting or workplace practice intended to improve inclusion, describing the barrier addressed, the change made, and the evidence or limits of its effect

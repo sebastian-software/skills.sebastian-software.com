@@ -1,4 +1,4 @@
-# Company and Project Updates (10)
+# Company and Project Updates (12)
 ID|Topic prompt
 
 1|A project milestone reached: what the team actually did to get there, and what nearly went wrong
@@ -11,3 +11,5 @@ ID|Topic prompt
 8|An award or recognition framed around the work that earned it rather than the trophy
 9|A sustainability or community initiative described through concrete actions and honest limits
 10|What is next for a project: upcoming goals, open questions, and where outside input would genuinely help
+89|A project kickoff that states the problem, scope, intended outcomes, participants, and open assumptions before results exist
+90|An in-progress project update comparing the plan with current evidence, completed milestones, delays, and the next decision
