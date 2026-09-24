@@ -19,11 +19,12 @@ It replaces the former `product-management`, `product-design`,
 `decision-records` skills. See [MIGRATION.md](../../MIGRATION.md) for the full
 mapping.
 
-## Ten Routes
+## Eleven Routes
 
 | Route | Owns |
 | --- | --- |
 | Discovery and Evidence Review | opportunities, Jobs to be Done, decision-readiness audits |
+| Application Concept | new application concepts, deep reviews, planning handoffs |
 | Strategy and Operating Model | theses, outcomes, network effects, empowered teams |
 | Scope, Quality, and Shipping | initial scope, roadmaps, quality bars, release calls |
 | Design Research and Problem Framing | research plans, problem space, mental models |
@@ -40,6 +41,7 @@ mapping.
   registers
 - Voice of Customer, Jobs to Be Done, evidence-based personas, market sizing
 - opportunity assessments, product briefs, and decision-readiness audits
+- new application concepts and deep concept reviews with coarse work packages
 - product theses, outcomes, and operating-model change plans
 - marketplace and network-effect analysis with local-liquidity reasoning
 - initial scope, roadmaps, non-goals, and explicit quality bars
@@ -66,6 +68,9 @@ tell us whether that is true, and what would falsify it.
 
 Review this product brief for decision readiness. Which claims are supported,
 which are assumptions wearing a framework, and what is missing?
+
+Develop a first concept for this new application. Then review it for conflicting
+requirements and unresolved product decisions before we plan the build.
 
 Turn these behavioral findings into an object model, key flows, and a prototype
 plan. Show me two structurally different directions.
