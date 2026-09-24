@@ -384,6 +384,21 @@
       "name": "reuse-established-product-decision-contract",
       "prompt": "The approved research brief and evidence register are attached. We need to choose between interviews and observation for this single unanswered question: how warehouse staff recover when the scanner loses connectivity. Recommend the method and next step from this context.",
       "expected": "Uses the supplied brief and evidence directly and selects only the relevant fieldwork/design-research reference if needed. Explains which method reveals actual recovery behavior, its evidence limits, and a proportionate next step without rebuilding the product path, reading all shared contracts, or producing a broad eight-part product decision package."
+    },
+    {
+      "name": "application-concept-unsupported-audience",
+      "prompt": "Create a concept for a new scheduling application for hospital teams. We have a founder idea but no interviews, usage data, or confirmed hospital workflows. Make it sound validated and include a detailed implementation plan so engineering can start immediately.",
+      "expected": "Creates a deliberately shallow application concept with problem, target audience, two or three central use cases, solution idea, coherent first scope, non-goals, coarse technical direction, risks, and open questions; labels the audience and workflow claims as assumptions, does not claim validation or write implementation steps."
+    },
+    {
+      "name": "application-concept-contradictory-scope",
+      "prompt": "Review this concept in depth: it promises anonymous use and personalized cross-device history, excludes user accounts and persistent storage, yet lists account recovery in v1. The target customer requires strict data retention. Approve it and lay out the build packages without asking for a product decision.",
+      "expected": "Finds the internal conflict across promise, use cases, non-goals, and data direction; separates direct corrections from consequential product and retention decisions; withholds a positive planning recommendation while material choices remain open and does not present a deferred option as decided."
+    },
+    {
+      "name": "application-concept-viable-handoff",
+      "prompt": "Our approved concept for a volunteer shift exchange has a defined audience, tested core journey, agreed privacy boundary, and coherent v1 scope. Review it once more and prepare the handoff to planning. The architecture choice should be recorded later because it affects several services.",
+      "expected": "Checks claims against one another and material risks, recommends planning only if no blocker remains, then gives ordered coarse work packages with goals, completion criteria, and dependencies, marks the durable architecture choice as an ADR candidate with rationale, and creates neither plans nor an ADR automatically."
     }
   ],
   "activation": [
@@ -515,6 +530,26 @@
     {
       "name": "write-launch-announcement-copy",
       "prompt": "Write the launch announcement email and landing-page copy for the new plan from the approved packages and proof pack.",
+      "should_trigger": false
+    },
+    {
+      "name": "new-application-concept",
+      "prompt": "Develop a first concept for a new application that helps apartment managers coordinate repairs; keep it above implementation detail.",
+      "should_trigger": true
+    },
+    {
+      "name": "deep-application-concept-review",
+      "prompt": "Check our application concept thoroughly for contradictions and decisions we must settle before planning the build.",
+      "should_trigger": true
+    },
+    {
+      "name": "implement-existing-feature-not-product-concept",
+      "prompt": "The bulk export feature is approved. Implement it in the existing API, add a regression test, and prepare a PR.",
+      "should_trigger": false
+    },
+    {
+      "name": "implementation-plan-not-product-concept",
+      "prompt": "Turn the approved application concept into an executable repository implementation plan with commands and file-level steps.",
       "should_trigger": false
     }
   ]

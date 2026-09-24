@@ -145,7 +145,12 @@ not duplicate large source files inside the plan.
 
 ## Review and Reconciliation
 
-When reviewing a plan, check:
+Review a new draft before calling it executable, and use the same method when
+the user supplies an existing plan. Compare its requirement and acceptance
+criteria with current repository evidence: code, tests, relevant ADRs, project
+conventions, working-tree changes, and available validation commands. Check
+whether the approach, ordered steps, edge cases, stop conditions, and expected
+proof still agree with one another. In particular:
 
 - Does the current code still contain the claimed problem?
 - Does the plan respect accepted ADRs and project terminology?
@@ -155,6 +160,30 @@ When reviewing a plan, check:
 - Do new tests prove the regression and meaningful edge cases?
 - Are stop conditions specific to actual uncertainty?
 - Are secrets omitted and external requirements current?
+
+Treat findings according to their effect on execution:
+
+- **Correct directly:** a supported, uncontroversial gap or stale claim.
+  Repair a saved plan during a readiness review unless the user asked for
+  read-only feedback; otherwise show the precise correction. A dirty worktree,
+  newer ADR, or renamed check can invalidate a claim without invalidating the
+  whole objective.
+- **Decision needed:** materially different viable approaches or scope choices.
+  Explain consequences and recommend one, but leave the choice visible until
+  the responsible decision maker resolves it. Use the relevant Product,
+  Engineering, or Web discipline for a domain judgment rather than treating a
+  planning template as technical proof.
+- **Blocked for now:** missing evidence or a deferred decision needed for safe
+  execution. State what must be learned or decided and which steps depend on
+  it. Do not present an undecided option elsewhere as the chosen approach.
+
+Weight findings by consequence, not by count. After each material correction
+or decision, recheck the plan's requirement, approach, step order, acceptance,
+and verification for contradictions. Call a plan executable only when material
+blockers are closed and the remaining steps and their actual proof agree. A
+small unambiguous plan needs a short review, not a scorecard or a round of
+ceremonial questions. Report each correction and the readiness verdict; a
+read-only review never silently edits the artifact.
 
 When reconciling a backlog:
 
