@@ -30,6 +30,10 @@ https?://www\.solcom\.de/.*
 # link check from ever verifying that route again, which is how a genuinely
 # broken link would slip through unnoticed.
 
+# Temporary for PR #254: the new skill path on main exists only after merge.
+# Remove this exact exception once PR #254 is merged.
+https://github\.com/sebastian-software/skills\.sebastian-software\.com/tree/main/skills/effective-project-conventions
+
 # These live primary sources reject, reset, or time out on GitHub Actions'
 # link-check traffic.
 https://www\.mckinsey\.com/careers/interviewing
