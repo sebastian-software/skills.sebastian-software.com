@@ -19,7 +19,9 @@ Match actions to the user's authority:
 - **Plan:** investigate enough to make one requested change executable. Return
   the plan in the response unless the user asks to save it.
 - **Review plan:** test an existing plan against current code, repository
-  conventions, decision records, scope, and verification reality.
+  conventions, decision records, scope, and verification reality. For a saved
+  plan, correct supported, uncontroversial gaps in place unless the user asked
+  for read-only feedback; keep consequential choices open for decision.
 - **Reconcile:** verify whether recorded work is done, stale, blocked,
   superseded, duplicated, or no longer valuable.
 - **Improve or implement:** when the user explicitly asks for changes, select
@@ -48,7 +50,8 @@ Match actions to the user's authority:
    implementing a consequential change in weakly tested existing code. Keep
    preparatory structure work separate from the behavior change.
 9. Read [Implementation plans](implementation-plans.md) before creating,
-   reviewing, saving, or reconciling a plan.
+   reviewing, revising, saving, or reconciling a plan. Apply its review and
+   readiness rule to a new plan as well as an existing one.
 10. Report the smallest useful result: a diagnosis, evidence-backed findings,
     the selected plan, verified implementation, or current backlog state.
 
