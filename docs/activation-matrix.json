@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "note": "Cross-discipline routing contract for the six-skill catalog. Each case is a realistic request and the discipline that should own it; the set preserves representative intents from the pre-consolidation catalog after the old slugs were removed. Owner 'none' marks a control that should not activate a discipline.",
+  "note": "Cross-discipline routing contract for the seven-skill catalog. Each case is a realistic request and the discipline that should own it; the set preserves representative intents from the pre-consolidation catalog after the old slugs were removed. Owner 'none' marks a control that should not activate a discipline.",
   "cases": [
     {
       "name": "prioritize-release-scope",
@@ -266,6 +266,21 @@
       "name": "control-scheduling",
       "prompt": "What time is it in Tokyo right now, and is that a reasonable hour to call?",
       "owner": "none"
+    },
+    {
+      "name": "establish-project-conventions",
+      "prompt": "Establish this repository's shared standards for language, branches, PRs, checks, and reviewers, then make AGENTS.md point to them.",
+      "owner": "effective-project-conventions"
+    },
+    {
+      "name": "audit-language-and-delivery-conventions",
+      "prompt": "Compare our documented language and delivery rules with the repository and GitHub settings; identify conflicts before updating the project agreement.",
+      "owner": "effective-project-conventions"
+    },
+    {
+      "name": "propose-agent-project-standard",
+      "prompt": "Propose a readable project working agreement and a short binding AGENTS.md reference without modifying files yet.",
+      "owner": "effective-project-conventions"
     }
   ]
 }

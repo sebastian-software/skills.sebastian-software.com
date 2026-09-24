@@ -1,0 +1,4 @@
+interface:
+  display_name: "Effective Project Conventions"
+  short_description: "Discover and document shared repository standards"
+  default_prompt: "Use $effective-project-conventions to inspect this repository and establish a readable working agreement for language, delivery, checks, and reviews."

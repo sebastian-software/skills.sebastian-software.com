@@ -7,7 +7,7 @@
 **Prose that people trust and act on — at article length, at Slack length, and
 down to the punctuation a locale expects.**
 
-Effective Writing is one of six disciplines in this collection. It turns
+Effective Writing is one of seven disciplines in this collection. It turns
 supplied ideas and evidence into factual prose a particular reader can
 understand, believe, and use: long-form articles and case studies, evidence-led
 audits of formulaic AI-sounding text, relaxed US team English for internal

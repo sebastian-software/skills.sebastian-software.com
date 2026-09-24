@@ -7,7 +7,7 @@
 **Take verified value to market — position it, say it, write it, distribute it,
 and learn from what the market answers.**
 
-Effective Marketing is one of six disciplines in this collection. It turns
+Effective Marketing is one of seven disciplines in this collection. It turns
 stable product, customer, and career evidence into a position people
 understand, claims they can trust, copy that helps a decision, channels that
 reach the right reader, and a learning loop that can revise all of it. It keeps

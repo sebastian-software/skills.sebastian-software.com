@@ -7,7 +7,7 @@
 **Decide what to build and how it should work — on evidence you gathered, not
 evidence you assumed.**
 
-Effective Product is one of six disciplines in this collection. It runs the
+Effective Product is one of seven disciplines in this collection. It runs the
 research that produces the evidence, frames the product decision, shapes the
 experience, sets the price, finds the name, and records the durable choices so
 they survive the people who made them. Discovery, design, scope, quality,

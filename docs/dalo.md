@@ -24,7 +24,8 @@ dalo doctor
 
 Replace `effective-web` with another discipline name — `effective-product`,
 `effective-engineering`, `effective-delivery`, `effective-writing`, or
-`effective-marketing` — or select several names in one command. Catalog
+`effective-marketing`, or `effective-project-conventions` — or select several
+names in one command. Catalog
 selections are pinned. New skills in the repository remain inactive until
 explicitly selected and approved. Review selected skills before granting the
 source-qualified approval.

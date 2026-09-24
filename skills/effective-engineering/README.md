@@ -7,7 +7,7 @@
 **Design and write the software itself — boundaries, data, code, and the
 evidence that proves it works.**
 
-Effective Engineering is one of six disciplines in this collection. It turns a
+Effective Engineering is one of seven disciplines in this collection. It turns a
 product and delivery problem into a system direction, a data model that holds
 its invariants, TypeScript and Rust whose contracts are honest to the next
 maintainer, and the smallest tests and benchmarks that actually discriminate the

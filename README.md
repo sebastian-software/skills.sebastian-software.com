@@ -10,12 +10,12 @@
 **Open-source skills for the professional judgment that capable AI agents still
 need to do dependable product and software work.**
 
-Six disciplines, one quality bar:
-6 practice-built skills, 336 focused references, and 2 optional instruction packs
+Seven disciplines, one quality bar:
+7 practice-built skills, 337 focused references, and 2 optional instruction packs
 covering product decisions and research, browser experiences, software
-architecture and code, repository and team delivery, nonfiction prose, and
-go-to-market work, plus standing contracts for request completion and
-documentation truth that can be enabled independently.
+architecture and code, repository and team delivery, project working
+conventions, nonfiction prose, and go-to-market work, plus standing contracts
+for request completion and documentation truth that can be enabled independently.
 
 Install one discipline when an agent needs deeper judgment for a domain, or
 combine several in your own downstream agent stack. Each discipline turns
@@ -24,7 +24,7 @@ requirements, boundaries, and verification checks — and routes internally so a
 agent loads the one reference the task needs.
 
 > **Migrating from the old 34-skill layout?** The compatibility stubs were
-> removed on 2026-08-16. Re-pin old selections to one of the six disciplines
+> removed on 2026-08-16. Re-pin old selections to a current discipline
 > using the complete mapping in [MIGRATION.md](MIGRATION.md).
 
 ## Quick Start
@@ -47,7 +47,7 @@ The discipline tells a compatible agent what to inspect, which route and
 references to load, where its authority stops, and what evidence is needed
 before the task is complete.
 
-Install all six only when you want the complete first-party collection:
+Install all seven only when you want the complete first-party collection:
 
 ```sh
 npx skills add sebastian-software/skills.sebastian-software.com --all
@@ -58,7 +58,7 @@ should be pinned and shared across multiple agent targets. DALO can also enable
 the collection's optional instruction packs as standing guidance without making
 them a dependency of any skill.
 
-## The Six Disciplines
+## The Seven Disciplines
 
 | # | Discipline | One-line story | Routes |
 | --- | --- | --- | --- |
@@ -68,6 +68,7 @@ them a dependency of any skill.
 | 04 | [`effective-delivery`](skills/effective-delivery/) | Move repositories and teams forward safely | 10 |
 | 05 | [`effective-writing`](skills/effective-writing/) | Prose that people trust and act on | 7 |
 | 06 | [`effective-marketing`](skills/effective-marketing/) | Take verified value to market | 12 |
+| 07 | [`effective-project-conventions`](skills/effective-project-conventions/) | Establish shared project working standards | 1 |
 
 ## Find the Right Discipline
 
@@ -88,6 +89,7 @@ Start with the job you need done rather than the repository taxonomy.
 | Discover, prioritize, process, or monitor an unspecified live issue queue | [`effective-delivery`](skills/effective-delivery/) |
 | Review a pull request, update dependencies, port a codebase, or run the repo's checks | [`effective-delivery`](skills/effective-delivery/) |
 | Write technical documentation, or clarify ownership and team load around the work | [`effective-delivery`](skills/effective-delivery/) |
+| Establish language, delivery, check, and reviewer standards for a repository | [`effective-project-conventions`](skills/effective-project-conventions/) |
 | Turn expertise into credible articles, essays, or editorial case studies | [`effective-writing`](skills/effective-writing/) |
 | Make an internal message sound human, or fix locale typography | [`effective-writing`](skills/effective-writing/) |
 | Position an offer, write commercial copy, or diagnose a funnel | [`effective-marketing`](skills/effective-marketing/) |
@@ -179,7 +181,7 @@ validators documented in [`docs/authoring-skills.md`](docs/authoring-skills.md).
 
 The 33 superseded slugs were removed on 2026-08-16 after the transition to six
 disciplines. [MIGRATION.md](MIGRATION.md) remains the authoritative old-to-new
-mapping; only the six disciplines are installable from this repository.
+mapping; the current seven disciplines are installable from this repository.
 
 The repository contains the first-party guidance itself: no installer, vendored
 third-party snapshots, or generated distribution tree. The development lockfile

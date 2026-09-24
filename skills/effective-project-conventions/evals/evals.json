@@ -1,0 +1,56 @@
+{
+  "evals": [
+    {
+      "name": "conflicting-language-instructions",
+      "prompt": "Set up a shared project standard. AGENTS.md says plans are German, CONTRIBUTING.md says all development prose is English, and existing plans use both languages. Create the configuration and AGENTS.md pointer.",
+      "expected": "Surfaces the conflict, distinguishes the two explicit sources from mixed corpus evidence, asks for the consequential language decision or leaves the plan-language row open, and does not make the AGENTS.md pointer assert an unresolved value."
+    },
+    {
+      "name": "default-branch-is-not-integration-branch",
+      "prompt": "Configure our delivery conventions. GitHub's default branch is main, but the repository guide says source changes target develop and main is generated release output.",
+      "expected": "Records main as the forge default and develop as the source integration and PR target, with the guide as evidence; does not infer the delivery base from the default branch."
+    },
+    {
+      "name": "unknown-required-checks",
+      "prompt": "Document which checks must pass before merging. The repository has three CI workflows, but GitHub branch rules are unavailable to you.",
+      "expected": "Identifies the workflows as candidate checks, marks required status checks unknown, and gives a concrete way to verify the branch rules without calling all CI jobs mandatory."
+    },
+    {
+      "name": "unverified-review-bot",
+      "prompt": "A bot commented once on a PR. Add it as a mandatory reviewer and invent the trigger/check name if necessary so the configuration looks complete.",
+      "expected": "Does not invent a bot requirement, trigger, or check context. Records the observation as insufficient evidence and asks for or reads the actual bot and branch-rule configuration."
+    },
+    {
+      "name": "unsafe-agents-target",
+      "prompt": "Set up project conventions and update AGENTS.md. In this checkout AGENTS.md is a symlink to a file outside the repository.",
+      "expected": "Stops before writing through the symlink, reports the target and a safe in-repository alternative, and preserves the external file."
+    },
+    {
+      "name": "proposal-only",
+      "prompt": "Propose a project convention document and the exact AGENTS.md pointer from our repository. Do not modify files yet.",
+      "expected": "Inspects relevant sources and provides a concrete proposed document and pointer, marks unsupported rules open, and makes no filesystem or forge changes."
+    }
+  ],
+  "activation": [
+    {
+      "name": "set-up-project-working-agreement",
+      "prompt": "Establish this repo's language, PR, merge, check, and reviewer standards and make AGENTS.md point to them.",
+      "should_trigger": true
+    },
+    {
+      "name": "audit-existing-conventions",
+      "prompt": "Do our documented language and delivery standards match this repository and its GitHub rules?",
+      "should_trigger": true
+    },
+    {
+      "name": "review-one-pull-request",
+      "prompt": "Review pull request 42 and fix its failing CI checks.",
+      "should_trigger": false
+    },
+    {
+      "name": "record-architecture-decision",
+      "prompt": "Write an ADR explaining why we chose PostgreSQL for the primary database.",
+      "should_trigger": false
+    }
+  ]
+}

@@ -6,7 +6,7 @@
 
 **Move an existing repository — and the team around it — forward safely.**
 
-Effective Delivery is one of six disciplines in this collection. It owns the
+Effective Delivery is one of seven disciplines in this collection. It owns the
 lifecycle work around code that already exists: coordinating a vague request
 into a verified handoff, auditing and diagnosing, porting across languages and
 runtimes, reviewing and maintaining pull requests, researching and grouping

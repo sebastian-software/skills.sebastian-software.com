@@ -7,7 +7,7 @@
 **Give your agent one coherent standard for designing, building, reviewing, and
 improving production web experiences.**
 
-Effective Web is one of six disciplines in this collection. It turns broad
+Effective Web is one of seven disciplines in this collection. It turns broad
 requests like “make this interface better” into a routed workflow with explicit
 guidance for design, implementation, accessibility, performance, and
 verification. It covers marketing sites, content pages, web applications,

@@ -7,7 +7,7 @@ standing cross-task conventions and follow a separate activation contract.
 
 ## The Discipline Pattern
 
-The six disciplines use `effective-<discipline>` names and one architecture:
+The seven disciplines use `effective-<discipline>` names and one architecture:
 
 - `SKILL.md` is a minimal router: short trigger, task selection, essential
   standalone safeguards, `## Route by Intent`, and `## Routing Boundaries`.
@@ -24,7 +24,7 @@ The six disciplines use `effective-<discipline>` names and one architecture:
   handoffs between routes of the same skill.
 
 Add a discipline only for an independently requestable outcome that does not
-fit the six existing owners, and record the choice as an ADR. Do not recreate
+fit the existing owners, and record the choice as an ADR. Do not recreate
 pre-consolidation compatibility stubs; [MIGRATION.md](../MIGRATION.md) owns their
 mapping.
 
