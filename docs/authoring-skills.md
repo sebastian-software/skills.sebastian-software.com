@@ -159,7 +159,7 @@ Each skill README helps people choose and install that skill. Include:
 - honest scope and useful handoffs to other first-party skills;
 - [Sebastian Software open source](https://oss.sebastian-software.com/) and
   [English consulting](https://sebastian-consulting.com/en);
-- `MIT — see the collection [LICENSE](../../LICENSE).`
+- `MIT OR Apache-2.0 — see the collection [LICENSE-MIT](../../LICENSE-MIT) and [LICENSE-APACHE](../../LICENSE-APACHE).`
 
 Do not repeat the agent workflow or build generic cross-promotion lists. Name
 sibling skills inline in runtime guidance: selective installs do not include

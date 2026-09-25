@@ -137,4 +137,4 @@ modernize, and ship ambitious software products through
 
 ## License
 
-MIT — see the collection [LICENSE](../../LICENSE).
+MIT OR Apache-2.0 — see the collection [LICENSE-MIT](../../LICENSE-MIT) and [LICENSE-APACHE](../../LICENSE-APACHE).

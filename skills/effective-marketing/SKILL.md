@@ -1,12 +1,13 @@
 ---
 name: effective-marketing
 description: >-
-  Position and market a verified offer: segmentation, messaging and proof,
-  launches, sales enablement, distribution, win/loss analysis, commercial page
-  and campaign copy, conversion audits and experiments, social and LinkedIn
-  content, and consultant profiles. Research fieldwork and pricing decisions
-  belong to effective-product; editorial articles and voice audits to
-  effective-writing; browser implementation and compliance to effective-web.
+  Position, market, and sell a verified product or service offer: segmentation,
+  messaging and proof, launches, commercial copy, conversion experiments,
+  social and LinkedIn content, outbound prospecting, consultative sales, paid
+  campaigns, CRM pipelines, service-business growth, and consultant profiles.
+  Research fieldwork, pricing, and pilots belong to effective-product;
+  editorial articles to effective-writing; browser implementation and
+  compliance to effective-web.
 ---
 
 # Effective Marketing
@@ -22,8 +23,9 @@ claims true; channel response alone does not prove a product claim.
 Produce the requested artifact with material evidence gaps stated. Treat
 conversion and channel tactics as hypotheses, verify volatile platform rules
 when needed, and reject deceptive defaults, hidden costs, and synthetic proof.
-Drafting alone does not authorize publishing or messaging; carry out those
-steps when the user has authorized the action and destination.
+Drafting alone does not authorize publishing, messaging, calling, spending, or
+changing an external system such as a CRM or ad account; carry out those steps
+when the user has authorized the action and destination.
 
 ## Route by Intent
 
@@ -35,7 +37,12 @@ steps when the user has authorized the action and destination.
 | Run win/loss or adoption analysis and decide whether the segment, position, message, or channel must change | [Market Learning](references/route-market-learning.md) |
 | Write or revise homepage, landing, product, service, pricing, campaign, launch, sales, or email copy, headlines, and calls to action | [Marketing Copywriting](references/route-copywriting.md) |
 | Diagnose funnel drop-off, design an ethical experiment, or judge a test result | [Conversion Optimization](references/route-conversion.md) |
-| Plan a social content program or create posts, threads, replies, captions, or a series for X, Threads, Bluesky, Instagram, Mastodon, or several platforms | [Social Content](references/route-social.md) |
+| Start or grow a service business end to end, find the current bottleneck, plan an offer-led content program, or plan the next week's priorities and delegable procedures | [Service Business Growth](references/route-service-growth.md) |
+| Research prospects, build a lead list, or write or run cold email, phone, direct mail, video follow-up, or event outreach | [Outbound Prospecting](references/route-outbound.md) |
+| Turn inbound messages into meetings, qualify leads, run a consultation or price conversation, handle objections, role-play, or follow up with prospects and clients | [Consultative Sales](references/route-sales.md) |
+| Plan, launch, or diagnose paid lead campaigns, local ads, or retargeting | [Paid Campaigns](references/route-paid-media.md) |
+| Design a CRM data model, pipeline stages, views, handoffs, inquiry intake, or CRM automations | [CRM and Sales Operations](references/route-crm.md) |
+| Plan a social content program or create posts, threads, replies, captions, a series, video, or podcast content for X, Threads, Bluesky, Instagram, Mastodon, or several platforms | [Social Content](references/route-social.md) |
 | Find LinkedIn post ideas, write a LinkedIn post, or plan a LinkedIn content calendar | [LinkedIn Posts](references/route-linkedin-posts.md) |
 | Build a B2B LinkedIn acquisition system: profile strategy, networking, outreach, lead magnets, funnel, measurement | [LinkedIn Social Selling](references/route-linkedin-selling.md) |
 | Position a consultant CV, LinkedIn profile, bio, or project list; choose signature projects and structure | [Consultant Profile](references/route-profile.md) |
@@ -45,8 +52,9 @@ steps when the user has authorized the action and destination.
 ## Routing Boundaries
 
 - `effective-product`: customer/buyer interviews, win/loss fieldwork, surveys,
-  market sizing and research synthesis; product scope, pricing, packaging,
-  trials, entitlements, migrations, and durable decisions recorded as ADRs.
+  market sizing and research synthesis; product scope, pricing (including
+  service pricing), packaging, trials, entitlements, migrations, service pilot
+  design, and durable decisions recorded as ADRs.
 - `effective-writing`: informative articles, essays, newsletters, editorial case
   studies, locale typography, and audits of formulaic prose. Commercial-choice
   copy stays here, even when it is long.
@@ -54,7 +62,10 @@ steps when the user has authorized the action and destination.
   experiment variants, accessibility, browser verification, originality review,
   and legal/consent/disclosure requirements.
 - `effective-delivery`: repository-derived technical facts, executable examples,
-  and controlled-language documentation.
+  controlled-language documentation, and people leadership such as one-to-ones
+  and delegation contracts.
+- `effective-engineering`: application data models, webhooks, and idempotent
+  integrations built as software rather than configured in a CRM.
 
 Use qualified legal, privacy, or statistical review when the decision exceeds
 the available evidence and competence.

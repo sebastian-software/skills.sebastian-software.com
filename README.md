@@ -11,7 +11,7 @@
 need to do dependable product and software work.**
 
 Six disciplines, one quality bar:
-6 practice-built skills, 337 focused references, and 2 optional instruction packs
+6 practice-built skills, 365 focused references, and 2 optional instruction packs
 covering product decisions and research, browser experiences, software
 architecture and code, repository and team delivery, nonfiction prose, and
 go-to-market work, plus standing contracts for request completion and
@@ -67,7 +67,7 @@ them a dependency of any skill.
 | 03 | [`effective-engineering`](skills/effective-engineering/) | Design and write the software itself | 10 |
 | 04 | [`effective-delivery`](skills/effective-delivery/) | Move repositories and teams forward safely | 10 |
 | 05 | [`effective-writing`](skills/effective-writing/) | Prose that people trust and act on | 7 |
-| 06 | [`effective-marketing`](skills/effective-marketing/) | Take verified value to market | 12 |
+| 06 | [`effective-marketing`](skills/effective-marketing/) | Take verified value to market | 17 |
 
 ## Find the Right Discipline
 
@@ -93,6 +93,7 @@ Start with the job you need done rather than the repository taxonomy.
 | Make an internal message sound human, or fix locale typography | [`effective-writing`](skills/effective-writing/) |
 | Position an offer, write commercial copy, or diagnose a funnel | [`effective-marketing`](skills/effective-marketing/) |
 | Create social or LinkedIn content, or position a consultant profile | [`effective-marketing`](skills/effective-marketing/) |
+| Prospect, sell, run paid campaigns, or set up a CRM for a service business | [`effective-marketing`](skills/effective-marketing/) |
 
 `effective-delivery` coordinates the path from an unclear software request to a
 verified handoff while leaving specialist depth with the other disciplines. The
@@ -274,7 +275,14 @@ ambitious software products through
 
 ## License
 
-MIT — see [LICENSE](LICENSE).
+Licensed under either of
+
+- [MIT License](LICENSE-MIT)
+- [Apache License, Version 2.0](LICENSE-APACHE)
+
+at your option. Unless you explicitly state otherwise, any contribution
+intentionally submitted for inclusion in this collection shall be dual licensed
+as above, without any additional terms or conditions.
 
 ## Maintaining this README
 

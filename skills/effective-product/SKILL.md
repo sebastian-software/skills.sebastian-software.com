@@ -5,8 +5,8 @@ description: >-
   buyer, win/loss and churn interviews, surveys, market sizing, product
   strategy, application concepts and deep concept reviews, scope, roadmaps,
   release decisions, interaction models and
-  prototypes, retention, naming, pricing and packaging, and Architecture
-  Decision Records. Use for research and product decisions; marketing
+  prototypes, retention, naming, product and service pricing, service pilots,
+  and Architecture Decision Records. Use for research and product decisions; marketing
   execution belongs to effective-marketing, browser implementation to
   effective-web.
 ---
@@ -30,7 +30,7 @@ not every request needs an evidence register or a research program.
 
 | User intent | Read |
 | --- | --- |
-| Explore an opportunity, run Jobs to be Done work, or judge whether an artifact, claim set, or recommendation is ready to decide on | [Discovery and Evidence Review](references/route-discovery.md) |
+| Explore an opportunity, run Jobs to be Done work, design a service pilot, or judge whether an artifact, claim set, or recommendation is ready to decide on | [Discovery and Evidence Review](references/route-discovery.md) |
 | Develop a new application concept or examine an existing concept in depth before implementation planning | [Application Concept](references/route-application-concept.md) |
 | Set a product thesis, outcomes, differentiation, or operating model; work on marketplaces, network effects, cold starts, or liquidity | [Strategy and Operating Model](references/route-strategy.md) |
 | Choose initial scope, handle feature requests, build a roadmap, set a quality bar, or decide release readiness | [Scope, Quality, and Shipping](references/route-scope-and-shipping.md) |
@@ -38,7 +38,7 @@ not every request needs an evidence register or a research program.
 | Model objects, actions, relationships, flows, and journeys; build information architecture, wireframes, or prototypes | [Solution Modeling and Prototyping](references/route-design-modeling.md) |
 | Design or review habit loops, triggers, rewards, investment, gamification, engagement, or retention mechanics | [Behavioral and Retention Design](references/route-behavioral-design.md) |
 | Design a research program, recruit participants, run interviews, surveys, or observation, mine reviews and communities, or size a market | [Customer and Market Research](references/route-research.md) |
-| Choose a value metric, pricing model, packages, entitlements, discounts, trials, or an existing-customer migration | [Pricing and Packaging](references/route-pricing.md) |
+| Price a service engagement, or choose a value metric, pricing model, packages, entitlements, discounts, trials, or an existing-customer migration | [Pricing and Packaging](references/route-pricing.md) |
 | Generate, screen, and shortlist a product, feature, company, or initiative name | [Product and Feature Naming](references/route-naming.md) |
 | Create, review, supersede, or audit an Architecture Decision Record | [Decision Records](references/route-decisions.md) |
 

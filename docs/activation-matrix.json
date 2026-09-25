@@ -266,6 +266,31 @@
       "name": "control-scheduling",
       "prompt": "What time is it in Tokyo right now, and is that a reasonable hour to call?",
       "owner": "none"
+    },
+    {
+      "name": "write-cold-outreach",
+      "prompt": "Research prospects for our accounting service and write a cold email and a phone guide that respect the contact rules in Germany.",
+      "owner": "effective-marketing"
+    },
+    {
+      "name": "run-consultative-sales",
+      "prompt": "Prepare a qualification guide, a consultation arc, and objection handling for our IT retainer sales calls.",
+      "owner": "effective-marketing"
+    },
+    {
+      "name": "design-crm-pipeline",
+      "prompt": "Design our CRM pipeline stages with entry rules, saved views, and an automation for new website inquiries.",
+      "owner": "effective-marketing"
+    },
+    {
+      "name": "price-service-engagement",
+      "prompt": "Work out a price floor and payment structure for our fixed-scope website relaunch service before we quote it.",
+      "owner": "effective-product"
+    },
+    {
+      "name": "build-webhook-idempotency",
+      "prompt": "Implement idempotent webhook handling with an event-ID table in our own Node service so replayed deliveries never create duplicate orders.",
+      "owner": "effective-engineering"
     }
   ]
 }

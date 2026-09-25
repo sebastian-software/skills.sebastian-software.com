@@ -14,6 +14,9 @@ reference directly:
 - [Discovery and evidence](discovery-and-evidence.md) for market selection,
   interviews, observation, Jobs to be Done, validation, and
   service-to-product opportunities.
+- [Service pilots and proof](service-pilots.md) for testing a service offer
+  with pilot customers: uncertainty statement, fit criteria, pilot agreement,
+  decision thresholds, work samples, and case-study records.
 - [Evidence review](evidence-review.md) when reviewing an existing artifact,
   recommendation, or claim set for decision readiness. Add its subject route
   only when domain-specific evidence needs interpretation.
@@ -48,3 +51,5 @@ reference directly:
   route; turning it into a release is the Scope and Shipping route.
 - Experience questions, behavioral patterns, and mental models are the Design
   Research route.
+- Sending pilot outreach and running the sales conversation after a pilot belong
+  to `effective-marketing` (Outbound Prospecting and Consultative Sales).

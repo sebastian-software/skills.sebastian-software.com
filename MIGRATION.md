@@ -120,6 +120,46 @@ exception:
 - `software-testing` → Focused Testing, Benchmark Methodology (per
   [ADR 0001](docs/adr/0001-performance-testing-ownership.md))
 
+## Service Growth System
+
+The former standalone `service-growth-system` skill (Apache-2.0) was merged in
+after the consolidation. Its optional commands map to these routes; see
+[ADR 0008](docs/adr/0008-merge-service-growth-system.md) for the rationale.
+
+| Command | Discipline | Route |
+| --- | --- | --- |
+| `offer` | `effective-marketing` / `effective-product` | Positioning (service offer) / Pricing and Packaging (service pricing) |
+| `validate` | `effective-product` | Discovery and Evidence Review (service pilots) |
+| `message` | `effective-marketing` | Messaging and Proof (positioning thesis) |
+| `content` | `effective-marketing` | Social Content (video and audio, content journey) |
+| `outbound` | `effective-marketing` | Outbound Prospecting |
+| `conversation`, `sales` | `effective-marketing` | Consultative Sales |
+| `funnel` | `effective-marketing` | Marketing Copywriting (service landing page) and CRM (intake and events) |
+| `ads` | `effective-marketing` | Paid Campaigns |
+| `crm` | `effective-marketing` | CRM and Sales Operations |
+| `operations` | `effective-marketing` | Service Business Growth |
+
+Reference files moved as follows:
+
+- `outbound/*.md` → `outbound-*.md`; `sales/*.md` → `sales-*.md`;
+  `paid-media/*.md` → `paid-*.md`; `crm/*.md` → `crm-*.md`
+- `conversations/*.md` → `sales-conversations-to-meetings.md`
+- `funnels/forms-and-measurement.md` → `crm-intake-and-events.md`;
+  `funnels/landing-page.md` → `service-landing-page.md`
+- `offer-positioning/offer.md` → `service-offer.md`; its pricing reference →
+  `effective-product` `service-pricing.md`, with the price conversation moved
+  into `sales-conversation.md`
+- `offer-validation/*.md` → `effective-product` `service-pilots.md`
+- `market-messaging/*.md` → `positioning-thesis.md`; generic copy review folded
+  into the existing copywriting references
+- `content-system/*.md` → `video-and-audio-content.md` and
+  `content-journey-and-topics.md`; text-post guidance folded into the existing
+  social references
+- `operations/*.md` → `service-growth-operations.md`
+
+The intermediate `routes/*.md` layer was dropped: each discipline links its
+routes directly from `SKILL.md`.
+
 ## License
 
-MIT — see the collection [LICENSE](LICENSE).
+MIT OR Apache-2.0 — see the collection [LICENSE-MIT](LICENSE-MIT) and [LICENSE-APACHE](LICENSE-APACHE).

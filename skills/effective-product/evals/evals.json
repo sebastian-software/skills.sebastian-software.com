@@ -399,6 +399,16 @@
       "name": "application-concept-viable-handoff",
       "prompt": "Our approved concept for a volunteer shift exchange has a defined audience, tested core journey, agreed privacy boundary, and coherent v1 scope. Review it once more and prepare the handoff to planning. The architecture choice should be recorded later because it affects several services.",
       "expected": "Checks claims against one another and material risks, recommends planning only if no blocker remains, then gives ordered coarse work packages with goals, completion criteria, and dependencies, marks the durable architecture choice as an ADR candidate with rationale, and creates neither plans nor an ADR automatically."
+    },
+    {
+      "name": "service-pricing-floor-not-imported",
+      "prompt": "Price our website maintenance retainer. Just use 99 EUR a month like the example I saw from an agency in another country.",
+      "expected": "Builds delivery, acquisition, and risk cost blocks and a viability floor, compares it with plausible customer value and alternatives, gives a range with stated assumptions and the next market check, and does not import a price from another market or example."
+    },
+    {
+      "name": "service-pilot-thresholds-before-start",
+      "prompt": "We want to test a new data-cleanup service with three friendly existing clients for free. Plan the pilot.",
+      "expected": "States the uncertainty being tested, notes that friendly and free pilots bias results and do not prove willingness to pay, defines fit criteria, scope, participation, stopping conditions, and decision thresholds before starting, and records permissions for any later case study."
     }
   ],
   "activation": [
@@ -551,6 +561,11 @@
       "name": "implementation-plan-not-product-concept",
       "prompt": "Turn the approved application concept into an executable repository implementation plan with commands and file-level steps.",
       "should_trigger": false
+    },
+    {
+      "name": "service-price-floor-triggers",
+      "prompt": "Calculate a viable price floor for our service from delivery hours, acquisition effort, and risk, and compare payment structures.",
+      "should_trigger": true
     }
   ]
 }

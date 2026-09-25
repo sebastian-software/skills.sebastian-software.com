@@ -15,7 +15,10 @@ REPOSITORY_ROOT = Path(__file__).resolve().parent.parent
 SKILLS_ROOT = REPOSITORY_ROOT / "skills"
 OSS_URL = "https://oss.sebastian-software.com/"
 CONSULTING_URL = "https://sebastian-consulting.com/en"
-LICENSE_NOTICE = "MIT — see the collection [LICENSE](../../LICENSE)."
+LICENSE_NOTICE = (
+    "MIT OR Apache-2.0 — see the collection [LICENSE-MIT](../../LICENSE-MIT) "
+    "and [LICENSE-APACHE](../../LICENSE-APACHE)."
+)
 MARKDOWN_LINK = re.compile(r"\[[^\]]*\]\(([^)]+)\)")
 MARKDOWN_HEADING = re.compile(r"^#{1,6}\s+(.+?)\s*$")
 MARKDOWN_FENCE = re.compile(r"^\s{0,3}(`{3,}|~{3,})(.*)$")
@@ -803,7 +806,7 @@ def required_readme_fragments(name: str) -> dict[str, str]:
         "DALO approval": f"approve skill sebastian:{name}",
         "Sebastian Software OSS link": OSS_URL,
         "Sebastian Software consulting link": CONSULTING_URL,
-        "MIT license notice": LICENSE_NOTICE,
+        "dual license notice": LICENSE_NOTICE,
     }
 
 
