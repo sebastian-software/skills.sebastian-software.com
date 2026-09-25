@@ -1,0 +1,6 @@
+# CI-only acceptance for lychee.toml. Many hosts block, challenge, rate-limit,
+# or slow down GitHub runners while serving contributors normally, so CI fails
+# only when a link is gone (404, 410), an anchor is missing, or the host cannot
+# be reached at all. The pre-push hook checks everything strictly.
+accept = ["100..=403", "405..=409", "411..=599"]
+accept_timeouts = true

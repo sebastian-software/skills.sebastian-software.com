@@ -4,7 +4,7 @@ Status: accepted
 
 ## Repository adoption
 
-Updated: 2026-09-14
+Updated: 2026-09-25
 
 This repository uses native mdtheme to compose its committed root README from
 `README.md.src` and Sebastian-Theme. The project introduction and setup come
@@ -13,7 +13,8 @@ footer. Existing project badge links remain authored content.
 
 The CLI and theme are independently pinned by the project. CI checks generated
 output without writing it. Contributors regenerate and commit the output;
-pre-push validation never stages or commits. This avoids copied branding and
+the repository's pre-push hook runs the read-only check and never stages or
+commits. This avoids copied branding and
 keeps consumers independent of Node tooling solely for README generation.
 The tradeoff is a contributor tool installation and Git access during checks.
 

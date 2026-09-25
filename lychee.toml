@@ -1,0 +1,10 @@
+# Link-check settings shared by the pre-push hook and CI.
+# The hook applies them strictly; CI adds .github/lychee-ci.toml.
+# See docs/contributor-checks.md.
+include_fragments = "anchor-only"
+max_concurrency = 32
+host_concurrency = 2
+timeout = 40
+max_retries = 4
+retry_wait_time = 5
+no_progress = true

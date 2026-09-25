@@ -1,3 +1,7 @@
+[tools]
+lefthook = "2.1.14"
+lychee = "0.24.2"
+
 [tools."github:sebastian-software/mdtheme"]
 version = "0.4.0"
 version_prefix = "mdtheme-v"
@@ -6,6 +10,11 @@ version_prefix = "mdtheme-v"
 auto_install = false
 not_found_auto_install = false
 not_found_system_fallback = false
+
+# Install the Git hooks from lefthook.yml on every local `mise install`.
+# CI installs only the tools a job needs and never runs the hooks.
+[hooks]
+postinstall = '[ -n "$CI" ] || lefthook install'
 
 [tasks."readme:check"]
 description = "Check the README with the project's installed mdtheme version"
@@ -19,8 +28,17 @@ shell = "bash -c"
 env = { MISE_OFFLINE = "true" }
 run = 'binary=$(mise which mdtheme) && "$binary" --write'
 
-[tasks."readme:pre-push"]
-description = "Guard pushes with the project's installed mdtheme version"
+# Strict check from this machine: any error fails. Successful results are
+# cached for a day in .lycheecache; failures are always rechecked.
+# oipc.ab.ca refuses connections from some contributor networks while CI
+# reaches it, so only this local check skips it.
+[tasks."links:check"]
+description = "Check every Markdown and site link strictly from this machine"
 shell = "bash -c"
 env = { MISE_OFFLINE = "true" }
-run = 'binary=$(mise which mdtheme) && "$binary" pre-push'
+run = '''
+binary=$(mise which lychee) && "$binary" --config lychee.toml \
+  --cache --max-cache-age 1d --cache-exclude-status '300..' \
+  --exclude 'https://oipc\.ab\.ca/' \
+  './**/*.md' './site/**/*.html'
+'''

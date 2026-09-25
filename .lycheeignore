@@ -1,33 +1,22 @@
-# Hosts that block or rate-limit automated link checkers.
-https?://([a-z0-9-]+\.)?linkedin\.com.*
-https?://([a-z0-9-]+\.)?xing\.com.*
-# 2026-07-27: returns nothing within 60s from GitHub runners, a local checker,
-# and a third network path, so the check can neither confirm nor refute these
-# URLs. It failed the link check on roughly every second run. The citations in
-# skills/web-legal-compliance/references/canada.md are unverified by tooling and
-# need a human to confirm them.
-https?://laws-lois\.justice\.gc\.ca/.*
-# 2026-07-31: both URLs time out after 45s from GitHub runners and from a local
-# checker on a separate network path, with zero link errors reported alongside
-# them, so the check can neither confirm nor refute them. The two Polish
-# citations in skills/effective-writing/references/locale-polish.md are
-# unverified by tooling and need a human to confirm them. They predate the
-# six-discipline consolidation; only their path changed. Narrow entries rather
-# than a host pattern, so a future working gov.pl citation is still checked.
-https://www\.gov\.pl/web/nauka/nowe-zasady-pisowni--prostsza-bardziej-spojna-ortografia
-https://www\.gov\.pl/web/redakcyjne-abc/rekomendacje-jezykowe-redakcji-centralnej
-# 2026-09-25: returns 403 Forbidden to GitHub runners on two consecutive runs
-# while a local request returns 200 with the PDF, so the host blocks runner
-# addresses rather than the document being gone. The citation in
-# skills/effective-writing/references/locale-luxembourgish.md was confirmed
-# reachable locally on that date. Narrow entry so other portal.education.lu
-# links are still checked.
-https://portal\.education\.lu/Portals/79/Documents/WEB_LetzOrtho_Oplo6_v01\.pdf
-https?://help\.malt\.com/.*
-https?://www\.malt\.com/.*
-https?://support\.upwork\.com/.*
-https?://support\.usebraintrust\.com/.*
-https?://www\.solcom\.de/.*
+# Links that no link checker can verify from any network. Each entry names the
+# reason and the date it was confirmed. A link that fails only from GitHub
+# runners does not belong here: CI already accepts blocked and slow hosts
+# (.github/lychee-ci.toml). Keep entries to exact URLs so other pages on the
+# same host are still checked.
+
+# 2026-09-25: GitHub renders pull-request review-comment anchors client-side,
+# so fragment checks cannot resolve them. The pull request itself is checked.
+https://github\.com/.*/pull/[0-9]+\#discussion_r[0-9]+
+
+# 2026-09-25: McKinsey closes non-browser requests with an HTTP/2 protocol error
+# from GitHub runners and from a contributor network alike.
+https://www\.mckinsey\.com/careers/interviewing
+https://www\.mckinsey\.com/alumni/news-and-events/global-news/alumni-news/barbara-minto-mece-i-invented-it-so-i-get-to-say-how-to-pronounce-it
+
+# 2026-09-25: bot protection answers 403 to scripted requests from GitHub
+# runners and from a contributor network, even with a browser user agent.
+https://www\.solcom\.de/projektportal/registrieren
+https://www\.congress\.gov/
 
 # A new main-branch route cannot resolve before its first merge, so a pull
 # request that adds a skill or ADR needs a temporary entry here. Repository
@@ -36,80 +25,3 @@ https?://www\.solcom\.de/.*
 # Remove the entry once the branch is merged. An exception left behind stops the
 # link check from ever verifying that route again, which is how a genuinely
 # broken link would slip through unnoticed.
-
-# These live primary sources reject, reset, or time out on GitHub Actions'
-# link-check traffic.
-https://www\.mckinsey\.com/careers/interviewing
-# 2026-08-17: the article is reachable in normal browsers, but McKinsey closes
-# Lychee's GitHub-runner request with an HTTP/2 protocol error after retries.
-# Keep the exclusion scoped to the exact primary source.
-https://www\.mckinsey\.com/alumni/news-and-events/global-news/alumni-news/barbara-minto-mece-i-invented-it-so-i-get-to-say-how-to-pronounce-it
-https://tbrown\.org/11/
-https://doi\.org/10\.1177/154193120504900514
-https://www\.congress\.gov/
-https://www\.isof\.se/download/18\.17dda5f1791cdbd2873a99/1620030264840/Mynd-skrivreg2014-1\.pdf
-https://www\.isof\.se/utforska/publikationer/publikationer/2024-01-22-snabba-skrivregler
-https://www\.gesetze-im-internet\.de/ddg/
-https://www\.gesetze-im-internet\.de/tdddg/
-https://www\.cai\.gouv\.qc\.ca/
-https://europass\.europa\.eu/en/create-europass-cv
-https://portal\.education\.lu/zls
-
-# 2026-08-03: MLA Style Center returns 403 to GitHub Actions while the source
-# remains reachable to normal browsers. Keep this exclusion scoped to the exact
-# cited page so other MLA links still receive automated verification.
-https://style\.mla\.org/quotation-in-title-or-heading/
-
-# 2026-07-29: the ISO and ANSI standards stores return 403 to GitHub Actions
-# after retries. Keep the official citations for human readers; the automated
-# checker cannot verify these sources from its runner network. List each cited
-# standard explicitly so a new or mistyped catalogue ID still fails the check.
-https://www\.iso\.org/standard/51021\.html
-https://www\.iso\.org/standard/62330\.html
-https://www\.iso\.org/standard/68519\.html
-https://www\.iso\.org/standard/71620\.html
-https://www\.iso\.org/standard/78907\.html
-https://www\.iso\.org/standard/79077\.html
-https://webstore\.ansi\.org/industry/safety-standards/safety-signs-labels
-
-# 2026-08-20: the California legislative-information portal answers normal
-# browser traffic within about a second but intermittently exhausts the link
-# check's 40s timeout from GitHub runners (section 1798.140 failed the check on
-# the Twelve-Factor PR run of 2026-08-17 while its eight sibling citations
-# passed). List each cited section explicitly so a new or mistyped section
-# number in skills/effective-web/references/legal-united-states-california.md
-# still fails the check.
-https://leginfo\.legislature\.ca\.gov/faces/codes_displaySection\.xhtml\?sectionNum=22575\.&lawCode=BPC
-https://leginfo\.legislature\.ca\.gov/faces/codes_displaySection\.xhtml\?sectionNum=1798\.140\.&lawCode=CIV
-https://leginfo\.legislature\.ca\.gov/faces/codes_displaySection\.xhtml\?sectionNum=1798\.100\.&lawCode=CIV
-https://leginfo\.legislature\.ca\.gov/faces/codes_displaySection\.xhtml\?sectionNum=1798\.130\.&lawCode=CIV
-https://leginfo\.legislature\.ca\.gov/faces/codes_displaySection\.xhtml\?sectionNum=1798\.120\.&lawCode=CIV
-https://leginfo\.legislature\.ca\.gov/faces/codes_displaySection\.xhtml\?sectionNum=1798\.135\.&lawCode=CIV
-https://leginfo\.legislature\.ca\.gov/faces/codes_displaySection\.xhtml\?sectionNum=17602\.&lawCode=BPC
-https://leginfo\.legislature\.ca\.gov/faces/codes_displaySection\.xhtml\?sectionNum=1798\.83\.&lawCode=CIV
-https://leginfo\.legislature\.ca\.gov/faces/codes_displaySection\.xhtml\?sectionNum=631\.&lawCode=PEN
-
-# 2026-07-29: these exact editorial and Canadian government sources exhausted
-# the link check's timeout and retry budget. Keep the exclusions narrow so other
-# pages on the same hosts remain verifiable.
-https://pimpmytype\.com/line-length-line-height/
-https://www\.noslangues-ourlanguages\.gc\.ca/writing-tips-plus/spacing
-https://our-languages\.canada\.ca/en/writing-tips-plus/spacing
-https://ised-isde\.canada\.ca/site/canada-anti-spam-legislation/en
-https://ised-isde\.canada\.ca/site/office-consumer-affairs/en/federal-provincial-and-territorial-consumer-affairs-offices
-https://www\.priv\.gc\.ca/en/privacy-topics/privacy-laws-in-canada/02_05_d_15/
-
-# 2026-07-23: slow language-institution sources that intermittently time out from
-# GitHub runners even with retries; both verified reachable manually.
-https://gfds\.de/leerzeichen-und-festabstaende/
-https://frageladan\.isof\.se/faqs/23562
-
-# 2026-07-27: the Norwegian language council refuses GitHub runner traffic with a
-# connection failure. It broke every open pull request while main stayed green by
-# chance; verified reachable manually.
-https://sprakradet\.no/.*
-
-# 2026-07-27: GitHub renders pull-request review-comment anchors client-side, so
-# --include-fragments can never resolve them from the served HTML. The pull
-# request itself is still checked; only the comment anchor is skipped.
-https://github\.com/.*/pull/[0-9]+\#discussion_r[0-9]+

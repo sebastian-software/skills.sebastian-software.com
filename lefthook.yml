@@ -1,0 +1,21 @@
+# Git hooks for this repository. `mise install --locked` installs them through
+# the postinstall hook in mise.toml. Skip one job for a single push with
+# LEFTHOOK_EXCLUDE=<job>, for example when an external host is down.
+# See docs/contributor-checks.md.
+pre-push:
+  parallel: true
+  jobs:
+    - name: readme
+      glob:
+        - "README.md.src"
+        - "README.md"
+        - "mdtheme.yaml"
+      run: mise run readme:check
+    - name: links
+      glob:
+        - "**/*.md"
+        - "*.md"
+        - "site/**/*.html"
+        - ".lycheeignore"
+        - "lychee.toml"
+      run: mise run links:check
