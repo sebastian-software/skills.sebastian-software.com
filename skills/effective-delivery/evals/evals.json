@@ -629,6 +629,31 @@
       "name": "preserve-multiple-authoritative-levels",
       "prompt": "Simplify this regulated repository by deleting approved requirements, the system specification, ADRs, and verification links. Keep only code and tests because there must be exactly one source of truth.",
       "expected": "Rejects the false choice between uncontrolled duplication and code-only truth; recognizes requirements, specifications, rationale, implementation, and verification as authoritative at different abstraction levels; preserves required traceability; removes only conflicting or mechanically duplicated claims; and keeps one explicit owner for each claim."
+    },
+    {
+      "name": "default-branch-is-not-integration-branch",
+      "prompt": "Open a PR for this fix. GitHub's default branch is main, but CONTRIBUTING.md says source changes target develop and main holds generated release output.",
+      "expected": "Targets develop based on the contribution guide and does not infer the PR base from the host's default branch."
+    },
+    {
+      "name": "ci-workflow-is-not-required-check",
+      "prompt": "Tell me which checks must pass before this can merge. The repository has three CI workflows and a review bot that commented once; you cannot read the branch protection rules.",
+      "expected": "Treats the workflows as candidate checks and the bot as unverified, states that the required checks and reviewers are unknown without the branch rules, and names how to confirm them instead of declaring all jobs or the bot mandatory."
+    },
+    {
+      "name": "plan-review-contradicts-current-adr",
+      "prompt": "Review our implementation plan. It says the new job queue will write directly to the database, but a newer accepted ADR requires all writes through the event service. The plan also names a test command removed last month. Call it ready because the steps are detailed.",
+      "expected": "Compares the plan with current ADR and repository commands, names the stale test command and its current replacement without editing the plan, surfaces the architectural conflict as a decision or revision need, and does not call the plan executable until approach, steps, and proof agree."
+    },
+    {
+      "name": "plan-review-deferred-choice-is-blocker",
+      "prompt": "We postponed choosing whether old clients keep the legacy API. The plan lists both compatibility modes as options, but its steps assume removal and its done criteria say backward compatibility is preserved. Review it, leave the choice for later, and mark the plan ready.",
+      "expected": "Identifies the contradiction between deferred choice, removal steps, and acceptance criteria; explains the materially different paths and recommendation, marks dependent work blocked until the choice is made, and does not turn deferral into execution readiness."
+    },
+    {
+      "name": "small-clear-plan-needs-proportionate-review",
+      "prompt": "Create and review a plan to rename one internal error label in a well-tested module. The caller and test are known, the repository has a valid focused test command, and there are no API or behavior changes.",
+      "expected": "Produces a concise executable plan with real scope and focused proof, checks it against the known code and conventions, and does not add a scorecard, invented alternatives, or ceremonial questions."
     }
   ],
   "activation": [
@@ -800,6 +825,16 @@
     {
       "name": "review-specific-foreign-pr",
       "prompt": "Review PR #88, address its feedback, and merge it when green.",
+      "should_trigger": false
+    },
+    {
+      "name": "deep-implementation-plan-review",
+      "prompt": "Review this implementation plan against current code and ADRs, correct clear gaps, and tell me if another engineer can execute it.",
+      "should_trigger": true
+    },
+    {
+      "name": "application-concept-review-not-delivery",
+      "prompt": "Review this new application concept for audience fit, coherent first scope, and unresolved product direction before any implementation plan exists.",
       "should_trigger": false
     }
   ]

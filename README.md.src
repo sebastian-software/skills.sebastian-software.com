@@ -10,7 +10,7 @@
 need to do dependable product and software work.**
 
 Six disciplines, one quality bar:
-6 practice-built skills, 336 focused references, and 2 optional instruction packs
+6 practice-built skills, 337 focused references, and 2 optional instruction packs
 covering product decisions and research, browser experiences, software
 architecture and code, repository and team delivery, nonfiction prose, and
 go-to-market work, plus standing contracts for request completion and
@@ -61,7 +61,7 @@ them a dependency of any skill.
 
 | # | Discipline | One-line story | Routes |
 | --- | --- | --- | --- |
-| 01 | [`effective-product`](skills/effective-product/) | Decide what to build and how it should work | 10 |
+| 01 | [`effective-product`](skills/effective-product/) | Decide what to build and how it should work | 11 |
 | 02 | [`effective-web`](skills/effective-web/) | Build the browser experience as one system | 26 |
 | 03 | [`effective-engineering`](skills/effective-engineering/) | Design and write the software itself | 10 |
 | 04 | [`effective-delivery`](skills/effective-delivery/) | Move repositories and teams forward safely | 10 |
@@ -76,6 +76,7 @@ Start with the job you need done rather than the repository taxonomy.
 | --- | --- |
 | Plan, conduct, and synthesize traceable customer and market research | [`effective-product`](skills/effective-product/) |
 | Turn incomplete evidence into product direction, scope, or a durable decision | [`effective-product`](skills/effective-product/) |
+| Develop a new application concept or review it before implementation planning | [`effective-product`](skills/effective-product/) |
 | Model the experience: research, problem framing, objects, flows, IA, prototypes | [`effective-product`](skills/effective-product/) |
 | Decide what to charge, how to package it, or what to name it | [`effective-product`](skills/effective-product/) |
 | Design, build, review, or improve a production web experience | [`effective-web`](skills/effective-web/) |

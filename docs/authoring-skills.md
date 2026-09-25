@@ -56,6 +56,13 @@ Define completion from the whole request. “Audit, fix, and open a PR” alread
 includes implementation and publication authority; an audit-only request does
 not. Avoid generic review stops that interrupt an authorized workflow.
 
+Skills carry domain knowledge and boundaries, not the machinery of one
+particular workflow. Do not import finding taxonomies, status vocabularies,
+mandatory recheck loops, fixed artifact templates, standing pre-read
+instructions for other agents, or rules that turn a review into an edit. State
+what makes an artifact sound and which misreadings to avoid; leave the method
+to the agent and the user's request.
+
 These principles follow [Eric Provencher's guidance on skills and prompts](https://x.com/pvncher/status/2095991462416490862).
 Keep them model-neutral and verify behavior on the runtimes that use the skills.
 

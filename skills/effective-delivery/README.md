@@ -42,7 +42,8 @@ It replaces the former `effective-workflow`, `codebase-improvement`,
 
 - read-only root-cause reports that separate symptom, reproduction, and cause
 - repository audits with verified, ranked, evidence-backed findings
-- executable implementation plans and backlog reconciliation
+- implementation plans reviewed for consistency and execution readiness, and
+  backlog reconciliation
 - migration contracts, equivalence oracles, and port execution profiles
 - pull-request reviews that name the blocking risk and the optional suggestion
 - dependency portfolios grouped by one reviewer question each
@@ -71,6 +72,9 @@ and tell me the best-supported cause, not a fix.
 
 Audit this repository and rank the five highest-leverage improvements with the
 evidence for each.
+
+Review our implementation plan against the current code and ADRs. Fix clear
+gaps, surface decisions that need an owner, and say whether it is executable.
 
 Catch up on my review queue: decide what is merge-ready and leave the reviews.
 
