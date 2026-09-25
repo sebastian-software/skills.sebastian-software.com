@@ -396,12 +396,12 @@ class SkillReadmeRequirementsTests(unittest.TestCase):
 
         self.assertEqual(errors, [])
 
-    def test_requires_the_portable_mit_license_notice(self) -> None:
+    def test_requires_the_portable_dual_license_notice(self) -> None:
         fragments = VALIDATOR.required_readme_fragments("example")
         text = "\n".join(
             fragment
             for label, fragment in fragments.items()
-            if label != "MIT license notice"
+            if label != "dual license notice"
         )
         errors: list[str] = []
 
@@ -409,7 +409,7 @@ class SkillReadmeRequirementsTests(unittest.TestCase):
 
         self.assertEqual(
             errors,
-            ["skills/example/README.md: missing MIT license notice"],
+            ["skills/example/README.md: missing dual license notice"],
         )
 
 

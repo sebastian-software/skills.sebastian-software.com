@@ -69,6 +69,9 @@ guardrails, and ship/iterate/stop decision.
   **Messaging**, or **Market learning**.
 - Drafting or revising an approved copy intervention is
   **Copywriting**.
+- Paid campaign settings, creatives, and spend-to-sale reporting are
+  **Paid campaigns**; lead intake, CRM events, and follow-up ownership are
+  **CRM**.
 - Target user, product value, core journey, scope, quality bar, release
   decision, and any pricing, packaging, discount, trial, entitlement, or
   customer-migration choice belong to `effective-product`.

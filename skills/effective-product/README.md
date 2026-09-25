@@ -23,7 +23,7 @@ mapping.
 
 | Route | Owns |
 | --- | --- |
-| Discovery and Evidence Review | opportunities, Jobs to be Done, decision-readiness audits |
+| Discovery and Evidence Review | opportunities, Jobs to be Done, service pilots, decision-readiness audits |
 | Application Concept | new application concepts, deep reviews, planning handoffs |
 | Strategy and Operating Model | theses, outcomes, network effects, empowered teams |
 | Scope, Quality, and Shipping | initial scope, roadmaps, quality bars, release calls |
@@ -31,7 +31,7 @@ mapping.
 | Solution Modeling and Prototyping | objects, flows, journeys, IA, wireframes, prototypes |
 | Behavioral and Retention Design | habit loops, rewards, gamification, retention |
 | Customer and Market Research | programs, recruitment, fieldwork, VoC, market sizing |
-| Pricing and Packaging | value metrics, models, tiers, trials, migrations |
+| Pricing and Packaging | value metrics, models, tiers, trials, migrations, service pricing |
 | Product and Feature Naming | territories, generation, screening, shortlists |
 | Decision Records | ADR creation, review, supersession, audits |
 
@@ -138,4 +138,4 @@ modernize, and ship ambitious software products through
 
 ## License
 
-MIT — see the collection [LICENSE](../../LICENSE).
+MIT OR Apache-2.0 — see the collection [LICENSE-MIT](../../LICENSE-MIT) and [LICENSE-APACHE](../../LICENSE-APACHE).

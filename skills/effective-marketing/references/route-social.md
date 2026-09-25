@@ -31,6 +31,8 @@ evidence, and voice brief here and hand the LinkedIn expression to that route.
    product or project post, educational post, announcement, or visual caption.
    Read [Formats and remixing](formats-and-remixing.md) when the direction is
    open, the source is being repurposed, or several versions are requested.
+   Read [Video and audio content](video-and-audio-content.md) for long video,
+   podcasts, audio versions, short video, production briefs, and clips.
 4. Choose the platform treatment. Read [Platform adaptation](platform-adaptation.md)
    for a named non-LinkedIn platform, a multi-platform deliverable, or any
    request that depends on current platform behavior or exact limits. Treat
@@ -113,6 +115,9 @@ strategy explanation.
   magnets, funnels, and pipeline strategy belong to
   **LinkedIn selling**; consume its approved audience,
   offer, proof, and content role.
+- A content program planned to feed a service offer's pipeline — journey
+  stages, a topic bank from customer conversations, learning from qualified
+  responses — starts in **Service business growth**.
 - Cross-channel positioning, messaging, proof, launches, and claim boundaries
   are settled in **Positioning** and
   **Messaging** before being expressed socially.

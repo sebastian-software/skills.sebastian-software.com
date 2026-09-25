@@ -28,6 +28,9 @@ unsupported claims.
 5. Load [Packaging and changes](packaging-and-changes.md) for package
    architecture, feature or usage fences, trials, discounts, rollout, and
    existing-customer migration. Do not assume the answer is three tiers.
+   Load [Service pricing and expansion](service-pricing.md) when pricing a
+   service engagement: cost blocks and a viability floor, payment structures,
+   and account-expansion decisions.
 6. Develop two to four materially different options. For each, show:
    - target customer and buying situation
    - metric, model, package structure, and price hypothesis
@@ -98,7 +101,8 @@ For a consequential pricing or packaging decision, return:
   trials, guarantees, eligibility, and migration constraints belong to
   `effective-marketing`. This route supplies the approved facts, evidence
   limits, package rationale, and migration constraints; that discipline does not
-  change the underlying policy.
+  change the underlying policy. The price conversation with a service buyer is
+  its Consultative Sales route.
 - Website disclosures, consent, privacy, and jurisdiction-specific legal
   requirements connected to presenting or testing an offer belong to
   `effective-web`.

@@ -111,4 +111,7 @@ For an end-to-end request, return:
   multi-jurisdiction requirements around them belong to `effective-web`.
 - Target user, customer problem, product promise, evidence, scope, and release
   decisions belong to `effective-product`.
+- Cold email, phone, direct mail, and events are **Outbound**; qualification,
+  the consultation, and follow-up after the first meeting are
+  **Consultative sales**; pipeline stages and automations are **CRM**.
 - Locale-specific visible prose belongs to `effective-writing`.

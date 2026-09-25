@@ -9,6 +9,9 @@ differentiation, positioning options, and the positioning brief.
    boundary, the four layers, and the deliverable contract.
 2. [Positioning and segmentation](positioning-and-segmentation.md) — the
    route's working guidance.
+3. [Service offer](service-offer.md) — when the product is a service: customer
+   and problem pairs, offer dimensions, the offer card, comparing offer ideas,
+   and diagnosing weak demand.
 
 ## Apply
 
@@ -32,4 +35,6 @@ differentiation, positioning options, and the positioning brief.
   decision and evidence gaps; receive buyer language, alternatives, decision
   criteria, and evidence limits without delegating the market-facing decision.
 - Target user, customer problem, product thesis, scope, and release decisions
-  belong to `effective-product`.
+  belong to `effective-product`, as do service pricing and pilot design.
+- A LinkedIn-led entry offer and commercial thesis are in
+  **LinkedIn selling**; keep it consistent with the service offer card.

@@ -9,6 +9,9 @@ adaptation, objections, calls to action, and proof gaps.
    boundary and deliverable contract.
 2. [Messaging and proof](messaging-and-proof.md) — the route's working
    guidance.
+3. [Positioning thesis](positioning-thesis.md) — when the message needs a causal
+   argument: problem, current belief, counterpoint, diagnosis, mechanism, and
+   proof, plus its expression across ads, posts, pages, resources, and video.
 
 ## Apply
 
@@ -27,6 +30,6 @@ adaptation, objections, calls to action, and proof gaps.
 - Writing the approved message as page, campaign, email, or sales copy is
   **Copywriting**.
 - Expressing it on social platforms is **Social** or
-  **LinkedIn posts**.
+  **LinkedIn posts**; in ads it is **Paid campaigns**.
 - Jurisdiction-specific requirements for claims, testimonials, endorsements,
   disclosures, and direct marketing belong to `effective-web`.

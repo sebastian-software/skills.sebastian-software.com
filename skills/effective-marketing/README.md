@@ -5,22 +5,24 @@
 [![Maintained by Sebastian Software](https://img.shields.io/badge/Maintained%20by-Sebastian%20Software-0f172a.svg)](https://oss.sebastian-software.com/)
 
 **Take verified value to market — position it, say it, write it, distribute it,
-and learn from what the market answers.**
+sell it, and learn from what the market answers.**
 
 Effective Marketing is one of six disciplines in this collection. It turns
 stable product, customer, and career evidence into a position people
 understand, claims they can trust, copy that helps a decision, channels that
-reach the right reader, and a learning loop that can revise all of it. It keeps
+reach the right reader, sales conversations that respect a buyer's decision,
+and a learning loop that can revise all of it. It keeps
 product evidence, market position, message expression, and channel tactic
 separately reviewable, so polished copy never becomes retroactive proof that the
 product works.
 
 It replaces the former `product-marketing`, `marketing-writing`,
 `conversion-optimization`, `create-social-content`, `linkedin-posts`,
-`linkedin-social-selling`, and `consultant-profile` skills. See
+`linkedin-social-selling`, and `consultant-profile` skills, and absorbs the
+former standalone Service Growth System. See
 [MIGRATION.md](../../MIGRATION.md) for the full mapping.
 
-## Twelve Routes
+## Seventeen Routes
 
 | Route | Owns |
 | --- | --- |
@@ -30,7 +32,12 @@ It replaces the former `product-marketing`, `marketing-writing`,
 | Market Learning | win/loss, adoption analysis, what changes the decision |
 | Marketing Copywriting | homepages, landing, product, pricing, campaign, sales, email |
 | Conversion Optimization | funnel diagnosis, experiment design, ship/stop decisions |
-| Social Content | social programs; X, Threads, Bluesky, Instagram, Mastodon, multi-platform |
+| Service Business Growth | end-to-end service system, bottleneck, weekly priorities |
+| Outbound Prospecting | lead research, cold email, phone, mail, video follow-up, events |
+| Consultative Sales | inbound conversations, qualification, consultation, objections, follow-up |
+| Paid Campaigns | local lead campaigns, retargeting, spend-to-sale measurement |
+| CRM and Sales Operations | data model, pipeline, views, intake, automations |
+| Social Content | social programs; X, Threads, Bluesky, Instagram, Mastodon, video, podcasts |
 | LinkedIn Posts | LinkedIn ideas, drafting, formats, content calendars |
 | LinkedIn Social Selling | profile-to-pipeline acquisition systems |
 | Consultant Profile | CVs, profiles, bios, signature projects, structure |
@@ -45,6 +52,14 @@ It replaces the former `product-marketing`, `marketing-writing`,
 - win/loss and adoption reviews that say what the market actually answered
 - homepage, landing, product, pricing, campaign, sales, and email copy
 - funnel diagnoses, experiment designs, and ship, iterate, or stop decisions
+- service offer cards and a bottleneck diagnosis from offer to delivery
+- prospect lists, cold email and phone guides, and mail or event plans that
+  check the contact basis for the actual market first
+- qualification guides, consultation arcs, objection diagnoses, role-play
+  feedback, and follow-up messages with a real reason
+- paid campaign briefs, retargeting audiences, and spend-to-sale reports
+- CRM data models, pipelines with entry rules, saved views, and idempotent
+  automations
 - platform-native social content and evidence-labelled X strategies that can
   be updated without starting from zero
 - LinkedIn posts, calendars, and end-to-end social-selling systems
@@ -83,6 +98,15 @@ and the hypotheses we should test.
 
 Audit my consultant profile. What is my thesis, which projects should be
 signature, and what evidence is still missing?
+
+We are a three-person IT service firm with enough inquiries but few sales.
+Find the bottleneck from inquiry to delivery and give me next week's plan.
+
+Write a first cold email and a phone guide for operations leads at mid-sized
+logistics firms in Germany. Check what contact basis we need first.
+
+Design our CRM pipeline with observable stage entry rules and an automation for
+new inquiries that cannot create duplicates.
 ```
 
 See [SKILL.md](SKILL.md) for the workflow, evidence boundary, route table, and
@@ -108,7 +132,8 @@ dalo sync
 ## Related Disciplines
 
 - [Effective Product](../effective-product/README.md) owns customer and market
-  research, the product decision itself, pricing and packaging, and the
+  research, the product decision itself, product and service pricing, service
+  pilots, and the
   Architecture Decision Records that keep durable positioning and voice choices
   from drifting.
 - [Effective Writing](../effective-writing/README.md) owns articles, essays,
@@ -119,7 +144,8 @@ dalo sync
   copy, forms, analytics delivery, experiment implementation, accessibility,
   performance, originality audits, and jurisdiction-aware web compliance.
 - [Effective Delivery](../effective-delivery/README.md) owns repository-derived
-  technical facts, executable examples, and controlled-language documentation.
+  technical facts, executable examples, controlled-language documentation, and
+  people leadership such as delegation contracts.
 
 ## Scope
 
@@ -128,7 +154,10 @@ customer language, testimonials, outcomes, statistics, market size, competitor
 behavior, differentiation, or certainty; it does not authorize deceptive
 interfaces or dark patterns; and it does not replace legal, privacy, or
 specialist statistical review when risk and uncertainty exceed the available
-evidence. Drafting content is not permission to publish it.
+evidence. Drafting content is not permission to publish it, and drafting
+outreach is not permission to send it, call, spend, or change a CRM or ad
+account. Contact rules, tracking, and platform settings are checked for the
+actual market before they are relied on.
 
 ## About Sebastian Software
 
@@ -139,4 +168,4 @@ modernize, and ship ambitious software products through
 
 ## License
 
-MIT — see the collection [LICENSE](../../LICENSE).
+MIT OR Apache-2.0 — see the collection [LICENSE-MIT](../../LICENSE-MIT) and [LICENSE-APACHE](../../LICENSE-APACHE).
