@@ -64,19 +64,20 @@ host's recovery and approval mechanisms for destructive or privileged actions.
 
 ## Read Project Conventions for What They Prove
 
-Repository signals are easy to over-read. The forge's default branch is not
-necessarily the integration branch or PR target; a guide that names another
-base wins. A CI workflow is a candidate check, not a required one, until branch
-protection or a ruleset says so. A bot that commented once is not a mandatory
-reviewer, and its trigger comment is not a passing check. When forge settings
-are unreadable, say that the requirement is unknown instead of promoting the
-nearest pattern to policy.
+Repository signals are easy to over-read. The default branch on GitHub,
+GitLab, or a similar host is not necessarily the integration branch or PR
+target; a guide that names another base wins. A CI workflow is a candidate
+check, not a required one, until branch protection or a ruleset says so. A bot
+that commented once is not a mandatory reviewer, and its trigger comment is not
+a passing check. When branch protection and rulesets are unreadable, say that
+the requirement is unknown instead of promoting the nearest pattern to policy.
 
 Language conventions differ by surface: chat, code comments, developer docs,
-user docs, forge prose, and commit or release text can each have their own
-rule, and product UI language follows the localization policy rather than any
-of them. One participant's chat preference is not a team rule. When documented
-norms and forge enforcement disagree, report both; either may be stale.
+user docs, issues and PR text, and commit or release text can each have their
+own rule, and product UI language follows the localization policy rather than
+any of them. One participant's chat preference is not a team rule. When
+documented norms and the host's enforced settings disagree, report both; either
+may be stale.
 
 ## Write an Intentional Commit Message
 

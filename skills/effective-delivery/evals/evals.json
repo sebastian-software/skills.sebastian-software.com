@@ -633,7 +633,7 @@
     {
       "name": "default-branch-is-not-integration-branch",
       "prompt": "Open a PR for this fix. GitHub's default branch is main, but CONTRIBUTING.md says source changes target develop and main holds generated release output.",
-      "expected": "Targets develop based on the contribution guide and does not infer the PR base from the forge default branch."
+      "expected": "Targets develop based on the contribution guide and does not infer the PR base from the host's default branch."
     },
     {
       "name": "ci-workflow-is-not-required-check",
