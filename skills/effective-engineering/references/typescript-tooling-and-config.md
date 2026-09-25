@@ -48,7 +48,7 @@ flow), fix the code rather than disabling the rule.
 ## Stay Package-Manager Agnostic
 
 Detect the package manager from the lockfile (`package-lock.json`,
-`pnpm-lock.yaml`, `yarn.lock`, `bun.lockb`) and workspace layout, and use it.
+`pnpm-lock.yaml`, `yarn.lock`, `bun.lock` or `bun.lockb`) and workspace layout, and use it.
 Do not switch managers, regenerate a lockfile under a different tool, or assume
 npm. Respect an existing workspaces or monorepo layout (pnpm/npm/yarn workspaces,
 Turborepo, Nx) and its project-reference or build-graph conventions rather than

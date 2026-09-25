@@ -361,7 +361,7 @@ Container queries let the table respond to the width of its parent container rat
 
 **Warning:** the stacked branch's `display: block` destroys table semantics for screen readers exactly as in Pattern 2 — restore roles (`role="table"`/`"row"`/`"cell"`) or prefer keeping table `display` (see [HTML accessibility](html-accessibility.md)).
 
-**Browser support:** Chrome 105+, Firefox 110+, Safari 16+. As of 2025, container queries have broad production readiness.
+**Browser support:** container size queries are Baseline Widely available (Chrome 105+, Firefox 110+, Safari 16+).
 
 ### Comparison Tables on Mobile
 
@@ -793,7 +793,7 @@ CSS Subgrid (part of Grid Level 2) allows card-based or list layouts to maintain
 
 **Do not use Subgrid as a replacement for `<table>` when the data is genuinely tabular.** Screen readers have no way to navigate a grid of `<div>` elements as a table. Use Subgrid for visual alignment in non-tabular layouts.
 
-Browser support: Chrome 117+, Firefox 71+, Safari 16+. Broadly available as of late 2024.
+Browser support: Subgrid is Baseline Widely available (Chrome 117+, Firefox 71+, Safari 16+).
 
 ## Quick Reference: Complete Table Template
 

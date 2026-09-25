@@ -22,17 +22,14 @@ Load only the reference needed for the requested pass:
 - Treat personality as a buyer-fit layer, not a decorative sidebar. The reader
   should understand what kind of person they may hire, what gives them energy,
   how they think, and what they want to create or improve.
-- Translate raw personality markers into buyer-safe language. For example,
-  "Nein-Sager" may become "constructive dissent", "clear product judgment",
-  "says no when it protects focus, quality, or users", or "brings clear
-  boundaries to ambiguous product work".
+- Translate raw personality markers into buyer-safe language: state the
+  behavior and the outcome it protects instead of the blunt self-label.
 - State relevant boundaries when they clarify fit: what the consultant does
   well, what they do not pretend to do, which roles they avoid, and where they
   need complementary specialists.
-- Use background signals when they explain strengths. A design/webdesign
-  origin, visual judgment, layout/color sensitivity, designer collaboration, and
-  autodidactic engineering path can support a bridge positioning between
-  product, design, and software delivery.
+- Use background signals when they explain a current strength. Connect an
+  earlier discipline or non-linear path to the capability it produced, and pair
+  it with proof.
 - Include personal motivation and professional ambition when they make the
   profile more human and commercially relevant. Avoid private biography that
   does not help the reader decide fit.

@@ -53,14 +53,14 @@ system, conduct pricing and packaging research, or own channel planning and
 launch execution.
 
 - Use `effective-marketing` for segment and category choices, positioning,
-  messaging, proof, launch planning, sales enablement, and market learning.
-- Use `effective-marketing` only when LinkedIn fits the target buyer and
-  touch model.
+  messaging, proof, launch planning, sales enablement, and market learning;
+  use its LinkedIn routes only when LinkedIn fits the target buyer and touch
+  model.
 - Use the pricing route for willingness-to-pay research, value metrics,
   pricing models, packages, commercial policies, and price changes.
-- Use `effective-web` for the implemented web journey and measurement surfaces.
-- Use `effective-web` before tracking, testimonials, lead capture, or
-  direct-marketing behavior is approved.
+- Use `effective-web` for the implemented web journey and measurement surfaces,
+  and its web legal-compliance route before tracking, testimonials, lead
+  capture, or direct-marketing behavior is approved.
 
 Keep market benchmarks, platform tactics, launch calendars, and channel advice
 time-bound and source-backed. Treat simple pricing multipliers and exposure

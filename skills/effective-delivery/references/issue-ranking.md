@@ -29,7 +29,7 @@ Use UTC timestamps. Keep assessments evidence-based:
 - `urgency`: how quickly harm or blocking grows;
 - `relevance`: confidence that this repository and current project own the fix.
 
-Apply the ownership gate in `SKILL.md` before writing this file. Ownership is an
+Apply the ownership gate in the [Issue Queue Autopilot route](route-issue-autopilot.md#build-the-live-queue) before writing this file. Ownership is an
 eligibility rule, not score weight: a high-scoring ticket assigned only to another
 active human must not enter the automatic queue.
 

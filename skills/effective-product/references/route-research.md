@@ -105,9 +105,11 @@ Return the smallest decision-ready package containing:
   belong to `effective-marketing`. Return buyer language, decision criteria,
   alternatives, win/loss evidence, and proof gaps without manufacturing
   differentiation.
-- Jurisdiction-specific requirements governing recruitment, recording, personal
-  data, incentives, testimonials, direct marketing, cookies, or research
-  disclosures belong to `effective-web`.
+- Web-facing requirements for cookies, tracking, testimonials, direct-marketing
+  capture, and online research disclosures belong to `effective-web`'s
+  compliance route; jurisdiction-specific rules for recruitment, recording,
+  participant personal data, and incentives need the organization's privacy or
+  legal owner.
 - This route does not replace formal statistical, legal, regulated
   human-subjects, scientific, or specialist industry review when the decision
   exceeds the available competence and evidence.

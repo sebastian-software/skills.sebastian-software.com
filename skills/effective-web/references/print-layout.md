@@ -1,6 +1,6 @@
 # Layout Reference
 
-Detailed CSS for print layout and page structure. See SKILL.md for principles.
+Detailed CSS for print layout and page structure. See [route-print.md](route-print.md) for principles.
 
 ## CSS Layer Strategy
 

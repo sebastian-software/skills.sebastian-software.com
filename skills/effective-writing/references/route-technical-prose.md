@@ -21,7 +21,8 @@ piece needs briefing or source planning.
 - Prefer a worked example to an abstraction when both would fit.
 - A controlled-language request made only because the subject is technical is a
   profile mismatch. Say so, write natural prose, and switch only when an
-  artifact contract governs it.
+  artifact contract governs it or the user reconfirms after that tradeoff;
+  route that authoring through `effective-delivery`.
 
 ## Cross-links
 

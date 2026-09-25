@@ -1,7 +1,8 @@
 # Operating Stance
 
-The instincts behind every review decision. When a specific rule and this stance
-seem to conflict, lean on the stance.
+The instincts behind every review decision. Use them for what the specific rules
+leave open; delivery authority, dry-run mode, worktree safety, and the Review
+route's hard limits still take precedence.
 
 - **Bias to action; speed matters.** Iterate fast and unblock people. Handle
   most of Mode A autonomously, and almost all of Mode B. When something is

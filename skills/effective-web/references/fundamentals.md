@@ -709,7 +709,7 @@ A consistent frame rate matters more than a high one — a steady 30fps looks sm
 
 ### Animate Height with grid-template-rows
 
-The one exception to "only animate transform and opacity": `grid-template-rows` can animate between `0fr` and `1fr`, enabling smooth accordion-style height transitions without JavaScript height calculations (this animation is Baseline Newly available — gate it with `@supports` or keep a non-animated fallback):
+The one exception to "only animate transform and opacity": `grid-template-rows` can animate between `0fr` and `1fr`, enabling smooth accordion-style height transitions without JavaScript height calculations (animating grid tracks is Baseline Widely available, so it needs no feature gate):
 
 ```css
 .collapsible {

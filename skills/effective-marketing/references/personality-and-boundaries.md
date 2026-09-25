@@ -165,15 +165,15 @@ Avoid literal translations of German edge phrases.
 
 When the profile needs more personality, use a compact principles block.
 
-Template:
+Template (fill each slot from the consultant's own evidence):
 
 ```text
 How I work
 
-- I say no when it protects focus, users, or long-term maintainability.
-- I care about the visual and interaction quality of software, not just the implementation layer.
-- I work best between product, design, and engineering, where trade-offs need to be made explicit.
-- I am clear about my limits and bring in specialists when a problem sits outside my depth.
+- I say no when it protects [focus / users / quality / another value they name].
+- I care about [the quality dimension clients notice in their work].
+- I work best where [the situation their projects repeatedly show].
+- I am clear about my limits and bring in specialists for [the adjacent area they do not cover].
 ```
 
 German variant:
@@ -221,7 +221,7 @@ Ask these questions when personality or boundaries are important but underspecif
 - What do you say no to in projects, and why?
 - When has saying no improved the outcome?
 - What kinds of work should clients not hire you for?
-- Which parts of your design/webdesign background still shape your engineering work?
+- Which earlier discipline or path still shapes how you work today?
 - What do designers, product people, or stakeholders usually appreciate about working with you?
 - Which labels feel true internally but need safer public wording?
 - Where should the profile be sharper, and where should it stay restrained?

@@ -128,7 +128,7 @@ should measure 72 PDF points; its 90px control should measure 67.5 points.
 - `font-synthesis: none` — prevent browser from generating faux bold/italic (ugly on paper)
 - OpenType: `oldstyle-nums` for body, `lining-nums tabular-nums` for tables, `lining-nums` for headings
 - Never track lowercase body; add `letter-spacing: 0.05–0.12em` to CAPS/small-caps
-- Font-weight never below 400 (thin/light vanish on paper)
+- Start body text at 400; use lighter weights only after verifying them on the actual output (thin strokes can vanish on paper)
 - Fewer heading levels than screen (3 suffice), modest ~1.2x scale (minor third)
 - Max 2–3 typefaces; pair by matching x-heights and historical period
 - Books: use `text-indent: 1em` on `p + p` (not `margin-bottom`) for paragraph separation

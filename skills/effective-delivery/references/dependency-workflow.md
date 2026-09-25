@@ -1,6 +1,6 @@
 # Smart Dependency Update Workflow
 
-Use this reference when executing the full dependency-update process or when the package graph is large enough that the grouping decision needs explicit reasoning. This file is the authoritative copy of the grouping table, the publishing and delivery rules, and the PR-body guidance; SKILL.md carries only the rules of thumb.
+Use this reference when executing the full dependency-update process or when the package graph is large enough that the grouping decision needs explicit reasoning. This file is the authoritative copy of the grouping table, the publishing and delivery rules, and the PR-body guidance; the [Dependencies route](route-dependencies.md) carries only the rules of thumb.
 
 ## 1. Repository Orientation
 
@@ -113,7 +113,7 @@ Document grouping in a short table:
 Good proposed PRs are named by the thing a reviewer is actually checking:
 
 - `chore(deps): update vitest coverage tooling` for a test runner plus coverage adapter.
-- `chore(deps): update docs framework stack` for Ardo, React Router, Vite, React, and docs-only UI migration.
+- `chore(deps): update docs framework stack` for a docs framework plus the bundler, router, and UI packages it pins.
 - `chore(deps): update eslint toolchain` for ESLint core, parser, plugins, and the lint cleanup it causes.
 
 If two rows in the table would use different validation commands or require different reviewer knowledge, make them separate PRs by default.
@@ -137,8 +137,9 @@ Worktree workflow:
 2. Reuse a suitable harness-managed worktree rather than nesting, or create one
    collision-free worktree per PR group from the same refreshed base unless
    repository policy requires serial rebases.
-3. Name branches by the group, for example `codex/deps-next-runtime`,
-   `codex/deps-radix-primitives`, or `codex/deps-vite-build`.
+3. Name branches by the group under the repository's or harness's branch
+   convention, for example `<prefix>/deps-next-runtime` or
+   `<prefix>/deps-vite-build`.
 4. Re-verify the run-local location receipt before the first write and after a
    resume or handoff. Use `git -C` or an explicit tool working directory.
 5. Apply only the group's manifests, lockfile changes, generated output, local
@@ -213,13 +214,13 @@ Use the package manager's normal update path. Avoid hand-editing lockfiles unles
 Commit strategy:
 
 - Use Conventional Commits unless the repository has its own convention, for example `chore(deps): update eslint toolchain`. One commit is enough for small coherent updates.
-- Use separate commits for "dependency versions" and "local adoption" when it improves review, for example `chore(deps): update docs framework stack` plus `refactor(docs): adapt ardo ui imports`. Keep both commits in the same PR only when the migration is caused by that dependency group.
+- Use separate commits for "dependency versions" and "local adoption" when it improves review, for example `chore(deps): update docs framework stack` plus `refactor(docs): adapt renamed UI imports`. Keep both commits in the same PR only when the migration is caused by that dependency group.
 - Keep the commit scope aligned with the PR group. Avoid mixing unrelated groups in one commit; if the commit message needs "and", split it.
 
 Publishing strategy:
 
-- Push and open ready-for-review PRs only within the granted delivery authority (see the Default Delivery Contract in SKILL.md). Without publishing authority, complete each group as a local branch and report the delivery proposal instead.
-- Create one branch per proposed PR group by default, usually `codex/update-<group-name>` unless the repository has its own branch convention.
+- Push and open ready-for-review PRs only within the granted delivery authority (see the Default Delivery Contract in the [Dependencies route](route-dependencies.md#default-delivery-contract)). Without publishing authority, complete each group as a local branch and report the delivery proposal instead.
+- Create one branch per proposed PR group by default, named `<prefix>/deps-<group-name>` under the repository's or harness's branch convention.
 - Prefer separate worktrees for independent PR groups. Check existing worktrees first to avoid branch/path collisions.
 - Stage only files that belong to that group. A lockfile can be shared across workspace packages, but the PR should still have a coherent dependency story.
 - Complete one group to the authorized delivery point — for full delivery, push and open a ready-for-review PR — before moving to the next unrelated group. Put the researched dependency explanation, validation, risk, and deferred work in the PR body.
@@ -298,18 +299,12 @@ Writing quality:
 - Keep bullets readable. One dense bullet that lists every upstream release is worse than two short bullets that explain what changed locally.
 - Name deferred work explicitly, especially major upgrades split into follow-up PRs.
 
-Good PR body language:
+Good PR body language (illustrative; package names are placeholders, and the section structure above still applies):
 
 ```markdown
-## Why this group
-This PR updates the docs framework stack together because Ardo owns the Vite plugin setup and the React Router build path.
-
-## Local migration
-- Ardo 3 renamed the UI exports used by the docs app, so `RootLayout`, `Hero`, and `Features` now use their `Ardo*` names.
-- Lucide 1 no longer exports the GitHub brand icon from `lucide-react`; the external GitHub link now uses `ExternalLink`.
-
-## Validation
-- `pnpm --filter docs build`: passed.
+## Local impact and code changes
+- Required migrations: `ui-kit` 3 renamed the layout exports the docs app imports, so `RootLayout` and `Hero` now use their new names.
+- Required migrations: `icon-lib` 1 dropped the brand icon the footer link used; the link now uses the generic external-link icon.
 ```
 
 Weak PR body language:

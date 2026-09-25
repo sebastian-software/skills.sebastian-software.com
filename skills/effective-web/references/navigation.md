@@ -669,12 +669,12 @@ When tabs overflow on small screens, use CSS scroll-snap for a swipeable tab str
 }
 ```
 
-**Emerging CSS features (Chromium-only):**
-- `::scroll-button()` pseudo-element generates accessible previous/next buttons with automatic ARIA roles (Chrome 135+)
-- `::scroll-marker` and `::scroll-marker-group` associate navigation markers with scroll items, handling tablist keyboard behaviour automatically (Chrome 135+)
+**Emerging CSS features (Limited availability, Chromium-only):**
+- `::scroll-button()` generates previous/next buttons (Chrome 135+)
+- `::scroll-marker` and `::scroll-marker-group` associate navigation markers with scroll items (Chrome 135+)
 - `scroll-state(snapped)` container queries enable styling based on snap position (Chrome 133+)
 
-Use these as progressive enhancements with fallbacks for browsers that do not yet support them.
+Use these as progressive enhancements over a native scroll-snap baseline, and re-test keyboard, focus, and accessible names instead of assuming the generated accessibility model is sufficient (see [platform-feature-radar.md](platform-feature-radar.md)).
 
 ### Sticky Positioning
 

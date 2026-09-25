@@ -73,7 +73,7 @@ For UI/functional text (labels, captions, navigation, data), prioritise:
 
 ## Evoke Emotion Using a Second Typeface for Headings
 
-As you get more confident, try second typeface for HEADINGS ONLY.
+If a second typeface is used, reserve it for headings; keep body and UI text in the primary family.
 
 **Typeface Moods:**
 - **Sans serif** - neutral, minimal, modern
@@ -576,7 +576,7 @@ Use `initial-letter` for drop caps (Baseline Limited availability: Chrome 110+, 
 
 ### Prevent Widows in Headings
 
-A single word on the last line of a heading looks orphaned. Use CSS `text-wrap: balance` (Baseline Newly available: Chrome 114+, Firefox 121+, Safari 17.5+) for headings and `text-wrap: pretty` (Newly available: Chrome 117+, Firefox 139+, Safari 26+) for paragraphs — both are safe progressive enhancements:
+A single word on the last line of a heading looks orphaned. Use CSS `text-wrap: balance` (Baseline Newly available: Chrome 114+, Firefox 121+, Safari 17.5+) for headings and `text-wrap: pretty` (Limited availability: Chrome 117+, Safari 26+, not Firefox) for paragraphs — both are safe progressive enhancements:
 
 ```css
 h1, h2, h3, h4, h5, h6 {
