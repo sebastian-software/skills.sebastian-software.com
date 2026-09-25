@@ -12,9 +12,10 @@ command proves only what that command observes.
   linter, formatter, test runner, documentation generator, or package manager.
 - Preserve unrelated working state. Treat every check as potentially
   write-producing and report validation-generated files or diffs.
-- Execute each planned command once. A single transparent sequential recovery
-  attempt is allowed only after a parallel workspace race is stopped and cleanup
-  is confirmed; report both attempts.
+- Avoid duplicate checks without new evidence. After a relevant correction,
+  changed prerequisite, or diagnostic finding, rerun the affected checks and
+  report why. Bound retries for unchanged transient failures; race recovery
+  additionally requires confirmed process cleanup and ownership.
 - Give every applicable category an explicit terminal state only after its
   process tree has ended; keep skipped, still-running, or missing evidence
   visible.

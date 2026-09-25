@@ -15,7 +15,7 @@ keeps authority. Read this alongside the Review route, not instead of it.
    analogy — GitLab, Forgejo, and Gitea differ in ways that silently change
    meaning.
 
-Caller-supplied full PR context runs the Review route's normal ladder and
+Caller-supplied full PR context uses [review judgment](review-judgment.md) and
 returns `pr-review-result/v1`; unlike Mode C, it produces an actual review.
 
 ## Mode C — caller-owned analysis handoff
@@ -35,7 +35,7 @@ decides whether and how to act on every recommendation.
 
 ## Cross-links
 
-- The review ladder, decision thresholds, voice, and Mode A and Mode B
-  workflows are the Review route.
+- The Review route selects judgment, upkeep, verification, and optional voice
+  guidance without loading unrelated modes.
 - Orchestration, delivery authority, and completion standards are the
   Orchestration route.

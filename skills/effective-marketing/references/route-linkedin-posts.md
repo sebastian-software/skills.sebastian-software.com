@@ -16,10 +16,10 @@ changes the requested result.
 - Preserve verified technical behavior, limits, qualifications, and exact
   product, protocol, API, and technology names. Simplify explanation without
   erasing necessary distinctions.
-- A technical topic does not turn a post into controlled documentation. Keep
-  natural channel language; a named controlled-language contract governs only
-  the artifact or embedded text it actually covers. Use `effective-delivery`
-  for that contract and source verification.
+- A technical topic alone does not require controlled language. Honor an
+  explicit style request without reconfirmation, preserving facts and technical
+  terms. Use `effective-delivery` for a requested controlled-language standard
+  or source verification; do not claim compliance without evidence.
 - Apply recorded brand or editorial guidance when relevant. Durable changes to
   audience relationship, voice, or claims belong in the project's decision
   records, not a new LinkedIn-specific memory file.

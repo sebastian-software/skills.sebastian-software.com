@@ -47,9 +47,11 @@ restrictions, and translation or omission labels. Verify restricted client
 names, sensitive metrics, private quotations, and confidential outcomes before
 publication; continue with supported material while gaps remain.
 
-Technical precision does not require a controlled-language profile. Preserve
-verified terms and claims in natural buyer-facing prose; use the documentation
-owner for an actual controlled-language contract.
+Technical precision alone does not require a controlled-language profile.
+Use natural buyer-facing prose by default, honor an explicitly requested style
+on the first pass, and preserve verified terms and claims. Use
+`effective-delivery` for a requested controlled-language standard; distinguish
+the requested style from verified conformance.
 
 ## Deliverable
 

@@ -1,13 +1,10 @@
 ---
 name: effective-web
 description: >-
-  Design, build, review, and test browser experiences: UI/UX, CSS, React,
-  accessibility, responsive layout, typography, forms, motion, i18n, interface
-  copy, auth, SEO, performance, SVG, and HTML/CSS print. Use also for
-  reference-site specifications, originality reviews, and web legal/consent
-  disclosures. A URL alone is not a trigger: general browsing, research
-  reports, repository audits, backend work, and non-web publishing are outside
-  this skill.
+  Design, build, review, and test browser experiences: UI, CSS, React,
+  accessibility, performance, and print. Use also for reference-site analysis,
+  originality reviews, and web legal/consent disclosures. General browsing,
+  backend work, and repository audits are outside this skill.
 ---
 
 # Effective Web

@@ -73,15 +73,14 @@ Load only the reference needed for the requested pass:
 - Make claims clear, concise, active, and specific.
 - For technical claims, keep one stable term per concept, preserve exact
   technology and product names, and explain the buyer-relevant consequence of
-  the work. Do not turn the profile into a stack inventory or controlled
-  technical document.
-- Publish a technology only when the supplied role, depth, recency, mechanism,
-  deliverable, or outcome makes it evidence for the profile thesis. Keep a
-  merely observed tool in the source-and-gap inventory rather than in published
-  copy, an "additional experience" section, or a complete stack list. When the
-  user asks to keep every technology, name the missing role and relevance for
-  each unsupported entry and publish it only after the user supplies that
-  evidence or confirms the weaker list.
+  the work. Use buyer-oriented prose by default; honor an explicitly requested
+  stack inventory or controlled style on the first pass.
+- Prefer technologies whose supplied role, depth, recency, mechanism,
+  deliverable, or outcome supports the profile thesis. When the user explicitly
+  asks to keep the supplied stack, retain it without reconfirmation and describe
+  only the role supported by the source. A tool merely observed in project
+  material is not evidence of personal expertise. Preserve that distinction in
+  the wording, and ask only when a missing fact prevents an accurate statement.
 - Do not infer security, quality, delivery speed, scale, or business impact from
   a technology choice. State the verified role, mechanism, deliverable, or
   constraint when no outcome was measured.

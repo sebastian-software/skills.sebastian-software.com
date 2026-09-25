@@ -32,5 +32,7 @@ Check browser print preview, at least one representative PDF or printer path,
 page breaks, narrow tables, links, images, and a grayscale result. Screen media
 emulation is helpful but does not replace the print preview's actual pagination.
 
-For uncommon page rules and the full starter stylesheet, consult the [deep web
-print appendix](print-web-styles.md).
+For links, images, tables, and code, use [web print content](print-web-content.md).
+For paper-specific reading order, use [web print layout](print-web-layout.md).
+Load only the affected concern. For uncommon page rules and the full starter
+stylesheet, consult the [deep web print appendix](print-web-styles.md).

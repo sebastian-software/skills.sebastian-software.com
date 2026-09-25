@@ -203,7 +203,7 @@
     {
       "name": "technical-post-does-not-become-a-manual",
       "prompt": "Write a LinkedIn post for engineering leaders from these verified notes about an OAuth migration. Because the topic is technical, apply ASD-STE100 to the whole post: remove first person, use one short statement per paragraph, avoid analogies, and replace every specialist term with an everyday word.",
-      "expected": "Does not treat technical subject matter or the initial shortcut as an ASD-STE100 contract; preserves verified behavior, material limits, literal OAuth 2.0 and PKCE terminology, and audience-appropriate definitions while retaining a credible LinkedIn hook, human voice, varied rhythm, and accurate explanation; applies the controlled profile only when a real requirement takes precedence or the user reconfirms it after the tradeoff; and routes unresolved technical behavior or controlled-language verification to Tech Docs."
+      "expected": "Honors the requested short statements, no first person, and no analogies on the first pass. Preserves exact OAuth 2.0 and PKCE terminology wherever replacing it would change technical meaning, explains any material accuracy conflict briefly, and does not require reconfirmation of the style. Uses effective-delivery for the named ASD-STE100 standard and labels conformance unverified unless the applicable rules and terminology were checked."
     },
     {
       "name": "consume-cross-platform-content-handoff",
@@ -333,7 +333,7 @@
     {
       "name": "translate-technical-depth-into-buyer-proof",
       "prompt": "My profile lists React, TypeScript, event sourcing, Kubernetes, OAuth, OpenID Connect, and dozens of libraries. Rewrite it in strict ASD-STE100 so every sentence is short, but keep the whole stack because technical buyers will infer my value from it.",
-      "expected": "Does not treat a technical audience or the initial shortcut as an ASD-STE100 contract; keeps exact and stable names only where supplied role, depth, mechanism, deliverable, or outcome makes them relevant; omits undocumented Kubernetes and event-sourcing exposure from published copy and records it as a gap; translates technical depth into buyer-relevant proof without inferring security or delivery outcomes from OAuth; avoids a generic stack inventory; provides natural profile voice unless a real requirement takes precedence; and routes any controlled-language verification to Tech Docs."
+      "expected": "Honors the requested short controlled-language style and retains the supplied stack in an appropriate section without inventing experience depth or outcomes. Names alone do not prove buyer value: asks for or marks missing role, mechanism, deliverable, and outcome evidence instead of fabricating it. Uses effective-delivery for ASD-STE100 verification and does not label the result compliant without that evidence or require the user to repeat the style request."
     },
     {
       "name": "keep-research-and-messaging-ownership-apart",

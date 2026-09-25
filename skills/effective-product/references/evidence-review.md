@@ -6,7 +6,12 @@ the writing.
 
 ## Set the Review Contract
 
-Name:
+Scale the review to the decision. A focused question can be answered directly
+with its evidence, limitation, and recommendation. Use a claim register and gate
+table when several claims, reviewers, or consequential dependencies need
+traceability; a small decision does not need the full report below.
+
+Establish from the supplied context where relevant:
 
 - the artifact and decision it is meant to support
 - the accountable audience and decision window
@@ -16,9 +21,11 @@ Name:
 If the decision or artifact is unclear, state the smallest useful review scope
 instead of silently choosing one.
 
-## Run Two Distinct Passes
+## Separate Supplied Evidence from Assessment
 
-First run an artifact-only baseline:
+For a substantial review, two passes help preserve this distinction. For a
+focused question, keep it clear within the answer without narrating a process.
+Start with the artifact's own support:
 
 1. Extract the consequential claims and recommendations.
 2. Record only evidence present in or supplied with the artifact.
@@ -37,7 +44,7 @@ This separation prevents a plausible template from being mistaken for support.
 
 ## Build a Claim-Evidence Register
 
-Classify each consequential claim with one status:
+When a register helps, classify each consequential claim with one status:
 
 - `supported`: direct, sufficiently current evidence addresses the claim and
   decision context
@@ -64,8 +71,9 @@ route.
 
 ## Apply Decision-Readiness Gates
 
-For each readiness gate, mark it `pass`, `fail`, `unknown`, or
-`not_applicable`:
+Check the readiness criteria relevant to the decision. In a structured review,
+mark each applicable gate `pass`, `fail`, or `unknown`; use `not_applicable` only
+when an explicit checklist needs to show why a criterion was excluded:
 
 1. Target user and triggering situation are specific enough to act on.
 2. Desired user progress and intended business result are distinguishable from
@@ -113,7 +121,9 @@ weighted overall score.
 
 ## Deliver the Review
 
-Return:
+Lead with the answer, its strongest support, material uncertainty, and the
+next action when one is needed. For a broad or high-stakes review, use the
+following as a report outline, adapting it to the user's requested format:
 
 1. Decision, artifact, scope, and verdict
 2. Claim-evidence register

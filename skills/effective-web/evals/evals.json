@@ -629,6 +629,11 @@
       "name": "scope-shared-css-verification-to-real-risk",
       "prompt": "Fix the gap token used by our shared Button component. Existing Storybook stories already cover long labels, keyboard focus, loading, and both themes. The app preview is running, while the unrelated unit suite takes ten minutes. Complete the change and its required checks.",
       "expected": "Reuses existing stories or the live preview for focused rendered inspection, can inspect the browser independently of unrelated checks, runs required repository checks before completion, and adds no duplicate fixture or exhaustive viewport/state suite without a concrete evidence gap. Continues if verification reveals a real defect."
+    },
+    {
+      "name": "ordinary-print-work-skips-scale-diagnostics",
+      "prompt": "Add a basic print stylesheet to this article page: hide the toolbar and keep headings with the following paragraph. There is no reported physical-scale problem or Safari parity requirement.",
+      "expected": "Uses ordinary print/layout guidance and proportionate output verification without preloading WebKit scale calibration or running its fixture. Preserves needed article content and does not claim physical parity from screen emulation."
     }
   ],
   "activation": [

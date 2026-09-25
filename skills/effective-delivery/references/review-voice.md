@@ -2,11 +2,10 @@
 
 ## General prose owner
 
-Before writing public review text, load `effective-writing` and use its Metro
-English route when that skill is available and the register matches the
-repository. Metro English owns natural rhythm, warmth, plain wording, and the
-generic AI/corporate-pattern cleanup. Do not restate or maintain a second
-general prose blacklist here.
+Use repository conventions and the requested register for ordinary comments.
+Load `effective-writing` and its Metro English route only when a rewrite,
+translation, or unresolved voice problem needs that depth and the register fits.
+Do not maintain a second general prose blacklist here.
 
 Repository language and communication conventions override the Metro English
 default. When `effective-writing` is unavailable or does not match the
@@ -35,6 +34,6 @@ Delivery retains the review decision and the meaning carried by the comment:
   useful, but do not use a praise sandwich, hide a blocker behind compliments,
   or manufacture praise for every finding.
 
-Calibrate these PR semantics against the specialized
-[review examples](review-voice-examples.md). Use Metro English, not this file,
-for general prose cleanup.
+Use the specialized [review examples](review-voice-examples.md) when a severity
+or tone question remains. They are optional calibration, not a pre-read for
+every comment.

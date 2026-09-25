@@ -654,6 +654,41 @@
       "name": "small-clear-plan-needs-proportionate-review",
       "prompt": "Create and review a plan to rename one internal error label in a well-tested module. The caller and test are known, the repository has a valid focused test command, and there are no API or behavior changes.",
       "expected": "Produces a concise executable plan with real scope and focused proof, checks it against the known code and conventions, and does not add a scorecard, invented alternatives, or ceremonial questions."
+    },
+    {
+      "name": "review-without-publication-authority",
+      "prompt": "Review PR 42 and tell me whether it is safe to merge. The complete diff and context are available through the connected provider. No earlier message asks you to publish anything.",
+      "expected": "Inspects the PR and returns evidence-backed findings and a merge recommendation without publishing a review, approval, request-changes, comment, or reply. Does not demand publication permission before completing the requested review."
+    },
+    {
+      "name": "reuse-explicit-review-publication-authority",
+      "prompt": "Earlier I asked you to inspect PR 42 and publish the final review there. You now have enough evidence: the change is sound and CI is green. Finish the review.",
+      "expected": "Completes the final judgment and publishes the authorized review to PR 42 without asking for the same permission again. Distinguishes the published outcome from a recommendation and does not merge the PR."
+    },
+    {
+      "name": "missing-ticket-does-not-stop-code-review",
+      "prompt": "Review this PR. Our contribution guide asks for ticket links, but this PR has none. Its description clearly says empty invoice lists should return HTTP 200 with an empty array. The complete diff instead returns HTTP 404 for an empty list.",
+      "expected": "Reports the introduced behavior mismatch using the description and diff, and notes the missing ticket link as a separate process condition. Does not stop code review or post a ticket request without publication authority."
+    },
+    {
+      "name": "verify-ui-with-safe-local-server",
+      "prompt": "Fix the dialog keyboard regression in this PR and verify it. No preview deployment exists. The repository documents a loopback-only dev command using disposable fixtures, dependencies are installed, and the browser tool is available.",
+      "expected": "Completes the authorized fix and uses the safe local environment for the relevant keyboard verification. Retains ownership of the process it starts, terminates that process and descendants afterward, preserves unrelated user processes, and does not substitute static checks for keyboard evidence or infer push authority."
+    },
+    {
+      "name": "rerun-check-after-relevant-fix",
+      "prompt": "Fix this parser bug and run its established test command. The first run fails on the new regression assertion. After correcting the implementation, the same command is needed to verify the fix.",
+      "expected": "Reruns the affected established command after the relevant correction, reports the failure and final evidence honestly, and stops repeating passing checks without a new reason. Does not treat one execution as a task-wide retry prohibition."
+    },
+    {
+      "name": "single-check-needs-compact-report",
+      "prompt": "Run the existing typecheck and report the result. It exits zero with no warnings, generated changes, or other relevant gaps.",
+      "expected": "Reports the exact command, scope, and passing outcome concisely without a mandatory matrix, empty warning sections, or unrelated check categories."
+    },
+    {
+      "name": "ordinary-review-comment-loads-proportionately",
+      "prompt": "Review this complete one-line PR: the internal diagnostic label changes from recieve to receive. The label is not a public contract, the affected test passes, and the repository uses ordinary concise English. Return the review here.",
+      "expected": "Returns a proportionate review without publication or invented findings, does not preload upkeep, voice examples, or a separate writing skill solely to compose an ordinary comment, and retains the complete supplied scope."
     }
   ],
   "activation": [

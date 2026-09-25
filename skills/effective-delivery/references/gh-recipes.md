@@ -80,7 +80,7 @@ PR diff, re-read your earlier review, and explicitly revalidate every previously
 reviewed behavior or fix. A full current diff alone cannot reveal a change that
 was dropped during the rewrite.
 
-## 2b. Read the linked ticket (intent gate)
+## 2b. Resolve intent and linked acceptance criteria
 
 The review starts from intent, so get the ticket content — adaptively:
 
@@ -100,12 +100,11 @@ Linear MCP **if one is connected** — discover its tools at runtime (e.g.
 ticket.
 
 If no Linear MCP is connected and the content isn't reachable, don't stall:
-confirm whether a ticket is *linked at all*, and otherwise judge intent from the
-PR title + description + diff. On a human PR with no ticket anywhere, apply the
-step-1 gate — ask for the ticket and stop — only when the repository
-demonstrably uses ticket linking (recent merged PRs reference tickets, or
-CONTRIBUTING requires it). Otherwise judge intent from the PR title +
-description + diff and continue the review.
+use the PR title, description, diff, and available requirements. A missing link
+does not stop independent technical review. Note an established ticket-linking
+requirement as an unresolved process condition, and ask only for acceptance
+context needed to resolve a specific judgment. Publish a question only when PR
+communication is authorized; otherwise include it in the returned review.
 
 ## 3. Human vs. bot author
 

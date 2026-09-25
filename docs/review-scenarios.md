@@ -59,9 +59,9 @@ array, then generate a report template:
 
 ```sh
 python3 scripts/validate-scenario-review.py \
-  --skill effective-workflow \
+  --skill effective-delivery \
   --activation-template \
-  > /tmp/effective-workflow-activation.json
+  > /tmp/effective-delivery-activation.json
 ```
 
 Run every case in a fresh session with the normal installed skill set. Do not
@@ -77,8 +77,8 @@ Validate the completed report:
 
 ```sh
 python3 scripts/validate-scenario-review.py \
-  --skill effective-workflow \
-  --report /tmp/effective-workflow-activation.json
+  --skill effective-delivery \
+  --report /tmp/effective-delivery-activation.json
 ```
 
 The validator checks that the recorded pass/fail result agrees with the
@@ -104,9 +104,25 @@ For every selected scenario:
    installed skills the same.
 4. Grade each response independently against `expected`.
 5. Record duration and input/output tokens when the host exposes them; use
-   `null` for any unavailable metric.
+   `null` for any unavailable metric. In the comparison evidence, also record
+   unnecessary clarification turns and the skill/reference paths actually read,
+   including cross-skill reads. Distinguish catalog exposure from loaded bodies.
+   File word counts describe instruction volume, not measured model tokens.
 6. Choose `with_skill`, `without_skill`, or `tie`, then explain the evidence for
    that comparison.
+
+Choose realistic cases where guidance can change behavior: a review with clear
+intent but no ticket link, a UI fix with a safe local server and no preview, an
+explicit terse writing style, verification after a correction, a small product
+decision, and a review without publication authority. Include ordinary requests
+and ambiguous nearby tasks alongside explicit harmful shortcuts; do not grade
+harmless user preferences as failures merely because a skill prefers another
+style. Keep expected answers away from the responding session.
+
+For revisions, compare the old and candidate descriptions against the same blind
+routing set, then compare representative full tasks with and without the skill.
+Report which model/host combinations were actually available; a routing pick is
+not a host activation trace, and one model is not cross-model evidence.
 
 Validate the completed comparison with the same `--report` command. Compare
 pass rate first, then evidence quality, material omissions, duration, and token

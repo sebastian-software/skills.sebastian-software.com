@@ -1,14 +1,10 @@
 ---
 name: effective-product
 description: >-
-  Gather customer and market evidence and decide what to build: customer,
-  buyer, win/loss and churn interviews, surveys, market sizing, product
-  strategy, application concepts and deep concept reviews, scope, roadmaps,
-  release decisions, interaction models and
-  prototypes, retention, naming, product and service pricing, service pilots,
-  and Architecture Decision Records. Use for research and product decisions; marketing
-  execution belongs to effective-marketing, browser implementation to
-  effective-web.
+  Research customers and markets; decide product strategy, application concepts,
+  scope, interaction models, prototypes, naming, pricing, and release readiness.
+  Use also for Architecture Decision Records. Marketing execution belongs to
+  effective-marketing; browser implementation to effective-web.
 ---
 
 # Effective Product
