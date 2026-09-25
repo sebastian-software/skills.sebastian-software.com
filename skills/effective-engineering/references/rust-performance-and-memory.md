@@ -50,7 +50,7 @@ for tight hotspots but must not replace a production-shaped measurement.
 Keep the machine quiet and warm for measurements, but not thermally
 throttled. Control the CPU power mode, background processes, VM or CI load,
 and memory activity. [Criterion – A Note of Caution](https://criterion-rs.github.io/book/user_guide/command_line_output.html#a-note-of-caution),
-[flamegraph – Performance Theory 101](https://github.com/flamegraph-rs/flamegraph#performance-theory-101-quantitative-engineering)
+[flamegraph – Performance Theory 101](https://github.com/flamegraph-rs/flamegraph#performance-theory-101-basics-of-quantitative-engineering)
 
 ## Benchmark design with Criterion
 

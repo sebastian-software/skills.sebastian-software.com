@@ -6,12 +6,10 @@ the existing badge row and a compact footer. Project content stays in this repo.
 
 ## Set up the contributor tool
 
-Install [mise](https://mise.jdx.dev/getting-started.html) and Git. From a trusted
-checkout, run:
+Follow the one-time [contributor setup](contributor-checks.md#set-up-once-per-clone),
+then run:
 
 ```sh
-mise trust
-mise install --locked
 mise run readme:write
 mise run readme:check
 ```
@@ -28,15 +26,11 @@ read-only check on every pull request and push to the default branch.
 
 ## Before pushing
 
-```sh
-mise run readme:pre-push
-git push
-```
-
-The first command regenerates the README and fails if the worktree is dirty,
-including untracked files. Review changes, stage and commit them yourself, then
-run the command again. It never stages, commits, or pushes. Existing repository
-hooks remain in place; this explicit command does not install a hook.
+The pre-push hook runs `mise run readme:check` when a push changes
+`README.md.src`, `README.md`, or `mdtheme.yaml`. On a failure, run
+`mise run readme:write`, review the output, and commit it yourself. The hook
+never stages, commits, or pushes. See [contributor checks](contributor-checks.md)
+for the hook setup.
 
 ## Update the tool or theme
 

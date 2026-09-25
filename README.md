@@ -261,6 +261,8 @@ explanation.
   agent stack; do not vendor or configure external skills here.
 
 Read [docs/authoring-skills.md](docs/authoring-skills.md) before changing a skill.
+Run the one-time [contributor setup](docs/contributor-checks.md) to install
+the pinned tools and the pre-push README and link checks.
 
 ## About Sebastian Software
 

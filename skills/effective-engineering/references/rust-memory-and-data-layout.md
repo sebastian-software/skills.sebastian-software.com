@@ -333,7 +333,7 @@ correctly.
 
 Use UPX or compression only when startup time, platform rules, signatures, and
 deployment allow it; measure the packed and unpacked artifact sizes and
-document the release step. [min-sized-rust – Compressing](https://github.com/johnthagen/min-sized-rust#compressing)
+document the release step. [min-sized-rust – Compressing](https://github.com/johnthagen/min-sized-rust#compress-the-binary)
 
 ## Safety, portability, and review
 

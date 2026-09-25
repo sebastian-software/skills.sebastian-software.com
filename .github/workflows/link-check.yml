@@ -6,6 +6,10 @@ on:
       - "**/*.md"
       - "site/**/*.html"
       - ".lycheeignore"
+      - "lychee.toml"
+      - ".github/lychee-ci.toml"
+      - "mise.toml"
+      - "mise.lock"
       - ".github/workflows/link-check.yml"
   schedule:
     - cron: "17 4 * * 1"
@@ -17,20 +21,18 @@ permissions:
 jobs:
   lychee:
     runs-on: ubuntu-latest
+    timeout-minutes: 15
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
 
-      - name: Check Markdown and site links
-        uses: lycheeverse/lychee-action@e7477775783ea5526144ba13e8db5eec57747ce8 # v2.9.0
+      - uses: jdx/mise-action@5228313ee0372e111a38da051671ca30fc5a96db # v3
         with:
-          args: >-
-            --no-progress
-            --include-fragments
-            --max-concurrency 32
-            --host-concurrency 2
-            --timeout 40
-            --max-retries 4
-            --retry-wait-time 5
-            './**/*.md'
-            './site/**/*.html'
-          fail: true
+          version: 2026.9.5
+          install_args: --locked lychee
+
+      # Every link, but only gone links and missing anchors fail here; see
+      # .github/lychee-ci.toml. The pre-push hook checks strictly.
+      - name: Check Markdown and site links
+        run: >-
+          lychee --config lychee.toml --config .github/lychee-ci.toml
+          './**/*.md' './site/**/*.html'
