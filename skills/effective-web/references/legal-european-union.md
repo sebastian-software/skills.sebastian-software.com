@@ -130,4 +130,4 @@ Open and verify the current consolidated or official version:
 - [General Product Safety Regulation 2023/988](https://eur-lex.europa.eu/eli/reg/2023/988/oj/eng)
 - [EUR-Lex national transposition search](https://eur-lex.europa.eu/collection/n-law/mne.html)
 - [Germany: Digitale-Dienste-Gesetz (DDG)](https://www.gesetze-im-internet.de/ddg/)
-- [Germany: Telekommunikation-Digitale-Dienste-Datenschutz-Gesetz (TDDDG)](https://www.gesetze-im-internet.de/tdddg/)
+- [Germany: Telekommunikation-Digitale-Dienste-Datenschutz-Gesetz (TDDDG)](https://www.gesetze-im-internet.de/ttdsg/)

@@ -28,5 +28,5 @@ according to whether it belongs to the quotation or the surrounding sentence.
 
 - [Institutet för språk och folkminnen: Snabba skrivregler](https://www.isof.se/utforska/publikationer/publikationer/2024-01-22-snabba-skrivregler) (publication landing page; the rules are in the print/PDF edition)
 - [Språkrådet Frågelådan: citattecken](https://frageladan.isof.se/faqs/23562)
-- [Språkrådet: Myndigheternas skrivregler](https://www.isof.se/download/18.17dda5f1791cdbd2873a99/1620030264840/Mynd-skrivreg2014-1.pdf)
+- [Språkrådet: Myndigheternas skrivregler](https://www.isof.se/utforska/publikationer/publikationer/2014-01-01-myndigheternas-skrivregler)
 - [Unicode CLDR: delimiters](https://cldr.unicode.org/translation/core-data/characters)
