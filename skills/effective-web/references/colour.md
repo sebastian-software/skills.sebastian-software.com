@@ -175,10 +175,10 @@ Single unique colour alongside black and white.
 **Simple, effective approach:**
 - Use brand colour for text links and buttons
 - Teaches users what's interactive
-- Don't add to ALL interactive elements (some already have visual cues)
-- NEVER use brand colour on non-interactive elements
+- Don't add it to every interactive element (some already have visual cues)
+- Keep brand colour off non-interactive elements so it stays a reliable cue for what is clickable
 
-**CRITICAL:** Brand colour must have 4.5:1 contrast against background.
+Give brand colour used for text at least 4.5:1 contrast against its background so links and labels stay readable.
 
 ### What About Low Contrast Colours?
 
@@ -194,7 +194,7 @@ Avoid using for interactive elements to prevent conflicting meanings.
 ### Multiple Brand Colours
 - Use highest contrast colour for interactive elements
 - Use others sparingly for decorative elements
-- NEVER use more than one colour for interactive elements
+- Use one colour for all interactive elements so the interaction cue stays consistent
 
 ## Consider OKLCH for Modern Colour Systems
 
@@ -215,7 +215,7 @@ or gamut-mapped result.
   the actual rendered foreground/background pair
 - Can represent colours outside sRGB; provide the required fallback and inspect
   the browser's gamut-mapped result on target displays
-- [Baseline widely available since May 2023](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Values/color_value/oklch);
+- [Baseline 2023, widely available since November 2025](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Values/color_value/oklch);
   still follow the project's browser-support and fallback policy
 
 ```css

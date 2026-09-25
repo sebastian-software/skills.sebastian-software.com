@@ -6,9 +6,7 @@ Each group bundles related packages, explains what changed upstream, assesses
 local impact, runs the repository's validation suite, and adopts newly useful
 dependency capabilities when they improve the local code.
 
-Treat every update as a small migration and delivery unit. Do not stop after
-updating one easy package or writing a chat summary unless the user explicitly
-asked for that narrower outcome. A good outcome is a set of review-ready groups
+Treat every update as a small migration and delivery unit. A good outcome is a set of review-ready groups
 where reviewers and automation can see why the versions belong together, what
 changed in those dependencies, what local risk was checked, which tests were
 run, and whether the project now benefits from new APIs, fixed limitations, or

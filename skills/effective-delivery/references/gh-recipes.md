@@ -109,7 +109,7 @@ description + diff and continue the review.
 
 ## 3. Human vs. bot author
 
-Tone depends on this (see SKILL.md "Voice"). Bots: anything ending in `[bot]`,
+Tone depends on this (see "Voice" in the [Review route](route-review.md#voice)). Bots: anything ending in `[bot]`,
 plus known names. The REST API also exposes `user.type == "Bot"`.
 
 ```bash
@@ -150,8 +150,8 @@ gh pr review <N> --repo "$REPO" --comment         --body "$BODY"
 ```
 
 Inline (line-anchored) comments — POST the reviews API with a JSON payload. This
-is the fiddly part; **verify it once on a throwaway/comment-level review before
-trusting it on a real request-changes.**
+is the fiddly part: validate the JSON payload and confirm every `line` falls
+inside a diff hunk before posting.
 
 ```bash
 cat > /tmp/review-<N>.json <<'JSON'

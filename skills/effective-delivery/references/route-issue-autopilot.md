@@ -187,7 +187,7 @@ adopting, resuming, writing in, delivering from, or cleaning up a worktree.
 3. Fetch the latest default branch.
 4. Create a fresh worktree and feature branch from that base using the
    environment-native worktree mechanism. Otherwise use an explicit safe worktree
-   path and a branch such as `codex/<issue-id>-<short-slug>`.
+   path and a branch such as `<prefix>/<issue-id>-<short-slug>`, using the repository's or harness's branch prefix.
 5. Never implement in the orchestration checkout. Never reuse a worktree from a
    different issue or touch unrelated dirty changes.
 6. Keep the worktree until the PR is terminal or repository tooling safely cleans

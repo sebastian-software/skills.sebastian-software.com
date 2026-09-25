@@ -30,7 +30,6 @@ Update the block when:
 - the target becomes ready or blocked;
 - the user asks for status.
 
-During active interactive work, do not leave the user without a concise progress
-update for more than 60 seconds. If a long stage has no result yet, state what is
-still running or awaited without inventing progress. Keep unchanged background
+If a long stage has no result yet, state what is still running or awaited
+without inventing progress. Keep unchanged background
 monitor wakeups quiet; emit the block when work starts or state materially changes.

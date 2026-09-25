@@ -16,6 +16,13 @@ https?://laws-lois\.justice\.gc\.ca/.*
 # than a host pattern, so a future working gov.pl citation is still checked.
 https://www\.gov\.pl/web/nauka/nowe-zasady-pisowni--prostsza-bardziej-spojna-ortografia
 https://www\.gov\.pl/web/redakcyjne-abc/rekomendacje-jezykowe-redakcji-centralnej
+# 2026-09-25: returns 403 Forbidden to GitHub runners on two consecutive runs
+# while a local request returns 200 with the PDF, so the host blocks runner
+# addresses rather than the document being gone. The citation in
+# skills/effective-writing/references/locale-luxembourgish.md was confirmed
+# reachable locally on that date. Narrow entry so other portal.education.lu
+# links are still checked.
+https://portal\.education\.lu/Portals/79/Documents/WEB_LetzOrtho_Oplo6_v01\.pdf
 https?://help\.malt\.com/.*
 https?://www\.malt\.com/.*
 https?://support\.upwork\.com/.*

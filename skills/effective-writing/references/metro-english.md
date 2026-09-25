@@ -155,8 +155,7 @@ Input:
 > This is wrong. Please redo it.
 
 Output:
-> I don't think this is the right path yet. Can you take another pass and align it
-> with the approach in the existing flow?
+> I don't think this is the right path yet. Can you take another pass at it?
 
 ## Output format
 

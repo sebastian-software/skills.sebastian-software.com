@@ -512,8 +512,7 @@ encode a real ownership or dependency boundary and remain easier to navigate.
 
 Centralize shared dependency versions in the root `[workspace.dependencies]`
 table and shared lint policy in `[workspace.lints]`, with member crates
-inheriting through `workspace = true`. Both tables postdate the source post
-and are now standard workspace hygiene; they remove version drift between
+inheriting through `workspace = true`; this removes version drift between
 member crates without changing the flat layout.
 
 **Source:** [matklad – Large Rust Workspaces](https://matklad.github.io/2021/08/22/large-rust-workspaces.html);
@@ -816,9 +815,11 @@ debug output, define TLS/session-store policies, and test the failure paths.
 - Was every performance claim measured on the representative workload and
   build/target configuration?
 
-### 12.7 Deliver a short architecture decision record
+### 12.7 Capture the boundary decision
 
-For a non-trivial boundary, record:
+For a durable boundary choice, name what an ADR would record; create the record
+only when the user authorizes that artifact, using `effective-product`'s
+convention:
 
 1. problem and constraints;
 2. chosen ownership and API shape;

@@ -1,7 +1,7 @@
 # Mode C JSON Contract
 
 The operating constraints and exact output contract for Mode C (caller-owned
-analysis handoff). SKILL.md defines when Mode C applies; this file defines what
+analysis handoff). The [Review Access route](route-review-access.md) defines when Mode C applies; this file defines what
 it consumes, what it must not do, and the response shape.
 
 ## Operating constraints

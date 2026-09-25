@@ -54,9 +54,8 @@ and memory activity. [Criterion – A Note of Caution](https://criterion-rs.gith
 
 ## Benchmark design with Criterion
 
-Criterion development moved to the `criterion-rs` organization after the
-original repository went unmaintained; use a current release from the new
-organization and its book. [Criterion.rs repository](https://github.com/criterion-rs/criterion.rs)
+Use a current Criterion release from the `criterion-rs` organization and its
+book. [Criterion.rs repository](https://github.com/criterion-rs/criterion.rs)
 
 Set up Criterion as its own benchmark target:
 
@@ -70,7 +69,8 @@ harness = false
 ```
 
 ```rust
-use criterion::{black_box, criterion_group, criterion_main, Criterion};
+use criterion::{criterion_group, criterion_main, Criterion};
+use std::hint::black_box;
 
 fn bench_hot_path(c: &mut Criterion) {
     c.bench_function("hot path", |b| {
@@ -83,7 +83,7 @@ criterion_main!(benches);
 ```
 
 Keep setup outside the measured closure when you only want to evaluate the hot
-path. Use `black_box` so inputs and results are not constant-folded or removed
+path. Use `std::hint::black_box` so inputs and results are not constant-folded or removed
 as unused. [Criterion – Getting Started](https://criterion-rs.github.io/book/getting_started.html)
 
 Account for the Criterion measurement model:
@@ -178,26 +178,9 @@ hooks run only with `--profile-time`.
 Choose DHAT or `dhat-rs` when `malloc`/`free`, peak heap, `memcpy`, or
 allocation rates appear hot in the profile. [Rust Performance Book – Heap Allocations](https://nnethercote.github.io/perf-book/heap-allocations.html#profiling)
 
-For Rust heap tests, feature-gate the allocator and use release builds:
-
-```toml
-[profile.release]
-debug = 1
-
-[features]
-dhat-heap = []
-```
-
-```rust
-#[cfg(feature = "dhat-heap")]
-#[global_allocator]
-static ALLOC: dhat::Alloc = dhat::Alloc;
-
-fn main() {
-    #[cfg(feature = "dhat-heap")]
-    let _profiler = dhat::Profiler::new_heap();
-}
-```
+For Rust heap tests, feature-gate the allocator as shown in
+[DHAT for heap regressions](rust-memory-and-data-layout.md#dhat-for-heap-regressions)
+and use release builds:
 
 ```sh
 cargo run --release --features dhat-heap

@@ -659,11 +659,11 @@ When you need different crops or aspect ratios at different breakpoints (not jus
 
 ### Image Format Priority
 
-1. **AVIF** — smallest files, best quality; Baseline Newly available (serve behind a `<picture>` fallback)
+1. **AVIF** — smallest files, best quality; Baseline Widely available
 2. **WebP** — good compression; Baseline Widely available
 3. **JPEG/PNG** — universal fallback
 
-Use `<picture>` with `type` to serve modern formats with fallbacks. For most projects, WebP alone is sufficient.
+Use `<picture>` with `type` to serve AVIF first with WebP as the fallback.
 
 ### Lazy Loading
 

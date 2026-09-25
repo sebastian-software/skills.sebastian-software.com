@@ -28,10 +28,11 @@ ideas do not receive invented domain, linguistic, or legal certainty.
    domain, search, language, trademark, and handle checks.
 7. Score evidence transparently and retain three to six finalists. State
    unknowns and required professional clearance.
-8. Test finalists with representative speakers in realistic situations: hearing
-   the name once, spelling it, recalling it later, searching for it, and using
-   it in a sentence.
-9. Recommend a top choice plus a credible fallback after the spoken-name test.
+8. Plan a spoken-name test with representative speakers in realistic
+   situations: hearing the name once, spelling it, recalling it later, searching
+   for it, and using it in a sentence. Incorporate results when available.
+9. Recommend a top choice plus a credible fallback, stating whether the
+   spoken-name test has run and which result would change the order.
 10. Record the decision, rejected alternatives, verification date, reservation
     actions, and conditions that would reopen the choice through the Decisions
     route when the repository uses ADRs or another durable decision convention.

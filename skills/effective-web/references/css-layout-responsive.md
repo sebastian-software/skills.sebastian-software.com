@@ -37,7 +37,7 @@ Use CSS layout algorithms deliberately. Grid, Flexbox, Subgrid, container querie
   the usable page width: classic scrollbars can make viewport units wider than
   the initial containing block. Use a stable page-width query container and
   logical `cqi` breakout math, then audit nested query containers.
-- Drive content-aware sections from the content itself — `:has()`, quantity queries (`:nth-child` / `:nth-last-child` of-type counts), container query units, and `clamp()` — with `@supports` fallbacks, so layouts adapt to variable item counts and text lengths instead of relying on brittle breakpoint-only rules.
+- Drive content-aware sections from the content itself — `:has()`, quantity queries (`:nth-child` / `:nth-last-child` of-type counts), container query units, and `clamp()` — adding `@supports` fallbacks only where the project's support target predates them — so layouts adapt to variable item counts and text lengths instead of relying on brittle breakpoint-only rules.
 - Scope `:has()` to the smallest stable component or region that owns the
   derived state. Prefer a specific relative selector over a broad descendant
   search, avoid root-wide and deeply chained conditions, and profile selector

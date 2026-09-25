@@ -290,7 +290,7 @@ dialog[open]::backdrop {
 
 ## The `closedby` Attribute
 
-The `closedby` attribute (Chrome 134+, March 2025) provides declarative control over how dialogs can be dismissed:
+The `closedby` attribute (Limited availability: Chromium 134+ and Firefox 141+, not Safari) provides declarative control over how dialogs can be dismissed:
 
 | Value | Escape key | Click outside | Close button (JS) |
 |---|---|---|---|

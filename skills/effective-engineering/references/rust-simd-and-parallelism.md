@@ -20,15 +20,16 @@ Use the sections in this order:
 
 Route other concerns as follows:
 
-- Route public API design, crate boundaries, and workspace layering to the
-  Rust architecture reference. Keep performance kernels behind a stable,
-  safe boundary.
-- Route general profiling, allocation, and binary-size investigations to the
-  performance reference; use this file for CPU/SIMD and parallel interactions.
-- Route async runtime choice, cancellation, and I/O scheduling to the async
-  reference. Use this file to decide whether CPU work must leave an async
-  executor.
-- Route unsafe-code audits to the unsafe reference. The rules here state the
+- Route public API design, crate boundaries, and workspace layering to
+  [Architecture and boundaries](rust-architecture-and-boundaries.md). Keep
+  performance kernels behind a stable, safe boundary.
+- Route general profiling, allocation, and binary-size investigations to
+  [Performance and memory](rust-performance-and-memory.md); use this file for
+  CPU/SIMD and parallel interactions.
+- Route async runtime choice, cancellation, and I/O scheduling to
+  [Errors and concurrency](rust-errors-and-concurrency.md). Use this file to
+  decide whether CPU work must leave an async executor.
+- Route unsafe-code audits to [Unsafe and FFI](rust-unsafe-and-ffi.md). The rules here state the
   minimum invariants; they do not replace a complete unsafe review.
 
 ## Non-negotiable safety rules
