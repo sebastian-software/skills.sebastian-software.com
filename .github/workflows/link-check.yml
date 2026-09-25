@@ -27,7 +27,7 @@ jobs:
 
       - uses: jdx/mise-action@c2a87611a18de5b3828c5652fe268e992400cb5c # v4
         with:
-          version: 2026.9.5
+          version: 2026.9.13
           install_args: --locked lychee
 
       # Every link, but only gone links and missing anchors fail here; see
