@@ -3,7 +3,8 @@ name: effective-product
 description: >-
   Gather customer and market evidence and decide what to build: customer,
   buyer, win/loss and churn interviews, surveys, market sizing, product
-  strategy, scope, roadmaps, release decisions, interaction models and
+  strategy, application concepts and deep concept reviews, scope, roadmaps,
+  release decisions, interaction models and
   prototypes, retention, naming, pricing and packaging, and Architecture
   Decision Records. Use for research and product decisions; marketing
   execution belongs to effective-marketing, browser implementation to
@@ -30,6 +31,7 @@ not every request needs an evidence register or a research program.
 | User intent | Read |
 | --- | --- |
 | Explore an opportunity, run Jobs to be Done work, or judge whether an artifact, claim set, or recommendation is ready to decide on | [Discovery and Evidence Review](references/route-discovery.md) |
+| Develop a new application concept or examine an existing concept in depth before implementation planning | [Application Concept](references/route-application-concept.md) |
 | Set a product thesis, outcomes, differentiation, or operating model; work on marketplaces, network effects, cold starts, or liquidity | [Strategy and Operating Model](references/route-strategy.md) |
 | Choose initial scope, handle feature requests, build a roadmap, set a quality bar, or decide release readiness | [Scope, Quality, and Shipping](references/route-scope-and-shipping.md) |
 | Plan or synthesize behavioral research, frame a problem space, or map expectations and mental-model gaps | [Design Research and Problem Framing](references/route-design-research.md) |

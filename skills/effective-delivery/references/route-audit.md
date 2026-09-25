@@ -48,7 +48,7 @@ Match actions to the user's authority:
    implementing a consequential change in weakly tested existing code. Keep
    preparatory structure work separate from the behavior change.
 9. Read [Implementation plans](implementation-plans.md) before creating,
-   reviewing, saving, or reconciling a plan.
+   reviewing, revising, saving, or reconciling a plan.
 10. Report the smallest useful result: a diagnosis, evidence-backed findings,
     the selected plan, verified implementation, or current backlog state.
 

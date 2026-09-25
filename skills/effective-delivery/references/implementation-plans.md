@@ -155,6 +155,13 @@ When reviewing a plan, check:
 - Do new tests prove the regression and meaningful edge cases?
 - Are stop conditions specific to actual uncertainty?
 - Are secrets omitted and external requirements current?
+- Do requirement, approach, steps, done criteria, and verification describe
+  the same change? A deferred decision cannot appear elsewhere in the plan as
+  the chosen approach; the steps that depend on it are blocked, not ready.
+
+A dirty worktree, a newer ADR, or a renamed check usually invalidates one claim
+or step, not the plan's objective. A plan is executable when its open decisions
+no longer affect the remaining steps and each step's proof actually runs.
 
 When reconciling a backlog:
 
