@@ -1,7 +1,12 @@
 # Maintaining the README
 
-The root README introduces this project and its setup. Edit `README.md.src`;
-`README.md` is committed output. Sebastian-Theme supplies the company badge in
+The root README is a short entry point: purpose, a compact skill overview, one
+installation example, and links for users and contributors. The homepage owns
+detailed use cases, positioning, and inventory counts; `docs/dalo.md` owns the
+managed setup guide. Link to these owners instead of repeating their content.
+
+Edit `README.md.src`; `README.md` is committed output.
+Sebastian-Theme supplies the company badge in
 the existing badge row and a compact footer. Project content stays in this repo.
 
 ## Set up the contributor tool

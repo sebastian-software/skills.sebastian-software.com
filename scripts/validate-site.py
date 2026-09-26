@@ -944,7 +944,7 @@ def main() -> int:
     require(EXPECTED_SKILLS_COMMAND in html, "selective skills CLI command is missing", failures)
     validate_install_commands(parser, failures)
     require(
-        "https://github.com/sebastian-software/skills.sebastian-software.com/blob/main/README.md#collection-boundary"
+        "https://github.com/sebastian-software/skills.sebastian-software.com/blob/main/docs/adr/0005-first-party-instruction-packs.md"
         in parser.links,
         "site must link the first-party guidance boundary",
         failures,
