@@ -179,6 +179,79 @@ class SkillCardStructureValidationTests(unittest.TestCase):
         )
 
 
+class InstallCommandValidationTests(unittest.TestCase):
+    def validate_commands(
+        self,
+        managed_commands: tuple[str, ...] = VALIDATOR.EXPECTED_DALO_COMMANDS,
+        optional_commands: tuple[str, ...] = VALIDATOR.EXPECTED_OPTIONAL_INSTRUCTION_COMMANDS,
+        disclosure: bool = True,
+    ) -> list[str]:
+        parser = VALIDATOR.SiteParser()
+        optional_html = (
+            '<code id="optional-instructions-command">'
+            + "\n".join(optional_commands)
+            + "</code>"
+        )
+        if disclosure:
+            optional_html = (
+                "<details><summary>Optional instructions</summary><div>"
+                + optional_html
+                + "</div></details>"
+            )
+        parser.feed(
+            '<code id="dalo-command">'
+            + "\n".join(managed_commands)
+            + "</code>"
+            + optional_html
+        )
+        failures: list[str] = []
+        VALIDATOR.validate_install_commands(parser, failures)
+        return failures
+
+    def test_accepts_separate_optional_pack_activation(self) -> None:
+        self.assertEqual(self.validate_commands(), [])
+
+    def test_rejects_pack_activation_in_the_default_install_even_if_optional_is_present(self) -> None:
+        failures = self.validate_commands(
+            managed_commands=(
+                *VALIDATOR.EXPECTED_DALO_COMMANDS,
+                VALIDATOR.EXPECTED_OPTIONAL_INSTRUCTION_COMMANDS[0],
+            )
+        )
+        self.assertIn(
+            "managed skill install must not activate optional instruction packs", failures
+        )
+
+    def test_requires_managed_commands_in_the_managed_block(self) -> None:
+        misplaced = VALIDATOR.EXPECTED_DALO_COMMANDS[-1]
+        failures = self.validate_commands(
+            managed_commands=VALIDATOR.EXPECTED_DALO_COMMANDS[:-1],
+            optional_commands=(
+                *VALIDATOR.EXPECTED_OPTIONAL_INSTRUCTION_COMMANDS,
+                misplaced,
+            ),
+        )
+        self.assertIn(
+            f"managed install block is missing DALO command: {misplaced}", failures
+        )
+
+    def test_requires_both_optional_pack_commands(self) -> None:
+        failures = self.validate_commands(
+            optional_commands=VALIDATOR.EXPECTED_OPTIONAL_INSTRUCTION_COMMANDS[:1]
+        )
+        self.assertIn(
+            "optional instruction block is missing DALO command: "
+            + VALIDATOR.EXPECTED_OPTIONAL_INSTRUCTION_COMMANDS[1],
+            failures,
+        )
+
+    def test_requires_a_disclosure_for_optional_instructions(self) -> None:
+        self.assertIn(
+            "optional instruction commands must be inside a details disclosure",
+            self.validate_commands(disclosure=False),
+        )
+
+
 class ComparisonInventoryValidationTests(unittest.TestCase):
     inventory = [
         ("one/skills", "https://github.com/one/skills"),

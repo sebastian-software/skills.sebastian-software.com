@@ -44,7 +44,10 @@ EXPECTED_DALO_COMMANDS = (
     "dalo source select sebastian effective-web",
     "dalo approve skill sebastian:effective-web",
     "dalo sync",
+)
+EXPECTED_OPTIONAL_INSTRUCTION_COMMANDS = (
     "dalo instructions enable sebastian:request-and-completion --target codex",
+    "dalo instructions enable sebastian:documentation-truth --target codex",
 )
 EXPECTED_COMPARISON_SOURCES = (
     ("obra/superpowers", "https://github.com/obra/superpowers"),
@@ -70,6 +73,11 @@ class SiteParser(HTMLParser):
         self.unmatched_article_closes = 0
         self.filter_counts: dict[str, int] = {}
         self.copy_buttons: list[tuple[str, str]] = []
+        self.code_blocks: dict[str, str] = {}
+        self.code_blocks_in_details: set[str] = set()
+        self.current_code: str | None = None
+        self.current_code_text: list[str] = []
+        self.details_depth = 0
         self.current_filter: str | None = None
         self.current_filter_text: list[str] = []
         self.h1_count = 0
@@ -85,6 +93,13 @@ class SiteParser(HTMLParser):
     def handle_starttag(self, tag: str, attrs: list[tuple[str, str | None]]) -> None:
         values = dict(attrs)
 
+        if tag == "details":
+            self.details_depth += 1
+        if tag == "code" and (code_id := values.get("id")):
+            self.current_code = code_id
+            self.current_code_text = []
+            if self.details_depth:
+                self.code_blocks_in_details.add(code_id)
         if tag == "html":
             self.lang = values.get("lang", "") or ""
         if tag == "h1":
@@ -139,10 +154,18 @@ class SiteParser(HTMLParser):
             self.copy_buttons.append((copy_target, values.get("aria-label", "") or ""))
 
     def handle_data(self, data: str) -> None:
+        if self.current_code is not None:
+            self.current_code_text.append(data)
         if self.current_filter is not None:
             self.current_filter_text.append(data)
 
     def handle_endtag(self, tag: str) -> None:
+        if tag == "code" and self.current_code is not None:
+            self.code_blocks[self.current_code] = "".join(self.current_code_text)
+            self.current_code = None
+            self.current_code_text = []
+        if tag == "details":
+            self.details_depth = max(0, self.details_depth - 1)
         if tag == "article":
             if self.article_stack:
                 self.article_stack.pop()
@@ -175,6 +198,39 @@ def validate_skill_card_structure(parser: SiteParser, failures: list[str]) -> No
     require(
         parser.unmatched_article_closes == 0,
         "site must not contain unmatched article closing tags",
+        failures,
+    )
+
+
+def validate_install_commands(parser: SiteParser, failures: list[str]) -> None:
+    managed_commands = {
+        " ".join(line.split())
+        for line in parser.code_blocks.get("dalo-command", "").splitlines()
+    }
+    optional_commands = {
+        " ".join(line.split())
+        for line in parser.code_blocks.get("optional-instructions-command", "").splitlines()
+    }
+    for command in EXPECTED_DALO_COMMANDS:
+        require(
+            command in managed_commands,
+            f"managed install block is missing DALO command: {command}",
+            failures,
+        )
+    require(
+        not any("dalo instructions enable" in line for line in managed_commands),
+        "managed skill install must not activate optional instruction packs",
+        failures,
+    )
+    for command in EXPECTED_OPTIONAL_INSTRUCTION_COMMANDS:
+        require(
+            command in optional_commands,
+            f"optional instruction block is missing DALO command: {command}",
+            failures,
+        )
+    require(
+        "optional-instructions-command" in parser.code_blocks_in_details,
+        "optional instruction commands must be inside a details disclosure",
         failures,
     )
 
@@ -830,6 +886,7 @@ def main() -> int:
         ("starter-command", "Copy the Effective Web starter command"),
         ("skills-command", "Copy skills CLI command"),
         ("dalo-command", "Copy DALO setup commands"),
+        ("optional-instructions-command", "Copy optional instruction pack commands"),
     }
     require(
         set(parser.copy_buttons) == expected_copy_buttons,
@@ -885,8 +942,7 @@ def main() -> int:
         failures,
     )
     require(EXPECTED_SKILLS_COMMAND in html, "selective skills CLI command is missing", failures)
-    for command in EXPECTED_DALO_COMMANDS:
-        require(command in html, f"DALO command is missing: {command}", failures)
+    validate_install_commands(parser, failures)
     require(
         "https://github.com/sebastian-software/skills.sebastian-software.com/blob/main/README.md#collection-boundary"
         in parser.links,

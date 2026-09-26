@@ -150,30 +150,6 @@ if (!reduceMotion.matches && "IntersectionObserver" in window) {
   for (const element of revealElements) revealObserver.observe(element)
 }
 
-const systemVisual = document.querySelector("[data-system-visual]")
-const finePointer = window.matchMedia("(hover: hover) and (pointer: fine)")
-
-if (systemVisual && finePointer.matches && !reduceMotion.matches) {
-  let pointerFrame = 0
-
-  systemVisual.addEventListener("pointermove", (event) => {
-    if (pointerFrame) cancelAnimationFrame(pointerFrame)
-
-    pointerFrame = requestAnimationFrame(() => {
-      const bounds = systemVisual.getBoundingClientRect()
-      const x = (event.clientX - bounds.left) / bounds.width - 0.5
-      const y = (event.clientY - bounds.top) / bounds.height - 0.5
-      systemVisual.style.setProperty("--tilt-x", `${y * -4}deg`)
-      systemVisual.style.setProperty("--tilt-y", `${x * 4}deg`)
-    })
-  })
-
-  systemVisual.addEventListener("pointerleave", () => {
-    systemVisual.style.setProperty("--tilt-x", "0deg")
-    systemVisual.style.setProperty("--tilt-y", "0deg")
-  })
-}
-
 const header = document.querySelector("[data-header]")
 
 const updateHeader = () => {
