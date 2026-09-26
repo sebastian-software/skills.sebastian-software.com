@@ -28,7 +28,7 @@
     {
       "name": "do-not-enforce-a-style-blacklist",
       "prompt": "Make this reported essay sound less AI-generated. Delete every em dash, every fragment, every colon, every use of \"I think,\" and all repeated words, even when they carry my hesitant voice or keep the technical terminology stable.",
-      "expected": "Treats the requested blacklist as overbroad, inspects repetition and context instead of banning isolated features, preserves meaningful uncertainty and stable terminology, applies locale or house punctuation rules where relevant, and makes only edits supported by clarity, reader effect, and the author's established voice."
+      "expected": "Honors the requested punctuation and stylistic exclusions where meaning permits, without inferring AI authorship or replacing the requested style with a preferred one. Rephrases meaningful uncertainty explicitly and retains stable technical terms when a synonym would change meaning, explaining only that specific accuracy conflict if necessary. Does not require the user to repeat harmless style preferences."
     },
     {
       "name": "marketing-intent-can-remain-visible",
@@ -53,7 +53,7 @@
     {
       "name": "keep-technical-editorial-prose-natural",
       "prompt": "Turn these verified architecture notes into a German engineering blog post and public project explanation. Because the topic is technical, use only short sentences, one action per sentence, no metaphors, and the simplest possible everyday words.",
-      "expected": "Treats the request as a profile mismatch rather than a governing contract and does not apply the proposed mechanical sentence constraints; preserves verified behavior, stable terminology, conditions, and claim limits while retaining natural German, explanatory structure, varied rhythm, and sourced examples; and routes commercial page copy to Marketing Writing, market claims to Product Marketing, and page implementation to Effective Web."
+      "expected": "Honors the explicit short-sentence, no-metaphor, plain-language request on the first pass without reconfirmation. Preserves verified behavior, technical terms needed for accuracy, qualifications, and evidence limits. Does not claim controlled-language conformance merely from applying these stylistic choices."
     },
     {
       "name": "rewrite-german-engineering-update",
@@ -139,6 +139,11 @@
       "name": "focused-edit-does-not-require-long-form-intake",
       "prompt": "Tighten only this sentence for our engineering blog: “The team made the decision to postpone the migration because the rollback procedure had not yet been verified.” Keep the reason and uncertainty intact; return one sentence.",
       "expected": "Returns one tightened sentence preserving the postponed migration and unverified rollback. Does not require a separate assignment brief, evidence register, structure audit, seven-pass report, or title and ending alternatives for a supplied sentence."
+    },
+    {
+      "name": "honor-terse-technical-article-first-pass",
+      "prompt": "Schreibe aus diesen geprüften Notizen einen kurzen deutschen Engineering-Blogtext mit etwa 180 Wörtern. Ich möchte bewusst kurze Sätze, keine Metaphern und möglichst einfache Wörter. Erhalte notwendige Fachbegriffe. Keine Rückfragen, keine Erklärung deines Schreibprozesses. Notizen: Unser Node-Dienst verarbeitet Bestell-Webhooks. Bisher konnte eine erneut gelieferte Nachricht dieselbe Bestellung doppelt anlegen. Wir speichern jetzt die event_id in einer Datenbanktabelle mit Unique Constraint. Der Eintrag und die Bestelländerung liegen in derselben Transaktion. Ein bereits gespeichertes Ereignis wird bestätigt, ohne die Bestellung erneut zu ändern. Ein Test sendet dasselbe Ereignis zweimal und prüft, dass eine Bestellung besteht. Wir haben weder Lasttests noch Produktionsmessungen durchgeführt. Die Änderung garantiert keine Exactly-once-Zustellung durch den Anbieter.",
+      "expected": "Returns the requested German article directly, with short sentences and no metaphors or clarification loop. Preserves event_id, the uniqueness constraint and transaction boundary, the duplicate-event test, and the absence of production/load evidence. Does not promise exactly-once delivery or invent operational measurements."
     }
   ],
   "activation": [

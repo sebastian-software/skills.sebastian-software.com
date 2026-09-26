@@ -1,13 +1,10 @@
 ---
 name: effective-marketing
 description: >-
-  Position, market, and sell a verified product or service offer: segmentation,
-  messaging and proof, launches, commercial copy, conversion experiments,
-  social and LinkedIn content, outbound prospecting, consultative sales, paid
-  campaigns, CRM pipelines, service-business growth, and consultant profiles.
-  Research fieldwork, pricing, and pilots belong to effective-product;
-  editorial articles to effective-writing; browser implementation and
-  compliance to effective-web.
+  Position, market, and sell products or services: messaging, commercial copy,
+  social content, launches, conversion, sales, CRM, and consultant profiles.
+  Use for marketing execution; research and pricing belong to effective-product,
+  editorial articles to effective-writing.
 ---
 
 # Effective Marketing

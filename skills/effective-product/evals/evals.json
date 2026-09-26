@@ -409,6 +409,11 @@
       "name": "service-pilot-thresholds-before-start",
       "prompt": "We want to test a new data-cleanup service with three friendly existing clients for free. Plan the pilot.",
       "expected": "States the uncertainty being tested, notes that friendly and free pilots bias results and do not prove willingness to pay, defines fit criteria, scope, participation, stopping conditions, and decision thresholds before starting, and records permissions for any later case study."
+    },
+    {
+      "name": "small-evidence-question-needs-direct-answer",
+      "prompt": "We interviewed five trial users. Three said they prefer CSV export. Can we say most customers prefer CSV? Please answer briefly.",
+      "expected": "Answers directly that three of five interviewed trial users expressed that preference, while the small selected sample does not establish a preference among all customers. Preserves the denominator and stated-preference limit without a full claim register, gate table, named owner, or seven-part readiness report."
     }
   ],
   "activation": [

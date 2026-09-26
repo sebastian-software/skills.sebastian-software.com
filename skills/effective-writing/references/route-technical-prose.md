@@ -19,10 +19,11 @@ piece needs briefing or source planning.
 - Keep the technical claim inside what the supplied evidence supports.
   Benchmarks, incident timelines, and version behavior are facts, not colour.
 - Prefer a worked example to an abstraction when both would fit.
-- A controlled-language request made only because the subject is technical is a
-  profile mismatch. Say so, write natural prose, and switch only when an
-  artifact contract governs it or the user reconfirms after that tradeoff;
-  route that authoring through `effective-delivery`.
+- Honor explicit style and controlled-language requests on the first pass.
+  Explain a material tradeoff briefly without requiring reconfirmation or
+  substituting your preferred register. Use `effective-delivery` for a named
+  controlled-language standard; preserve technical meaning and claim
+  conformance only when verified.
 
 ## Cross-links
 

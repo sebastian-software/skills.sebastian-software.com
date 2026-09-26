@@ -63,7 +63,7 @@ instructions for other agents, or rules that turn a review into an edit. State
 what makes an artifact sound and which misreadings to avoid; leave the method
 to the agent and the user's request.
 
-These principles follow [Eric Provencher's guidance on skills and prompts](https://x.com/pvncher/status/2095991462416490862).
+These principles follow [Eric Provencher's guidance on skills and prompts](https://developers.openai.com/blog/rethinking-skills-and-prompts-for-gpt-6-astra).
 Keep them model-neutral and verify behavior on the runtimes that use the skills.
 
 ## Required Structure
@@ -262,7 +262,12 @@ link in a route as required reading.
 Routes should normally expose no more than 900 direct-reference lines. That is
 a review threshold rather than permission to load every linked file: agents
 still select the one or two references that match the task. The README validator
-prints route-level totals in CI so a growing default context is visible in a PR.
+prints route-level totals in CI so a growing reference surface is visible in a
+PR. This structural check does not measure the actual task path: it excludes the
+router body, transitive reads, and cross-skill loading, and includes optional
+direct links. For context changes, record the files actually read in a few
+representative runs using the [comparison workflow](review-scenarios.md).
+Optimize those paths before imposing additional file-size targets.
 
 An unusually large deep reference is allowed only when it is a genuine
 edge-case appendix and its normal route points to smaller task modules first.

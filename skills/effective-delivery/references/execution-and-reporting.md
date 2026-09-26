@@ -23,9 +23,10 @@ run only checks whose output is isolated or mark the affected categories
 
 1. Run narrow established checks before broader ones when failure attribution
    improves and repository policy does not require one combined gate.
-2. Execute each planned command exactly once with captured stdout, stderr, exit
-   status, duration, and scope. Avoid shell wrappers that hide the real exit
-   status or spawn unmanaged background work.
+2. Capture stdout, stderr, exit status, duration, and scope. Rerun affected
+   checks after a relevant correction or new evidence; do not repeat successful
+   checks merely to fill a report. Bound retries without changed inputs. Avoid
+   wrappers that hide exit status or spawn unmanaged background work.
 3. Select a bounded timeout from repository history, CI limits, task size, cold
    versus warm execution, and harness constraints. Do not prescribe one global
    duration.
@@ -69,7 +70,9 @@ validation evidence even when the command exits zero.
 
 ## Result Shape
 
-Start with a compact matrix:
+For a single check, a sentence with the command, scope, result, and material
+gap is enough. Use a matrix when several checks or mixed outcomes benefit from
+comparison:
 
 | Category | State | Command and scope | Evidence source | Duration | Key result |
 | --- | --- | --- | --- | --- | --- |
@@ -78,7 +81,7 @@ Start with a compact matrix:
 If process termination is unconfirmed, return an interim process-control alert
 instead of this final matrix for affected or dependent categories.
 
-Then report:
+Include the following only where material; do not create empty sections:
 
 1. decisive diagnostics with file, line, package, target, or task when available;
 2. warnings that do not change the command state;

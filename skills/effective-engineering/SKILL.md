@@ -1,12 +1,10 @@
 ---
 name: effective-engineering
 description: >-
-  Design software architecture, APIs, data models, transactions, and
-  migrations; write or review Rust and server-side or shared-library
-  TypeScript; design focused non-frontend tests and benchmarks. Use for system
-  and code contracts. Browser implementation and frontend tests belong to
-  effective-web; repository audits, ports, PR upkeep, dependency upgrades, and
-  running existing checks belong to effective-delivery.
+  Design or review software architecture, API and data contracts, Rust, and
+  backend/shared TypeScript. Use for implementation decisions, focused
+  non-frontend tests, and benchmarks; frontend work belongs to effective-web,
+  repository delivery to effective-delivery.
 ---
 
 # Effective Engineering

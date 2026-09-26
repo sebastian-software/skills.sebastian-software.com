@@ -1,12 +1,10 @@
 ---
 name: effective-delivery
 description: >-
-  Audit, diagnose, improve, and deliver changes in existing repositories:
-  implementation plans, behavior-preserving ports, PR review and upkeep, issue
-  queues, dependency upgrades, running existing checks, technical
-  documentation, and engineering team ownership. Use for repository lifecycle
-  work; system design and focused non-frontend test design belong to
-  effective-engineering, browser work to effective-web.
+  Audit, diagnose, and deliver repository changes: plans, ports, PR reviews,
+  issue queues, dependencies, existing checks, technical documentation, and
+  engineering leadership. Use for repository lifecycle work; system design
+  belongs to effective-engineering, browser implementation to effective-web.
 ---
 
 # Effective Delivery

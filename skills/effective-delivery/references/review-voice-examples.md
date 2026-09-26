@@ -2,12 +2,13 @@
 
 These examples calibrate PR-specific severity, optionality, reviewer class, and
 decision language. They are not a second general prose guide. Apply the Metro
-English route in `effective-writing` for natural phrasing, and do not copy these
-examples as templates.
+English route in `effective-writing` only when general prose needs that help,
+and do not copy these examples as templates. Approval wording describes a
+published action only when publication was authorized and actually completed.
 
-**Asking for the missing ticket (step-1 gate, ticket-linking repo):**
-"Looks reasonable, but without a linked task I can't really tell what this is
-meant to solve — mind linking it?"
+**Missing acceptance context after reviewing what is available:**
+"The null handling looks right. I couldn't verify the changed retry limit from
+the description — could you link the requirement for it?"
 
 **Asking for a second look (the grey-zone approve):**
 Input intent: PR is fine but big/tricky, want another human on it.

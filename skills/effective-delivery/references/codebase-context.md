@@ -2,7 +2,7 @@
 
 Resolve direct relationships of the symbols the pull request changes: what
 could this diff affect beyond itself? Return concrete evidence to the
-[review ladder](route-review.md); that route owns publication and severity.
+[review judgment](review-judgment.md); the Review route owns publication.
 The collection's [impact-context decision](https://github.com/sebastian-software/skills.sebastian-software.com/blob/main/docs/adr/0002-pr-review-impact-context.md)
 owns the empirical rationale for the bounds below. A context pass may produce
 no findings.
@@ -111,11 +111,11 @@ A relationship requires resolved code evidence:
 - **Impact still decides severity.** A resolved call site that cannot be reached
   in practice is not a blocker just because the resolution was clever. Judge it
   by the same yardstick as everything else — see
-  [Operating stance](operating-stance.md).
+  [Review judgment](review-judgment.md#find-then-filter).
 
 ## How a context finding enters the review
 
-It follows the content contract in [the Review route](route-review.md): the anchored
+It follows the content contract in [Review judgment](review-judgment.md#communicate-the-finding): the anchored
 location or symbol, the concrete risk, the consequence when it is not obvious,
 and the smallest credible correction or question.
 
@@ -134,8 +134,8 @@ No severity label, no confidence score, no badge. The review stays prose.
 
 ## Boundaries
 
-- **Modes.** Used in Mode A, and in Mode B through its step 1 ("steps 1–4 of
-  Mode A"). Never in Mode C — that mode has no repository access by contract.
+- **Modes.** Used in Mode A and when a Mode B finding needs relationship
+  resolution. Never in Mode C — that mode has no repository access by contract.
 - **Dry run.** Resolution is read-only, so it runs normally in dry-run mode; the
   findings it produces are printed rather than posted, like every other finding.
 - **Scope.** This resolves relationships for symbols *this diff changed*. A

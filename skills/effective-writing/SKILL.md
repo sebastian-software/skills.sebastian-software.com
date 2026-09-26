@@ -1,12 +1,10 @@
 ---
 name: effective-writing
 description: >-
-  Write, structure, revise, or critique nonfiction articles, essays,
-  newsletters, technical explainers, and editorial case studies. Use for Minto
-  Pyramid/MECE structure, clarity and voice, AI-sounding prose audits, natural
-  US team English, German-to-English team rewrites, and locale typography.
-  Commercial-choice copy belongs to effective-marketing; repository-derived
-  technical documentation to effective-delivery. Do not infer AI authorship.
+  Write, structure, revise, or audit nonfiction and technical articles, team
+  messages, and locale typography. Use for argument, clarity, voice, and
+  AI-sounding prose patterns without inferring authorship. Commercial copy
+  belongs to effective-marketing; repository documentation to effective-delivery.
 ---
 
 # Effective Writing

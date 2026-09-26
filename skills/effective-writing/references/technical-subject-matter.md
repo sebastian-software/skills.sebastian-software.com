@@ -20,18 +20,18 @@ clarity. For public German prose, prefer precise, natural technical German
 rather than Einfache Sprache. For public English prose, prefer natural
 editorial English rather than internal-team Metro English.
 
-Treat controlled language as an artifact contract, not as a synonym for
-technical clarity. A controlled-language request made only because the subject
-is technical is a profile mismatch, not a governing contract: state the channel
-tradeoff, use natural language for this artifact, and switch only when an
-existing artifact contract governs it or the user reconfirms after that
-tradeoff. A publication, customer, regulatory, or project requirement is such a
-contract; the shortcut in the initial request is not.
+An explicit user request establishes the desired style, including short
+sentences, no metaphors, or a controlled-language profile. Apply it on the first
+pass; do not require a second request because another register might suit the
+channel better. Briefly explain a material tradeoff when useful, then complete
+the requested version while preserving facts, qualifications, and technical
+meaning.
 
-On the first pass, correct the profile mismatch briefly and provide the
-channel-appropriate technical editorial version; offer the controlled variant
-when it remains a meaningful choice. If the user still prioritizes that profile,
-route its language-level authoring or review through `effective-delivery`.
+Use `effective-delivery` for authoring or verification against a named
+controlled-language standard. Distinguish requested stylistic features from
+verified compliance: the request alone does not prove that the result meets a
+standard. Resolve a genuine conflict with another governing requirement at that
+specific boundary, rather than treating a stylistic preference as a blocker.
 
 Do not describe German prose as ASD-STE100 compliant: ASD-STE100 controls
 English. State that mismatch before drafting when the requested assurance is
@@ -135,10 +135,11 @@ Technical editorial prose may use:
 - tension, curiosity, and a point of view that the body repays
 - a conclusion or call to action appropriate to the reader relationship
 
-Do not mechanically apply one action per sentence, one sentence per paragraph,
-an approved-word dictionary, imperative syntax, or other controlled-language
-constraints. Use those rules only when a named documentation contract governs
-the artifact.
+Do not add one action per sentence, one sentence per paragraph, an approved-word
+dictionary, imperative syntax, or other controlled-language constraints merely
+because the subject is technical. Apply the stylistic constraints the user
+requests or the named documentation contract requires, while preserving meaning
+and distinguishing style from verified standards compliance.
 
 For a tutorial embedded in an article, separate the editorial frame from the
 operational instructions. Apply documentation discipline to commands,
