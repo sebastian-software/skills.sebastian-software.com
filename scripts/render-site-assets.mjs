@@ -22,6 +22,7 @@ const icon = await svgData(resolve(assets, "brand/software-on-light.svg"));
 const logo = await svgData(resolve(assets, "brand/logo-software.svg"));
 const gptSeal = await svgData(resolve(assets, "seals/gpt-6.svg"));
 const opusSeal = await svgData(resolve(assets, "seals/opus-5-5.svg"));
+const headingFont = "https://sebastian-consulting.com/assets/slab-serif-Medium-Cq_srit_.woff2";
 const browser = await chromium.launch({ executablePath, headless: true });
 
 try {
@@ -57,11 +58,12 @@ try {
 
   await page.setViewportSize({ width: 1200, height: 630 });
   await page.setContent(`<!doctype html><html lang="en"><meta charset="utf-8"><style>
-    *{box-sizing:border-box}body{margin:0;background:#e7f0f3;color:#002731;font-family:Arial,sans-serif}
+    @font-face{font-family:"Sebastian Slab";src:url("${headingFont}") format("woff2");font-weight:500;font-style:normal;font-display:swap}
+    *{box-sizing:border-box}body{margin:0;background:#e7f0f3;color:#002731;font-family:system-ui,sans-serif}
     main{height:630px;padding:48px 64px 0;position:relative}
     header{display:flex;align-items:center;justify-content:space-between}
     header img{width:440px;height:auto}header span{font-size:18px;letter-spacing:3px;color:#005164}
-    h1{font-size:65px;line-height:1.1;letter-spacing:-2.5px;font-weight:700;margin:55px 0 35px;max-width:670px}
+    h1{font-family:"Sebastian Slab",Georgia,serif;font-size:65px;line-height:1.1;letter-spacing:-1.43px;font-weight:500;margin:55px 0 35px;max-width:670px}
     h1 span{color:#00718d}p{font-size:16px;letter-spacing:0.4px;word-spacing:5px;margin:0;color:#005164}
     .seals{position:absolute;right:55px;top:186px;display:flex;gap:12px}.seals img{width:175px;height:175px}
     footer{position:absolute;bottom:0;left:0;right:0;background:#005164;color:#e7f0f3;padding:26px 64px;font-size:22px}
@@ -71,6 +73,10 @@ try {
   <p>PRODUCT · WEB · ENGINEERING · DELIVERY · MARKETING · WRITING</p>
   <footer>skills.sebastian-software.com</footer></main></html>`);
   await page.locator("img").evaluateAll((images) => Promise.all(images.map((image) => image.decode())));
+  await page.evaluate(() => document.fonts.ready);
+  assert.ok(await page.evaluate(() => [...document.fonts].some(
+    (font) => font.family === "Sebastian Slab" && font.status === "loaded"
+  )), "The brand heading font must load before rendering the social preview");
   await page.screenshot({ path: resolve(assets, "og-card.png") });
   console.log("Rendered official brand favicons, Apple touch icon, and 1200×630 social preview.");
 } finally {

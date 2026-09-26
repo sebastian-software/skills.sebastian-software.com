@@ -17,11 +17,26 @@ The site palette uses Software's Midnight, Teal, Lagoon, Signal, and Frost
 colors, with lighter and darker surface/text tones for accessible contrast.
 The upstream brand system owns the brand definitions.
 
-The interface uses a sans-serif stack led by locally available Glober, then
-Avenir and platform fallbacks. The commercial font files in the private brand
-repository are not redistributed here. The company wordmark retains its original
-outlined typography. Keep surfaces calm, with neutral elevation shadows rather
-than colored glow or offset sticker shadows on interface controls.
+Headings use **Sebastian Slab Medium (500)**, the Elena webfont used by the
+Consulting site. Body text, navigation, and controls use the platform's system
+UI font. The company wordmark retains its original outlined typography, and
+the model seals keep their own sans-serif lettering.
+
+The heading font is loaded from the [existing company CDN asset](https://sebastian-consulting.com/assets/slab-serif-Medium-Cq_srit_.woff2).
+Its 46 KB WOFF2 is byte-identical to `fonts/slab-serif/slab-serif-Medium.woff2`
+in the brand repository at the revision above. Only this normal, medium face
+is requested. Both pages preload it and use `font-display: swap` with the
+Consulting site's metric-matched Georgia fallback.
+
+The commercial font binary stays outside this open-source repository. It
+remains subject to the company's font license, not the MIT/Apache licenses
+here. The company CDN is an external dependency: if the asset URL changes,
+update the CSS, both preload links, and the social-preview renderer together.
+The browser checks verify it loads; visitors retain readable fallback text
+if the CDN is unavailable.
+
+Keep surfaces calm, with neutral elevation shadows rather than colored glow
+or offset sticker shadows on interface controls.
 
 ## Model seals
 
