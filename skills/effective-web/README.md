@@ -110,8 +110,8 @@ dalo approve skill sebastian:effective-web
 dalo sync
 ```
 
-See the collection's [installation guide](../../README.md#installation) for the
-complete setup and the difference between selective catalogs and team sources.
+See the [DALO setup guide](../../docs/dalo.md) for pinned selections, source
+updates, and optional instruction packs.
 
 ## Related Disciplines
 

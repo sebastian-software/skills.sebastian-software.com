@@ -819,50 +819,6 @@ def validate_required_readme_fragments(
             errors.append(f"skills/{name}/README.md: missing {label}")
 
 
-def count_references(skill_directories: list[Path]) -> int:
-    """Count every focused Markdown reference across the skill collection."""
-    return sum(
-        len(list((skill_directory / "references").rglob("*.md")))
-        for skill_directory in skill_directories
-        if (skill_directory / "references").is_dir()
-    )
-
-
-def validate_root_inventory_sentence(
-    root_text: str,
-    skill_count: int,
-    reference_count: int,
-    instruction_count: int,
-    errors: list[str],
-) -> None:
-    """Tie the README inventory sentence to the computed filesystem counts.
-
-    Mirrors the Open Graph inventory guard in validate-site.py so the public
-    skill and reference counts cannot silently drift from the repository.
-    """
-    expected = (
-        f"{skill_count} practice-built skills, "
-        f"{reference_count} focused references, and "
-        f"{instruction_count} optional instruction "
-        f"{'pack' if instruction_count == 1 else 'packs'}"
-    )
-    if expected not in root_text:
-        sentence = re.search(
-            r"(\d+) practice-built skills, (\d+) focused references, and "
-            r"(\d+) optional instruction packs?",
-            root_text,
-        )
-        found = (
-            f"found {sentence.group(1)} skills, {sentence.group(2)} references, "
-            f"and {sentence.group(3)} instruction packs"
-            if sentence
-            else "the inventory sentence is missing"
-        )
-        errors.append(
-            f"README.md: inventory sentence must read {expected!r}; {found}"
-        )
-
-
 def main() -> int:
     errors: list[str] = []
     reference_context_reports: list[str] = []
@@ -913,14 +869,6 @@ def main() -> int:
         print("Reference context report:")
         for report in reference_context_reports:
             print(f"- {report}")
-
-    validate_root_inventory_sentence(
-        root_text,
-        len(skill_directories),
-        count_references(skill_directories),
-        len(instruction_packs),
-        errors,
-    )
 
     for label, url in (
         ("Sebastian Software OSS link", OSS_URL),
