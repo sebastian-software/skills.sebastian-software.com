@@ -185,6 +185,13 @@ try {
         const pageErrors = [];
         page.on("pageerror", (error) => pageErrors.push(error.message));
         await page.goto(site.url, { waitUntil: "load" });
+        await page.evaluate(() => document.fonts.ready);
+        assert.ok(
+          await page.evaluate(() => [...document.fonts].some(
+            (font) => font.family === "Sebastian Slab" && font.status === "loaded"
+          )),
+          `${site.name}: the heading webfont must load before checking layout`
+        );
         await assertLayout(page, site, width, colorScheme);
 
         if (site.hasCapabilityExplorer) {
