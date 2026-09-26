@@ -20,6 +20,8 @@ assert.ok(executablePath, "Chrome was not found; set CHROME_BIN to render site a
 const svgData = async (path) => `data:image/svg+xml;base64,${(await readFile(path)).toString("base64")}`;
 const icon = await svgData(resolve(assets, "brand/software-on-light.svg"));
 const logo = await svgData(resolve(assets, "brand/logo-software.svg"));
+const gptSeal = await svgData(resolve(assets, "seals/gpt-6.svg"));
+const opusSeal = await svgData(resolve(assets, "seals/opus-5-5.svg"));
 const browser = await chromium.launch({ executablePath, headless: true });
 
 try {
@@ -59,14 +61,16 @@ try {
     main{height:630px;padding:48px 64px 0;position:relative}
     header{display:flex;align-items:center;justify-content:space-between}
     header img{width:440px;height:auto}header span{font-size:18px;letter-spacing:3px;color:#005164}
-    h1{font-family:Georgia,serif;font-size:82px;line-height:1.1;letter-spacing:-3px;font-weight:400;margin:55px 0 35px}
-    h1 span{color:#00718d}p{font-size:18px;letter-spacing:1px;word-spacing:9px;margin:0;color:#005164}
+    h1{font-size:65px;line-height:1.1;letter-spacing:-2.5px;font-weight:700;margin:55px 0 35px;max-width:670px}
+    h1 span{color:#00718d}p{font-size:16px;letter-spacing:0.4px;word-spacing:5px;margin:0;color:#005164}
+    .seals{position:absolute;right:55px;top:186px;display:flex;gap:12px}.seals img{width:175px;height:175px}
     footer{position:absolute;bottom:0;left:0;right:0;background:#005164;color:#e7f0f3;padding:26px 64px;font-size:22px}
   </style><main><header><img src="${logo}" alt="Sebastian Software"><span>AGENT SKILLS</span></header>
   <h1>Better judgment.<br>From idea to <span>market.</span></h1>
+  <div class="seals"><img src="${gptSeal}" alt="Tuned for GPT-6"><img src="${opusSeal}" alt="Tuned for Opus 5.5"></div>
   <p>PRODUCT · WEB · ENGINEERING · DELIVERY · MARKETING · WRITING</p>
   <footer>skills.sebastian-software.com</footer></main></html>`);
-  await page.locator("img").evaluate((image) => image.decode());
+  await page.locator("img").evaluateAll((images) => Promise.all(images.map((image) => image.decode())));
   await page.screenshot({ path: resolve(assets, "og-card.png") });
   console.log("Rendered official brand favicons, Apple touch icon, and 1200×630 social preview.");
 } finally {
