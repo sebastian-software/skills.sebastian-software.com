@@ -46,49 +46,49 @@
 @layer base {
   :root {
     color-scheme: light dark;
-    --paper: #f7f6f0;
-    --paper-soft: #efeee7;
-    --white: #fffef9;
-    --ink: #11131a;
-    --muted: #60636c;
-    --line: #d4d3cb;
-    --line-strong: #1c1e26;
-    --blue: #3448f0;
-    --blue-dark: #2636c4;
-    --blue-surface: #3448f0;
-    --signal: #dfff64;
-    --coral: #ff6a47;
-    --coral-deep: #a72f18;
-    --sky: #9bdbff;
-    --sky-ink: #173447;
-    --panel: #11131a;
-    --accent-ink: #11131a;
+    --paper: #e7f0f3;
+    --paper-soft: #dbe8ed;
+    --white: #ffffff;
+    --ink: #002731;
+    --muted: #45616b;
+    --line: #c4d8df;
+    --line-strong: #005164;
+    --blue: #005164;
+    --blue-dark: #002731;
+    --blue-surface: #005164;
+    --signal: #b9e7f2;
+    --coral: #38afcc;
+    --coral-deep: #005164;
+    --sky: #cceaf2;
+    --sky-ink: #002731;
+    --panel: #002731;
+    --accent-ink: #002731;
     --display: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
     --sans: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
     --mono: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
     --shell: min(1200px, calc(100vw - 48px));
-    --shadow: 0 24px 70px rgb(29 35 70 / 10%);
+    --shadow: 0 24px 70px rgb(0 39 49 / 10%);
   }
 
   @media (prefers-color-scheme: dark) {
     :root {
-      --paper: #14161d;
-      --paper-soft: #1a1d26;
-      --white: #1e222c;
-      --ink: #e8eaf1;
-      --muted: #a6aab6;
-      --line: #363a46;
-      --line-strong: #c9ccd6;
-      --blue: #91a0ff;
-      --blue-dark: #aab5ff;
-      --blue-surface: #3448f0;
-      --signal: #dfff64;
-      --coral: #ff6a47;
-      --coral-deep: #a72f18;
-      --sky: #223a4d;
-      --sky-ink: #e2f3ff;
-      --panel: #0b0e14;
-      --accent-ink: #11131a;
+      --paper: #030d11;
+      --paper-soft: #08212b;
+      --white: #0c2934;
+      --ink: #e7f0f3;
+      --muted: #a7bec7;
+      --line: #274753;
+      --line-strong: #9dc4d1;
+      --blue: #6dc5dc;
+      --blue-dark: #a2d9e7;
+      --blue-surface: #005164;
+      --signal: #b9e7f2;
+      --coral: #38afcc;
+      --coral-deep: #005164;
+      --sky: #123a48;
+      --sky-ink: #e7f0f3;
+      --panel: #030d11;
+      --accent-ink: #002731;
       --shadow: 0 24px 70px rgb(0 0 0 / 45%);
     }
   }
@@ -108,7 +108,7 @@
     position: fixed;
     z-index: -1;
     inset: 0;
-    background-image: radial-gradient(rgb(17 19 26 / 7%) 0.6px, transparent 0.6px);
+    background-image: radial-gradient(rgb(0 39 49 / 7%) 0.6px, transparent 0.6px);
     background-size: 7px 7px;
     content: "";
     opacity: 0.22;
@@ -224,13 +224,13 @@
     right: 0;
     left: 0;
     border-bottom: 1px solid transparent;
-    background: rgb(247 246 240 / 84%);
+    background: rgb(231 240 243 / 84%);
     backdrop-filter: blur(18px);
   }
 
   .site-header.is-scrolled {
-    border-color: rgb(17 19 26 / 11%);
-    box-shadow: 0 8px 30px rgb(17 19 26 / 4%);
+    border-color: rgb(0 39 49 / 11%);
+    box-shadow: 0 8px 30px rgb(0 39 49 / 4%);
   }
 
   .header-inner {
@@ -250,16 +250,15 @@
   }
 
   .brand-mark {
-    display: grid;
-    width: 2.35rem;
-    aspect-ratio: 1;
-    place-items: center;
-    border: 1px solid var(--ink);
-    background: var(--signal);
-    color: var(--accent-ink);
-    font-size: 0.8rem;
-    font-weight: 900;
-    letter-spacing: -0.08em;
+    display: block;
+    width: 2.5rem;
+    height: 2.5rem;
+    flex: 0 0 auto;
+  }
+
+  .brand-mark img {
+    width: 100%;
+    height: 100%;
   }
 
   .brand-copy {
@@ -291,7 +290,7 @@
 
   .primary-nav a {
     position: relative;
-    color: #41444c;
+    color: #385762;
   }
 
   .primary-nav a::after {
@@ -332,15 +331,15 @@
     left: 55%;
     width: 58rem;
     aspect-ratio: 1;
-    border: 1px solid rgb(52 72 240 / 14%);
+    border: 1px solid rgb(0 113 141 / 14%);
     border-radius: 50%;
-    background: radial-gradient(circle at center, rgb(155 219 255 / 36%), transparent 62%);
+    background: radial-gradient(circle at center, rgb(56 175 204 / 36%), transparent 62%);
   }
 
   .hero-backdrop::before,
   .hero-backdrop::after {
     position: absolute;
-    border: 1px solid rgb(52 72 240 / 11%);
+    border: 1px solid rgb(0 113 141 / 11%);
     border-radius: 50%;
     content: "";
   }
@@ -660,7 +659,7 @@
   }
 
   .capability-tabs button[aria-selected="true"] small {
-    color: rgb(17 19 26 / 68%);
+    color: rgb(0 39 49 / 68%);
   }
 
   .capability-tabs strong {
@@ -684,7 +683,7 @@
     display: grid;
     padding: clamp(1.75rem, 4vw, 3.5rem);
     background:
-      radial-gradient(circle at 90% 8%, rgb(52 72 240 / 25%), transparent 28rem),
+      radial-gradient(circle at 90% 8%, rgb(0 113 141 / 25%), transparent 28rem),
       var(--panel);
     color: white;
   }
@@ -758,7 +757,7 @@
   }
 
   .review-verdict.verdict-learning {
-    background: #244a5f;
+    background: #005164;
   }
 
   .output-label {
@@ -881,13 +880,13 @@
   .status-partial,
   .status-unknown {
     border-color: var(--sky);
-    color: #d9f2ff;
+    color: #e7f0f3;
   }
 
   .status-unsupported,
   .status-contradicted {
     border-color: var(--coral);
-    color: #ffb8a7;
+    color: #a2d9e7;
   }
 
   .panel-outcome {
@@ -1166,7 +1165,7 @@
   .route {
     padding: 0.75rem 1rem;
     border: 1px solid rgb(255 255 255 / 48%);
-    background: rgb(24 35 168 / 70%);
+    background: rgb(0 39 49 / 70%);
     font-size: 0.76rem;
     font-weight: 750;
     transform: rotate(-1.5deg);
@@ -1227,7 +1226,7 @@
     aspect-ratio: 1;
     place-items: center;
     border-radius: 50%;
-    background: rgb(17 19 26 / 8%);
+    background: rgb(0 39 49 / 8%);
     font-size: 0.75rem;
   }
 
@@ -1265,7 +1264,7 @@
     bottom: -2.2rem;
     width: 7rem;
     aspect-ratio: 1;
-    border: 1px solid rgb(17 19 26 / 10%);
+    border: 1px solid rgb(0 39 49 / 10%);
     border-radius: 50%;
     content: "";
   }
@@ -1312,7 +1311,7 @@
 
   .skill-card li {
     padding: 0.28rem 0.5rem;
-    border: 1px solid rgb(17 19 26 / 25%);
+    border: 1px solid rgb(0 39 49 / 25%);
     border-radius: 999px;
     font-size: 0.75rem;
     font-weight: 750;
@@ -1402,7 +1401,7 @@
     padding: clamp(10rem, 18vh, 13rem) 0 clamp(5rem, 9vw, 8rem);
     border-bottom: 1px solid var(--ink);
     background:
-      linear-gradient(90deg, transparent 49.8%, rgb(17 19 26 / 6%) 50%, transparent 50.2%),
+      linear-gradient(90deg, transparent 49.8%, rgb(0 39 49 / 6%) 50%, transparent 50.2%),
       var(--paper);
   }
 
@@ -1801,7 +1800,7 @@
     gap: 2rem;
     margin-top: 2.5rem;
     padding-top: 1.5rem;
-    border-top: 1px solid rgb(17 19 26 / 35%);
+    border-top: 1px solid rgb(0 39 49 / 35%);
     font-size: 0.85rem;
     font-weight: 750;
   }
@@ -1814,17 +1813,14 @@
   }
 
   .about-mark {
-    display: grid;
+    display: block;
+    width: min(100%, 16rem);
+    justify-self: center;
+  }
+
+  .about-mark img {
     width: 100%;
-    aspect-ratio: 1;
-    place-items: center;
-    border: 1px solid var(--ink);
-    background: var(--signal);
-    box-shadow: 12px 12px 0 var(--ink);
-    color: var(--accent-ink);
-    font-family: var(--display);
-    font-size: clamp(4rem, 12vw, 9rem);
-    letter-spacing: -0.12em;
+    height: auto;
   }
 
   .about-copy h2 {
@@ -1846,11 +1842,6 @@
     display: grid;
     grid-template-columns: 1fr auto;
     gap: 3rem;
-  }
-
-  .footer-brand .brand-mark {
-    border-color: white;
-    color: var(--accent-ink);
   }
 
   .footer-brand .brand-copy span {
@@ -2380,11 +2371,11 @@
 
   @media (prefers-color-scheme: dark) {
     body::before {
-      background-image: radial-gradient(rgb(232 234 241 / 9%) 0.6px, transparent 0.6px);
+      background-image: radial-gradient(rgb(231 240 243 / 9%) 0.6px, transparent 0.6px);
     }
 
     .site-header {
-      background: rgb(20 22 29 / 84%);
+      background: rgb(3 13 17 / 84%);
     }
 
     .site-header.is-scrolled {
@@ -2393,17 +2384,17 @@
     }
 
     .primary-nav a {
-      color: #c3c7d1;
+      color: #b9d0d9;
     }
 
     .hero-backdrop {
-      border-color: rgb(145 160 255 / 18%);
-      background: radial-gradient(circle at center, rgb(46 84 118 / 30%), transparent 62%);
+      border-color: rgb(56 175 204 / 18%);
+      background: radial-gradient(circle at center, rgb(0 113 141 / 30%), transparent 62%);
     }
 
     .hero-backdrop::before,
     .hero-backdrop::after {
-      border-color: rgb(145 160 255 / 14%);
+      border-color: rgb(56 175 204 / 14%);
     }
 
     .hero h1 em::after {
@@ -2421,7 +2412,7 @@
 
     .landscape-hero {
       background:
-        linear-gradient(90deg, transparent 49.8%, rgb(232 234 241 / 7%) 50%, transparent 50.2%),
+        linear-gradient(90deg, transparent 49.8%, rgb(231 240 243 / 7%) 50%, transparent 50.2%),
         var(--paper);
     }
 
@@ -2447,7 +2438,6 @@
   }
 
   @media (forced-colors: active) {
-    .brand-mark,
     .button,
     .header-action,
     .command-dock,
@@ -2457,7 +2447,6 @@
     .comparison-card,
     .method-grid,
     .compatibility-rules ol,
-    .about-mark,
     .scope-map,
     .filter-bar button {
       border: 2px solid ButtonText;

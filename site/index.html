@@ -4,8 +4,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="color-scheme" content="light dark">
-    <meta name="theme-color" media="(prefers-color-scheme: light)" content="#f7f6f0">
-    <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#14161d">
+    <meta name="theme-color" media="(prefers-color-scheme: light)" content="#e7f0f3">
+    <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#030d11">
     <meta
       name="description"
       content="Six open-source skills for AI agents across product, web, engineering, delivery, marketing, and writing. Focused guidance from first idea to market."
@@ -26,7 +26,7 @@
     <meta property="og:image:height" content="630">
     <meta
       property="og:image:alt"
-      content="Sebastian Software Agent Skills — practical judgment for dependable product and software work."
+      content="Sebastian Software Skills — better judgment, from idea to market. Product, web, engineering, delivery, marketing, and writing."
     >
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Sebastian Software Skills — Product, software &amp; growth">
@@ -40,10 +40,11 @@
     >
     <meta
       name="twitter:image:alt"
-      content="Sebastian Software Agent Skills — practical judgment for dependable product and software work."
+      content="Sebastian Software Skills — better judgment, from idea to market. Product, web, engineering, delivery, marketing, and writing."
     >
     <link rel="canonical" href="https://skills.sebastian-software.com/">
     <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+    <link rel="icon" href="assets/brand/software-on-dark.svg" type="image/svg+xml" media="(prefers-color-scheme: dark)">
     <link rel="icon" href="assets/favicon-32.png" type="image/png" sizes="32x32">
     <link rel="icon" href="favicon.ico" sizes="any">
     <link rel="apple-touch-icon" href="assets/apple-touch-icon.png" sizes="180x180">
@@ -113,7 +114,10 @@
     <header class="site-header" data-header>
       <div class="shell header-inner">
         <a class="brand" href="#top" aria-label="Sebastian Software Skills, home">
-          <span class="brand-mark" aria-hidden="true">S/</span>
+          <picture class="brand-mark">
+            <source srcset="assets/brand/software-on-dark.svg" media="(prefers-color-scheme: dark)">
+            <img src="assets/brand/software-on-light.svg" width="40" height="40" alt="">
+          </picture>
           <span class="brand-copy">
             <strong>Sebastian Software</strong>
             <span>Agent Skills</span>
@@ -751,7 +755,10 @@ dalo instructions enable sebastian:documentation-truth --target codex</code>
 
       <section class="about section" aria-labelledby="about-title">
         <div class="shell about-grid">
-          <div class="about-mark reveal" aria-hidden="true">S/</div>
+          <picture class="about-mark reveal">
+            <source srcset="assets/brand/software-on-dark.svg" media="(prefers-color-scheme: dark)">
+            <img src="assets/brand/software-on-light.svg" width="256" height="256" alt="" loading="lazy">
+          </picture>
           <div class="about-copy reveal">
             <p class="eyebrow">Built in the open</p>
             <h2 id="about-title">Professional practice, made portable.</h2>
@@ -772,8 +779,8 @@ dalo instructions enable sebastian:documentation-truth --target codex</code>
     <footer class="site-footer">
       <div class="shell footer-grid">
         <div>
-          <a class="brand footer-brand" href="#top">
-            <span class="brand-mark" aria-hidden="true">S/</span>
+          <a class="brand footer-brand" href="#top" aria-label="Sebastian Software Skills, home">
+            <img class="brand-mark" src="assets/brand/software-on-dark.svg" width="40" height="40" alt="" loading="lazy">
             <span class="brand-copy"><strong>Sebastian Software</strong><span>Agent Skills</span></span>
           </a>
           <p>Practical guidance for product, software, and growth.</p>
